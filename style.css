@@ -436,6 +436,24 @@ text-align:center;
 
 margin-top:30px;
 
+.hidden{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:1s;
+
+}
+
+.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}   
+
 opacity:.6;
 
 }
