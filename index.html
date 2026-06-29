@@ -1,326 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karatech ELV | Engineering Beyond Standards</title>
+
+<title>Karatech ELV | کارتک</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Inter,sans-serif;
-}
-
-body{
-
-background:#0B0F19;
-color:white;
-overflow-x:hidden;
-
-}
-
-header{
-
-position:fixed;
-top:0;
-width:100%;
-padding:25px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-backdrop-filter:blur(12px);
-background:rgba(0,0,0,.25);
-border-bottom:1px solid rgba(255,255,255,.05);
-
-}
-
-.logo{
-
-font-size:30px;
-font-weight:800;
-letter-spacing:2px;
-
-}
-
-.logo span{
-
-color:#3B82F6;
-
-}
-
-nav a{
-
-color:white;
-text-decoration:none;
-margin-left:35px;
-transition:.3s;
-
-}
-
-nav a:hover{
-
-color:#3B82F6;
-
-}
-
-.hero{
-
-height:100vh;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-text-align:center;
-
-padding:0 10%;
-
-position:relative;
-
-}
-
-.hero::before{
-
-content:"";
-
-position:absolute;
-
-width:900px;
-
-height:900px;
-
-background:radial-gradient(#2563eb33,transparent 70%);
-
-filter:blur(120px);
-
-z-index:-1;
-
-}
-
-.grid{
-
-position:absolute;
-
-width:100%;
-
-height:100%;
-
-background-image:
-
-linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
-
-linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
-
-background-size:40px 40px;
-
-z-index:-2;
-
-}
-
-.hero h1{
-
-font-size:78px;
-
-font-weight:800;
-
-margin-bottom:25px;
-
-}
-
-.hero p{
-
-font-size:22px;
-
-max-width:800px;
-
-margin:auto;
-
-line-height:1.8;
-
-opacity:.8;
-
-}
-
-.buttons{
-
-margin-top:55px;
-
-}
-
-.btn{
-
-display:inline-block;
-
-padding:18px 42px;
-
-margin:10px;
-
-border-radius:50px;
-
-text-decoration:none;
-
-transition:.35s;
-
-font-weight:600;
-
-}
-
-.primary{
-
-background:#2563EB;
-
-color:white;
-
-}
-
-.primary:hover{
-
-transform:translateY(-5px);
-
-box-shadow:0 20px 40px rgba(37,99,235,.35);
-
-}
-
-.secondary{
-
-border:1px solid rgba(255,255,255,.15);
-
-color:white;
-
-}
-
-.secondary:hover{
-
-background:white;
-
-color:#111;
-
-}
-
-.scroll{
-
-position:absolute;
-
-bottom:40px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-opacity:.5;
-
-animation:updown 2s infinite;
-
-}
-
-@keyframes updown{
-
-50%{
-
-transform:translate(-50%,10px);
-
-}
-
-}
-
-section{
-
-padding:120px 10%;
-
-}
-
-.title{
-
-font-size:42px;
-
-margin-bottom:60px;
-
-}
-
-.cards{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-
-gap:25px;
-
-}
-
-.card{
-
-padding:40px;
-
-background:#111827;
-
-border:1px solid rgba(255,255,255,.06);
-
-border-radius:18px;
-
-transition:.35s;
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-border-color:#2563EB;
-
-}
-
-.card h3{
-
-margin-bottom:15px;
-
-}
-
-footer{
-
-padding:60px;
-
-text-align:center;
-
-opacity:.6;
-
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
+<div class="background-grid"></div>
+
 <header>
 
-<div class="logo">
+<nav class="navbar">
 
-KARA<span>TECH</span>
+<a class="logo" href="#">
 
-</div>
+<img src="assets/images/logo.png" alt="Karatech Logo">
 
-<nav>
+</a>
 
-<a href="#">Home</a>
+<ul>
 
-<a href="#">About</a>
+<li><a href="#">خانه</a></li>
 
-<a href="#">Academy</a>
+<li><a href="#">درباره ما</a></li>
 
-<a href="#">Library</a>
+<li><a href="#">آکادمی</a></li>
 
-<a href="#">Articles</a>
+<li><a href="#">کتابخانه مهندسی</a></li>
 
-<a href="#">Contact</a>
+<li><a href="#">مقالات</a></li>
+
+<li><a href="#">تماس</a></li>
+
+</ul>
 
 </nav>
 
@@ -328,33 +53,55 @@ KARA<span>TECH</span>
 
 <section class="hero">
 
-<div class="grid"></div>
+<div class="hero-overlay"></div>
 
-<div>
+<div class="hero-content">
+
+<img class="hero-logo"
+
+src="assets/images/logo.png"
+
+alt="Karatech">
 
 <h1>
 
-Engineering Beyond Standards
+مهندسی فقط ساختن نیست...
 
 </h1>
 
+<h2>
+
+مهندسی یعنی یاد گرفتن،
+یاد دادن
+و ساختن آینده.
+
+</h2>
+
 <p>
 
-Building engineering knowledge, industrial electrical solutions and technical resources with honesty, precision and continuous learning.
+Karatech یک برند در حال رشد است که بر پایه
+دانش،
+کیفیت،
+صداقت
+و مهندسی واقعی شکل گرفته است.
 
 </p>
 
-<div class="buttons">
+<div class="hero-buttons">
 
-<a class="btn primary" href="#">
+<a href="#academy"
 
-Explore Academy
+class="primary">
+
+ورود به آکادمی
 
 </a>
 
-<a class="btn secondary" href="#">
+<a href="#library"
 
-Technical Library
+class="secondary">
+
+کتابخانه فنی
 
 </a>
 
@@ -370,11 +117,13 @@ Technical Library
 
 </section>
 
-<section>
+<section class="identity">
 
-<h2 class="title">
+<div class="container">
 
-Why Karatech
+<h2>
+
+کارتک یعنی...
 
 </h2>
 
@@ -382,11 +131,17 @@ Why Karatech
 
 <div class="card">
 
-<h3>Knowledge</h3>
+<span>🧠</span>
+
+<h3>
+
+دانش
+
+</h3>
 
 <p>
 
-Engineering starts with learning.
+یادگیری پایان ندارد.
 
 </p>
 
@@ -394,11 +149,17 @@ Engineering starts with learning.
 
 <div class="card">
 
-<h3>Quality</h3>
+<span>⚙️</span>
+
+<h3>
+
+مهندسی
+
+</h3>
 
 <p>
 
-Quality is designed before production.
+هر تصمیم باید پشتوانه فنی داشته باشد.
 
 </p>
 
@@ -406,11 +167,17 @@ Quality is designed before production.
 
 <div class="card">
 
-<h3>Integrity</h3>
+<span>🛡️</span>
+
+<h3>
+
+کیفیت
+
+</h3>
 
 <p>
 
-Trust is earned through honesty.
+کیفیت از اولین تصمیم شروع می‌شود.
 
 </p>
 
@@ -418,13 +185,245 @@ Trust is earned through honesty.
 
 <div class="card">
 
-<h3>Engineering</h3>
+<span>🤝</span>
+
+<h3>
+
+اعتماد
+
+</h3>
 
 <p>
 
-Real solutions based on real principles.
+اعتماد ساخته می‌شود،
+خریده نمی‌شود.
 
 </p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="academy">
+
+<div class="container">
+
+<h2>
+
+مسیر یادگیری
+
+</h2>
+
+<div class="timeline">
+
+<div>
+
+<span>01</span>
+
+مبانی برق
+
+</div>
+
+<div>
+
+<span>02</span>
+
+برق صنعتی
+
+</div>
+
+<div>
+
+<span>03</span>
+
+تجهیزات برق
+
+</div>
+
+<div>
+
+<span>04</span>
+
+تابلو برق
+
+</div>
+
+<div>
+
+<span>05</span>
+
+اتوماسیون
+
+</div>
+
+<div>
+
+<span>06</span>
+
+طراحی مهندسی
+
+</div>
+
+<div>
+
+<span>07</span>
+
+کنترل کیفیت
+
+</div>
+
+<div>
+
+  
+<span>08</span>
+
+مدیریت پروژه
+
+</div>
+
+<div>
+
+<span>09</span>
+
+HSE
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="library">
+
+<div class="container">
+
+<h2>
+
+کتابخانه مهندسی
+
+</h2>
+
+<p class="section-text">
+
+کاتالوگ‌ها، دیتاشیت‌ها، استانداردها و مستندات فنی به مرور در این بخش منتشر خواهند شد.
+
+</p>
+
+<div class="library-grid">
+
+<div class="library-card">
+
+<h3>ABB</h3>
+
+<p>Catalogs & Datasheets</p>
+
+</div>
+
+<div class="library-card">
+
+<h3>Schneider</h3>
+
+<p>Technical Documents</p>
+
+</div>
+
+<div class="library-card">
+
+<h3>Siemens</h3>
+
+<p>Manuals & Guides</p>
+
+</div>
+
+<div class="library-card">
+
+<h3>Omron</h3>
+
+<p>Automation Resources</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="philosophy">
+
+<div class="container">
+
+<h2>
+
+فلسفه کارتک
+
+</h2>
+
+<blockquote>
+
+«کارتک برای فروش محصول متولد نشده است؛
+
+کارتک برای ساختن اعتماد، انتقال دانش و ارائه مهندسی واقعی به وجود آمده است.»
+
+</blockquote>
+
+</div>
+
+</section>
+
+<section class="roadmap">
+
+<div class="container">
+
+<h2>
+
+نقشه راه
+
+</h2>
+
+<div class="roadmap-items">
+
+<div class="done">
+
+✓ راه‌اندازی وب‌سایت
+
+</div>
+
+<div>
+
+آکادمی مهندسی
+
+</div>
+
+<div>
+
+کتابخانه فنی
+
+</div>
+
+<div>
+
+مقالات تخصصی
+
+</div>
+
+<div>
+
+محصولات
+
+</div>
+
+<div>
+
+کارخانه
+
+</div>
 
 </div>
 
@@ -434,9 +433,56 @@ Real solutions based on real principles.
 
 <footer>
 
-Knowledge Shared • Quality Delivered • Trust Earned
+<div class="container footer-content">
+
+<div>
+
+<img src="assets/images/logo.png"
+
+class="footer-logo"
+
+alt="Karatech">
+
+</div>
+
+<div>
+
+<h3>
+
+Karatech ELV
+
+</h3>
+
+<p>
+
+Engineering • Knowledge • Quality
+
+</p>
+
+</div>
+
+<div>
+
+<a href="#">LinkedIn</a>
+
+<a href="#">YouTube</a>
+
+<a href="#">GitHub</a>
+
+</div>
+
+</div>
+
+<p class="copyright">
+
+© 2026 Karatech ELV
+
+</p>
 
 </footer>
 
+<script src="script.js"></script>
+
 </body>
-</html>
+
+</html>  
