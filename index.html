@@ -1,210 +1,239 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech | مهندسی برق صنعتی</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karatech | Engineering Platform</title>
 
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Vazirmatn', sans-serif;
-            background: #0f172a;
-            color: #e2e8f0;
-        }
+<style>
 
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
-        }
+body {
+    margin: 0;
+    font-family: 'Vazirmatn', sans-serif;
+    background: #0b0f19;
+    color: #e5e7eb;
+}
 
-        header {
-            padding: 20px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+/* ===== Layout ===== */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
 
-        header h1 {
-            color: #a78bfa;
-            font-size: 20px;
-        }
+/* ===== Header ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+}
 
-        nav a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #cbd5f5;
-        }
+.logo {
+    font-weight: 800;
+    font-size: 20px;
+    color: #7c3aed;
+}
 
-        .hero {
-            padding: 80px 0;
-            text-align: center;
-        }
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #9ca3af;
+    transition: 0.3s;
+}
 
-        .hero h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
+nav a:hover {
+    color: #fff;
+}
 
-        .hero p {
-            color: #94a3b8;
-            margin-bottom: 30px;
-        }
+/* ===== Hero ===== */
+.hero {
+    padding: 100px 0 80px;
+    max-width: 700px;
+}
 
-        .btn {
-            padding: 12px 25px;
-            margin: 5px;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-block;
-        }
+.hero h1 {
+    font-size: 42px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
 
-        .btn-primary {
-            background: #7c3aed;
-            color: white;
-        }
+.hero p {
+    color: #9ca3af;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
 
-        .btn-secondary {
-            border: 1px solid #7c3aed;
-            color: #7c3aed;
-        }
+.btn {
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-left: 10px;
+    display: inline-block;
+}
 
-        section {
-            padding: 60px 0;
-        }
+.primary {
+    background: #7c3aed;
+    color: #fff;
+}
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
+.secondary {
+    border: 1px solid #7c3aed;
+    color: #7c3aed;
+}
 
-        .card {
-            background: #1e293b;
-            padding: 20px;
-            border-radius: 12px;
-        }
+/* ===== Section ===== */
+section {
+    padding: 80px 0;
+}
 
-        .card h3 {
-            margin-top: 0;
-        }
+.section-title {
+    font-size: 26px;
+    margin-bottom: 40px;
+}
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid #1e293b;
-            color: #64748b;
-        }
-    </style>
+/* ===== Grid ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* ===== Card ===== */
+.card {
+    background: #111827;
+    padding: 25px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* ===== Divider ===== */
+.divider {
+    height: 1px;
+    background: #1f2937;
+    margin: 60px 0;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    color: #6b7280;
+}
+
+</style>
 </head>
+
 <body>
 
 <div class="container">
 
-    <!-- HEADER -->
-    <header>
-        <h1>Karatech</h1>
-        <nav>
-            <a href="#">خانه</a>
-            <a href="#">آموزش</a>
-            <a href="#">خدمات</a>
-            <a href="#">مقالات</a>
-        </nav>
-    </header>
+<header>
+    <div class="logo">Karatech</div>
+    <nav>
+        <a href="#">خانه</a>
+        <a href="#">آموزش</a>
+        <a href="#">خدمات</a>
+        <a href="#">مقالات</a>
+    </nav>
+</header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h2>مهندسی برق صنعتی، ساده و قابل اجرا</h2>
-        <p>
-            آموزش، طراحی و اجرای سیستم‌های واقعی — بدون اغراق، بدون پروژه فیک
-        </p>
+<!-- HERO -->
+<section class="hero">
+    <h1>
+        مهندسی برق صنعتی<br>
+        بدون حدس، بدون اغراق
+    </h1>
 
-        <a href="#" class="btn btn-primary">شروع یادگیری</a>
-        <a href="#" class="btn btn-secondary">مشاهده خدمات</a>
-    </section>
+    <p>
+        Karatech یک پلتفرم مهندسی برای آموزش، طراحی و اجرای سیستم‌های واقعی برق صنعتی است.
+        تمرکز ما روی دقت، سادگی و اجرای واقعی در صنعت است.
+    </p>
 
-    <!-- ABOUT -->
-    <section>
-        <h2>Karatech چیست؟</h2>
-        <p>
-            Karatech یک پلتفرم مهندسی است که دانش برق صنعتی را به صورت کاربردی،
-            واقعی و قابل اجرا ارائه می‌دهد.
-        </p>
-    </section>
+    <a href="#" class="btn primary">شروع یادگیری</a>
+    <a href="#" class="btn secondary">مشاهده خدمات</a>
+</section>
 
-    <!-- ACADEMY -->
-    <section>
-        <h2>Academy</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>Fundamentals</h3>
-                <p>مفاهیم پایه برق</p>
-            </div>
+<div class="divider"></div>
 
-            <div class="card">
-                <h3>Industrial Electricity</h3>
-                <p>برق صنعتی واقعی</p>
-            </div>
+<!-- SERVICES -->
+<section>
+    <h2 class="section-title">خدمات مهندسی</h2>
 
-            <div class="card">
-                <h3>Electrical Panels</h3>
-                <p>طراحی تابلو برق</p>
-            </div>
-
-            <div class="card">
-                <h3>Automation</h3>
-                <p>PLC و اتوماسیون</p>
-            </div>
+    <div class="grid">
+        <div class="card">
+            <h3>طراحی تابلو برق</h3>
+            <p>طراحی دقیق و استاندارد برای پروژه‌های صنعتی</p>
         </div>
-    </section>
 
-    <!-- SERVICES -->
-    <section>
-        <h2>خدمات</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>طراحی تابلو برق</h3>
-                <p>طراحی حرفه‌ای مطابق استاندارد</p>
-            </div>
-
-            <div class="card">
-                <h3>مشاوره مهندسی</h3>
-                <p>تحلیل و بهینه‌سازی پروژه‌ها</p>
-            </div>
-
-            <div class="card">
-                <h3>اجرا</h3>
-                <p>پیاده‌سازی واقعی در صنعت</p>
-            </div>
+        <div class="card">
+            <h3>مشاوره تخصصی</h3>
+            <p>تحلیل و بهینه‌سازی سیستم‌های موجود</p>
         </div>
-    </section>
 
-    <!-- ARTICLES -->
-    <section>
-        <h2>مقالات</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>تابلو برق چیست؟</h3>
-            </div>
-
-            <div class="card">
-                <h3>اصول طراحی صنعتی</h3>
-            </div>
-
-            <div class="card">
-                <h3>اشتباهات رایج مهندسی</h3>
-            </div>
+        <div class="card">
+            <h3>اجرا و پیاده‌سازی</h3>
+            <p>اجرای واقعی پروژه‌ها در محیط صنعتی</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer>
-        © 2026 Karatech - All rights reserved
-    </footer>
+<div class="divider"></div>
+
+<!-- ACADEMY -->
+<section>
+    <h2 class="section-title">Academy</h2>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Fundamentals</h3>
+            <p>پایه‌های برق به زبان ساده و مهندسی</p>
+        </div>
+
+        <div class="card">
+            <h3>Industrial Electricity</h3>
+            <p>درک واقعی برق در صنعت</p>
+        </div>
+
+        <div class="card">
+            <h3>Electrical Panels</h3>
+            <p>طراحی و تحلیل تابلو برق</p>
+        </div>
+
+        <div class="card">
+            <h3>Automation</h3>
+            <p>PLC و سیستم‌های کنترلی</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ARTICLES -->
+<section>
+    <h2 class="section-title">مقالات</h2>
+
+    <div class="grid">
+        <div class="card"><h3>تابلو برق چیست؟</h3></div>
+        <div class="card"><h3>اشتباهات طراحی صنعتی</h3></div>
+        <div class="card"><h3>اصول مهندسی واقعی</h3></div>
+    </div>
+</section>
+
+<footer>
+    © Karatech Engineering Platform
+</footer>
 
 </div>
 
