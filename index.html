@@ -1,307 +1,280 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Karatech Engineering</title>
+<title>Karatech ELV | Engineering • Knowledge • Quality</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+<meta name="description"
+content="Karatech ELV is an engineering platform focused on industrial electrical engineering, technical education, quality and engineering knowledge.">
 
-<style>
+<link rel="stylesheet" href="assets/css/style.css">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Vazirmatn', sans-serif;
-}
-
-body{
-    background:#0d0d0d;
-    color:#fff;
-}
-
-/* NAVBAR */
-
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 60px;
-    position:fixed;
-    width:100%;
-    top:0;
-    z-index:1000;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(10px);
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.logo img{
-    width:40px;
-}
-
-nav ul{
-    display:flex;
-    gap:30px;
-    list-style:none;
-}
-
-nav a{
-    color:#aaa;
-    text-decoration:none;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#fff;
-}
-
-/* HERO */
-
-.hero{
-    height:100vh;
-    background:url("office.jpg") center/cover no-repeat;
-    display:flex;
-    align-items:center;
-    padding:0 60px;
-    position:relative;
-}
-
-.overlay{
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:linear-gradient(to right,#0d0d0d 50%,transparent);
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-    max-width:600px;
-}
-
-.hero-content img{
-    width:70px;
-    margin-bottom:20px;
-}
-
-.hero h1{
-    font-size:50px;
-    font-weight:800;
-    margin-bottom:20px;
-}
-
-.hero p{
-    color:#bbb;
-    margin-bottom:30px;
-}
-
-.buttons{
-    display:flex;
-    gap:15px;
-}
-
-.btn{
-    padding:12px 25px;
-    border-radius:8px;
-    text-decoration:none;
-    font-size:14px;
-}
-
-.primary{
-    background:#ffcc00;
-    color:#000;
-    font-weight:600;
-}
-
-.secondary{
-    border:1px solid #555;
-    color:#fff;
-}
-
-/* SERVICES */
-
-.services{
-    padding:100px 60px;
-}
-
-.section-title{
-    font-size:30px;
-    margin-bottom:50px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:#141414;
-    padding:30px;
-    border-radius:12px;
-    border:1px solid #1f1f1f;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-    border-color:#ffcc00;
-}
-
-.card h3{
-    margin-bottom:10px;
-}
-
-/* PROJECTS */
-
-.projects{
-    padding:100px 60px;
-    border-top:1px solid #222;
-}
-
-.project{
-    background:#111;
-    padding:20px;
-    border-radius:10px;
-    margin-bottom:15px;
-    border:1px solid #222;
-}
-
-/* CTA */
-
-.cta{
-    padding:120px 60px;
-    text-align:center;
-    border-top:1px solid #222;
-}
-
-.cta h2{
-    font-size:32px;
-    margin-bottom:20px;
-}
-
-/* FOOTER */
-
-footer{
-    padding:40px;
-    text-align:center;
-    color:#777;
-    border-top:1px solid #222;
-}
-
-/* SCROLL EFFECT */
-
-html{
-    scroll-behavior:smooth;
-}
-
-</style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav>
-    <div class="logo">
-        <img src="logo.png">
-        <span>Karatech</span>
-    </div>
+<header>
 
-    <ul>
-        <li><a href="#">خانه</a></li>
-        <li><a href="#services">خدمات</a></li>
-        <li><a href="#projects">پروژه‌ها</a></li>
-        <li><a href="#contact">تماس</a></li>
-    </ul>
+<nav class="container">
+
+<div class="logo">
+KARATECH <span>ELV</span>
+</div>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+
+<li><a href="#">About</a></li>
+
+<li><a href="#">Services</a></li>
+
+<li><a href="#">Academy</a></li>
+
+<li><a href="#">Technical Library</a></li>
+
+<li><a href="#">Articles</a></li>
+
+<li><a href="#">Contact</a></li>
+
+</ul>
+
 </nav>
 
-<!-- HERO -->
+</header>
+
+<main>
+
 <section class="hero">
-    <div class="overlay"></div>
 
-    <div class="hero-content">
-        <img src="logo.png">
+<div class="container">
 
-        <h1>
-            مهندسی برق صنعتی<br>
-            با استاندارد واقعی
-        </h1>
+<h1>
 
-        <p>
-            طراحی و اجرای سیستم‌های برق صنعتی،
-            تابلو برق و اتوماسیون برای پروژه‌هایی که
-            باید بدون خطا کار کنند
-        </p>
+Engineering Beyond Standards
 
-        <div class="buttons">
-            <a href="#contact" class="btn primary">شروع همکاری</a>
-            <a href="#projects" class="btn secondary">دیدن پروژه‌ها</a>
-        </div>
-    </div>
-</section>
+</h1>
 
-<!-- SERVICES -->
-<section class="services" id="services">
+<p>
 
-    <h2 class="section-title">خدمات ما</h2>
+Building industrial electrical knowledge,
+engineering solutions and future technologies.
 
-    <div class="cards">
+</p>
 
-        <div class="card">
-            <h3>طراحی تابلو برق</h3>
-            <p>طراحی اصولی و مهندسی شده برای کاربرد صنعتی</p>
-        </div>
+<div class="buttons">
 
-        <div class="card">
-            <h3>اجرای پروژه</h3>
-            <p>از صفر تا راه‌اندازی کامل سیستم</p>
-        </div>
+<a href="#" class="btn-primary">
+Explore Academy
+</a>
 
-        <div class="card">
-            <h3>اتوماسیون صنعتی</h3>
-            <p>PLC و سیستم‌های کنترلی پیشرفته</p>
-        </div>
+<a href="#" class="btn-secondary">
+Technical Library
+</a>
 
-    </div>
+</div>
+
+</div>
 
 </section>
 
-<!-- PROJECTS -->
-<section class="projects" id="projects">
+<section class="values">
 
-    <h2 class="section-title">پروژه‌ها</h2>
+<div class="container">
 
-    <div class="project">تابلو برق کارخانه صنعتی</div>
-    <div class="project">سیستم کنترل خط تولید</div>
-    <div class="project">اتوماسیون کارگاه صنعتی</div>
+<h2>
+
+Why Karatech
+
+</h2>
+
+<div class="cards">
+
+<div>
+
+<h3>Knowledge</h3>
+
+<p>
+Learning is the foundation of engineering.
+</p>
+
+</div>
+
+<div>
+
+<h3>Engineering</h3>
+
+<p>
+Practical solutions based on technical principles.
+</p>
+
+</div>
+
+<div>
+
+<h3>Quality</h3>
+
+<p>
+Quality is designed from the beginning.
+</p>
+
+</div>
+
+<div>
+
+<h3>Integrity</h3>
+
+<p>
+Trust is earned through honesty.
+</p>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
-<!-- CTA -->
-<section class="cta" id="contact">
+<section class="about">
 
-    <h2>برای شروع پروژه آماده‌ای؟</h2>
+<div class="container">
 
-    <p style="color:#aaa;margin-bottom:20px;">
-        همین الان تماس بگیر یا پیام بده
-    </p>
+<h2>
 
-    <a href="#" class="btn primary">تماس با ما</a>
+About Karatech
+
+</h2>
+
+<p>
+
+Karatech ELV is developing an engineering platform
+focused on industrial electrical systems,
+technical education,
+quality,
+and engineering documentation.
+
+Every step is built on real experience,
+continuous learning
+and engineering integrity.
+
+</p>
+
+</div>
 
 </section>
 
-<!-- FOOTER -->
+<section class="entry">
+
+<div class="container">
+
+<div class="academy">
+
+<h2>
+
+Academy
+
+</h2>
+
+<p>
+
+Free engineering education created by Karatech.
+
+</p>
+
+<a href="#">
+
+Start Learning →
+
+</a>
+
+</div>
+
+<div class="library">
+
+<h2>
+
+Technical Library
+
+</h2>
+
+<p>
+
+Datasheets,
+catalogues,
+manuals
+and engineering references.
+
+</p>
+
+<a href="#">
+
+Explore Library →
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="roadmap">
+
+<div class="container">
+
+<h2>
+
+Roadmap
+
+</h2>
+
+<ul>
+
+<li>Website Foundation ✔</li>
+
+<li>Technical Library ⏳</li>
+
+<li>Academy ⏳</li>
+
+<li>Engineering Tools ⏳</li>
+
+<li>Products (Future)</li>
+
+<li>Factory (Future)</li>
+
+</ul>
+
+</div>
+
+</section>
+
+</main>
+
 <footer>
-    © 2025 Karatech Engineering
+
+<div class="container">
+
+<p>
+
+Knowledge Shared.
+Quality Delivered.
+Trust Earned.
+
+</p>
+
+<p>
+
+© 2026 Karatech ELV
+
+</p>
+
+</div>
+
 </footer>
 
 </body>
+
 </html>
