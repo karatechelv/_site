@@ -3,13 +3,298 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karatech ELV | Engineering Beyond Standards</title>
 
-<title>Karatech ELV | Engineering • Knowledge • Quality</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-<meta name="description"
-content="Karatech ELV is an engineering platform focused on industrial electrical engineering, technical education, quality and engineering knowledge.">
+<style>
 
-<link rel="stylesheet" href="assets/css/style.css">
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+
+background:#0B0F19;
+color:white;
+overflow-x:hidden;
+
+}
+
+header{
+
+position:fixed;
+top:0;
+width:100%;
+padding:25px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(12px);
+background:rgba(0,0,0,.25);
+border-bottom:1px solid rgba(255,255,255,.05);
+
+}
+
+.logo{
+
+font-size:30px;
+font-weight:800;
+letter-spacing:2px;
+
+}
+
+.logo span{
+
+color:#3B82F6;
+
+}
+
+nav a{
+
+color:white;
+text-decoration:none;
+margin-left:35px;
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:#3B82F6;
+
+}
+
+.hero{
+
+height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+padding:0 10%;
+
+position:relative;
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+width:900px;
+
+height:900px;
+
+background:radial-gradient(#2563eb33,transparent 70%);
+
+filter:blur(120px);
+
+z-index:-1;
+
+}
+
+.grid{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background-image:
+
+linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+
+linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+
+background-size:40px 40px;
+
+z-index:-2;
+
+}
+
+.hero h1{
+
+font-size:78px;
+
+font-weight:800;
+
+margin-bottom:25px;
+
+}
+
+.hero p{
+
+font-size:22px;
+
+max-width:800px;
+
+margin:auto;
+
+line-height:1.8;
+
+opacity:.8;
+
+}
+
+.buttons{
+
+margin-top:55px;
+
+}
+
+.btn{
+
+display:inline-block;
+
+padding:18px 42px;
+
+margin:10px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+transition:.35s;
+
+font-weight:600;
+
+}
+
+.primary{
+
+background:#2563EB;
+
+color:white;
+
+}
+
+.primary:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 20px 40px rgba(37,99,235,.35);
+
+}
+
+.secondary{
+
+border:1px solid rgba(255,255,255,.15);
+
+color:white;
+
+}
+
+.secondary:hover{
+
+background:white;
+
+color:#111;
+
+}
+
+.scroll{
+
+position:absolute;
+
+bottom:40px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+opacity:.5;
+
+animation:updown 2s infinite;
+
+}
+
+@keyframes updown{
+
+50%{
+
+transform:translate(-50%,10px);
+
+}
+
+}
+
+section{
+
+padding:120px 10%;
+
+}
+
+.title{
+
+font-size:42px;
+
+margin-bottom:60px;
+
+}
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:25px;
+
+}
+
+.card{
+
+padding:40px;
+
+background:#111827;
+
+border:1px solid rgba(255,255,255,.06);
+
+border-radius:18px;
+
+transition:.35s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+border-color:#2563EB;
+
+}
+
+.card h3{
+
+margin-bottom:15px;
+
+}
+
+footer{
+
+padding:60px;
+
+text-align:center;
+
+opacity:.6;
+
+}
+
+</style>
 
 </head>
 
@@ -17,39 +302,35 @@ content="Karatech ELV is an engineering platform focused on industrial electrica
 
 <header>
 
-<nav class="container">
-
 <div class="logo">
-KARATECH <span>ELV</span>
+
+KARA<span>TECH</span>
+
 </div>
 
-<ul>
+<nav>
 
-<li><a href="#">Home</a></li>
+<a href="#">Home</a>
 
-<li><a href="#">About</a></li>
+<a href="#">About</a>
 
-<li><a href="#">Services</a></li>
+<a href="#">Academy</a>
 
-<li><a href="#">Academy</a></li>
+<a href="#">Library</a>
 
-<li><a href="#">Technical Library</a></li>
+<a href="#">Articles</a>
 
-<li><a href="#">Articles</a></li>
-
-<li><a href="#">Contact</a></li>
-
-</ul>
+<a href="#">Contact</a>
 
 </nav>
 
 </header>
 
-<main>
-
 <section class="hero">
 
-<div class="container">
+<div class="grid"></div>
+
+<div>
 
 <h1>
 
@@ -59,32 +340,39 @@ Engineering Beyond Standards
 
 <p>
 
-Building industrial electrical knowledge,
-engineering solutions and future technologies.
+Building engineering knowledge, industrial electrical solutions and technical resources with honesty, precision and continuous learning.
 
 </p>
 
 <div class="buttons">
 
-<a href="#" class="btn-primary">
+<a class="btn primary" href="#">
+
 Explore Academy
+
 </a>
 
-<a href="#" class="btn-secondary">
+<a class="btn secondary" href="#">
+
 Technical Library
+
 </a>
 
 </div>
+
+</div>
+
+<div class="scroll">
+
+↓
 
 </div>
 
 </section>
 
-<section class="values">
+<section>
 
-<div class="container">
-
-<h2>
+<h2 class="title">
 
 Why Karatech
 
@@ -92,189 +380,63 @@ Why Karatech
 
 <div class="cards">
 
-<div>
+<div class="card">
 
 <h3>Knowledge</h3>
 
 <p>
-Learning is the foundation of engineering.
+
+Engineering starts with learning.
+
 </p>
 
 </div>
 
-<div>
-
-<h3>Engineering</h3>
-
-<p>
-Practical solutions based on technical principles.
-</p>
-
-</div>
-
-<div>
+<div class="card">
 
 <h3>Quality</h3>
 
 <p>
-Quality is designed from the beginning.
+
+Quality is designed before production.
+
 </p>
 
 </div>
 
-<div>
+<div class="card">
 
 <h3>Integrity</h3>
 
 <p>
+
 Trust is earned through honesty.
+
 </p>
 
 </div>
 
-</div>
+<div class="card">
 
-</div>
-
-</section>
-
-<section class="about">
-
-<div class="container">
-
-<h2>
-
-About Karatech
-
-</h2>
+<h3>Engineering</h3>
 
 <p>
 
-Karatech ELV is developing an engineering platform
-focused on industrial electrical systems,
-technical education,
-quality,
-and engineering documentation.
-
-Every step is built on real experience,
-continuous learning
-and engineering integrity.
+Real solutions based on real principles.
 
 </p>
-
-</div>
-
-</section>
-
-<section class="entry">
-
-<div class="container">
-
-<div class="academy">
-
-<h2>
-
-Academy
-
-</h2>
-
-<p>
-
-Free engineering education created by Karatech.
-
-</p>
-
-<a href="#">
-
-Start Learning →
-
-</a>
-
-</div>
-
-<div class="library">
-
-<h2>
-
-Technical Library
-
-</h2>
-
-<p>
-
-Datasheets,
-catalogues,
-manuals
-and engineering references.
-
-</p>
-
-<a href="#">
-
-Explore Library →
-
-</a>
 
 </div>
 
 </div>
 
 </section>
-
-<section class="roadmap">
-
-<div class="container">
-
-<h2>
-
-Roadmap
-
-</h2>
-
-<ul>
-
-<li>Website Foundation ✔</li>
-
-<li>Technical Library ⏳</li>
-
-<li>Academy ⏳</li>
-
-<li>Engineering Tools ⏳</li>
-
-<li>Products (Future)</li>
-
-<li>Factory (Future)</li>
-
-</ul>
-
-</div>
-
-</section>
-
-</main>
 
 <footer>
 
-<div class="container">
-
-<p>
-
-Knowledge Shared.
-Quality Delivered.
-Trust Earned.
-
-</p>
-
-<p>
-
-© 2026 Karatech ELV
-
-</p>
-
-</div>
+Knowledge Shared • Quality Delivered • Trust Earned
 
 </footer>
 
 </body>
-
 </html>
