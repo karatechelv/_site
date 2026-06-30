@@ -1,3 +1,359 @@
-<section style='min-height:100vh;display:flex;align-items:center;justify-content:center;background:#120024;color:white;text-align:center'>
-<div><h1 style='font-size:64px'>KARATECH ELV</h1><p>Engineering • Automation • Instrumentation</p><a href='#academy' style='padding:14px 28px;background:#7b2cff;color:#fff;text-decoration:none;border-radius:8px'>Enter Engineering System</a></div></section>
-<section id='academy'><h2>Academy</h2><ul><li>Electrical</li><li>Automation</li><li>Instrumentation</li><li>Design</li><li>Quality Control</li><li>Standards</li><li>Management</li><li>HSE</li></ul></section>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karatech ELV — Engineering Systems</title>
+<meta name="description" content="Karatech ELV: low-voltage panel engineering, automation and instrumentation reference for industrial engineers.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================
+     LANDING
+     ============================================ -->
+<section class="landing" id="landing">
+  <div class="landing-bg"></div>
+  <svg class="circuit-lines" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+    <g stroke="#7c5cff" stroke-width="1" fill="none" opacity="0.5">
+      <path d="M0,120 L200,120 L240,160 L500,160" />
+      <path d="M1200,200 L950,200 L910,240 L650,240" />
+      <path d="M0,680 L180,680 L220,640 L460,640" />
+      <path d="M1200,620 L980,620 L940,580 L700,580" />
+      <circle cx="200" cy="120" r="3" fill="#7c5cff" />
+      <circle cx="500" cy="160" r="3" fill="#7c5cff" />
+      <circle cx="950" cy="200" r="3" fill="#c9a84c" />
+      <circle cx="180" cy="680" r="3" fill="#c9a84c" />
+      <circle cx="980" cy="620" r="3" fill="#7c5cff" />
+    </g>
+  </svg>
+
+  <div class="landing-content">
+    <svg class="landing-logo" viewBox="0 0 64 64" fill="none">
+      <path d="M28 6 L14 34 H26 L20 58 L50 26 H36 L42 6 Z" fill="#7c5cff"/>
+      <path d="M28 6 L14 34 H26 L24 42 L42 6 Z" fill="#c9a84c"/>
+    </svg>
+
+    <h1 class="landing-title">KARATECH<span class="elv">ELV</span></h1>
+
+    <div class="landing-tagline" id="tagline">Engineering begins long before the first wire.<span class="cursor"></span></div>
+
+    <a href="#dashboard" class="enter-btn" id="enterBtn">
+      Enter Engineering System
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+    </a>
+  </div>
+
+  <div class="scroll-hint"><span class="line"></span>SCROLL</div>
+</section>
+
+<!-- ============================================
+     NAV
+     ============================================ -->
+<nav class="topnav" id="topnav">
+  <a href="#landing" class="brand-mark">
+    <svg viewBox="0 0 64 64" fill="none"><path d="M28 6 L14 34 H26 L20 58 L50 26 H36 L42 6 Z" fill="#7c5cff"/><path d="M28 6 L14 34 H26 L24 42 L42 6 Z" fill="#c9a84c"/></svg>
+    KARATECH<span class="elv">ELV</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#academy">Academy</a></li>
+    <li><a href="#engineering">Engineering</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#tools">Tools</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="active" data-lang-btn="en">EN</button>
+      <button data-lang-btn="fa">FA</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================
+     DASHBOARD — Academy / Engineering / Resources / Vision
+     ============================================ -->
+<section class="section" id="dashboard">
+  <div class="section-inner">
+    <div class="eyebrow" data-en="System Map" data-fa="نقشه سیستم">System Map</div>
+    <div class="section-head">
+      <h2 data-en="Four ways into the system" data-fa="چهار مسیر ورود به سیستم">Four ways into the system</h2>
+      <p data-en="Each path serves a different need — learning, building, referencing, or seeing where this is headed." data-fa="هر مسیر یک نیاز متفاوت را پوشش می‌دهد — یادگیری، ساخت، مرجع یا چشم‌انداز آینده.">Each path serves a different need — learning, building, referencing, or seeing where this is headed.</p>
+    </div>
+
+    <div class="dash-grid reveal">
+      <a href="#academy" class="dash-card">
+        <div class="dash-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19V6a2 2 0 012-2h12a2 2 0 012 2v13M4 19a2 2 0 002 2h12a2 2 0 002-2M4 19h16M9 9h6M9 13h6"/></svg></div>
+        <h3 data-en="Academy" data-fa="آکادمی">Academy</h3>
+        <p data-en="Structured engineering knowledge — electrical to HSE, in sequence." data-fa="دانش مهندسی ساختاریافته — از برق تا HSE.">Structured engineering knowledge — electrical to HSE, in sequence.</p>
+        <div class="card-foot">
+          <span class="status-pill status-dev"><span class="status-dot"></span><span data-en="In Development" data-fa="در حال توسعه">In Development</span></span>
+          <svg class="dash-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+        </div>
+      </a>
+
+      <a href="#engineering" class="dash-card">
+        <div class="dash-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+        <h3 data-en="Engineering" data-fa="مهندسی">Engineering</h3>
+        <p data-en="Software, programming, tools and the panel workflow itself." data-fa="نرم‌افزار، برنامه‌نویسی، ابزار و فرآیند ساخت تابلو.">Software, programming, tools and the panel workflow itself.</p>
+        <div class="card-foot">
+          <span class="status-pill status-dev"><span class="status-dot"></span><span data-en="In Development" data-fa="در حال توسعه">In Development</span></span>
+          <svg class="dash-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+        </div>
+      </a>
+
+      <a href="#resources" class="dash-card">
+        <div class="dash-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16V8z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg></div>
+        <h3 data-en="Resources" data-fa="منابع">Resources</h3>
+        <p data-en="Library, catalogs, datasheets — the reference shelf." data-fa="کتابخانه، کاتالوگ‌ها و دیتاشیت‌ها — قفسه مرجع.">Library, catalogs, datasheets — the reference shelf.</p>
+        <div class="card-foot">
+          <span class="status-pill status-dev"><span class="status-dot"></span><span data-en="In Development" data-fa="در حال توسعه">In Development</span></span>
+          <svg class="dash-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+        </div>
+      </a>
+
+      <a href="#vision" class="dash-card">
+        <div class="dash-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3 data-en="Vision" data-fa="چشم‌انداز">Vision</h3>
+        <p data-en="Where the factory, products and community are headed." data-fa="مسیر آینده کارخانه، محصولات و جامعه مهندسی.">Where the factory, products and community are headed.</p>
+        <div class="card-foot">
+          <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
+          <svg class="dash-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================
+     ACADEMY — locked order
+     ============================================ -->
+<section class="section" id="academy">
+  <div class="section-inner">
+    <div class="eyebrow" data-en="Academy" data-fa="آکادمی">Academy</div>
+    <div class="section-head">
+      <h2 data-en="Eight subjects, one sequence" data-fa="هشت موضوع، یک ترتیب">Eight subjects, one sequence</h2>
+      <p data-en="The order is fixed because the knowledge builds on itself — electrical fundamentals before control, control before management." data-fa="ترتیب ثابت است چون دانش روی هم بنا می‌شود — مبانی برق پیش از کنترل، کنترل پیش از مدیریت.">The order is fixed because the knowledge builds on itself — electrical fundamentals before control, control before management.</p>
+    </div>
+
+    <div class="academy-list reveal">
+      <div class="academy-row">
+        <span class="academy-num">01</span>
+        <div class="academy-name"><h4 data-en="Electrical" data-fa="برق">Electrical</h4><span data-en="Panel design fundamentals, IEC 61439, wiring practice" data-fa="مبانی طراحی تابلو، IEC 61439، اصول کابل‌کشی">Panel design fundamentals, IEC 61439, wiring practice</span></div>
+        <span class="status-pill status-dev"><span class="status-dot"></span><span data-en="In Development" data-fa="در حال توسعه">In Development</span></span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-2)"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </div>
+      <div class="academy-row">
+        <span class="academy-num">02</span>
+        <div class="academy-name"><h4 data-en="Automation" data-fa="اتوماسیون">Automation</h4><span data-en="PLC logic, HMI, motor and drive control" data-fa="منطق PLC، HMI، کنترل موتور و درایو">PLC logic, HMI, motor and drive control</span></div>
+        <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-2)"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </div>
+      <div class="academy-row">
+        <span class="academy-num">03</span>
+        <div class="academy-name"><h4 data-en="Instrumentation" data-fa="ابزار دقیق">Instrumentation</h4><span data-en="Sensors, transmitters, measurement in the field" data-fa="سنسورها، ترانسمیترها، اندازه‌گیری در میدان">Sensors, transmitters, measurement in the field</span></div>
+        <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-2)"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </div>
+      <div class="academy-row">
+        <span class="academy-num">04</span>
+        <div class="academy-name"><h4 data-en="Design" data-fa="طراحی">Design</h4><span data-en="P&ID reading, panel layout, single-line diagrams" data-fa="خواندن P&ID، چیدمان تابلو، نقشه تک‌خطی">P&ID reading, panel layout, single-line diagrams</span></div>
+        <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-2)"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </div>
+      <div class="academy-row">
+        <span class="academy-num">05</span>
+        <div class="academy-name"><h4 data-en="Quality Control" data-fa="کنترل کیفیت">Quality Control</h4><span data-en="FAT/SAT procedure, inspection checklists, traceability" data-fa="فرآیند FAT/SAT، چک‌لیست بازرسی، ردیابی">FAT/SAT procedure, inspection checklists, traceability</span></div>
+        <span class="status-pill status-dev"><span class="status-dot"></span><span data-en="In Development" data-fa="در حال توسعه">In Development</span></span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-2)"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </div>
+      <div class="academy-row">
+        <span class="academy-num">06</span>
+        <div class="academy-name"><h4 data-en="Standards" data-fa="استانداردها">Standards</h4><span data-en="IEC, IEEE references relevant to LV panel work" data-fa="مراجع IEC و IEEE مرتبط با تابلوهای فشار ضعیف">IEC, IEEE references relevant to LV panel work</span></div>
+        <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-2)"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </div>
+      <div class="academy-row">
+        <span class="academy-num">07</span>
+        <div class="academy-name"><h4 data-en="Management" data-fa="مدیریت">Management</h4><span data-en="Project planning, vendor coordination, scheduling" data-fa="برنامه‌ریزی پروژه، هماهنگی تأمین‌کننده، زمان‌بندی">Project planning, vendor coordination, scheduling</span></div>
+        <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-2)"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </div>
+      <div class="academy-row">
+        <span class="academy-num">08</span>
+        <div class="academy-name"><h4 data-en="HSE" data-fa="HSE">HSE</h4><span data-en="Arc-flash safety, lockout-tagout, site practice" data-fa="ایمنی آرک فلش، قفل و برچسب، اصول ایمنی سایت">Arc-flash safety, lockout-tagout, site practice</span></div>
+        <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-2)"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================
+     ENGINEERING WORKFLOW
+     ============================================ -->
+<section class="section" id="engineering">
+  <div class="section-inner">
+    <div class="eyebrow" data-en="Engineering" data-fa="مهندسی">Engineering</div>
+    <div class="section-head">
+      <h2 data-en="From drawing to operation" data-fa="از نقشه تا بهره‌برداری">From drawing to operation</h2>
+      <p data-en="Every panel Karatech ELV builds moves through this exact sequence — nothing skipped." data-fa="هر تابلویی که Karatech ELV می‌سازد دقیقاً همین مسیر را طی می‌کند.">Every panel Karatech ELV builds moves through this exact sequence — nothing skipped.</p>
+    </div>
+
+    <div class="workflow-pipeline reveal" id="workflowPipeline"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================
+     ENGINEERING TOOLS
+     ============================================ -->
+<section class="section" id="tools">
+  <div class="section-inner">
+    <div class="eyebrow" data-en="Tools" data-fa="ابزارها">Tools</div>
+    <div class="section-head">
+      <h2 data-en="Calculators engineers reach for daily" data-fa="ابزارهایی که مهندسان روزانه استفاده می‌کنند">Calculators engineers reach for daily</h2>
+      <p data-en="Practical references — not signed up yet, planned for the next phase." data-fa="مراجع کاربردی — هنوز ساخته نشده، برای فاز بعدی برنامه‌ریزی شده.">Practical references — not built yet, planned for the next phase.</p>
+    </div>
+
+    <div class="tools-grid reveal" id="toolsGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================
+     RESOURCES
+     ============================================ -->
+<section class="section" id="resources">
+  <div class="section-inner">
+    <div class="eyebrow" data-en="Resources" data-fa="منابع">Resources</div>
+    <div class="section-head">
+      <h2 data-en="The reference shelf" data-fa="قفسه مرجع">The reference shelf</h2>
+      <p data-en="Library, catalogs, datasheets, video and downloads, organized for fast lookup." data-fa="کتابخانه، کاتالوگ، دیتاشیت، ویدیو و دانلود — برای دسترسی سریع.">Library, catalogs, datasheets, video and downloads, organized for fast lookup.</p>
+    </div>
+
+    <div class="dash-grid reveal" id="resourcesGrid" style="grid-template-columns:repeat(5,1fr)"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================
+     VISION
+     ============================================ -->
+<section class="section" id="vision">
+  <div class="section-inner">
+    <div class="eyebrow" data-en="Vision" data-fa="چشم‌انداز">Vision</div>
+    <div class="section-head">
+      <h2 data-en="Where this is headed" data-fa="مسیر پیش رو">Where this is headed</h2>
+      <p data-en="Five areas Karatech ELV is building toward. Nothing here is overstated — each card states its real purpose and real status." data-fa="پنج حوزه‌ای که Karatech ELV به سمت آن حرکت می‌کند — بدون اغراق، هر کارت هدف و وضعیت واقعی را نشان می‌دهد.">Five areas Karatech ELV is building toward. Nothing here is overstated — each card states its real purpose and real status.</p>
+    </div>
+
+    <div class="vision-grid reveal" id="visionGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================
+     KNOWLEDGE MAP
+     ============================================ -->
+<section class="section" id="knowledge-map">
+  <div class="section-inner">
+    <div class="eyebrow" data-en="Knowledge Map" data-fa="نقشه دانش">Knowledge Map</div>
+    <div class="section-head">
+      <h2 data-en="All of it, in one view" data-fa="همه چیز در یک نگاه">All of it, in one view</h2>
+      <p data-en="A single map of every subject this site covers, and how each one connects to the next." data-fa="یک نقشه واحد از تمام موضوعات این سایت و ارتباط آن‌ها با یکدیگر.">A single map of every subject this site covers, and how each one connects to the next.</p>
+    </div>
+
+    <div class="kmap-wrap reveal">
+      <svg viewBox="0 0 760 320" width="100%" style="max-width:760px">
+        <g font-family="IBM Plex Mono" font-size="11" fill="#b8b8c4">
+          <!-- center node -->
+          <circle cx="380" cy="160" r="40" fill="#14141c" stroke="#7c5cff" stroke-width="1.5"/>
+          <text x="380" y="158" text-anchor="middle" fill="#f4f4f6" font-size="12" font-weight="600">KARATECH</text>
+          <text x="380" y="172" text-anchor="middle" fill="#c9a84c" font-size="10">ELV</text>
+
+          <!-- 4 branch nodes -->
+          <line x1="380" y1="120" x2="380" y2="50" stroke="#2a2a36"/>
+          <circle cx="380" cy="50" r="26" fill="#0e0e13" stroke="#3a3a46"/>
+          <text x="380" y="54" text-anchor="middle">Academy</text>
+
+          <line x1="420" y1="160" x2="690" y2="160" stroke="#2a2a36"/>
+          <circle cx="690" cy="160" r="26" fill="#0e0e13" stroke="#3a3a46"/>
+          <text x="690" y="164" text-anchor="middle">Engineering</text>
+
+          <line x1="380" y1="200" x2="380" y2="270" stroke="#2a2a36"/>
+          <circle cx="380" cy="270" r="26" fill="#0e0e13" stroke="#3a3a46"/>
+          <text x="380" y="274" text-anchor="middle">Resources</text>
+
+          <line x1="340" y1="160" x2="70" y2="160" stroke="#2a2a36"/>
+          <circle cx="70" cy="160" r="26" fill="#0e0e13" stroke="#3a3a46"/>
+          <text x="70" y="164" text-anchor="middle">Vision</text>
+
+          <!-- academy sub nodes -->
+          <line x1="365" y1="30" x2="240" y2="20" stroke="#1e1e28"/>
+          <circle cx="220" cy="20" r="3" fill="#e0c878"/>
+          <text x="195" y="24" text-anchor="end" font-size="9">Electrical</text>
+
+          <line x1="395" y1="28" x2="500" y2="18" stroke="#1e1e28"/>
+          <circle cx="515" cy="18" r="3" fill="#6b6b76"/>
+          <text x="530" y="22" font-size="9">Automation</text>
+        </g>
+      </svg>
+      <div class="kmap-note" data-en="Gold nodes are active. Grey nodes are planned." data-fa="گره‌های طلایی فعال هستند. گره‌های خاکستری در برنامه‌اند.">Gold nodes are active. Grey nodes are planned.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#landing" class="brand-mark">
+        <svg viewBox="0 0 64 64" fill="none" width="22" height="22"><path d="M28 6 L14 34 H26 L20 58 L50 26 H36 L42 6 Z" fill="#7c5cff"/><path d="M28 6 L14 34 H26 L24 42 L42 6 Z" fill="#c9a84c"/></svg>
+        KARATECH<span class="elv">ELV</span>
+      </a>
+      <p data-en="A reference system for low-voltage panel engineering, built from real practice, not marketing copy." data-fa="یک سیستم مرجع برای مهندسی تابلوهای فشار ضعیف، ساخته‌شده از تجربه واقعی، نه تبلیغات.">A reference system for low-voltage panel engineering, built from real practice, not marketing copy.</p>
+    </div>
+    <div class="footer-col">
+      <h5 data-en="System" data-fa="سیستم">System</h5>
+      <ul>
+        <li><a href="#academy" data-en="Academy" data-fa="آکادمی">Academy</a></li>
+        <li><a href="#engineering" data-en="Engineering" data-fa="مهندسی">Engineering</a></li>
+        <li><a href="#resources" data-en="Resources" data-fa="منابع">Resources</a></li>
+        <li><a href="#vision" data-en="Vision" data-fa="چشم‌انداز">Vision</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 data-en="Reference" data-fa="مرجع">Reference</h5>
+      <ul>
+        <li><a href="#tools" data-en="Tools" data-fa="ابزارها">Tools</a></li>
+        <li><a href="#knowledge-map" data-en="Knowledge Map" data-fa="نقشه دانش">Knowledge Map</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 data-en="Contact" data-fa="تماس">Contact</h5>
+      <ul>
+        <li data-en="Address — pending" data-fa="آدرس — در انتظار تکمیل">Address — pending</li>
+        <li data-en="Phone — pending" data-fa="تلفن — در انتظار تکمیل">Phone — pending</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Karatech ELV</span>
+    <span data-en="Built on real engineering practice" data-fa="ساخته‌شده بر پایه تجربه واقعی مهندسی">Built on real engineering practice</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
