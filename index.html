@@ -1,408 +1,542 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl" data-lang="fa">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karatech ELV — Engineering Systems</title>
-<meta name="description" content="Karatech ELV: low-voltage panel engineering, automation and instrumentation reference for industrial engineers.">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karatech ELV · Engineering System</title>
+  <!-- Font & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----- RESET & VARIABLES ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #5b3b8c;        /* deep purple */
+      --primary-light: #7e5aa7;
+      --accent: #d4af37;         /* gold */
+      --accent-light: #e8c84c;
+      --bg: #181a1f;             /* dark graphite */
+      --card-bg: #25282f;        /* dark gray */
+      --text: #f0f2f5;
+      --text-muted: #a0a6b3;
+      --glass: rgba(37, 40, 47, 0.7);
+      --shadow: 0 12px 30px rgba(0,0,0,0.6);
+      --radius: 24px;
+      --transition: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+      transition: background 0.2s;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    i { margin-right: 8px; }
+
+    /* ----- GLASS / CARDS ----- */
+    .glass-card {
+      background: var(--glass);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .glass-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.7);
+    }
+
+    /* ----- HEADER / LANG SWITCH ----- */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(24, 26, 31, 0.7);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+    .brand span { color: var(--accent); }
+    .lang-switch {
+      display: flex;
+      gap: 8px;
+    }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-muted);
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: 0.2s;
+      text-transform: uppercase;
+    }
+    .lang-btn.active {
+      background: var(--primary);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .lang-btn:hover { background: var(--primary-light); color: #fff; }
+
+    /* ----- HERO SPLASH (HOME) ----- */
+    .splash {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 90vh;
+      text-align: center;
+      padding: 20px;
+      background: radial-gradient(circle at 20% 30%, #2f1f4a, #0e0f13 80%);
+      position: relative;
+      overflow: hidden;
+    }
+    .splash::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M20 20 L80 20 L80 80 L20 80 Z" stroke="%235b3b8c" stroke-width="0.4" fill="none" opacity="0.2"/><circle cx="50" cy="50" r="15" stroke="%23d4af37" stroke-width="0.3" fill="none" opacity="0.2"/></svg>');
+      background-size: 80px 80px;
+      opacity: 0.3;
+    }
+    .splash-logo {
+      font-size: 4.5rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      background: linear-gradient(135deg, #fff 0%, var(--accent) 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 0 40px rgba(212,175,55,0.2);
+    }
+    .splash-sub {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      margin: 12px 0 30px;
+      letter-spacing: 2px;
+      font-weight: 300;
+    }
+    .splash-btn {
+      background: var(--primary);
+      border: 1px solid var(--accent);
+      color: #fff;
+      padding: 16px 48px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.25s;
+      box-shadow: 0 0 20px rgba(91, 59, 140, 0.4);
+      backdrop-filter: blur(4px);
+      position: relative;
+      z-index: 2;
+    }
+    .splash-btn:hover {
+      background: var(--accent);
+      color: #111;
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+      transform: scale(1.02);
+    }
+    .splash-icon {
+      font-size: 4rem;
+      color: var(--accent);
+      opacity: 0.3;
+      margin-bottom: 10px;
+    }
+
+    /* ----- DASHBOARD (hidden by default) ----- */
+    .dashboard {
+      display: none;
+      padding: 30px 40px 60px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .dashboard.active { display: block; }
+    .splash.hidden { display: none; }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 24px;
+      margin: 30px 0 40px;
+    }
+    .card-academy {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 24px 18px;
+      border-left: 4px solid var(--accent);
+      transition: 0.2s;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .card-academy:hover {
+      background: #2f3340;
+      transform: translateY(-3px);
+    }
+    .card-academy i {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    .card-academy h3 {
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+    .card-academy p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* workflow visual */
+    .workflow-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 20px;
+      background: var(--card-bg);
+      padding: 30px 24px;
+      border-radius: var(--radius);
+      margin: 30px 0;
+      border: 1px solid rgba(212,175,55,0.08);
+    }
+    .wf-step {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.03);
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .wf-step i { color: var(--accent); font-size: 0.9rem; }
+    .wf-arrow { color: var(--text-muted); font-size: 1.2rem; }
+
+    /* tools */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .tool-badge {
+      background: var(--card-bg);
+      padding: 14px 10px;
+      border-radius: 40px;
+      text-align: center;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255,255,255,0.03);
+      transition: 0.2s;
+    }
+    .tool-badge i { color: var(--accent); }
+
+    /* software & resources */
+    .soft-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 15px 0;
+    }
+    .soft-item {
+      background: var(--card-bg);
+      padding: 10px 20px;
+      border-radius: 40px;
+      border-left: 2px solid var(--accent);
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 60px;
+      padding: 30px 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .footer i { margin-right: 10px; }
+
+    /* utility */
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin: 40px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title i { color: var(--accent); }
+    .coming {
+      background: rgba(212,175,55,0.12);
+      padding: 4px 12px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-left: 12px;
+    }
+    .flex-between { display: flex; justify-content: space-between; align-items: center; }
+
+    /* responsive */
+    @media (max-width: 768px) {
+      .header { padding: 14px 20px; flex-wrap: wrap; gap: 12px; }
+      .grid-4 { grid-template-columns: 1fr 1fr; }
+      .splash-logo { font-size: 2.8rem; }
+    }
+    @media (max-width: 480px) {
+      .grid-4 { grid-template-columns: 1fr; }
+    }
+
+    /* persian overrides */
+    .lang-persian {
+      direction: rtl;
+      font-family: 'Inter', sans-serif;
+    }
+    .lang-persian .brand { font-family: 'Inter', sans-serif; }
+  </style>
 </head>
 <body>
 
-<!-- ============================================
-     LANDING
-     ============================================ -->
-<section class="landing" id="landing">
-  <div class="landing-bg"></div>
-  <svg class="circuit-lines" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-    <g stroke="#7c5cff" stroke-width="1" fill="none" opacity="0.5">
-      <path d="M0,120 L200,120 L240,160 L500,160" />
-      <path d="M1200,200 L950,200 L910,240 L650,240" />
-      <path d="M0,680 L180,680 L220,640 L460,640" />
-      <path d="M1200,620 L980,620 L940,580 L700,580" />
-      <circle cx="200" cy="120" r="3" fill="#7c5cff" />
-      <circle cx="500" cy="160" r="3" fill="#7c5cff" />
-      <circle cx="950" cy="200" r="3" fill="#c9a84c" />
-      <circle cx="180" cy="680" r="3" fill="#c9a84c" />
-      <circle cx="980" cy="620" r="3" fill="#7c5cff" />
-    </g>
-  </svg>
-
-  <div class="landing-content">
-    <svg class="landing-logo" viewBox="0 0 64 64" fill="none">
-      <path d="M28 6 L14 34 H26 L20 58 L50 26 H36 L42 6 Z" fill="#7c5cff"/>
-      <path d="M28 6 L14 34 H26 L24 42 L42 6 Z" fill="#c9a84c"/>
-    </svg>
-
-    <h1 class="landing-title">KARATECH<span class="elv">ELV</span></h1>
-
-    <div class="landing-tagline" id="tagline" data-en="Engineering begins long before the first wire." data-fa="مهندسی فقط ساختن نیست... مهندسی یعنی یاد گرفتن، یاد دادن و ساختن آینده.">Engineering begins long before the first wire.<span class="cursor"></span></div>
-
-    <a href="#dashboard" class="enter-btn" id="enterBtn">
-      Enter Engineering System
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-    </a>
+<!-- HEADER -->
+<header class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="fa">FA</button>
   </div>
+</header>
 
-  <div class="scroll-hint"><span class="line"></span>SCROLL</div>
+<!-- SPLASH / HOME -->
+<section class="splash" id="splash">
+  <div class="splash-icon"><i class="fas fa-microchip"></i></div>
+  <div class="splash-logo">KARATECH ELV</div>
+  <div class="splash-sub" data-en="Engineering · Automation · Intelligence" data-fa="مهندسی · اتوماسیون · هوش">Engineering · Automation · Intelligence</div>
+  <button class="splash-btn" id="enterBtn"><i class="fas fa-arrow-right"></i> <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span></button>
 </section>
 
-<!-- ============================================
-     NAV
-     ============================================ -->
-<nav class="topnav" id="topnav">
-  <a href="#landing" class="brand-mark">
-    <svg viewBox="0 0 64 64" fill="none"><path d="M28 6 L14 34 H26 L20 58 L50 26 H36 L42 6 Z" fill="#7c5cff"/><path d="M28 6 L14 34 H26 L24 42 L42 6 Z" fill="#c9a84c"/></svg>
-    KARATECH<span class="elv">ELV</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#academy">Academy</a></li>
-    <li><a href="#library" data-en="Library" data-fa="کتابخانه">Library</a></li>
-    <li><a href="#engineering">Engineering</a></li>
-    <li><a href="#resources">Resources</a></li>
-    <li><a href="#vision">Vision</a></li>
-    <li><a href="#tools">Tools</a></li>
-  </ul>
-  <div class="nav-right">
-    <div class="lang-toggle">
-      <button data-lang-btn="en">EN</button>
-      <button class="active" data-lang-btn="fa">FA</button>
-    </div>
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard">
+
+  <!-- Academy order: Electrical, Automation, Instrumentation, Design, Quality Control, Standards, Management, HSE -->
+  <div class="grid-4" id="academyGrid">
+    <div class="card-academy" data-key="electrical"><i class="fas fa-bolt"></i><h3>Electrical</h3><p data-en="Power, distribution, protection" data-fa="برق، توزیع، حفاظت">Power, distribution, protection</p></div>
+    <div class="card-academy" data-key="automation"><i class="fas fa-robot"></i><h3>Automation</h3><p data-en="PLC, SCADA, control" data-fa="PLC، SCADA، کنترل">PLC, SCADA, control</p></div>
+    <div class="card-academy" data-key="instrumentation"><i class="fas fa-tachometer-alt"></i><h3>Instrumentation</h3><p data-en="Sensors, transmitters, analyzers" data-fa="سنسورها، ترانسمیترها">Sensors, transmitters</p></div>
+    <div class="card-academy" data-key="design"><i class="fas fa-drafting-compass"></i><h3>Design</h3><p data-en="Schematics, layouts, CAD" data-fa="شماتیک، نقشه‌ها، CAD">Schematics, layouts</p></div>
+    <div class="card-academy" data-key="quality"><i class="fas fa-check-double"></i><h3>Quality Control</h3><p data-en="Inspection, testing, ISO" data-fa="بازرسی، تست، ISO">Inspection, testing</p></div>
+    <div class="card-academy" data-key="standards"><i class="fas fa-book"></i><h3>Standards</h3><p data-en="IEC, NEC, ISO, API" data-fa="IEC، NEC، ISO، API">IEC, NEC, ISO, API</p></div>
+    <div class="card-academy" data-key="management"><i class="fas fa-users-cog"></i><h3>Management</h3><p data-en="Project, risk, workflow" data-fa="پروژه، ریسک، جریان کار">Project, risk, workflow</p></div>
+    <div class="card-academy" data-key="hse"><i class="fas fa-hard-hat"></i><h3>HSE</h3><p data-en="Safety, environment, health" data-fa="ایمنی، محیط زیست، بهداشت">Safety, environment</p></div>
   </div>
-</nav>
 
-<!-- ============================================
-     DASHBOARD — Academy / Engineering / Resources / Vision
-     ============================================ -->
-<section class="section" id="dashboard">
-  <div class="section-inner">
-    <div class="eyebrow" data-en="System Map" data-fa="نقشه سیستم">System Map</div>
-    <div class="section-head">
-      <h2 data-en="Four ways into the system" data-fa="چهار مسیر ورود به سیستم">Four ways into the system</h2>
-      <p data-en="Each path serves a different need — learning, building, referencing, or seeing where this is headed." data-fa="هر مسیر یک نیاز متفاوت را پوشش می‌دهد — یادگیری، ساخت، مرجع یا چشم‌انداز آینده.">Each path serves a different need — learning, building, referencing, or seeing where this is headed.</p>
-    </div>
-
-    <div class="dash-grid reveal">
-      <a href="#academy" class="dash-card">
-        <div class="dash-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19V6a2 2 0 012-2h12a2 2 0 012 2v13M4 19a2 2 0 002 2h12a2 2 0 002-2M4 19h16M9 9h6M9 13h6"/></svg></div>
-        <h3 data-en="Academy" data-fa="آکادمی">Academy</h3>
-        <p data-en="Structured engineering knowledge — electrical to HSE, in sequence." data-fa="دانش مهندسی ساختاریافته — از برق تا HSE.">Structured engineering knowledge — electrical to HSE, in sequence.</p>
-        <div class="card-foot">
-          <span class="status-pill status-dev"><span class="status-dot"></span><span data-en="In Development" data-fa="در حال توسعه">In Development</span></span>
-          <svg class="dash-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-        </div>
-      </a>
-
-      <a href="#engineering" class="dash-card">
-        <div class="dash-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
-        <h3 data-en="Engineering" data-fa="مهندسی">Engineering</h3>
-        <p data-en="Software, programming, tools and the panel workflow itself." data-fa="نرم‌افزار، برنامه‌نویسی، ابزار و فرآیند ساخت تابلو.">Software, programming, tools and the panel workflow itself.</p>
-        <div class="card-foot">
-          <span class="status-pill status-dev"><span class="status-dot"></span><span data-en="In Development" data-fa="در حال توسعه">In Development</span></span>
-          <svg class="dash-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-        </div>
-      </a>
-
-      <a href="#resources" class="dash-card">
-        <div class="dash-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16V8z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg></div>
-        <h3 data-en="Resources" data-fa="منابع">Resources</h3>
-        <p data-en="Library, catalogs, datasheets — the reference shelf." data-fa="کتابخانه، کاتالوگ‌ها و دیتاشیت‌ها — قفسه مرجع.">Library, catalogs, datasheets — the reference shelf.</p>
-        <div class="card-foot">
-          <span class="status-pill status-dev"><span class="status-dot"></span><span data-en="In Development" data-fa="در حال توسعه">In Development</span></span>
-          <svg class="dash-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-        </div>
-      </a>
-
-      <a href="#vision" class="dash-card">
-        <div class="dash-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h3 data-en="Vision" data-fa="چشم‌انداز">Vision</h3>
-        <p data-en="Where the factory, products and community are headed." data-fa="مسیر آینده کارخانه، محصولات و جامعه مهندسی.">Where the factory, products and community are headed.</p>
-        <div class="card-foot">
-          <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
-          <svg class="dash-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-        </div>
-      </a>
-    </div>
+  <!-- ENGINEERING WORKFLOW (visual) -->
+  <div class="section-title"><i class="fas fa-project-diagram"></i> <span data-en="Engineering Workflow" data-fa="جریان کار مهندسی">Engineering Workflow</span></div>
+  <div class="workflow-container">
+    <span class="wf-step"><i class="fas fa-file-pdf"></i> P&ID</span><span class="wf-arrow">→</span>
+    <span class="wf-step"><i class="fas fa-pencil-ruler"></i> Design</span><span class="wf-arrow">→</span>
+    <span class="wf-step"><i class="fas fa-layer-group"></i> Panel</span><span class="wf-arrow">→</span>
+    <span class="wf-step"><i class="fas fa-shopping-cart"></i> Procurement</span><span class="wf-arrow">→</span>
+    <span class="wf-step"><i class="fas fa-tools"></i> Assembly</span><span class="wf-arrow">→</span>
+    <span class="wf-step"><i class="fas fa-vial"></i> FAT</span><span class="wf-arrow">→</span>
+    <span class="wf-step"><i class="fas fa-plug"></i> Installation</span><span class="wf-arrow">→</span>
+    <span class="wf-step"><i class="fas fa-circle-notch"></i> Loop Check</span><span class="wf-arrow">→</span>
+    <span class="wf-step"><i class="fas fa-play"></i> Commissioning</span><span class="wf-arrow">→</span>
+    <span class="wf-step"><i class="fas fa-check-circle"></i> SAT</span><span class="wf-arrow">→</span>
+    <span class="wf-step"><i class="fas fa-file-alt"></i> Documentation</span><span class="wf-arrow">→</span>
+    <span class="wf-step"><i class="fas fa-cogs"></i> Operation</span>
   </div>
-</section>
 
-<div class="divider"></div>
+  <!-- ENGINEERING TOOLS -->
+  <div class="section-title"><i class="fas fa-calculator"></i> <span data-en="Engineering Tools" data-fa="ابزارهای مهندسی">Engineering Tools</span></div>
+  <div class="tools-grid">
+    <div class="tool-badge"><i class="fas fa-bolt"></i> Voltage Drop</div>
+    <div class="tool-badge"><i class="fas fa-chart-line"></i> Power Factor</div>
+    <div class="tool-badge"><i class="fas fa-ruler"></i> Cable Size</div>
+    <div class="tool-badge"><i class="fas fa-shield-alt"></i> Breaker</div>
+    <div class="tool-badge"><i class="fas fa-sync-alt"></i> Motor Current</div>
+    <div class="tool-badge"><i class="fas fa-bolt"></i> Transformer</div>
+    <div class="tool-badge"><i class="fas fa-arrows-alt-h"></i> AWG Conv.</div>
+    <div class="tool-badge"><i class="fas fa-exchange-alt"></i> Unit Conv.</div>
+    <div class="tool-badge"><i class="fas fa-water"></i> IP Rating</div>
+    <div class="tool-badge"><i class="fas fa-table"></i> IEC Tables</div>
+    <div class="tool-badge"><i class="fas fa-future"></i> <span class="coming">Coming</span></div>
+  </div>
 
-<!-- ============================================
-     ACADEMY — locked order
-     ============================================ -->
-<section class="section" id="academy">
-  <div class="section-inner">
-    <div class="eyebrow" data-en="Academy" data-fa="آکادمی">Academy</div>
-    <div class="section-head">
-      <h2 data-en="Eight subjects, one sequence" data-fa="هشت موضوع، یک ترتیب">Eight subjects, one sequence</h2>
-      <p data-en="The order is fixed because the knowledge builds on itself — electrical fundamentals before control, control before management." data-fa="ترتیب ثابت است چون دانش روی هم بنا می‌شود — مبانی برق پیش از کنترل، کنترل پیش از مدیریت.">The order is fixed because the knowledge builds on itself — electrical fundamentals before control, control before management.</p>
+  <!-- SOFTWARE -->
+  <div class="section-title"><i class="fas fa-laptop-code"></i> <span data-en="Engineering Software" data-fa="نرم‌افزارهای مهندسی">Engineering Software</span></div>
+  <div class="soft-list">
+    <span class="soft-item">AutoCAD</span><span class="soft-item">EPLAN</span><span class="soft-item">SEE Electrical</span>
+    <span class="soft-item">TIA Portal</span><span class="soft-item">WinCC</span><span class="soft-item">PCS7</span>
+    <span class="soft-item">STEP7</span><span class="soft-item">Factory IO</span><span class="soft-item">Codesys</span>
+    <span class="soft-item">EasyBuilder</span>
+  </div>
+
+  <!-- PROGRAMMING & RESOURCES -->
+  <div style="display:flex; flex-wrap:wrap; gap:30px; margin: 30px 0;">
+    <div style="flex:1; min-width:200px;">
+      <h3><i class="fas fa-code"></i> <span data-en="Programming" data-fa="برنامه‌نویسی">Programming</span></h3>
+      <div class="soft-list" style="flex-direction:column; gap:6px;">
+        <span>PLC · HMI · SCADA · VFD</span>
+        <span>Modbus · Profinet · Ethernet/IP</span>
+        <span><i class="fas fa-play-circle" style="color:var(--accent);"></i> Examples, exercises</span>
+      </div>
     </div>
-
-    <div class="academy-list reveal">
-      <div class="academy-row">
-        <span class="academy-num">01</span>
-        <div class="academy-name"><h4 data-en="Electrical" data-fa="برق">Electrical</h4><span data-en="Panel design fundamentals, IEC 61439, wiring practice" data-fa="مبانی طراحی تابلو، IEC 61439، اصول کابل‌کشی">Panel design fundamentals, IEC 61439, wiring practice</span></div>
-        <span class="status-pill status-dev"><span class="status-dot"></span><span data-en="In Development" data-fa="در حال توسعه">In Development</span></span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-2)"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-      </div>
-      <div class="academy-row">
-        <span class="academy-num">02</span>
-        <div class="academy-name"><h4 data-en="Automation" data-fa="اتوماسیون">Automation</h4><span data-en="PLC logic, HMI, motor and drive control" data-fa="منطق PLC، HMI، کنترل موتور و درایو">PLC logic, HMI, motor and drive control</span></div>
-        <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-2)"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-      </div>
-      <div class="academy-row">
-        <span class="academy-num">03</span>
-        <div class="academy-name"><h4 data-en="Instrumentation" data-fa="ابزار دقیق">Instrumentation</h4><span data-en="Sensors, transmitters, measurement in the field" data-fa="سنسورها، ترانسمیترها، اندازه‌گیری در میدان">Sensors, transmitters, measurement in the field</span></div>
-        <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-2)"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-      </div>
-      <div class="academy-row">
-        <span class="academy-num">04</span>
-        <div class="academy-name"><h4 data-en="Design" data-fa="طراحی">Design</h4><span data-en="P&ID reading, panel layout, single-line diagrams" data-fa="خواندن P&ID، چیدمان تابلو، نقشه تک‌خطی">P&ID reading, panel layout, single-line diagrams</span></div>
-        <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-2)"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-      </div>
-      <div class="academy-row">
-        <span class="academy-num">05</span>
-        <div class="academy-name"><h4 data-en="Quality Control" data-fa="کنترل کیفیت">Quality Control</h4><span data-en="FAT/SAT procedure, inspection checklists, traceability" data-fa="فرآیند FAT/SAT، چک‌لیست بازرسی، ردیابی">FAT/SAT procedure, inspection checklists, traceability</span></div>
-        <span class="status-pill status-dev"><span class="status-dot"></span><span data-en="In Development" data-fa="در حال توسعه">In Development</span></span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-2)"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-      </div>
-      <div class="academy-row">
-        <span class="academy-num">06</span>
-        <div class="academy-name"><h4 data-en="Standards" data-fa="استانداردها">Standards</h4><span data-en="IEC, IEEE references relevant to LV panel work" data-fa="مراجع IEC و IEEE مرتبط با تابلوهای فشار ضعیف">IEC, IEEE references relevant to LV panel work</span></div>
-        <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-2)"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-      </div>
-      <div class="academy-row">
-        <span class="academy-num">07</span>
-        <div class="academy-name"><h4 data-en="Management" data-fa="مدیریت">Management</h4><span data-en="Project planning, vendor coordination, scheduling" data-fa="برنامه‌ریزی پروژه، هماهنگی تأمین‌کننده، زمان‌بندی">Project planning, vendor coordination, scheduling</span></div>
-        <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-2)"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-      </div>
-      <div class="academy-row">
-        <span class="academy-num">08</span>
-        <div class="academy-name"><h4 data-en="HSE" data-fa="HSE">HSE</h4><span data-en="Arc-flash safety, lockout-tagout, site practice" data-fa="ایمنی آرک فلش، قفل و برچسب، اصول ایمنی سایت">Arc-flash safety, lockout-tagout, site practice</span></div>
-        <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-2)"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+    <div style="flex:1; min-width:200px;">
+      <h3><i class="fas fa-folder-open"></i> <span data-en="Resources" data-fa="منابع">Resources</span></h3>
+      <div class="soft-list" style="flex-direction:column; gap:6px;">
+        <span><i class="fas fa-file-pdf"></i> Catalogs, Manuals</span>
+        <span><i class="fas fa-download"></i> Datasheets, Templates</span>
+        <span><i class="fas fa-video"></i> Videos, Documents</span>
       </div>
     </div>
   </div>
-</section>
 
-<div class="divider"></div>
-
-<!-- ============================================
-     LIBRARY — vendor resources
-     ============================================ -->
-<section class="section" id="library">
-  <div class="section-inner">
-    <div class="eyebrow" data-en="Engineering Library" data-fa="کتابخانه مهندسی">Engineering Library</div>
-    <div class="section-head">
-      <h2 data-en="Catalogs, datasheets and standards, in one shelf" data-fa="کاتالوگ‌ها، استانداردها و مستندات فنی، در یک قفسه">Catalogs, datasheets and standards, in one shelf</h2>
-      <p data-en="Organized by manufacturer — links open the official vendor resources, not local copies." data-fa="کاتالوگ‌ها، استانداردها و مستندات فنی به مرور در این بخش منتشر خواهند شد.">Organized by manufacturer — links open the official vendor resources, not local copies.</p>
-    </div>
-
-    <div class="dash-grid reveal" style="grid-template-columns:repeat(4,1fr)">
-      <div class="dash-card">
-        <div class="dash-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-        <h3>Omron</h3>
-        <p data-en="Automation Resources" data-fa="منابع اتوماسیون">Automation Resources</p>
-        <div class="card-foot">
-          <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
-        </div>
-      </div>
-      <div class="dash-card">
-        <div class="dash-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-        <h3>Siemens</h3>
-        <p data-en="Manuals & Guides" data-fa="راهنماها و دفترچه‌ها">Manuals & Guides</p>
-        <div class="card-foot">
-          <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
-        </div>
-      </div>
-      <div class="dash-card">
-        <div class="dash-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-        <h3>Schneider</h3>
-        <p data-en="Technical Documents" data-fa="مستندات فنی">Technical Documents</p>
-        <div class="card-foot">
-          <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
-        </div>
-      </div>
-      <div class="dash-card">
-        <div class="dash-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-        <h3>ABB</h3>
-        <p data-en="Catalogs & Datasheets" data-fa="کاتالوگ‌ها و دیتاشیت‌ها">Catalogs & Datasheets</p>
-        <div class="card-foot">
-          <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
-        </div>
-      </div>
-    </div>
-
-    <blockquote style="margin-top:3rem; padding:2rem; border-right:2px solid var(--gold); background:var(--bg-1); border-radius:8px; font-size:1rem; color:var(--text-1); font-style:normal; line-height:1.9" data-en="&quot;Karatech wasn't built to sell a product. Karatech exists to build trust, transfer knowledge, and deliver real engineering.&quot;" data-fa="«کاراتک برای فروش محصول متولد نشده است؛ کاراتک برای ساختن اعتماد، انتقال دانش و ارائه مهندسی واقعی به وجود آمده است.»">"Karatech wasn't built to sell a product. Karatech exists to build trust, transfer knowledge, and deliver real engineering."</blockquote>
+  <!-- VISION & FUTURE -->
+  <div class="section-title"><i class="fas fa-eye"></i> <span data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</span></div>
+  <div style="display:flex; flex-wrap:wrap; gap:12px; background:var(--card-bg); border-radius:var(--radius); padding:24px;">
+    <span class="tool-badge" style="background:transparent; border:1px solid rgba(212,175,55,0.2);">Factory <span class="coming">In Dev</span></span>
+    <span class="tool-badge" style="background:transparent; border:1px solid rgba(212,175,55,0.2);">Products <span class="coming">Soon</span></span>
+    <span class="tool-badge" style="background:transparent; border:1px solid rgba(212,175,55,0.2);">Projects <span class="coming">Soon</span></span>
+    <span class="tool-badge" style="background:transparent; border:1px solid rgba(212,175,55,0.2);">Community <span class="coming">In Dev</span></span>
+    <span class="tool-badge" style="background:transparent; border:1px solid rgba(212,175,55,0.2);">Research <span class="coming">Soon</span></span>
+    <span class="tool-badge" style="background:transparent; border:1px solid rgba(212,175,55,0.2);">Blog <span class="coming">Soon</span></span>
+    <span class="tool-badge" style="background:transparent; border:1px solid rgba(212,175,55,0.2);">Job Board <span class="coming">Soon</span></span>
   </div>
-</section>
 
-<div class="divider"></div>
-<section class="section" id="engineering">
-  <div class="section-inner">
-    <div class="eyebrow" data-en="Engineering" data-fa="مهندسی">Engineering</div>
-    <div class="section-head">
-      <h2 data-en="From drawing to operation" data-fa="از نقشه تا بهره‌برداری">From drawing to operation</h2>
-      <p data-en="Every panel Karatech ELV builds moves through this exact sequence — nothing skipped." data-fa="هر تابلویی که Karatech ELV می‌سازد دقیقاً همین مسیر را طی می‌کند.">Every panel Karatech ELV builds moves through this exact sequence — nothing skipped.</p>
-    </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div><i class="fas fa-envelope"></i> info@karatechelv.com</div>
+    <div><i class="fas fa-phone"></i> +98 21 1234 5678</div>
+    <div><i class="fab fa-linkedin"></i> /karatechelv</div>
+    <div><i class="fab fa-github"></i> /karatechelv</div>
+    <div>© 2026 KARATECH ELV</div>
+  </footer>
+</div>
 
-    <div class="workflow-pipeline reveal" id="workflowPipeline"></div>
-  </div>
-</section>
+<script>
+  (function() {
+    // ----- STATE -----
+    let currentLang = 'en';
+    const splash = document.getElementById('splash');
+    const dashboard = document.getElementById('dashboard');
+    const enterBtn = document.getElementById('enterBtn');
 
-<div class="divider"></div>
+    // ----- ENTER SYSTEM -----
+    enterBtn.addEventListener('click', function() {
+      splash.classList.add('hidden');
+      dashboard.classList.add('active');
+    });
 
-<!-- ============================================
-     ENGINEERING TOOLS
-     ============================================ -->
-<section class="section" id="tools">
-  <div class="section-inner">
-    <div class="eyebrow" data-en="Tools" data-fa="ابزارها">Tools</div>
-    <div class="section-head">
-      <h2 data-en="Calculators engineers reach for daily" data-fa="ابزارهایی که مهندسان روزانه استفاده می‌کنند">Calculators engineers reach for daily</h2>
-      <p data-en="Practical references — not signed up yet, planned for the next phase." data-fa="مراجع کاربردی — هنوز ساخته نشده، برای فاز بعدی برنامه‌ریزی شده.">Practical references — not built yet, planned for the next phase.</p>
-    </div>
+    // ----- LANGUAGE SWITCH -----
+    const langBtns = document.querySelectorAll('.lang-btn');
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        langBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        currentLang = this.dataset.lang;
+        translatePage(currentLang);
+        // adjust direction
+        if (currentLang === 'fa') {
+          document.body.classList.add('lang-persian');
+        } else {
+          document.body.classList.remove('lang-persian');
+        }
+      });
+    });
 
-    <div class="tools-grid reveal" id="toolsGrid"></div>
-  </div>
-</section>
+    function translatePage(lang) {
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.dataset[lang];
+        if (text) {
+          // if element has child nodes like icons, we need to be careful
+          // but we only target leaf text nodes.
+          const childNodes = el.childNodes;
+          for (let node of childNodes) {
+            if (node.nodeType === 3) { // text node
+              node.textContent = text;
+              break;
+            }
+          }
+        }
+      });
+      // also for splash sub and button text
+      const sub = document.querySelector('.splash-sub');
+      if (sub) {
+        const txt = sub.dataset[lang];
+        if (txt) sub.textContent = txt;
+      }
+      const btnSpan = document.querySelector('.splash-btn span');
+      if (btnSpan) {
+        const txt = btnSpan.dataset[lang];
+        if (txt) btnSpan.textContent = txt;
+      }
+    }
 
-<div class="divider"></div>
+    // ----- ACADEMY CARD CLICK -> SHOW DETAIL (demo) -----
+    document.querySelectorAll('.card-academy').forEach(card => {
+      card.addEventListener('click', function() {
+        const key = this.dataset.key;
+        // in real implementation, open a modal or page.
+        // we simulate with a simple alert but with engineering content.
+        const examples = {
+          electrical: 'Example: Motor control center, power distribution panel.',
+          automation: 'Example: PLC program for conveyor sorting, SCADA HMI.',
+          instrumentation: 'Example: Pressure transmitter calibration, flow meter.',
+          design: 'Example: Electrical schematics, panel layout in EPLAN.',
+          quality: 'Example: FAT procedure, ISO 9001 checklist.',
+          standards: 'Example: IEC 61439, NEC article 430.',
+          management: 'Example: Gantt chart, risk register, weekly reports.',
+          hse: 'Example: LOTO procedure, risk assessment, safety audit.'
+        };
+        const desc = {
+          electrical: 'Power systems, protection coordination, load calculation.',
+          automation: 'PLC programming, HMI design, SCADA, industrial networks.',
+          instrumentation: 'Sensors, transmitters, control valves, analyzers.',
+          design: 'CAD, schematics, panel design, cable routing.',
+          quality: 'Inspection, testing, quality plans, continuous improvement.',
+          standards: 'IEC, NEC, ISO, API, IEEE standards application.',
+          management: 'Project management, engineering workflow, resource planning.',
+          hse: 'Safety, environment, health, risk mitigation.'
+        };
+        alert(`🔧 ${key.charAt(0).toUpperCase() + key.slice(1)}\n${desc[key] || ''}\n\n📌 Example: ${examples[key] || 'Practical case'}\n\n📚 Learning path: Foundation → Intermediate → Advanced\n🔧 Software: EPLAN, TIA, etc.\n🎥 Videos & future lessons available.`);
+      });
+    });
 
-<!-- ============================================
-     RESOURCES
-     ============================================ -->
-<section class="section" id="resources">
-  <div class="section-inner">
-    <div class="eyebrow" data-en="Resources" data-fa="منابع">Resources</div>
-    <div class="section-head">
-      <h2 data-en="The reference shelf" data-fa="قفسه مرجع">The reference shelf</h2>
-      <p data-en="Library, catalogs, datasheets, video and downloads, organized for fast lookup." data-fa="کتابخانه، کاتالوگ، دیتاشیت، ویدیو و دانلود — برای دسترسی سریع.">Library, catalogs, datasheets, video and downloads, organized for fast lookup.</p>
-    </div>
-
-    <div class="dash-grid reveal" id="resourcesGrid" style="grid-template-columns:repeat(5,1fr)"></div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ============================================
-     VISION
-     ============================================ -->
-<section class="section" id="vision">
-  <div class="section-inner">
-    <div class="eyebrow" data-en="Vision" data-fa="چشم‌انداز">Vision</div>
-    <div class="section-head">
-      <h2 data-en="Where this is headed" data-fa="مسیر پیش رو">Where this is headed</h2>
-      <p data-en="Five areas Karatech ELV is building toward. Nothing here is overstated — each card states its real purpose and real status." data-fa="پنج حوزه‌ای که Karatech ELV به سمت آن حرکت می‌کند — بدون اغراق، هر کارت هدف و وضعیت واقعی را نشان می‌دهد.">Five areas Karatech ELV is building toward. Nothing here is overstated — each card states its real purpose and real status.</p>
-    </div>
-
-    <div class="vision-grid reveal" id="visionGrid"></div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ============================================
-     KNOWLEDGE MAP
-     ============================================ -->
-<section class="section" id="knowledge-map">
-  <div class="section-inner">
-    <div class="eyebrow" data-en="Knowledge Map" data-fa="نقشه دانش">Knowledge Map</div>
-    <div class="section-head">
-      <h2 data-en="All of it, in one view" data-fa="همه چیز در یک نگاه">All of it, in one view</h2>
-      <p data-en="A single map of every subject this site covers, and how each one connects to the next." data-fa="یک نقشه واحد از تمام موضوعات این سایت و ارتباط آن‌ها با یکدیگر.">A single map of every subject this site covers, and how each one connects to the next.</p>
-    </div>
-
-    <div class="kmap-wrap reveal">
-      <svg viewBox="0 0 760 320" width="100%" style="max-width:760px">
-        <g font-family="IBM Plex Mono" font-size="11" fill="#b8b8c4">
-          <!-- center node -->
-          <circle cx="380" cy="160" r="40" fill="#14141c" stroke="#7c5cff" stroke-width="1.5"/>
-          <text x="380" y="158" text-anchor="middle" fill="#f4f4f6" font-size="12" font-weight="600">KARATECH</text>
-          <text x="380" y="172" text-anchor="middle" fill="#c9a84c" font-size="10">ELV</text>
-
-          <!-- 4 branch nodes -->
-          <line x1="380" y1="120" x2="380" y2="50" stroke="#2a2a36"/>
-          <circle cx="380" cy="50" r="26" fill="#0e0e13" stroke="#3a3a46"/>
-          <text x="380" y="54" text-anchor="middle">Academy</text>
-
-          <line x1="420" y1="160" x2="690" y2="160" stroke="#2a2a36"/>
-          <circle cx="690" cy="160" r="26" fill="#0e0e13" stroke="#3a3a46"/>
-          <text x="690" y="164" text-anchor="middle">Engineering</text>
-
-          <line x1="380" y1="200" x2="380" y2="270" stroke="#2a2a36"/>
-          <circle cx="380" cy="270" r="26" fill="#0e0e13" stroke="#3a3a46"/>
-          <text x="380" y="274" text-anchor="middle">Resources</text>
-
-          <line x1="340" y1="160" x2="70" y2="160" stroke="#2a2a36"/>
-          <circle cx="70" cy="160" r="26" fill="#0e0e13" stroke="#3a3a46"/>
-          <text x="70" y="164" text-anchor="middle">Vision</text>
-
-          <!-- academy sub nodes -->
-          <line x1="365" y1="30" x2="240" y2="20" stroke="#1e1e28"/>
-          <circle cx="220" cy="20" r="3" fill="#e0c878"/>
-          <text x="195" y="24" text-anchor="end" font-size="9">Electrical</text>
-
-          <line x1="395" y1="28" x2="500" y2="18" stroke="#1e1e28"/>
-          <circle cx="515" cy="18" r="3" fill="#6b6b76"/>
-          <text x="530" y="22" font-size="9">Automation</text>
-        </g>
-      </svg>
-      <div class="kmap-note" data-en="Gold nodes are active. Grey nodes are planned." data-fa="گره‌های طلایی فعال هستند. گره‌های خاکستری در برنامه‌اند.">Gold nodes are active. Grey nodes are planned.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     FOOTER
-     ============================================ -->
-<footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a href="#landing" class="brand-mark">
-        <svg viewBox="0 0 64 64" fill="none" width="22" height="22"><path d="M28 6 L14 34 H26 L20 58 L50 26 H36 L42 6 Z" fill="#7c5cff"/><path d="M28 6 L14 34 H26 L24 42 L42 6 Z" fill="#c9a84c"/></svg>
-        KARATECH<span class="elv">ELV</span>
-      </a>
-      <p data-en="A reference system for low-voltage panel engineering, built from real practice, not marketing copy." data-fa="یک سیستم مرجع برای مهندسی تابلوهای فشار ضعیف، ساخته‌شده از تجربه واقعی، نه تبلیغات.">A reference system for low-voltage panel engineering, built from real practice, not marketing copy.</p>
-    </div>
-    <div class="footer-col">
-      <h5 data-en="System" data-fa="سیستم">System</h5>
-      <ul>
-        <li><a href="#academy" data-en="Academy" data-fa="آکادمی">Academy</a></li>
-        <li><a href="#engineering" data-en="Engineering" data-fa="مهندسی">Engineering</a></li>
-        <li><a href="#resources" data-en="Resources" data-fa="منابع">Resources</a></li>
-        <li><a href="#vision" data-en="Vision" data-fa="چشم‌انداز">Vision</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5 data-en="Reference" data-fa="مرجع">Reference</h5>
-      <ul>
-        <li><a href="#tools" data-en="Tools" data-fa="ابزارها">Tools</a></li>
-        <li><a href="#knowledge-map" data-en="Knowledge Map" data-fa="نقشه دانش">Knowledge Map</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5 data-en="Contact" data-fa="تماس">Contact</h5>
-      <ul>
-        <li data-en="Address — pending" data-fa="آدرس — در انتظار تکمیل">Address — pending</li>
-        <li data-en="Phone — pending" data-fa="تلفن — در انتظار تکمیل">Phone — pending</li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Karatech ELV</span>
-    <span data-en="Built on real engineering practice" data-fa="ساخته‌شده بر پایه تجربه واقعی مهندسی">Built on real engineering practice</span>
-  </div>
-</footer>
-
-<script src="script.js"></script>
+    // initial translation to english (default)
+    translatePage('en');
+  })();
+</script>
 </body>
 </html>
