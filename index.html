@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-lang="en">
+<html lang="fa" dir="rtl" data-lang="fa">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +36,7 @@
 
     <h1 class="landing-title">KARATECH<span class="elv">ELV</span></h1>
 
-    <div class="landing-tagline" id="tagline">Engineering begins long before the first wire.<span class="cursor"></span></div>
+    <div class="landing-tagline" id="tagline" data-en="Engineering begins long before the first wire." data-fa="مهندسی فقط ساختن نیست... مهندسی یعنی یاد گرفتن، یاد دادن و ساختن آینده.">Engineering begins long before the first wire.<span class="cursor"></span></div>
 
     <a href="#dashboard" class="enter-btn" id="enterBtn">
       Enter Engineering System
@@ -57,6 +57,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="#academy">Academy</a></li>
+    <li><a href="#library" data-en="Library" data-fa="کتابخانه">Library</a></li>
     <li><a href="#engineering">Engineering</a></li>
     <li><a href="#resources">Resources</a></li>
     <li><a href="#vision">Vision</a></li>
@@ -64,8 +65,8 @@
   </ul>
   <div class="nav-right">
     <div class="lang-toggle">
-      <button class="active" data-lang-btn="en">EN</button>
-      <button data-lang-btn="fa">FA</button>
+      <button data-lang-btn="en">EN</button>
+      <button class="active" data-lang-btn="fa">FA</button>
     </div>
   </div>
 </nav>
@@ -194,8 +195,56 @@
 <div class="divider"></div>
 
 <!-- ============================================
-     ENGINEERING WORKFLOW
+     LIBRARY — vendor resources
      ============================================ -->
+<section class="section" id="library">
+  <div class="section-inner">
+    <div class="eyebrow" data-en="Engineering Library" data-fa="کتابخانه مهندسی">Engineering Library</div>
+    <div class="section-head">
+      <h2 data-en="Catalogs, datasheets and standards, in one shelf" data-fa="کاتالوگ‌ها، استانداردها و مستندات فنی، در یک قفسه">Catalogs, datasheets and standards, in one shelf</h2>
+      <p data-en="Organized by manufacturer — links open the official vendor resources, not local copies." data-fa="کاتالوگ‌ها، استانداردها و مستندات فنی به مرور در این بخش منتشر خواهند شد.">Organized by manufacturer — links open the official vendor resources, not local copies.</p>
+    </div>
+
+    <div class="dash-grid reveal" style="grid-template-columns:repeat(4,1fr)">
+      <div class="dash-card">
+        <div class="dash-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>Omron</h3>
+        <p data-en="Automation Resources" data-fa="منابع اتوماسیون">Automation Resources</p>
+        <div class="card-foot">
+          <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
+        </div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>Siemens</h3>
+        <p data-en="Manuals & Guides" data-fa="راهنماها و دفترچه‌ها">Manuals & Guides</p>
+        <div class="card-foot">
+          <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
+        </div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>Schneider</h3>
+        <p data-en="Technical Documents" data-fa="مستندات فنی">Technical Documents</p>
+        <div class="card-foot">
+          <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
+        </div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>ABB</h3>
+        <p data-en="Catalogs & Datasheets" data-fa="کاتالوگ‌ها و دیتاشیت‌ها">Catalogs & Datasheets</p>
+        <div class="card-foot">
+          <span class="status-pill status-vision"><span class="status-dot"></span><span data-en="Vision" data-fa="چشم‌انداز">Vision</span></span>
+        </div>
+      </div>
+    </div>
+
+    <blockquote style="margin-top:3rem; padding:2rem; border-right:2px solid var(--gold); background:var(--bg-1); border-radius:8px; font-size:1rem; color:var(--text-1); font-style:normal; line-height:1.9" data-en="&quot;Karatech wasn't built to sell a product. Karatech exists to build trust, transfer knowledge, and deliver real engineering.&quot;" data-fa="«کاراتک برای فروش محصول متولد نشده است؛ کاراتک برای ساختن اعتماد، انتقال دانش و ارائه مهندسی واقعی به وجود آمده است.»">"Karatech wasn't built to sell a product. Karatech exists to build trust, transfer knowledge, and deliver real engineering."</blockquote>
+  </div>
+</section>
+
+<div class="divider"></div>
 <section class="section" id="engineering">
   <div class="section-inner">
     <div class="eyebrow" data-en="Engineering" data-fa="مهندسی">Engineering</div>
