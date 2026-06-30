@@ -4,62 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Karatech ELV · Engineering System</title>
-  <!-- Font & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ----- RESET & VARIABLES ----- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --primary: #5b3b8c;        /* deep purple */
-      --primary-light: #7e5aa7;
-      --accent: #d4af37;         /* gold */
-      --accent-light: #e8c84c;
-      --bg: #181a1f;             /* dark graphite */
-      --card-bg: #25282f;        /* dark gray */
+      --primary: #5b3b8c;
+      --accent: #d4af37;
+      --bg: #181a1f;
+      --card-bg: #25282f;
       --text: #f0f2f5;
       --text-muted: #a0a6b3;
       --glass: rgba(37, 40, 47, 0.7);
-      --shadow: 0 12px 30px rgba(0,0,0,0.6);
       --radius: 24px;
-      --transition: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.5;
       min-height: 100vh;
-      transition: background 0.2s;
     }
-
-    a { color: var(--accent); text-decoration: none; }
-    i { margin-right: 8px; }
-
-    /* ----- GLASS / CARDS ----- */
     .glass-card {
       background: var(--glass);
       backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
       border: 1px solid rgba(255,255,255,0.04);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+      transition: transform 0.2s;
     }
-    .glass-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.7);
-    }
-
-    /* ----- HEADER / LANG SWITCH ----- */
+    .glass-card:hover { transform: translateY(-4px); }
     .header {
       display: flex;
       justify-content: space-between;
@@ -72,17 +48,8 @@
       top: 0;
       z-index: 100;
     }
-    .brand {
-      font-weight: 700;
-      font-size: 1.5rem;
-      letter-spacing: 1px;
-      color: #fff;
-    }
+    .brand { font-weight: 700; font-size: 1.5rem; color: #fff; }
     .brand span { color: var(--accent); }
-    .lang-switch {
-      display: flex;
-      gap: 8px;
-    }
     .lang-btn {
       background: transparent;
       border: 1px solid rgba(255,255,255,0.1);
@@ -90,19 +57,14 @@
       padding: 6px 16px;
       border-radius: 40px;
       font-weight: 600;
-      font-size: 0.8rem;
       cursor: pointer;
       transition: 0.2s;
-      text-transform: uppercase;
     }
     .lang-btn.active {
       background: var(--primary);
       border-color: var(--accent);
       color: #fff;
     }
-    .lang-btn:hover { background: var(--primary-light); color: #fff; }
-
-    /* ----- HERO SPLASH (HOME) ----- */
     .splash {
       display: flex;
       flex-direction: column;
@@ -110,37 +72,15 @@
       justify-content: center;
       min-height: 90vh;
       text-align: center;
-      padding: 20px;
       background: radial-gradient(circle at 20% 30%, #2f1f4a, #0e0f13 80%);
       position: relative;
-      overflow: hidden;
-    }
-    .splash::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M20 20 L80 20 L80 80 L20 80 Z" stroke="%235b3b8c" stroke-width="0.4" fill="none" opacity="0.2"/><circle cx="50" cy="50" r="15" stroke="%23d4af37" stroke-width="0.3" fill="none" opacity="0.2"/></svg>');
-      background-size: 80px 80px;
-      opacity: 0.3;
     }
     .splash-logo {
       font-size: 4.5rem;
       font-weight: 700;
-      letter-spacing: 4px;
       background: linear-gradient(135deg, #fff 0%, var(--accent) 80%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
-      position: relative;
-      z-index: 2;
-      text-shadow: 0 0 40px rgba(212,175,55,0.2);
-    }
-    .splash-sub {
-      color: var(--text-muted);
-      font-size: 1.2rem;
-      margin: 12px 0 30px;
-      letter-spacing: 2px;
-      font-weight: 300;
     }
     .splash-btn {
       background: var(--primary);
@@ -149,29 +89,14 @@
       padding: 16px 48px;
       border-radius: 60px;
       font-weight: 600;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
       cursor: pointer;
       transition: 0.25s;
-      box-shadow: 0 0 20px rgba(91, 59, 140, 0.4);
-      backdrop-filter: blur(4px);
-      position: relative;
-      z-index: 2;
     }
     .splash-btn:hover {
       background: var(--accent);
       color: #111;
-      box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
       transform: scale(1.02);
     }
-    .splash-icon {
-      font-size: 4rem;
-      color: var(--accent);
-      opacity: 0.3;
-      margin-bottom: 10px;
-    }
-
-    /* ----- DASHBOARD (hidden by default) ----- */
     .dashboard {
       display: none;
       padding: 30px 40px 60px;
@@ -180,7 +105,6 @@
     }
     .dashboard.active { display: block; }
     .splash.hidden { display: none; }
-
     .grid-4 {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -192,31 +116,16 @@
       border-radius: var(--radius);
       padding: 24px 18px;
       border-left: 4px solid var(--accent);
-      transition: 0.2s;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: 0.2s;
     }
     .card-academy:hover {
       background: #2f3340;
       transform: translateY(-3px);
     }
-    .card-academy i {
-      font-size: 2rem;
-      color: var(--accent);
-      margin-bottom: 10px;
-      display: inline-block;
-    }
-    .card-academy h3 {
-      font-weight: 600;
-      font-size: 1.2rem;
-      margin-bottom: 6px;
-    }
-    .card-academy p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* workflow visual */
+    .card-academy i { font-size: 2rem; color: var(--accent); margin-bottom: 10px; }
+    .card-academy h3 { font-weight: 600; font-size: 1.2rem; }
+    .card-academy p { color: var(--text-muted); font-size: 0.9rem; }
     .workflow-container {
       display: flex;
       flex-wrap: wrap;
@@ -226,7 +135,6 @@
       padding: 30px 24px;
       border-radius: var(--radius);
       margin: 30px 0;
-      border: 1px solid rgba(212,175,55,0.08);
     }
     .wf-step {
       display: flex;
@@ -237,12 +145,9 @@
       border-radius: 40px;
       font-size: 0.8rem;
       font-weight: 500;
-      border: 1px solid rgba(255,255,255,0.04);
     }
-    .wf-step i { color: var(--accent); font-size: 0.9rem; }
-    .wf-arrow { color: var(--text-muted); font-size: 1.2rem; }
-
-    /* tools */
+    .wf-step i { color: var(--accent); }
+    .wf-arrow { color: var(--text-muted); }
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -256,11 +161,8 @@
       text-align: center;
       font-size: 0.85rem;
       border: 1px solid rgba(255,255,255,0.03);
-      transition: 0.2s;
     }
     .tool-badge i { color: var(--accent); }
-
-    /* software & resources */
     .soft-list {
       display: flex;
       flex-wrap: wrap;
@@ -273,22 +175,6 @@
       border-radius: 40px;
       border-left: 2px solid var(--accent);
     }
-
-    /* footer */
-    .footer {
-      margin-top: 60px;
-      padding: 30px 20px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 20px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-    .footer i { margin-right: 10px; }
-
-    /* utility */
     .section-title {
       font-size: 1.6rem;
       font-weight: 600;
@@ -307,9 +193,18 @@
       color: var(--accent);
       margin-left: 12px;
     }
-    .flex-between { display: flex; justify-content: space-between; align-items: center; }
-
-    /* responsive */
+    .footer {
+      margin-top: 60px;
+      padding: 30px 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .footer i { margin-right: 10px; }
     @media (max-width: 768px) {
       .header { padding: 14px 20px; flex-wrap: wrap; gap: 12px; }
       .grid-4 { grid-template-columns: 1fr 1fr; }
@@ -318,18 +213,10 @@
     @media (max-width: 480px) {
       .grid-4 { grid-template-columns: 1fr; }
     }
-
-    /* persian overrides */
-    .lang-persian {
-      direction: rtl;
-      font-family: 'Inter', sans-serif;
-    }
-    .lang-persian .brand { font-family: 'Inter', sans-serif; }
+    .lang-persian { direction: rtl; }
   </style>
 </head>
 <body>
-
-<!-- HEADER -->
 <header class="header">
   <div class="brand">KARATECH <span>ELV</span></div>
   <div class="lang-switch">
@@ -338,19 +225,15 @@
   </div>
 </header>
 
-<!-- SPLASH / HOME -->
 <section class="splash" id="splash">
-  <div class="splash-icon"><i class="fas fa-microchip"></i></div>
+  <div style="font-size:4rem; color:var(--accent); opacity:0.3; margin-bottom:10px;"><i class="fas fa-microchip"></i></div>
   <div class="splash-logo">KARATECH ELV</div>
   <div class="splash-sub" data-en="Engineering · Automation · Intelligence" data-fa="مهندسی · اتوماسیون · هوش">Engineering · Automation · Intelligence</div>
   <button class="splash-btn" id="enterBtn"><i class="fas fa-arrow-right"></i> <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span></button>
 </section>
 
-<!-- DASHBOARD -->
 <div class="dashboard" id="dashboard">
-
-  <!-- Academy order: Electrical, Automation, Instrumentation, Design, Quality Control, Standards, Management, HSE -->
-  <div class="grid-4" id="academyGrid">
+  <div class="grid-4">
     <div class="card-academy" data-key="electrical"><i class="fas fa-bolt"></i><h3>Electrical</h3><p data-en="Power, distribution, protection" data-fa="برق، توزیع، حفاظت">Power, distribution, protection</p></div>
     <div class="card-academy" data-key="automation"><i class="fas fa-robot"></i><h3>Automation</h3><p data-en="PLC, SCADA, control" data-fa="PLC، SCADA، کنترل">PLC, SCADA, control</p></div>
     <div class="card-academy" data-key="instrumentation"><i class="fas fa-tachometer-alt"></i><h3>Instrumentation</h3><p data-en="Sensors, transmitters, analyzers" data-fa="سنسورها، ترانسمیترها">Sensors, transmitters</p></div>
@@ -361,7 +244,6 @@
     <div class="card-academy" data-key="hse"><i class="fas fa-hard-hat"></i><h3>HSE</h3><p data-en="Safety, environment, health" data-fa="ایمنی، محیط زیست، بهداشت">Safety, environment</p></div>
   </div>
 
-  <!-- ENGINEERING WORKFLOW (visual) -->
   <div class="section-title"><i class="fas fa-project-diagram"></i> <span data-en="Engineering Workflow" data-fa="جریان کار مهندسی">Engineering Workflow</span></div>
   <div class="workflow-container">
     <span class="wf-step"><i class="fas fa-file-pdf"></i> P&ID</span><span class="wf-arrow">→</span>
@@ -378,7 +260,6 @@
     <span class="wf-step"><i class="fas fa-cogs"></i> Operation</span>
   </div>
 
-  <!-- ENGINEERING TOOLS -->
   <div class="section-title"><i class="fas fa-calculator"></i> <span data-en="Engineering Tools" data-fa="ابزارهای مهندسی">Engineering Tools</span></div>
   <div class="tools-grid">
     <div class="tool-badge"><i class="fas fa-bolt"></i> Voltage Drop</div>
@@ -394,7 +275,6 @@
     <div class="tool-badge"><i class="fas fa-future"></i> <span class="coming">Coming</span></div>
   </div>
 
-  <!-- SOFTWARE -->
   <div class="section-title"><i class="fas fa-laptop-code"></i> <span data-en="Engineering Software" data-fa="نرم‌افزارهای مهندسی">Engineering Software</span></div>
   <div class="soft-list">
     <span class="soft-item">AutoCAD</span><span class="soft-item">EPLAN</span><span class="soft-item">SEE Electrical</span>
@@ -403,8 +283,7 @@
     <span class="soft-item">EasyBuilder</span>
   </div>
 
-  <!-- PROGRAMMING & RESOURCES -->
-  <div style="display:flex; flex-wrap:wrap; gap:30px; margin: 30px 0;">
+  <div style="display:flex; flex-wrap:wrap; gap:30px; margin:30px 0;">
     <div style="flex:1; min-width:200px;">
       <h3><i class="fas fa-code"></i> <span data-en="Programming" data-fa="برنامه‌نویسی">Programming</span></h3>
       <div class="soft-list" style="flex-direction:column; gap:6px;">
@@ -423,7 +302,6 @@
     </div>
   </div>
 
-  <!-- VISION & FUTURE -->
   <div class="section-title"><i class="fas fa-eye"></i> <span data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</span></div>
   <div style="display:flex; flex-wrap:wrap; gap:12px; background:var(--card-bg); border-radius:var(--radius); padding:24px;">
     <span class="tool-badge" style="background:transparent; border:1px solid rgba(212,175,55,0.2);">Factory <span class="coming">In Dev</span></span>
@@ -435,7 +313,6 @@
     <span class="tool-badge" style="background:transparent; border:1px solid rgba(212,175,55,0.2);">Job Board <span class="coming">Soon</span></span>
   </div>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div><i class="fas fa-envelope"></i> info@karatechelv.com</div>
     <div><i class="fas fa-phone"></i> +98 21 1234 5678</div>
@@ -447,95 +324,42 @@
 
 <script>
   (function() {
-    // ----- STATE -----
     let currentLang = 'en';
     const splash = document.getElementById('splash');
     const dashboard = document.getElementById('dashboard');
-    const enterBtn = document.getElementById('enterBtn');
-
-    // ----- ENTER SYSTEM -----
-    enterBtn.addEventListener('click', function() {
+    document.getElementById('enterBtn').addEventListener('click', function() {
       splash.classList.add('hidden');
       dashboard.classList.add('active');
     });
-
-    // ----- LANGUAGE SWITCH -----
-    const langBtns = document.querySelectorAll('.lang-btn');
-    langBtns.forEach(btn => {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', function() {
-        langBtns.forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
         this.classList.add('active');
         currentLang = this.dataset.lang;
-        translatePage(currentLang);
-        // adjust direction
-        if (currentLang === 'fa') {
-          document.body.classList.add('lang-persian');
-        } else {
-          document.body.classList.remove('lang-persian');
-        }
-      });
-    });
-
-    function translatePage(lang) {
-      document.querySelectorAll('[data-en]').forEach(el => {
-        const text = el.dataset[lang];
-        if (text) {
-          // if element has child nodes like icons, we need to be careful
-          // but we only target leaf text nodes.
-          const childNodes = el.childNodes;
-          for (let node of childNodes) {
-            if (node.nodeType === 3) { // text node
-              node.textContent = text;
-              break;
+        document.querySelectorAll('[data-en]').forEach(el => {
+          const txt = el.dataset[currentLang];
+          if (txt) {
+            const nodes = el.childNodes;
+            for (let node of nodes) {
+              if (node.nodeType === 3) { node.textContent = txt; break; }
             }
           }
-        }
+        });
+        document.querySelector('.splash-sub').textContent = document.querySelector('.splash-sub').dataset[currentLang];
+        document.querySelector('.splash-btn span').textContent = document.querySelector('.splash-btn span').dataset[currentLang];
+        document.body.classList.toggle('lang-persian', currentLang === 'fa');
       });
-      // also for splash sub and button text
-      const sub = document.querySelector('.splash-sub');
-      if (sub) {
-        const txt = sub.dataset[lang];
-        if (txt) sub.textContent = txt;
-      }
-      const btnSpan = document.querySelector('.splash-btn span');
-      if (btnSpan) {
-        const txt = btnSpan.dataset[lang];
-        if (txt) btnSpan.textContent = txt;
-      }
-    }
-
-    // ----- ACADEMY CARD CLICK -> SHOW DETAIL (demo) -----
+    });
     document.querySelectorAll('.card-academy').forEach(card => {
       card.addEventListener('click', function() {
         const key = this.dataset.key;
-        // in real implementation, open a modal or page.
-        // we simulate with a simple alert but with engineering content.
-        const examples = {
-          electrical: 'Example: Motor control center, power distribution panel.',
-          automation: 'Example: PLC program for conveyor sorting, SCADA HMI.',
-          instrumentation: 'Example: Pressure transmitter calibration, flow meter.',
-          design: 'Example: Electrical schematics, panel layout in EPLAN.',
-          quality: 'Example: FAT procedure, ISO 9001 checklist.',
-          standards: 'Example: IEC 61439, NEC article 430.',
-          management: 'Example: Gantt chart, risk register, weekly reports.',
-          hse: 'Example: LOTO procedure, risk assessment, safety audit.'
-        };
-        const desc = {
-          electrical: 'Power systems, protection coordination, load calculation.',
-          automation: 'PLC programming, HMI design, SCADA, industrial networks.',
-          instrumentation: 'Sensors, transmitters, control valves, analyzers.',
-          design: 'CAD, schematics, panel design, cable routing.',
-          quality: 'Inspection, testing, quality plans, continuous improvement.',
-          standards: 'IEC, NEC, ISO, API, IEEE standards application.',
-          management: 'Project management, engineering workflow, resource planning.',
-          hse: 'Safety, environment, health, risk mitigation.'
-        };
-        alert(`🔧 ${key.charAt(0).toUpperCase() + key.slice(1)}\n${desc[key] || ''}\n\n📌 Example: ${examples[key] || 'Practical case'}\n\n📚 Learning path: Foundation → Intermediate → Advanced\n🔧 Software: EPLAN, TIA, etc.\n🎥 Videos & future lessons available.`);
+        const desc = { electrical:'Power systems, protection', automation:'PLC, SCADA, networks', instrumentation:'Sensors, transmitters', design:'CAD, schematics, panel', quality:'Inspection, ISO, testing', standards:'IEC, NEC, API', management:'Project, risk, workflow', hse:'Safety, environment, health' };
+        const ex = { electrical:'Motor control center', automation:'Conveyor sorting PLC', instrumentation:'Pressure transmitter', design:'EPLAN schematics', quality:'FAT procedure', standards:'IEC 61439', management:'Gantt chart', hse:'LOTO procedure' };
+        alert(`🔧 ${key.charAt(0).toUpperCase() + key.slice(1)}\n${desc[key]}\n\n📌 Example: ${ex[key]}\n\n📚 Learning path: Foundation → Advanced\n🔧 Software: EPLAN, TIA, etc.\n🎥 Videos & future lessons`);
       });
     });
-
-    // initial translation to english (default)
-    translatePage('en');
+    document.querySelector('.splash-sub').textContent = document.querySelector('.splash-sub').dataset.en;
+    document.querySelector('.splash-btn span').textContent = document.querySelector('.splash-btn span').dataset.en;
   })();
 </script>
 </body>
