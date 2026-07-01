@@ -106,6 +106,7 @@
 </head>
 <body>
 
+<!-- ===== HEADER ===== -->
 <header class="header">
     <div class="brand">KARATECH <span>ELV</span></div>
     <div style="display:flex; align-items:center; gap:16px;">
@@ -251,7 +252,7 @@
 <script>
     (function() {
         // ===== اگر قبلاً داشبورد فعال بوده، دوباره فعالش کن =====
-        if (sessionStorage.getItem('dashboardActive') === 'true') {
+        if (localStorage.getItem('dashboardActive') === 'true') {
             document.addEventListener('DOMContentLoaded', function() {
                 const splash = document.getElementById('splash');
                 const dashboard = document.getElementById('dashboard');
@@ -267,7 +268,7 @@
             const enterBtn = document.getElementById('enterBtn');
             if (enterBtn) {
                 enterBtn.addEventListener('click', function() {
-                    sessionStorage.setItem('dashboardActive', 'true');
+                    localStorage.setItem('dashboardActive', 'true');
                 });
             }
         });
@@ -305,6 +306,12 @@
             });
         });
     })();
+
+    // ===== تابع خروج به صفحه ورود =====
+    function goToSplash() {
+        localStorage.removeItem('dashboardActive');
+        location.reload();
+    }
 </script>
 
 </body>
