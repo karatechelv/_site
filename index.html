@@ -24,14 +24,13 @@
         .splash>*{position:relative;z-index:2}
         
         /* ===== استایل عکس لوگو ===== */
-        .splash-logo-img {
-            margin-bottom: 15px;
-        }
-        .splash-logo-img img {
-            max-width: 220px;
-            height: auto;
-            filter: drop-shadow(0 0 40px rgba(212,175,55,0.2));
-            transition: transform 0.4s ease;
+<section class="splash" id="splash">
+    <div class="splash-logo-img">
+        <img src="assets/images/karatechelv.png" alt="Karatech ELV Logo">
+    </div>
+    <div class="splash-sub" data-en="Engineering · Automation · Intelligence" data-fa="مهندسی · اتوماسیون · هوش">Engineering · Automation · Intelligence</div>
+    <button class="splash-btn" id="enterBtn"><i class="fas fa-arrow-right"></i> <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span></button>
+</section>
         }
         .splash-logo-img img:hover {
             transform: scale(1.05);
