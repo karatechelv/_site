@@ -5,7 +5,328 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Karatech ELV · Engineering Ecosystem</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" cross<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Karatech ELV · Engineering Ecosystem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}
+        .brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}
+        .brand span{color:var(--accent)}
+        .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}
+        .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
+        .lang-btn:hover{background:var(--primary);color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        .splash{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh;text-align:center;padding:20px;background:radial-gradient(ellipse at 30% 20%,#2a1a44,#0a0b0f 80%);position:relative}
+        .splash::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L50 10 L50 50 L10 50 Z' stroke='%235b3b8c' stroke-width='.4' fill='none' opacity='.15'/%3E%3Ccircle cx='30' cy='30' r='12' stroke='%23d4af37' stroke-width='.3' fill='none' opacity='.12'/%3E%3C/svg%3E");background-size:60px 60px;opacity:.5}
+        .splash>*{position:relative;z-index:2}
+        .splash-logo-img{margin-bottom:10px}
+        .splash-logo-img img{max-width:220px;height:auto;filter:drop-shadow(0 0 40px rgba(212,175,55,0.2));transition:transform 0.4s ease}
+        .splash-logo-img img:hover{transform:scale(1.05)}
+        .splash-sub{color:var(--muted);font-size:1.1rem;margin:10px 0 28px;letter-spacing:2px;font-weight:300}
+        .splash-btn{background:var(--primary);border:1px solid var(--accent);color:#fff;padding:14px 44px;border-radius:60px;font-weight:600;font-size:1rem;cursor:pointer;transition:.25s;box-shadow:0 0 30px rgba(91,59,140,.3)}
+        .splash-btn:hover{background:var(--accent);color:#111;transform:scale(1.03);box-shadow:0 0 50px rgba(212,175,55,.25)}
+        .dashboard{display:none;padding:24px 32px 50px;max-width:1400px;margin:0 auto}
+        .dashboard.active{display:block}
+        .splash.hidden{display:none}
+        .grid-4{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:20px;margin:28px 0 36px}
+        .card-academy{background:var(--card);border-radius:var(--radius);padding:22px 16px;border-left:4px solid var(--accent);cursor:pointer;transition:.2s;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+        .card-academy:hover{background:#282d38;transform:translateY(-4px)}
+        .card-academy i{font-size:2rem;color:var(--accent);margin-bottom:8px;display:inline-block}
+        .card-academy h3{font-weight:600;font-size:1.1rem;margin-bottom:4px}
+        .card-academy p{color:var(--muted);font-size:.85rem}
+        .section-title{font-size:1.5rem;font-weight:600;margin:36px 0 14px;display:flex;align-items:center;gap:10px}
+        .section-title i{color:var(--accent)}
+        .workflow-container{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:6px 16px;background:var(--card);padding:24px 20px;border-radius:var(--radius);margin:24px 0;border:1px solid rgba(212,175,55,.06)}
+        .wf-step{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);padding:10px 18px;border-radius:40px;font-size:.85rem;font-weight:600;border:1px solid rgba(255,255,255,0.06);transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);cursor:pointer;backdrop-filter:blur(4px);animation:fadeInUp 0.6s ease forwards;opacity:0;transform:translateY(20px)}
+        .wf-step:hover{background:var(--primary);border-color:var(--accent);transform:scale(1.08) translateY(-4px);box-shadow:0 8px 25px rgba(91,59,140,0.4)}
+        .wf-step:hover i{color:var(--accent);transform:rotate(10deg) scale(1.2)}
+        .wf-step i{font-size:1.1rem;color:var(--accent);transition:all 0.3s ease}
+        .wf-arrow{color:var(--muted);font-size:1.2rem;animation:pulseArrow 1.8s infinite}
+        @keyframes pulseArrow{0%,100%{opacity:0.6;transform:translateX(0)}50%{opacity:1;transform:translateX(4px)}}
+        @keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}
+        .wf-step:nth-child(1){animation-delay:0.05s}
+        .wf-step:nth-child(2){animation-delay:0.10s}
+        .wf-step:nth-child(3){animation-delay:0.15s}
+        .wf-step:nth-child(4){animation-delay:0.20s}
+        .wf-step:nth-child(5){animation-delay:0.25s}
+        .wf-step:nth-child(6){animation-delay:0.30s}
+        .wf-step:nth-child(7){animation-delay:0.35s}
+        .wf-step:nth-child(8){animation-delay:0.40s}
+        .wf-step:nth-child(9){animation-delay:0.45s}
+        .wf-step:nth-child(10){animation-delay:0.50s}
+        .wf-step:nth-child(11){animation-delay:0.55s}
+        .wf-step:nth-child(12){animation-delay:0.60s}
+        .wf-step:nth-child(13){animation-delay:0.65s}
+        .wf-step:nth-child(14){animation-delay:0.70s}
+        
+        /* ===== TOOLS - شناور ===== */
+        .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin:16px 0}
+        .tool-badge{background:var(--card);padding:12px 8px;border-radius:30px;text-align:center;font-size:.82rem;border:1px solid rgba(255,255,255,.03);transition:.2s}
+        .tool-badge i{color:var(--accent)}
+        .tool-badge:hover{background:#2a2f3a}
+        
+        /* ===== SOFTWARE - شناور ===== */
+        .soft-list{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+        .soft-item{background:var(--card);padding:8px 18px;border-radius:30px;border-left:2px solid var(--accent);font-size:.9rem;white-space:nowrap}
+        
+        .flex-row{display:flex;flex-wrap:wrap;gap:28px;margin:24px 0}
+        .flex-col{flex:1;min-width:180px}
+        .flex-col h3{margin-bottom:8px;font-size:1.1rem}
+        .soft-list.vertical{flex-direction:column;gap:4px}
+        .coming{background:rgba(212,175,55,.12);padding:2px 10px;border-radius:30px;font-size:.65rem;font-weight:600;color:var(--accent);margin-left:8px}
+        .vision-container{display:flex;flex-wrap:wrap;gap:10px;background:var(--card);border-radius:var(--radius);padding:20px}
+        .vision-item{background:transparent;padding:10px 18px;border-radius:30px;font-size:.82rem;border:1px solid rgba(212,175,55,.15)}
+        .contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;margin:20px 0}
+        .contact-card{background:var(--card);border-radius:var(--radius);padding:20px;text-align:center;border:1px solid rgba(212,175,55,.08);transition:.2s}
+        .contact-card:hover{background:#282d38;transform:translateY(-3px)}
+        .contact-card i{font-size:2.2rem;color:var(--accent);margin-bottom:12px;display:block}
+        .contact-card h4{font-weight:600;font-size:1rem;margin-bottom:4px;color:#fff}
+        .contact-card p{color:var(--muted);font-size:.85rem;line-height:1.6}
+        .contact-card a{color:var(--accent);text-decoration:none}
+        .contact-card a:hover{text-decoration:underline}
+        .footer{margin-top:50px;padding:24px 16px;border-top:1px solid rgba(255,255,255,.05);display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;color:var(--muted);font-size:.85rem}
+        .footer i{margin-right:8px}
+        .lang-persian{direction:rtl}
+        
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:768px){
+            .header{padding:12px 18px}
+            .grid-4{grid-template-columns:1fr 1fr}
+            .splash-logo-img img{max-width:160px}
+            .splash-btn{padding:12px 32px;font-size:.9rem}
+            .tools-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+            .soft-item{font-size:.8rem;padding:6px 14px}
+            .contact-grid{grid-template-columns:1fr 1fr}
+        }
+        @media(max-width:480px){
+            .grid-4{grid-template-columns:1fr}
+            .tools-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px}
+            .soft-item{font-size:.7rem;padding:5px 12px}
+            .contact-grid{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <div class="brand">KARATECH <span>ELV</span></div>
+    <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fa">FA</button>
+    </div>
+</header>
+
+<!-- ===== SPLASH ===== -->
+<section class="splash" id="splash">
+    <div class="splash-logo-img">
+        <img src="assets/images/logo.png" alt="Karatech ELV Logo">
+    </div>
+    <div class="splash-sub" data-en="Engineering · Automation · Intelligence" data-fa="مهندسی · اتوماسیون · هوش">Engineering · Automation · Intelligence</div>
+    <button class="splash-btn" id="enterBtn"><i class="fas fa-arrow-right"></i> <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span></button>
+</section>
+
+<!-- ===== DASHBOARD ===== -->
+<div class="dashboard" id="dashboard">
+
+    <!-- ACADEMY CARDS -->
+    <div class="grid-4">
+        <div class="card-academy" data-key="electrical"><i class="fas fa-bolt"></i><h3>Electrical</h3><p data-en="Power systems, protection coordination" data-fa="سیستم‌های برق، هماهنگی حفاظت">Power systems, protection coordination</p></div>
+        <div class="card-academy" data-key="automation"><i class="fas fa-robot"></i><h3>Automation</h3><p data-en="PLC, SCADA, industrial control" data-fa="PLC، SCADA، کنترل صنعتی">PLC, SCADA, industrial control</p></div>
+        <div class="card-academy" data-key="instrumentation"><i class="fas fa-tachometer-alt"></i><h3>Instrumentation</h3><p data-en="Sensors, transmitters, analyzers" data-fa="سنسورها، ترانسمیترها، آنالیزورها">Sensors, transmitters, analyzers</p></div>
+        <div class="card-academy" data-key="design"><i class="fas fa-drafting-compass"></i><h3>Design</h3><p data-en="Schematics, layouts, CAD" data-fa="شماتیک، نقشه‌ها، CAD">Schematics, layouts, CAD</p></div>
+        <div class="card-academy" data-key="quality"><i class="fas fa-check-double"></i><h3>Quality Control</h3><p data-en="Inspection, testing, ISO" data-fa="بازرسی، تست، ISO">Inspection, testing, ISO</p></div>
+        <div class="card-academy" data-key="standards"><i class="fas fa-book"></i><h3>Standards</h3><p data-en="IEC, NEC, ISO, API" data-fa="IEC، NEC، ISO، API">IEC, NEC, ISO, API</p></div>
+        <div class="card-academy" data-key="management"><i class="fas fa-users-cog"></i><h3>Management</h3><p data-en="Project, risk, workflow" data-fa="پروژه، ریسک، جریان کار">Project, risk, workflow</p></div>
+        <div class="card-academy" data-key="hse"><i class="fas fa-hard-hat"></i><h3>HSE</h3><p data-en="Safety, environment, health" data-fa="ایمنی، محیط زیست، بهداشت">Safety, environment, health</p></div>
+    </div>
+
+    <!-- WORKFLOW -->
+    <div class="section-title"><i class="fas fa-project-diagram"></i> <span data-en="Engineering Workflow" data-fa="جریان کار مهندسی">Engineering Workflow</span></div>
+    <div class="workflow-container">
+        <div class="wf-step"><i class="fas fa-file-pdf"></i> P&ID</div><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <div class="wf-step"><i class="fas fa-pencil-ruler"></i> Design</div><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <div class="wf-step"><i class="fas fa-layer-group"></i> Panel</div><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <div class="wf-step"><i class="fas fa-shopping-cart"></i> Procurement</div><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <div class="wf-step"><i class="fas fa-tools"></i> Assembly</div><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <div class="wf-step"><i class="fas fa-vial"></i> FAT</div><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <div class="wf-step"><i class="fas fa-plug"></i> Installation</div><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <div class="wf-step"><i class="fas fa-circle-notch"></i> Loop Check</div><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <div class="wf-step"><i class="fas fa-play"></i> Commissioning</div><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <div class="wf-step"><i class="fas fa-check-circle"></i> SAT</div><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <div class="wf-step"><i class="fas fa-file-alt"></i> Documentation</div><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <div class="wf-step"><i class="fas fa-cogs"></i> Operation</div>
+    </div>
+
+    <!-- TOOLS -->
+    <div class="section-title"><i class="fas fa-calculator"></i> <span data-en="Engineering Tools" data-fa="ابزارهای مهندسی">Engineering Tools</span></div>
+    <div class="tools-grid">
+        <div class="tool-badge"><i class="fas fa-bolt"></i> Voltage Drop</div>
+        <div class="tool-badge"><i class="fas fa-chart-line"></i> Power Factor</div>
+        <div class="tool-badge"><i class="fas fa-ruler"></i> Cable Size</div>
+        <div class="tool-badge"><i class="fas fa-shield-alt"></i> Breaker</div>
+        <div class="tool-badge"><i class="fas fa-sync-alt"></i> Motor Current</div>
+        <div class="tool-badge"><i class="fas fa-bolt"></i> Transformer</div>
+        <div class="tool-badge"><i class="fas fa-arrows-alt-h"></i> AWG Conv.</div>
+        <div class="tool-badge"><i class="fas fa-exchange-alt"></i> Unit Conv.</div>
+        <div class="tool-badge"><i class="fas fa-water"></i> IP Rating</div>
+        <div class="tool-badge"><i class="fas fa-table"></i> IEC Tables</div>
+        <div class="tool-badge"><i class="fas fa-future"></i> <span class="coming">Coming</span></div>
+    </div>
+
+    <!-- SOFTWARE -->
+    <div class="section-title"><i class="fas fa-laptop-code"></i> <span data-en="Engineering Software" data-fa="نرم‌افزارهای مهندسی">Engineering Software</span></div>
+    <div class="soft-list">
+        <span class="soft-item">AutoCAD</span>
+        <span class="soft-item">EPLAN</span>
+        <span class="soft-item">SEE Electrical</span>
+        <span class="soft-item">TIA Portal</span>
+        <span class="soft-item">WinCC</span>
+        <span class="soft-item">PCS7</span>
+        <span class="soft-item">STEP7</span>
+        <span class="soft-item">Factory IO</span>
+        <span class="soft-item">Codesys</span>
+        <span class="soft-item">EasyBuilder</span>
+    </div>
+
+    <!-- PROGRAMMING & RESOURCES -->
+    <div class="flex-row">
+        <div class="flex-col">
+            <h3><i class="fas fa-code"></i> <span data-en="Programming" data-fa="برنامه‌نویسی">Programming</span></h3>
+            <div class="soft-list vertical">
+                <span>PLC · HMI · SCADA · VFD</span>
+                <span>Modbus · Profinet · Ethernet/IP</span>
+                <span><i class="fas fa-play-circle" style="color:var(--accent);"></i> Examples, exercises</span>
+            </div>
+        </div>
+        <div class="flex-col">
+            <h3><i class="fas fa-folder-open"></i> <span data-en="Resources" data-fa="منابع">Resources</span></h3>
+            <div class="soft-list vertical">
+                <span><i class="fas fa-file-pdf"></i> Catalogs, Manuals</span>
+                <span><i class="fas fa-download"></i> Datasheets, Templates</span>
+                <span><i class="fas fa-video"></i> Videos, Documents</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="section-title"><i class="fas fa-address-card"></i> <span data-en="Contact Information" data-fa="اطلاعات تماس">Contact Information</span></div>
+    <div class="contact-grid">
+        <div class="contact-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h4 data-en="Head Office" data-fa="دفتر مرکزی">Head Office</h4>
+            <p data-en="Tehran, Iran" data-fa="تهران، ایران">Tehran, Iran</p>
+        </div>
+        <div class="contact-card">
+            <i class="fas fa-phone-alt"></i>
+            <h4 data-en="Phone" data-fa="تلفن">Phone</h4>
+            <p>+98 912 089 1544</p>
+        </div>
+        <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <h4 data-en="Email" data-fa="ایمیل">Email</h4>
+            <p><a href="mailto:info@karatechelv.com">info@karatechelv.com</a></p>
+        </div>
+        <div class="contact-card">
+            <i class="fas fa-clock"></i>
+            <h4 data-en="Working Hours" data-fa="ساعات کاری">Working Hours</h4>
+            <p data-en="Sat - Thu: 8:00 - 17:00" data-fa="شنبه تا چهارشنبه: ۸ تا ۱۷">Sat - Thu: 8:00 - 17:00</p>
+            <p data-en="Fri: Closed" data-fa="جمعه: تعطیل">Fri: Closed</p>
+        </div>
+        <div class="contact-card">
+            <i class="fab fa-linkedin"></i>
+            <h4>LinkedIn</h4>
+            <p><a href="#" target="_blank">/karatechelv</a></p>
+        </div>
+        <div class="contact-card">
+            <i class="fab fa-github"></i>
+            <h4>GitHub</h4>
+            <p><a href="#" target="_blank">/karatechelv</a></p>
+        </div>
+    </div>
+
+    <!-- VISION -->
+    <div class="section-title"><i class="fas fa-eye"></i> <span data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</span></div>
+    <div class="vision-container">
+        <span class="vision-item"><i class="fas fa-industry"></i> Factory <span class="coming">In Dev</span></span>
+        <span class="vision-item"><i class="fas fa-boxes"></i> Products <span class="coming">Soon</span></span>
+        <span class="vision-item"><i class="fas fa-project-diagram"></i> Projects <span class="coming">Soon</span></span>
+        <span class="vision-item"><i class="fas fa-users"></i> Community <span class="coming">In Dev</span></span>
+        <span class="vision-item"><i class="fas fa-flask"></i> Research <span class="coming">Soon</span></span>
+        <span class="vision-item"><i class="fas fa-blog"></i> Blog <span class="coming">Soon</span></span>
+        <span class="vision-item"><i class="fas fa-briefcase"></i> Job Board <span class="coming">Soon</span></span>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div><i class="fas fa-envelope"></i> info@karatechelv.com</div>
+        <div><i class="fas fa-phone"></i> +98 912 089 1544</div>
+        <div><i class="fab fa-linkedin"></i> /karatechelv</div>
+        <div><i class="fab fa-github"></i> /karatechelv</div>
+        <div>© 2026 KARATECH ELV</div>
+    </footer>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+    (function(){
+        const splash=document.getElementById('splash');
+        const dash=document.getElementById('dashboard');
+        document.getElementById('enterBtn').onclick=()=>{splash.classList.add('hidden');dash.classList.add('active')};
+        
+        const langBtns=document.querySelectorAll('.lang-btn');
+        let currentLang='en';
+        
+        function translate(lang){
+            document.querySelectorAll('[data-en]').forEach(el=>{
+                const txt=el.dataset[lang];
+                if(txt){
+                    const nodes=el.childNodes;
+                    for(let n of nodes)if(n.nodeType===3){n.textContent=txt;break}
+                }
+            });
+            const sub=document.querySelector('.splash-sub');
+            if(sub){const t=sub.dataset[lang];if(t)sub.textContent=t}
+            const span=document.querySelector('.splash-btn span');
+            if(span){const t=span.dataset[lang];if(t)span.textContent=t}
+            document.body.classList.toggle('lang-persian',lang==='fa');
+        }
+        
+        langBtns.forEach(btn=>{
+            btn.onclick=function(){
+                langBtns.forEach(b=>b.classList.remove('active'));
+                this.classList.add('active');
+                currentLang=this.dataset.lang;
+                translate(currentLang);
+            }
+        });
+        
+        document.querySelectorAll('.card-academy').forEach(card=>{
+            card.onclick=function(){
+                const k=this.dataset.key;
+                const desc={electrical:'Power systems, protection coordination, load calculation. Includes switchgear, MCC, distribution panels.',automation:'PLC programming, HMI design, SCADA systems, industrial networks and control loops.',instrumentation:'Sensors, transmitters, control valves, analyzers, and field instrumentation.',design:'CAD, schematics, panel design, cable routing, and electrical layout design.',quality:'Inspection, testing, quality plans, ISO standards, and continuous improvement.',standards:'IEC, NEC, ISO, API, IEEE standards application in engineering projects.',management:'Project management, engineering workflow, resource planning, and risk management.',hse:'Safety, environment, health, risk mitigation, and regulatory compliance.'};
+                const ex={electrical:'Motor control center design, power distribution panel, lighting calculation.',automation:'PLC program for conveyor sorting, SCADA HMI development, PID tuning.',instrumentation:'Pressure transmitter calibration, flow meter selection, control valve sizing.',design:'Electrical schematics in EPLAN, panel layout, cable tray routing.',quality:'FAT procedure, ISO 9001 checklist, quality audit documentation.',standards:'IEC 61439, NEC article 430, API RP 14C application.',management:'Gantt chart, risk register, weekly progress reports, resource allocation.',hse:'LOTO procedure, risk assessment, safety audit, environmental impact study.'};
+                const soft={electrical:'EPLAN, AutoCAD Electrical, ETAP',automation:'TIA Portal, WinCC, Codesys, Factory IO',instrumentation:'AMS, FieldCare, Pactware',design:'AutoCAD, EPLAN, SEE Electrical',quality:'SAP QM, Minitab, Statistical Tools',standards:'Compliance Manager, Standards Database',management:'MS Project, Primavera, Jira',hse:'Risk Assessment Tools, Safety Management Software'};
+                alert(`🔧 ${k.charAt(0).toUpperCase()+k.slice(1)}\n\n${desc[k]||'Engineering discipline'}\n\n📌 Example: ${ex[k]||'Practical case'}\n\n📚 Learning Path: Foundation → Intermediate → Advanced\n💻 Software: ${soft[k]||'Various tools'}\n🎥 Videos & future lessons available.`);
+            }
+        });
+        
+        translate('en');
+    })();
+</script>
+
+</body>
+</html>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
