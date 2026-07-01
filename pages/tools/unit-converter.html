@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Unit Converter</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body{background:#0d0e12;color:#eef0f4;font-family:'Inter',sans-serif;padding:40px 20px}
+        .page-container{max-width:900px;margin:0 auto;background:#1e2128;padding:40px;border-radius:20px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:30px}
+        h1 i{margin-right:15px}
+        .content-section{background:#282d38;padding:20px;border-radius:12px;margin-bottom:25px}
+        .content-section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .content-section p{color:#b0b8c5;line-height:1.8}
+        .content-section ul{list-style:none;padding:0}
+        .content-section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+        .content-section ul li strong{color:#fff}
+        .back-link{margin-top:30px;text-align:center}
+        .back-link a{color:#d4af37;text-decoration:none;font-weight:600}
+        .back-link a:hover{text-decoration:underline}
+        .calc-input{background:#0d0e12;padding:15px;border-radius:12px;margin:15px 0}
+        .calc-input label{display:block;color:#b0b8c5;margin-bottom:5px}
+        .calc-input input, .calc-input select{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;font-size:1rem}
+        .calc-result{background:rgba(212,175,55,0.1);padding:15px;border-radius:12px;border:1px solid var(--accent);margin-top:15px}
+        .calc-result span{color:var(--accent);font-weight:700;font-size:1.2rem}
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <h1><i class="fas fa-exchange-alt"></i> Unit Converter</h1>
+        
+        <div class="content-section">
+            <h2>📖 Description</h2>
+            <p>Convert between common engineering units: length, area, volume, pressure, temperature, and more.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>📌 Example</h2>
+            <p>1 inch = 25.4 mm, 1 bar = 100 kPa, 1 kg = 2.204 lb.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>🧮 Converter</h2>
+            <div class="calc-input">
+                <label>Unit Type:</label>
+                <select id="unit-type">
+                    <option value="length">Length</option>
+                    <option value="pressure">Pressure</option>
+                    <option value="mass">Mass</option>
+                    <option value="temperature">Temperature</option>
+                </select>
+            </div>
+            <div class="calc-input">
+                <label>Value:</label>
+                <input type="number" id="unit-value" value="1" placeholder="Enter value">
+            </div>
+            <button onclick="convertUnit()" style="background:var(--accent);color:#111;border:none;padding:12px 30px;border-radius:30px;font-weight:700;cursor:pointer;font-size:1rem;">Convert</button>
+            <div class="calc-result" id="unit-result">
+                <span>1 inch = 25.4 mm</span>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>📚 Learning Path</h2>
+            <ul>
+                <li><strong>Foundation:</strong> Basic unit conversions</li>
+                <li><strong>Intermediate:</strong> Engineering unit systems</li>
+                <li><strong>Advanced:</strong> International standards and compliance</li>
+            </ul>
+        </div>
+
+        <div class="back-link">
+            <a href="../../index.html"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+        </div>
+    </div>
+    <script>
+        function convertUnit() {
+            const type = document.getElementById('unit-type').value;
+            const value = parseFloat(document.getElementById('unit-value').value);
+            let result = '';
+            if (type === 'length') result = `${value} inch = ${(value * 25.4).toFixed(2)} mm`;
+            else if (type === 'pressure') result = `${value} bar = ${(value * 100).toFixed(0)} kPa`;
+            else if (type === 'mass') result = `${value} kg = ${(value * 2.204).toFixed(3)} lb`;
+            else if (type === 'temperature') {
+                const f = (value * 9/5) + 32;
+                result = `${value}°C = ${f.toFixed(1)}°F`;
+            }
+            document.getElementById('unit-result').innerHTML = `<span>${result}</span>`;
+        }
+    </script>
+</body>
+</html>
