@@ -1,5 +1,17 @@
 <script>
     (function() {
+        // ===== اگر localStorage خالی باشه، Splash رو نشون بده =====
+        if (!localStorage.getItem('dashboardActive')) {
+            document.addEventListener('DOMContentLoaded', function() {
+                const splash = document.getElementById('splash');
+                const dashboard = document.getElementById('dashboard');
+                if (splash && dashboard) {
+                    splash.classList.remove('hidden');
+                    dashboard.classList.remove('active');
+                }
+            });
+        }
+
         // ===== اگر قبلاً داشبورد فعال بوده، دوباره فعالش کن =====
         if (localStorage.getItem('dashboardActive') === 'true') {
             document.addEventListener('DOMContentLoaded', function() {
@@ -12,7 +24,7 @@
             });
         }
 
-        // ===== دکمه ورود (دقیقاً اینجا) =====
+        // ===== دکمه ورود (با نمایش مستقیم داشبورد) =====
         document.addEventListener('DOMContentLoaded', function() {
             const enterBtn = document.getElementById('enterBtn');
             if (enterBtn) {
