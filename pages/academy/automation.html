@@ -7,8 +7,17 @@
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        body{background:#0d0e12;color:#eef0f4;font-family:'Inter',sans-serif;padding:40px 20px}
-        .page-container{max-width:1100px;margin:0 auto}
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}
+        .brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}
+        .brand span{color:var(--accent)}
+        .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}
+        .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
+        .lang-btn:hover{background:var(--primary);color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        .page-container{max-width:1100px;margin:0 auto;padding:20px}
         .page-header{background:#1e2128;padding:30px 40px;border-radius:20px;margin-bottom:30px;border-left:5px solid var(--accent)}
         .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
         .page-header h1 i{color:var(--accent)}
@@ -34,72 +43,61 @@
     </style>
 </head>
 <body>
-    <div class="page-container">
-        <div class="page-header">
-            <h1><i class="fas fa-robot"></i> <span data-en="Automation Engineering" data-fa="مهندسی اتوماسیون">Automation Engineering</span></h1>
-            <p data-en="PLC programming, HMI design, SCADA systems, industrial networks and control loops. Covers everything from sensors to complex automated production lines." 
-               data-fa="برنامه‌نویسی PLC، طراحی HMI، سیستم‌های SCADA، شبکه‌های صنعتی و حلقه‌های کنترلی. از سنسورها تا خطوط تولید کاملاً خودکار را پوشش می‌دهد.">
-               PLC programming, HMI design, SCADA systems, industrial networks and control loops. Covers everything from sensors to complex automated production lines.</p>
+<header class="header">
+    <div class="brand">KARATECH <span>ELV</span></div>
+    <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fa">FA</button>
+    </div>
+</header>
+<div class="page-container">
+    <div class="page-header">
+        <h1><i class="fas fa-robot"></i> <span data-en="Automation Engineering" data-fa="مهندسی اتوماسیون">Automation Engineering</span></h1>
+        <p data-en="PLC programming, HMI design, SCADA systems, industrial networks and control loops." data-fa="برنامه‌نویسی PLC، طراحی HMI، سیستم‌های SCADA، شبکه‌های صنعتی و حلقه‌های کنترلی.">PLC programming, HMI design, SCADA systems, industrial networks and control loops.</p>
+    </div>
+    <div class="content-grid">
+        <div class="content-card">
+            <h3><i class="fas fa-graduation-cap"></i> <span data-en="Overview" data-fa="مرور کلی">Overview</span></h3>
+            <p data-en="Automation engineering combines control systems, instrumentation, and software to create intelligent industrial systems." data-fa="مهندسی اتوماسیون ترکیبی از سیستم‌های کنترلی، ابزار دقیق و نرم‌افزار برای ایجاد سیستم‌های صنعتی هوشمند است.">Automation engineering combines control systems, instrumentation, and software to create intelligent industrial systems.</p>
         </div>
-
-        <div class="content-grid">
-            <div class="content-card">
-                <h3><i class="fas fa-graduation-cap"></i> <span data-en="Overview" data-fa="مرور کلی">Overview</span></h3>
-                <p data-en="Automation engineering combines control systems, instrumentation, and software to create intelligent industrial systems that operate with minimal human intervention." 
-                   data-fa="مهندسی اتوماسیون ترکیبی از سیستم‌های کنترلی، ابزار دقیق و نرم‌افزار برای ایجاد سیستم‌های صنعتی هوشمند است که با حداقل دخالت انسان کار می‌کنند.">
-                   Automation engineering combines control systems, instrumentation, and software to create intelligent industrial systems that operate with minimal human intervention.</p>
-            </div>
-            <div class="content-card">
-                <h3><i class="fas fa-lightbulb"></i> <span data-en="Key Topics" data-fa="موضوعات کلیدی">Key Topics</span></h3>
-                <ul>
-                    <li><i class="fas fa-circle"></i> <span data-en="PLC programming (Ladder, SCL, FBD)" data-fa="برنامه‌نویسی PLC (نردبانی، SCL، FBD)">PLC programming (Ladder, SCL, FBD)</span></li>
-                    <li><i class="fas fa-circle"></i> <span data-en="HMI/SCADA design" data-fa="طراحی HMI و SCADA">HMI/SCADA design</span></li>
-                    <li><i class="fas fa-circle"></i> <span data-en="Industrial networks (Profinet, Modbus)" data-fa="شبکه‌های صنعتی (Profinet، Modbus)">Industrial networks (Profinet, Modbus)</span></li>
-                    <li><i class="fas fa-circle"></i> <span data-en="PID control and tuning" data-fa="کنترل PID و تنظیم">PID control and tuning</span></li>
-                    <li><i class="fas fa-circle"></i> <span data-en="Motion control and robotics" data-fa="کنترل حرکت و رباتیک">Motion control and robotics</span></li>
-                </ul>
-            </div>
-            <div class="content-card">
-                <h3><i class="fas fa-tools"></i> <span data-en="Software" data-fa="نرم‌افزارها">Software</span></h3>
-                <ul>
-                    <li><i class="fas fa-check"></i> TIA Portal (Siemens)</li>
-                    <li><i class="fas fa-check"></i> Codesys</li>
-                    <li><i class="fas fa-check"></i> WinCC (SCADA)</li>
-                    <li><i class="fas fa-check"></i> Factory IO (Simulation)</li>
-                </ul>
-            </div>
-            <div class="content-card">
-                <h3><i class="fas fa-book"></i> <span data-en="Resources" data-fa="منابع">Resources</span></h3>
-                <ul>
-                    <li><i class="fas fa-file-pdf"></i> <span data-en="IEC 61131-3 Standards" data-fa="استانداردهای IEC 61131-3">IEC 61131-3 Standards</span></li>
-                    <li><i class="fas fa-file-pdf"></i> <span data-en="PLC Programming Guide" data-fa="راهنمای برنامه‌نویسی PLC">PLC Programming Guide</span></li>
-                    <li><i class="fas fa-video"></i> <span data-en="SCADA Training Course" data-fa="دوره آموزشی SCADA">SCADA Training Course</span></li>
-                </ul>
-            </div>
-            <div class="content-card">
-                <h3><i class="fas fa-road"></i> <span data-en="Learning Path" data-fa="مسیر یادگیری">Learning Path</span></h3>
-                <ul>
-                    <li><i class="fas fa-arrow-right"></i> <strong data-en="Foundation:" data-fa="مقدماتی:">Foundation:</strong> <span data-en="Basics of PLC and ladder logic" data-fa="مبانی PLC و منطق نردبانی">Basics of PLC and ladder logic</span></li>
-                    <li><i class="fas fa-arrow-right"></i> <strong data-en="Intermediate:" data-fa="متوسط:">Intermediate:</strong> <span data-en="HMI design and SCADA integration" data-fa="طراحی HMI و یکپارچه‌سازی SCADA">HMI design and SCADA integration</span></li>
-                    <li><i class="fas fa-arrow-right"></i> <strong data-en="Advanced:" data-fa="پیشرفته:">Advanced:</strong> <span data-en="Motion control, robotics, and Industry 4.0" data-fa="کنترل حرکت، رباتیک و صنعت ۴.۰">Motion control, robotics, and Industry 4.0</span></li>
-                </ul>
-            </div>
-            <div class="content-card">
-                <h3><i class="fas fa-play-circle"></i> <span data-en="Videos & Future" data-fa="ویدئوها و آینده">Videos & Future</span></h3>
-                <ul>
-                    <li><i class="fas fa-video"></i> <span data-en="PLC Programming Tutorial" data-fa="آموزش برنامه‌نویسی PLC">PLC Programming Tutorial</span></li>
-                    <li><i class="fas fa-video"></i> <span data-en="SCADA System Design" data-fa="طراحی سیستم SCADA">SCADA System Design</span></li>
-                    <li><i class="fas fa-clock"></i> <span data-en="Future: AI in Automation" data-fa="آینده: هوش مصنوعی در اتوماسیون">Future: AI in Automation</span></li>
-                </ul>
-            </div>
+        <div class="content-card">
+            <h3><i class="fas fa-lightbulb"></i> <span data-en="Key Topics" data-fa="موضوعات کلیدی">Key Topics</span></h3>
+            <ul>
+                <li><i class="fas fa-circle"></i> <span data-en="PLC programming" data-fa="برنامه‌نویسی PLC">PLC programming</span></li>
+                <li><i class="fas fa-circle"></i> <span data-en="HMI/SCADA design" data-fa="طراحی HMI و SCADA">HMI/SCADA design</span></li>
+                <li><i class="fas fa-circle"></i> <span data-en="Industrial networks" data-fa="شبکه‌های صنعتی">Industrial networks</span></li>
+                <li><i class="fas fa-circle"></i> <span data-en="PID control" data-fa="کنترل PID">PID control</span></li>
+            </ul>
         </div>
-
-        <div class="back-link">
-           <a href="../../index.html" onclick="sessionStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
+        <div class="content-card">
+            <h3><i class="fas fa-tools"></i> <span data-en="Software" data-fa="نرم‌افزارها">Software</span></h3>
+            <ul><li><i class="fas fa-check"></i> TIA Portal</li><li><i class="fas fa-check"></i> Codesys</li><li><i class="fas fa-check"></i> WinCC</li></ul>
+        </div>
+        <div class="content-card">
+            <h3><i class="fas fa-book"></i> <span data-en="Resources" data-fa="منابع">Resources</span></h3>
+            <ul><li><i class="fas fa-file-pdf"></i> <span data-en="IEC 61131-3" data-fa="استاندارد IEC 61131-3">IEC 61131-3</span></li><li><i class="fas fa-file-pdf"></i> <span data-en="PLC Programming Guide" data-fa="راهنمای برنامه‌نویسی PLC">PLC Programming Guide</span></li></ul>
+        </div>
+        <div class="content-card">
+            <h3><i class="fas fa-road"></i> <span data-en="Learning Path" data-fa="مسیر یادگیری">Learning Path</span></h3>
+            <ul>
+                <li><i class="fas fa-arrow-right"></i> <strong data-en="Foundation:" data-fa="مقدماتی:">Foundation:</strong> <span data-en="PLC basics" data-fa="مبانی PLC">PLC basics</span></li>
+                <li><i class="fas fa-arrow-right"></i> <strong data-en="Intermediate:" data-fa="متوسط:">Intermediate:</strong> <span data-en="HMI and SCADA" data-fa="HMI و SCADA">HMI and SCADA</span></li>
+                <li><i class="fas fa-arrow-right"></i> <strong data-en="Advanced:" data-fa="پیشرفته:">Advanced:</strong> <span data-en="Motion control" data-fa="کنترل حرکت">Motion control</span></li>
+            </ul>
+        </div>
+        <div class="content-card">
+            <h3><i class="fas fa-play-circle"></i> <span data-en="Videos & Future" data-fa="ویدئوها و آینده">Videos & Future</span></h3>
+            <ul><li><i class="fas fa-video"></i> <span data-en="PLC Tutorial" data-fa="آموزش PLC">PLC Tutorial</span></li><li><i class="fas fa-clock"></i> <span data-en="Future: AI in Automation" data-fa="آینده: هوش مصنوعی در اتوماسیون">Future: AI in Automation</span></li></ul>
         </div>
     </div>
-
-    <script>
+    <div class="back-link">
+        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
+    </div>
+</div>
+<script>
+    (function() {
+        const langBtns = document.querySelectorAll('.lang-btn');
+        let currentLang = localStorage.getItem('karatech-lang') || 'en';
         function setLanguage(lang) {
             document.querySelectorAll('[data-en]').forEach(el => {
                 const txt = el.dataset[lang];
@@ -115,15 +113,17 @@
             });
             document.body.classList.toggle('lang-persian', lang === 'fa');
             localStorage.setItem('karatech-lang', lang);
+            langBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
         }
-        const savedLang = localStorage.getItem('karatech-lang') || 'en';
-        setLanguage(savedLang);
-        window.addEventListener('message', function(event) {
-            if (event.data && event.data.type === 'changeLanguage') {
-                setLanguage(event.data.lang);
-            }
+        setLanguage(currentLang);
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                setLanguage(this.dataset.lang);
+            });
         });
-        window.parent.postMessage({ type: 'languageLoaded', lang: savedLang }, '*');
-    </script>
+    })();
+</script>
 </body>
 </html>
