@@ -22,10 +22,26 @@
         .splash{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh;text-align:center;padding:20px;background:radial-gradient(ellipse at 30% 20%,#2a1a44,#0a0b0f 80%);position:relative}
         .splash::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L50 10 L50 50 L10 50 Z' stroke='%235b3b8c' stroke-width='.4' fill='none' opacity='.15'/%3E%3Ccircle cx='30' cy='30' r='12' stroke='%23d4af37' stroke-width='.3' fill='none' opacity='.12'/%3E%3C/svg%3E");background-size:60px 60px;opacity:.5}
         .splash>*{position:relative;z-index:2}
-        .splash-logo-text{font-size:4.2rem;font-weight:700;letter-spacing:4px;background:linear-gradient(135deg,#fff 0%,var(--accent) 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;text-shadow:0 0 40px rgba(212,175,55,0.15)}
-        .splash-sub{color:var(--muted);font-size:1.1rem;margin:10px 0 28px;letter-spacing:2px;font-weight:300}
-        .splash-btn{background:var(--primary);border:1px solid var(--accent);color:#fff;padding:14px 44px;border-radius:60px;font-weight:600;font-size:1rem;cursor:pointer;transition:.25s;box-shadow:0 0 30px rgba(91,59,140,.3)}
-        .splash-btn:hover{background:var(--accent);color:#111;transform:scale(1.03);box-shadow:0 0 50px rgba(212,175,55,.25)}
+               .splash-logo-img {
+            margin-bottom: 10px;
+        }
+        .splash-logo-img img {
+            max-width: 220px;
+            height: auto;
+            filter: drop-shadow(0 0 40px rgba(212,175,55,0.2));
+            transition: transform 0.4s ease;
+        }
+        .splash-logo-img img:hover {
+            transform: scale(1.05);
+        }
+        <!-- ===== SPLASH (با عکس لوگو) ===== -->
+<section class="splash" id="splash">
+    <div class="splash-logo-img">
+        <img src="assets/images/logo.png" alt="Karatech ELV Logo">
+    </div>
+    <div class="splash-sub" data-en="Engineering · Automation · Intelligence" data-fa="مهندسی · اتوماسیون · هوش">Engineering · Automation · Intelligence</div>
+    <button class="splash-btn" id="enterBtn"><i class="fas fa-arrow-right"></i> <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span></button>
+</section>
         .dashboard{display:none;padding:24px 32px 50px;max-width:1400px;margin:0 auto}
         .dashboard.active{display:block}
         .splash.hidden{display:none}
