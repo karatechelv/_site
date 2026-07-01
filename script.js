@@ -87,3 +87,15 @@
   // Initial translation
   translatePage('en');
 })();
+<script>
+    (function() {
+        // ===== کدهای قبلی =====
+        // ...
+    })();
+
+    // ===== تابع خروج به صفحه ورود =====
+    function goToSplash() {
+        localStorage.removeItem('dashboardActive');
+        location.reload();
+    }
+</script>
