@@ -313,7 +313,9 @@
 
     // ===== تابع خروج به صفحه ورود =====
     function goToSplash() {
-        localStorage.removeItem('dashboardActive');
+        localStorage.setItem('dashboardActive', 'true');
+document.getElementById('splash').classList.add('hidden');
+document.getElementById('dashboard').classList.add('active');
         location.reload();
     }
 </script>
