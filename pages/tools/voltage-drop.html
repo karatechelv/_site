@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Voltage Drop Calculator</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body{background:#0d0e12;color:#eef0f4;font-family:'Inter',sans-serif;padding:40px 20px}
+        .page-container{max-width:900px;margin:0 auto;background:#1e2128;padding:40px;border-radius:20px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:30px}
+        h1 i{margin-right:15px}
+        .content-section{background:#282d38;padding:20px;border-radius:12px;margin-bottom:25px}
+        .content-section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .content-section p{color:#b0b8c5;line-height:1.8}
+        .content-section ul{list-style:none;padding:0}
+        .content-section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+        .content-section ul li strong{color:#fff}
+        .back-link{margin-top:30px;text-align:center}
+        .back-link a{color:#d4af37;text-decoration:none;font-weight:600}
+        .back-link a:hover{text-decoration:underline}
+        .calc-input{background:#0d0e12;padding:15px;border-radius:12px;margin:15px 0}
+        .calc-input label{display:block;color:#b0b8c5;margin-bottom:5px}
+        .calc-input input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;font-size:1rem}
+        .calc-result{background:rgba(212,175,55,0.1);padding:15px;border-radius:12px;border:1px solid var(--accent);margin-top:15px}
+        .calc-result span{color:var(--accent);font-weight:700;font-size:1.2rem}
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <h1><i class="fas fa-bolt"></i> Voltage Drop Calculator</h1>
+        
+        <div class="content-section">
+            <h2>📖 Description</h2>
+            <p>Calculate voltage drop in electrical circuits based on cable length, current, and conductor size. Essential for proper cable sizing and system design.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>📌 Example</h2>
+            <p>For a 100m cable carrying 50A with 25mm² copper conductor, voltage drop = 5.2V (2.3% of 230V).</p>
+        </div>
+
+        <div class="content-section">
+            <h2>🧮 Calculator</h2>
+            <div class="calc-input">
+                <label>Current (A):</label>
+                <input type="number" id="vd-current" value="50" placeholder="Enter current in Amps">
+            </div>
+            <div class="calc-input">
+                <label>Cable Length (m):</label>
+                <input type="number" id="vd-length" value="100" placeholder="Enter length in meters">
+            </div>
+            <div class="calc-input">
+                <label>Conductor Size (mm²):</label>
+                <input type="number" id="vd-size" value="25" placeholder="Enter conductor cross-section">
+            </div>
+            <button onclick="calculateVoltageDrop()" style="background:var(--accent);color:#111;border:none;padding:12px 30px;border-radius:30px;font-weight:700;cursor:pointer;font-size:1rem;">Calculate</button>
+            <div class="calc-result" id="vd-result">
+                <span>Voltage Drop: 5.2 V</span><br>
+                <span style="font-size:0.9rem;color:#b0b8c5;">Percentage: 2.3%</span>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>📚 Learning Path</h2>
+            <ul>
+                <li><strong>Foundation:</strong> Ohm's law and basic circuit theory</li>
+                <li><strong>Intermediate:</strong> Voltage drop calculations per IEC/BS standards</li>
+                <li><strong>Advanced:</strong> System design and optimization</li>
+            </ul>
+        </div>
+
+        <div class="back-link">
+            <a href="../../index.html"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+        </div>
+    </div>
+    <script>
+        function calculateVoltageDrop() {
+            const I = parseFloat(document.getElementById('vd-current').value);
+            const L = parseFloat(document.getElementById('vd-length').value);
+            const A = parseFloat(document.getElementById('vd-size').value);
+            const rho = 0.0178; // copper resistivity
+            const Vd = (2 * rho * L * I) / A;
+            const VdPercent = (Vd / 230) * 100;
+            document.getElementById('vd-result').innerHTML = 
+                `<span>Voltage Drop: ${Vd.toFixed(2)} V</span><br>
+                 <span style="font-size:0.9rem;color:#b0b8c5;">Percentage: ${VdPercent.toFixed(2)}%</span>`;
+        }
+    </script>
+</body>
+</html>
