@@ -7,8 +7,22 @@
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        body{background:#0d0e12;color:#eef0f4;font-family:'Inter',sans-serif;padding:40px 20px}
-        .page-container{max-width:1100px;margin:0 auto}
+        /* ===== RESET & BASE ===== */
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        
+        /* ===== HEADER با دکمه تغییر زبان ===== */
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}
+        .brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}
+        .brand span{color:var(--accent)}
+        .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}
+        .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
+        .lang-btn:hover{background:var(--primary);color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        
+        /* ===== PAGE CONTENT ===== */
+        .page-container{max-width:1100px;margin:0 auto;padding:20px}
         .page-header{background:#1e2128;padding:30px 40px;border-radius:20px;margin-bottom:30px;border-left:5px solid var(--accent)}
         .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
         .page-header h1 i{color:var(--accent)}
@@ -25,105 +39,131 @@
         .back-link{margin-top:30px;text-align:center}
         .back-link a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s}
         .back-link a:hover{transform:translateX(-5px)}
+        
+        /* ===== RTL (Persian) ===== */
         .lang-persian{direction:rtl}
         .lang-persian .page-header h1{justify-content:flex-end}
         .lang-persian .content-card h3{justify-content:flex-end}
         .lang-persian .content-card ul li{flex-direction:row-reverse}
         .lang-persian .back-link a{flex-direction:row-reverse}
+        
         @media(max-width:768px){.page-header h1{font-size:1.8rem}.content-grid{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
-    <div class="page-container">
-        <div class="page-header">
-            <h1><i class="fas fa-bolt"></i> <span data-en="Electrical Engineering" data-fa="مهندسی برق">Electrical Engineering</span></h1>
-            <p data-en="Power systems, protection coordination, load calculation. Includes switchgear, MCC, distribution panels, and lighting systems. Essential for all industrial and commercial projects." 
-               data-fa="سیستم‌های قدرت، هماهنگی حفاظت، محاسبات بار. شامل تابلوهای برق، مراکز کنترل موتور، پنل‌های توزیع و سیستم‌های روشنایی. برای تمام پروژه‌های صنعتی و تجاری ضروری است.">
-               Power systems, protection coordination, load calculation. Includes switchgear, MCC, distribution panels, and lighting systems. Essential for all industrial and commercial projects.</p>
-        </div>
 
-        <div class="content-grid">
-            <div class="content-card">
-                <h3><i class="fas fa-graduation-cap"></i> <span data-en="Overview" data-fa="مرور کلی">Overview</span></h3>
-                <p data-en="Electrical engineering covers power generation, transmission, distribution, protection, and control systems used in industrial plants, commercial buildings, and utilities." 
-                   data-fa="مهندسی برق شامل تولید، انتقال، توزیع، حفاظت و سیستم‌های کنترلی مورد استفاده در کارخانجات صنعتی، ساختمان‌های تجاری و تاسیسات عمومی است.">
-                   Electrical engineering covers power generation, transmission, distribution, protection, and control systems used in industrial plants, commercial buildings, and utilities.</p>
-            </div>
-            <div class="content-card">
-                <h3><i class="fas fa-lightbulb"></i> <span data-en="Key Topics" data-fa="موضوعات کلیدی">Key Topics</span></h3>
-                <ul>
-                    <li><i class="fas fa-circle"></i> <span data-en="Power system analysis" data-fa="تحلیل سیستم‌های قدرت">Power system analysis</span></li>
-                    <li><i class="fas fa-circle"></i> <span data-en="Protection coordination" data-fa="هماهنگی حفاظت">Protection coordination</span></li>
-                    <li><i class="fas fa-circle"></i> <span data-en="Switchgear and MCC design" data-fa="طراحی تابلوهای برق و MCC">Switchgear and MCC design</span></li>
-                    <li><i class="fas fa-circle"></i> <span data-en="Load calculation and sizing" data-fa="محاسبات بار و سایزینگ">Load calculation and sizing</span></li>
-                    <li><i class="fas fa-circle"></i> <span data-en="Lighting and earthing systems" data-fa="سیستم‌های روشنایی و ارتینگ">Lighting and earthing systems</span></li>
-                </ul>
-            </div>
-            <div class="content-card">
-                <h3><i class="fas fa-tools"></i> <span data-en="Software" data-fa="نرم‌افزارها">Software</span></h3>
-                <ul>
-                    <li><i class="fas fa-check"></i> EPLAN</li>
-                    <li><i class="fas fa-check"></i> AutoCAD Electrical</li>
-                    <li><i class="fas fa-check"></i> ETAP</li>
-                    <li><i class="fas fa-check"></i> DIALux (lighting)</li>
-                </ul>
-            </div>
-            <div class="content-card">
-                <h3><i class="fas fa-book"></i> <span data-en="Resources" data-fa="منابع">Resources</span></h3>
-                <ul>
-                    <li><i class="fas fa-file-pdf"></i> <span data-en="IEC 60364 Standards" data-fa="استانداردهای IEC 60364">IEC 60364 Standards</span></li>
-                    <li><i class="fas fa-file-pdf"></i> <span data-en="NEC Handbook" data-fa="راهنمای NEC">NEC Handbook</span></li>
-                    <li><i class="fas fa-video"></i> <span data-en="Power System Analysis Course" data-fa="دوره تحلیل سیستم‌های قدرت">Power System Analysis Course</span></li>
-                </ul>
-            </div>
-            <div class="content-card">
-                <h3><i class="fas fa-road"></i> <span data-en="Learning Path" data-fa="مسیر یادگیری">Learning Path</span></h3>
-                <ul>
-                    <li><i class="fas fa-arrow-right"></i> <strong data-en="Foundation:" data-fa="مقدماتی:">Foundation:</strong> <span data-en="Basic electrical theory, circuit analysis" data-fa="تئوری پایه برق، تحلیل مدار">Basic electrical theory, circuit analysis</span></li>
-                    <li><i class="fas fa-arrow-right"></i> <strong data-en="Intermediate:" data-fa="متوسط:">Intermediate:</strong> <span data-en="Power systems, protection coordination" data-fa="سیستم‌های قدرت، هماهنگی حفاظت">Power systems, protection coordination</span></li>
-                    <li><i class="fas fa-arrow-right"></i> <strong data-en="Advanced:" data-fa="پیشرفته:">Advanced:</strong> <span data-en="System studies, ETAP, high-voltage design" data-fa="مطالعات سیستم، ETAP، طراحی فشار قوی">System studies, ETAP, high-voltage design</span></li>
-                </ul>
-            </div>
-            <div class="content-card">
-                <h3><i class="fas fa-play-circle"></i> <span data-en="Videos & Future" data-fa="ویدئوها و آینده">Videos & Future</span></h3>
-                <ul>
-                    <li><i class="fas fa-video"></i> <span data-en="Power System Analysis Tutorial" data-fa="آموزش تحلیل سیستم‌های قدرت">Power System Analysis Tutorial</span></li>
-                    <li><i class="fas fa-video"></i> <span data-en="Protection Coordination Workshop" data-fa="کارگاه هماهنگی حفاظت">Protection Coordination Workshop</span></li>
-                    <li><i class="fas fa-clock"></i> <span data-en="Future: Smart Grid & Microgrids" data-fa="آینده: شبکه هوشمند و میکروگریدها">Future: Smart Grid & Microgrids</span></li>
-                </ul>
-            </div>
-        </div>
+<!-- ===== HEADER با دکمه تغییر زبان ===== -->
+<header class="header">
+    <div class="brand">KARATECH <span>ELV</span></div>
+    <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fa">FA</button>
+    </div>
+</header>
 
-        <div class="back-link">
-            <a href="../../index.html"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
+<!-- ===== PAGE CONTENT ===== -->
+<div class="page-container">
+    <div class="page-header">
+        <h1><i class="fas fa-bolt"></i> <span data-en="Electrical Engineering" data-fa="مهندسی برق">Electrical Engineering</span></h1>
+        <p data-en="Power systems, protection coordination, load calculation. Includes switchgear, MCC, distribution panels, and lighting systems. Essential for all industrial and commercial projects." 
+           data-fa="سیستم‌های قدرت، هماهنگی حفاظت، محاسبات بار. شامل تابلوهای برق، مراکز کنترل موتور، پنل‌های توزیع و سیستم‌های روشنایی. برای تمام پروژه‌های صنعتی و تجاری ضروری است.">
+           Power systems, protection coordination, load calculation. Includes switchgear, MCC, distribution panels, and lighting systems. Essential for all industrial and commercial projects.</p>
+    </div>
+
+    <div class="content-grid">
+        <div class="content-card">
+            <h3><i class="fas fa-graduation-cap"></i> <span data-en="Overview" data-fa="مرور کلی">Overview</span></h3>
+            <p data-en="Electrical engineering covers power generation, transmission, distribution, protection, and control systems used in industrial plants, commercial buildings, and utilities." 
+               data-fa="مهندسی برق شامل تولید، انتقال، توزیع، حفاظت و سیستم‌های کنترلی مورد استفاده در کارخانجات صنعتی، ساختمان‌های تجاری و تاسیسات عمومی است.">
+               Electrical engineering covers power generation, transmission, distribution, protection, and control systems used in industrial plants, commercial buildings, and utilities.</p>
+        </div>
+        <div class="content-card">
+            <h3><i class="fas fa-lightbulb"></i> <span data-en="Key Topics" data-fa="موضوعات کلیدی">Key Topics</span></h3>
+            <ul>
+                <li><i class="fas fa-circle"></i> <span data-en="Power system analysis" data-fa="تحلیل سیستم‌های قدرت">Power system analysis</span></li>
+                <li><i class="fas fa-circle"></i> <span data-en="Protection coordination" data-fa="هماهنگی حفاظت">Protection coordination</span></li>
+                <li><i class="fas fa-circle"></i> <span data-en="Switchgear and MCC design" data-fa="طراحی تابلوهای برق و MCC">Switchgear and MCC design</span></li>
+                <li><i class="fas fa-circle"></i> <span data-en="Load calculation and sizing" data-fa="محاسبات بار و سایزینگ">Load calculation and sizing</span></li>
+                <li><i class="fas fa-circle"></i> <span data-en="Lighting and earthing systems" data-fa="سیستم‌های روشنایی و ارتینگ">Lighting and earthing systems</span></li>
+            </ul>
+        </div>
+        <div class="content-card">
+            <h3><i class="fas fa-tools"></i> <span data-en="Software" data-fa="نرم‌افزارها">Software</span></h3>
+            <ul>
+                <li><i class="fas fa-check"></i> EPLAN</li>
+                <li><i class="fas fa-check"></i> AutoCAD Electrical</li>
+                <li><i class="fas fa-check"></i> ETAP</li>
+                <li><i class="fas fa-check"></i> DIALux (lighting)</li>
+            </ul>
+        </div>
+        <div class="content-card">
+            <h3><i class="fas fa-book"></i> <span data-en="Resources" data-fa="منابع">Resources</span></h3>
+            <ul>
+                <li><i class="fas fa-file-pdf"></i> <span data-en="IEC 60364 Standards" data-fa="استانداردهای IEC 60364">IEC 60364 Standards</span></li>
+                <li><i class="fas fa-file-pdf"></i> <span data-en="NEC Handbook" data-fa="راهنمای NEC">NEC Handbook</span></li>
+                <li><i class="fas fa-video"></i> <span data-en="Power System Analysis Course" data-fa="دوره تحلیل سیستم‌های قدرت">Power System Analysis Course</span></li>
+            </ul>
+        </div>
+        <div class="content-card">
+            <h3><i class="fas fa-road"></i> <span data-en="Learning Path" data-fa="مسیر یادگیری">Learning Path</span></h3>
+            <ul>
+                <li><i class="fas fa-arrow-right"></i> <strong data-en="Foundation:" data-fa="مقدماتی:">Foundation:</strong> <span data-en="Basic electrical theory, circuit analysis" data-fa="تئوری پایه برق، تحلیل مدار">Basic electrical theory, circuit analysis</span></li>
+                <li><i class="fas fa-arrow-right"></i> <strong data-en="Intermediate:" data-fa="متوسط:">Intermediate:</strong> <span data-en="Power systems, protection coordination" data-fa="سیستم‌های قدرت، هماهنگی حفاظت">Power systems, protection coordination</span></li>
+                <li><i class="fas fa-arrow-right"></i> <strong data-en="Advanced:" data-fa="پیشرفته:">Advanced:</strong> <span data-en="System studies, ETAP, high-voltage design" data-fa="مطالعات سیستم، ETAP، طراحی فشار قوی">System studies, ETAP, high-voltage design</span></li>
+            </ul>
+        </div>
+        <div class="content-card">
+            <h3><i class="fas fa-play-circle"></i> <span data-en="Videos & Future" data-fa="ویدئوها و آینده">Videos & Future</span></h3>
+            <ul>
+                <li><i class="fas fa-video"></i> <span data-en="Power System Analysis Tutorial" data-fa="آموزش تحلیل سیستم‌های قدرت">Power System Analysis Tutorial</span></li>
+                <li><i class="fas fa-video"></i> <span data-en="Protection Coordination Workshop" data-fa="کارگاه هماهنگی حفاظت">Protection Coordination Workshop</span></li>
+                <li><i class="fas fa-clock"></i> <span data-en="Future: Smart Grid & Microgrids" data-fa="آینده: شبکه هوشمند و میکروگریدها">Future: Smart Grid & Microgrids</span></li>
+            </ul>
         </div>
     </div>
 
-    <script>
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-en]').forEach(el => {
-                const txt = el.dataset[lang];
-                if (txt) {
-                    const nodes = el.childNodes;
-                    for (let n of nodes) {
-                        if (n.nodeType === 3) {
-                            n.textContent = txt;
-                            break;
-                        }
+    <div class="back-link">
+        <a href="../../index.html"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
+    </div>
+</div>
+
+<script>
+    // ===== LANGUAGE SWITCH =====
+    const langBtns = document.querySelectorAll('.lang-btn');
+    
+    function setLanguage(lang) {
+        document.querySelectorAll('[data-en]').forEach(el => {
+            const txt = el.dataset[lang];
+            if (txt) {
+                const nodes = el.childNodes;
+                for (let n of nodes) {
+                    if (n.nodeType === 3) {
+                        n.textContent = txt;
+                        break;
                     }
                 }
-            });
-            document.body.classList.toggle('lang-persian', lang === 'fa');
-            localStorage.setItem('karatech-lang', lang);
-        }
-        const savedLang = localStorage.getItem('karatech-lang') || 'en';
-        setLanguage(savedLang);
-        window.addEventListener('message', function(event) {
-            if (event.data && event.data.type === 'changeLanguage') {
-                setLanguage(event.data.lang);
             }
         });
-        window.parent.postMessage({ type: 'languageLoaded', lang: savedLang }, '*');
-    </script>
+        document.body.classList.toggle('lang-persian', lang === 'fa');
+        localStorage.setItem('karatech-lang', lang);
+        
+        // Update active button
+        langBtns.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+    }
+    
+    // Load saved language or default to English
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLanguage(savedLang);
+    
+    // Language button click handlers
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            setLanguage(this.dataset.lang);
+        });
+    });
+</script>
+
 </body>
 </html>
