@@ -120,6 +120,18 @@ body {
   z-index: 2;
   text-shadow: 0 0 40px rgba(212,175,55,0.2);
 }
+.splash-logo-img {
+    margin-bottom: 10px;
+}
+.splash-logo-img img {
+    max-width: 220px;
+    height: auto;
+    filter: drop-shadow(0 0 40px rgba(212,175,55,0.2));
+    transition: transform 0.4s ease;
+}
+.splash-logo-img img:hover {
+    transform: scale(1.05);
+}
 
 .splash-sub {
   color: var(--text-muted);
