@@ -22,7 +22,7 @@
         .splash{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh;text-align:center;padding:20px;background:radial-gradient(ellipse at 30% 20%,#2a1a44,#0a0b0f 80%);position:relative}
         .splash::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L50 10 L50 50 L10 50 Z' stroke='%235b3b8c' stroke-width='.4' fill='none' opacity='.15'/%3E%3Ccircle cx='30' cy='30' r='12' stroke='%23d4af37' stroke-width='.3' fill='none' opacity='.12'/%3E%3C/svg%3E");background-size:60px 60px;opacity:.5}
         .splash>*{position:relative;z-index:2}
-        .splash-icon{font-size:3.8rem;color:var(--accent);opacity:.25;margin-bottom:8px}
+        .splash-logo-small{font-size:3.5rem;font-weight:700;letter-spacing:4px;background:linear-gradient(135deg,#fff 0%,var(--accent) 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;z-index:2;margin-bottom:5px;text-shadow:0 0 30px rgba(212,175,55,0.15)}
         .splash-logo{font-size:4.2rem;font-weight:700;letter-spacing:3px;background:linear-gradient(135deg,#fff 0%,var(--accent) 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
         .splash-sub{color:var(--muted);font-size:1.1rem;margin:10px 0 28px;letter-spacing:2px;font-weight:300}
         .splash-btn{background:var(--primary);border:1px solid var(--accent);color:#fff;padding:14px 44px;border-radius:60px;font-weight:600;font-size:1rem;cursor:pointer;transition:.25s;box-shadow:0 0 30px rgba(91,59,140,.3)}
@@ -38,8 +38,6 @@
         .card-academy p{color:var(--muted);font-size:.85rem}
         .section-title{font-size:1.5rem;font-weight:600;margin:36px 0 14px;display:flex;align-items:center;gap:10px}
         .section-title i{color:var(--accent)}
-        
-        /* ===== WORKFLOW ANIMATED ===== */
         .workflow-container{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:6px 16px;background:var(--card);padding:24px 20px;border-radius:var(--radius);margin:24px 0;border:1px solid rgba(212,175,55,.06)}
         .wf-step{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);padding:10px 18px;border-radius:40px;font-size:.85rem;font-weight:600;border:1px solid rgba(255,255,255,0.06);transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);cursor:pointer;backdrop-filter:blur(4px);animation:fadeInUp 0.6s ease forwards;opacity:0;transform:translateY(20px)}
         .wf-step:hover{background:var(--primary);border-color:var(--accent);transform:scale(1.08) translateY(-4px);box-shadow:0 8px 25px rgba(91,59,140,0.4)}
@@ -62,7 +60,6 @@
         .wf-step:nth-child(12){animation-delay:0.60s}
         .wf-step:nth-child(13){animation-delay:0.65s}
         .wf-step:nth-child(14){animation-delay:0.70s}
-        
         .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin:16px 0}
         .tool-badge{background:var(--card);padding:12px 8px;border-radius:30px;text-align:center;font-size:.82rem;border:1px solid rgba(255,255,255,.03);transition:.2s}
         .tool-badge i{color:var(--accent)}
@@ -93,6 +90,7 @@
 </head>
 <body>
 
+<!-- ===== HEADER ===== -->
 <header class="header">
     <div class="brand">KARATECH <span>ELV</span></div>
     <div class="lang-switch">
@@ -101,15 +99,15 @@
     </div>
 </header>
 
-<!-- SPLASH -->
+<!-- ===== SPLASH (با لوگو) ===== -->
 <section class="splash" id="splash">
-    <div class="splash-icon"><i class="fas fa-microchip"></i></div>
+    <div class="splash-logo-small">⚡ KARATECH ELV</div>
     <div class="splash-logo">KARATECH ELV</div>
     <div class="splash-sub" data-en="Engineering · Automation · Intelligence" data-fa="مهندسی · اتوماسیون · هوش">Engineering · Automation · Intelligence</div>
     <button class="splash-btn" id="enterBtn"><i class="fas fa-arrow-right"></i> <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span></button>
 </section>
 
-<!-- DASHBOARD -->
+<!-- ===== DASHBOARD ===== -->
 <div class="dashboard" id="dashboard">
 
     <!-- ACADEMY CARDS -->
@@ -124,7 +122,7 @@
         <div class="card-academy" data-key="hse"><i class="fas fa-hard-hat"></i><h3>HSE</h3><p data-en="Safety, environment, health" data-fa="ایمنی، محیط زیست، بهداشت">Safety, environment, health</p></div>
     </div>
 
-    <!-- WORKFLOW ANIMATED -->
+    <!-- WORKFLOW -->
     <div class="section-title"><i class="fas fa-project-diagram"></i> <span data-en="Engineering Workflow" data-fa="جریان کار مهندسی">Engineering Workflow</span></div>
     <div class="workflow-container">
         <div class="wf-step"><i class="fas fa-file-pdf"></i> P&ID</div><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
@@ -160,9 +158,15 @@
     <!-- SOFTWARE -->
     <div class="section-title"><i class="fas fa-laptop-code"></i> <span data-en="Engineering Software" data-fa="نرم‌افزارهای مهندسی">Engineering Software</span></div>
     <div class="soft-list">
-        <span class="soft-item">AutoCAD</span><span class="soft-item">EPLAN</span><span class="soft-item">SEE Electrical</span>
-        <span class="soft-item">TIA Portal</span><span class="soft-item">WinCC</span><span class="soft-item">PCS7</span>
-        <span class="soft-item">STEP7</span><span class="soft-item">Factory IO</span><span class="soft-item">Codesys</span>
+        <span class="soft-item">AutoCAD</span>
+        <span class="soft-item">EPLAN</span>
+        <span class="soft-item">SEE Electrical</span>
+        <span class="soft-item">TIA Portal</span>
+        <span class="soft-item">WinCC</span>
+        <span class="soft-item">PCS7</span>
+        <span class="soft-item">STEP7</span>
+        <span class="soft-item">Factory IO</span>
+        <span class="soft-item">Codesys</span>
         <span class="soft-item">EasyBuilder</span>
     </div>
 
@@ -244,6 +248,7 @@
     </footer>
 </div>
 
+<!-- ===== JAVASCRIPT ===== -->
 <script>
     (function(){
         const splash=document.getElementById('splash');
@@ -290,5 +295,6 @@
         translate('en');
     })();
 </script>
+
 </body>
 </html>
