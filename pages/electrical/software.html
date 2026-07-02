@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · نرم‌افزارها</title>
+    <title>Karatech ELV · Software</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
         .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
         .brand{font-weight:700;font-size:1.5rem;color:#fff}
         .brand span{color:#d4af37}
-        h1{color:#d4af37;font-size:2.5rem;margin-bottom:15px;display:flex;align-items:center;gap:12px}
-        .sub{color:#8e95a5;font-size:1.05rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.4rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
         .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
         .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:monospace;font-size:.9rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:15px 0}
-        .back{text-align:center;margin-top:35px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem}
+        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;gap:12px}}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
@@ -31,70 +37,107 @@
 
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
     </div>
 
-    <h1>🛠️ نرم‌افزارهای مهندسی برق</h1>
-    <div class="sub">
-        نرم‌افزارهای تخصصی نقش حیاتی در طراحی، تحلیل و شبیه‌سازی سیستم‌های الکتریکی دارند. در ادامه مهم‌ترین نرم‌افزارهای مورد استفاده در مهندسی برق را معرفی می‌کنیم.
-    </div>
+    <h1 id="title">🛠️ Software</h1>
+    <div class="sub" id="desc">Essential software tools for electrical engineers, from design and analysis to simulation and documentation.</div>
 
     <div class="section">
-        <h2>🔹 نرم‌افزارهای طراحی و نقشه‌کشی</h2>
-        <ul>
-            <li><strong>EPLAN</strong> – طراحی و مستندسازی پروژه‌های برق و اتوماسیون</li>
-            <li><strong>AutoCAD Electrical</strong> – نقشه‌کشی شماتیک‌های الکتریکی</li>
-            <li><strong>SEE Electrical</strong> – طراحی تابلوهای برق و مدارهای کنترلی</li>
-            <li><strong>EPLAN Pro Panel</strong> – طراحی سه‌بعدی پنل‌های برق</li>
+        <h2 id="s1">Design & Drafting</h2>
+        <ul id="list1">
+            <li><strong>EPLAN</strong> – Professional electrical design platform</li>
+            <li><strong>AutoCAD Electrical</strong> – Electrical CAD software</li>
+            <li><strong>SEE Electrical</strong> – Electrical design for automation</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>🔹 نرم‌افزارهای تحلیل سیستم‌های قدرت</h2>
-        <ul>
-            <li><strong>ETAP</strong> – تحلیل جریان بار، اتصال کوتاه و هماهنگی حفاظت</li>
-            <li><strong>DIgSILENT PowerFactory</strong> – شبیه‌سازی پیشرفته سیستم‌های قدرت</li>
-            <li><strong>SKM PowerTools</strong> – تحلیل و هماهنگی حفاظت</li>
-            <li><strong>CYME</strong> – تحلیل شبکه‌های توزیع</li>
+        <h2 id="s2">Power System Analysis</h2>
+        <ul id="list2">
+            <li><strong>ETAP</strong> – Power system analysis, load flow, short-circuit</li>
+            <li><strong>DIgSILENT</strong> – Advanced power system analysis</li>
+            <li><strong>SKM PowerTools</strong> – System analysis and protection</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>🔹 نرم‌افزارهای طراحی روشنایی</h2>
-        <ul>
-            <li><strong>DIALux</strong> – طراحی و محاسبه روشنایی حرفه‌ای</li>
-            <li><strong>Relux</strong> – تحلیل و طراحی روشنایی</li>
-            <li><strong>AGi32</strong> – طراحی روشنایی پیشرفته</li>
+        <h2 id="s3">Lighting Design</h2>
+        <ul id="list3">
+            <li><strong>DIALux</strong> – Professional lighting design</li>
+            <li><strong>Relux</strong> – Lighting design and visualization</li>
         </ul>
-    </div>
-
-    <div class="section">
-        <h2>🔹 نرم‌افزارهای برنامه‌نویسی PLC</h2>
-        <ul>
-            <li><strong>TIA Portal</strong> – برنامه‌نویسی PLC زیمنس</li>
-            <li><strong>Codesys</strong> – محیط برنامه‌نویسی IEC 61131-3</li>
-            <li><strong>RSLogix 5000</strong> – برنامه‌نویسی PLC آلن برادلی</li>
-            <li><strong>STEP 7</strong> – برنامه‌نویسی PLC S7-300/400</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>🔹 نرم‌افزارهای شبیه‌سازی</h2>
-        <ul>
-            <li><strong>MATLAB/Simulink</strong> – شبیه‌سازی سیستم‌های دینامیکی</li>
-            <li><strong>Factory IO</strong> – شبیه‌سازی سه‌بعدی صنعتی</li>
-            <li><strong>PSCAD</strong> – شبیه‌سازی سیستم‌های قدرت</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>📌 نکته مهم</h2>
-        <div class="code-box">انتخاب نرم‌افزار مناسب به نوع پروژه، صنعت و نیازهای خاص شما بستگی دارد. تسلط بر هر یک از این ابزارها می‌تواند شانس موفقیت شما را در بازار کار افزایش دهد.</div>
     </div>
 
     <div class="back">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')">← بازگشت به داشبورد</a>
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
 
 </div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🛠️ Software',
+            desc: 'Essential software tools for electrical engineers, from design and analysis to simulation and documentation.',
+            s1: 'Design & Drafting',
+            list1: ['EPLAN – Professional electrical design platform', 'AutoCAD Electrical – Electrical CAD software', 'SEE Electrical – Electrical design for automation'],
+            s2: 'Power System Analysis',
+            list2: ['ETAP – Power system analysis, load flow, short-circuit', 'DIgSILENT – Advanced power system analysis', 'SKM PowerTools – System analysis and protection'],
+            s3: 'Lighting Design',
+            list3: ['DIALux – Professional lighting design', 'Relux – Lighting design and visualization'],
+            back: '← Back'
+        },
+        fa: {
+            title: '🛠️ نرم‌افزارها',
+            desc: 'ابزارهای نرم‌افزاری ضروری برای مهندسان برق، از طراحی و تحلیل تا شبیه‌سازی و مستندسازی.',
+            s1: 'طراحی و نقشه‌کشی',
+            list1: ['EPLAN – پلتفرم حرفه‌ای طراحی برق', 'AutoCAD Electrical – نرم‌افزار CAD برق', 'SEE Electrical – طراحی برق برای اتوماسیون'],
+            s2: 'تحلیل سیستم‌های قدرت',
+            list2: ['ETAP – تحلیل سیستم‌های قدرت، جریان بار، اتصال کوتاه', 'DIgSILENT – تحلیل پیشرفته سیستم‌های قدرت', 'SKM PowerTools – تحلیل سیستم و حفاظت'],
+            s3: 'طراحی روشنایی',
+            list3: ['DIALux – طراحی حرفه‌ای روشنایی', 'Relux – طراحی و visualization روشنایی'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
 </body>
 </html>
