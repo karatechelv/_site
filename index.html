@@ -126,7 +126,7 @@
         <img src="assets/images/karatechelv.png" alt="Karatech ELV Logo">
     </div>
     <div class="splash-sub" data-en="Engineering · Automation · Intelligence" data-fa="مهندسی · اتوماسیون · هوش">Engineering · Automation · Intelligence</div>
-    <button class="splash-btn" id="enterBtn"><i class="fas fa-arrow-right"></i> <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span></button>
+    <button class="splash-btn" id="enterBtn" onclick="enterSystem()"><i class="fas fa-arrow-right"></i> <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span></button>
 </section>
 
 <div class="dashboard" id="dashboard">
@@ -257,18 +257,6 @@
             });
         }
 
-        // ===== دکمه ورود =====
-        document.addEventListener('DOMContentLoaded', function() {
-            const enterBtn = document.getElementById('enterBtn');
-            if (enterBtn) {
-                enterBtn.addEventListener('click', function() {
-                    localStorage.setItem('dashboardActive', 'true');
-                    document.getElementById('splash').classList.add('hidden');
-                    document.getElementById('dashboard').classList.add('active');
-                });
-            }
-        });
-
         // ===== زبان =====
         const langBtns = document.querySelectorAll('.lang-btn');
         let currentLang = localStorage.getItem('karatech-lang') || 'en';
@@ -303,17 +291,18 @@
         });
     })();
 
-    // ===== تابع خروج =====
-    function goToSplash() {
-        localStorage.removeItem('dashboardActive'); 
+    // ===== تابع ورود =====
+    function enterSystem() {
+        localStorage.setItem('dashboardActive', 'true');
         location.reload();
     }
 
-
-    
+    // ===== تابع خروج =====
+    function goToSplash() {
+        localStorage.removeItem('dashboardActive');
+        location.reload();
+    }
 </script>
 
 </body>
 </html>
-
-
