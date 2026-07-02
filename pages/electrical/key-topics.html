@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · موضوعات کلیدی</title>
+    <title>Karatech ELV · Key Topics</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
         .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
         .brand{font-weight:700;font-size:1.5rem;color:#fff}
         .brand span{color:#d4af37}
-        h1{color:#d4af37;font-size:2.5rem;margin-bottom:15px;display:flex;align-items:center;gap:12px}
-        .sub{color:#8e95a5;font-size:1.05rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.4rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
         .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
         .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:monospace;font-size:.9rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:15px 0}
-        .back{text-align:center;margin-top:35px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem}
+        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;gap:12px}}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
@@ -31,72 +37,98 @@
 
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
     </div>
 
-    <h1>💡 موضوعات کلیدی در مهندسی برق</h1>
-    <div class="sub">
-        مهندسی برق شامل حوزه‌های گسترده‌ای است که هر کدام دانش و تخصص خاصی را می‌طلبند. در اینجا مهم‌ترین موضوعات این رشته را مرور می‌کنیم.
+    <h1 id="title">💡 Key Topics</h1>
+    <div class="sub" id="desc">Explore the most important topics in electrical engineering, from power systems to control and electronics.</div>
+
+    <div class="section">
+        <h2 id="s1">Power Systems</h2>
+        <p id="s1p">Power systems deal with the generation, transmission, distribution, and utilization of electrical power. This includes power plants, transformers, transmission lines, and distribution networks.</p>
     </div>
 
     <div class="section">
-        <h2>🔹 سیستم‌های قدرت (Power Systems)</h2>
-        <p>سیستم‌های قدرت به تولید، انتقال، توزیع و حفاظت از انرژی الکتریکی می‌پردازند. این حوزه شامل نیروگاه‌ها، پست‌های برق، خطوط انتقال و شبکه‌های توزیع است.</p>
-        <ul>
-            <li>تولید برق (حرارتی، آبی، خورشیدی، بادی)</li>
-            <li>انتقال و توزیع برق</li>
-            <li>حفاظت و هماهنگی رله‌ها</li>
-            <li>پایداری سیستم‌های قدرت</li>
-        </ul>
+        <h2 id="s2">Control Systems</h2>
+        <p id="s2p">Control systems are used to regulate the behavior of dynamic systems. They are essential in industrial automation, robotics, and process control.</p>
     </div>
 
     <div class="section">
-        <h2>🔹 سیستم‌های کنترل (Control Systems)</h2>
-        <p>سیستم‌های کنترل برای تنظیم رفتار سیستم‌های دینامیکی استفاده می‌شوند. این حوزه در اتوماسیون صنعتی، رباتیک و کنترل فرآیندها کاربرد دارد.</p>
-        <ul>
-            <li>کنترل PID</li>
-            <li>کنترل دیجیتال</li>
-            <li>سیستم‌های کنترل توزیع‌شده (DCS)</li>
-            <li>رباتیک و اتوماسیون</li>
-        </ul>
+        <h2 id="s3">Electronics</h2>
+        <p id="s3p">Electronics deals with circuits and devices that control the flow of electrons. It includes analog and digital circuits, semiconductors, and integrated circuits.</p>
     </div>
 
     <div class="section">
-        <h2>🔹 الکترونیک (Electronics)</h2>
-        <p>الکترونیک به مطالعه و طراحی مدارهای الکتریکی با استفاده از قطعات نیمه‌هادی می‌پردازد. این حوزه پایه و اساس فناوری‌های مدرن است.</p>
-        <ul>
-            <li>مدارهای آنالوگ و دیجیتال</li>
-            <li>میکروکنترلرها و FPGA</li>
-            <li>الکترونیک قدرت</li>
-            <li>مخابرات و پردازش سیگنال</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>🔹 ماشین‌های الکتریکی (Electrical Machines)</h2>
-        <p>ماشین‌های الکتریکی شامل موتورها، ژنراتورها و ترانسفورماتورها هستند که در صنعت و زندگی روزمره کاربرد گسترده‌ای دارند.</p>
-        <ul>
-            <li>موتورهای DC و AC</li>
-            <li>ژنراتورهای سنکرون و آسنکرون</li>
-            <li>ترانسفورماتورهای قدرت و توزیع</li>
-            <li>درایوهای الکتریکی</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>🔹 انرژی‌های تجدیدپذیر (Renewable Energy)</h2>
-        <p>انرژی‌های تجدیدپذیر به عنوان جایگزینی برای سوخت‌های فسیلی، نقش کلیدی در آینده انرژی دارند.</p>
-        <ul>
-            <li>سیستم‌های خورشیدی فتوولتائیک</li>
-            <li>توربین‌های بادی</li>
-            <li>نیروگاه‌های آبی</li>
-            <li>سیستم‌های ذخیره‌سازی انرژی (باتری‌ها)</li>
-        </ul>
+        <h2 id="s4">Renewable Energy</h2>
+        <p id="s4p">Renewable energy systems harness energy from natural sources such as sunlight, wind, and water. They are essential for sustainable development.</p>
     </div>
 
     <div class="back">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')">← بازگشت به داشبورد</a>
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
 
 </div>
+
+<script>
+    const lang = {
+        en: {
+            title: '💡 Key Topics',
+            desc: 'Explore the most important topics in electrical engineering, from power systems to control and electronics.',
+            s1: 'Power Systems',
+            s1p: 'Power systems deal with the generation, transmission, distribution, and utilization of electrical power. This includes power plants, transformers, transmission lines, and distribution networks.',
+            s2: 'Control Systems',
+            s2p: 'Control systems are used to regulate the behavior of dynamic systems. They are essential in industrial automation, robotics, and process control.',
+            s3: 'Electronics',
+            s3p: 'Electronics deals with circuits and devices that control the flow of electrons. It includes analog and digital circuits, semiconductors, and integrated circuits.',
+            s4: 'Renewable Energy',
+            s4p: 'Renewable energy systems harness energy from natural sources such as sunlight, wind, and water. They are essential for sustainable development.',
+            back: '← Back'
+        },
+        fa: {
+            title: '💡 موضوعات کلیدی',
+            desc: 'مهم‌ترین موضوعات در مهندسی برق، از سیستم‌های قدرت تا کنترل و الکترونیک را کاوش کنید.',
+            s1: 'سیستم‌های قدرت',
+            s1p: 'سیستم‌های قدرت به تولید، انتقال، توزیع و استفاده از توان الکتریکی می‌پردازند. این شامل نیروگاه‌ها، ترانسفورماتورها، خطوط انتقال و شبکه‌های توزیع است.',
+            s2: 'سیستم‌های کنترل',
+            s2p: 'سیستم‌های کنترل برای تنظیم رفتار سیستم‌های دینامیکی استفاده می‌شوند. آنها در اتوماسیون صنعتی، رباتیک و کنترل فرآیند ضروری هستند.',
+            s3: 'الکترونیک',
+            s3p: 'الکترونیک به مدارها و دستگاه‌هایی می‌پردازد که جریان الکترون‌ها را کنترل می‌کنند. شامل مدارهای آنالوگ و دیجیتال، نیمه‌هادی‌ها و مدارهای مجتمع است.',
+            s4: 'انرژی تجدیدپذیر',
+            s4p: 'سیستم‌های انرژی تجدیدپذیر انرژی را از منابع طبیعی مانند نور خورشید، باد و آب استخراج می‌کنند. آنها برای توسعه پایدار ضروری هستند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s2p').textContent = t.s2p;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s3p').textContent = t.s3p;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
 </body>
 </html>
