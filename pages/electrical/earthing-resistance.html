@@ -24,6 +24,13 @@
         .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
         .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
+        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
+        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
+        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
+        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
+        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
+        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
+        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
         .back{text-align:center;margin-top:30px}
         .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
@@ -52,19 +59,25 @@
     </div>
 
     <div class="section">
-        <h2 id="s2">Key Formula</h2>
+        <h2 id="s2">🧮 Earthing Resistance Calculator</h2>
+        <div class="calc-box">
+            <label id="l1">Soil Resistivity (Ω·m)</label>
+            <input type="number" id="er-rho" value="100">
+            <label id="l2">Electrode Length (m)</label>
+            <input type="number" id="er-length" value="3">
+            <label id="l3">Electrode Diameter (m)</label>
+            <input type="number" id="er-diam" value="0.025">
+            <button class="calc-btn" onclick="calcEarthing()" id="btn-calc">Calculate</button>
+            <div class="result-box" id="er-result">
+                <span id="r1">Earth Resistance: 8.5 Ω</span>
+            </div>
+        </div>
         <div class="code-box">R = (ρ / 2πL) × ln(4L/d)</div>
-        <ul id="list1">
-            <li>ρ = Soil Resistivity (Ω·m)</li>
-            <li>L = Electrode Length (m)</li>
-            <li>d = Electrode Diameter (m)</li>
-            <li>R = Earth Resistance (Ω)</li>
-        </ul>
     </div>
 
     <div class="section">
         <h2 id="s3">Types of Earthing Electrodes</h2>
-        <ul id="list2">
+        <ul id="list1">
             <li>Rod Electrodes</li>
             <li>Plate Electrodes</li>
             <li>Mesh Electrodes</li>
@@ -85,10 +98,12 @@
             desc: 'Calculate earth resistance for different electrode types and soil resistivity.',
             s1: 'What is Earthing Resistance?',
             s1p: 'Earthing resistance is the resistance between an earthing electrode and the earth. A low earthing resistance is essential for safety, equipment protection, and lightning protection.',
-            s2: 'Key Formula',
-            list1: ['ρ = Soil Resistivity (Ω·m)', 'L = Electrode Length (m)', 'd = Electrode Diameter (m)', 'R = Earth Resistance (Ω)'],
+            s2: '🧮 Earthing Resistance Calculator',
+            l1: 'Soil Resistivity (Ω·m)', l2: 'Electrode Length (m)', l3: 'Electrode Diameter (m)',
+            btn: 'Calculate',
+            r1: 'Earth Resistance: 8.5 Ω',
             s3: 'Types of Earthing Electrodes',
-            list2: ['Rod Electrodes', 'Plate Electrodes', 'Mesh Electrodes', 'Chemical Electrodes'],
+            list1: ['Rod Electrodes', 'Plate Electrodes', 'Mesh Electrodes', 'Chemical Electrodes'],
             back: '← Back'
         },
         fa: {
@@ -96,10 +111,12 @@
             desc: 'محاسبه مقاومت زمین برای انواع الکترود و مقاومت ویژه خاک.',
             s1: 'مقاومت ارتینگ چیست؟',
             s1p: 'مقاومت ارتینگ مقاومت بین یک الکترود زمین و زمین است. مقاومت کم ارتینگ برای ایمنی، حفاظت تجهیزات و حفاظت در برابر صاعقه ضروری است.',
-            s2: 'فرمول کلیدی',
-            list1: ['ρ = مقاومت ویژه خاک (Ω·m)', 'L = طول الکترود (m)', 'd = قطر الکترود (m)', 'R = مقاومت زمین (Ω)'],
+            s2: '🧮 ماشین حساب مقاومت ارتینگ',
+            l1: 'مقاومت ویژه خاک (Ω·m)', l2: 'طول الکترود (m)', l3: 'قطر الکترود (m)',
+            btn: 'محاسبه',
+            r1: 'مقاومت ارتینگ: 8.5 اهم',
             s3: 'انواع الکترودهای ارتینگ',
-            list2: ['الکترود میله‌ای', 'الکترود صفحه‌ای', 'الکترود مش', 'الکترود شیمیایی'],
+            list1: ['الکترود میله‌ای', 'الکترود صفحه‌ای', 'الکترود مش', 'الکترود شیمیایی'],
             back: '← بازگشت'
         }
     };
@@ -112,28 +129,43 @@
         document.getElementById('s1').textContent = t.s1;
         document.getElementById('s1p').textContent = t.s1p;
         document.getElementById('s2').textContent = t.s2;
+        document.getElementById('l1').textContent = t.l1;
+        document.getElementById('l2').textContent = t.l2;
+        document.getElementById('l3').textContent = t.l3;
+        document.getElementById('btn-calc').textContent = t.btn;
+        document.getElementById('r1').textContent = t.r1;
         document.getElementById('s3').textContent = t.s3;
         document.getElementById('backlink').textContent = t.back;
 
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+        const ul = document.getElementById('list1');
+        ul.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
 
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
         document.body.classList.toggle('lang-persian', l === 'fa');
         localStorage.setItem('karatech-lang', l);
     }
 
+    function calcEarthing() {
+        var rho = parseFloat(document.getElementById('er-rho').value);
+        var L = parseFloat(document.getElementById('er-length').value);
+        var d = parseFloat(document.getElementById('er-diam').value);
+        var R = (rho / (2 * Math.PI * L)) * Math.log(4 * L / d);
+        var lang = document.querySelector('.lang-btn.active').dataset.lang;
+        document.getElementById('er-result').innerHTML = 
+            '<span id="r1">' + (lang === 'fa' ? 'مقاومت ارتینگ: ' + R.toFixed(2) + ' اهم' : 'Earth Resistance: ' + R.toFixed(2) + ' Ω') + '</span>';
+    }
+
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
+        btn.onclick = function() { 
+            setLang(this.dataset.lang); 
+            calcEarthing();
+        };
     });
 
     const savedLang = localStorage.getItem('karatech-lang') || 'en';
     setLang(savedLang);
+    calcEarthing();
 </script>
 
 </body>
