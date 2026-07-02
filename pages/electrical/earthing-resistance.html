@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Earthing Resistance</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}
+        .brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}
+        .brand span{color:var(--accent)}
+        .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}
+        .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
+        .lang-btn:hover{background:var(--primary);color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        .page-container{max-width:1100px;margin:0 auto;padding:20px}
+        .page-header{background:#1e2128;padding:30px 40px;border-radius:20px;margin-bottom:30px;border-left:5px solid var(--accent)}
+        .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
+        .page-header h1 i{color:var(--accent)}
+        .page-header p{color:#b0b8c5;margin-top:10px;font-size:1.05rem;line-height:1.7}
+        .section-box{background:#1e2128;padding:24px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.06)}
+        .section-box h2{color:#d4af37;font-size:1.4rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+        .section-box h2 i{color:var(--accent)}
+        .section-box p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section-box ul{list-style:none;padding:0}
+        .section-box ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section-box ul li i{color:var(--accent);font-size:.7rem}
+        .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:'Courier New',monospace;font-size:.85rem;color:#b0b8c5;margin:10px 0;border-left:3px solid var(--accent)}
+        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;margin:12px 0;border:1px solid rgba(212,175,55,0.1)}
+        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
+        .calc-box label{color:#b0b8c5;font-size:.85rem;display:block;margin-top:8px}
+        .calc-btn{background:var(--accent);color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
+        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
+        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid var(--accent);margin-top:10px;text-align:center}
+        .result-box span{color:var(--accent);font-weight:700;font-size:1.1rem}
+        .back-link{margin-top:30px;text-align:center}
+        .back-link a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s}
+        .back-link a:hover{transform:translateX(-5px)}
+        .lang-persian{direction:rtl}
+        .lang-persian .page-header h1{justify-content:flex-end}
+        .lang-persian .section-box ul li{flex-direction:row-reverse}
+        .lang-persian .back-link a{flex-direction:row-reverse}
+        @media(max-width:768px){.page-header h1{font-size:1.8rem}}
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="brand">KARATECH <span>ELV</span></div>
+    <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fa">FA</button>
+    </div>
+</header>
+<div class="page-container">
+    <div class="page-header">
+        <h1><i class="fas fa-bolt"></i> <span data-en="Earthing Resistance" data-fa="مقاومت ارتینگ">Earthing Resistance</span></h1>
+        <p data-en="Calculate earth resistance for different electrode types and soil resistivity. Essential for safety and equipment protection." data-fa="محاسبه مقاومت زمین برای انواع الکترود و مقاومت ویژه خاک. ضروری برای ایمنی و حفاظت تجهیزات.">Calculate earth resistance for different electrode types and soil resistivity. Essential for safety and equipment protection.</p>
+    </div>
+
+    <div class="section-box">
+        <h2><i class="fas fa-info-circle"></i> <span data-en="What is Earthing Resistance?" data-fa="مقاومت ارتینگ چیست؟">What is Earthing Resistance?</span></h2>
+        <p data-en="Earthing resistance is the resistance between an earthing electrode and the earth. A low earthing resistance is essential for safety, equipment protection, and lightning protection." data-fa="مقاومت ارتینگ مقاومت بین یک الکترود زمین و زمین است. مقاومت کم ارتینگ برای ایمنی، حفاظت تجهیزات و حفاظت در برابر صاعقه ضروری است.">Earthing resistance is the resistance between an earthing electrode and the earth. A low earthing resistance is essential for safety, equipment protection, and lightning protection.</p>
+        <p data-en="The maximum allowable earthing resistance depends on the application and standards. Typically, it should be less than 5 ohms for industrial systems and less than 1 ohm for sensitive equipment." data-fa="حداکثر مقاومت مجاز ارتینگ به کاربرد و استانداردها بستگی دارد. به طور معمول، برای سیستم‌های صنعتی باید کمتر از ۵ اهم و برای تجهیزات حساس کمتر از ۱ اهم باشد.">The maximum allowable earthing resistance depends on the application and standards. Typically, it should be less than 5 ohms for industrial systems and less than 1 ohm for sensitive equipment.</p>
+    </div>
+
+    <div class="section-box">
+        <h2><i class="fas fa-calculator"></i> <span data-en="Earthing Resistance Calculator" data-fa="ماشین حساب مقاومت ارتینگ">Earthing Resistance Calculator</span></h2>
+        <div class="calc-box">
+            <label data-en="Soil Resistivity (Ω·m)" data-fa="مقاومت ویژه خاک (Ω·m)">Soil Resistivity (Ω·m)</label>
+            <input type="number" id="er-rho" value="100">
+            <label data-en="Electrode Length (m)" data-fa="طول الکترود (متر)">Electrode Length (m)</label>
+            <input type="number" id="er-length" value="3">
+            <label data-en="Electrode Diameter (m)" data-fa="قطر الکترود (متر)">Electrode Diameter (m)</label>
+            <input type="number" id="er-diam" value="0.025">
+            <button class="calc-btn" onclick="calcEarthing()" data-en="Calculate" data-fa="محاسبه">Calculate</button>
+            <div class="result-box" id="er-result">
+                <span data-en="Earth Resistance: 8.5 Ω" data-fa="مقاومت زمین: 8.5 اهم">Earth Resistance: 8.5 Ω</span>
+            </div>
+        </div>
+        <div class="code-box">📌 <span data-en="Formula: R = (ρ / 2πL) × ln(4L/d)" data-fa="فرمول: R = (ρ / 2πL) × ln(4L/d)">Formula: R = (ρ / 2πL) × ln(4L/d)</span></div>
+    </div>
+
+    <div class="section-box">
+        <h2><i class="fas fa-list"></i> <span data-en="Types of Earthing Electrodes" data-fa="انواع الکترودهای ارتینگ">Types of Earthing Electrodes</span></h2>
+        <ul>
+            <li><i class="fas fa-circle"></i> <span data-en="Rod Electrodes" data-fa="الکترودهای میله‌ای">Rod Electrodes</span></li>
+            <li><i class="fas fa-circle"></i> <span data-en="Plate Electrodes" data-fa="الکترودهای صفحه‌ای">Plate Electrodes</span></li>
+            <li><i class="fas fa-circle"></i> <span data-en="Mesh Electrodes" data-fa="الکترودهای مش">Mesh Electrodes</span></li>
+            <li><i class="fas fa-circle"></i> <span data-en="Chemical Electrodes" data-fa="الکترودهای شیمیایی">Chemical Electrodes</span></li>
+        </ul>
+    </div>
+
+    <div class="section-box">
+        <h2><i class="fas fa-book"></i> <span data-en="Standards & References" data-fa="استانداردها و مراجع">Standards & References</span></h2>
+        <ul>
+            <li><i class="fas fa-file-pdf"></i> <span data-en="IEEE 80 - Earthing Systems" data-fa="IEEE 80 - سیستم‌های ارتینگ">IEEE 80 - Earthing Systems</span></li>
+            <li><i class="fas fa-file-pdf"></i> <span data-en="IEC 62305 - Lightning Protection" data-fa="IEC 62305 - حفاظت در برابر صاعقه">IEC 62305 - Lightning Protection</span></li>
+        </ul>
+    </div>
+
+    <div class="back-link">
+        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
+    </div>
+</div>
+<script>
+    function calcEarthing() {
+        var rho = parseFloat(document.getElementById('er-rho').value);
+        var L = parseFloat(document.getElementById('er-length').value);
+        var d = parseFloat(document.getElementById('er-diam').value);
+        var R = (rho / (2 * Math.PI * L)) * Math.log(4 * L / d);
+        document.getElementById('er-result').innerHTML = 
+            '<span data-en="Earth Resistance: ' + R.toFixed(2) + ' Ω" data-fa="مقاومت زمین: ' + R.toFixed(2) + ' اهم">Earth Resistance: ' + R.toFixed(2) + ' Ω</span>';
+    }
+
+    (function() {
+        var langBtns = document.querySelectorAll('.lang-btn');
+        var currentLang = localStorage.getItem('karatech-lang') || 'en';
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-en]').forEach(function(el) {
+                var txt = el.dataset[lang];
+                if (txt) {
+                    var nodes = el.childNodes;
+                    for (var i = 0; i < nodes.length; i++) {
+                        if (nodes[i].nodeType === 3) {
+                            nodes[i].textContent = txt;
+                            break;
+                        }
+                    }
+                }
+            });
+            document.body.classList.toggle('lang-persian', lang === 'fa');
+            localStorage.setItem('karatech-lang', lang);
+            langBtns.forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+        setLanguage(currentLang);
+        langBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                setLanguage(this.dataset.lang);
+            });
+        });
+    })();
+</script>
+</body>
+</html>
