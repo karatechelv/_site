@@ -47,13 +47,13 @@
     </div>
 
     <div class="back">
-        <a href="../../index.html" id="backlink" onclick="localStorage.setItem('dashboardActive', 'true')">← Back to Dashboard</a>
+        <!-- ===== دکمه برگشت به صفحه قبلی (electrical.html) ===== -->
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
 
 </div>
 
 <script>
-    // ===== دیکشنری =====
     const lang = {
         en: {
             title: '📘 Overview of Electrical Engineering',
@@ -62,7 +62,7 @@
             s1p: 'Electrical engineering is a professional engineering discipline that deals with the study and application of electricity, electronics, and electromagnetism.',
             s2: 'Key Areas',
             list: ['Power Generation & Transmission', 'Control Systems & Automation', 'Electronics & Signal Processing'],
-            back: '← Back to Dashboard'
+            back: '← Back'
         },
         fa: {
             title: '📘 مرور کلی مهندسی برق',
@@ -71,7 +71,7 @@
             s1p: 'مهندسی برق یک رشته مهندسی حرفه‌ای است که به مطالعه و کاربرد برق، الکترونیک و الکترومغناطیس می‌پردازد.',
             s2: 'حوزه‌های کلیدی',
             list: ['تولید و انتقال برق', 'سیستم‌های کنترل و اتوماسیون', 'الکترونیک و پردازش سیگنال'],
-            back: '← بازگشت به داشبورد'
+            back: '← بازگشت'
         }
     };
 
@@ -97,15 +97,12 @@
         localStorage.setItem('karatech-lang', l);
     }
 
-    // ===== رویداد کلیک دکمه‌ها =====
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.onclick = function() {
             setLang(this.dataset.lang);
         };
     });
 
-    // ===== بارگذاری زبان از localStorage =====
-    // اول از localStorage میخونه، اگر نبود از پیش‌فرض 'en' استفاده میکنه
     const savedLang = localStorage.getItem('karatech-lang') || 'en';
     setLang(savedLang);
 </script>
