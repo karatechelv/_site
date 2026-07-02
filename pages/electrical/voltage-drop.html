@@ -1,112 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Voltage Drop</title>
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Karatech ELV · افت ولتاژ</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}
-        .brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}
-        .brand span{color:var(--accent)}
-        .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}
-        .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
-        .lang-btn:hover{background:var(--primary);color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        .page-container{max-width:1100px;margin:0 auto;padding:20px}
-        .page-header{background:#1e2128;padding:30px 40px;border-radius:20px;margin-bottom:30px;border-left:5px solid var(--accent)}
-        .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
-        .page-header h1 i{color:var(--accent)}
-        .page-header p{color:#b0b8c5;margin-top:10px;font-size:1.05rem;line-height:1.7}
-        .section-box{background:#1e2128;padding:24px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.06)}
-        .section-box h2{color:#d4af37;font-size:1.4rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
-        .section-box h2 i{color:var(--accent)}
-        .section-box p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section-box ul{list-style:none;padding:0}
-        .section-box ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section-box ul li i{color:var(--accent);font-size:.7rem}
-        .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:'Courier New',monospace;font-size:.85rem;color:#b0b8c5;margin:10px 0;border-left:3px solid var(--accent)}
-        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;margin:12px 0;border:1px solid rgba(212,175,55,0.1)}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        h1{color:#d4af37;font-size:2.5rem;margin-bottom:15px;display:flex;align-items:center;gap:12px}
+        .sub{color:#8e95a5;font-size:1.05rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.4rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:monospace;font-size:.9rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:15px 0}
+        .calc-box{background:#0d0e12;padding:20px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
         .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
-        .calc-box label{color:#b0b8c5;font-size:.85rem;display:block;margin-top:8px}
-        .calc-btn{background:var(--accent);color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
+        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
+        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
         .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
-        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid var(--accent);margin-top:10px;text-align:center}
-        .result-box span{color:var(--accent);font-weight:700;font-size:1.1rem}
-        .back-link{margin-top:30px;text-align:center}
-        .back-link a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s}
-        .back-link a:hover{transform:translateX(-5px)}
-        .lang-persian{direction:rtl}
-        .lang-persian .page-header h1{justify-content:flex-end}
-        .lang-persian .section-box ul li{flex-direction:row-reverse}
-        .lang-persian .back-link a{flex-direction:row-reverse}
-        @media(max-width:768px){.page-header h1{font-size:1.8rem}}
+        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
+        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
+        .back{text-align:center;margin-top:35px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem}
+        .back a:hover{text-decoration:underline}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;gap:12px}}
     </style>
 </head>
 <body>
-<header class="header">
-    <div class="brand">KARATECH <span>ELV</span></div>
-    <div class="lang-switch">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="fa">FA</button>
-    </div>
-</header>
-<div class="page-container">
-    <div class="page-header">
-        <h1><i class="fas fa-bolt"></i> <span data-en="Voltage Drop Calculator" data-fa="محاسبه‌گر افت ولتاژ">Voltage Drop Calculator</span></h1>
-        <p data-en="Calculate voltage drop in electrical circuits based on cable length, current, and conductor size. Essential for cable sizing and system design." data-fa="محاسبه افت ولتاژ در مدارهای الکتریکی بر اساس طول کابل، جریان و سطح مقطع هادی. برای سایزینگ کابل و طراحی سیستم ضروری است.">Calculate voltage drop in electrical circuits based on cable length, current, and conductor size. Essential for cable sizing and system design.</p>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
     </div>
 
-    <div class="section-box">
-        <h2><i class="fas fa-info-circle"></i> <span data-en="What is Voltage Drop?" data-fa="افت ولتاژ چیست؟">What is Voltage Drop?</span></h2>
-        <p data-en="Voltage drop is the reduction in voltage in an electrical circuit between the source and the load. It occurs due to the resistance of the conductors and is influenced by the cable length, cross-sectional area, and the amount of current flowing." data-fa="افت ولتاژ کاهش ولتاژ در یک مدار الکتریکی بین منبع و بار است. به دلیل مقاومت هادی‌ها رخ می‌دهد و تحت تأثیر طول کابل، سطح مقطع و مقدار جریان عبوری است.">Voltage drop is the reduction in voltage in an electrical circuit between the source and the load. It occurs due to the resistance of the conductors and is influenced by the cable length, cross-sectional area, and the amount of current flowing.</p>
-        <p data-en="Excessive voltage drop can cause equipment malfunction, reduced efficiency, and overheating of cables. Therefore, it is important to keep voltage drop within acceptable limits (typically less than 3-5% of the nominal voltage)." data-fa="افت ولتاژ بیش از حد می‌تواند باعث خرابی تجهیزات، کاهش بازده و گرم شدن بیش از حد کابل‌ها شود. بنابراین، مهم است که افت ولتاژ در محدوده قابل قبول (معمولاً کمتر از ۳-۵٪ ولتاژ نامی) نگه داشته شود.">Excessive voltage drop can cause equipment malfunction, reduced efficiency, and overheating of cables. Therefore, it is important to keep voltage drop within acceptable limits (typically less than 3-5% of the nominal voltage).</p>
+    <h1>⚡ محاسبه‌گر افت ولتاژ</h1>
+    <div class="sub">
+        افت ولتاژ کاهش ولتاژ در یک مدار الکتریکی بین منبع و بار است. این پدیده به دلیل مقاومت هادی‌ها رخ می‌دهد و تحت تأثیر طول کابل، سطح مقطع و مقدار جریان عبوری است.
     </div>
 
-    <div class="section-box">
-        <h2><i class="fas fa-calculator"></i> <span data-en="Voltage Drop Calculator" data-fa="ماشین حساب افت ولتاژ">Voltage Drop Calculator</span></h2>
+    <div class="section">
+        <h2>📌 فرمول محاسبه افت ولتاژ</h2>
+        <div class="code-box">Vd = (2 × ρ × L × I) / A</div>
+        <ul>
+            <li><strong>ρ:</strong> مقاومت ویژه هادی (برای مس = 0.0178 Ω·mm²/m)</li>
+            <li><strong>L:</strong> طول کابل (متر)</li>
+            <li><strong>I:</strong> جریان (آمپر)</li>
+            <li><strong>A:</strong> سطح مقطع هادی (mm²)</li>
+        </ul>
+        <p style="margin-top:12px;color:#8e95a5;">افت ولتاژ معمولاً نباید از ۳ تا ۵ درصد ولتاژ نامی تجاوز کند.</p>
+    </div>
+
+    <div class="section">
+        <h2>🧮 ماشین حساب افت ولتاژ</h2>
         <div class="calc-box">
-            <label data-en="Current (A)" data-fa="جریان (آمپر)">Current (A)</label>
+            <label>جریان (آمپر)</label>
             <input type="number" id="vd-current" value="50">
-            <label data-en="Cable Length (m)" data-fa="طول کابل (متر)">Cable Length (m)</label>
+            <label>طول کابل (متر)</label>
             <input type="number" id="vd-length" value="100">
-            <label data-en="Conductor Size (mm²)" data-fa="سطح مقطع هادی (mm²)">Conductor Size (mm²)</label>
+            <label>سطح مقطع هادی (mm²)</label>
             <input type="number" id="vd-size" value="25">
-            <button class="calc-btn" onclick="calcVoltageDrop()" data-en="Calculate" data-fa="محاسبه">Calculate</button>
+            <button class="calc-btn" onclick="calcVoltageDrop()">محاسبه</button>
             <div class="result-box" id="vd-result">
-                <span data-en="Voltage Drop: 5.2 V" data-fa="افت ولتاژ: 5.2 ولت">Voltage Drop: 5.2 V</span><br>
-                <span style="font-size:0.9rem;color:#b0b8c5;" data-en="Percentage: 2.3%" data-fa="درصد: 2.3%">Percentage: 2.3%</span>
+                <span>افت ولتاژ: 5.2 ولت</span><br>
+                <span style="font-size:0.9rem;color:#8e95a5;">درصد: 2.3%</span>
             </div>
         </div>
-        <div class="code-box">📌 <span data-en="Formula: Vd = (2 × ρ × L × I) / A" data-fa="فرمول: Vd = (2 × ρ × L × I) / A">Formula: Vd = (2 × ρ × L × I) / A</span></div>
     </div>
 
-    <div class="section-box">
-        <h2><i class="fas fa-list"></i> <span data-en="Key Factors Affecting Voltage Drop" data-fa="عوامل کلیدی مؤثر بر افت ولتاژ">Key Factors Affecting Voltage Drop</span></h2>
+    <div class="section">
+        <h2>📖 نکات کلیدی</h2>
         <ul>
-            <li><i class="fas fa-circle"></i> <span data-en="Conductor Material: Copper vs. Aluminum" data-fa="جنس هادی: مس در مقابل آلومینیوم">Conductor Material: Copper vs. Aluminum</span></li>
-            <li><i class="fas fa-circle"></i> <span data-en="Cable Length: Longer cables have higher voltage drop" data-fa="طول کابل: کابل‌های بلندتر افت ولتاژ بیشتری دارند">Cable Length: Longer cables have higher voltage drop</span></li>
-            <li><i class="fas fa-circle"></i> <span data-en="Cross-Sectional Area: Larger area reduces voltage drop" data-fa="سطح مقطع: سطح مقطع بزرگتر افت ولتاژ را کاهش می‌دهد">Cross-Sectional Area: Larger area reduces voltage drop</span></li>
-            <li><i class="fas fa-circle"></i> <span data-en="Current Load: Higher current increases voltage drop" data-fa="بار جریان: جریان بالاتر افت ولتاژ را افزایش می‌دهد">Current Load: Higher current increases voltage drop</span></li>
+            <li>استفاده از کابل با سطح مقطع بزرگتر، افت ولتاژ را کاهش می‌دهد</li>
+            <li>کابل‌های مسی نسبت به آلومینیومی مقاومت کمتری دارند</li>
+            <li>افزایش طول کابل، افت ولتاژ را افزایش می‌دهد</li>
+            <li>استانداردهای IEC 60364 و NEC برای محاسبه افت ولتاژ مرجع هستند</li>
         </ul>
     </div>
 
-    <div class="section-box">
-        <h2><i class="fas fa-book"></i> <span data-en="Standards & References" data-fa="استانداردها و مراجع">Standards & References</span></h2>
-        <ul>
-            <li><i class="fas fa-file-pdf"></i> <span data-en="IEC 60364 - Electrical Installations" data-fa="IEC 60364 - تاسیسات الکتریکی">IEC 60364 - Electrical Installations</span></li>
-            <li><i class="fas fa-file-pdf"></i> <span data-en="NEC (National Electrical Code) - Article 310" data-fa="NEC (کد ملی برق) - مقاله ۳۱۰">NEC (National Electrical Code) - Article 310</span></li>
-            <li><i class="fas fa-file-pdf"></i> <span data-en="IEEE 141 - Electric Power Distribution" data-fa="IEEE 141 - توزیع برق">IEEE 141 - Electric Power Distribution</span></li>
-        </ul>
+    <div class="back">
+        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')">← بازگشت به داشبورد</a>
     </div>
 
-    <div class="back-link">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
-    </div>
 </div>
 <script>
     function calcVoltageDrop() {
@@ -117,39 +98,9 @@
         var Vd = (2 * rho * L * I) / A;
         var VdPercent = (Vd / 230) * 100;
         document.getElementById('vd-result').innerHTML = 
-            '<span data-en="Voltage Drop: ' + Vd.toFixed(2) + ' V" data-fa="افت ولتاژ: ' + Vd.toFixed(2) + ' ولت">Voltage Drop: ' + Vd.toFixed(2) + ' V</span><br>' +
-            '<span style="font-size:0.9rem;color:#b0b8c5;" data-en="Percentage: ' + VdPercent.toFixed(2) + '%" data-fa="درصد: ' + VdPercent.toFixed(2) + '%">Percentage: ' + VdPercent.toFixed(2) + '%</span>';
+            '<span>افت ولتاژ: ' + Vd.toFixed(2) + ' ولت</span><br>' +
+            '<span style="font-size:0.9rem;color:#8e95a5;">درصد: ' + VdPercent.toFixed(2) + '%</span>';
     }
-
-    (function() {
-        var langBtns = document.querySelectorAll('.lang-btn');
-        var currentLang = localStorage.getItem('karatech-lang') || 'en';
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-en]').forEach(function(el) {
-                var txt = el.dataset[lang];
-                if (txt) {
-                    var nodes = el.childNodes;
-                    for (var i = 0; i < nodes.length; i++) {
-                        if (nodes[i].nodeType === 3) {
-                            nodes[i].textContent = txt;
-                            break;
-                        }
-                    }
-                }
-            });
-            document.body.classList.toggle('lang-persian', lang === 'fa');
-            localStorage.setItem('karatech-lang', lang);
-            langBtns.forEach(function(btn) {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
-        }
-        setLanguage(currentLang);
-        langBtns.forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                setLanguage(this.dataset.lang);
-            });
-        });
-    })();
 </script>
 </body>
 </html>
