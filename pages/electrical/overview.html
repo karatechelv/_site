@@ -8,9 +8,13 @@
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
         .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
         .brand{font-weight:700;font-size:1.5rem;color:#fff}
         .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
         h1{color:#d4af37;font-size:2.5rem;margin-bottom:15px;display:flex;align-items:center;gap:12px}
         .sub{color:#8e95a5;font-size:1.05rem;line-height:1.8;margin-bottom:25px}
         .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
@@ -23,7 +27,9 @@
         .back{text-align:center;margin-top:35px}
         .back a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem}
         .back a:hover{text-decoration:underline}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;gap:12px}}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
@@ -31,61 +37,78 @@
 
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
     </div>
 
-    <h1>📘 مرور کلی مهندسی برق</h1>
-    <div class="sub">
-        مهندسی برق یکی از گسترده‌ترین و حیاتی‌ترین رشته‌های مهندسی است. این رشته به مطالعه و کاربرد 
-        الکتریسیته، الکترونیک و الکترومغناطیس می‌پردازد و نقش کلیدی در توسعه زیرساخت‌های مدرن دارد.
+    <h1><span data-en="📘 Overview of Electrical Engineering" data-fa="📘 مرور کلی مهندسی برق">📘 مرور کلی مهندسی برق</span></h1>
+    <div class="sub" data-en="A comprehensive overview of electrical engineering, covering key concepts, applications, and career paths." data-fa="مرور جامع مهندسی برق، شامل مفاهیم کلیدی، کاربردها و مسیرهای شغلی.">مرور جامع مهندسی برق، شامل مفاهیم کلیدی، کاربردها و مسیرهای شغلی.</div>
+
+    <div class="section">
+        <h2><span data-en="🔹 What is Electrical Engineering?" data-fa="🔹 مهندسی برق چیست؟">🔹 مهندسی برق چیست؟</span></h2>
+        <p data-en="Electrical engineering is a professional engineering discipline that deals with the study and application of electricity, electronics, and electromagnetism. It covers a wide range of subfields including power, control systems, telecommunications, and signal processing." data-fa="مهندسی برق یک رشته مهندسی حرفه‌ای است که به مطالعه و کاربرد برق، الکترونیک و الکترومغناطیس می‌پردازد. طیف وسیعی از زیرشاخه‌ها از جمله قدرت، سیستم‌های کنترل، مخابرات و پردازش سیگنال را پوشش می‌دهد.">مهندسی برق یک رشته مهندسی حرفه‌ای است که به مطالعه و کاربرد برق، الکترونیک و الکترومغناطیس می‌پردازد.</p>
     </div>
 
     <div class="section">
-        <h2>🔹 حوزه‌های اصلی مهندسی برق</h2>
+        <h2><span data-en="🔹 Key Areas" data-fa="🔹 حوزه‌های کلیدی">🔹 حوزه‌های کلیدی</span></h2>
         <ul>
-            <li><strong>سیستم‌های قدرت:</strong> تولید، انتقال، توزیع و حفاظت از انرژی الکتریکی</li>
-            <li><strong>سیستم‌های کنترل:</strong> اتوماسیون صنعتی، رباتیک و کنترل فرآیندها</li>
-            <li><strong>الکترونیک:</strong> مدارهای آنالوگ و دیجیتال، مخابرات و پردازش سیگنال</li>
-            <li><strong>انرژی‌های تجدیدپذیر:</strong> خورشیدی، بادی، آبی و ذخیره‌سازی انرژی</li>
-            <li><strong>ماشین‌های الکتریکی:</strong> موتورها، ژنراتورها و ترانسفورماتورها</li>
+            <li><span data-en="Power Generation & Transmission" data-fa="تولید و انتقال برق">تولید و انتقال برق</span></li>
+            <li><span data-en="Control Systems & Automation" data-fa="سیستم‌های کنترل و اتوماسیون">سیستم‌های کنترل و اتوماسیون</span></li>
+            <li><span data-en="Electronics & Signal Processing" data-fa="الکترونیک و پردازش سیگنال">الکترونیک و پردازش سیگنال</span></li>
+            <li><span data-en="Renewable Energy" data-fa="انرژی تجدیدپذیر">انرژی تجدیدپذیر</span></li>
+            <li><span data-en="Telecommunications" data-fa="مخابرات">مخابرات</span></li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>🔹 استانداردهای کلیدی</h2>
+        <h2><span data-en="🔹 Key Standards" data-fa="🔹 استانداردهای کلیدی">🔹 استانداردهای کلیدی</span></h2>
         <ul>
-            <li>IEC 60364 – تاسیسات الکتریکی</li>
-            <li>IEC 61439 – تابلوهای برق</li>
-            <li>IEC 60947 – تجهیزات فشار ضعیف</li>
-            <li>NEC – کد ملی برق (آمریکا)</li>
-            <li>IEEE 80 – سیستم‌های ارتینگ</li>
-        </ul>
-        <div class="code-box">📌 این استانداردها برای طراحی، اجرا و بهره‌برداری ایمن از تاسیسات برق ضروری هستند.</div>
-    </div>
-
-    <div class="section">
-        <h2>🔹 نرم‌افزارهای پرکاربرد</h2>
-        <ul>
-            <li>EPLAN – طراحی و مستندسازی پروژه‌های برق</li>
-            <li>AutoCAD Electrical – نقشه‌کشی و شماتیک</li>
-            <li>ETAP – تحلیل سیستم‌های قدرت</li>
-            <li>DIALux – طراحی روشنایی</li>
-            <li>SEE Electrical – طراحی تابلوهای برق</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>🔹 مسیر یادگیری</h2>
-        <ul>
-            <li><strong>مقدماتی:</strong> تئوری پایه برق، مدارهای DC و AC</li>
-            <li><strong>متوسط:</strong> سیستم‌های قدرت، ماشین‌های الکتریکی، حفاظت</li>
-            <li><strong>پیشرفته:</strong> تحلیل سیستم‌های قدرت، ETAP، طراحی پست‌ها</li>
+            <li><span data-en="IEC 60364 – Electrical Installations" data-fa="IEC 60364 – تاسیسات الکتریکی">IEC 60364 – تاسیسات الکتریکی</span></li>
+            <li><span data-en="IEC 61439 – Switchgear" data-fa="IEC 61439 – تابلوهای برق">IEC 61439 – تابلوهای برق</span></li>
+            <li><span data-en="IEEE 80 – Earthing Systems" data-fa="IEEE 80 – سیستم‌های ارتینگ">IEEE 80 – سیستم‌های ارتینگ</span></li>
         </ul>
     </div>
 
     <div class="back">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')">← بازگشت به داشبورد</a>
+        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><span data-en="← Back to Dashboard" data-fa="← بازگشت به داشبورد">← بازگشت به داشبورد</span></a>
     </div>
 
 </div>
+<script>
+    (function() {
+        const langBtns = document.querySelectorAll('.lang-btn');
+        let currentLang = localStorage.getItem('karatech-lang') || 'en';
+        
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const txt = el.dataset[lang];
+                if (txt) {
+                    const nodes = el.childNodes;
+                    for (let n of nodes) {
+                        if (n.nodeType === 3) {
+                            n.textContent = txt;
+                            break;
+                        }
+                    }
+                }
+            });
+            document.body.classList.toggle('lang-persian', lang === 'fa');
+            localStorage.setItem('karatech-lang', lang);
+            langBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+        
+        setLanguage(currentLang);
+        
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                setLanguage(this.dataset.lang);
+            });
+        });
+    })();
+</script>
 </body>
 </html>
