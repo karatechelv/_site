@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · هماهنگی حفاظت</title>
+    <title>Karatech ELV · Protection Coordination</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
         .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
         .brand{font-weight:700;font-size:1.5rem;color:#fff}
         .brand span{color:#d4af37}
-        h1{color:#d4af37;font-size:2.5rem;margin-bottom:15px;display:flex;align-items:center;gap:12px}
-        .sub{color:#8e95a5;font-size:1.05rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.4rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
         .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
         .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:monospace;font-size:.9rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:15px 0}
-        .back{text-align:center;margin-top:35px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem}
+        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;gap:12px}}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
@@ -31,69 +37,128 @@
 
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
     </div>
 
-    <h1>🛡️ هماهنگی حفاظت</h1>
-    <div class="sub">
-        هماهنگی حفاظت (Protection Coordination) یکی از حیاتی‌ترین مباحث در مهندسی برق است که تضمین می‌کند تجهیزات حفاظتی در زمان وقوع خطا، به درستی عمل کرده و تنها بخش معیوب را از شبکه جدا کنند.
+    <h1 id="title">🛡️ Protection Coordination</h1>
+    <div class="sub" id="desc">A comprehensive guide to protection coordination, including protective devices, relay settings, and time-current curves.</div>
+
+    <div class="section">
+        <h2 id="s1">What is Protection Coordination?</h2>
+        <p id="s1p">Protection coordination ensures that the correct protective devices operate to isolate faults without affecting the rest of the system. It is critical for system reliability and safety.</p>
     </div>
 
     <div class="section">
-        <h2>🔹 دستگاه‌های حفاظتی</h2>
-        <ul>
-            <li><strong>کلیدهای مدار (Circuit Breakers)</strong> – قطع و وصل مدار در شرایط عادی و خطا</li>
-            <li><strong>فیوزها (Fuses)</strong> – حفاظت در برابر اضافه جریان</li>
-            <li><strong>رله‌های حفاظتی</strong> – تشخیص خطا و فرمان به کلیدها</li>
-            <li><strong>رله‌های اضافه جریان</strong> – حفاظت در برابر جریان‌های بالا</li>
-            <li><strong>رله‌های دیفرانسیل</strong> – حفاظت از ترانسفورماتورها و ژنراتورها</li>
-            <li><strong>رله‌های زمین</strong> – حفاظت در برابر خطاهای زمین</li>
+        <h2 id="s2">Protective Devices</h2>
+        <ul id="list1">
+            <li>Circuit Breakers – LV, MV, and HV breakers</li>
+            <li>Fuses – Protection against overcurrent</li>
+            <li>Protective Relays – Overcurrent, earth fault, differential, distance</li>
+            <li>Motor Protection – Thermal overload, short-circuit</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>🔹 منحنی‌های زمان-جریان (TCC)</h2>
-        <p>منحنی‌های زمان-جریان رابطه بین بزرگی جریان خطا و زمان عملکرد تجهیزات حفاظتی را نشان می‌دهند. این منحنی‌ها برای هماهنگی دستگاه‌ها و اطمینان از قطع انتخابی استفاده می‌شوند.</p>
-        <ul>
-            <li>منحنی معکوس (Inverse Time)</li>
-            <li>منحنی زمان معین (Definite Time)</li>
-            <li>منحنی بسیار معکوس (Very Inverse)</li>
-            <li>منحنی فوق‌العاده معکوس (Extremely Inverse)</li>
-        </ul>
-        <div class="code-box">📌 استاندارد: IEC 60255</div>
-    </div>
-
-    <div class="section">
-        <h2>🔹 مراحل مطالعه هماهنگی</h2>
-        <ul>
-            <li>جمع‌آوری اطلاعات سیستم</li>
-            <li>مدل‌سازی شبکه</li>
-            <li>تحلیل اتصال کوتاه</li>
-            <li>انتخاب و تنظیم رله‌ها</li>
-            <li>ترسیم منحنی‌های زمان-جریان</li>
-            <li>بررسی و تأیید هماهنگی</li>
-        </ul>
-        <div class="code-box">📌 نرم‌افزار: ETAP، SKM، EasyPower</div>
-    </div>
-
-    <div class="section">
-        <h2>🔹 استانداردهای مرتبط</h2>
-        <ul>
-            <li><strong>IEC 60947</strong> – تجهیزات فشار ضعیف</li>
-            <li><strong>IEC 60255</strong> – رله‌های اندازه‌گیری و حفاظت</li>
-            <li><strong>IEEE 242</strong> – حفاظت و هماهنگی سیستم‌های قدرت</li>
-            <li><strong>ANSI C37</strong> – کلیدهای مدار و رله‌ها</li>
+        <h2 id="s3">Time-Current Curves</h2>
+        <p id="s3p">Time-current curves show the relationship between the magnitude of the fault current and the operating time of protective devices. They are used to coordinate devices and ensure selective tripping.</p>
+        <ul id="list2">
+            <li>Inverse Time</li>
+            <li>Definite Time</li>
+            <li>Very Inverse</li>
+            <li>Extremely Inverse</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>📌 اهمیت هماهنگی حفاظت</h2>
-        <div class="code-box">هماهنگی صحیح حفاظت از خاموشی‌های گسترده جلوگیری کرده و قابلیت اطمینان شبکه را افزایش می‌دهد. یک سیستم حفاظتی خوب طراحی شده، هزینه‌های تعمیرات و توقفات را به حداقل می‌رساند.</div>
+        <h2 id="s4">Coordination Study Steps</h2>
+        <ul id="list3">
+            <li>Data Collection</li>
+            <li>System Modeling</li>
+            <li>Short-Circuit Analysis</li>
+            <li>Device Selection</li>
+            <li>Relay Settings</li>
+            <li>Coordination Verification</li>
+        </ul>
     </div>
 
     <div class="back">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')">← بازگشت به داشبورد</a>
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
 
 </div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🛡️ Protection Coordination',
+            desc: 'A comprehensive guide to protection coordination, including protective devices, relay settings, and time-current curves.',
+            s1: 'What is Protection Coordination?',
+            s1p: 'Protection coordination ensures that the correct protective devices operate to isolate faults without affecting the rest of the system. It is critical for system reliability and safety.',
+            s2: 'Protective Devices',
+            list1: ['Circuit Breakers – LV, MV, and HV breakers', 'Fuses – Protection against overcurrent', 'Protective Relays – Overcurrent, earth fault, differential, distance', 'Motor Protection – Thermal overload, short-circuit'],
+            s3: 'Time-Current Curves',
+            s3p: 'Time-current curves show the relationship between the magnitude of the fault current and the operating time of protective devices. They are used to coordinate devices and ensure selective tripping.',
+            list2: ['Inverse Time', 'Definite Time', 'Very Inverse', 'Extremely Inverse'],
+            s4: 'Coordination Study Steps',
+            list3: ['Data Collection', 'System Modeling', 'Short-Circuit Analysis', 'Device Selection', 'Relay Settings', 'Coordination Verification'],
+            back: '← Back'
+        },
+        fa: {
+            title: '🛡️ هماهنگی حفاظت',
+            desc: 'راهنمای جامع هماهنگی حفاظت، شامل دستگاه‌های حفاظتی، تنظیمات رله و منحنی‌های زمان-جریان.',
+            s1: 'هماهنگی حفاظت چیست؟',
+            s1p: 'هماهنگی حفاظت تضمین می‌کند که دستگاه‌های حفاظتی صحیح برای جداسازی خطاها بدون تأثیر بر بقیه سیستم عمل می‌کنند. برای قابلیت اطمینان و ایمنی سیستم حیاتی است.',
+            s2: 'دستگاه‌های حفاظتی',
+            list1: ['کلیدهای مدار – کلیدهای LV، MV و HV', 'فیوزها – حفاظت در برابر اضافه جریان', 'رله‌های حفاظتی – اضافه جریان، خطای زمین، دیفرانسیل، فاصله', 'حفاظت موتور – اضافه بار حرارتی، اتصال کوتاه'],
+            s3: 'منحنی‌های زمان-جریان',
+            s3p: 'منحنی‌های زمان-جریان رابطه بین بزرگی جریان خطا و زمان عملکرد دستگاه‌های حفاظتی را نشان می‌دهند. آنها برای هماهنگی دستگاه‌ها و اطمینان از قطع انتخابی استفاده می‌شوند.',
+            list2: ['زمان معکوس', 'زمان معین', 'بسیار معکوس', 'فوق‌العاده معکوس'],
+            s4: 'مراحل مطالعه هماهنگی',
+            list3: ['جمع‌آوری داده', 'مدل‌سازی سیستم', 'تحلیل اتصال کوتاه', 'انتخاب دستگاه', 'تنظیمات رله', 'تأیید هماهنگی'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s3p').textContent = t.s3p;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
 </body>
 </html>
