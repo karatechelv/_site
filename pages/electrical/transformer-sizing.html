@@ -1,36 +1,35 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · سایزینگ ترانسفورماتور</title>
+    <title>Karatech ELV · Transformer Sizing</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
         .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
         .brand{font-weight:700;font-size:1.5rem;color:#fff}
         .brand span{color:#d4af37}
-        h1{color:#d4af37;font-size:2.5rem;margin-bottom:15px;display:flex;align-items:center;gap:12px}
-        .sub{color:#8e95a5;font-size:1.05rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.4rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
         .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
         .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:monospace;font-size:.9rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:15px 0}
-        .calc-box{background:#0d0e12;padding:20px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
-        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
-        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
-        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
-        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
-        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
-        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
-        .back{text-align:center;margin-top:35px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem}
+        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;gap:12px}}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
@@ -38,67 +37,104 @@
 
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
     </div>
 
-    <h1>🔌 سایزینگ ترانسفورماتور</h1>
-    <div class="sub">
-        سایزینگ ترانسفورماتور فرآیند انتخاب ترانسفورماتوری با رتبه kVA مناسب برای تحمل بار مورد انتظار است. این کار شامل محاسبه نیازهای بار، در نظر گرفتن توسعه آینده، بازده و تنظیم ولتاژ می‌شود.
+    <h1 id="title">🔌 Transformer Sizing</h1>
+    <div class="sub" id="desc">Calculate transformer sizing, voltage regulation, and full-load currents for primary and secondary windings.</div>
+
+    <div class="section">
+        <h2 id="s1">What is Transformer Sizing?</h2>
+        <p id="s1p">Transformer sizing is the process of selecting a transformer with the appropriate kVA rating to handle the expected load. It involves calculating the load requirements, considering factors such as future expansion, efficiency, and voltage regulation.</p>
     </div>
 
     <div class="section">
-        <h2>📌 فرمول محاسبه جریان ترانسفورماتور</h2>
+        <h2 id="s2">Key Formula</h2>
         <div class="code-box">I = S / (√3 × V)</div>
-        <ul>
-            <li><strong>S:</strong> توان ترانسفورماتور (kVA)</li>
-            <li><strong>V:</strong> ولتاژ (ولت)</li>
-            <li><strong>I:</strong> جریان (آمپر)</li>
+        <ul id="list1">
+            <li>S = Transformer Rating (kVA)</li>
+            <li>V = Voltage (V)</li>
+            <li>I = Current (A)</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>🧮 ماشین حساب ترانسفورماتور</h2>
-        <div class="calc-box">
-            <label>رتبه ترانسفورماتور (kVA)</label>
-            <input type="number" id="tx-kva" value="100">
-            <label>ولتاژ اولیه (V)</label>
-            <input type="number" id="tx-primary" value="11000">
-            <label>ولتاژ ثانویه (V)</label>
-            <input type="number" id="tx-secondary" value="400">
-            <button class="calc-btn" onclick="calcTransformer()">محاسبه</button>
-            <div class="result-box" id="tx-result">
-                <span>جریان اولیه: 5.25 آمپر</span><br>
-                <span style="font-size:0.9rem;color:#8e95a5;">جریان ثانویه: 144.3 آمپر</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>📖 عوامل کلیدی در انتخاب ترانسفورماتور</h2>
-        <ul>
-            <li>نیازهای بار فعلی و آینده</li>
-            <li>بازده و تلفات ترانسفورماتور</li>
-            <li>تنظیم ولتاژ در شرایط مختلف</li>
-            <li>روش خنک‌کاری (ONAN، ONAF، OFAF)</li>
-            <li>استانداردهای IEC 60076</li>
+        <h2 id="s3">Key Factors in Transformer Selection</h2>
+        <ul id="list2">
+            <li>Load Requirements</li>
+            <li>Efficiency and Losses</li>
+            <li>Voltage Regulation</li>
+            <li>Cooling Method (ONAN, ONAF, etc.)</li>
+            <li>Future Expansion</li>
         </ul>
     </div>
 
     <div class="back">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')">← بازگشت به داشبورد</a>
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
 
 </div>
+
 <script>
-    function calcTransformer() {
-        var kVA = parseFloat(document.getElementById('tx-kva').value);
-        var Vp = parseFloat(document.getElementById('tx-primary').value);
-        var Vs = parseFloat(document.getElementById('tx-secondary').value);
-        var Ip = (kVA * 1000) / (Math.sqrt(3) * Vp);
-        var Is = (kVA * 1000) / (Math.sqrt(3) * Vs);
-        document.getElementById('tx-result').innerHTML = 
-            '<span>جریان اولیه: ' + Ip.toFixed(2) + ' آمپر</span><br>' +
-            '<span style="font-size:0.9rem;color:#8e95a5;">جریان ثانویه: ' + Is.toFixed(1) + ' آمپر</span>';
+    const lang = {
+        en: {
+            title: '🔌 Transformer Sizing',
+            desc: 'Calculate transformer sizing, voltage regulation, and full-load currents for primary and secondary windings.',
+            s1: 'What is Transformer Sizing?',
+            s1p: 'Transformer sizing is the process of selecting a transformer with the appropriate kVA rating to handle the expected load. It involves calculating the load requirements, considering factors such as future expansion, efficiency, and voltage regulation.',
+            s2: 'Key Formula',
+            list1: ['S = Transformer Rating (kVA)', 'V = Voltage (V)', 'I = Current (A)'],
+            s3: 'Key Factors in Transformer Selection',
+            list2: ['Load Requirements', 'Efficiency and Losses', 'Voltage Regulation', 'Cooling Method (ONAN, ONAF, etc.)', 'Future Expansion'],
+            back: '← Back'
+        },
+        fa: {
+            title: '🔌 سایزینگ ترانسفورماتور',
+            desc: 'محاسبه سایز ترانسفورماتور، تنظیم ولتاژ و جریان‌های نامی برای سیم‌پیچ‌های اولیه و ثانویه.',
+            s1: 'سایزینگ ترانسفورماتور چیست؟',
+            s1p: 'سایزینگ ترانسفورماتور فرآیند انتخاب ترانسفورماتوری با رتبه kVA مناسب برای تحمل بار مورد انتظار است. شامل محاسبه نیازهای بار، در نظر گرفتن عواملی مانند توسعه آینده، بازده و تنظیم ولتاژ است.',
+            s2: 'فرمول کلیدی',
+            list1: ['S = رتبه ترانسفورماتور (kVA)', 'V = ولتاژ (V)', 'I = جریان (A)'],
+            s3: 'عوامل کلیدی در انتخاب ترانسفورماتور',
+            list2: ['نیازهای بار', 'بازده و تلفات', 'تنظیم ولتاژ', 'روش خنک‌کاری (ONAN، ONAF و غیره)', 'توسعه آینده'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
     }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
 </script>
+
 </body>
 </html>
