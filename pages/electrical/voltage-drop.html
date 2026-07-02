@@ -1,106 +1,127 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · افت ولتاژ</title>
+    <title>Voltage Drop</title>
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
+        body{background:#0d0e12;color:#fff;font-family:sans-serif;padding:40px}
         .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px}
         .brand{font-weight:700;font-size:1.5rem;color:#fff}
         .brand span{color:#d4af37}
-        h1{color:#d4af37;font-size:2.5rem;margin-bottom:15px;display:flex;align-items:center;gap:12px}
-        .sub{color:#8e95a5;font-size:1.05rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.4rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:monospace;font-size:.9rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:15px 0}
-        .calc-box{background:#0d0e12;padding:20px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
-        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
-        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
-        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
-        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
-        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
-        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
-        .back{text-align:center;margin-top:35px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37}
+        .content{background:#1e2128;padding:20px;border-radius:12px;margin-top:20px}
+        .content h2{color:#d4af37}
+        .content p{color:#b0b8c5;line-height:1.8}
+        .content ul{list-style:none;padding:0}
+        .content ul li{color:#b0b8c5;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+        .back{margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;gap:12px}}
     </style>
 </head>
 <body>
-<div class="container">
+
+<div style="max-width:1000px;margin:0 auto;">
 
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
-    </div>
-
-    <h1>⚡ محاسبه‌گر افت ولتاژ</h1>
-    <div class="sub">
-        افت ولتاژ کاهش ولتاژ در یک مدار الکتریکی بین منبع و بار است. این پدیده به دلیل مقاومت هادی‌ها رخ می‌دهد و تحت تأثیر طول کابل، سطح مقطع و مقدار جریان عبوری است.
-    </div>
-
-    <div class="section">
-        <h2>📌 فرمول محاسبه افت ولتاژ</h2>
-        <div class="code-box">Vd = (2 × ρ × L × I) / A</div>
-        <ul>
-            <li><strong>ρ:</strong> مقاومت ویژه هادی (برای مس = 0.0178 Ω·mm²/m)</li>
-            <li><strong>L:</strong> طول کابل (متر)</li>
-            <li><strong>I:</strong> جریان (آمپر)</li>
-            <li><strong>A:</strong> سطح مقطع هادی (mm²)</li>
-        </ul>
-        <p style="margin-top:12px;color:#8e95a5;">افت ولتاژ معمولاً نباید از ۳ تا ۵ درصد ولتاژ نامی تجاوز کند.</p>
-    </div>
-
-    <div class="section">
-        <h2>🧮 ماشین حساب افت ولتاژ</h2>
-        <div class="calc-box">
-            <label>جریان (آمپر)</label>
-            <input type="number" id="vd-current" value="50">
-            <label>طول کابل (متر)</label>
-            <input type="number" id="vd-length" value="100">
-            <label>سطح مقطع هادی (mm²)</label>
-            <input type="number" id="vd-size" value="25">
-            <button class="calc-btn" onclick="calcVoltageDrop()">محاسبه</button>
-            <div class="result-box" id="vd-result">
-                <span>افت ولتاژ: 5.2 ولت</span><br>
-                <span style="font-size:0.9rem;color:#8e95a5;">درصد: 2.3%</span>
-            </div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
         </div>
     </div>
 
-    <div class="section">
-        <h2>📖 نکات کلیدی</h2>
-        <ul>
-            <li>استفاده از کابل با سطح مقطع بزرگتر، افت ولتاژ را کاهش می‌دهد</li>
-            <li>کابل‌های مسی نسبت به آلومینیومی مقاومت کمتری دارند</li>
-            <li>افزایش طول کابل، افت ولتاژ را افزایش می‌دهد</li>
-            <li>استانداردهای IEC 60364 و NEC برای محاسبه افت ولتاژ مرجع هستند</li>
+    <h1 id="title">⚡ Voltage Drop</h1>
+    <p id="desc" style="color:#8e95a5;">Calculate voltage drop in electrical circuits based on cable length, current, and conductor size.</p>
+
+    <div class="content">
+        <h2 id="s1">What is Voltage Drop?</h2>
+        <p id="s1p">Voltage drop is the reduction in voltage in an electrical circuit between the source and the load. It occurs due to the resistance of the conductors and is influenced by the cable length, cross-sectional area, and the amount of current flowing.</p>
+    </div>
+
+    <div class="content">
+        <h2 id="s2">Key Factors</h2>
+        <ul id="list1">
+            <li>Conductor Material: Copper vs. Aluminum</li>
+            <li>Cable Length: Longer cables have higher voltage drop</li>
+            <li>Cross-Sectional Area: Larger area reduces voltage drop</li>
+            <li>Current Load: Higher current increases voltage drop</li>
         </ul>
     </div>
 
+    <div class="content">
+        <h2 id="s3">Formula</h2>
+        <p id="s3p" style="font-family:monospace;font-size:1.1rem;color:#d4af37;">Vd = (2 × ρ × L × I) / A</p>
+    </div>
+
     <div class="back">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')">← بازگشت به داشبورد</a>
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
 
 </div>
+
 <script>
-    function calcVoltageDrop() {
-        var I = parseFloat(document.getElementById('vd-current').value);
-        var L = parseFloat(document.getElementById('vd-length').value);
-        var A = parseFloat(document.getElementById('vd-size').value);
-        var rho = 0.0178;
-        var Vd = (2 * rho * L * I) / A;
-        var VdPercent = (Vd / 230) * 100;
-        document.getElementById('vd-result').innerHTML = 
-            '<span>افت ولتاژ: ' + Vd.toFixed(2) + ' ولت</span><br>' +
-            '<span style="font-size:0.9rem;color:#8e95a5;">درصد: ' + VdPercent.toFixed(2) + '%</span>';
+    const lang = {
+        en: {
+            title: '⚡ Voltage Drop',
+            desc: 'Calculate voltage drop in electrical circuits based on cable length, current, and conductor size.',
+            s1: 'What is Voltage Drop?',
+            s1p: 'Voltage drop is the reduction in voltage in an electrical circuit between the source and the load. It occurs due to the resistance of the conductors.',
+            s2: 'Key Factors',
+            list: ['Conductor Material: Copper vs. Aluminum', 'Cable Length: Longer cables have higher voltage drop', 'Cross-Sectional Area: Larger area reduces voltage drop', 'Current Load: Higher current increases voltage drop'],
+            s3: 'Formula',
+            s3p: 'Vd = (2 × ρ × L × I) / A',
+            back: '← Back'
+        },
+        fa: {
+            title: '⚡ افت ولتاژ',
+            desc: 'محاسبه افت ولتاژ در مدارهای الکتریکی بر اساس طول کابل، جریان و سطح مقطع هادی.',
+            s1: 'افت ولتاژ چیست؟',
+            s1p: 'افت ولتاژ کاهش ولتاژ در یک مدار الکتریکی بین منبع و بار است. به دلیل مقاومت هادی‌ها رخ می‌دهد و تحت تأثیر طول کابل، سطح مقطع و مقدار جریان عبوری است.',
+            s2: 'عوامل کلیدی',
+            list: ['جنس هادی: مس در مقابل آلومینیوم', 'طول کابل: کابل‌های بلندتر افت ولتاژ بیشتری دارند', 'سطح مقطع: سطح مقطع بزرگتر افت ولتاژ را کاهش می‌دهد', 'بار جریان: جریان بالاتر افت ولتاژ را افزایش می‌دهد'],
+            s3: 'فرمول',
+            s3p: 'Vd = (2 × ρ × L × I) / A',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s3p').textContent = t.s3p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul = document.getElementById('list1');
+        ul.innerHTML = '';
+        t.list.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            ul.appendChild(li);
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        localStorage.setItem('karatech-lang', l);
     }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() {
+            setLang(this.dataset.lang);
+        };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
 </script>
+
 </body>
 </html>
