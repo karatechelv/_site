@@ -1,110 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Cable Sizing</title>
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Karatech ELV · سایزینگ کابل</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}
-        .brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}
-        .brand span{color:var(--accent)}
-        .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}
-        .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
-        .lang-btn:hover{background:var(--primary);color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        .page-container{max-width:1100px;margin:0 auto;padding:20px}
-        .page-header{background:#1e2128;padding:30px 40px;border-radius:20px;margin-bottom:30px;border-left:5px solid var(--accent)}
-        .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
-        .page-header h1 i{color:var(--accent)}
-        .page-header p{color:#b0b8c5;margin-top:10px;font-size:1.05rem;line-height:1.7}
-        .section-box{background:#1e2128;padding:24px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.06)}
-        .section-box h2{color:#d4af37;font-size:1.4rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
-        .section-box h2 i{color:var(--accent)}
-        .section-box p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section-box ul{list-style:none;padding:0}
-        .section-box ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section-box ul li i{color:var(--accent);font-size:.7rem}
-        .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:'Courier New',monospace;font-size:.85rem;color:#b0b8c5;margin:10px 0;border-left:3px solid var(--accent)}
-        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;margin:12px 0;border:1px solid rgba(212,175,55,0.1)}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        h1{color:#d4af37;font-size:2.5rem;margin-bottom:15px;display:flex;align-items:center;gap:12px}
+        .sub{color:#8e95a5;font-size:1.05rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.4rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:monospace;font-size:.9rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:15px 0}
+        .calc-box{background:#0d0e12;padding:20px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
         .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
-        .calc-box label{color:#b0b8c5;font-size:.85rem;display:block;margin-top:8px}
-        .calc-btn{background:var(--accent);color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
+        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
+        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
         .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
-        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid var(--accent);margin-top:10px;text-align:center}
-        .result-box span{color:var(--accent);font-weight:700;font-size:1.1rem}
-        .back-link{margin-top:30px;text-align:center}
-        .back-link a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s}
-        .back-link a:hover{transform:translateX(-5px)}
-        .lang-persian{direction:rtl}
-        .lang-persian .page-header h1{justify-content:flex-end}
-        .lang-persian .section-box ul li{flex-direction:row-reverse}
-        .lang-persian .back-link a{flex-direction:row-reverse}
-        @media(max-width:768px){.page-header h1{font-size:1.8rem}}
+        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
+        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
+        .back{text-align:center;margin-top:35px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem}
+        .back a:hover{text-decoration:underline}
+        table{width:100%;border-collapse:collapse;margin:10px 0}
+        th{color:#d4af37;padding:10px;text-align:right;border-bottom:2px solid #d4af37}
+        td{color:#b0b8c5;padding:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
+        tr:hover td{background:rgba(255,255,255,0.02)}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;gap:12px}}
     </style>
 </head>
 <body>
-<header class="header">
-    <div class="brand">KARATECH <span>ELV</span></div>
-    <div class="lang-switch">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="fa">FA</button>
-    </div>
-</header>
-<div class="page-container">
-    <div class="page-header">
-        <h1><i class="fas fa-ruler"></i> <span data-en="Cable Sizing" data-fa="سایزینگ کابل">Cable Sizing</span></h1>
-        <p data-en="Select the appropriate cable size based on current rating, cable length, and installation method. Ensure safe and efficient power transmission." data-fa="انتخاب سایز مناسب کابل بر اساس جریان نامی، طول کابل و روش نصب. اطمینان از انتقال برق ایمن و کارآمد.">Select the appropriate cable size based on current rating, cable length, and installation method. Ensure safe and efficient power transmission.</p>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
     </div>
 
-    <div class="section-box">
-        <h2><i class="fas fa-info-circle"></i> <span data-en="What is Cable Sizing?" data-fa="سایزینگ کابل چیست؟">What is Cable Sizing?</span></h2>
-        <p data-en="Cable sizing is the process of selecting the correct conductor cross-sectional area to safely carry the expected current without overheating or excessive voltage drop." data-fa="سایزینگ کابل فرآیند انتخاب سطح مقطع صحیح هادی برای حمل ایمن جریان مورد انتظار بدون گرم شدن بیش از حد یا افت ولتاژ بیش از حد است.">Cable sizing is the process of selecting the correct conductor cross-sectional area to safely carry the expected current without overheating or excessive voltage drop.</p>
-        <p data-en="Proper cable sizing ensures safety, reduces energy losses, and prevents equipment damage. It involves considering factors such as ambient temperature, installation method, and grouping of cables." data-fa="سایزینگ مناسب کابل ایمنی را تضمین می‌کند، تلفات انرژی را کاهش می‌دهد و از آسیب تجهیزات جلوگیری می‌کند. شامل در نظر گرفتن عواملی مانند دمای محیط، روش نصب و گروه‌بندی کابل‌ها است.">Proper cable sizing ensures safety, reduces energy losses, and prevents equipment damage. It involves considering factors such as ambient temperature, installation method, and grouping of cables.</p>
+    <h1>📏 سایزینگ کابل</h1>
+    <div class="sub">
+        انتخاب سایز مناسب کابل برای انتقال ایمن و کارآمد برق، بر اساس جریان نامی، طول کابل، روش نصب و شرایط محیطی انجام می‌شود. سایزینگ صحیح کابل از گرم شدن بیش از حد و افت ولتاژ جلوگیری می‌کند.
     </div>
 
-    <div class="section-box">
-        <h2><i class="fas fa-calculator"></i> <span data-en="Cable Sizing Calculator" data-fa="ماشین حساب سایزینگ کابل">Cable Sizing Calculator</span></h2>
+    <div class="section">
+        <h2>🧮 ماشین حساب سایزینگ کابل</h2>
         <div class="calc-box">
-            <label data-en="Current (A)" data-fa="جریان (آمپر)">Current (A)</label>
+            <label>جریان (آمپر)</label>
             <input type="number" id="cs-current" value="100">
-            <label data-en="Cable Length (m)" data-fa="طول کابل (متر)">Cable Length (m)</label>
+            <label>طول کابل (متر)</label>
             <input type="number" id="cs-length" value="50">
-            <button class="calc-btn" onclick="calcCableSize()" data-en="Calculate" data-fa="محاسبه">Calculate</button>
+            <button class="calc-btn" onclick="calcCableSize()">محاسبه</button>
             <div class="result-box" id="cs-result">
-                <span data-en="Recommended Cable Size: 35 mm²" data-fa="سایز کابل توصیه شده: 35 mm²">Recommended Cable Size: 35 mm²</span><br>
-                <span style="font-size:0.9rem;color:#b0b8c5;" data-en="Voltage Drop: 3.2V (1.4%)" data-fa="افت ولتاژ: 3.2 ولت (1.4%)">Voltage Drop: 3.2V (1.4%)</span>
+                <span>سایز کابل توصیه شده: 35 mm²</span><br>
+                <span style="font-size:0.9rem;color:#8e95a5;">افت ولتاژ: 3.2 ولت (1.4%)</span>
             </div>
         </div>
-        <div class="code-box">📌 <span data-en="Formula: Based on IEC 60364 current ratings" data-fa="فرمول: بر اساس رتبه‌بندی جریان IEC 60364">Formula: Based on IEC 60364 current ratings</span></div>
+        <p style="margin-top:12px;color:#8e95a5;font-size:.9rem;">سایز کابل بر اساس جریان و طول محاسبه شده است. برای انتخاب نهایی، شرایط نصب و دمای محیط را نیز در نظر بگیرید.</p>
     </div>
 
-    <div class="section-box">
-        <h2><i class="fas fa-list"></i> <span data-en="Factors Affecting Cable Selection" data-fa="عوامل مؤثر بر انتخاب کابل">Factors Affecting Cable Selection</span></h2>
+    <div class="section">
+        <h2>📊 جدول جریان مجاز کابل‌های مسی (IEC 60364)</h2>
+        <table>
+            <thead>
+                <tr><th>سطح مقطع (mm²)</th><th>جریان مجاز (A)</th><th>کاربرد</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1.5</td><td>15</td><td>مدارهای روشنایی</td></tr>
+                <tr><td>2.5</td><td>20</td><td>پریزها</td></tr>
+                <tr><td>4</td><td>27</td><td>لوازم کوچک</td></tr>
+                <tr><td>6</td><td>35</td><td>کولرها</td></tr>
+                <tr><td>10</td><td>47</td><td>مدارهای توزیع</td></tr>
+                <tr><td>16</td><td>63</td><td>زیر توزیع اصلی</td></tr>
+                <tr><td>25</td><td>80</td><td>توزیع اصلی</td></tr>
+                <tr><td>35</td><td>98</td><td>بارهای سنگین</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>📖 عوامل مؤثر در انتخاب کابل</h2>
         <ul>
-            <li><i class="fas fa-circle"></i> <span data-en="Current Carrying Capacity" data-fa="ظرفیت حمل جریان">Current Carrying Capacity</span></li>
-            <li><i class="fas fa-circle"></i> <span data-en="Voltage Drop" data-fa="افت ولتاژ">Voltage Drop</span></li>
-            <li><i class="fas fa-circle"></i> <span data-en="Ambient Temperature" data-fa="دمای محیط">Ambient Temperature</span></li>
-            <li><i class="fas fa-circle"></i> <span data-en="Installation Method (conduit, tray, direct burial)" data-fa="روش نصب (لوله، سینی، دفن مستقیم)">Installation Method (conduit, tray, direct burial)</span></li>
-            <li><i class="fas fa-circle"></i> <span data-en="Grouping of Cables" data-fa="گروه‌بندی کابل‌ها">Grouping of Cables</span></li>
+            <li>جریان نامی و شرایط اضافه بار</li>
+            <li>دمای محیط و گروه‌بندی کابل‌ها</li>
+            <li>روش نصب (لوله، سینی، دفن مستقیم)</li>
+            <li>افت ولتاژ مجاز (معمولاً ۳ تا ۵ درصد)</li>
+            <li>استانداردهای IEC 60364 و NEC</li>
         </ul>
     </div>
 
-    <div class="section-box">
-        <h2><i class="fas fa-book"></i> <span data-en="Standards & References" data-fa="استانداردها و مراجع">Standards & References</span></h2>
-        <ul>
-            <li><i class="fas fa-file-pdf"></i> <span data-en="IEC 60364 - Electrical Installations" data-fa="IEC 60364 - تاسیسات الکتریکی">IEC 60364 - Electrical Installations</span></li>
-            <li><i class="fas fa-file-pdf"></i> <span data-en="NEC - National Electrical Code" data-fa="NEC - کد ملی برق">NEC - National Electrical Code</span></li>
-        </ul>
+    <div class="back">
+        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')">← بازگشت به داشبورد</a>
     </div>
 
-    <div class="back-link">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
-    </div>
 </div>
 <script>
     function calcCableSize() {
@@ -118,39 +112,9 @@
         var Vd = (2 * 0.0178 * L * I) / size;
         var VdPercent = (Vd / 230) * 100;
         document.getElementById('cs-result').innerHTML = 
-            '<span data-en="Recommended Cable Size: ' + size + ' mm²" data-fa="سایز کابل توصیه شده: ' + size + ' mm²">Recommended Cable Size: ' + size + ' mm²</span><br>' +
-            '<span style="font-size:0.9rem;color:#b0b8c5;" data-en="Voltage Drop: ' + Vd.toFixed(1) + 'V (' + VdPercent.toFixed(1) + '%)" data-fa="افت ولتاژ: ' + Vd.toFixed(1) + ' ولت (' + VdPercent.toFixed(1) + '%)">Voltage Drop: ' + Vd.toFixed(1) + 'V (' + VdPercent.toFixed(1) + '%)</span>';
+            '<span>سایز کابل توصیه شده: ' + size + ' mm²</span><br>' +
+            '<span style="font-size:0.9rem;color:#8e95a5;">افت ولتاژ: ' + Vd.toFixed(1) + ' ولت (' + VdPercent.toFixed(1) + '%)</span>';
     }
-
-    (function() {
-        var langBtns = document.querySelectorAll('.lang-btn');
-        var currentLang = localStorage.getItem('karatech-lang') || 'en';
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-en]').forEach(function(el) {
-                var txt = el.dataset[lang];
-                if (txt) {
-                    var nodes = el.childNodes;
-                    for (var i = 0; i < nodes.length; i++) {
-                        if (nodes[i].nodeType === 3) {
-                            nodes[i].textContent = txt;
-                            break;
-                        }
-                    }
-                }
-            });
-            document.body.classList.toggle('lang-persian', lang === 'fa');
-            localStorage.setItem('karatech-lang', lang);
-            langBtns.forEach(function(btn) {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
-        }
-        setLanguage(currentLang);
-        langBtns.forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                setLanguage(this.dataset.lang);
-            });
-        });
-    })();
 </script>
 </body>
 </html>
