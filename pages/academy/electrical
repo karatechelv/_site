@@ -22,38 +22,20 @@
         .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
         .page-header h1 i{color:var(--accent)}
         .page-header p{color:#b0b8c5;margin-top:10px;font-size:1.05rem;line-height:1.7}
-        .accordion-grid{display:flex;flex-direction:column;gap:12px;margin-bottom:30px}
-        .accordion-item{background:#1e2128;border-radius:16px;border:1px solid rgba(212,175,55,0.06);overflow:hidden;transition:.3s}
-        .accordion-item:hover{border-color:rgba(212,175,55,0.2)}
-        .accordion-header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;cursor:pointer;transition:.3s;user-select:none}
-        .accordion-header:hover{background:rgba(255,255,255,0.02)}
-        .accordion-header h3{color:#d4af37;font-size:1.15rem;display:flex;align-items:center;gap:12px;margin:0}
-        .accordion-header h3 i{font-size:1.2rem}
-        .accordion-header .arrow{color:var(--muted);transition:.3s;font-size:1.1rem}
-        .accordion-item.active .accordion-header .arrow{transform:rotate(180deg)}
-        .accordion-body{padding:0 24px 24px;display:none;color:#b0b8c5;line-height:1.8}
-        .accordion-item.active .accordion-body{display:block}
-        .accordion-body ul{list-style:none;padding:0}
-        .accordion-body ul li{padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .accordion-body ul li i{color:var(--accent);font-size:.7rem}
-        .accordion-body .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:'Courier New',monospace;font-size:.85rem;color:#b0b8c5;margin:10px 0;border-left:3px solid var(--accent)}
-        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;margin:12px 0;border:1px solid rgba(212,175,55,0.1)}
-        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
-        .calc-box label{color:#b0b8c5;font-size:.85rem;display:block;margin-top:8px}
-        .calc-box .calc-btn{background:var(--accent);color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
-        .calc-box .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
-        .calc-box .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid var(--accent);margin-top:10px;text-align:center}
-        .calc-box .result-box span{color:var(--accent);font-weight:700;font-size:1.1rem}
+        .section-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:30px}
+        .section-card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+        .section-card:hover{background:#282d38;transform:translateY(-3px);border-color:var(--accent)}
+        .section-card i{font-size:2rem;color:var(--accent);margin-bottom:10px;display:block}
+        .section-card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
+        .section-card p{color:var(--muted);font-size:.85rem;line-height:1.5}
+        .section-card .badge{display:inline-block;background:rgba(212,175,55,0.12);color:var(--accent);font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:8px}
         .back-link{margin-top:30px;text-align:center}
         .back-link a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s}
         .back-link a:hover{transform:translateX(-5px)}
         .lang-persian{direction:rtl}
         .lang-persian .page-header h1{justify-content:flex-end}
-        .lang-persian .accordion-header h3{justify-content:flex-end}
-        .lang-persian .accordion-body ul li{flex-direction:row-reverse}
         .lang-persian .back-link a{flex-direction:row-reverse}
-        .lang-persian .calc-box input{text-align:right}
-        @media(max-width:768px){.page-header h1{font-size:1.8rem}.accordion-header{padding:14px 18px}}
+        @media(max-width:768px){.page-header h1{font-size:1.8rem}.section-grid{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
@@ -70,224 +52,85 @@
         <p data-en="Power systems, protection coordination, load calculation. Includes switchgear, MCC, distribution panels, and lighting systems. Essential for all industrial and commercial projects." data-fa="سیستم‌های قدرت، هماهنگی حفاظت، محاسبات بار. شامل تابلوهای برق، مراکز کنترل موتور، پنل‌های توزیع و سیستم‌های روشنایی. برای تمام پروژه‌های صنعتی و تجاری ضروری است.">Power systems, protection coordination, load calculation. Includes switchgear, MCC, distribution panels, and lighting systems. Essential for all industrial and commercial projects.</p>
     </div>
 
-    <div class="accordion-grid">
-
-        <!-- ===== 1. Overview ===== -->
-        <div class="accordion-item active">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-graduation-cap"></i> <span data-en="Overview of Electrical Engineering" data-fa="مرور کلی مهندسی برق">Overview of Electrical Engineering</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <p data-en="Electrical engineering is the core of modern infrastructure. It covers everything from power generation to end-user consumption. This field encompasses the design, analysis, and maintenance of electrical systems that power industries, cities, and technologies." data-fa="مهندسی برق هسته اصلی زیرساخت‌های مدرن است. همه چیز را از تولید برق تا مصرف کاربر نهایی پوشش می‌دهد. این حوزه شامل طراحی، تحلیل و نگهداری سیستم‌های الکتریکی است که صنایع، شهرها و فناوری‌ها را تغذیه می‌کند.">Electrical engineering is the core of modern infrastructure. It covers everything from power generation to end-user consumption. This field encompasses the design, analysis, and maintenance of electrical systems that power industries, cities, and technologies.</p>
-                <ul>
-                    <li><i class="fas fa-circle"></i> <span data-en="Power Generation: Converting energy sources into electrical power." data-fa="تولید برق: تبدیل منابع انرژی به توان الکتریکی.">Power Generation: Converting energy sources into electrical power.</span></li>
-                    <li><i class="fas fa-circle"></i> <span data-en="Transmission & Distribution: Delivering power from plants to consumers." data-fa="انتقال و توزیع: رساندن برق از نیروگاه به مصرف‌کنندگان.">Transmission & Distribution: Delivering power from plants to consumers.</span></li>
-                    <li><i class="fas fa-circle"></i> <span data-en="Protection & Control: Ensuring system safety and reliability." data-fa="حفاظت و کنترل: تضمین ایمنی و قابلیت اطمینان سیستم.">Protection & Control: Ensuring system safety and reliability.</span></li>
-                    <li><i class="fas fa-circle"></i> <span data-en="Industrial Installations: Electrical systems for factories and commercial buildings." data-fa="تاسیسات صنعتی: سیستم‌های الکتریکی برای کارخانه‌ها و ساختمان‌های تجاری.">Industrial Installations: Electrical systems for factories and commercial buildings.</span></li>
-                </ul>
-                <div class="code-box">📌 <span data-en="Key Standards: IEC 60364, NEC, IEEE" data-fa="استانداردهای کلیدی: IEC 60364، NEC، IEEE">Key Standards: IEC 60364, NEC, IEEE</span></div>
-            </div>
-        </div>
-
-        <!-- ===== 2. Voltage Drop Calculator ===== -->
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-bolt"></i> <span data-en="Voltage Drop Calculator" data-fa="محاسبه‌گر افت ولتاژ">Voltage Drop Calculator</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <p data-en="Calculate voltage drop in electrical circuits based on cable length, current, and conductor size." data-fa="محاسبه افت ولتاژ در مدارهای الکتریکی بر اساس طول کابل، جریان و سطح مقطع هادی.">Calculate voltage drop in electrical circuits based on cable length, current, and conductor size.</p>
-                <div class="calc-box">
-                    <label data-en="Current (A)" data-fa="جریان (آمپر)">Current (A)</label>
-                    <input type="number" id="vd-current" value="50">
-                    <label data-en="Cable Length (m)" data-fa="طول کابل (متر)">Cable Length (m)</label>
-                    <input type="number" id="vd-length" value="100">
-                    <label data-en="Conductor Size (mm²)" data-fa="سطح مقطع هادی (mm²)">Conductor Size (mm²)</label>
-                    <input type="number" id="vd-size" value="25">
-                    <button class="calc-btn" onclick="calcVoltageDrop()" data-en="Calculate" data-fa="محاسبه">Calculate</button>
-                    <div class="result-box" id="vd-result">
-                        <span data-en="Voltage Drop: 5.2 V" data-fa="افت ولتاژ: 5.2 ولت">Voltage Drop: 5.2 V</span><br>
-                        <span style="font-size:0.9rem;color:#b0b8c5;" data-en="Percentage: 2.3%" data-fa="درصد: 2.3%">Percentage: 2.3%</span>
-                    </div>
-                </div>
-                <div class="code-box">📌 <span data-en="Formula: Vd = (2 × ρ × L × I) / A" data-fa="فرمول: Vd = (2 × ρ × L × I) / A">Formula: Vd = (2 × ρ × L × I) / A</span></div>
-            </div>
-        </div>
-
-        <!-- ===== 3. Power Factor Calculator ===== -->
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-chart-line"></i> <span data-en="Power Factor Calculator" data-fa="محاسبه‌گر ضریب توان">Power Factor Calculator</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <p data-en="Calculate power factor, apparent power, and reactive power. Essential for power system analysis." data-fa="محاسبه ضریب توان، توان ظاهری و توان راکتیو. ضروری برای تحلیل سیستم‌های قدرت.">Calculate power factor, apparent power, and reactive power. Essential for power system analysis.</p>
-                <div class="calc-box">
-                    <label data-en="Real Power (kW)" data-fa="توان واقعی (کیلووات)">Real Power (kW)</label>
-                    <input type="number" id="pf-real" value="50">
-                    <label data-en="Apparent Power (kVA)" data-fa="توان ظاهری (کیلوولت‌آمپر)">Apparent Power (kVA)</label>
-                    <input type="number" id="pf-apparent" value="60">
-                    <button class="calc-btn" onclick="calcPowerFactor()" data-en="Calculate" data-fa="محاسبه">Calculate</button>
-                    <div class="result-box" id="pf-result">
-                        <span data-en="Power Factor: 0.83" data-fa="ضریب توان: 0.83">Power Factor: 0.83</span><br>
-                        <span style="font-size:0.9rem;color:#b0b8c5;" data-en="Reactive Power: 33.0 kVAr" data-fa="توان راکتیو: 33.0 کیلووار">Reactive Power: 33.0 kVAr</span>
-                    </div>
-                </div>
-                <div class="code-box">📌 <span data-en="Formula: PF = P / S, Q = √(S² - P²)" data-fa="فرمول: PF = P / S، Q = √(S² - P²)">Formula: PF = P / S, Q = √(S² - P²)</span></div>
-            </div>
-        </div>
-
-        <!-- ===== 4. Transformer Sizing ===== -->
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-bolt"></i> <span data-en="Transformer Sizing" data-fa="سایزینگ ترانسفورماتور">Transformer Sizing</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <p data-en="Calculate transformer sizing, voltage regulation, and full-load currents for primary and secondary windings." data-fa="محاسبه سایز ترانسفورماتور، تنظیم ولتاژ و جریان‌های نامی برای سیم‌پیچ‌های اولیه و ثانویه.">Calculate transformer sizing, voltage regulation, and full-load currents for primary and secondary windings.</p>
-                <div class="calc-box">
-                    <label data-en="Transformer Rating (kVA)" data-fa="رتبه ترانسفورماتور (کیلوولت‌آمپر)">Transformer Rating (kVA)</label>
-                    <input type="number" id="tx-kva" value="100">
-                    <label data-en="Primary Voltage (V)" data-fa="ولتاژ اولیه (ولت)">Primary Voltage (V)</label>
-                    <input type="number" id="tx-primary" value="11000">
-                    <label data-en="Secondary Voltage (V)" data-fa="ولتاژ ثانویه (ولت)">Secondary Voltage (V)</label>
-                    <input type="number" id="tx-secondary" value="400">
-                    <button class="calc-btn" onclick="calcTransformer()" data-en="Calculate" data-fa="محاسبه">Calculate</button>
-                    <div class="result-box" id="tx-result">
-                        <span data-en="Primary Current: 5.25 A" data-fa="جریان اولیه: 5.25 آمپر">Primary Current: 5.25 A</span><br>
-                        <span style="font-size:0.9rem;color:#b0b8c5;" data-en="Secondary Current: 144.3 A" data-fa="جریان ثانویه: 144.3 آمپر">Secondary Current: 144.3 A</span>
-                    </div>
-                </div>
-                <div class="code-box">📌 <span data-en="Formula: I = S / (√3 × V)" data-fa="فرمول: I = S / (√3 × V)">Formula: I = S / (√3 × V)</span></div>
-            </div>
-        </div>
-
-        <!-- ===== 5. Cable Sizing ===== -->
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-ruler"></i> <span data-en="Cable Sizing" data-fa="سایزینگ کابل">Cable Sizing</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <p data-en="Select the appropriate cable size based on current rating, cable length, and installation method." data-fa="انتخاب سایز مناسب کابل بر اساس جریان نامی، طول کابل و روش نصب.">Select the appropriate cable size based on current rating, cable length, and installation method.</p>
-                <div class="calc-box">
-                    <label data-en="Current (A)" data-fa="جریان (آمپر)">Current (A)</label>
-                    <input type="number" id="cs-current" value="100">
-                    <label data-en="Cable Length (m)" data-fa="طول کابل (متر)">Cable Length (m)</label>
-                    <input type="number" id="cs-length" value="50">
-                    <button class="calc-btn" onclick="calcCableSize()" data-en="Calculate" data-fa="محاسبه">Calculate</button>
-                    <div class="result-box" id="cs-result">
-                        <span data-en="Recommended Cable Size: 35 mm²" data-fa="سایز کابل توصیه شده: 35 mm²">Recommended Cable Size: 35 mm²</span><br>
-                        <span style="font-size:0.9rem;color:#b0b8c5;" data-en="Voltage Drop: 3.2V (1.4%)" data-fa="افت ولتاژ: 3.2 ولت (1.4%)">Voltage Drop: 3.2V (1.4%)</span>
-                    </div>
-                </div>
-                <div class="code-box">📌 <span data-en="Formula: Based on IEC 60364 current ratings" data-fa="فرمول: بر اساس رتبه‌بندی جریان IEC 60364">Formula: Based on IEC 60364 current ratings</span></div>
-            </div>
-        </div>
-
-        <!-- ===== 6. Earthing Resistance ===== -->
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-bolt"></i> <span data-en="Earthing Resistance" data-fa="مقاومت ارتینگ">Earthing Resistance</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <p data-en="Calculate earth resistance for different electrode types and soil resistivity." data-fa="محاسبه مقاومت زمین برای انواع الکترود و مقاومت ویژه خاک.">Calculate earth resistance for different electrode types and soil resistivity.</p>
-                <div class="calc-box">
-                    <label data-en="Soil Resistivity (Ω·m)" data-fa="مقاومت ویژه خاک (Ω·m)">Soil Resistivity (Ω·m)</label>
-                    <input type="number" id="er-rho" value="100">
-                    <label data-en="Electrode Length (m)" data-fa="طول الکترود (متر)">Electrode Length (m)</label>
-                    <input type="number" id="er-length" value="3">
-                    <label data-en="Electrode Diameter (m)" data-fa="قطر الکترود (متر)">Electrode Diameter (m)</label>
-                    <input type="number" id="er-diam" value="0.025">
-                    <button class="calc-btn" onclick="calcEarthing()" data-en="Calculate" data-fa="محاسبه">Calculate</button>
-                    <div class="result-box" id="er-result">
-                        <span data-en="Earth Resistance: 8.5 Ω" data-fa="مقاومت زمین: 8.5 اهم">Earth Resistance: 8.5 Ω</span>
-                    </div>
-                </div>
-                <div class="code-box">📌 <span data-en="Formula: R = (ρ / 2πL) × ln(4L/d)" data-fa="فرمول: R = (ρ / 2πL) × ln(4L/d)">Formula: R = (ρ / 2πL) × ln(4L/d)</span></div>
-            </div>
-        </div>
-
-        <!-- ===== 7. Key Topics ===== -->
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-lightbulb"></i> <span data-en="Key Topics" data-fa="موضوعات کلیدی">Key Topics</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <ul>
-                    <li><i class="fas fa-circle"></i> <span data-en="Power system analysis" data-fa="تحلیل سیستم‌های قدرت">Power system analysis</span></li>
-                    <li><i class="fas fa-circle"></i> <span data-en="Protection coordination" data-fa="هماهنگی حفاظت">Protection coordination</span></li>
-                    <li><i class="fas fa-circle"></i> <span data-en="Switchgear and MCC design" data-fa="طراحی تابلوهای برق و MCC">Switchgear and MCC design</span></li>
-                    <li><i class="fas fa-circle"></i> <span data-en="Load calculation and sizing" data-fa="محاسبات بار و سایزینگ">Load calculation and sizing</span></li>
-                    <li><i class="fas fa-circle"></i> <span data-en="Lighting and earthing systems" data-fa="سیستم‌های روشنایی و ارتینگ">Lighting and earthing systems</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- ===== 8. Software ===== -->
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-tools"></i> <span data-en="Software" data-fa="نرم‌افزارها">Software</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <ul>
-                    <li><i class="fas fa-check"></i> EPLAN</li>
-                    <li><i class="fas fa-check"></i> AutoCAD Electrical</li>
-                    <li><i class="fas fa-check"></i> ETAP</li>
-                    <li><i class="fas fa-check"></i> DIALux (lighting)</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- ===== 9. Resources ===== -->
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-book"></i> <span data-en="Resources" data-fa="منابع">Resources</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <ul>
-                    <li><i class="fas fa-file-pdf"></i> <span data-en="IEC 60364 Standards" data-fa="استانداردهای IEC 60364">IEC 60364 Standards</span></li>
-                    <li><i class="fas fa-file-pdf"></i> <span data-en="NEC Handbook" data-fa="راهنمای NEC">NEC Handbook</span></li>
-                    <li><i class="fas fa-video"></i> <span data-en="Power System Analysis Course" data-fa="دوره تحلیل سیستم‌های قدرت">Power System Analysis Course</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- ===== 10. Learning Path ===== -->
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-road"></i> <span data-en="Learning Path" data-fa="مسیر یادگیری">Learning Path</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <ul>
-                    <li><i class="fas fa-arrow-right"></i> <strong data-en="Foundation:" data-fa="مقدماتی:">Foundation:</strong> <span data-en="Basic electrical theory, circuit analysis" data-fa="تئوری پایه برق، تحلیل مدار">Basic electrical theory, circuit analysis</span></li>
-                    <li><i class="fas fa-arrow-right"></i> <strong data-en="Intermediate:" data-fa="متوسط:">Intermediate:</strong> <span data-en="Power systems, protection coordination" data-fa="سیستم‌های قدرت، هماهنگی حفاظت">Power systems, protection coordination</span></li>
-                    <li><i class="fas fa-arrow-right"></i> <strong data-en="Advanced:" data-fa="پیشرفته:">Advanced:</strong> <span data-en="System studies, ETAP, high-voltage design" data-fa="مطالعات سیستم، ETAP، طراحی فشار قوی">System studies, ETAP, high-voltage design</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- ===== 11. Videos & Future ===== -->
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-play-circle"></i> <span data-en="Videos & Future" data-fa="ویدئوها و آینده">Videos & Future</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <ul>
-                    <li><i class="fas fa-video"></i> <span data-en="Power System Analysis Tutorial" data-fa="آموزش تحلیل سیستم‌های قدرت">Power System Analysis Tutorial</span></li>
-                    <li><i class="fas fa-video"></i> <span data-en="Protection Coordination Workshop" data-fa="کارگاه هماهنگی حفاظت">Protection Coordination Workshop</span></li>
-                    <li><i class="fas fa-clock"></i> <span data-en="Future: Smart Grid & Microgrids" data-fa="آینده: شبکه هوشمند و میکروگریدها">Future: Smart Grid & Microgrids</span></li>
-                </ul>
-            </div>
-        </div>
-
+    <div class="section-grid">
+        <a href="../../electrical/overview.html" class="section-card">
+            <i class="fas fa-graduation-cap"></i>
+            <h3 data-en="Overview" data-fa="مرور کلی">Overview</h3>
+            <p data-en="Complete overview of electrical engineering" data-fa="مرور کامل مهندسی برق">Complete overview of electrical engineering</p>
+            <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
+        </a>
+        <a href="../../electrical/voltage-drop.html" class="section-card">
+            <i class="fas fa-bolt"></i>
+            <h3 data-en="Voltage Drop" data-fa="افت ولتاژ">Voltage Drop</h3>
+            <p data-en="Calculate voltage drop in circuits" data-fa="محاسبه افت ولتاژ در مدارها">Calculate voltage drop in circuits</p>
+            <span class="badge" data-en="Calculator" data-fa="ماشین حساب">Calculator →</span>
+        </a>
+        <a href="../../electrical/power-factor.html" class="section-card">
+            <i class="fas fa-chart-line"></i>
+            <h3 data-en="Power Factor" data-fa="ضریب توان">Power Factor</h3>
+            <p data-en="Calculate power factor and reactive power" data-fa="محاسبه ضریب توان و توان راکتیو">Calculate power factor and reactive power</p>
+            <span class="badge" data-en="Calculator" data-fa="ماشین حساب">Calculator →</span>
+        </a>
+        <a href="../../electrical/transformer-sizing.html" class="section-card">
+            <i class="fas fa-bolt"></i>
+            <h3 data-en="Transformer Sizing" data-fa="سایزینگ ترانسفورماتور">Transformer Sizing</h3>
+            <p data-en="Size transformers for your application" data-fa="سایزینگ ترانسفورماتور برای کاربرد شما">Size transformers for your application</p>
+            <span class="badge" data-en="Calculator" data-fa="ماشین حساب">Calculator →</span>
+        </a>
+        <a href="../../electrical/cable-sizing.html" class="section-card">
+            <i class="fas fa-ruler"></i>
+            <h3 data-en="Cable Sizing" data-fa="سایزینگ کابل">Cable Sizing</h3>
+            <p data-en="Select the right cable size" data-fa="انتخاب سایز مناسب کابل">Select the right cable size</p>
+            <span class="badge" data-en="Calculator" data-fa="ماشین حساب">Calculator →</span>
+        </a>
+        <a href="../../electrical/earthing-resistance.html" class="section-card">
+            <i class="fas fa-bolt"></i>
+            <h3 data-en="Earthing Resistance" data-fa="مقاومت ارتینگ">Earthing Resistance</h3>
+            <p data-en="Calculate earth resistance" data-fa="محاسبه مقاومت زمین">Calculate earth resistance</p>
+            <span class="badge" data-en="Calculator" data-fa="ماشین حساب">Calculator →</span>
+        </a>
+        <a href="../../electrical/key-topics.html" class="section-card">
+            <i class="fas fa-lightbulb"></i>
+            <h3 data-en="Key Topics" data-fa="موضوعات کلیدی">Key Topics</h3>
+            <p data-en="Important topics in electrical engineering" data-fa="موضوعات مهم در مهندسی برق">Important topics in electrical engineering</p>
+            <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
+        </a>
+        <a href="../../electrical/software.html" class="section-card">
+            <i class="fas fa-tools"></i>
+            <h3 data-en="Software" data-fa="نرم‌افزارها">Software</h3>
+            <p data-en="Essential software for electrical engineering" data-fa="نرم‌افزارهای ضروری برای مهندسی برق">Essential software for electrical engineering</p>
+            <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
+        </a>
+        <a href="../../electrical/resources.html" class="section-card">
+            <i class="fas fa-book"></i>
+            <h3 data-en="Resources" data-fa="منابع">Resources</h3>
+            <p data-en="Standards, handbooks and more" data-fa="استانداردها، کتابچه‌ها و بیشتر">Standards, handbooks and more</p>
+            <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
+        </a>
+        <a href="../../electrical/learning-path.html" class="section-card">
+            <i class="fas fa-road"></i>
+            <h3 data-en="Learning Path" data-fa="مسیر یادگیری">Learning Path</h3>
+            <p data-en="From foundation to advanced" data-fa="از مبتدی تا پیشرفته">From foundation to advanced</p>
+            <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
+        </a>
+        <a href="../../electrical/videos-future.html" class="section-card">
+            <i class="fas fa-play-circle"></i>
+            <h3 data-en="Videos & Future" data-fa="ویدئوها و آینده">Videos & Future</h3>
+            <p data-en="Tutorials and future technologies" data-fa="آموزش‌ها و فناوری‌های آینده">Tutorials and future technologies</p>
+            <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
+        </a>
+        <a href="../../electrical/power-system-analysis.html" class="section-card">
+            <i class="fas fa-chart-line"></i>
+            <h3 data-en="Power System Analysis" data-fa="تحلیل سیستم‌های قدرت">Power System Analysis</h3>
+            <p data-en="Load flow, short-circuit, stability and more" data-fa="جریان بار، اتصال کوتاه، پایداری و بیشتر">Load flow, short-circuit, stability and more</p>
+            <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
+        </a>
+        <a href="../../electrical/protection-coordination.html" class="section-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3 data-en="Protection Coordination" data-fa="هماهنگی حفاظت">Protection Coordination</h3>
+            <p data-en="Protective devices and coordination" data-fa="دستگاه‌های حفاظتی و هماهنگی">Protective devices and coordination</p>
+            <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
+        </a>
     </div>
 
     <div class="back-link">
@@ -295,103 +138,6 @@
     </div>
 </div>
 <script>
-    // ===== Toggle Accordion =====
-    function toggleAccordion(header) {
-        var item = header.closest('.accordion-item');
-        var isActive = item.classList.contains('active');
-        document.querySelectorAll('.accordion-item').forEach(function(el) {
-            el.classList.remove('active');
-        });
-        if (!isActive) {
-            item.classList.add('active');
-        }
-    }
-
-    // ===== Voltage Drop =====
-    function calcVoltageDrop() {
-        var I = parseFloat(document.getElementById('vd-current').value);
-        var L = parseFloat(document.getElementById('vd-length').value);
-        var A = parseFloat(document.getElementById('vd-size').value);
-        var rho = 0.0178;
-        var Vd = (2 * rho * L * I) / A;
-        var VdPercent = (Vd / 230) * 100;
-        document.getElementById('vd-result').innerHTML = 
-            '<span data-en="Voltage Drop: ' + Vd.toFixed(2) + ' V" data-fa="افت ولتاژ: ' + Vd.toFixed(2) + ' ولت">Voltage Drop: ' + Vd.toFixed(2) + ' V</span><br>' +
-            '<span style="font-size:0.9rem;color:#b0b8c5;" data-en="Percentage: ' + VdPercent.toFixed(2) + '%" data-fa="درصد: ' + VdPercent.toFixed(2) + '%">Percentage: ' + VdPercent.toFixed(2) + '%</span>';
-        updateLang();
-    }
-
-    // ===== Power Factor =====
-    function calcPowerFactor() {
-        var P = parseFloat(document.getElementById('pf-real').value);
-        var S = parseFloat(document.getElementById('pf-apparent').value);
-        var PF = P / S;
-        var Q = Math.sqrt(S*S - P*P);
-        document.getElementById('pf-result').innerHTML = 
-            '<span data-en="Power Factor: ' + PF.toFixed(3) + '" data-fa="ضریب توان: ' + PF.toFixed(3) + '">Power Factor: ' + PF.toFixed(3) + '</span><br>' +
-            '<span style="font-size:0.9rem;color:#b0b8c5;" data-en="Reactive Power: ' + Q.toFixed(1) + ' kVAr" data-fa="توان راکتیو: ' + Q.toFixed(1) + ' کیلووار">Reactive Power: ' + Q.toFixed(1) + ' kVAr</span>';
-        updateLang();
-    }
-
-    // ===== Transformer =====
-    function calcTransformer() {
-        var kVA = parseFloat(document.getElementById('tx-kva').value);
-        var Vp = parseFloat(document.getElementById('tx-primary').value);
-        var Vs = parseFloat(document.getElementById('tx-secondary').value);
-        var Ip = (kVA * 1000) / (Math.sqrt(3) * Vp);
-        var Is = (kVA * 1000) / (Math.sqrt(3) * Vs);
-        document.getElementById('tx-result').innerHTML = 
-            '<span data-en="Primary Current: ' + Ip.toFixed(2) + ' A" data-fa="جریان اولیه: ' + Ip.toFixed(2) + ' آمپر">Primary Current: ' + Ip.toFixed(2) + ' A</span><br>' +
-            '<span style="font-size:0.9rem;color:#b0b8c5;" data-en="Secondary Current: ' + Is.toFixed(1) + ' A" data-fa="جریان ثانویه: ' + Is.toFixed(1) + ' آمپر">Secondary Current: ' + Is.toFixed(1) + ' A</span>';
-        updateLang();
-    }
-
-    // ===== Cable Sizing =====
-    function calcCableSize() {
-        var I = parseFloat(document.getElementById('cs-current').value);
-        var L = parseFloat(document.getElementById('cs-length').value);
-        var size = 16;
-        if (I > 80) size = 35;
-        else if (I > 50) size = 25;
-        else if (I > 30) size = 16;
-        else size = 10;
-        var Vd = (2 * 0.0178 * L * I) / size;
-        var VdPercent = (Vd / 230) * 100;
-        document.getElementById('cs-result').innerHTML = 
-            '<span data-en="Recommended Cable Size: ' + size + ' mm²" data-fa="سایز کابل توصیه شده: ' + size + ' mm²">Recommended Cable Size: ' + size + ' mm²</span><br>' +
-            '<span style="font-size:0.9rem;color:#b0b8c5;" data-en="Voltage Drop: ' + Vd.toFixed(1) + 'V (' + VdPercent.toFixed(1) + '%)" data-fa="افت ولتاژ: ' + Vd.toFixed(1) + ' ولت (' + VdPercent.toFixed(1) + '%)">Voltage Drop: ' + Vd.toFixed(1) + 'V (' + VdPercent.toFixed(1) + '%)</span>';
-        updateLang();
-    }
-
-    // ===== Earthing =====
-    function calcEarthing() {
-        var rho = parseFloat(document.getElementById('er-rho').value);
-        var L = parseFloat(document.getElementById('er-length').value);
-        var d = parseFloat(document.getElementById('er-diam').value);
-        var R = (rho / (2 * Math.PI * L)) * Math.log(4 * L / d);
-        document.getElementById('er-result').innerHTML = 
-            '<span data-en="Earth Resistance: ' + R.toFixed(2) + ' Ω" data-fa="مقاومت زمین: ' + R.toFixed(2) + ' اهم">Earth Resistance: ' + R.toFixed(2) + ' Ω</span>';
-        updateLang();
-    }
-
-    // ===== Language =====
-    function updateLang() {
-        var lang = localStorage.getItem('karatech-lang') || 'en';
-        document.querySelectorAll('[data-en]').forEach(function(el) {
-            var txt = el.dataset[lang];
-            if (txt) {
-                var nodes = el.childNodes;
-                for (var i = 0; i < nodes.length; i++) {
-                    if (nodes[i].nodeType === 3) {
-                        nodes[i].textContent = txt;
-                        break;
-                    }
-                }
-            }
-        });
-    }
-
-    // ===== Init =====
     (function() {
         var langBtns = document.querySelectorAll('.lang-btn');
         var currentLang = localStorage.getItem('karatech-lang') || 'en';
