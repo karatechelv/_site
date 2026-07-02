@@ -2,33 +2,24 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Karatech ELV · Overview</title>
+    <title>Overview</title>
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#fff;font-family:sans-serif;padding:40px;direction:ltr}
+        body{background:#0d0e12;color:#fff;font-family:sans-serif;padding:40px}
         .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px}
         .brand{font-weight:700;font-size:1.5rem;color:#fff}
         .brand span{color:#d4af37}
         .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem}
         .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
         .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1.05rem;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
-        .section ul li::before{content:"▸ ";color:#d4af37}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}}
+        h1{color:#d4af37}
+        .content{background:#1e2128;padding:20px;border-radius:12px;margin-top:20px}
+        .back{margin-top:30px}
+        .back a{color:#d4af37}
     </style>
 </head>
 <body>
-<div class="container" style="max-width:1000px;margin:0 auto;">
+
+<div style="max-width:1000px;margin:0 auto;">
 
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
@@ -38,113 +29,85 @@
         </div>
     </div>
 
-    <h1 id="page-title">📘 Overview of Electrical Engineering</h1>
-    <div class="sub" id="page-sub">A comprehensive overview of electrical engineering, covering key concepts, applications, and career paths.</div>
+    <h1 id="title">📘 Overview of Electrical Engineering</h1>
+    <p id="desc" style="color:#8e95a5;">A comprehensive overview of electrical engineering, covering key concepts, applications, and career paths.</p>
 
-    <div class="section">
-        <h2 id="s1-title">🔹 What is Electrical Engineering?</h2>
-        <p id="s1-text">Electrical engineering is a professional engineering discipline that deals with the study and application of electricity, electronics, and electromagnetism. It covers a wide range of subfields including power, control systems, telecommunications, and signal processing.</p>
+    <div class="content">
+        <h2 id="s1" style="color:#d4af37;">What is Electrical Engineering?</h2>
+        <p id="s1p" style="color:#b0b8c5;">Electrical engineering is a professional engineering discipline that deals with the study and application of electricity, electronics, and electromagnetism.</p>
     </div>
 
-    <div class="section">
-        <h2 id="s2-title">🔹 Key Areas</h2>
-        <ul id="s2-list">
-            <li>Power Generation & Transmission</li>
-            <li>Control Systems & Automation</li>
-            <li>Electronics & Signal Processing</li>
-            <li>Renewable Energy</li>
-            <li>Telecommunications</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3-title">🔹 Key Standards</h2>
-        <ul id="s3-list">
-            <li>IEC 60364 – Electrical Installations</li>
-            <li>IEC 61439 – Switchgear</li>
-            <li>IEEE 80 – Earthing Systems</li>
+    <div class="content">
+        <h2 id="s2" style="color:#d4af37;">Key Areas</h2>
+        <ul id="list1" style="color:#b0b8c5;list-style:none;padding:0;">
+            <li>▸ Power Generation & Transmission</li>
+            <li>▸ Control Systems & Automation</li>
+            <li>▸ Electronics & Signal Processing</li>
         </ul>
     </div>
 
     <div class="back">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')" id="back-link">← Back to Dashboard</a>
+        <a href="../../index.html" id="backlink" onclick="localStorage.setItem('dashboardActive', 'true')">← Back to Dashboard</a>
     </div>
 
 </div>
 
 <script>
-    // ===== ترجمه‌ها =====
-    const translations = {
+    // ===== دیکشنری =====
+    const lang = {
         en: {
             title: '📘 Overview of Electrical Engineering',
-            sub: 'A comprehensive overview of electrical engineering, covering key concepts, applications, and career paths.',
-            s1_title: '🔹 What is Electrical Engineering?',
-            s1_text: 'Electrical engineering is a professional engineering discipline that deals with the study and application of electricity, electronics, and electromagnetism. It covers a wide range of subfields including power, control systems, telecommunications, and signal processing.',
-            s2_title: '🔹 Key Areas',
-            s2_list: ['Power Generation & Transmission', 'Control Systems & Automation', 'Electronics & Signal Processing', 'Renewable Energy', 'Telecommunications'],
-            s3_title: '🔹 Key Standards',
-            s3_list: ['IEC 60364 – Electrical Installations', 'IEC 61439 – Switchgear', 'IEEE 80 – Earthing Systems'],
+            desc: 'A comprehensive overview of electrical engineering, covering key concepts, applications, and career paths.',
+            s1: 'What is Electrical Engineering?',
+            s1p: 'Electrical engineering is a professional engineering discipline that deals with the study and application of electricity, electronics, and electromagnetism.',
+            s2: 'Key Areas',
+            list: ['Power Generation & Transmission', 'Control Systems & Automation', 'Electronics & Signal Processing'],
             back: '← Back to Dashboard'
         },
         fa: {
             title: '📘 مرور کلی مهندسی برق',
-            sub: 'مرور جامع مهندسی برق، شامل مفاهیم کلیدی، کاربردها و مسیرهای شغلی.',
-            s1_title: '🔹 مهندسی برق چیست؟',
-            s1_text: 'مهندسی برق یک رشته مهندسی حرفه‌ای است که به مطالعه و کاربرد برق، الکترونیک و الکترومغناطیس می‌پردازد. طیف وسیعی از زیرشاخه‌ها از جمله قدرت، سیستم‌های کنترل، مخابرات و پردازش سیگنال را پوشش می‌دهد.',
-            s2_title: '🔹 حوزه‌های کلیدی',
-            s2_list: ['تولید و انتقال برق', 'سیستم‌های کنترل و اتوماسیون', 'الکترونیک و پردازش سیگنال', 'انرژی تجدیدپذیر', 'مخابرات'],
-            s3_title: '🔹 استانداردهای کلیدی',
-            s3_list: ['IEC 60364 – تاسیسات الکتریکی', 'IEC 61439 – تابلوهای برق', 'IEEE 80 – سیستم‌های ارتینگ'],
+            desc: 'مرور جامع مهندسی برق، شامل مفاهیم کلیدی، کاربردها و مسیرهای شغلی.',
+            s1: 'مهندسی برق چیست؟',
+            s1p: 'مهندسی برق یک رشته مهندسی حرفه‌ای است که به مطالعه و کاربرد برق، الکترونیک و الکترومغناطیس می‌پردازد.',
+            s2: 'حوزه‌های کلیدی',
+            list: ['تولید و انتقال برق', 'سیستم‌های کنترل و اتوماسیون', 'الکترونیک و پردازش سیگنال'],
             back: '← بازگشت به داشبورد'
         }
     };
 
-    function setLanguage(lang) {
-        const t = translations[lang];
+    function setLang(l) {
+        const t = lang[l];
         if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('backlink').textContent = t.back;
 
-        document.getElementById('page-title').textContent = t.title;
-        document.getElementById('page-sub').textContent = t.sub;
-        document.getElementById('s1-title').textContent = t.s1_title;
-        document.getElementById('s1-text').textContent = t.s1_text;
-        document.getElementById('s2-title').textContent = t.s2_title;
-        document.getElementById('s3-title').textContent = t.s3_title;
-        document.getElementById('back-link').textContent = t.back;
-
-        const s2List = document.getElementById('s2-list');
-        s2List.innerHTML = '';
-        t.s2_list.forEach(item => {
+        const ul = document.getElementById('list1');
+        ul.innerHTML = '';
+        t.list.forEach(item => {
             const li = document.createElement('li');
-            li.textContent = item;
-            s2List.appendChild(li);
+            li.textContent = '▸ ' + item;
+            ul.appendChild(li);
         });
 
-        const s3List = document.getElementById('s3-list');
-        s3List.innerHTML = '';
-        t.s3_list.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = item;
-            s3List.appendChild(li);
-        });
-
-        document.body.classList.toggle('lang-persian', lang === 'fa');
-        localStorage.setItem('karatech-lang', lang);
-
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.lang === lang);
-        });
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        localStorage.setItem('karatech-lang', l);
     }
 
-    // ===== دکمه‌های تغییر زبان =====
+    // ===== رویداد کلیک دکمه‌ها =====
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            setLanguage(this.dataset.lang);
-        });
+        btn.onclick = function() {
+            setLang(this.dataset.lang);
+        };
     });
 
-    // ===== بارگذاری زبان ذخیره‌شده =====
+    // ===== بارگذاری زبان از localStorage =====
+    // اول از localStorage میخونه، اگر نبود از پیش‌فرض 'en' استفاده میکنه
     const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLanguage(savedLang);
+    setLang(savedLang);
 </script>
 
 </body>
