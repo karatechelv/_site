@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Protection Coordination</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}
+        .brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}
+        .brand span{color:var(--accent)}
+        .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}
+        .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
+        .lang-btn:hover{background:var(--primary);color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        .page-container{max-width:1100px;margin:0 auto;padding:20px}
+        .page-header{background:#1e2128;padding:30px 40px;border-radius:20px;margin-bottom:30px;border-left:5px solid var(--accent)}
+        .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
+        .page-header h1 i{color:var(--accent)}
+        .page-header p{color:#b0b8c5;margin-top:10px;font-size:1.05rem;line-height:1.7}
+        .section-box{background:#1e2128;padding:24px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.06)}
+        .section-box h2{color:#d4af37;font-size:1.4rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+        .section-box h2 i{color:var(--accent)}
+        .section-box p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section-box ul{list-style:none;padding:0}
+        .section-box ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section-box ul li i{color:var(--accent);font-size:.7rem}
+        .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:'Courier New',monospace;font-size:.85rem;color:#b0b8c5;margin:10px 0;border-left:3px solid var(--accent)}
+        .back-link{margin-top:30px;text-align:center}
+        .back-link a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s}
+        .back-link a:hover{transform:translateX(-5px)}
+        .lang-persian{direction:rtl}
+        .lang-persian .page-header h1{justify-content:flex-end}
+        .lang-persian .section-box ul li{flex-direction:row-reverse}
+        .lang-persian .back-link a{flex-direction:row-reverse}
+        @media(max-width:768px){.page-header h1{font-size:1.8rem}}
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="brand">KARATECH <span>ELV</span></div>
+    <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fa">FA</button>
+    </div>
+</header>
+<div class="page-container">
+    <div class="page-header">
+        <h1><i class="fas fa-shield-alt"></i> <span data-en="Protection Coordination" data-fa="هماهنگی حفاظت">Protection Coordination</span></h1>
+        <p data-en="A comprehensive guide to protection coordination, including protective devices, relay settings, and time-current curves." data-fa="راهنمای جامع هماهنگی حفاظت، شامل دستگاه‌های حفاظتی، تنظیمات رله و منحنی‌های زمان-جریان.">A comprehensive guide to protection coordination, including protective devices, relay settings, and time-current curves.</p>
+    </div>
+
+    <div class="section-box">
+        <h2><i class="fas fa-info-circle"></i> <span data-en="What is Protection Coordination?" data-fa="هماهنگی حفاظت چیست؟">What is Protection Coordination?</span></h2>
+        <p data-en="Protection coordination ensures that the correct protective devices operate to isolate faults without affecting the rest of the system. It is critical for system reliability and safety." data-fa="هماهنگی حفاظت تضمین می‌کند که دستگاه‌های حفاظتی صحیح برای جداسازی خطاها بدون تأثیر بر بقیه سیستم عمل می‌کنند. برای قابلیت اطمینان و ایمنی سیستم حیاتی است.">Protection coordination ensures that the correct protective devices operate to isolate faults without affecting the rest of the system. It is critical for system reliability and safety.</p>
+        <p data-en="This involves selecting and setting protective relays, circuit breakers, and fuses to achieve selective tripping. Time-current curves and coordination studies are used to achieve optimal protection." data-fa="این شامل انتخاب و تنظیم رله‌های حفاظتی، کلیدهای مدار و فیوزها برای دستیابی به قطع انتخابی است. از منحنی‌های زمان-جریان و مطالعات هماهنگی برای دستیابی به حفاظت بهینه استفاده می‌شود.">This involves selecting and setting protective relays, circuit breakers, and fuses to achieve selective tripping. Time-current curves and coordination studies are used to achieve optimal protection.</p>
+    </div>
+
+    <div class="section-box">
+        <h2><i class="fas fa-list"></i> <span data-en="Protective Devices" data-fa="دستگاه‌های حفاظتی">Protective Devices</span></h2>
+        <ul>
+            <li><i class="fas fa-circle"></i> <span data-en="Circuit Breakers" data-fa="کلیدهای مدار">Circuit Breakers</span> - <span data-en="LV, MV, and HV breakers" data-fa="کلیدهای LV، MV و HV">LV, MV, and HV breakers</span></li>
+            <li><i class="fas fa-circle"></i> <span data-en="Fuses" data-fa="فیوزها">Fuses</span> - <span data-en="Protection against overcurrent" data-fa="حفاظت در برابر اضافه جریان">Protection against overcurrent</span></li>
+            <li><i class="fas fa-circle"></i> <span data-en="Protective Relays" data-fa="رله‌های حفاظتی">Protective Relays</span> - <span data-en="Overcurrent, earth fault, differential, distance" data-fa="اضافه جریان، خطای زمین، دیفرانسیل، فاصله">Overcurrent, earth fault, differential, distance</span></li>
+            <li><i class="fas fa-circle"></i> <span data-en="Motor Protection" data-fa="حفاظت موتور">Motor Protection</span> - <span data-en="Thermal overload, short-circuit" data-fa="اضافه بار حرارتی، اتصال کوتاه">Thermal overload, short-circuit</span></li>
+        </ul>
+    </div>
+
+    <div class="section-box">
+        <h2><i class="fas fa-chart-line"></i> <span data-en="Time-Current Curves" data-fa="منحنی‌های زمان-جریان">Time-Current Curves</span></h2>
+        <p data-en="Time-current curves show the relationship between the magnitude of the fault current and the operating time of protective devices. They are used to coordinate devices and ensure selective tripping." data-fa="منحنی‌های زمان-جریان رابطه بین بزرگی جریان خطا و زمان عملکرد دستگاه‌های حفاظتی را نشان می‌دهند. آنها برای هماهنگی دستگاه‌ها و اطمینان از قطع انتخابی استفاده می‌شوند.">Time-current curves show the relationship between the magnitude of the fault current and the operating time of protective devices. They are used to coordinate devices and ensure selective tripping.</p>
+        <ul>
+            <li><i class="fas fa-circle"></i> <span data-en="Inverse Time" data-fa="زمان معکوس">Inverse Time</span></li>
+            <li><i class="fas fa-circle"></i> <span data-en="Definite Time" data-fa="زمان معین">Definite Time</span></li>
+            <li><i class="fas fa-circle"></i> <span data-en="Very Inverse" data-fa="بسیار معکوس">Very Inverse</span></li>
+            <li><i class="fas fa-circle"></i> <span data-en="Extremely Inverse" data-fa="بسیار بسیار معکوس">Extremely Inverse</span></li>
+        </ul>
+    </div>
+
+    <div class="section-box">
+        <h2><i class="fas fa-tools"></i> <span data-en="Coordination Study Steps" data-fa="مراحل مطالعه هماهنگی">Coordination Study Steps</span></h2>
+        <ul>
+            <li><i class="fas fa-arrow-right"></i> <span data-en="Data Collection" data-fa="جمع‌آوری داده">Data Collection</span></li>
+            <li><i class="fas fa-arrow-right"></i> <span data-en="System Modeling" data-fa="مدل‌سازی سیستم">System Modeling</span></li>
+            <li><i class="fas fa-arrow-right"></i> <span data-en="Short-Circuit Analysis" data-fa="تحلیل اتصال کوتاه">Short-Circuit Analysis</span></li>
+            <li><i class="fas fa-arrow-right"></i> <span data-en="Device Selection" data-fa="انتخاب دستگاه">Device Selection</span></li>
+            <li><i class="fas fa-arrow-right"></i> <span data-en="Relay Settings" data-fa="تنظیمات رله">Relay Settings</span></li>
+            <li><i class="fas fa-arrow-right"></i> <span data-en="Coordination Verification" data-fa="تأیید هماهنگی">Coordination Verification</span></li>
+        </ul>
+        <div class="code-box">📌 <span data-en="Software: ETAP, SKM, EasyPower" data-fa="نرم‌افزار: ETAP، SKM، EasyPower">Software: ETAP, SKM, EasyPower</span></div>
+    </div>
+
+    <div class="section-box">
+        <h2><i class="fas fa-book"></i> <span data-en="Standards & References" data-fa="استانداردها و مراجع">Standards & References</span></h2>
+        <ul>
+            <li><i class="fas fa-file-pdf"></i> <span data-en="IEC 60947 - Low-voltage Switchgear" data-fa="IEC 60947 - تجهیزات فشار ضعیف">IEC 60947 - Low-voltage Switchgear</span></li>
+            <li><i class="fas fa-file-pdf"></i> <span data-en="IEEE 242 - Protection Coordination" data-fa="IEEE 242 - هماهنگی حفاظت">IEEE 242 - Protection Coordination</span></li>
+            <li><i class="fas fa-file-pdf"></i> <span data-en="ANSI C37 - Relays and Protection" data-fa="ANSI C37 - رله‌ها و حفاظت">ANSI C37 - Relays and Protection</span></li>
+        </ul>
+    </div>
+
+    <div class="back-link">
+        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
+    </div>
+</div>
+<script>
+    (function() {
+        var langBtns = document.querySelectorAll('.lang-btn');
+        var currentLang = localStorage.getItem('karatech-lang') || 'en';
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-en]').forEach(function(el) {
+                var txt = el.dataset[lang];
+                if (txt) {
+                    var nodes = el.childNodes;
+                    for (var i = 0; i < nodes.length; i++) {
+                        if (nodes[i].nodeType === 3) {
+                            nodes[i].textContent = txt;
+                            break;
+                        }
+                    }
+                }
+            });
+            document.body.classList.toggle('lang-persian', lang === 'fa');
+            localStorage.setItem('karatech-lang', lang);
+            langBtns.forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+        setLanguage(currentLang);
+        langBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                setLanguage(this.dataset.lang);
+            });
+        });
+    })();
+</script>
+</body>
+</html>
