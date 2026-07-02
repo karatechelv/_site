@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · مسیر یادگیری</title>
+    <title>Karatech ELV · Learning Path</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
         .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
         .brand{font-weight:700;font-size:1.5rem;color:#fff}
         .brand span{color:#d4af37}
-        h1{color:#d4af37;font-size:2.5rem;margin-bottom:15px;display:flex;align-items:center;gap:12px}
-        .sub{color:#8e95a5;font-size:1.05rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.4rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
         .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
         .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:monospace;font-size:.9rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:15px 0}
-        .back{text-align:center;margin-top:35px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem}
+        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;gap:12px}}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
@@ -31,72 +37,114 @@
 
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
     </div>
 
-    <h1>🗺️ مسیر یادگیری مهندسی برق</h1>
-    <div class="sub">
-        مسیر یادگیری مهندسی برق از مفاهیم پایه تا تخصص‌های پیشرفته را شامل می‌شود. در اینجا یک نقشه راه جامع برای یادگیری گام‌به‌گام این رشته ارائه شده است.
-    </div>
-
-    <div class="section">
-        <h2>📘 سطح مقدماتی (Foundation)</h2>
-        <ul>
-            <li>تئوری پایه برق (ولتاژ، جریان، مقاومت، توان)</li>
-            <li>تحلیل مدارهای DC و AC</li>
-            <li>قوانین کیرشهف و تونن</li>
-            <li>مدارهای الکتریکی پایه</li>
-            <li>آشنایی با تجهیزات اندازه‌گیری (مولتی‌متر، اسیلوسکوپ)</li>
-            <li>ایمنی الکتریکی و اصول اولیه</li>
-        </ul>
-        <div class="code-box">📌 کتاب پیشنهادی: Electrical Engineering 101</div>
-    </div>
+    <h1 id="title">🗺️ Learning Path</h1>
+    <div class="sub" id="desc">A structured learning path from foundation to advanced levels in electrical engineering.</div>
 
     <div class="section">
-        <h2>📗 سطح متوسط (Intermediate)</h2>
-        <ul>
-            <li>سیستم‌های قدرت (تولید، انتقال، توزیع)</li>
-            <li>ماشین‌های الکتریکی (موتورها، ژنراتورها، ترانسفورماتورها)</li>
-            <li>سیستم‌های کنترل و اتوماسیون</li>
-            <li>حفاظت و هماهنگی رله‌ها</li>
-            <li>الکترونیک قدرت</li>
-            <li>آشنایی با نرم‌افزارهای تخصصی (EPLAN، AutoCAD Electrical)</li>
-        </ul>
-        <div class="code-box">📌 کتاب پیشنهادی: Power System Analysis</div>
-    </div>
-
-    <div class="section">
-        <h2>📕 سطح پیشرفته (Advanced)</h2>
-        <ul>
-            <li>تحلیل پیشرفته سیستم‌های قدرت (ETAP، DIgSILENT)</li>
-            <li>طراحی پست‌های برق و تابلوهای فشار قوی</li>
-            <li>سیستم‌های انرژی تجدیدپذیر و یکپارچه‌سازی شبکه</li>
-            <li>شبکه‌های هوشمند (Smart Grid)</li>
-            <li>سیستم‌های حفاظت دیجیتال</li>
-            <li>مدیریت پروژه‌های مهندسی برق</li>
-        </ul>
-        <div class="code-box">📌 کتاب پیشنهادی: Smart Grid Fundamentals</div>
-    </div>
-
-    <div class="section">
-        <h2>🛠️ مهارت‌های عملی</h2>
-        <ul>
-            <li>طراحی با EPLAN و AutoCAD Electrical</li>
-            <li>برنامه‌نویسی PLC با TIA Portal و Codesys</li>
-            <li>تحلیل سیستم‌های قدرت با ETAP</li>
-            <li>نظارت بر پروژه‌های اجرایی</li>
-            <li>تست و راه‌اندازی تاسیسات برق</li>
+        <h2 id="s1">Foundation Level</h2>
+        <ul id="list1">
+            <li>Basic Electrical Theory</li>
+            <li>Circuit Analysis</li>
+            <li>Ohm's Law and Kirchhoff's Laws</li>
+            <li>AC and DC Systems</li>
+            <li>Introduction to Electrical Safety</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>📌 نکته مهم</h2>
-        <div class="code-box">یادگیری عملی و کار روی پروژه‌های واقعی، مهم‌ترین بخش مسیر یادگیری است. سعی کنید دانش نظری را با کاربرد عملی ترکیب کنید.</div>
+        <h2 id="s2">Intermediate Level</h2>
+        <ul id="list2">
+            <li>Power Systems Engineering</li>
+            <li>Protection Coordination</li>
+            <li>Transformers and Motors</li>
+            <li>Electrical Installation Design</li>
+            <li>Lighting and Earthing Systems</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">Advanced Level</h2>
+        <ul id="list3">
+            <li>Power System Studies</li>
+            <li>ETAP and Advanced Software</li>
+            <li>High-Voltage Engineering</li>
+            <li>Smart Grid and Microgrids</li>
+            <li>Renewable Energy Integration</li>
+        </ul>
     </div>
 
     <div class="back">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')">← بازگشت به داشبورد</a>
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
 
 </div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🗺️ Learning Path',
+            desc: 'A structured learning path from foundation to advanced levels in electrical engineering.',
+            s1: 'Foundation Level',
+            list1: ['Basic Electrical Theory', 'Circuit Analysis', "Ohm's Law and Kirchhoff's Laws", 'AC and DC Systems', 'Introduction to Electrical Safety'],
+            s2: 'Intermediate Level',
+            list2: ['Power Systems Engineering', 'Protection Coordination', 'Transformers and Motors', 'Electrical Installation Design', 'Lighting and Earthing Systems'],
+            s3: 'Advanced Level',
+            list3: ['Power System Studies', 'ETAP and Advanced Software', 'High-Voltage Engineering', 'Smart Grid and Microgrids', 'Renewable Energy Integration'],
+            back: '← Back'
+        },
+        fa: {
+            title: '🗺️ مسیر یادگیری',
+            desc: 'یک مسیر یادگیری ساختاریافته از سطح مبتدی تا پیشرفته در مهندسی برق.',
+            s1: 'سطح مقدماتی',
+            list1: ['تئوری پایه برق', 'تحلیل مدار', 'قانون اهم و قوانین کیرشهف', 'سیستم‌های AC و DC', 'آشنایی با ایمنی الکتریکی'],
+            s2: 'سطح متوسط',
+            list2: ['مهندسی سیستم‌های قدرت', 'هماهنگی حفاظت', 'ترانسفورماتورها و موتورها', 'طراحی تاسیسات الکتریکی', 'سیستم‌های روشنایی و ارتینگ'],
+            s3: 'سطح پیشرفته',
+            list3: ['مطالعات سیستم‌های قدرت', 'ETAP و نرم‌افزارهای پیشرفته', 'مهندسی فشار قوی', 'شبکه هوشمند و میکروگریدها', 'یکپارچه‌سازی انرژی تجدیدپذیر'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
 </body>
 </html>
