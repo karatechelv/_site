@@ -2,29 +2,38 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Voltage Drop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Voltage Drop</title>
     <style>
-        body{background:#0d0e12;color:#fff;font-family:sans-serif;padding:40px}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
         .brand{font-weight:700;font-size:1.5rem;color:#fff}
         .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
         .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
         .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37}
-        .content{background:#1e2128;padding:20px;border-radius:12px;margin-top:20px}
-        .content h2{color:#d4af37}
-        .content p{color:#b0b8c5;line-height:1.8}
-        .content ul{list-style:none;padding:0}
-        .content ul li{color:#b0b8c5;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
-        .back{margin-top:30px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
+        .back{text-align:center;margin-top:30px}
         .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
-
-<div style="max-width:1000px;margin:0 auto;">
+<div class="container">
 
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
@@ -35,14 +44,14 @@
     </div>
 
     <h1 id="title">⚡ Voltage Drop</h1>
-    <p id="desc" style="color:#8e95a5;">Calculate voltage drop in electrical circuits based on cable length, current, and conductor size.</p>
+    <div class="sub" id="desc">Calculate voltage drop in electrical circuits based on cable length, current, and conductor size.</div>
 
-    <div class="content">
+    <div class="section">
         <h2 id="s1">What is Voltage Drop?</h2>
         <p id="s1p">Voltage drop is the reduction in voltage in an electrical circuit between the source and the load. It occurs due to the resistance of the conductors and is influenced by the cable length, cross-sectional area, and the amount of current flowing.</p>
     </div>
 
-    <div class="content">
+    <div class="section">
         <h2 id="s2">Key Factors</h2>
         <ul id="list1">
             <li>Conductor Material: Copper vs. Aluminum</li>
@@ -52,9 +61,10 @@
         </ul>
     </div>
 
-    <div class="content">
+    <div class="section">
         <h2 id="s3">Formula</h2>
-        <p id="s3p" style="font-family:monospace;font-size:1.1rem;color:#d4af37;">Vd = (2 × ρ × L × I) / A</p>
+        <div class="code-box">Vd = (2 × ρ × L × I) / A</div>
+        <p style="color:#8e95a5;font-size:.9rem;">ρ (resistivity) for copper = 0.0178 Ω·mm²/m</p>
     </div>
 
     <div class="back">
@@ -69,11 +79,10 @@
             title: '⚡ Voltage Drop',
             desc: 'Calculate voltage drop in electrical circuits based on cable length, current, and conductor size.',
             s1: 'What is Voltage Drop?',
-            s1p: 'Voltage drop is the reduction in voltage in an electrical circuit between the source and the load. It occurs due to the resistance of the conductors.',
+            s1p: 'Voltage drop is the reduction in voltage in an electrical circuit between the source and the load. It occurs due to the resistance of the conductors and is influenced by the cable length, cross-sectional area, and the amount of current flowing.',
             s2: 'Key Factors',
-            list: ['Conductor Material: Copper vs. Aluminum', 'Cable Length: Longer cables have higher voltage drop', 'Cross-Sectional Area: Larger area reduces voltage drop', 'Current Load: Higher current increases voltage drop'],
+            list1: ['Conductor Material: Copper vs. Aluminum', 'Cable Length: Longer cables have higher voltage drop', 'Cross-Sectional Area: Larger area reduces voltage drop', 'Current Load: Higher current increases voltage drop'],
             s3: 'Formula',
-            s3p: 'Vd = (2 × ρ × L × I) / A',
             back: '← Back'
         },
         fa: {
@@ -82,9 +91,8 @@
             s1: 'افت ولتاژ چیست؟',
             s1p: 'افت ولتاژ کاهش ولتاژ در یک مدار الکتریکی بین منبع و بار است. به دلیل مقاومت هادی‌ها رخ می‌دهد و تحت تأثیر طول کابل، سطح مقطع و مقدار جریان عبوری است.',
             s2: 'عوامل کلیدی',
-            list: ['جنس هادی: مس در مقابل آلومینیوم', 'طول کابل: کابل‌های بلندتر افت ولتاژ بیشتری دارند', 'سطح مقطع: سطح مقطع بزرگتر افت ولتاژ را کاهش می‌دهد', 'بار جریان: جریان بالاتر افت ولتاژ را افزایش می‌دهد'],
+            list1: ['جنس هادی: مس در مقابل آلومینیوم', 'طول کابل: کابل‌های بلندتر افت ولتاژ بیشتری دارند', 'سطح مقطع: سطح مقطع بزرگتر افت ولتاژ را کاهش می‌دهد', 'بار جریان: جریان بالاتر افت ولتاژ را افزایش می‌دهد'],
             s3: 'فرمول',
-            s3p: 'Vd = (2 × ρ × L × I) / A',
             back: '← بازگشت'
         }
     };
@@ -98,25 +106,19 @@
         document.getElementById('s1p').textContent = t.s1p;
         document.getElementById('s2').textContent = t.s2;
         document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
         document.getElementById('backlink').textContent = t.back;
 
-        const ul = document.getElementById('list1');
-        ul.innerHTML = '';
-        t.list.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = item;
-            ul.appendChild(li);
-        });
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
 
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
         localStorage.setItem('karatech-lang', l);
     }
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() {
-            setLang(this.dataset.lang);
-        };
+        btn.onclick = function() { setLang(this.dataset.lang); };
     });
 
     const savedLang = localStorage.getItem('karatech-lang') || 'en';
