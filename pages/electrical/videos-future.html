@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · ویدئوها و آینده</title>
+    <title>Karatech ELV · Videos & Future</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
         .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
         .brand{font-weight:700;font-size:1.5rem;color:#fff}
         .brand span{color:#d4af37}
-        h1{color:#d4af37;font-size:2.5rem;margin-bottom:15px;display:flex;align-items:center;gap:12px}
-        .sub{color:#8e95a5;font-size:1.05rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.4rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
         .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
         .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:monospace;font-size:.9rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:15px 0}
-        .back{text-align:center;margin-top:35px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem}
+        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;gap:12px}}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
@@ -31,52 +37,112 @@
 
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
     </div>
 
-    <h1>🎬 ویدئوهای آموزشی و فناوری‌های آینده</h1>
-    <div class="sub">
-        در این بخش مجموعه‌ای از ویدئوهای آموزشی و فناوری‌های نوظهور در حوزه مهندسی برق را مرور می‌کنیم.
-    </div>
+    <h1 id="title">🎬 Videos & Future</h1>
+    <div class="sub" id="desc">Watch training videos and explore emerging technologies in electrical engineering.</div>
 
     <div class="section">
-        <h2>📺 ویدئوهای آموزشی</h2>
-        <ul>
-            <li><strong>آموزش تحلیل سیستم‌های قدرت</strong> – مفاهیم جریان بار، اتصال کوتاه و پایداری</li>
-            <li><strong>کارگاه هماهنگی حفاظت</strong> – تنظیم رله‌ها و منحنی‌های زمان-جریان</li>
-            <li><strong>سری آموزشی EPLAN</strong> – طراحی شماتیک و پنل‌های برق</li>
-            <li><strong>طراحی روشنایی با DIALux</strong> – آموزش گام‌به‌گام</li>
-            <li><strong>برنامه‌نویسی PLC با TIA Portal</strong> – از مبتدی تا پیشرفته</li>
-            <li><strong>آموزش ETAP</strong> – تحلیل سیستم‌های قدرت</li>
+        <h2 id="s1">Training Videos</h2>
+        <ul id="list1">
+            <li>Power System Analysis Tutorial</li>
+            <li>Protection Coordination Workshop</li>
+            <li>EPLAN Training Series</li>
+            <li>Lighting Design with DIALux</li>
+            <li>Transformer Sizing & Selection</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>🚀 فناوری‌های آینده</h2>
-        <ul>
-            <li><strong>شبکه‌های هوشمند (Smart Grid)</strong> – توزیع هوشمند برق و مدیریت انرژی</li>
-            <li><strong>هوش مصنوعی در سیستم‌های قدرت</strong> – نگهداری پیش‌بینی‌کننده و بهینه‌سازی</li>
-            <li><strong>اینترنت اشیا (IoT) در مهندسی برق</strong> – پایش و کنترل از راه دور</li>
-            <li><strong>یکپارچه‌سازی انرژی‌های تجدیدپذیر</strong> – خورشیدی، بادی و ذخیره‌سازی</li>
-            <li><strong>دوقلوی دیجیتال (Digital Twin)</strong> – شبیه‌سازی سیستم‌های الکتریکی</li>
-            <li><strong>خودروهای برقی و زیرساخت شارژ</strong> – آینده حمل و نقل</li>
+        <h2 id="s2">Future Technologies</h2>
+        <ul id="list2">
+            <li>Smart Grid & Microgrids</li>
+            <li>Artificial Intelligence in Power Systems</li>
+            <li>Internet of Things (IoT) in Electrical Engineering</li>
+            <li>Renewable Energy Integration</li>
+            <li>Digital Twins for Electrical Systems</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>📌 دوره‌های پیش‌رو</h2>
-        <ul>
-            <li><strong>دوره پیشرفته ETAP</strong> – به زودی</li>
-            <li><strong>کارگاه تخصصی حفاظت دیجیتال</strong> – به زودی</li>
-            <li><strong>آموزش شبکه‌های هوشمند</strong> – به زودی</li>
-            <li><strong>دوره طراحی پست‌های برق</strong> – به زودی</li>
+        <h2 id="s3">Coming Soon</h2>
+        <ul id="list3">
+            <li>Advanced ETAP Training Course</li>
+            <li>Protection Coordination Workshop</li>
+            <li>Smart Grid Technologies</li>
         </ul>
-        <div class="code-box">📌 برای اطلاع از زمان برگزاری دوره‌ها، با ما در تماس باشید.</div>
     </div>
 
     <div class="back">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')">← بازگشت به داشبورد</a>
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
 
 </div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🎬 Videos & Future',
+            desc: 'Watch training videos and explore emerging technologies in electrical engineering.',
+            s1: 'Training Videos',
+            list1: ['Power System Analysis Tutorial', 'Protection Coordination Workshop', 'EPLAN Training Series', 'Lighting Design with DIALux', 'Transformer Sizing & Selection'],
+            s2: 'Future Technologies',
+            list2: ['Smart Grid & Microgrids', 'Artificial Intelligence in Power Systems', 'Internet of Things (IoT) in Electrical Engineering', 'Renewable Energy Integration', 'Digital Twins for Electrical Systems'],
+            s3: 'Coming Soon',
+            list3: ['Advanced ETAP Training Course', 'Protection Coordination Workshop', 'Smart Grid Technologies'],
+            back: '← Back'
+        },
+        fa: {
+            title: '🎬 ویدئوها و آینده',
+            desc: 'ویدئوهای آموزشی را تماشا کنید و فناوری‌های نوظهور در مهندسی برق را کاوش کنید.',
+            s1: 'ویدئوهای آموزشی',
+            list1: ['آموزش تحلیل سیستم‌های قدرت', 'کارگاه هماهنگی حفاظت', 'سری آموزشی EPLAN', 'طراحی روشنایی با DIALux', 'سایزینگ و انتخاب ترانسفورماتور'],
+            s2: 'فناوری‌های آینده',
+            list2: ['شبکه هوشمند و میکروگریدها', 'هوش مصنوعی در سیستم‌های قدرت', 'اینترنت اشیا (IoT) در مهندسی برق', 'یکپارچه‌سازی انرژی تجدیدپذیر', 'دوقلوی دیجیتال برای سیستم‌های الکتریکی'],
+            s3: 'به زودی',
+            list3: ['دوره پیشرفته ETAP', 'کارگاه هماهنگی حفاظت', 'فناوری‌های شبکه هوشمند'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
 </body>
 </html>
