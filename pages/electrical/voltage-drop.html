@@ -24,6 +24,13 @@
         .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
         .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
+        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
+        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
+        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
+        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
+        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
+        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
+        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
         .back{text-align:center;margin-top:30px}
         .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
@@ -52,19 +59,31 @@
     </div>
 
     <div class="section">
-        <h2 id="s2">Key Factors</h2>
+        <h2 id="s2">🧮 Voltage Drop Calculator</h2>
+        <div class="calc-box">
+            <label id="l1">Current (A)</label>
+            <input type="number" id="vd-current" value="50">
+            <label id="l2">Cable Length (m)</label>
+            <input type="number" id="vd-length" value="100">
+            <label id="l3">Conductor Size (mm²)</label>
+            <input type="number" id="vd-size" value="25">
+            <button class="calc-btn" onclick="calcVoltageDrop()" id="btn-calc">Calculate</button>
+            <div class="result-box" id="vd-result">
+                <span id="r1">Voltage Drop: 5.2 V</span><br>
+                <span style="font-size:0.9rem;color:#8e95a5;" id="r2">Percentage: 2.3%</span>
+            </div>
+        </div>
+        <div class="code-box">Vd = (2 × ρ × L × I) / A &nbsp; (ρ = 0.0178 for copper)</div>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">Key Factors</h2>
         <ul id="list1">
             <li>Conductor Material: Copper vs. Aluminum</li>
             <li>Cable Length: Longer cables have higher voltage drop</li>
             <li>Cross-Sectional Area: Larger area reduces voltage drop</li>
             <li>Current Load: Higher current increases voltage drop</li>
         </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">Formula</h2>
-        <div class="code-box">Vd = (2 × ρ × L × I) / A</div>
-        <p style="color:#8e95a5;font-size:.9rem;">ρ (resistivity) for copper = 0.0178 Ω·mm²/m</p>
     </div>
 
     <div class="back">
@@ -80,9 +99,13 @@
             desc: 'Calculate voltage drop in electrical circuits based on cable length, current, and conductor size.',
             s1: 'What is Voltage Drop?',
             s1p: 'Voltage drop is the reduction in voltage in an electrical circuit between the source and the load. It occurs due to the resistance of the conductors and is influenced by the cable length, cross-sectional area, and the amount of current flowing.',
-            s2: 'Key Factors',
+            s2: '🧮 Voltage Drop Calculator',
+            l1: 'Current (A)', l2: 'Cable Length (m)', l3: 'Conductor Size (mm²)',
+            btn: 'Calculate',
+            r1: 'Voltage Drop: 5.2 V',
+            r2: 'Percentage: 2.3%',
+            s3: 'Key Factors',
             list1: ['Conductor Material: Copper vs. Aluminum', 'Cable Length: Longer cables have higher voltage drop', 'Cross-Sectional Area: Larger area reduces voltage drop', 'Current Load: Higher current increases voltage drop'],
-            s3: 'Formula',
             back: '← Back'
         },
         fa: {
@@ -90,9 +113,13 @@
             desc: 'محاسبه افت ولتاژ در مدارهای الکتریکی بر اساس طول کابل، جریان و سطح مقطع هادی.',
             s1: 'افت ولتاژ چیست؟',
             s1p: 'افت ولتاژ کاهش ولتاژ در یک مدار الکتریکی بین منبع و بار است. به دلیل مقاومت هادی‌ها رخ می‌دهد و تحت تأثیر طول کابل، سطح مقطع و مقدار جریان عبوری است.',
-            s2: 'عوامل کلیدی',
+            s2: '🧮 ماشین حساب افت ولتاژ',
+            l1: 'جریان (آمپر)', l2: 'طول کابل (متر)', l3: 'سطح مقطع هادی (mm²)',
+            btn: 'محاسبه',
+            r1: 'افت ولتاژ: 5.2 ولت',
+            r2: 'درصد: 2.3%',
+            s3: 'عوامل کلیدی',
             list1: ['جنس هادی: مس در مقابل آلومینیوم', 'طول کابل: کابل‌های بلندتر افت ولتاژ بیشتری دارند', 'سطح مقطع: سطح مقطع بزرگتر افت ولتاژ را کاهش می‌دهد', 'بار جریان: جریان بالاتر افت ولتاژ را افزایش می‌دهد'],
-            s3: 'فرمول',
             back: '← بازگشت'
         }
     };
@@ -105,24 +132,46 @@
         document.getElementById('s1').textContent = t.s1;
         document.getElementById('s1p').textContent = t.s1p;
         document.getElementById('s2').textContent = t.s2;
+        document.getElementById('l1').textContent = t.l1;
+        document.getElementById('l2').textContent = t.l2;
+        document.getElementById('l3').textContent = t.l3;
+        document.getElementById('btn-calc').textContent = t.btn;
+        document.getElementById('r1').textContent = t.r1;
+        document.getElementById('r2').textContent = t.r2;
         document.getElementById('s3').textContent = t.s3;
         document.getElementById('backlink').textContent = t.back;
 
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+        const ul = document.getElementById('list1');
+        ul.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
 
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
         document.body.classList.toggle('lang-persian', l === 'fa');
         localStorage.setItem('karatech-lang', l);
     }
 
+    function calcVoltageDrop() {
+        var I = parseFloat(document.getElementById('vd-current').value);
+        var L = parseFloat(document.getElementById('vd-length').value);
+        var A = parseFloat(document.getElementById('vd-size').value);
+        var rho = 0.0178;
+        var Vd = (2 * rho * L * I) / A;
+        var VdPercent = (Vd / 230) * 100;
+        document.getElementById('vd-result').innerHTML = 
+            '<span id="r1">' + (document.querySelector('.lang-btn.active').dataset.lang === 'fa' ? 'افت ولتاژ: ' + Vd.toFixed(2) + ' ولت' : 'Voltage Drop: ' + Vd.toFixed(2) + ' V') + '</span><br>' +
+            '<span style="font-size:0.9rem;color:#8e95a5;" id="r2">' + (document.querySelector('.lang-btn.active').dataset.lang === 'fa' ? 'درصد: ' + VdPercent.toFixed(2) + '%' : 'Percentage: ' + VdPercent.toFixed(2) + '%') + '</span>';
+    }
+
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
+        btn.onclick = function() { 
+            setLang(this.dataset.lang); 
+            calcVoltageDrop();
+        };
     });
 
     const savedLang = localStorage.getItem('karatech-lang') || 'en';
     setLang(savedLang);
+    calcVoltageDrop();
 </script>
 
 </body>
