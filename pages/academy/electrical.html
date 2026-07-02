@@ -43,7 +43,6 @@
     </style>
 </head>
 <body>
-
 <header class="header">
     <div class="brand">KARATECH <span>ELV</span></div>
     <div class="lang-switch">
@@ -51,13 +50,12 @@
         <button class="lang-btn" data-lang="fa">FA</button>
     </div>
 </header>
-
 <div class="page-container">
     <div class="page-header">
         <h1><i class="fas fa-bolt"></i> <span data-en="Electrical Engineering" data-fa="مهندسی برق">Electrical Engineering</span></h1>
-        <p data-en="Power systems, protection coordination, load calculation. Includes switchgear, MCC, distribution panels, and lighting systems." 
-           data-fa="سیستم‌های قدرت، هماهنگی حفاظت، محاسبات بار. شامل تابلوهای برق، مراکز کنترل موتور، پنل‌های توزیع و سیستم‌های روشنایی.">
-           Power systems, protection coordination, load calculation. Includes switchgear, MCC, distribution panels, and lighting systems.</p>
+        <p data-en="Power systems, protection coordination, load calculation. Includes switchgear, MCC, distribution panels, and lighting systems. Essential for all industrial and commercial projects." 
+           data-fa="سیستم‌های قدرت، هماهنگی حفاظت، محاسبات بار. شامل تابلوهای برق، مراکز کنترل موتور، پنل‌های توزیع و سیستم‌های روشنایی. برای تمام پروژه‌های صنعتی و تجاری ضروری است.">
+           Power systems, protection coordination, load calculation. Includes switchgear, MCC, distribution panels, and lighting systems. Essential for all industrial and commercial projects.</p>
     </div>
 
     <div class="content-grid">
@@ -83,7 +81,7 @@
                 <li><i class="fas fa-check"></i> EPLAN</li>
                 <li><i class="fas fa-check"></i> AutoCAD Electrical</li>
                 <li><i class="fas fa-check"></i> ETAP</li>
-                <li><i class="fas fa-check"></i> DIALux</li>
+                <li><i class="fas fa-check"></i> DIALux (lighting)</li>
             </ul>
         </div>
         <div class="content-card">
@@ -97,17 +95,17 @@
         <div class="content-card">
             <h3><i class="fas fa-road"></i> <span data-en="Learning Path" data-fa="مسیر یادگیری">Learning Path</span></h3>
             <ul>
-                <li><i class="fas fa-arrow-right"></i> <strong data-en="Foundation:" data-fa="مقدماتی:">Foundation:</strong> <span data-en="Basic electrical theory" data-fa="تئوری پایه برق">Basic electrical theory</span></li>
-                <li><i class="fas fa-arrow-right"></i> <strong data-en="Intermediate:" data-fa="متوسط:">Intermediate:</strong> <span data-en="Power systems, protection" data-fa="سیستم‌های قدرت، حفاظت">Power systems, protection</span></li>
-                <li><i class="fas fa-arrow-right"></i> <strong data-en="Advanced:" data-fa="پیشرفته:">Advanced:</strong> <span data-en="System studies, ETAP" data-fa="مطالعات سیستم، ETAP">System studies, ETAP</span></li>
+                <li><i class="fas fa-arrow-right"></i> <strong data-en="Foundation:" data-fa="مقدماتی:">Foundation:</strong> <span data-en="Basic electrical theory, circuit analysis" data-fa="تئوری پایه برق، تحلیل مدار">Basic electrical theory, circuit analysis</span></li>
+                <li><i class="fas fa-arrow-right"></i> <strong data-en="Intermediate:" data-fa="متوسط:">Intermediate:</strong> <span data-en="Power systems, protection coordination" data-fa="سیستم‌های قدرت، هماهنگی حفاظت">Power systems, protection coordination</span></li>
+                <li><i class="fas fa-arrow-right"></i> <strong data-en="Advanced:" data-fa="پیشرفته:">Advanced:</strong> <span data-en="System studies, ETAP, high-voltage design" data-fa="مطالعات سیستم، ETAP، طراحی فشار قوی">System studies, ETAP, high-voltage design</span></li>
             </ul>
         </div>
         <div class="content-card">
             <h3><i class="fas fa-play-circle"></i> <span data-en="Videos & Future" data-fa="ویدئوها و آینده">Videos & Future</span></h3>
             <ul>
-                <li><i class="fas fa-video"></i> <span data-en="Power System Tutorial" data-fa="آموزش سیستم‌های قدرت">Power System Tutorial</span></li>
-                <li><i class="fas fa-video"></i> <span data-en="Protection Workshop" data-fa="کارگاه حفاظت">Protection Workshop</span></li>
-                <li><i class="fas fa-clock"></i> <span data-en="Future: Smart Grid" data-fa="آینده: شبکه هوشمند">Future: Smart Grid</span></li>
+                <li><i class="fas fa-video"></i> <span data-en="Power System Analysis Tutorial" data-fa="آموزش تحلیل سیستم‌های قدرت">Power System Analysis Tutorial</span></li>
+                <li><i class="fas fa-video"></i> <span data-en="Protection Coordination Workshop" data-fa="کارگاه هماهنگی حفاظت">Protection Coordination Workshop</span></li>
+                <li><i class="fas fa-clock"></i> <span data-en="Future: Smart Grid & Microgrids" data-fa="آینده: شبکه هوشمند و میکروگریدها">Future: Smart Grid & Microgrids</span></li>
             </ul>
         </div>
     </div>
@@ -116,12 +114,10 @@
         <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
     </div>
 </div>
-
 <script>
     (function() {
         const langBtns = document.querySelectorAll('.lang-btn');
         let currentLang = localStorage.getItem('karatech-lang') || 'en';
-        
         function setLanguage(lang) {
             document.querySelectorAll('[data-en]').forEach(el => {
                 const txt = el.dataset[lang];
@@ -137,14 +133,11 @@
             });
             document.body.classList.toggle('lang-persian', lang === 'fa');
             localStorage.setItem('karatech-lang', lang);
-            
             langBtns.forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.lang === lang);
             });
         }
-        
         setLanguage(currentLang);
-        
         langBtns.forEach(btn => {
             btn.addEventListener('click', function() {
                 setLanguage(this.dataset.lang);
@@ -152,6 +145,5 @@
         });
     })();
 </script>
-
 </body>
 </html>
