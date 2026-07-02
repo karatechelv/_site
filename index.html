@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#fff;font-family:sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;flex-direction:column;gap:20px}
+        .btn{padding:14px 40px;background:#5b3b8c;border:2px solid #d4af37;color:#fff;border-radius:40px;font-size:1.2rem;cursor:pointer}
+        .btn:hover{background:#d4af37;color:#111}
+        .hidden{display:none}
+        h1{color:#d4af37}
+        .card{padding:15px 25px;background:#1e2128;border-radius:12px;margin:5px;cursor:pointer}
+        .card:hover{background:#282d38}
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:15px;width:90%;max-width:900px;margin-top:30px}
+    </style>
+</head>
+<body>
+
+<div id="splash">
+    <h1>⚡ KARATECH ELV</h1>
+    <p style="color:#8e95a5;margin-bottom:10px;">Engineering · Automation · Intelligence</p>
+    <button class="btn" onclick="enterSystem()">Enter Engineering System</button>
+</div>
+
+<div id="dashboard" class="hidden">
+    <h1 style="text-align:center;">Dashboard</h1>
+    <div class="grid">
+        <div class="card">Electrical</div>
+        <div class="card">Automation</div>
+        <div class="card">Instrumentation</div>
+        <div class="card">Design</div>
+        <div class="card">Quality</div>
+        <div class="card">Standards</div>
+        <div class="card">Management</div>
+        <div class="card">HSE</div>
+    </div>
+    <button class="btn" onclick="goToSplash()" style="margin-top:30px;">Exit</button>
+</div>
+
+<script>
+    if (localStorage.getItem('dashboardActive') === 'true') {
+        document.getElementById('splash').classList.add('hidden');
+        document.getElementById('dashboard').classList.remove('hidden');
+    }
+
+    function enterSystem() {
+        localStorage.setItem('dashboardActive', 'true');
+        location.reload();
+    }
+
+    function goToSplash() {
+        localStorage.removeItem('dashboardActive');
+        location.reload();
+    }
+</script>
+
+</body>
+</html>
