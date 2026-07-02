@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · تحلیل سیستم‌های قدرت</title>
+    <title>Karatech ELV · Power System Analysis</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
         .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
         .brand{font-weight:700;font-size:1.5rem;color:#fff}
         .brand span{color:#d4af37}
-        h1{color:#d4af37;font-size:2.5rem;margin-bottom:15px;display:flex;align-items:center;gap:12px}
-        .sub{color:#8e95a5;font-size:1.05rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.4rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
         .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
         .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:monospace;font-size:.9rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:15px 0}
-        .back{text-align:center;margin-top:35px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem}
+        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;gap:12px}}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
@@ -31,67 +37,144 @@
 
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
     </div>
 
-    <h1>📈 تحلیل سیستم‌های قدرت</h1>
-    <div class="sub">
-        تحلیل سیستم‌های قدرت یکی از مهم‌ترین حوزه‌های مهندسی برق است که به بررسی رفتار شبکه‌های الکتریکی در شرایط عادی و خطا می‌پردازد. این تحلیل برای طراحی، بهره‌برداری و حفاظت از سیستم‌های قدرت ضروری است.
-    </div>
-
-    <div class="section">
-        <h2>🔹 تحلیل جریان بار (Load Flow Analysis)</h2>
-        <p>تحلیل جریان بار، ولتاژ، جریان و توان را در یک سیستم قدرت در شرایط پایدار تعیین می‌کند. این تحلیل برای برنامه‌ریزی، تحلیل پروفیل ولتاژ و محاسبه تلفات استفاده می‌شود.</p>
-        <ul>
-            <li>روش نیوتن-رافسون</li>
-            <li>روش گاوس-سایدل</li>
-            <li>روش سریع جدا شده</li>
-        </ul>
-        <div class="code-box">📌 نرم‌افزار: ETAP، DIgSILENT، SKM</div>
-    </div>
+    <h1 id="title">📈 Power System Analysis</h1>
+    <div class="sub" id="desc">Complete guide to power system analysis including load flow, short-circuit, stability, and harmonic studies.</div>
 
     <div class="section">
-        <h2>🔹 تحلیل اتصال کوتاه (Short-Circuit Analysis)</h2>
-        <p>تحلیل اتصال کوتاه جریان‌های خطا را محاسبه کرده و رتبه‌بندی مورد نیاز تجهیزات حفاظتی را تعیین می‌کند.</p>
-        <ul>
-            <li>خطای سه فاز</li>
-            <li>خطای تک فاز به زمین</li>
-            <li>خطای دو فاز</li>
-            <li>خطای دو فاز به زمین</li>
-        </ul>
-        <div class="code-box">📌 استاندارد: IEC 60909</div>
-    </div>
-
-    <div class="section">
-        <h2>🔹 مطالعات پایداری (Stability Studies)</h2>
-        <p>مطالعات پایداری توانایی سیستم قدرت را برای حفظ همزمانی پس از یک اختلال مانند خطا یا تغییر بار ارزیابی می‌کند.</p>
-        <ul>
-            <li>پایداری گذرا (Transient Stability)</li>
-            <li>پایداری حالت پایدار (Steady-State Stability)</li>
-            <li>پایداری ولتاژ (Voltage Stability)</li>
-            <li>پایداری فرکانس (Frequency Stability)</li>
+        <h2 id="s1">Load Flow Analysis</h2>
+        <p id="s1p">Load flow analysis determines the voltage, current, and power flow in a power system under steady-state conditions. It is used for system planning, voltage profile analysis, loss calculation, and contingency analysis.</p>
+        <ul id="list1">
+            <li>Newton-Raphson Method</li>
+            <li>Gauss-Seidel Method</li>
+            <li>Fast Decoupled Method</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>🔹 تحلیل هارمونیک (Harmonic Analysis)</h2>
-        <p>تحلیل هارمونیک اعوجاج هارمونیک ناشی از بارهای غیرخطی مانند VFDها، UPS و یکسوسازها را شناسایی و کاهش می‌دهد.</p>
-        <ul>
-            <li>کل اعوجاج هارمونیک (THD)</li>
-            <li>هارمونیک‌های تکی</li>
-            <li>فیلترهای هارمونیک</li>
+        <h2 id="s2">Short-Circuit Analysis</h2>
+        <p id="s2p">Short-circuit analysis calculates fault currents and determines the required ratings of protective devices such as circuit breakers and fuses.</p>
+        <ul id="list2">
+            <li>Three-phase fault</li>
+            <li>Line-to-ground fault</li>
+            <li>Line-to-line fault</li>
+            <li>Double line-to-ground fault</li>
         </ul>
-        <div class="code-box">📌 استاندارد: IEEE 519</div>
     </div>
 
     <div class="section">
-        <h2>📌 اهمیت تحلیل سیستم‌های قدرت</h2>
-        <div class="code-box">تحلیل سیستم‌های قدرت به مهندسان کمک می‌کند تا سیستم‌های قابل اعتماد، ایمن و کارآمد طراحی کنند. این تحلیل‌ها برای جلوگیری از خاموشی، کاهش تلفات و بهینه‌سازی شبکه ضروری هستند.</div>
+        <h2 id="s3">Stability Studies</h2>
+        <p id="s3p">Stability studies evaluate the ability of a power system to maintain synchronism after a disturbance such as a fault or load change.</p>
+        <ul id="list3">
+            <li>Transient Stability</li>
+            <li>Steady-State Stability</li>
+            <li>Voltage Stability</li>
+            <li>Frequency Stability</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">Harmonic Analysis</h2>
+        <p id="s4p">Harmonic analysis identifies and mitigates harmonic distortion caused by non-linear loads such as VFDs, UPS, and rectifiers.</p>
+        <ul id="list4">
+            <li>Total Harmonic Distortion (THD)</li>
+            <li>Individual Harmonics</li>
+            <li>Harmonic Filters</li>
+        </ul>
     </div>
 
     <div class="back">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')">← بازگشت به داشبورد</a>
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
 
 </div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📈 Power System Analysis',
+            desc: 'Complete guide to power system analysis including load flow, short-circuit, stability, and harmonic studies.',
+            s1: 'Load Flow Analysis',
+            s1p: 'Load flow analysis determines the voltage, current, and power flow in a power system under steady-state conditions. It is used for system planning, voltage profile analysis, loss calculation, and contingency analysis.',
+            list1: ['Newton-Raphson Method', 'Gauss-Seidel Method', 'Fast Decoupled Method'],
+            s2: 'Short-Circuit Analysis',
+            s2p: 'Short-circuit analysis calculates fault currents and determines the required ratings of protective devices such as circuit breakers and fuses.',
+            list2: ['Three-phase fault', 'Line-to-ground fault', 'Line-to-line fault', 'Double line-to-ground fault'],
+            s3: 'Stability Studies',
+            s3p: 'Stability studies evaluate the ability of a power system to maintain synchronism after a disturbance such as a fault or load change.',
+            list3: ['Transient Stability', 'Steady-State Stability', 'Voltage Stability', 'Frequency Stability'],
+            s4: 'Harmonic Analysis',
+            s4p: 'Harmonic analysis identifies and mitigates harmonic distortion caused by non-linear loads such as VFDs, UPS, and rectifiers.',
+            list4: ['Total Harmonic Distortion (THD)', 'Individual Harmonics', 'Harmonic Filters'],
+            back: '← Back'
+        },
+        fa: {
+            title: '📈 تحلیل سیستم‌های قدرت',
+            desc: 'راهنمای کامل تحلیل سیستم‌های قدرت شامل جریان بار، اتصال کوتاه، پایداری و مطالعات هارمونیک.',
+            s1: 'تحلیل جریان بار',
+            s1p: 'تحلیل جریان بار ولتاژ، جریان و جریان توان را در یک سیستم قدرت در شرایط حالت پایدار تعیین می‌کند. برای برنامه‌ریزی سیستم، تحلیل پروفیل ولتاژ، محاسبه تلفات و تحلیل شرایط اضطراری استفاده می‌شود.',
+            list1: ['روش نیوتن-رافسون', 'روش گاوس-سایدل', 'روش سریع جدا شده'],
+            s2: 'تحلیل اتصال کوتاه',
+            s2p: 'تحلیل اتصال کوتاه جریان‌های خطا را محاسبه می‌کند و رتبه‌بندی مورد نیاز دستگاه‌های حفاظتی مانند کلیدهای مدار و فیوزها را تعیین می‌کند.',
+            list2: ['خطای سه فاز', 'خطای تک فاز به زمین', 'خطای دو فاز', 'خطای دو فاز به زمین'],
+            s3: 'مطالعات پایداری',
+            s3p: 'مطالعات پایداری توانایی یک سیستم قدرت را برای حفظ همزمانی پس از یک اختلال مانند خطا یا تغییر بار ارزیابی می‌کند.',
+            list3: ['پایداری گذرا', 'پایداری حالت پایدار', 'پایداری ولتاژ', 'پایداری فرکانس'],
+            s4: 'تحلیل هارمونیک',
+            s4p: 'تحلیل هارمونیک اعوجاج هارمونیک ناشی از بارهای غیرخطی مانند VFDها، UPS و یکسوسازها را شناسایی و کاهش می‌دهد.',
+            list4: ['کل اعوجاج هارمونیک (THD)', 'هارمونیک‌های تکی', 'فیلترهای هارمونیک'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s2p').textContent = t.s2p;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s3p').textContent = t.s3p;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        const ul4 = document.getElementById('list4');
+        ul4.innerHTML = '';
+        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
 </body>
 </html>
