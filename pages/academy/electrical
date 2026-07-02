@@ -3,170 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Electrical Engineering</title>
-    <link rel="stylesheet" href="../../style.css">
+    <title>Karatech ELV · Electrical</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}
-        .brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}
-        .brand span{color:var(--accent)}
-        .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}
-        .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
-        .lang-btn:hover{background:var(--primary);color:#fff}
+        body{background:#0d0e12;color:#eef0f4;font-family:sans-serif;padding:40px 20px}
+        .page{max-width:1100px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:#1e2128;border-radius:12px;margin-bottom:30px}
+        .brand{font-weight:700;font-size:1.4rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
         .lang-switch{display:flex;gap:6px}
-        .page-container{max-width:1100px;margin:0 auto;padding:20px}
-        .page-header{background:#1e2128;padding:30px 40px;border-radius:20px;margin-bottom:30px;border-left:5px solid var(--accent)}
-        .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
-        .page-header h1 i{color:var(--accent)}
-        .page-header p{color:#b0b8c5;margin-top:10px;font-size:1.05rem;line-height:1.7}
-        .section-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:30px}
-        .section-card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
-        .section-card:hover{background:#282d38;transform:translateY(-3px);border-color:var(--accent)}
-        .section-card i{font-size:2rem;color:var(--accent);margin-bottom:10px;display:block}
-        .section-card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
-        .section-card p{color:var(--muted);font-size:.85rem;line-height:1.5}
-        .section-card .badge{display:inline-block;background:rgba(212,175,55,0.12);color:var(--accent);font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:8px}
-        .back-link{margin-top:30px;text-align:center}
-        .back-link a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s}
-        .back-link a:hover{transform:translateX(-5px)}
-        .lang-persian{direction:rtl}
-        .lang-persian .page-header h1{justify-content:flex-end}
-        .lang-persian .back-link a{flex-direction:row-reverse}
-        @media(max-width:768px){.page-header h1{font-size:1.8rem}.section-grid{grid-template-columns:1fr}}
+        h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
+        h1 i{color:#d4af37}
+        .sub{color:#8e95a5;margin:10px 0 30px;font-size:1.05rem}
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:30px}
+        .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+        .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
+        .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
+        .card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
+        .card p{color:#8e95a5;font-size:.85rem;line-height:1.5}
+        .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:8px}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem}
+        .back a:hover{text-decoration:underline}
     </style>
 </head>
 <body>
-<header class="header">
-    <div class="brand">KARATECH <span>ELV</span></div>
-    <div class="lang-switch">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="fa">FA</button>
-    </div>
-</header>
-<div class="page-container">
-    <div class="page-header">
-        <h1><i class="fas fa-bolt"></i> <span data-en="Electrical Engineering" data-fa="مهندسی برق">Electrical Engineering</span></h1>
-        <p data-en="Power systems, protection coordination, load calculation. Includes switchgear, MCC, distribution panels, and lighting systems. Essential for all industrial and commercial projects." data-fa="سیستم‌های قدرت، هماهنگی حفاظت، محاسبات بار. شامل تابلوهای برق، مراکز کنترل موتور، پنل‌های توزیع و سیستم‌های روشنایی. برای تمام پروژه‌های صنعتی و تجاری ضروری است.">Power systems, protection coordination, load calculation. Includes switchgear, MCC, distribution panels, and lighting systems. Essential for all industrial and commercial projects.</p>
+<div class="page">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
     </div>
 
-    <div class="section-grid">
-        <a href="../electrical/overview.html" class="section-card">
+    <h1><i class="fas fa-bolt"></i> Electrical Engineering</h1>
+    <div class="sub">Power systems, protection coordination, load calculation. Essential for all industrial and commercial projects.</div>
+
+    <div class="grid">
+        <a href="overview.html" class="card">
             <i class="fas fa-graduation-cap"></i>
-            <h3 data-en="Overview" data-fa="مرور کلی">Overview</h3>
-            <p data-en="Complete overview of electrical engineering" data-fa="مرور کامل مهندسی برق">Complete overview of electrical engineering</p>
-            <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
+            <h3>Overview</h3>
+            <p>Complete overview of electrical engineering</p>
+            <span class="badge">Learn More →</span>
         </a>
-        <a href="../electrical/voltage-drop.html" class="section-card">
+        <a href="voltage-drop.html" class="card">
             <i class="fas fa-bolt"></i>
-            <h3 data-en="Voltage Drop" data-fa="افت ولتاژ">Voltage Drop</h3>
-            <p data-en="Calculate voltage drop in circuits" data-fa="محاسبه افت ولتاژ در مدارها">Calculate voltage drop in circuits</p>
-            <span class="badge" data-en="Calculator" data-fa="ماشین حساب">Calculator →</span>
+            <h3>Voltage Drop</h3>
+            <p>Calculate voltage drop in circuits</p>
+            <span class="badge">Calculator →</span>
         </a>
-        <a href="../electrical/power-factor.html" class="section-card">
+        <a href="power-factor.html" class="card">
             <i class="fas fa-chart-line"></i>
-            <h3 data-en="Power Factor" data-fa="ضریب توان">Power Factor</h3>
-            <p data-en="Calculate power factor and reactive power" data-fa="محاسبه ضریب توان و توان راکتیو">Calculate power factor and reactive power</p>
-            <span class="badge" data-en="Calculator" data-fa="ماشین حساب">Calculator →</span>
+            <h3>Power Factor</h3>
+            <p>Calculate power factor and reactive power</p>
+            <span class="badge">Calculator →</span>
         </a>
-        <a href="../electrical/transformer-sizing.html" class="section-card">
+        <a href="transformer-sizing.html" class="card">
             <i class="fas fa-bolt"></i>
-            <h3 data-en="Transformer Sizing" data-fa="سایزینگ ترانسفورماتور">Transformer Sizing</h3>
-            <p data-en="Size transformers for your application" data-fa="سایزینگ ترانسفورماتور برای کاربرد شما">Size transformers for your application</p>
-            <span class="badge" data-en="Calculator" data-fa="ماشین حساب">Calculator →</span>
+            <h3>Transformer Sizing</h3>
+            <p>Size transformers for your application</p>
+            <span class="badge">Calculator →</span>
         </a>
-        <a href="../electrical/cable-sizing.html" class="section-card">
+        <a href="cable-sizing.html" class="card">
             <i class="fas fa-ruler"></i>
-            <h3 data-en="Cable Sizing" data-fa="سایزینگ کابل">Cable Sizing</h3>
-            <p data-en="Select the right cable size" data-fa="انتخاب سایز مناسب کابل">Select the right cable size</p>
-            <span class="badge" data-en="Calculator" data-fa="ماشین حساب">Calculator →</span>
+            <h3>Cable Sizing</h3>
+            <p>Select the right cable size</p>
+            <span class="badge">Calculator →</span>
         </a>
-        <a href="../electrical/earthing-resistance.html" class="section-card">
+        <a href="earthing-resistance.html" class="card">
             <i class="fas fa-bolt"></i>
-            <h3 data-en="Earthing Resistance" data-fa="مقاومت ارتینگ">Earthing Resistance</h3>
-            <p data-en="Calculate earth resistance" data-fa="محاسبه مقاومت زمین">Calculate earth resistance</p>
-            <span class="badge" data-en="Calculator" data-fa="ماشین حساب">Calculator →</span>
+            <h3>Earthing Resistance</h3>
+            <p>Calculate earth resistance</p>
+            <span class="badge">Calculator →</span>
         </a>
-        <a href="../electrical/key-topics.html" class="section-card">
+        <a href="key-topics.html" class="card">
             <i class="fas fa-lightbulb"></i>
-            <h3 data-en="Key Topics" data-fa="موضوعات کلیدی">Key Topics</h3>
-            <p data-en="Important topics in electrical engineering" data-fa="موضوعات مهم در مهندسی برق">Important topics in electrical engineering</p>
-            <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
+            <h3>Key Topics</h3>
+            <p>Important topics in electrical engineering</p>
+            <span class="badge">Learn More →</span>
         </a>
-        <a href="../electrical/software.html" class="section-card">
+        <a href="software.html" class="card">
             <i class="fas fa-tools"></i>
-            <h3 data-en="Software" data-fa="نرم‌افزارها">Software</h3>
-            <p data-en="Essential software for electrical engineering" data-fa="نرم‌افزارهای ضروری برای مهندسی برق">Essential software for electrical engineering</p>
-            <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
+            <h3>Software</h3>
+            <p>Essential software for electrical engineering</p>
+            <span class="badge">Learn More →</span>
         </a>
-        <a href="../electrical/resources.html" class="section-card">
+        <a href="resources.html" class="card">
             <i class="fas fa-book"></i>
-            <h3 data-en="Resources" data-fa="منابع">Resources</h3>
-            <p data-en="Standards, handbooks and more" data-fa="استانداردها، کتابچه‌ها و بیشتر">Standards, handbooks and more</p>
-            <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
+            <h3>Resources</h3>
+            <p>Standards, handbooks and more</p>
+            <span class="badge">Learn More →</span>
         </a>
-        <a href="../electrical/learning-path.html" class="section-card">
+        <a href="learning-path.html" class="card">
             <i class="fas fa-road"></i>
-            <h3 data-en="Learning Path" data-fa="مسیر یادگیری">Learning Path</h3>
-            <p data-en="From foundation to advanced" data-fa="از مبتدی تا پیشرفته">From foundation to advanced</p>
-            <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
+            <h3>Learning Path</h3>
+            <p>From foundation to advanced</p>
+            <span class="badge">Learn More →</span>
         </a>
-        <a href="../electrical/videos-future.html" class="section-card">
+        <a href="videos-future.html" class="card">
             <i class="fas fa-play-circle"></i>
-            <h3 data-en="Videos & Future" data-fa="ویدئوها و آینده">Videos & Future</h3>
-            <p data-en="Tutorials and future technologies" data-fa="آموزش‌ها و فناوری‌های آینده">Tutorials and future technologies</p>
-            <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
+            <h3>Videos & Future</h3>
+            <p>Tutorials and future technologies</p>
+            <span class="badge">Learn More →</span>
         </a>
-        <a href="../electrical/power-system-analysis.html" class="section-card">
+        <a href="power-system-analysis.html" class="card">
             <i class="fas fa-chart-line"></i>
-            <h3 data-en="Power System Analysis" data-fa="تحلیل سیستم‌های قدرت">Power System Analysis</h3>
-            <p data-en="Load flow, short-circuit, stability and more" data-fa="جریان بار، اتصال کوتاه، پایداری و بیشتر">Load flow, short-circuit, stability and more</p>
-            <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
+            <h3>Power System Analysis</h3>
+            <p>Load flow, short-circuit, stability and more</p>
+            <span class="badge">Learn More →</span>
         </a>
-        <a href="../electrical/protection-coordination.html" class="section-card">
+        <a href="protection-coordination.html" class="card">
             <i class="fas fa-shield-alt"></i>
-            <h3 data-en="Protection Coordination" data-fa="هماهنگی حفاظت">Protection Coordination</h3>
-            <p data-en="Protective devices and coordination" data-fa="دستگاه‌های حفاظتی و هماهنگی">Protective devices and coordination</p>
-            <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
+            <h3>Protection Coordination</h3>
+            <p>Protective devices and coordination</p>
+            <span class="badge">Learn More →</span>
         </a>
     </div>
 
-    <div class="back-link">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
+    <div class="back">
+        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
     </div>
+
 </div>
 <script>
-    (function() {
-        var langBtns = document.querySelectorAll('.lang-btn');
-        var currentLang = localStorage.getItem('karatech-lang') || 'en';
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-en]').forEach(function(el) {
-                var txt = el.dataset[lang];
-                if (txt) {
-                    var nodes = el.childNodes;
-                    for (var i = 0; i < nodes.length; i++) {
-                        if (nodes[i].nodeType === 3) {
-                            nodes[i].textContent = txt;
-                            break;
-                        }
-                    }
-                }
-            });
-            document.body.classList.toggle('lang-persian', lang === 'fa');
-            localStorage.setItem('karatech-lang', lang);
-            langBtns.forEach(function(btn) {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
-        }
-        setLanguage(currentLang);
-        langBtns.forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                setLanguage(this.dataset.lang);
-            });
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
+            this.classList.add('active');
         });
-    })();
+    });
 </script>
 </body>
 </html>
