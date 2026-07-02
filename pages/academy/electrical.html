@@ -1,178 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Electrical Engineering</title>
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}
-        .brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}
-        .brand span{color:var(--accent)}
-        .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}
-        .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
-        .lang-btn:hover{background:var(--primary);color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        .page-container{max-width:1100px;margin:0 auto;padding:20px}
-        .page-header{background:#1e2128;padding:30px 40px;border-radius:20px;margin-bottom:30px;border-left:5px solid var(--accent)}
-        .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
-        .page-header h1 i{color:var(--accent)}
-        .page-header p{color:#b0b8c5;margin-top:10px;font-size:1.05rem;line-height:1.7}
-        .accordion-grid{display:flex;flex-direction:column;gap:12px;margin-bottom:30px}
-        .accordion-item{background:#1e2128;border-radius:16px;border:1px solid rgba(212,175,55,0.06);overflow:hidden;transition:.3s}
-        .accordion-item:hover{border-color:rgba(212,175,55,0.2)}
-        .accordion-header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;cursor:pointer;transition:.3s;user-select:none}
-        .accordion-header:hover{background:rgba(255,255,255,0.02)}
-        .accordion-header h3{color:#d4af37;font-size:1.15rem;display:flex;align-items:center;gap:12px;margin:0}
-        .accordion-header h3 i{font-size:1.2rem}
-        .accordion-header .arrow{color:var(--muted);transition:.3s;font-size:1.1rem}
-        .accordion-item.active .accordion-header .arrow{transform:rotate(180deg)}
-        .accordion-body{padding:0 24px 24px;display:none;color:#b0b8c5;line-height:1.8}
-        .accordion-item.active .accordion-body{display:block}
-        .accordion-body ul{list-style:none;padding:0}
-        .accordion-body ul li{padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .accordion-body ul li i{color:var(--accent);font-size:.7rem}
-        .accordion-body .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:'Courier New',monospace;font-size:.85rem;color:#b0b8c5;margin:10px 0;border-left:3px solid var(--accent)}
-        .back-link{margin-top:30px;text-align:center}
-        .back-link a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s}
-        .back-link a:hover{transform:translateX(-5px)}
-        .lang-persian{direction:rtl}
-        .lang-persian .page-header h1{justify-content:flex-end}
-        .lang-persian .accordion-header h3{justify-content:flex-end}
-        .lang-persian .accordion-body ul li{flex-direction:row-reverse}
-        .lang-persian .back-link a{flex-direction:row-reverse}
-        @media(max-width:768px){.page-header h1{font-size:1.8rem}.accordion-header{padding:14px 18px}}
-    </style>
-</head>
-<body>
-<header class="header">
-    <div class="brand">KARATECH <span>ELV</span></div>
-    <div class="lang-switch">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="fa">FA</button>
-    </div>
-</header>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Karatech ELV · Electrical</title><link rel="stylesheet" href="../../style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"><style>*{margin:0;padding:0;box-sizing:border-box}:root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}.header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}.brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}.brand span{color:var(--accent)}.lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}.lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}.lang-btn:hover{background:var(--primary);color:#fff}.lang-switch{display:flex;gap:6px}.page-container{max-width:1100px;margin:0 auto;padding:20px}.page-header{background:#1e2128;padding:30px 40px;border-radius:20px;margin-bottom:30px;border-left:5px solid var(--accent)}.page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}.page-header h1 i{color:var(--accent)}.page-header p{color:#b0b8c5;margin-top:10px;font-size:1.05rem;line-height:1.7}.accordion-grid{display:flex;flex-direction:column;gap:12px;margin-bottom:30px}.accordion-item{background:#1e2128;border-radius:16px;border:1px solid rgba(212,175,55,0.06);overflow:hidden;transition:.3s}.accordion-item:hover{border-color:rgba(212,175,55,0.2)}.accordion-header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;cursor:pointer;transition:.3s;user-select:none}.accordion-header:hover{background:rgba(255,255,255,0.02)}.accordion-header h3{color:#d4af37;font-size:1.15rem;display:flex;align-items:center;gap:12px;margin:0}.accordion-header h3 i{font-size:1.2rem}.accordion-header .arrow{color:var(--muted);transition:.3s;font-size:1.1rem}.accordion-item.active .accordion-header .arrow{transform:rotate(180deg)}.accordion-body{padding:0 24px 24px;display:none;color:#b0b8c5;line-height:1.8}.accordion-item.active .accordion-body{display:block}.accordion-body ul{list-style:none;padding:0}.accordion-body ul li{padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}.accordion-body ul li i{color:var(--accent);font-size:.7rem}.accordion-body .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:'Courier New',monospace;font-size:.85rem;color:#b0b8c5;margin:10px 0;border-left:3px solid var(--accent)}.back-link{margin-top:30px;text-align:center}.back-link a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s}.back-link a:hover{transform:translateX(-5px)}.lang-persian{direction:rtl}.lang-persian .page-header h1{justify-content:flex-end}.lang-persian .accordion-header h3{justify-content:flex-end}.lang-persian .accordion-body ul li{flex-direction:row-reverse}.lang-persian .back-link a{flex-direction:row-reverse}@media(max-width:768px){.page-header h1{font-size:1.8rem}.accordion-header{padding:14px 18px}}
+</style></head>
+<body><header class="header"><div class="brand">KARATECH <span>ELV</span></div><div class="lang-switch"><button class="lang-btn active" data-lang="en">EN</button><button class="lang-btn" data-lang="fa">FA</button></div></header>
 <div class="page-container">
-    <div class="page-header">
-        <h1><i class="fas fa-bolt"></i> <span data-en="Electrical Engineering" data-fa="مهندسی برق">Electrical Engineering</span></h1>
-        <p data-en="Power systems, protection coordination, load calculation. Includes switchgear, MCC, distribution panels, and lighting systems. Essential for all industrial and commercial projects." data-fa="سیستم‌های قدرت، هماهنگی حفاظت، محاسبات بار. شامل تابلوهای برق، مراکز کنترل موتور، پنل‌های توزیع و سیستم‌های روشنایی. برای تمام پروژه‌های صنعتی و تجاری ضروری است.">Power systems, protection coordination, load calculation. Includes switchgear, MCC, distribution panels, and lighting systems. Essential for all industrial and commercial projects.</p>
-    </div>
-    <div class="accordion-grid">
-        <div class="accordion-item active">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-graduation-cap"></i> <span data-en="Overview" data-fa="مرور کلی">Overview</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body"><p data-en="Electrical engineering is the core of modern infrastructure. It covers everything from power generation to end-user consumption." data-fa="مهندسی برق هسته اصلی زیرساخت‌های مدرن است. همه چیز را از تولید برق تا مصرف کاربر نهایی پوشش می‌دهد.">Electrical engineering is the core of modern infrastructure. It covers everything from power generation to end-user consumption.</p>
-                <ul><li><i class="fas fa-circle"></i> <span data-en="Power Generation" data-fa="تولید برق">Power Generation</span></li><li><i class="fas fa-circle"></i> <span data-en="Transmission and Distribution" data-fa="انتقال و توزیع">Transmission and Distribution</span></li><li><i class="fas fa-circle"></i> <span data-en="Protection and Control" data-fa="حفاظت و کنترل">Protection and Control</span></li></ul>
-                <div class="code-box"><span data-en="📌 Key Standard: IEC 60364" data-fa="📌 استاندارد کلیدی: IEC 60364">📌 Key Standard: IEC 60364</span></div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-chart-line"></i> <span data-en="Power System Analysis" data-fa="تحلیل سیستم‌های قدرت">Power System Analysis</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body"><p data-en="Power system analysis involves studying the behavior of electrical networks under normal and fault conditions." data-fa="تحلیل سیستم‌های قدرت شامل مطالعه رفتار شبکه‌های الکتریکی در شرایط عادی و خطا است.">Power system analysis involves studying the behavior of electrical networks under normal and fault conditions.</p>
-                <ul><li><i class="fas fa-circle"></i> <span data-en="Load Flow Analysis" data-fa="تحلیل جریان بار">Load Flow Analysis</span></li><li><i class="fas fa-circle"></i> <span data-en="Short-Circuit Analysis" data-fa="تحلیل اتصال کوتاه">Short-Circuit Analysis</span></li></ul>
-                <div class="code-box"><span data-en="📌 Software: ETAP, DIgSILENT" data-fa="📌 نرم‌افزار: ETAP، DIgSILENT">📌 Software: ETAP, DIgSILENT</span></div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-shield-alt"></i> <span data-en="Protection Coordination" data-fa="هماهنگی حفاظت">Protection Coordination</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body"><p data-en="Protection coordination ensures that the correct protective devices operate to isolate faults." data-fa="هماهنگی حفاظت تضمین می‌کند که دستگاه‌های حفاظتی صحیح برای جداسازی خطاها عمل می‌کنند.">Protection coordination ensures that the correct protective devices operate to isolate faults.</p>
-                <ul><li><i class="fas fa-circle"></i> <span data-en="Overcurrent Protection" data-fa="حفاظت اضافه جریان">Overcurrent Protection</span></li><li><i class="fas fa-circle"></i> <span data-en="Earth Fault Protection" data-fa="حفاظت خطای زمین">Earth Fault Protection</span></li></ul>
-                <div class="code-box"><span data-en="📌 Standard: IEC 60947" data-fa="📌 استاندارد: IEC 60947">📌 Standard: IEC 60947</span></div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-server"></i> <span data-en="Switchgear &amp; MCC" data-fa="تابلوهای برق و MCC">Switchgear &amp; MCC</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body"><p data-en="Switchgear and MCCs are the heart of power distribution and motor control in industrial plants." data-fa="تابلوهای برق و MCC قلب توزیع برق و کنترل موتور در کارخانجات صنعتی هستند.">Switchgear and MCCs are the heart of power distribution and motor control in industrial plants.</p>
-                <ul><li><i class="fas fa-circle"></i> <span data-en="LV and MV Switchgear" data-fa="تابلوهای فشار ضعیف و متوسط">LV and MV Switchgear</span></li><li><i class="fas fa-circle"></i> <span data-en="Motor Control Centers" data-fa="مراکز کنترل موتور">Motor Control Centers</span></li></ul>
-                <div class="code-box"><span data-en="📌 Standard: IEC 61439" data-fa="📌 استاندارد: IEC 61439">📌 Standard: IEC 61439</span></div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-calculator"></i> <span data-en="Load Calculation" data-fa="محاسبات بار">Load Calculation</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body"><p data-en="Load calculation is essential for sizing cables, breakers, transformers, and other electrical equipment." data-fa="محاسبه بار برای سایزینگ کابل‌ها، کلیدها، ترانسفورماتورها ضروری است.">Load calculation is essential for sizing cables, breakers, transformers, and other electrical equipment.</p>
-                <ul><li><i class="fas fa-circle"></i> <span data-en="Cable Sizing" data-fa="سایزینگ کابل">Cable Sizing</span></li><li><i class="fas fa-circle"></i> <span data-en="Transformer Sizing" data-fa="سایزینگ ترانسفورماتور">Transformer Sizing</span></li></ul>
-                <div class="code-box"><span data-en="📌 Formula: P = √3 × V × I × PF" data-fa="📌 فرمول: P = √3 × V × I × PF">📌 Formula: P = √3 × V × I × PF</span></div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-lightbulb"></i> <span data-en="Lighting Design" data-fa="طراحی روشنایی">Lighting Design</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body"><p data-en="Lighting design involves selecting luminaires and calculating illumination levels." data-fa="طراحی روشنایی شامل انتخاب وسایل روشنایی و محاسبه سطوح روشنایی است.">Lighting design involves selecting luminaires and calculating illumination levels.</p>
-                <ul><li><i class="fas fa-circle"></i> <span data-en="Lux Level Calculation" data-fa="محاسبه سطح لوکس">Lux Level Calculation</span></li><li><i class="fas fa-circle"></i> <span data-en="Energy Efficiency" data-fa="بهره‌وری انرژی">Energy Efficiency</span></li></ul>
-                <div class="code-box"><span data-en="📌 Software: DIALux" data-fa="📌 نرم‌افزار: DIALux">📌 Software: DIALux</span></div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <h3><i class="fas fa-bolt"></i> <span data-en="Earthing Systems" data-fa="سیستم‌های ارتینگ">Earthing Systems</span></h3>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body"><p data-en="Earthing systems protect equipment and personnel by providing a low-impedance path to ground." data-fa="سیستم‌های ارتینگ از تجهیزات و پرسنل با ارائه مسیری با امپدانس کم به زمین محافظت می‌کنند.">Earthing systems protect equipment and personnel by providing a low-impedance path to ground.</p>
-                <ul><li><i class="fas fa-circle"></i> <span data-en="Earth Electrode Systems" data-fa="سیستم‌های الکترود زمین">Earth Electrode Systems</span></li><li><i class="fas fa-circle"></i> <span data-en="Lightning Protection" data-fa="حفاظت در برابر صاعقه">Lightning Protection</span></li></ul>
-                <div class="code-box"><span data-en="📌 Standard: IEEE 80" data-fa="📌 استاندارد: IEEE 80">📌 Standard: IEEE 80</span></div>
-            </div>
-        </div>
-    </div>
-    <div class="back-link">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
-    </div>
+<div class="page-header"><h1><i class="fas fa-bolt"></i> <span data-en="Electrical Engineering" data-fa="مهندسی برق">Electrical Engineering</span></h1><p data-en="Power systems, protection coordination, load calculation. Essential for all industrial and commercial projects." data-fa="سیستم‌های قدرت، هماهنگی حفاظت، محاسبات بار. برای تمام پروژه‌های صنعتی و تجاری ضروری است.">Power systems, protection coordination, load calculation. Essential for all industrial and commercial projects.</p></div>
+<div class="accordion-grid">
+<div class="accordion-item active"><div class="accordion-header" onclick="toggleAccordion(this)"><h3><i class="fas fa-graduation-cap"></i> <span data-en="Overview" data-fa="مرور کلی">Overview</span></h3><span class="arrow"><i class="fas fa-chevron-down"></i></span></div><div class="accordion-body"><p data-en="Electrical engineering is the core of modern infrastructure. Covers generation, transmission, distribution, protection and control." data-fa="مهندسی برق هسته اصلی زیرساخت‌های مدرن است. شامل تولید، انتقال، توزیع، حفاظت و کنترل.">Electrical engineering is the core of modern infrastructure. Covers generation, transmission, distribution, protection and control.</p><ul><li><i class="fas fa-circle"></i> <span data-en="Power Generation" data-fa="تولید برق">Power Generation</span></li><li><i class="fas fa-circle"></i> <span data-en="Transmission & Distribution" data-fa="انتقال و توزیع">Transmission & Distribution</span></li><li><i class="fas fa-circle"></i> <span data-en="Protection & Control" data-fa="حفاظت و کنترل">Protection & Control</span></li></ul><div class="code-box">📌 IEC 60364 - Electrical Installations</div></div></div>
+<div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><h3><i class="fas fa-chart-line"></i> <span data-en="Power System Analysis" data-fa="تحلیل سیستم‌های قدرت">Power System Analysis</span></h3><span class="arrow"><i class="fas fa-chevron-down"></i></span></div><div class="accordion-body"><p data-en="Study of electrical networks under normal and fault conditions." data-fa="مطالعه شبکه‌های الکتریکی در شرایط عادی و خطا.">Study of electrical networks under normal and fault conditions.</p><ul><li><i class="fas fa-circle"></i> <span data-en="Load Flow Analysis" data-fa="تحلیل جریان بار">Load Flow Analysis</span></li><li><i class="fas fa-circle"></i> <span data-en="Short-Circuit Analysis" data-fa="تحلیل اتصال کوتاه">Short-Circuit Analysis</span></li></ul><div class="code-box">📌 Software: ETAP, DIgSILENT</div></div></div>
+<div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><h3><i class="fas fa-shield-alt"></i> <span data-en="Protection Coordination" data-fa="هماهنگی حفاظت">Protection Coordination</span></h3><span class="arrow"><i class="fas fa-chevron-down"></i></span></div><div class="accordion-body"><p data-en="Ensures correct protective devices operate to isolate faults." data-fa="تضمین می‌کند دستگاه‌های حفاظتی صحیح برای جداسازی خطاها عمل کنند.">Ensures correct protective devices operate to isolate faults.</p><ul><li><i class="fas fa-circle"></i> <span data-en="Overcurrent Protection" data-fa="حفاظت اضافه جریان">Overcurrent Protection</span></li><li><i class="fas fa-circle"></i> <span data-en="Earth Fault Protection" data-fa="حفاظت خطای زمین">Earth Fault Protection</span></li></ul><div class="code-box">📌 IEC 60947 - Low-voltage switchgear</div></div></div>
+<div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><h3><i class="fas fa-server"></i> <span data-en="Switchgear &amp; MCC" data-fa="تابلوهای برق و MCC">Switchgear &amp; MCC</span></h3><span class="arrow"><i class="fas fa-chevron-down"></i></span></div><div class="accordion-body"><p data-en="Heart of power distribution and motor control in industrial plants." data-fa="قلب توزیع برق و کنترل موتور در کارخانجات صنعتی.">Heart of power distribution and motor control in industrial plants.</p><ul><li><i class="fas fa-circle"></i> <span data-en="LV and MV Switchgear" data-fa="تابلوهای فشار ضعیف و متوسط">LV and MV Switchgear</span></li><li><i class="fas fa-circle"></i> <span data-en="Motor Control Centers" data-fa="مراکز کنترل موتور">Motor Control Centers</span></li></ul><div class="code-box">📌 IEC 61439 - Switchgear assemblies</div></div></div>
+<div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><h3><i class="fas fa-calculator"></i> <span data-en="Load Calculation" data-fa="محاسبات بار">Load Calculation</span></h3><span class="arrow"><i class="fas fa-chevron-down"></i></span></div><div class="accordion-body"><p data-en="Essential for sizing cables, breakers, transformers and equipment." data-fa="برای سایزینگ کابل‌ها، کلیدها، ترانسفورماتورها ضروری است.">Essential for sizing cables, breakers, transformers and equipment.</p><ul><li><i class="fas fa-circle"></i> <span data-en="Cable Sizing" data-fa="سایزینگ کابل">Cable Sizing</span></li><li><i class="fas fa-circle"></i> <span data-en="Transformer Sizing" data-fa="سایزینگ ترانسفورماتور">Transformer Sizing</span></li></ul><div class="code-box">📌 P = √3 × V × I × PF</div></div></div>
+<div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><h3><i class="fas fa-lightbulb"></i> <span data-en="Lighting Design" data-fa="طراحی روشنایی">Lighting Design</span></h3><span class="arrow"><i class="fas fa-chevron-down"></i></span></div><div class="accordion-body"><p data-en="Selecting luminaires and calculating illumination levels." data-fa="انتخاب وسایل روشنایی و محاسبه سطوح روشنایی.">Selecting luminaires and calculating illumination levels.</p><ul><li><i class="fas fa-circle"></i> <span data-en="Lux Level Calculation" data-fa="محاسبه سطح لوکس">Lux Level Calculation</span></li><li><i class="fas fa-circle"></i> <span data-en="Energy Efficiency" data-fa="بهره‌وری انرژی">Energy Efficiency</span></li></ul><div class="code-box">📌 Software: DIALux</div></div></div>
+<div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)"><h3><i class="fas fa-bolt"></i> <span data-en="Earthing Systems" data-fa="سیستم‌های ارتینگ">Earthing Systems</span></h3><span class="arrow"><i class="fas fa-chevron-down"></i></span></div><div class="accordion-body"><p data-en="Protect equipment and personnel with low-impedance path to ground." data-fa="محافظت از تجهیزات و پرسنل با مسیر کم امپدانس به زمین.">Protect equipment and personnel with low-impedance path to ground.</p><ul><li><i class="fas fa-circle"></i> <span data-en="Earth Electrode Systems" data-fa="سیستم‌های الکترود زمین">Earth Electrode Systems</span></li><li><i class="fas fa-circle"></i> <span data-en="Lightning Protection" data-fa="حفاظت در برابر صاعقه">Lightning Protection</span></li></ul><div class="code-box">📌 IEEE 80 - Earthing Systems</div></div></div>
+</div>
+<div class="back-link"><a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a></div>
 </div>
 <script>
-    function toggleAccordion(header) {
-        const item = header.closest('.accordion-item');
-        const isActive = item.classList.contains('active');
-        document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
-    }
-    (function() {
-        const langBtns = document.querySelectorAll('.lang-btn');
-        let currentLang = localStorage.getItem('karatech-lang') || 'en';
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-en]').forEach(el => {
-                const txt = el.dataset[lang];
-                if (txt) {
-                    const nodes = el.childNodes;
-                    for (let n of nodes) {
-                        if (n.nodeType === 3) {
-                            n.textContent = txt;
-                            break;
-                        }
-                    }
-                }
-            });
-            document.body.classList.toggle('lang-persian', lang === 'fa');
-            localStorage.setItem('karatech-lang', lang);
-            langBtns.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
-        }
-        setLanguage(currentLang);
-        langBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                setLanguage(this.dataset.lang);
-            });
-        });
-    })();
+function toggleAccordion(header){var item=header.closest('.accordion-item');var isActive=item.classList.contains('active');document.querySelectorAll('.accordion-item').forEach(function(el){el.classList.remove('active')});if(!isActive){item.classList.add('active')}}
+(function(){var langBtns=document.querySelectorAll('.lang-btn');var currentLang=localStorage.getItem('karatech-lang')||'en';function setLanguage(lang){document.querySelectorAll('[data-en]').forEach(function(el){var txt=el.dataset[lang];if(txt){var nodes=el.childNodes;for(var i=0;i<nodes.length;i++){if(nodes[i].nodeType===3){nodes[i].textContent=txt;break}}}});document.body.classList.toggle('lang-persian',lang==='fa');localStorage.setItem('karatech-lang',lang);langBtns.forEach(function(btn){btn.classList.toggle('active',btn.dataset.lang===lang)})}setLanguage(currentLang);langBtns.forEach(function(btn){btn.addEventListener('click',function(){setLanguage(this.dataset.lang)})})})();
 </script>
-</body>
-</html>
+</body></html>
