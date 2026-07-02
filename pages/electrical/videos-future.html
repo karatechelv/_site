@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Videos & Future</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}
+        .brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}
+        .brand span{color:var(--accent)}
+        .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}
+        .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
+        .lang-btn:hover{background:var(--primary);color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        .page-container{max-width:1100px;margin:0 auto;padding:20px}
+        .page-header{background:#1e2128;padding:30px 40px;border-radius:20px;margin-bottom:30px;border-left:5px solid var(--accent)}
+        .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
+        .page-header h1 i{color:var(--accent)}
+        .page-header p{color:#b0b8c5;margin-top:10px;font-size:1.05rem;line-height:1.7}
+        .section-box{background:#1e2128;padding:24px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.06)}
+        .section-box h2{color:#d4af37;font-size:1.4rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+        .section-box h2 i{color:var(--accent)}
+        .section-box p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section-box ul{list-style:none;padding:0}
+        .section-box ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section-box ul li i{color:var(--accent);font-size:.7rem}
+        .code-box{background:#0d0e12;padding:16px;border-radius:12px;font-family:'Courier New',monospace;font-size:.85rem;color:#b0b8c5;margin:10px 0;border-left:3px solid var(--accent)}
+        .back-link{margin-top:30px;text-align:center}
+        .back-link a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s}
+        .back-link a:hover{transform:translateX(-5px)}
+        .lang-persian{direction:rtl}
+        .lang-persian .page-header h1{justify-content:flex-end}
+        .lang-persian .section-box ul li{flex-direction:row-reverse}
+        .lang-persian .back-link a{flex-direction:row-reverse}
+        @media(max-width:768px){.page-header h1{font-size:1.8rem}}
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="brand">KARATECH <span>ELV</span></div>
+    <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fa">FA</button>
+    </div>
+</header>
+<div class="page-container">
+    <div class="page-header">
+        <h1><i class="fas fa-play-circle"></i> <span data-en="Videos & Future Technologies" data-fa="ویدئوها و فناوری‌های آینده">Videos & Future Technologies</span></h1>
+        <p data-en="Watch training videos and explore emerging technologies in electrical engineering." data-fa="ویدئوهای آموزشی را تماشا کنید و فناوری‌های نوظهور در مهندسی برق را کاوش کنید.">Watch training videos and explore emerging technologies in electrical engineering.</p>
+    </div>
+
+    <div class="section-box">
+        <h2><i class="fas fa-video"></i> <span data-en="Training Videos" data-fa="ویدئوهای آموزشی">Training Videos</span></h2>
+        <ul>
+            <li><i class="fas fa-play-circle"></i> <span data-en="Power System Analysis Tutorial" data-fa="آموزش تحلیل سیستم‌های قدرت">Power System Analysis Tutorial</span> - <span data-en="Learn load flow, short-circuit, and stability analysis" data-fa="یادگیری جریان بار، اتصال کوتاه و تحلیل پایداری">Learn load flow, short-circuit, and stability analysis</span></li>
+            <li><i class="fas fa-play-circle"></i> <span data-en="Protection Coordination Workshop" data-fa="کارگاه هماهنگی حفاظت">Protection Coordination Workshop</span> - <span data-en="Master relay coordination and protection schemes" data-fa="تسلط بر هماهنگی رله و طرح‌های حفاظتی">Master relay coordination and protection schemes</span></li>
+            <li><i class="fas fa-play-circle"></i> <span data-en="EPLAN Training Series" data-fa="سری آموزشی EPLAN">EPLAN Training Series</span> - <span data-en="Design electrical schematics and panels with EPLAN" data-fa="طراحی شماتیک‌های الکتریکی و پنل‌ها با EPLAN">Design electrical schematics and panels with EPLAN</span></li>
+            <li><i class="fas fa-play-circle"></i> <span data-en="Lighting Design with DIALux" data-fa="طراحی روشنایی با DIALux">Lighting Design with DIALux</span> - <span data-en="Create professional lighting designs" data-fa="ایجاد طراحی‌های حرفه‌ای روشنایی">Create professional lighting designs</span></li>
+            <li><i class="fas fa-play-circle"></i> <span data-en="Transformer Sizing & Selection" data-fa="سایزینگ و انتخاب ترانسفورماتور">Transformer Sizing & Selection</span> - <span data-en="Choose the right transformer for your project" data-fa="انتخاب ترانسفورماتور مناسب برای پروژه شما">Choose the right transformer for your project</span></li>
+        </ul>
+    </div>
+
+    <div class="section-box">
+        <h2><i class="fas fa-clock"></i> <span data-en="Future Technologies" data-fa="فناوری‌های آینده">Future Technologies</span></h2>
+        <ul>
+            <li><i class="fas fa-circle"></i> <span data-en="Smart Grid & Microgrids" data-fa="شبکه هوشمند و میکروگریدها">Smart Grid & Microgrids</span> - <span data-en="Intelligent power distribution and decentralized energy" data-fa="توزیع هوشمند برق و انرژی غیرمتمرکز">Intelligent power distribution and decentralized energy</span></li>
+            <li><i class="fas fa-circle"></i> <span data-en="Artificial Intelligence in Power Systems" data-fa="هوش مصنوعی در سیستم‌های قدرت">Artificial Intelligence in Power Systems</span> - <span data-en="AI for predictive maintenance and optimization" data-fa="هوش مصنوعی برای نگهداری پیش‌بینی‌کننده و بهینه‌سازی">AI for predictive maintenance and optimization</span></li>
+            <li><i class="fas fa-circle"></i> <span data-en="Internet of Things (IoT) in Electrical Engineering" data-fa="اینترنت اشیا (IoT) در مهندسی برق">Internet of Things (IoT) in Electrical Engineering</span> - <span data-en="Connected devices and smart monitoring" data-fa="دستگاه‌های متصل و پایش هوشمند">Connected devices and smart monitoring</span></li>
+            <li><i class="fas fa-circle"></i> <span data-en="Renewable Energy Integration" data-fa="یکپارچه‌سازی انرژی تجدیدپذیر">Renewable Energy Integration</span> - <span data-en="Solar, wind, and storage integration with the grid" data-fa="یکپارچه‌سازی خورشیدی، بادی و ذخیره‌سازی با شبکه">Solar, wind, and storage integration with the grid</span></li>
+            <li><i class="fas fa-circle"></i> <span data-en="Digital Twins for Electrical Systems" data-fa="دوقلوی دیجیتال برای سیستم‌های الکتریکی">Digital Twins for Electrical Systems</span> - <span data-en="Virtual models for design and simulation" data-fa="مدل‌های مجازی برای طراحی و شبیه‌سازی">Virtual models for design and simulation</span></li>
+        </ul>
+    </div>
+
+    <div class="section-box">
+        <h2><i class="fas fa-lightbulb"></i> <span data-en="Coming Soon" data-fa="به زودی">Coming Soon</span></h2>
+        <ul>
+            <li><i class="fas fa-clock"></i> <span data-en="Advanced ETAP Training Course" data-fa="دوره پیشرفته ETAP">Advanced ETAP Training Course</span></li>
+            <li><i class="fas fa-clock"></i> <span data-en="Protection Coordination Workshop" data-fa="کارگاه هماهنگی حفاظت">Protection Coordination Workshop</span></li>
+            <li><i class="fas fa-clock"></i> <span data-en="Smart Grid Technologies" data-fa="فناوری‌های شبکه هوشمند">Smart Grid Technologies</span></li>
+            <li><i class="fas fa-clock"></i> <span data-en="Renewable Energy Integration" data-fa="یکپارچه‌سازی انرژی تجدیدپذیر">Renewable Energy Integration</span></li>
+        </ul>
+    </div>
+
+    <div class="back-link">
+        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
+    </div>
+</div>
+<script>
+    (function() {
+        var langBtns = document.querySelectorAll('.lang-btn');
+        var currentLang = localStorage.getItem('karatech-lang') || 'en';
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-en]').forEach(function(el) {
+                var txt = el.dataset[lang];
+                if (txt) {
+                    var nodes = el.childNodes;
+                    for (var i = 0; i < nodes.length; i++) {
+                        if (nodes[i].nodeType === 3) {
+                            nodes[i].textContent = txt;
+                            break;
+                        }
+                    }
+                }
+            });
+            document.body.classList.toggle('lang-persian', lang === 'fa');
+            localStorage.setItem('karatech-lang', lang);
+            langBtns.forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+        setLanguage(currentLang);
+        langBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                setLanguage(this.dataset.lang);
+            });
+        });
+    })();
+</script>
+</body>
+</html>
