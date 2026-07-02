@@ -305,7 +305,8 @@
 
     // ===== تابع خروج =====
     function goToSplash() {
-        localStorage.removeItem('dashboardActive');
+        localStorage.removeItem('dashboardActive'); 
+        <!-- force rebuild -->
         location.reload();
     }
 </script>
