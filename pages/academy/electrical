@@ -22,7 +22,7 @@
         .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
         .page-header h1 i{color:var(--accent)}
         .page-header p{color:#b0b8c5;margin-top:10px;font-size:1.05rem;line-height:1.7}
-        .section-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:30px}
+        .section-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:30px}
         .section-card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
         .section-card:hover{background:#282d38;transform:translateY(-3px);border-color:var(--accent)}
         .section-card i{font-size:2rem;color:var(--accent);margin-bottom:10px;display:block}
@@ -53,79 +53,79 @@
     </div>
 
     <div class="section-grid">
-        <a href="../../electrical/overview.html" class="section-card">
+        <a href="../electrical/overview.html" class="section-card">
             <i class="fas fa-graduation-cap"></i>
             <h3 data-en="Overview" data-fa="مرور کلی">Overview</h3>
             <p data-en="Complete overview of electrical engineering" data-fa="مرور کامل مهندسی برق">Complete overview of electrical engineering</p>
             <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
         </a>
-        <a href="../../electrical/voltage-drop.html" class="section-card">
+        <a href="../electrical/voltage-drop.html" class="section-card">
             <i class="fas fa-bolt"></i>
             <h3 data-en="Voltage Drop" data-fa="افت ولتاژ">Voltage Drop</h3>
             <p data-en="Calculate voltage drop in circuits" data-fa="محاسبه افت ولتاژ در مدارها">Calculate voltage drop in circuits</p>
             <span class="badge" data-en="Calculator" data-fa="ماشین حساب">Calculator →</span>
         </a>
-        <a href="../../electrical/power-factor.html" class="section-card">
+        <a href="../electrical/power-factor.html" class="section-card">
             <i class="fas fa-chart-line"></i>
             <h3 data-en="Power Factor" data-fa="ضریب توان">Power Factor</h3>
             <p data-en="Calculate power factor and reactive power" data-fa="محاسبه ضریب توان و توان راکتیو">Calculate power factor and reactive power</p>
             <span class="badge" data-en="Calculator" data-fa="ماشین حساب">Calculator →</span>
         </a>
-        <a href="../../electrical/transformer-sizing.html" class="section-card">
+        <a href="../electrical/transformer-sizing.html" class="section-card">
             <i class="fas fa-bolt"></i>
             <h3 data-en="Transformer Sizing" data-fa="سایزینگ ترانسفورماتور">Transformer Sizing</h3>
             <p data-en="Size transformers for your application" data-fa="سایزینگ ترانسفورماتور برای کاربرد شما">Size transformers for your application</p>
             <span class="badge" data-en="Calculator" data-fa="ماشین حساب">Calculator →</span>
         </a>
-        <a href="../../electrical/cable-sizing.html" class="section-card">
+        <a href="../electrical/cable-sizing.html" class="section-card">
             <i class="fas fa-ruler"></i>
             <h3 data-en="Cable Sizing" data-fa="سایزینگ کابل">Cable Sizing</h3>
             <p data-en="Select the right cable size" data-fa="انتخاب سایز مناسب کابل">Select the right cable size</p>
             <span class="badge" data-en="Calculator" data-fa="ماشین حساب">Calculator →</span>
         </a>
-        <a href="../../electrical/earthing-resistance.html" class="section-card">
+        <a href="../electrical/earthing-resistance.html" class="section-card">
             <i class="fas fa-bolt"></i>
             <h3 data-en="Earthing Resistance" data-fa="مقاومت ارتینگ">Earthing Resistance</h3>
             <p data-en="Calculate earth resistance" data-fa="محاسبه مقاومت زمین">Calculate earth resistance</p>
             <span class="badge" data-en="Calculator" data-fa="ماشین حساب">Calculator →</span>
         </a>
-        <a href="../../electrical/key-topics.html" class="section-card">
+        <a href="../electrical/key-topics.html" class="section-card">
             <i class="fas fa-lightbulb"></i>
             <h3 data-en="Key Topics" data-fa="موضوعات کلیدی">Key Topics</h3>
             <p data-en="Important topics in electrical engineering" data-fa="موضوعات مهم در مهندسی برق">Important topics in electrical engineering</p>
             <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
         </a>
-        <a href="../../electrical/software.html" class="section-card">
+        <a href="../electrical/software.html" class="section-card">
             <i class="fas fa-tools"></i>
             <h3 data-en="Software" data-fa="نرم‌افزارها">Software</h3>
             <p data-en="Essential software for electrical engineering" data-fa="نرم‌افزارهای ضروری برای مهندسی برق">Essential software for electrical engineering</p>
             <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
         </a>
-        <a href="../../electrical/resources.html" class="section-card">
+        <a href="../electrical/resources.html" class="section-card">
             <i class="fas fa-book"></i>
             <h3 data-en="Resources" data-fa="منابع">Resources</h3>
             <p data-en="Standards, handbooks and more" data-fa="استانداردها، کتابچه‌ها و بیشتر">Standards, handbooks and more</p>
             <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
         </a>
-        <a href="../../electrical/learning-path.html" class="section-card">
+        <a href="../electrical/learning-path.html" class="section-card">
             <i class="fas fa-road"></i>
             <h3 data-en="Learning Path" data-fa="مسیر یادگیری">Learning Path</h3>
             <p data-en="From foundation to advanced" data-fa="از مبتدی تا پیشرفته">From foundation to advanced</p>
             <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
         </a>
-        <a href="../../electrical/videos-future.html" class="section-card">
+        <a href="../electrical/videos-future.html" class="section-card">
             <i class="fas fa-play-circle"></i>
             <h3 data-en="Videos & Future" data-fa="ویدئوها و آینده">Videos & Future</h3>
             <p data-en="Tutorials and future technologies" data-fa="آموزش‌ها و فناوری‌های آینده">Tutorials and future technologies</p>
             <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
         </a>
-        <a href="../../electrical/power-system-analysis.html" class="section-card">
+        <a href="../electrical/power-system-analysis.html" class="section-card">
             <i class="fas fa-chart-line"></i>
             <h3 data-en="Power System Analysis" data-fa="تحلیل سیستم‌های قدرت">Power System Analysis</h3>
             <p data-en="Load flow, short-circuit, stability and more" data-fa="جریان بار، اتصال کوتاه، پایداری و بیشتر">Load flow, short-circuit, stability and more</p>
             <span class="badge" data-en="Learn More" data-fa="بیشتر بدانید">Learn More →</span>
         </a>
-        <a href="../../electrical/protection-coordination.html" class="section-card">
+        <a href="../electrical/protection-coordination.html" class="section-card">
             <i class="fas fa-shield-alt"></i>
             <h3 data-en="Protection Coordination" data-fa="هماهنگی حفاظت">Protection Coordination</h3>
             <p data-en="Protective devices and coordination" data-fa="دستگاه‌های حفاظتی و هماهنگی">Protective devices and coordination</p>
