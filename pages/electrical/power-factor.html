@@ -24,6 +24,13 @@
         .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
         .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
+        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
+        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
+        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
+        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
+        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
+        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
+        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
         .back{text-align:center;margin-top:30px}
         .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
@@ -48,24 +55,28 @@
 
     <div class="section">
         <h2 id="s1">What is Power Factor?</h2>
-        <p id="s1p">Power factor is the ratio of real power (kW) to apparent power (kVA). It indicates how effectively electrical power is being used. A power factor of 1 (unity) means all the power is being used efficiently.</p>
+        <p id="s1p">Power factor is the ratio of real power (kW) to apparent power (kVA). It indicates how effectively electrical power is being used.</p>
     </div>
 
     <div class="section">
-        <h2 id="s2">Key Formulas</h2>
-        <div class="code-box">PF = P / S</div>
-        <div class="code-box">Q = √(S² - P²)</div>
-        <ul id="list1">
-            <li>P = Real Power (kW)</li>
-            <li>S = Apparent Power (kVA)</li>
-            <li>Q = Reactive Power (kVAr)</li>
-            <li>PF = Power Factor</li>
-        </ul>
+        <h2 id="s2">🧮 Power Factor Calculator</h2>
+        <div class="calc-box">
+            <label id="l1">Real Power (kW)</label>
+            <input type="number" id="pf-real" value="50">
+            <label id="l2">Apparent Power (kVA)</label>
+            <input type="number" id="pf-apparent" value="60">
+            <button class="calc-btn" onclick="calcPowerFactor()" id="btn-calc">Calculate</button>
+            <div class="result-box" id="pf-result">
+                <span id="r1">Power Factor: 0.83</span><br>
+                <span style="font-size:0.9rem;color:#8e95a5;" id="r2">Reactive Power: 33.0 kVAr</span>
+            </div>
+        </div>
+        <div class="code-box">PF = P / S &nbsp;|&nbsp; Q = √(S² - P²)</div>
     </div>
 
     <div class="section">
         <h2 id="s3">Power Factor Correction</h2>
-        <p id="s3p">Improving power factor reduces energy losses, lowers electricity bills, and increases system capacity. Common methods include using capacitors and synchronous condensers.</p>
+        <p id="s3p">Improving power factor reduces energy losses, lowers electricity bills, and increases system capacity.</p>
     </div>
 
     <div class="back">
@@ -80,22 +91,28 @@
             title: '📊 Power Factor',
             desc: 'Calculate power factor, apparent power, and reactive power. Essential for power system analysis.',
             s1: 'What is Power Factor?',
-            s1p: 'Power factor is the ratio of real power (kW) to apparent power (kVA). It indicates how effectively electrical power is being used. A power factor of 1 (unity) means all the power is being used efficiently.',
-            s2: 'Key Formulas',
-            list1: ['P = Real Power (kW)', 'S = Apparent Power (kVA)', 'Q = Reactive Power (kVAr)', 'PF = Power Factor'],
+            s1p: 'Power factor is the ratio of real power (kW) to apparent power (kVA). It indicates how effectively electrical power is being used.',
+            s2: '🧮 Power Factor Calculator',
+            l1: 'Real Power (kW)', l2: 'Apparent Power (kVA)',
+            btn: 'Calculate',
+            r1: 'Power Factor: 0.83',
+            r2: 'Reactive Power: 33.0 kVAr',
             s3: 'Power Factor Correction',
-            s3p: 'Improving power factor reduces energy losses, lowers electricity bills, and increases system capacity. Common methods include using capacitors and synchronous condensers.',
+            s3p: 'Improving power factor reduces energy losses, lowers electricity bills, and increases system capacity.',
             back: '← Back'
         },
         fa: {
             title: '📊 ضریب توان',
             desc: 'محاسبه ضریب توان، توان ظاهری و توان راکتیو. ضروری برای تحلیل سیستم‌های قدرت.',
             s1: 'ضریب توان چیست؟',
-            s1p: 'ضریب توان نسبت توان واقعی (kW) به توان ظاهری (kVA) است. نشان می‌دهد که توان الکتریکی چقدر به طور مؤثر استفاده می‌شود. ضریب توان ۱ (واحد) به این معنی است که تمام توان به طور کارآمد استفاده می‌شود.',
-            s2: 'فرمول‌های کلیدی',
-            list1: ['P = توان واقعی (kW)', 'S = توان ظاهری (kVA)', 'Q = توان راکتیو (kVAr)', 'PF = ضریب توان'],
+            s1p: 'ضریب توان نسبت توان واقعی (kW) به توان ظاهری (kVA) است. نشان می‌دهد که توان الکتریکی چقدر به طور مؤثر استفاده می‌شود.',
+            s2: '🧮 ماشین حساب ضریب توان',
+            l1: 'توان واقعی (kW)', l2: 'توان ظاهری (kVA)',
+            btn: 'محاسبه',
+            r1: 'ضریب توان: 0.83',
+            r2: 'توان راکتیو: 33.0 kVAr',
             s3: 'اصلاح ضریب توان',
-            s3p: 'بهبود ضریب توان تلفات انرژی را کاهش می‌دهد، قبوض برق را پایین می‌آورد و ظرفیت سیستم را افزایش می‌دهد. روش‌های رایج شامل استفاده از خازن‌ها و کندانسورهای سنکرون است.',
+            s3p: 'بهبود ضریب توان تلفات انرژی را کاهش می‌دهد، قبوض برق را پایین می‌آورد و ظرفیت سیستم را افزایش می‌دهد.',
             back: '← بازگشت'
         }
     };
@@ -108,25 +125,41 @@
         document.getElementById('s1').textContent = t.s1;
         document.getElementById('s1p').textContent = t.s1p;
         document.getElementById('s2').textContent = t.s2;
+        document.getElementById('l1').textContent = t.l1;
+        document.getElementById('l2').textContent = t.l2;
+        document.getElementById('btn-calc').textContent = t.btn;
+        document.getElementById('r1').textContent = t.r1;
+        document.getElementById('r2').textContent = t.r2;
         document.getElementById('s3').textContent = t.s3;
         document.getElementById('s3p').textContent = t.s3p;
         document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
 
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
         document.body.classList.toggle('lang-persian', l === 'fa');
         localStorage.setItem('karatech-lang', l);
     }
 
+    function calcPowerFactor() {
+        var P = parseFloat(document.getElementById('pf-real').value);
+        var S = parseFloat(document.getElementById('pf-apparent').value);
+        var PF = P / S;
+        var Q = Math.sqrt(S*S - P*P);
+        var lang = document.querySelector('.lang-btn.active').dataset.lang;
+        document.getElementById('pf-result').innerHTML = 
+            '<span id="r1">' + (lang === 'fa' ? 'ضریب توان: ' + PF.toFixed(3) : 'Power Factor: ' + PF.toFixed(3)) + '</span><br>' +
+            '<span style="font-size:0.9rem;color:#8e95a5;" id="r2">' + (lang === 'fa' ? 'توان راکتیو: ' + Q.toFixed(1) + ' kVAr' : 'Reactive Power: ' + Q.toFixed(1) + ' kVAr') + '</span>';
+    }
+
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
+        btn.onclick = function() { 
+            setLang(this.dataset.lang); 
+            calcPowerFactor();
+        };
     });
 
     const savedLang = localStorage.getItem('karatech-lang') || 'en';
     setLang(savedLang);
+    calcPowerFactor();
 </script>
 
 </body>
