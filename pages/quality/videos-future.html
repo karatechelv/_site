@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Quality Videos & Future</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🎬 Quality Videos & Future</h1>
+    <div class="sub" id="desc">Curated video tutorials and insights into future trends and technologies in quality control and quality management.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Recommended Video Channels</h2>
+        <ul id="list1">
+            <li>ASQ (American Society for Quality) – Webinars and training</li>
+            <li>Quality Management Training – ISO 9001 and auditing</li>
+            <li>Six Sigma Academy – DMAIC, tools, and case studies</li>
+            <li>SPC Training – Control charts and process capability</li>
+            <li>Minitab Tutorials – Statistical analysis and SPC</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Popular Video Topics</h2>
+        <ul id="list2">
+            <li>ISO 9001 implementation and certification</li>
+            <li>Creating control charts and interpreting SPC data</li>
+            <li>Six Sigma projects and DMAIC methodology</li>
+            <li>Quality auditing (internal and external)</li>
+            <li>Root cause analysis and 7 QC tools</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Future Trends in Quality</h2>
+        <ul id="list3">
+            <li>AI and Machine Learning for quality prediction</li>
+            <li>Digital quality management systems (cloud-based QMS)</li>
+            <li>Real-time quality monitoring and Industry 4.0</li>
+            <li>Blockchain for supply chain quality traceability</li>
+            <li>Smart sensors for automated inspection</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 What's Next in Quality Control?</h2>
+        <p id="s4p">The future of quality control will be driven by automation, AI, and data analytics. Quality professionals will use predictive analytics to prevent defects, cloud-based systems for real-time quality management, and blockchain for traceability. Continuous improvement will become more data-driven and integrated across the value chain.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🎬 Quality Videos & Future',
+            desc: 'Curated video tutorials and insights into future trends and technologies in quality control and quality management.',
+            s1: '🔹 Recommended Video Channels',
+            list1: ['ASQ (American Society for Quality) – Webinars and training','Quality Management Training – ISO 9001 and auditing','Six Sigma Academy – DMAIC, tools, and case studies','SPC Training – Control charts and process capability','Minitab Tutorials – Statistical analysis and SPC'],
+            s2: '🔹 Popular Video Topics',
+            list2: ['ISO 9001 implementation and certification','Creating control charts and interpreting SPC data','Six Sigma projects and DMAIC methodology','Quality auditing (internal and external)','Root cause analysis and 7 QC tools'],
+            s3: '🔹 Future Trends in Quality',
+            list3: ['AI and Machine Learning for quality prediction','Digital quality management systems (cloud-based QMS)','Real-time quality monitoring and Industry 4.0','Blockchain for supply chain quality traceability','Smart sensors for automated inspection'],
+            s4: '🔹 What\'s Next in Quality Control?',
+            s4p: 'The future of quality control will be driven by automation, AI, and data analytics. Quality professionals will use predictive analytics to prevent defects, cloud-based systems for real-time quality management, and blockchain for traceability. Continuous improvement will become more data-driven and integrated across the value chain.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🎬 ویدئوها و آینده کنترل کیفیت',
+            desc: 'آموزش‌های ویدئویی منتخب و بینش‌هایی درباره روندها و فناوری‌های آینده در کنترل کیفیت و مدیریت کیفیت.',
+            s1: '🔹 کانال‌های ویدئویی پیشنهادی',
+            list1: ['ASQ – انجمن کیفیت آمریکا – وبینارها و آموزش','آموزش مدیریت کیفیت – ISO 9001 و حسابرسی','آکادمی شش سیگما – DMAIC، ابزارها و مطالعات موردی','آموزش SPC – نمودارهای کنترل و قابلیت فرآیند','آموزش Minitab – تحلیل آماری و SPC'],
+            s2: '🔹 موضوعات محبوب ویدئویی',
+            list2: ['پیاده‌سازی و صدور گواهینامه ISO 9001','ایجاد نمودارهای کنترل و تفسیر داده‌های SPC','پروژه‌های شش سیگما و روش‌شناسی DMAIC','حسابرسی کیفیت (داخلی و خارجی)','تحلیل ریشه‌ای و ۷ ابزار کیفیت'],
+            s3: '🔹 روندهای آینده در کیفیت',
+            list3: ['هوش مصنوعی و یادگیری ماشین برای پیش‌بینی کیفیت','سیستم‌های مدیریت کیفیت دیجیتال (QMS مبتنی بر ابر)','نظارت بر کیفیت در زمان واقعی و صنعت ۴.۰','بلاکچین برای قابلیت ردیابی کیفیت زنجیره تأمین','سنسورهای هوشمند برای بازرسی خودکار'],
+            s4: '🔹 آینده کنترل کیفیت چیست؟',
+            s4p: 'آینده کنترل کیفیت توسط اتوماسیون، هوش مصنوعی و تحلیل داده هدایت خواهد شد. متخصصان کیفیت از تحلیل پیش‌بینی‌کننده برای جلوگیری از عیوب، سیستم‌های مبتنی بر ابر برای مدیریت کیفیت زمان واقعی و بلاکچین برای قابلیت ردیابی استفاده خواهند کرد. بهبود مستمر مبتنی بر داده و یکپارچه در سراسر زنجیره ارزش خواهد شد.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
