@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Pressure Measurement</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .table-wrap{overflow-x:auto;margin:10px 0}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px}
+        th,td{padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📊 Pressure Measurement</h1>
+    <div class="sub" id="desc">Methods and devices for measuring pressure in industrial processes: transmitters, gauges, switches, and differential pressure.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Importance of Pressure Measurement</h2>
+        <p id="s1p">Pressure is a fundamental process variable in industries such as oil & gas, chemical, power generation, and HVAC. Accurate pressure measurement ensures safe operation, process efficiency, and equipment protection.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Common Pressure Instruments</h2>
+        <ul id="list1">
+            <li><b>Pressure Transmitter</b> – Converts pressure to 4-20 mA signal (e.g., Rosemount 3051)</li>
+            <li><b>Pressure Gauge</b> – Mechanical or digital display for local reading</li>
+            <li><b>Pressure Switch</b> – Provides on/off contact at setpoint</li>
+            <li><b>Differential Pressure (DP) Transmitter</b> – Measures pressure difference for flow or level</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Comparison Table</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th id="th1">Type</th><th id="th2">Range</th><th id="th3">Output</th><th id="th4">Application</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Gauge Transmitter</td><td>0-100 bar</td><td>4-20 mA</td><td>General pressure monitoring</td></tr>
+                    <tr><td>Absolute Transmitter</td><td>0-10 bar(a)</td><td>4-20 mA</td><td>Vacuum systems</td></tr>
+                    <tr><td>DP Transmitter</td><td>0-100 mbar</td><td>4-20 mA</td><td>Flow (orifice plate)</td></tr>
+                    <tr><td>Pressure Switch</td><td>0-10 bar</td><td>Contact</td><td>Alarms, safety interlock</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Pressure Transmitter for Tank</h2>
+        <p id="s4p">A pressure transmitter installed at the bottom of a storage tank measures hydrostatic pressure to determine liquid level. The transmitter outputs 4-20 mA to the DCS, which calculates the level based on density and pressure.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📊 Pressure Measurement',
+            desc: 'Methods and devices for measuring pressure in industrial processes: transmitters, gauges, switches, and differential pressure.',
+            s1: '🔹 Importance of Pressure Measurement',
+            s1p: 'Pressure is a fundamental process variable in industries such as oil & gas, chemical, power generation, and HVAC. Accurate pressure measurement ensures safe operation, process efficiency, and equipment protection.',
+            s2: '🔹 Common Pressure Instruments',
+            list1: ['Pressure Transmitter – Converts pressure to 4-20 mA signal (e.g., Rosemount 3051)','Pressure Gauge – Mechanical or digital display for local reading','Pressure Switch – Provides on/off contact at setpoint','Differential Pressure (DP) Transmitter – Measures pressure difference for flow or level'],
+            s3: '🔹 Comparison Table',
+            th1: 'Type', th2: 'Range', th3: 'Output', th4: 'Application',
+            s4: '🔹 Example: Pressure Transmitter for Tank',
+            s4p: 'A pressure transmitter installed at the bottom of a storage tank measures hydrostatic pressure to determine liquid level. The transmitter outputs 4-20 mA to the DCS, which calculates the level based on density and pressure.',
+            back: '← Back'
+        },
+        fa: {
+            title: '📊 اندازه‌گیری فشار',
+            desc: 'روش‌ها و دستگاه‌های اندازه‌گیری فشار در فرآیندهای صنعتی: ترانسمیترها، گیج‌ها، سوئیچ‌ها و فشار دیفرانسیل.',
+            s1: '🔹 اهمیت اندازه‌گیری فشار',
+            s1p: 'فشار یک متغیر اساسی فرآیندی در صنایعی مانند نفت و گاز، شیمیایی، تولید برق و HVAC است. اندازه‌گیری دقیق فشار، عملکرد ایمن، کارایی فرآیند و حفاظت از تجهیزات را تضمین می‌کند.',
+            s2: '🔹 ابزارهای رایج فشار',
+            list1: ['ترانسمیتر فشار – تبدیل فشار به سیگنال ۴-۲۰ میلی‌آمپر (مثلاً Rosemount 3051)','گیج فشار – نمایشگر مکانیکی یا دیجیتال برای خواندن محلی','سوئیچ فشار – تماس روشن/خاموش در نقطه تنظیم','ترانسمیتر فشار دیفرانسیل (DP) – اندازه‌گیری اختلاف فشار برای جریان یا سطح'],
+            s3: '🔹 جدول مقایسه',
+            th1: 'نوع', th2: 'محدوده', th3: 'خروجی', th4: 'کاربرد',
+            s4: '🔹 مثال: ترانسمیتر فشار برای مخزن',
+            s4p: 'یک ترانسمیتر فشار که در کف یک مخزن ذخیره نصب شده است، فشار هیدرواستاتیک را برای تعیین سطح مایع اندازه‌گیری می‌کند. ترانسمیتر سیگنال ۴-۲۰ میلی‌آمپر به DCS ارسال می‌کند که سطح را بر اساس چگالی و فشار محاسبه می‌کند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        document.getElementById('th1').textContent = t.th1;
+        document.getElementById('th2').textContent = t.th2;
+        document.getElementById('th3').textContent = t.th3;
+        document.getElementById('th4').textContent = t.th4;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
