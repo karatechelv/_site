@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Standards Examples</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📝 Standards Examples</h1>
+    <div class="sub" id="desc">Practical projects and examples to apply engineering standards knowledge. Includes complete descriptions and learning outcomes.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Example 1: IEC 60364 Application in a Facility</h2>
+        <p id="s1p"><strong>Description:</strong> Design of an electrical installation for a new industrial facility following IEC 60364. Includes load estimation, cable sizing, protection coordination, and earthing system design.</p>
+        <ul id="list1">
+            <li>Standard: IEC 60364 (Electrical Installations)</li>
+            <li>Scope: Entire facility, 400V distribution</li>
+            <li>Key skills: Load calculation, cable sizing, protection coordination, earthing design</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Example 2: NEC Compliance for Motor Control Panel</h2>
+        <p id="s2p"><strong>Description:</strong> Design of a motor control panel that complies with NEC Article 430 (Motor Circuits) and Article 250 (Grounding). Includes proper overcurrent protection, disconnecting means, and conductor sizing.</p>
+        <ul id="list2">
+            <li>Standard: NEC (NFPA 70)</li>
+            <li>Scope: Motor control panel for 3-phase induction motors</li>
+            <li>Key skills: NEC article application, overcurrent protection, grounding, working clearances</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Example 3: ISO 9001 Documented QMS</h2>
+        <p id="s3p"><strong>Description:</strong> Development of a Quality Management System (QMS) for an engineering firm to achieve ISO 9001 certification. Includes quality policy, procedures, work instructions, and records.</p>
+        <ul id="list3">
+            <li>Standard: ISO 9001:2015</li>
+            <li>Scope: Engineering design and consulting services</li>
+            <li>Key skills: Document control, process mapping, internal audit, corrective action</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example 4: API 551 Instrumentation Specification</h2>
+        <p id="s4p"><strong>Description:</strong> Using API 551 to specify pressure, temperature, flow, and level instruments for a refinery process unit. Includes instrument selection, accuracy requirements, and installation practices.</p>
+        <ul id="list4">
+            <li>Standard: API 551 (Process Measurement)</li>
+            <li>Scope: Refinery distillation unit</li>
+            <li>Key skills: Instrument selection, accuracy classification, installation guidelines</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📝 Standards Examples',
+            desc: 'Practical projects and examples to apply engineering standards knowledge. Includes complete descriptions and learning outcomes.',
+            s1: '🔹 Example 1: IEC 60364 Application in a Facility',
+            s1p: 'Design of an electrical installation for a new industrial facility following IEC 60364. Includes load estimation, cable sizing, protection coordination, and earthing system design.',
+            list1: ['Standard: IEC 60364 (Electrical Installations)','Scope: Entire facility, 400V distribution','Key skills: Load calculation, cable sizing, protection coordination, earthing design'],
+            s2: '🔹 Example 2: NEC Compliance for Motor Control Panel',
+            s2p: 'Design of a motor control panel that complies with NEC Article 430 (Motor Circuits) and Article 250 (Grounding). Includes proper overcurrent protection, disconnecting means, and conductor sizing.',
+            list2: ['Standard: NEC (NFPA 70)','Scope: Motor control panel for 3-phase induction motors','Key skills: NEC article application, overcurrent protection, grounding, working clearances'],
+            s3: '🔹 Example 3: ISO 9001 Documented QMS',
+            s3p: 'Development of a Quality Management System (QMS) for an engineering firm to achieve ISO 9001 certification. Includes quality policy, procedures, work instructions, and records.',
+            list3: ['Standard: ISO 9001:2015','Scope: Engineering design and consulting services','Key skills: Document control, process mapping, internal audit, corrective action'],
+            s4: '🔹 Example 4: API 551 Instrumentation Specification',
+            s4p: 'Using API 551 to specify pressure, temperature, flow, and level instruments for a refinery process unit. Includes instrument selection, accuracy requirements, and installation practices.',
+            list4: ['Standard: API 551 (Process Measurement)','Scope: Refinery distillation unit','Key skills: Instrument selection, accuracy classification, installation guidelines'],
+            back: '← Back'
+        },
+        fa: {
+            title: '📝 مثال‌های استانداردها',
+            desc: 'پروژه‌ها و مثال‌های عملی برای به کارگیری دانش استانداردهای مهندسی. شامل توضیحات کامل و نتایج یادگیری.',
+            s1: '🔹 مثال ۱: کاربرد IEC 60364 در یک تأسیسات',
+            s1p: 'طراحی یک تأسیسات الکتریکی برای یک مرکز صنعتی جدید با پیروی از IEC 60364. شامل برآورد بار، سایزینگ کابل، هماهنگی حفاظتی و طراحی سیستم ارتینگ.',
+            list1: ['استاندارد: IEC 60364 (تأسیسات الکتریکی)','محدوده: کل تأسیسات، توزیع ۴۰۰ ولت','مهارت‌های کلیدی: محاسبه بار، سایزینگ کابل، هماهنگی حفاظتی، طراحی ارتینگ'],
+            s2: '🔹 مثال ۲: انطباق NEC برای پنل کنترل موتور',
+            s2p: 'طراحی یک پنل کنترل موتور که با مقاله ۴۳۰ NEC (مدارهای موتور) و مقاله ۲۵۰ (ارتینگ) مطابقت دارد. شامل حفاظت مناسب در برابر اضافه جریان، وسیله قطع و سایزینگ هادی.',
+            list2: ['استاندارد: NEC (NFPA 70)','محدوده: پنل کنترل موتور برای موتورهای القایی سه‌فاز','مهارت‌های کلیدی: کاربرد مقاله NEC، حفاظت اضافه جریان، ارتینگ، فاصله کاری'],
+            s3: '🔹 مثال ۳: QMS مستند ISO 9001',
+            s3p: 'توسعه یک سیستم مدیریت کیفیت (QMS) برای یک شرکت مهندسی برای دستیابی به گواهینامه ISO 9001. شامل سیاست کیفیت، رویه‌ها، دستورالعمل‌های کاری و سوابق.',
+            list3: ['استاندارد: ISO 9001:2015','محدوده: خدمات طراحی و مشاوره مهندسی','مهارت‌های کلیدی: کنترل مستندات، نقشه‌برداری فرآیند، حسابرسی داخلی، اقدام اصلاحی'],
+            s4: '🔹 مثال ۴: مشخصات ابزار دقیق API 551',
+            s4p: 'استفاده از API 551 برای مشخص کردن ابزارهای فشار، دما، جریان و سطح برای یک واحد فرآیندی پالایشگاه. شامل انتخاب ابزار، الزامات دقت و روش‌های نصب.',
+            list4: ['استاندارد: API 551 (اندازه‌گیری فرآیند)','محدوده: واحد تقطیر پالایشگاه','مهارت‌های کلیدی: انتخاب ابزار، طبقه‌بندی دقت، دستورالعمل‌های نصب'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s2p').textContent = t.s2p;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s3p').textContent = t.s3p;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        const ul4 = document.getElementById('list4');
+        ul4.innerHTML = '';
+        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
