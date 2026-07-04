@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · HSE Overview</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📘 Overview of HSE</h1>
+    <div class="sub" id="desc">A comprehensive overview of Health, Safety and Environment (HSE) principles, systems, and best practices for engineering and industrial projects.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is HSE?</h2>
+        <p id="s1p">HSE stands for Health, Safety, and Environment. It is a discipline that focuses on protecting people, property, and the environment from harm caused by industrial and engineering activities. HSE encompasses occupational health, workplace safety, environmental protection, and risk management.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key HSE Areas</h2>
+        <ul id="list1">
+            <li><b>Safety Management</b> – Systems, policies, and procedures to prevent accidents and injuries</li>
+            <li><b>Environmental Management</b> – Minimizing environmental impact, waste management, and sustainability</li>
+            <li><b>Occupational Health</b> – Protecting worker health and wellbeing</li>
+            <li><b>Risk Assessment</b> – Identifying hazards and implementing controls</li>
+            <li><b>Safety Culture</b> – Building a proactive safety mindset across the organization</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Key HSE Standards</h2>
+        <ul id="list2">
+            <li>ISO 45001 – Occupational Health and Safety Management Systems</li>
+            <li>ISO 14001 – Environmental Management Systems</li>
+            <li>ISO 31000 – Risk Management</li>
+            <li>IEC 61508 – Functional Safety</li>
+            <li>NFPA 70E – Electrical Safety in the Workplace</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📘 Overview of HSE',
+            desc: 'A comprehensive overview of Health, Safety and Environment (HSE) principles, systems, and best practices for engineering and industrial projects.',
+            s1: '🔹 What is HSE?',
+            s1p: 'HSE stands for Health, Safety, and Environment. It is a discipline that focuses on protecting people, property, and the environment from harm caused by industrial and engineering activities. HSE encompasses occupational health, workplace safety, environmental protection, and risk management.',
+            s2: '🔹 Key HSE Areas',
+            list1: ['Safety Management – Systems, policies, and procedures to prevent accidents and injuries','Environmental Management – Minimizing environmental impact, waste management, and sustainability','Occupational Health – Protecting worker health and wellbeing','Risk Assessment – Identifying hazards and implementing controls','Safety Culture – Building a proactive safety mindset across the organization'],
+            s3: '🔹 Key HSE Standards',
+            list2: ['ISO 45001 – Occupational Health and Safety Management Systems','ISO 14001 – Environmental Management Systems','ISO 31000 – Risk Management','IEC 61508 – Functional Safety','NFPA 70E – Electrical Safety in the Workplace'],
+            back: '← Back'
+        },
+        fa: {
+            title: '📘 مرور کلی HSE',
+            desc: 'مرور جامع اصول، سیستم‌ها و بهترین شیوه‌های بهداشت، ایمنی و محیط زیست (HSE) برای پروژه‌های مهندسی و صنعتی.',
+            s1: '🔹 HSE چیست؟',
+            s1p: 'HSE مخفف بهداشت، ایمنی و محیط زیست است. این یک رشته است که بر محافظت از افراد، اموال و محیط زیست در برابر آسیب ناشی از فعالیت‌های صنعتی و مهندسی تمرکز دارد. HSE شامل بهداشت شغلی، ایمنی محیط کار، حفاظت از محیط زیست و مدیریت ریسک است.',
+            s2: '🔹 حوزه‌های کلیدی HSE',
+            list1: ['مدیریت ایمنی – سیستم‌ها، خط‌مشی‌ها و رویه‌ها برای پیشگیری از حوادث و آسیب‌ها','مدیریت محیط زیست – کاهش تأثیرات زیست‌محیطی، مدیریت پسماند و پایداری','بهداشت شغلی – حفاظت از سلامت و تندرستی کارگران','ارزیابی ریسک – شناسایی خطرات و پیاده‌سازی کنترل‌ها','فرهنگ ایمنی – ایجاد ذهنیت ایمنی پیش‌گیرانه در سراسر سازمان'],
+            s3: '🔹 استانداردهای کلیدی HSE',
+            list2: ['ISO 45001 – سیستم‌های مدیریت بهداشت و ایمنی شغلی','ISO 14001 – سیستم‌های مدیریت زیست‌محیطی','ISO 31000 – مدیریت ریسک','IEC 61508 – ایمنی عملکردی','NFPA 70E – ایمنی برق در محیط کار'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
