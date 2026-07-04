@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · IEC Standards</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">⚡ IEC Standards</h1>
+    <div class="sub" id="desc">Overview of key International Electrotechnical Commission (IEC) standards for electrical engineering, instrumentation, automation, and safety.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is IEC?</h2>
+        <p id="s1p">The International Electrotechnical Commission (IEC) is a global organization that develops and publishes international standards for all electrical, electronic, and related technologies. IEC standards ensure safety, performance, and interoperability of electrical equipment and systems worldwide.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key IEC Standards</h2>
+        <ul id="list1">
+            <li><b>IEC 60364</b> – Electrical Installations (Low-voltage)</li>
+            <li><b>IEC 61439</b> – Low-voltage Switchgear and Controlgear Assemblies</li>
+            <li><b>IEC 61131-3</b> – PLC Programming Languages</li>
+            <li><b>IEC 61508</b> – Functional Safety (Electrical/Electronic/Programmable Electronic)</li>
+            <li><b>IEC 61511</b> – Functional Safety for Process Industry</li>
+            <li><b>IEC 61850</b> – Communication for Power System Automation</li>
+            <li><b>IEC 60529</b> – IP Ratings (Ingress Protection)</li>
+            <li><b>IEC 60617</b> – Graphical Symbols for Electrical Diagrams</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 IEC Standards by Discipline</h2>
+        <ul id="list2">
+            <li><b>Electrical:</b> IEC 60364, IEC 61439, IEC 60947</li>
+            <li><b>Instrumentation:</b> IEC 61511, IEC 60534 (Control Valves)</li>
+            <li><b>Automation:</b> IEC 61131, IEC 61804 (Fieldbus)</li>
+            <li><b>Safety:</b> IEC 61508, IEC 62061 (Machinery Safety)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Applying IEC 60364 in Design</h2>
+        <p id="s4p">An electrical engineer designs a new industrial facility using IEC 60364 for electrical installations. The standard provides guidelines for wiring, protection against electric shock, and thermal effects. The design ensures compliance with international safety requirements.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '⚡ IEC Standards',
+            desc: 'Overview of key International Electrotechnical Commission (IEC) standards for electrical engineering, instrumentation, automation, and safety.',
+            s1: '🔹 What is IEC?',
+            s1p: 'The International Electrotechnical Commission (IEC) is a global organization that develops and publishes international standards for all electrical, electronic, and related technologies. IEC standards ensure safety, performance, and interoperability of electrical equipment and systems worldwide.',
+            s2: '🔹 Key IEC Standards',
+            list1: ['IEC 60364 – Electrical Installations (Low-voltage)','IEC 61439 – Low-voltage Switchgear and Controlgear Assemblies','IEC 61131-3 – PLC Programming Languages','IEC 61508 – Functional Safety (Electrical/Electronic/Programmable Electronic)','IEC 61511 – Functional Safety for Process Industry','IEC 61850 – Communication for Power System Automation','IEC 60529 – IP Ratings (Ingress Protection)','IEC 60617 – Graphical Symbols for Electrical Diagrams'],
+            s3: '🔹 IEC Standards by Discipline',
+            list2: ['Electrical: IEC 60364, IEC 61439, IEC 60947','Instrumentation: IEC 61511, IEC 60534 (Control Valves)','Automation: IEC 61131, IEC 61804 (Fieldbus)','Safety: IEC 61508, IEC 62061 (Machinery Safety)'],
+            s4: '🔹 Example: Applying IEC 60364 in Design',
+            s4p: 'An electrical engineer designs a new industrial facility using IEC 60364 for electrical installations. The standard provides guidelines for wiring, protection against electric shock, and thermal effects. The design ensures compliance with international safety requirements.',
+            back: '← Back'
+        },
+        fa: {
+            title: '⚡ استانداردهای IEC',
+            desc: 'مروری بر استانداردهای کلیدی کمیسیون بین‌المللی الکتروتکنیک (IEC) برای مهندسی برق، ابزار دقیق، اتوماسیون و ایمنی.',
+            s1: '🔹 IEC چیست؟',
+            s1p: 'کمیسیون بین‌المللی الکتروتکنیک (IEC) یک سازمان جهانی است که استانداردهای بین‌المللی را برای تمام فناوری‌های الکتریکی، الکترونیکی و مرتبط تدوین و منتشر می‌کند. استانداردهای IEC ایمنی، عملکرد و قابلیت هم‌کاری تجهیزات و سیستم‌های الکتریکی را در سراسر جهان تضمین می‌کنند.',
+            s2: '🔹 استانداردهای کلیدی IEC',
+            list1: ['IEC 60364 – تأسیسات الکتریکی (فشار ضعیف)','IEC 61439 – تابلوهای فشار ضعیف','IEC 61131-3 – زبان‌های برنامه‌نویسی PLC','IEC 61508 – ایمنی عملکردی (الکتریکی/الکترونیکی/قابل برنامه‌ریزی)','IEC 61511 – ایمنی عملکردی برای صنایع فرآیندی','IEC 61850 – ارتباطات برای اتوماسیون سیستم قدرت','IEC 60529 – درجه حفاظت IP','IEC 60617 – نمادهای گرافیکی برای نمودارهای الکتریکی'],
+            s3: '🔹 استانداردهای IEC بر اساس رشته',
+            list2: ['برق: IEC 60364، IEC 61439، IEC 60947','ابزار دقیق: IEC 61511، IEC 60534 (شیرهای کنترلی)','اتوماسیون: IEC 61131، IEC 61804 (فیلدباس)','ایمنی: IEC 61508، IEC 62061 (ایمنی ماشین‌آلات)'],
+            s4: '🔹 مثال: کاربرد IEC 60364 در طراحی',
+            s4p: 'یک مهندس برق یک تأسیسات صنعتی جدید را با استفاده از IEC 60364 برای تأسیسات الکتریکی طراحی می‌کند. این استاندارد دستورالعمل‌هایی برای سیم‌کشی، حفاظت در برابر شوک الکتریکی و اثرات حرارتی ارائه می‌دهد. طراحی انطباق با الزامات ایمنی بین‌المللی را تضمین می‌کند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
