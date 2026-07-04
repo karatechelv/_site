@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Quality Tools</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🛠️ Quality Tools</h1>
+    <div class="sub" id="desc">The 7 basic quality control tools: Pareto charts, cause-and-effect diagrams, check sheets, histograms, control charts, scatter diagrams, and flowcharts.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 The 7 QC Tools</h2>
+        <p id="s1p">The seven basic quality tools (7 QC tools) are a set of techniques widely used for quality improvement and problem-solving. They were developed by Kaoru Ishikawa and are applicable across industries for identifying, analyzing, and resolving quality issues.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Tool 1: Pareto Chart</h2>
+        <p id="s2p">Based on the Pareto principle (80/20 rule), this chart identifies the most significant factors in a dataset. It displays defects or causes in descending order of frequency, helping teams prioritize improvement efforts.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Tool 2: Cause-and-Effect Diagram</h2>
+        <p id="s3p">Also known as the Fishbone or Ishikawa diagram, this tool visually maps out the potential causes of a problem. It categorizes causes into major groups such as Materials, Methods, Machines, Manpower, Measurement, and Environment (6Ms).</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Tools 3-7</h2>
+        <ul id="list1">
+            <li><b>Check Sheet</b> – Simple tally sheet for collecting and organizing data</li>
+            <li><b>Histogram</b> – Bar chart showing frequency distribution</li>
+            <li><b>Control Chart</b> – Monitors process variation over time</li>
+            <li><b>Scatter Diagram</b> – Shows relationship between two variables</li>
+            <li><b>Flowchart</b> – Visual representation of process steps and decision points</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🛠️ Quality Tools',
+            desc: 'The 7 basic quality control tools: Pareto charts, cause-and-effect diagrams, check sheets, histograms, control charts, scatter diagrams, and flowcharts.',
+            s1: '🔹 The 7 QC Tools',
+            s1p: 'The seven basic quality tools (7 QC tools) are a set of techniques widely used for quality improvement and problem-solving. They were developed by Kaoru Ishikawa and are applicable across industries for identifying, analyzing, and resolving quality issues.',
+            s2: '🔹 Tool 1: Pareto Chart',
+            s2p: 'Based on the Pareto principle (80/20 rule), this chart identifies the most significant factors in a dataset. It displays defects or causes in descending order of frequency, helping teams prioritize improvement efforts.',
+            s3: '🔹 Tool 2: Cause-and-Effect Diagram',
+            s3p: 'Also known as the Fishbone or Ishikawa diagram, this tool visually maps out the potential causes of a problem. It categorizes causes into major groups such as Materials, Methods, Machines, Manpower, Measurement, and Environment (6Ms).',
+            s4: '🔹 Tools 3-7',
+            list1: ['Check Sheet – Simple tally sheet for collecting and organizing data','Histogram – Bar chart showing frequency distribution','Control Chart – Monitors process variation over time','Scatter Diagram – Shows relationship between two variables','Flowchart – Visual representation of process steps and decision points'],
+            back: '← Back'
+        },
+        fa: {
+            title: '🛠️ ابزارهای کیفیت',
+            desc: '۷ ابزار اساسی کنترل کیفیت: نمودار پارتو، نمودار علت و معلول، برگه بررسی، هیستوگرام، نمودار کنترل، نمودار پراکندگی و فلوچارت.',
+            s1: '🔹 ۷ ابزار کیفیت',
+            s1p: 'هفت ابزار اساسی کیفیت (۷ ابزار QC) مجموعه‌ای از تکنیک‌های پرکاربرد برای بهبود کیفیت و حل مسئله هستند. آنها توسط کائورو ایشیکاوا توسعه یافته و در صنایع مختلف برای شناسایی، تحلیل و حل مسائل کیفیت قابل استفاده هستند.',
+            s2: '🔹 ابزار ۱: نمودار پارتو',
+            s2p: 'بر اساس اصل پارتو (قانون ۸۰/۲۰)، این نمودار مهم‌ترین عوامل را در یک مجموعه داده شناسایی می‌کند. عیوب یا علل را به ترتیب نزولی فراوانی نمایش می‌دهد و به تیم‌ها در اولویت‌بندی اقدامات بهبود کمک می‌کند.',
+            s3: '🔹 ابزار ۲: نمودار علت و معلول',
+            s3p: 'که به عنوان نمودار استخوان ماهی یا ایشیکاوا نیز شناخته می‌شود، این ابزار علل بالقوه یک مشکل را به صورت بصری ترسیم می‌کند. علل را به گروه‌های اصلی مانند مواد، روش‌ها، ماشین‌آلات، نیروی انسانی، اندازه‌گیری و محیط (۶M) طبقه‌بندی می‌کند.',
+            s4: '🔹 ابزارهای ۳ تا ۷',
+            list1: ['برگه بررسی – برگه شمارش ساده برای جمع‌آوری و سازماندهی داده‌ها','هیستوگرام – نمودار میله‌ای نشان‌دهنده توزیع فراوانی','نمودار کنترل – نظارت بر تغییرات فرآیند در طول زمان','نمودار پراکندگی – نشان‌دهنده رابطه بین دو متغیر','فلوچارت – نمایش بصری مراحل فرآیند و نقاط تصمیم‌گیری'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s2p').textContent = t.s2p;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s3p').textContent = t.s3p;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
