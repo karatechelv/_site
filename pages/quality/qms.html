@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Quality Management System</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📋 Quality Management System (QMS)</h1>
+    <div class="sub" id="desc">An overview of Quality Management Systems, principles, documentation, and implementation based on ISO 9001 and best practices.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is a QMS?</h2>
+        <p id="s1p">A Quality Management System (QMS) is a formalized system that documents processes, procedures, and responsibilities for achieving quality policies and objectives. It helps organizations coordinate and direct activities to meet customer and regulatory requirements and improve effectiveness and efficiency on a continuous basis.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Principles of QMS (ISO 9001:2015)</h2>
+        <ul id="list1">
+            <li><b>Customer Focus</b> – Meeting customer needs and exceeding expectations</li>
+            <li><b>Leadership</b> – Establishing unity of purpose and direction</li>
+            <li><b>Engagement of People</b> – Involving all people at all levels</li>
+            <li><b>Process Approach</b> – Managing activities as interconnected processes</li>
+            <li><b>Improvement</b> – Continual improvement of performance</li>
+            <li><b>Evidence-based Decision Making</b> – Decisions based on data analysis</li>
+            <li><b>Relationship Management</b> – Managing relationships with interested parties</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 QMS Documentation Structure</h2>
+        <ul id="list2">
+            <li><b>Quality Policy</b> – Statement of commitment to quality</li>
+            <li><b>Quality Manual</b> – Overview of the QMS and scope</li>
+            <li><b>Procedures</b> – Detailed descriptions of processes</li>
+            <li><b>Work Instructions</b> – Step-by-step guidance for tasks</li>
+            <li><b>Records</b> – Evidence of activities and results</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: QMS Implementation in Manufacturing</h2>
+        <p id="s4p">A manufacturing company implements a QMS based on ISO 9001. They define a quality policy, document key processes (procurement, production, inspection, non-conformance), and train employees. Regular internal audits and management reviews drive continuous improvement, resulting in reduced defects and increased customer satisfaction.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📋 Quality Management System (QMS)',
+            desc: 'An overview of Quality Management Systems, principles, documentation, and implementation based on ISO 9001 and best practices.',
+            s1: '🔹 What is a QMS?',
+            s1p: 'A Quality Management System (QMS) is a formalized system that documents processes, procedures, and responsibilities for achieving quality policies and objectives. It helps organizations coordinate and direct activities to meet customer and regulatory requirements and improve effectiveness and efficiency on a continuous basis.',
+            s2: '🔹 Key Principles of QMS (ISO 9001:2015)',
+            list1: ['Customer Focus – Meeting customer needs and exceeding expectations','Leadership – Establishing unity of purpose and direction','Engagement of People – Involving all people at all levels','Process Approach – Managing activities as interconnected processes','Improvement – Continual improvement of performance','Evidence-based Decision Making – Decisions based on data analysis','Relationship Management – Managing relationships with interested parties'],
+            s3: '🔹 QMS Documentation Structure',
+            list2: ['Quality Policy – Statement of commitment to quality','Quality Manual – Overview of the QMS and scope','Procedures – Detailed descriptions of processes','Work Instructions – Step-by-step guidance for tasks','Records – Evidence of activities and results'],
+            s4: '🔹 Example: QMS Implementation in Manufacturing',
+            s4p: 'A manufacturing company implements a QMS based on ISO 9001. They define a quality policy, document key processes (procurement, production, inspection, non-conformance), and train employees. Regular internal audits and management reviews drive continuous improvement, resulting in reduced defects and increased customer satisfaction.',
+            back: '← Back'
+        },
+        fa: {
+            title: '📋 سیستم مدیریت کیفیت (QMS)',
+            desc: 'مروری بر سیستم‌های مدیریت کیفیت، اصول، مستندسازی و پیاده‌سازی بر اساس ISO 9001 و بهترین شیوه‌ها.',
+            s1: '🔹 سیستم مدیریت کیفیت چیست؟',
+            s1p: 'سیستم مدیریت کیفیت (QMS) یک سیستم رسمی است که فرآیندها، رویه‌ها و مسئولیت‌ها را برای دستیابی به سیاست‌ها و اهداف کیفیت مستند می‌کند. به سازمان‌ها کمک می‌کند تا فعالیت‌ها را برای برآورده کردن نیازهای مشتری و الزامات نظارتی هماهنگ کرده و اثربخشی و کارایی را به طور مداوم بهبود بخشند.',
+            s2: '🔹 اصول کلیدی سیستم مدیریت کیفیت (ISO 9001:2015)',
+            list1: ['مشتری‌مداری – برآورده کردن نیازهای مشتری و فراتر از انتظارات','رهبری – ایجاد وحدت هدف و جهت','مشارکت افراد – درگیر کردن همه افراد در همه سطوح','رویکرد فرآیندی – مدیریت فعالیت‌ها به عنوان فرآیندهای به هم پیوسته','بهبود – بهبود مستمر عملکرد','تصمیم‌گیری مبتنی بر شواهد – تصمیمات بر اساس تحلیل داده‌ها','مدیریت روابط – مدیریت روابط با طرف‌های ذی‌نفع'],
+            s3: '🔹 ساختار مستندسازی QMS',
+            list2: ['سیاست کیفیت – بیانیه تعهد به کیفیت','راهنمای کیفیت – مرور کلی QMS و محدوده','رویه‌ها – توضیحات دقیق فرآیندها','دستورالعمل‌های کاری – راهنمای گام‌به‌گام برای وظایف','سوابق – شواهد فعالیت‌ها و نتایج'],
+            s4: '🔹 مثال: پیاده‌سازی QMS در تولید',
+            s4p: 'یک شرکت تولیدی یک QMS بر اساس ISO 9001 پیاده‌سازی می‌کند. آنها سیاست کیفیت را تعریف کرده، فرآیندهای کلیدی (تدارکات، تولید، بازرسی، عدم انطباق) را مستند کرده و کارکنان را آموزش می‌دهند. حسابرسی داخلی منظم و بازبینی مدیریت، بهبود مستمر را هدایت کرده و منجر به کاهش عیوب و افزایش رضایت مشتری می‌شود.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
