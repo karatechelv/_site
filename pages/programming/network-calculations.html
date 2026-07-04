@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Network Calculations</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:950px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .calc-box{background:#1e2128;padding:25px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);margin-bottom:20px}
+        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
+        .calc-box input, .calc-box select{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
+        .calc-box input:focus, .calc-box select:focus{outline:1px solid #d4af37}
+        .calc-row{display:flex;gap:15px;flex-wrap:wrap}
+        .calc-row .field{flex:1;min-width:160px}
+        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
+        .btn-calc:hover{background:#d4af37;color:#111}
+        .result{background:#0d0e12;padding:15px;border-radius:12px;border-left:4px solid #d4af37;margin-top:15px;font-size:1.05rem}
+        .result span{color:#d4af37;font-weight:700}
+        .formula-box{background:#0d0e12;padding:12px;border-radius:8px;font-family:monospace;font-size:.95rem;color:#d4af37;border-left:3px solid #d4af37;margin:10px 0;overflow-x:auto}
+        .table-wrap{overflow-x:auto;margin:10px 0}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px}
+        th,td{padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        .note{color:#8e95a5;font-size:.85rem;margin-top:10px}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🌐 Industrial Network Calculations</h1>
+    <div class="sub" id="desc">Calculate Modbus RTU frame timing, Profinet cycle time, and compare industrial network protocols.</div>
+
+    <!-- Modbus RTU Calculator -->
+    <div class="calc-box">
+        <h2 style="color:#d4af37;font-size:1.3rem;margin-bottom:10px;" id="modbus-title">🔹 Modbus RTU Frame Timing</h2>
+        <div class="calc-row">
+            <div class="field">
+                <label id="lbl-baud">Baud Rate (bps)</label>
+                <select id="baud">
+                    <option value="9600">9600</option>
+                    <option value="19200">19200</option>
+                    <option value="38400" selected>38400</option>
+                    <option value="57600">57600</option>
+                    <option value="115200">115200</option>
+                </select>
+            </div>
+            <div class="field">
+                <label id="lbl-bits">Bits per Frame</label>
+                <select id="bits">
+                    <option value="8" data-en="8 data + 1 stop + parity" data-fa="۸ داده + ۱ توقف + پریتی" selected>8 data + 1 stop + parity</option>
+                    <option value="9" data-en="8 data + 1 stop (no parity)" data-fa="۸ داده + ۱ توقف (بدون پریتی)">8 data + 1 stop (no parity)</option>
+                    <option value="10" data-en="8 data + 2 stop" data-fa="۸ داده + ۲ توقف">8 data + 2 stop</option>
+                </select>
+            </div>
+            <div class="field">
+                <label id="lbl-request">Request Length (bytes)</label>
+                <input type="number" id="requestLen" value="8" step="1">
+            </div>
+            <div class="field">
+                <label id="lbl-response">Response Length (bytes)</label>
+                <input type="number" id="responseLen" value="10" step="1">
+            </div>
+        </div>
+        <button class="btn-calc" id="calcModbus">Calculate</button>
+        <div class="result" id="modbusResult">
+            <span id="modbus-label">Frame Time:</span> <span id="modbusValue">--</span> ms
+            <br><span id="modbus-throughput-label">Throughput:</span> <span id="modbusThroughput">--</span> frames/s
+        </div>
+        <div class="formula-box" id="formula-modbus">
+            Frame Time (ms) = (RequestBytes + ResponseBytes) × BitsPerFrame × 1000 / BaudRate
+        </div>
+    </div>
+
+    <!-- Profinet Calculator -->
+    <div class="calc-box">
+        <h2 style="color:#d4af37;font-size:1.3rem;margin-bottom:10px;" id="profinet-title">🔹 Profinet Cycle Time</h2>
+        <div class="calc-row">
+            <div class="field">
+                <label id="lbl-io">I/O Data Size (bytes)</label>
+                <input type="number" id="ioSize" value="256" step="1">
+            </div>
+            <div class="field">
+                <label id="lbl-speed">Network Speed (Mbps)</label>
+                <select id="speed">
+                    <option value="100">100</option>
+                    <option value="1000" selected>1000</option>
+                </select>
+            </div>
+            <div class="field">
+                <label id="lbl-devices">Number of Devices</label>
+                <input type="number" id="devices" value="10" step="1">
+            </div>
+        </div>
+        <button class="btn-calc" id="calcProfinet">Calculate</button>
+        <div class="result" id="profinetResult">
+            <span id="profinet-label">Cycle Time:</span> <span id="profinetValue">--</span> ms
+            <br><span id="profinet-util-label">Network Utilization:</span> <span id="profinetUtil">--</span> %
+        </div>
+        <div class="formula-box" id="formula-profinet">
+            Approx. Cycle Time = (I/O Data × 8 × Devices) / (Speed × 1000) + overhead
+        </div>
+    </div>
+
+    <!-- Protocol Comparison Table -->
+    <div class="calc-box">
+        <h2 style="color:#d4af37;font-size:1.3rem;margin-bottom:10px;" id="table-title">📊 Industrial Protocol Comparison</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th id="th-protocol">Protocol</th>
+                        <th id="th-medium">Medium</th>
+                        <th id="th-speed">Speed</th>
+                        <th id="th-topology">Topology</th>
+                        <th id="th-typical">Typical Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Modbus RTU</td><td>RS-485</td><td>9.6–115.2 kbps</td><td>Bus</td><td>SCADA, simple I/O</td></tr>
+                    <tr><td>Modbus TCP</td><td>Ethernet</td><td>10/100 Mbps</td><td>Star</td><td>Process control</td></tr>
+                    <tr><td>Profinet</td><td>Ethernet</td><td>100/1000 Mbps</td><td>Star/Ring</td><td>Factory automation</td></tr>
+                    <tr><td>Ethernet/IP</td><td>Ethernet</td><td>10/100 Mbps</td><td>Star</td><td>Automation (Rockwell)</td></tr>
+                    <tr><td>PROFIBUS</td><td>RS-485</td><td>9.6 kbps – 12 Mbps</td><td>Bus</td><td>Field devices</td></tr>
+                    <tr><td>DeviceNet</td><td>CAN</td><td>125/250/500 kbps</td><td>Bus</td><td>Low-level devices</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="note" id="table-note">Values are typical. Actual performance may vary based on implementation and network load.</div>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const langData = {
+        en: {
+            title: '🌐 Industrial Network Calculations',
+            desc: 'Calculate Modbus RTU frame timing, Profinet cycle time, and compare industrial network protocols.',
+            modbus_title: '🔹 Modbus RTU Frame Timing',
+            baud: 'Baud Rate (bps)',
+            bits: 'Bits per Frame',
+            request: 'Request Length (bytes)',
+            response: 'Response Length (bytes)',
+            calc_modbus: 'Calculate',
+            modbus_label: 'Frame Time:',
+            modbus_throughput_label: 'Throughput:',
+            formula_modbus: 'Frame Time (ms) = (RequestBytes + ResponseBytes) × BitsPerFrame × 1000 / BaudRate',
+            profinet_title: '🔹 Profinet Cycle Time',
+            io: 'I/O Data Size (bytes)',
+            speed: 'Network Speed (Mbps)',
+            devices: 'Number of Devices',
+            calc_profinet: 'Calculate',
+            profinet_label: 'Cycle Time:',
+            profinet_util_label: 'Network Utilization:',
+            formula_profinet: 'Approx. Cycle Time = (I/O Data × 8 × Devices) / (Speed × 1000) + overhead',
+            table_title: '📊 Industrial Protocol Comparison',
+            th_protocol: 'Protocol',
+            th_medium: 'Medium',
+            th_speed: 'Speed',
+            th_topology: 'Topology',
+            th_typical: 'Typical Use',
+            table_note: 'Values are typical. Actual performance may vary based on implementation and network load.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🌐 محاسبات شبکه صنعتی',
+            desc: 'محاسبه زمان ارسال فریم در Modbus RTU، زمان چرخه Profinet و مقایسه پروتکل‌های شبکه صنعتی.',
+            modbus_title: '🔹 زمان ارسال فریم Modbus RTU',
+            baud: 'نرخ بود (bps)',
+            bits: 'بیت در هر فریم',
+            request: 'طول درخواست (بایت)',
+            response: 'طول پاسخ (بایت)',
+            calc_modbus: 'محاسبه',
+            modbus_label: 'زمان فریم:',
+            modbus_throughput_label: 'توان عملیاتی:',
+            formula_modbus: 'زمان فریم (ms) = (بایت‌های درخواست + بایت‌های پاسخ) × بیت‌درفریم × ۱۰۰۰ / نرخ بود',
+            profinet_title: '🔹 زمان چرخه Profinet',
+            io: 'اندازه داده I/O (بایت)',
+            speed: 'سرعت شبکه (Mbps)',
+            devices: 'تعداد دستگاه‌ها',
+            calc_profinet: 'محاسبه',
+            profinet_label: 'زمان چرخه:',
+            profinet_util_label: 'استفاده از شبکه:',
+            formula_profinet: 'زمان چرخه تقریبی = (داده I/O × ۸ × دستگاه‌ها) / (سرعت × ۱۰۰۰) + سربار',
+            table_title: '📊 مقایسه پروتکل‌های صنعتی',
+            th_protocol: 'پروتکل',
+            th_medium: 'محیط انتقال',
+            th_speed: 'سرعت',
+            th_topology: 'توپولوژی',
+            th_typical: 'کاربرد معمول',
+            table_note: 'مقادیر معمولی هستند. عملکرد واقعی ممکن است بر اساس پیاده‌سازی و بار شبکه متفاوت باشد.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLanguage(lang) {
+        const t = langData[lang];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('modbus-title').textContent = t.modbus_title;
+        document.getElementById('lbl-baud').textContent = t.baud;
+        document.getElementById('lbl-bits').textContent = t.bits;
+        document.getElementById('lbl-request').textContent = t.request;
+        document.getElementById('lbl-response').textContent = t.response;
+        document.getElementById('calcModbus').textContent = t.calc_modbus;
+        document.getElementById('modbus-label').textContent = t.modbus_label;
+        document.getElementById('modbus-throughput-label').textContent = t.modbus_throughput_label;
+        document.getElementById('formula-modbus').textContent = t.formula_modbus;
+        document.getElementById('profinet-title').textContent = t.profinet_title;
+        document.getElementById('lbl-io').textContent = t.io;
+        document.getElementById('lbl-speed').textContent = t.speed;
+        document.getElementById('lbl-devices').textContent = t.devices;
+        document.getElementById('calcProfinet').textContent = t.calc_profinet;
+        document.getElementById('profinet-label').textContent = t.profinet_label;
+        document.getElementById('profinet-util-label').textContent = t.profinet_util_label;
+        document.getElementById('formula-profinet').textContent = t.formula_profinet;
+        document.getElementById('table-title').textContent = t.table_title;
+        document.getElementById('th-protocol').textContent = t.th_protocol;
+        document.getElementById('th-medium').textContent = t.th_medium;
+        document.getElementById('th-speed').textContent = t.th_speed;
+        document.getElementById('th-topology').textContent = t.th_topology;
+        document.getElementById('th-typical').textContent = t.th_typical;
+        document.getElementById('table-note').textContent = t.table_note;
+        document.getElementById('backlink').textContent = t.back;
+
+        document.querySelectorAll('#bits option').forEach(opt => {
+            const text = opt.dataset[lang];
+            if (text) opt.textContent = text;
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        document.body.classList.toggle('lang-persian', lang === 'fa');
+        localStorage.setItem('karatech-lang', lang);
+        updateResults();
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLanguage(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLanguage(savedLang);
+
+    function calcModbus() {
+        const baud = parseInt(document.getElementById('baud').value);
+        const bits = parseInt(document.getElementById('bits').value);
+        const req = parseFloat(document.getElementById('requestLen').value);
+        const res = parseFloat(document.getElementById('responseLen').value);
+
+        if (isNaN(req) || isNaN(res) || req <= 0 || res <= 0 || baud <= 0) {
+            document.getElementById('modbusValue').textContent = 'Invalid input';
+            document.getElementById('modbusThroughput').textContent = '--';
+            return;
+        }
+
+        const totalBytes = req + res;
+        const totalBits = totalBytes * bits;
+        const frameTime = (totalBits / baud) * 1000; // ms
+        const throughput = 1000 / frameTime; // frames per second
+
+        document.getElementById('modbusValue').textContent = frameTime.toFixed(2);
+        document.getElementById('modbusThroughput').textContent = throughput.toFixed(1);
+    }
+
+    function calcProfinet() {
+        const ioSize = parseFloat(document.getElementById('ioSize').value);
+        const speed = parseInt(document.getElementById('speed').value);
+        const devices = parseFloat(document.getElementById('devices').value);
+
+        if (isNaN(ioSize) || ioSize <= 0 || isNaN(devices) || devices <= 0 || speed <= 0) {
+            document.getElementById('profinetValue').textContent = 'Invalid input';
+            document.getElementById('profinetUtil').textContent = '--';
+            return;
+        }
+
+        // Approximate cycle time: data bits + overhead (assume ~20% overhead)
+        const dataBits = ioSize * 8 * devices;
+        const overhead = dataBits * 0.2;
+        const totalBits = dataBits + overhead;
+        const cycleTime = (totalBits / (speed * 1000000)) * 1000; // ms
+
+        // Utilization: data bits per cycle / theoretical max (assuming 1ms cycle)
+        const maxBitsPerMs = speed * 1000; // bits per ms at full speed
+        const utilization = (totalBits / maxBitsPerMs) * 100;
+
+        document.getElementById('profinetValue').textContent = cycleTime.toFixed(2);
+        document.getElementById('profinetUtil').textContent = utilization.toFixed(1);
+    }
+
+    document.getElementById('calcModbus').onclick = calcModbus;
+    document.getElementById('calcProfinet').onclick = calcProfinet;
+
+    function updateResults() {
+        calcModbus();
+        calcProfinet();
+    }
+
+    updateResults();
+</script>
+
+</body>
+</html>
