@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Engineering Resources</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1100px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1.05rem;margin-bottom:30px}
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-bottom:30px}
+        .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+        .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
+        .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
+        .card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
+        .card p{color:#8e95a5;font-size:.85rem}
+        .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:8px}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="page-title">📚 Engineering Resources</h1>
+    <div class="sub" id="page-sub">Industrial catalogs, manuals, datasheets, downloadable materials, video tutorials, and document templates for all engineering disciplines.</div>
+
+    <div class="grid" id="cards-grid">
+        <a href="resources/catalogs.html" class="card"><i>📖</i><h3>Catalogs</h3><p>Industrial product catalogs</p><span class="badge">Learn More →</span></a>
+        <a href="resources/manuals.html" class="card"><i>📘</i><h3>Manuals</h3><p>Operation & maintenance guides</p><span class="badge">Learn More →</span></a>
+        <a href="resources/datasheets.html" class="card"><i>📄</i><h3>Datasheets</h3><p>Technical product specifications</p><span class="badge">Learn More →</span></a>
+        <a href="resources/downloads.html" class="card"><i>⬇️</i><h3>Downloads</h3><p>Free software, tools & files</p><span class="badge">Learn More →</span></a>
+        <a href="resources/videos.html" class="card"><i>🎬</i><h3>Videos</h3><p>Training & tutorial videos</p><span class="badge">Learn More →</span></a>
+        <a href="resources/templates.html" class="card"><i>📝</i><h3>Templates</h3><p>Engineering document templates</p><span class="badge">Learn More →</span></a>
+    </div>
+
+    <div class="back">
+        <a href="../index.html" id="backlink" onclick="localStorage.setItem('dashboardActive', 'true')">← Back to Dashboard</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📚 Engineering Resources',
+            sub: 'Industrial catalogs, manuals, datasheets, downloadable materials, video tutorials, and document templates for all engineering disciplines.',
+            cards: [
+                ['Catalogs', 'Industrial product catalogs', 'Learn More →'],
+                ['Manuals', 'Operation & maintenance guides', 'Learn More →'],
+                ['Datasheets', 'Technical product specifications', 'Learn More →'],
+                ['Downloads', 'Free software, tools & files', 'Learn More →'],
+                ['Videos', 'Training & tutorial videos', 'Learn More →'],
+                ['Templates', 'Engineering document templates', 'Learn More →']
+            ],
+            back: '← Back to Dashboard'
+        },
+        fa: {
+            title: '📚 منابع مهندسی',
+            sub: 'کاتالوگ‌های صنعتی، دفترچه‌های راهنما، دیتاشیت‌ها، دانلودها، آموزش‌های ویدئویی و قالب‌های اسناد مهندسی برای تمام رشته‌های مهندسی.',
+            cards: [
+                ['کاتالوگ‌ها', 'کاتالوگ‌های محصولات صنعتی', 'بیشتر بدانید →'],
+                ['دفترچه‌ها', 'راهنماهای عملکرد و نگهداری', 'بیشتر بدانید →'],
+                ['دیتاشیت‌ها', 'مشخصات فنی محصولات', 'بیشتر بدانید →'],
+                ['دانلودها', 'نرم‌افزار، ابزار و فایل‌های رایگان', 'بیشتر بدانید →'],
+                ['ویدئوها', 'آموزش‌های ویدئویی', 'بیشتر بدانید →'],
+                ['قالب‌ها', 'قالب‌های اسناد مهندسی', 'بیشتر بدانید →']
+            ],
+            back: '← بازگشت به داشبورد'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('page-title').textContent = t.title;
+        document.getElementById('page-sub').textContent = t.sub;
+        document.getElementById('backlink').textContent = t.back;
+
+        const grid = document.getElementById('cards-grid');
+        const cards = grid.querySelectorAll('.card');
+        t.cards.forEach((item, index) => {
+            if (cards[index]) {
+                cards[index].querySelector('h3').textContent = item[0];
+                cards[index].querySelector('p').textContent = item[1];
+                cards[index].querySelector('.badge').textContent = item[2];
+            }
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
