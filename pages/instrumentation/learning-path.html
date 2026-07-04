@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Instrumentation Learning Path</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🗺️ Instrumentation Learning Path</h1>
+    <div class="sub" id="desc">A structured learning path to become a skilled instrumentation engineer. From foundations to advanced topics.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Foundation Level</h2>
+        <ul id="list1">
+            <li>Basic physics (pressure, temperature, flow, level)</li>
+            <li>Introduction to process measurement and control</li>
+            <li>Electrical fundamentals and signal types (4-20 mA, HART, Fieldbus)</li>
+            <li>Safety awareness (LOTO, hazardous area classification)</li>
+            <li>Basic calibration and troubleshooting</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Intermediate Level</h2>
+        <ul id="list2">
+            <li>Instrument selection and sizing (pressure, temperature, flow, level)</li>
+            <li>Control valve sizing and selection</li>
+            <li>Installation and commissioning practices</li>
+            <li>Loop checking and functional testing</li>
+            <li>Reading and interpreting P&IDs and loop diagrams</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Advanced Level</h2>
+        <ul id="list3">
+            <li>Advanced analyzers (GC, IR, UV)</li>
+            <li>Digital communication protocols (HART, Foundation Fieldbus, Profibus)</li>
+            <li>Smart instrumentation and asset management</li>
+            <li>Functional safety (IEC 61511) and SIL verification</li>
+            <li>Project management and system integration</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Continuous Learning</h2>
+        <ul id="list4">
+            <li>Stay updated with new technologies (IIoT, wireless instrumentation)</li>
+            <li>Attend training courses and webinars (ISA, Emerson, Endress+Hauser)</li>
+            <li>Certifications (ISA CAP, TUV Functional Safety)</li>
+            <li>Participate in industry forums and conferences</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🗺️ Instrumentation Learning Path',
+            desc: 'A structured learning path to become a skilled instrumentation engineer. From foundations to advanced topics.',
+            s1: '🔹 Foundation Level',
+            list1: ['Basic physics (pressure, temperature, flow, level)','Introduction to process measurement and control','Electrical fundamentals and signal types (4-20 mA, HART, Fieldbus)','Safety awareness (LOTO, hazardous area classification)','Basic calibration and troubleshooting'],
+            s2: '🔹 Intermediate Level',
+            list2: ['Instrument selection and sizing (pressure, temperature, flow, level)','Control valve sizing and selection','Installation and commissioning practices','Loop checking and functional testing','Reading and interpreting P&IDs and loop diagrams'],
+            s3: '🔹 Advanced Level',
+            list3: ['Advanced analyzers (GC, IR, UV)','Digital communication protocols (HART, Foundation Fieldbus, Profibus)','Smart instrumentation and asset management','Functional safety (IEC 61511) and SIL verification','Project management and system integration'],
+            s4: '🔹 Continuous Learning',
+            list4: ['Stay updated with new technologies (IIoT, wireless instrumentation)','Attend training courses and webinars (ISA, Emerson, Endress+Hauser)','Certifications (ISA CAP, TUV Functional Safety)','Participate in industry forums and conferences'],
+            back: '← Back'
+        },
+        fa: {
+            title: '🗺️ مسیر یادگیری ابزار دقیق',
+            desc: 'یک مسیر یادگیری ساختاریافته برای تبدیل شدن به یک مهندس ابزار دقیق ماهر. از مبانی تا موضوعات پیشرفته.',
+            s1: '🔹 سطح پایه',
+            list1: ['فیزیک پایه (فشار، دما، جریان، سطح)','آشنایی با اندازه‌گیری و کنترل فرآیند','مبانی الکتریکی و انواع سیگنال (۴-۲۰ میلی‌آمپر، HART، Fieldbus)','آگاهی ایمنی (LOTO، طبقه‌بندی مناطق خطرناک)','کالیبراسیون پایه و عیب‌یابی'],
+            s2: '🔹 سطح متوسط',
+            list2: ['انتخاب و سایزینگ ابزار (فشار، دما، جریان، سطح)','سایزینگ و انتخاب شیر کنترلی','روش‌های نصب و راه‌اندازی','بررسی حلقه و تست عملکردی','خواندن و تفسیر P&ID و نمودارهای حلقه'],
+            s3: '🔹 سطح پیشرفته',
+            list3: ['آنالایزرهای پیشرفته (GC، IR، UV)','پروتکل‌های ارتباطی دیجیتال (HART، Foundation Fieldbus، Profibus)','ابزار دقیق هوشمند و مدیریت دارایی','ایمنی عملکردی (IEC 61511) و تأیید SIL','مدیریت پروژه و یکپارچه‌سازی سیستم'],
+            s4: '🔹 یادگیری مستمر',
+            list4: ['به‌روز ماندن با فناوری‌های جدید (IIoT، ابزار دقیق بی‌سیم)','شرکت در دوره‌های آموزشی و وبینارها (ISA، امرسون، اندرس+هاوزر)','گواهینامه‌ها (ISA CAP، TUV ایمنی عملکردی)','شرکت در انجمن‌های صنعتی و کنفرانس‌ها'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        const ul4 = document.getElementById('list4');
+        ul4.innerHTML = '';
+        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
