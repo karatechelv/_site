@@ -27,47 +27,44 @@
         }
     });
 
-    // ===== آپدیت ساعت و تاریخ با استفاده از Intl =====
+    // ===== تبدیل اعداد به فارسی =====
+    function toPersianDigits(num) {
+        const persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+        return num.toString().replace(/\d/g, d => persian[parseInt(d)]);
+    }
+
+    // ===== آپدیت ساعت و تاریخ با استفاده از زمان سیستم =====
     function updateDateTime() {
         const now = new Date();
         const lang = document.querySelector('.lang-btn.active')?.dataset.lang || 'en';
-        
-        // ===== ساعت ۲۴ ساعته =====
+
+        // ===== ساعت ۲۴ ساعته با اعداد انگلیسی/فارسی =====
+        let hours = String(now.getHours()).padStart(2, '0');
+        let minutes = String(now.getMinutes()).padStart(2, '0');
+        let seconds = String(now.getSeconds()).padStart(2, '0');
+
         let timeStr;
         if (lang === 'fa') {
-            // ساعت با اعداد فارسی
-            const h = String(now.getHours()).padStart(2, '0');
-            const m = String(now.getMinutes()).padStart(2, '0');
-            const s = String(now.getSeconds()).padStart(2, '0');
-            const persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-            timeStr = h.replace(/\d/g, d => persian[parseInt(d)]) + ':' +
-                      m.replace(/\d/g, d => persian[parseInt(d)]) + ':' +
-                      s.replace(/\d/g, d => persian[parseInt(d)]);
+            timeStr = `${toPersianDigits(hours)}:${toPersianDigits(minutes)}:${toPersianDigits(seconds)}`;
         } else {
-            timeStr = now.toLocaleTimeString('en-US', {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false
-            });
+            timeStr = `${hours}:${minutes}:${seconds}`;
         }
 
         // ===== تاریخ =====
         let dateStr;
         if (lang === 'fa') {
-            // تاریخ شمسی با استفاده از Intl
-            dateStr = new Intl.DateTimeFormat('fa-IR', {
+            // تاریخ شمسی با استفاده از Intl (منطقه زمانی ایران)
+            const formatter = new Intl.DateTimeFormat('fa-IR', {
                 year: 'numeric',
                 month: '2-digit',
-                day: '2-digit'
-            }).format(now);
-            // تبدیل تاریخ به فرمت با اسلش (مثلاً ۱۴۰۴/۰۱/۱۵)
-            // با اعداد فارسی
-            const parts = dateStr.split('/');
-            const persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-            dateStr = parts.map(p => p.replace(/\d/g, d => persian[parseInt(d)])).join('/');
+                day: '2-digit',
+                timeZone: 'Asia/Tehran'  // منطقه زمانی ایران
+            });
+            let raw = formatter.format(now);
+            // تبدیل اعداد به فارسی
+            dateStr = raw.replace(/\d/g, d => toPersianDigits(d));
         } else {
-            // تاریخ میلادی
+            // تاریخ میلادی با منطقه زمانی محلی
             dateStr = now.toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'short',
@@ -105,7 +102,6 @@
             btn.classList.toggle('active', btn.dataset.lang === lang);
         });
 
-        // به‌روزرسانی تاریخ و ساعت با زبان جدید
         updateDateTime();
     }
 
