@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · SCADA Systems</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📊 SCADA Systems</h1>
+    <div class="sub" id="desc">Supervisory Control and Data Acquisition (SCADA) systems for monitoring, control, and data acquisition in industrial and infrastructure applications.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is SCADA?</h2>
+        <p id="s1p">SCADA (Supervisory Control and Data Acquisition) is a control system architecture that uses computers, networked data communications, and graphical user interfaces for high-level process supervisory management. It enables operators to monitor and control remote equipment.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Components</h2>
+        <ul id="list1">
+            <li>SCADA Server (Master Station) – Central control and data logging</li>
+            <li>Remote Terminal Units (RTUs) – Field data acquisition</li>
+            <li>Programmable Logic Controllers (PLCs) – Local control</li>
+            <li>Communication Infrastructure – Wired/wireless networks</li>
+            <li>HMI / Operator Workstations – User interface and visualization</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Popular SCADA Software</h2>
+        <ul id="list2">
+            <li>Siemens WinCC / PCS7</li>
+            <li>Wonderware InTouch</li>
+            <li>Rockwell FactoryTalk View SE</li>
+            <li>GE CIMPLICITY</li>
+            <li>Ignition by Inductive Automation</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Water Treatment Plant</h2>
+        <p id="s4p">A SCADA system monitors flow rates, tank levels, chemical dosing, and pump status across a water treatment plant. Operators can view trends, set alarms, and control pumps remotely from a central control room.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📊 SCADA Systems',
+            desc: 'Supervisory Control and Data Acquisition (SCADA) systems for monitoring, control, and data acquisition in industrial and infrastructure applications.',
+            s1: '🔹 What is SCADA?',
+            s1p: 'SCADA (Supervisory Control and Data Acquisition) is a control system architecture that uses computers, networked data communications, and graphical user interfaces for high-level process supervisory management. It enables operators to monitor and control remote equipment.',
+            s2: '🔹 Key Components',
+            list1: ['SCADA Server (Master Station) – Central control and data logging','Remote Terminal Units (RTUs) – Field data acquisition','Programmable Logic Controllers (PLCs) – Local control','Communication Infrastructure – Wired/wireless networks','HMI / Operator Workstations – User interface and visualization'],
+            s3: '🔹 Popular SCADA Software',
+            list2: ['Siemens WinCC / PCS7','Wonderware InTouch','Rockwell FactoryTalk View SE','GE CIMPLICITY','Ignition by Inductive Automation'],
+            s4: '🔹 Example: Water Treatment Plant',
+            s4p: 'A SCADA system monitors flow rates, tank levels, chemical dosing, and pump status across a water treatment plant. Operators can view trends, set alarms, and control pumps remotely from a central control room.',
+            back: '← Back'
+        },
+        fa: {
+            title: '📊 سیستم‌های SCADA',
+            desc: 'سیستم‌های نظارت و کنترل (SCADA) برای نظارت، کنترل و جمع‌آوری داده‌ها در کاربردهای صنعتی و زیرساختی.',
+            s1: '🔹 SCADA چیست؟',
+            s1p: 'SCADA (نظارت و جمع‌آوری داده) یک معماری سیستم کنترلی است که از رایانه‌ها، ارتباطات شبکه و رابط‌های گرافیکی برای مدیریت نظارتی سطح بالا استفاده می‌کند. این سیستم به اپراتورها امکان نظارت و کنترل تجهیزات راه دور را می‌دهد.',
+            s2: '🔹 اجزای کلیدی',
+            list1: ['سرور SCADA (ایستگاه اصلی) – کنترل مرکزی و ثبت داده','واحدهای ترمینال راه دور (RTU) – جمع‌آوری داده از میدان','کنترل‌کننده‌های منطقی قابل برنامه‌ریزی (PLC) – کنترل محلی','زیرساخت ارتباطی – شبکه‌های سیمی/بی‌سیم','HMI / ایستگاه‌های اپراتور – رابط کاربری و تصویرسازی'],
+            s3: '🔹 نرم‌افزارهای محبوب SCADA',
+            list2: ['زیمنس WinCC / PCS7','Wonderware InTouch','راکول FactoryTalk View SE','GE CIMPLICITY','Ignition توسط Inductive Automation'],
+            s4: '🔹 مثال: تصفیه‌خانه آب',
+            s4p: 'یک سیستم SCADA نرخ جریان، سطح مخازن، دوز مواد شیمیایی و وضعیت پمپ‌ها را در یک تصفیه‌خانه آب نظارت می‌کند. اپراتورها می‌توانند روندها را مشاهده، هشدارها را تنظیم و پمپ‌ها را از راه دور کنترل کنند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
