@@ -298,3 +298,22 @@ body {
     .grid-4 { grid-template-columns: 1fr; }
     .tools-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
 }
+
+/* ===== پس‌زمینه صفحه Quality ===== */
+body.page-quality .dashboard {
+    background: 
+        linear-gradient(rgba(13,14,18,0.80), rgba(13,14,18,0.88)),
+        url('https://images.unsplash.com/photo-1581092335872-4f5b7b8c8c9f?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+body.page-quality .card-academy {
+    backdrop-filter: blur(6px);
+    background: rgba(26, 29, 36, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.08);
+}
+body.page-quality .card-academy:hover {
+    background: rgba(37, 42, 52, 0.92);
+    border-color: var(--accent);
+}
