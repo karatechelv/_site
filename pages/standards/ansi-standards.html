@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · ANSI Standards</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📐 ANSI Standards</h1>
+    <div class="sub" id="desc">Overview of key American National Standards Institute (ANSI) standards for engineering, safety, and quality across multiple industries.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is ANSI?</h2>
+        <p id="s1p">The American National Standards Institute (ANSI) is a private, non-profit organization that coordinates the development of voluntary consensus standards for products, services, processes, and systems in the United States. ANSI does not develop standards itself but accredits standards developing organizations and ensures that their standards meet ANSI's essential requirements for openness, balance, consensus, and due process.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key ANSI Standards</h2>
+        <ul id="list1">
+            <li><b>ANSI C</b> – Electrical safety standards</li>
+            <li><b>ANSI Z</b> – Safety and health standards (e.g., ANSI Z535 – Safety Signs and Labels)</li>
+            <li><b>ANSI S</b> – Acoustics and sound standards</li>
+            <li><b>ANSI/ISA 5.1</b> – Instrumentation Symbols and Identification</li>
+            <li><b>ANSI/NEMA</b> – Electrical enclosures and equipment standards</li>
+            <li><b>ANSI/IEEE</b> – Joint standards with IEEE</li>
+            <li><b>ANSI/ASME</b> – Mechanical engineering standards (e.g., piping, pressure vessels)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 ANSI Standards by Discipline</h2>
+        <ul id="list2">
+            <li><b>Electrical:</b> ANSI C84.1 (Voltage ratings), ANSI/NEMA standards</li>
+            <li><b>Instrumentation:</b> ANSI/ISA 5.1 (symbols), ANSI/ISA 88 (batch control)</li>
+            <li><b>Safety:</b> ANSI Z358.1 (Eyewash/Showers), ANSI Z535 (Signs/Labels)</li>
+            <li><b>Mechanical:</b> ANSI/ASME B31.1 (Power Piping), ANSI/ASME Section VIII (Pressure Vessels)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: ANSI/ISA 5.1 for Instrumentation</h2>
+        <p id="s4p">A process engineer uses ANSI/ISA 5.1 to develop P&IDs (Piping and Instrumentation Diagrams) for a chemical plant. The standard provides symbols for instruments, logic, and control functions, ensuring consistent communication across engineering disciplines and operations teams.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📐 ANSI Standards',
+            desc: 'Overview of key American National Standards Institute (ANSI) standards for engineering, safety, and quality across multiple industries.',
+            s1: '🔹 What is ANSI?',
+            s1p: 'The American National Standards Institute (ANSI) is a private, non-profit organization that coordinates the development of voluntary consensus standards for products, services, processes, and systems in the United States. ANSI does not develop standards itself but accredits standards developing organizations and ensures that their standards meet ANSI\'s essential requirements for openness, balance, consensus, and due process.',
+            s2: '🔹 Key ANSI Standards',
+            list1: ['ANSI C – Electrical safety standards','ANSI Z – Safety and health standards (e.g., ANSI Z535 – Safety Signs and Labels)','ANSI S – Acoustics and sound standards','ANSI/ISA 5.1 – Instrumentation Symbols and Identification','ANSI/NEMA – Electrical enclosures and equipment standards','ANSI/IEEE – Joint standards with IEEE','ANSI/ASME – Mechanical engineering standards (e.g., piping, pressure vessels)'],
+            s3: '🔹 ANSI Standards by Discipline',
+            list2: ['Electrical: ANSI C84.1 (Voltage ratings), ANSI/NEMA standards','Instrumentation: ANSI/ISA 5.1 (symbols), ANSI/ISA 88 (batch control)','Safety: ANSI Z358.1 (Eyewash/Showers), ANSI Z535 (Signs/Labels)','Mechanical: ANSI/ASME B31.1 (Power Piping), ANSI/ASME Section VIII (Pressure Vessels)'],
+            s4: '🔹 Example: ANSI/ISA 5.1 for Instrumentation',
+            s4p: 'A process engineer uses ANSI/ISA 5.1 to develop P&IDs (Piping and Instrumentation Diagrams) for a chemical plant. The standard provides symbols for instruments, logic, and control functions, ensuring consistent communication across engineering disciplines and operations teams.',
+            back: '← Back'
+        },
+        fa: {
+            title: '📐 استانداردهای ANSI',
+            desc: 'مروری بر استانداردهای کلیدی مؤسسه ملی استانداردهای آمریکا (ANSI) برای مهندسی، ایمنی و کیفیت در صنایع مختلف.',
+            s1: '🔹 ANSI چیست؟',
+            s1p: 'مؤسسه ملی استانداردهای آمریکا (ANSI) یک سازمان خصوصی غیرانتفاعی است که توسعه استانداردهای داوطلبانه و مبتنی بر اجماع را برای محصولات، خدمات، فرآیندها و سیستم‌ها در ایالات متحده هماهنگ می‌کند. ANSI خود استاندارد توسعه نمی‌دهد، بلکه سازمان‌های تدوین‌کننده استاندارد را تأیید کرده و اطمینان حاصل می‌کند که استانداردهای آنها الزامات اساسی ANSI را برای باز بودن، تعادل، اجماع و رویه مناسب برآورده می‌کنند.',
+            s2: '🔹 استانداردهای کلیدی ANSI',
+            list1: ['ANSI C – استانداردهای ایمنی برق','ANSI Z – استانداردهای ایمنی و بهداشت (مثلاً ANSI Z535 – علائم و برچسب‌های ایمنی)','ANSI S – استانداردهای صدا و آکوستیک','ANSI/ISA 5.1 – نمادها و شناسایی ابزار دقیق','ANSI/NEMA – استانداردهای محفظه‌ها و تجهیزات الکتریکی','ANSI/IEEE – استانداردهای مشترک با IEEE','ANSI/ASME – استانداردهای مهندسی مکانیک (مثلاً لوله‌کشی، مخازن تحت فشار)'],
+            s3: '🔹 استانداردهای ANSI بر اساس رشته',
+            list2: ['برق: ANSI C84.1 (رتبه‌بندی ولتاژ)، استانداردهای ANSI/NEMA','ابزار دقیق: ANSI/ISA 5.1 (نمادها)، ANSI/ISA 88 (کنترل دسته‌ای)','ایمنی: ANSI Z358.1 (دستگاه شستشوی چشم/دوش)، ANSI Z535 (علائم/برچسب‌ها)','مکانیک: ANSI/ASME B31.1 (لوله‌کشی قدرت)، ANSI/ASME بخش VIII (مخازن تحت فشار)'],
+            s4: '🔹 مثال: ANSI/ISA 5.1 برای ابزار دقیق',
+            s4p: 'یک مهندس فرآیند از ANSI/ISA 5.1 برای توسعه P&ID (نمودارهای لوله‌کشی و ابزار دقیق) برای یک کارخانه شیمیایی استفاده می‌کند. این استاندارد نمادهایی برای ابزارها، منطق و عملکردهای کنترل ارائه می‌دهد و ارتباطات یکپارچه را در بین رشته‌های مهندسی و تیم‌های عملیاتی تضمین می‌کند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
