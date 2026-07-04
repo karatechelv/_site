@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Quality Management</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">✅ Quality Management</h1>
+    <div class="sub" id="desc">Principles, tools, and best practices for quality assurance, quality control, and continuous improvement in engineering projects.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Quality Management?</h2>
+        <p id="s1p">Quality management is the process of ensuring that engineering projects meet customer requirements, industry standards, and regulatory expectations. It encompasses quality planning, quality assurance (QA), quality control (QC), and continuous improvement (CI). Effective quality management reduces defects, improves customer satisfaction, and enhances project performance.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Quality Management Components</h2>
+        <ul id="list1">
+            <li><b>Quality Planning</b> – Setting quality objectives and defining processes to achieve them</li>
+            <li><b>Quality Assurance (QA)</b> – Systematic activities to ensure processes are followed and quality is built in</li>
+            <li><b>Quality Control (QC)</b> – Inspecting, testing, and verifying deliverables against standards</li>
+            <li><b>Continuous Improvement (CI)</b> – Ongoing efforts to enhance processes, reduce waste, and increase efficiency</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Quality Management Tools</h2>
+        <ul id="list2">
+            <li><b>PDCA Cycle</b> – Plan, Do, Check, Act for continuous improvement</li>
+            <li><b>Root Cause Analysis</b> – Identifying underlying causes of problems</li>
+            <li><b>Quality Audits</b> – Independent assessment of quality systems and processes</li>
+            <li><b>Statistical Process Control (SPC)</b> – Monitoring process variability</li>
+            <li><b>Quality Management Software</b> – Digital tools for tracking quality metrics and documentation</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Quality Management in an EPC Project</h2>
+        <p id="s4p">An EPC (Engineering, Procurement, Construction) company implements a quality management system for a large infrastructure project. The QA team develops quality plans, inspection and test plans (ITPs), and conducts regular audits. The QC team performs material inspections, welding inspections, and final testing. Non-conformities are tracked and corrective actions are implemented.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '✅ Quality Management',
+            desc: 'Principles, tools, and best practices for quality assurance, quality control, and continuous improvement in engineering projects.',
+            s1: '🔹 What is Quality Management?',
+            s1p: 'Quality management is the process of ensuring that engineering projects meet customer requirements, industry standards, and regulatory expectations. It encompasses quality planning, quality assurance (QA), quality control (QC), and continuous improvement (CI). Effective quality management reduces defects, improves customer satisfaction, and enhances project performance.',
+            s2: '🔹 Key Quality Management Components',
+            list1: ['Quality Planning – Setting quality objectives and defining processes to achieve them','Quality Assurance (QA) – Systematic activities to ensure processes are followed and quality is built in','Quality Control (QC) – Inspecting, testing, and verifying deliverables against standards','Continuous Improvement (CI) – Ongoing efforts to enhance processes, reduce waste, and increase efficiency'],
+            s3: '🔹 Quality Management Tools',
+            list2: ['PDCA Cycle – Plan, Do, Check, Act for continuous improvement','Root Cause Analysis – Identifying underlying causes of problems','Quality Audits – Independent assessment of quality systems and processes','Statistical Process Control (SPC) – Monitoring process variability','Quality Management Software – Digital tools for tracking quality metrics and documentation'],
+            s4: '🔹 Example: Quality Management in an EPC Project',
+            s4p: 'An EPC (Engineering, Procurement, Construction) company implements a quality management system for a large infrastructure project. The QA team develops quality plans, inspection and test plans (ITPs), and conducts regular audits. The QC team performs material inspections, welding inspections, and final testing. Non-conformities are tracked and corrective actions are implemented.',
+            back: '← Back'
+        },
+        fa: {
+            title: '✅ مدیریت کیفیت',
+            desc: 'اصول، ابزارها و بهترین شیوه‌ها برای تضمین کیفیت، کنترل کیفیت و بهبود مستمر در پروژه‌های مهندسی.',
+            s1: '🔹 مدیریت کیفیت چیست؟',
+            s1p: 'مدیریت کیفیت فرآیند اطمینان از این است که پروژه‌های مهندسی نیازهای مشتری، استانداردهای صنعت و انتظارات نظارتی را برآورده می‌کنند. شامل برنامه‌ریزی کیفیت، تضمین کیفیت (QA)، کنترل کیفیت (QC) و بهبود مستمر (CI) است. مدیریت کیفیت مؤثر عیوب را کاهش می‌دهد، رضایت مشتری را بهبود می‌بخشد و عملکرد پروژه را افزایش می‌دهد.',
+            s2: '🔹 اجزای کلیدی مدیریت کیفیت',
+            list1: ['برنامه‌ریزی کیفیت – تعیین اهداف کیفیت و تعریف فرآیندها برای دستیابی به آنها','تضمین کیفیت (QA) – فعالیت‌های سیستماتیک برای اطمینان از رعایت فرآیندها و کیفیت','کنترل کیفیت (QC) – بازرسی، تست و تأیید تحویل‌ها بر اساس استانداردها','بهبود مستمر (CI) – تلاش‌های مستمر برای بهبود فرآیندها، کاهش ضایعات و افزایش کارایی'],
+            s3: '🔹 ابزارهای مدیریت کیفیت',
+            list2: ['چرخه PDCA – برنامه‌ریزی، انجام، بررسی، اقدام برای بهبود مستمر','تحلیل ریشه‌ای – شناسایی علل زمینه‌ای مشکلات','حسابرسی کیفیت – ارزیابی مستقل سیستم‌ها و فرآیندهای کیفیت','کنترل آماری فرآیند (SPC) – نظارت بر تغییرات فرآیند','نرم‌افزارهای مدیریت کیفیت – ابزارهای دیجیتال برای پیگیری معیارهای کیفیت و مستندسازی'],
+            s4: '🔹 مثال: مدیریت کیفیت در یک پروژه EPC',
+            s4p: 'یک شرکت EPC (مهندسی، تدارکات، ساخت) یک سیستم مدیریت کیفیت را برای یک پروژه زیرساختی بزرگ پیاده‌سازی می‌کند. تیم QA برنامه‌های کیفیت، برنامه‌های بازرسی و تست (ITP) را توسعه و حسابرسی‌های منظم انجام می‌دهد. تیم QC بازرسی مواد، بازرسی جوشکاری و تست نهایی را انجام می‌دهد. عدم انطباق‌ها پیگیری و اقدامات اصلاحی اجرا می‌شوند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
