@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Safety Culture</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🌟 Safety Culture</h1>
+    <div class="sub" id="desc">Building a proactive safety culture through leadership, employee engagement, training, and continuous improvement in engineering and industrial workplaces.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Safety Culture?</h2>
+        <p id="s1p">Safety culture is the shared values, attitudes, beliefs, and practices that shape how safety is perceived and prioritized in an organization. A strong safety culture goes beyond compliance—it embeds safety into daily operations, encourages proactive hazard identification, and empowers employees to speak up about safety concerns without fear of reprisal.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Elements of a Strong Safety Culture</h2>
+        <ul id="list1">
+            <li><b>Leadership Commitment</b> – Senior leaders demonstrate visible commitment to safety</li>
+            <li><b>Employee Engagement</b> – All employees are involved in safety initiatives and decision-making</li>
+            <li><b>Open Communication</b> – Transparent reporting of incidents, near-misses, and concerns</li>
+            <li><b>Continuous Learning</b> – Learning from incidents and sharing lessons across the organization</li>
+            <li><b>Accountability</b> – Clear responsibilities and consequences for safety performance</li>
+            <li><b>Safety Training</b> – Regular, relevant, and practical safety education</li>
+            <li><b>Recognition & Rewards</b> – Acknowledging positive safety behaviors and contributions</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Building a Safety Culture in Engineering</h2>
+        <ul id="list2">
+            <li><b>Start with Leadership</b> – Lead by example, prioritize safety in decision-making</li>
+            <li><b>Involve Employees</b> – Include workers in risk assessments, safety committees, and improvement initiatives</li>
+            <li><b>Provide Training</b> – Regularly train employees on safety procedures, hazard recognition, and incident reporting</li>
+            <li><b>Promote Reporting</b> – Encourage reporting of near-misses and hazards without blame</li>
+            <li><b>Celebrate Success</b> – Recognize and reward teams and individuals for safety achievements</li>
+            <li><b>Continuous Improvement</b> – Use data and feedback to improve safety performance over time</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Safety Culture Transformation in a Factory</h2>
+        <p id="s4p">A manufacturing factory faced high incident rates and low employee morale. Management implemented a safety culture transformation program: leadership safety walkthroughs, employee safety committees, daily safety briefings, and a recognition program for safety champions. Within two years, incidents dropped by 50%, employee engagement improved, and safety became a core value of the organization.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🌟 Safety Culture',
+            desc: 'Building a proactive safety culture through leadership, employee engagement, training, and continuous improvement in engineering and industrial workplaces.',
+            s1: '🔹 What is Safety Culture?',
+            s1p: 'Safety culture is the shared values, attitudes, beliefs, and practices that shape how safety is perceived and prioritized in an organization. A strong safety culture goes beyond compliance—it embeds safety into daily operations, encourages proactive hazard identification, and empowers employees to speak up about safety concerns without fear of reprisal.',
+            s2: '🔹 Key Elements of a Strong Safety Culture',
+            list1: ['Leadership Commitment – Senior leaders demonstrate visible commitment to safety','Employee Engagement – All employees are involved in safety initiatives and decision-making','Open Communication – Transparent reporting of incidents, near-misses, and concerns','Continuous Learning – Learning from incidents and sharing lessons across the organization','Accountability – Clear responsibilities and consequences for safety performance','Safety Training – Regular, relevant, and practical safety education','Recognition & Rewards – Acknowledging positive safety behaviors and contributions'],
+            s3: '🔹 Building a Safety Culture in Engineering',
+            list2: ['Start with Leadership – Lead by example, prioritize safety in decision-making','Involve Employees – Include workers in risk assessments, safety committees, and improvement initiatives','Provide Training – Regularly train employees on safety procedures, hazard recognition, and incident reporting','Promote Reporting – Encourage reporting of near-misses and hazards without blame','Celebrate Success – Recognize and reward teams and individuals for safety achievements','Continuous Improvement – Use data and feedback to improve safety performance over time'],
+            s4: '🔹 Example: Safety Culture Transformation in a Factory',
+            s4p: 'A manufacturing factory faced high incident rates and low employee morale. Management implemented a safety culture transformation program: leadership safety walkthroughs, employee safety committees, daily safety briefings, and a recognition program for safety champions. Within two years, incidents dropped by 50%, employee engagement improved, and safety became a core value of the organization.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🌟 فرهنگ ایمنی',
+            desc: 'ایجاد یک فرهنگ ایمنی پیش‌گیرانه از طریق رهبری، مشارکت کارکنان، آموزش و بهبود مستمر در محیط‌های کاری مهندسی و صنعتی.',
+            s1: '🔹 فرهنگ ایمنی چیست؟',
+            s1p: 'فرهنگ ایمنی مجموعه‌ای از ارزش‌ها، نگرش‌ها، باورها و شیوه‌های مشترک است که نحوه درک و اولویت‌بندی ایمنی را در یک سازمان شکل می‌دهد. یک فرهنگ ایمنی قوی فراتر از انطباق است - ایمنی را در عملیات روزمره تزریق می‌کند، شناسایی پیش‌گیرانه خطر را تشویق کرده و کارکنان را برای بیان نگرانی‌های ایمنی بدون ترس از تلافی توانمند می‌سازد.',
+            s2: '🔹 عناصر کلیدی یک فرهنگ ایمنی قوی',
+            list1: ['تعهد رهبری – مدیران ارشد تعهد قابل مشاهده به ایمنی نشان می‌دهند','مشارکت کارکنان – همه کارکنان در ابتکارات ایمنی و تصمیم‌گیری مشارکت دارند','ارتباطات باز – گزارش‌دهی شفاف حوادث، نزدیک‌به‌حوادث و نگرانی‌ها','یادگیری مستمر – یادگیری از حوادث و به اشتراک گذاری درس‌ها در سراسر سازمان','مسئولیت‌پذیری – مسئولیت‌ها و پیامدهای روشن برای عملکرد ایمنی','آموزش ایمنی – آموزش منظم، مرتبط و عملی ایمنی','تشویق و پاداش – شناسایی رفتارها و مشارکت‌های مثبت ایمنی'],
+            s3: '🔹 ایجاد فرهنگ ایمنی در مهندسی',
+            list2: ['با رهبری شروع کنید – الگو باشید، ایمنی را در تصمیم‌گیری اولویت دهید','کارکنان را مشارکت دهید – کارگران را در ارزیابی‌های ریسک، کمیته‌های ایمنی و ابتکارات بهبود مشارکت دهید','آموزش ارائه دهید – به طور منظم کارکنان را در مورد رویه‌های ایمنی، تشخیص خطر و گزارش حوادث آموزش دهید','گزارش‌دهی را ترویج دهید – گزارش نزدیک‌به‌حوادث و خطرات را بدون سرزنش تشویق کنید','موفقیت را جشن بگیرید – تیم‌ها و افراد را برای دستاوردهای ایمنی تشویق و پاداش دهید','بهبود مستمر – از داده‌ها و بازخورد برای بهبود عملکرد ایمنی در طول زمان استفاده کنید'],
+            s4: '🔹 مثال: تحول فرهنگ ایمنی در یک کارخانه',
+            s4p: 'یک کارخانه تولیدی با نرخ بالای حوادث و روحیه پایین کارکنان روبرو بود. مدیریت یک برنامه تحول فرهنگ ایمنی پیاده‌سازی کرد: بازدیدهای ایمنی رهبری، کمیته‌های ایمنی کارکنان، جلسات کوتاه روزانه ایمنی و یک برنامه تشویقی برای قهرمانان ایمنی. در عرض دو سال، حوادث ۵۰٪ کاهش یافت، مشارکت کارکنان بهبود یافت و ایمنی به یک ارزش اصلی سازمان تبدیل شد.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
