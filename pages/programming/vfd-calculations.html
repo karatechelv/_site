@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · VFD Calculator</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:950px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .calc-box{background:#1e2128;padding:25px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);margin-bottom:20px}
+        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
+        .calc-box input, .calc-box select{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
+        .calc-box input:focus, .calc-box select:focus{outline:1px solid #d4af37}
+        .calc-row{display:flex;gap:15px;flex-wrap:wrap}
+        .calc-row .field{flex:1;min-width:160px}
+        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
+        .btn-calc:hover{background:#d4af37;color:#111}
+        .result{background:#0d0e12;padding:15px;border-radius:12px;border-left:4px solid #d4af37;margin-top:15px;font-size:1.05rem}
+        .result span{color:#d4af37;font-weight:700}
+        .formula-box{background:#0d0e12;padding:12px;border-radius:8px;font-family:monospace;font-size:.95rem;color:#d4af37;border-left:3px solid #d4af37;margin:10px 0;overflow-x:auto}
+        .table-wrap{overflow-x:auto;margin:10px 0}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px}
+        th,td{padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        .note{color:#8e95a5;font-size:.85rem;margin-top:10px}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🔄 VFD Calculations</h1>
+    <div class="sub" id="desc">Calculate motor RPM from frequency and number of poles, and vice versa. Includes reference table for common motor configurations.</div>
+
+    <!-- Frequency → RPM -->
+    <div class="calc-box">
+        <h2 style="color:#d4af37;font-size:1.3rem;margin-bottom:10px;" id="freq-to-rpm">🔹 Frequency → RPM</h2>
+        <div class="calc-row">
+            <div class="field">
+                <label id="lbl-freq">Frequency (Hz)</label>
+                <input type="number" id="freq" value="50" step="0.1">
+            </div>
+            <div class="field">
+                <label id="lbl-poles">Number of Poles</label>
+                <select id="poles">
+                    <option value="2" data-en="2 (3000 RPM @ 50Hz)" data-fa="۲ (۳۰۰۰ دور در ۵۰Hz)">2 (3000 RPM @ 50Hz)</option>
+                    <option value="4" data-en="4 (1500 RPM @ 50Hz)" data-fa="۴ (۱۵۰۰ دور در ۵۰Hz)" selected>4 (1500 RPM @ 50Hz)</option>
+                    <option value="6" data-en="6 (1000 RPM @ 50Hz)" data-fa="۶ (۱۰۰۰ دور در ۵۰Hz)">6 (1000 RPM @ 50Hz)</option>
+                    <option value="8" data-en="8 (750 RPM @ 50Hz)" data-fa="۸ (۷۵۰ دور در ۵۰Hz)">8 (750 RPM @ 50Hz)</option>
+                    <option value="10" data-en="10 (600 RPM @ 50Hz)" data-fa="۱۰ (۶۰۰ دور در ۵۰Hz)">10 (600 RPM @ 50Hz)</option>
+                    <option value="12" data-en="12 (500 RPM @ 50Hz)" data-fa="۱۲ (۵۰۰ دور در ۵۰Hz)">12 (500 RPM @ 50Hz)</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn-calc" id="calcFreqToRPM">Calculate RPM</button>
+        <div class="result" id="freqToRPMResult">
+            <span id="freq-to-rpm-label">Motor Speed:</span> <span id="freqToRPMValue">1500.00</span> RPM
+        </div>
+        <div class="formula-box" id="formula-freq-to-rpm">
+            RPM = (120 × Frequency) / Poles
+        </div>
+    </div>
+
+    <!-- RPM → Frequency -->
+    <div class="calc-box">
+        <h2 style="color:#d4af37;font-size:1.3rem;margin-bottom:10px;" id="rpm-to-freq">🔹 RPM → Frequency</h2>
+        <div class="calc-row">
+            <div class="field">
+                <label id="lbl-rpm">Motor Speed (RPM)</label>
+                <input type="number" id="rpm" value="1500" step="1">
+            </div>
+            <div class="field">
+                <label id="lbl-poles2">Number of Poles</label>
+                <select id="poles2">
+                    <option value="2" data-en="2" data-fa="۲">2</option>
+                    <option value="4" data-en="4" data-fa="۴" selected>4</option>
+                    <option value="6" data-en="6" data-fa="۶">6</option>
+                    <option value="8" data-en="8" data-fa="۸">8</option>
+                    <option value="10" data-en="10" data-fa="۱۰">10</option>
+                    <option value="12" data-en="12" data-fa="۱۲">12</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn-calc" id="calcRPMToFreq">Calculate Frequency</button>
+        <div class="result" id="rpmToFreqResult">
+            <span id="rpm-to-freq-label">Frequency:</span> <span id="rpmToFreqValue">50.00</span> Hz
+        </div>
+        <div class="formula-box" id="formula-rpm-to-freq">
+            Frequency = (RPM × Poles) / 120
+        </div>
+    </div>
+
+    <!-- Reference Table -->
+    <div class="calc-box">
+        <h2 style="color:#d4af37;font-size:1.3rem;margin-bottom:10px;" id="table-title">📊 Reference: Motor Speed vs Poles at 50Hz & 60Hz</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th id="th-poles">Poles</th>
+                        <th id="th-50hz">Speed @ 50Hz (RPM)</th>
+                        <th id="th-60hz">Speed @ 60Hz (RPM)</th>
+                        <th id="th-typical">Typical Motor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>2</td><td>3000</td><td>3600</td><td>High-speed motors</td></tr>
+                    <tr><td>4</td><td>1500</td><td>1800</td><td>Standard industrial motors</td></tr>
+                    <tr><td>6</td><td>1000</td><td>1200</td><td>Low-speed applications</td></tr>
+                    <tr><td>8</td><td>750</td><td>900</td><td>Pumps, compressors</td></tr>
+                    <tr><td>10</td><td>600</td><td>720</td><td>Heavy-duty applications</td></tr>
+                    <tr><td>12</td><td>500</td><td>600</td><td>High-torque applications</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="note" id="table-note">Synchronous speeds (no slip). Actual motor speed is slightly lower due to slip (typically 2-5%).</div>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const langData = {
+        en: {
+            title: '🔄 VFD Calculations',
+            desc: 'Calculate motor RPM from frequency and number of poles, and vice versa. Includes reference table for common motor configurations.',
+            freq_to_rpm: '🔹 Frequency → RPM',
+            freq: 'Frequency (Hz)',
+            poles: 'Number of Poles',
+            calc_freq_to_rpm: 'Calculate RPM',
+            freq_to_rpm_label: 'Motor Speed:',
+            formula_freq_to_rpm: 'RPM = (120 × Frequency) / Poles',
+            rpm_to_freq: '🔹 RPM → Frequency',
+            rpm: 'Motor Speed (RPM)',
+            poles2: 'Number of Poles',
+            calc_rpm_to_freq: 'Calculate Frequency',
+            rpm_to_freq_label: 'Frequency:',
+            formula_rpm_to_freq: 'Frequency = (RPM × Poles) / 120',
+            table_title: '📊 Reference: Motor Speed vs Poles at 50Hz & 60Hz',
+            th_poles: 'Poles',
+            th_50hz: 'Speed @ 50Hz (RPM)',
+            th_60hz: 'Speed @ 60Hz (RPM)',
+            th_typical: 'Typical Motor',
+            table_note: 'Synchronous speeds (no slip). Actual motor speed is slightly lower due to slip (typically 2-5%).',
+            back: '← Back'
+        },
+        fa: {
+            title: '🔄 محاسبات VFD',
+            desc: 'محاسبه دور موتور از فرکانس و تعداد قطب‌ها و برعکس. همراه با جدول مرجع برای پیکربندی‌های رایج موتور.',
+            freq_to_rpm: '🔹 فرکانس → دور موتور',
+            freq: 'فرکانس (Hz)',
+            poles: 'تعداد قطب‌ها',
+            calc_freq_to_rpm: 'محاسبه دور موتور',
+            freq_to_rpm_label: 'سرعت موتور:',
+            formula_freq_to_rpm: 'RPM = (۱۲۰ × فرکانس) / قطب‌ها',
+            rpm_to_freq: '🔹 دور موتور → فرکانس',
+            rpm: 'سرعت موتور (RPM)',
+            poles2: 'تعداد قطب‌ها',
+            calc_rpm_to_freq: 'محاسبه فرکانس',
+            rpm_to_freq_label: 'فرکانس:',
+            formula_rpm_to_freq: 'فرکانس = (RPM × قطب‌ها) / ۱۲۰',
+            table_title: '📊 جدول مرجع: سرعت موتور بر اساس قطب‌ها در ۵۰Hz و ۶۰Hz',
+            th_poles: 'قطب‌ها',
+            th_50hz: 'سرعت در ۵۰Hz (RPM)',
+            th_60hz: 'سرعت در ۶۰Hz (RPM)',
+            th_typical: 'موتور معمول',
+            table_note: 'سرعت‌های سنکرون (بدون لغزش). سرعت واقعی موتور به دلیل لغزش کمی کمتر است (معمولاً ۲-۵٪).',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLanguage(lang) {
+        const t = langData[lang];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('freq-to-rpm').textContent = t.freq_to_rpm;
+        document.getElementById('lbl-freq').textContent = t.freq;
+        document.getElementById('lbl-poles').textContent = t.poles;
+        document.getElementById('calcFreqToRPM').textContent = t.calc_freq_to_rpm;
+        document.getElementById('freq-to-rpm-label').textContent = t.freq_to_rpm_label;
+        document.getElementById('formula-freq-to-rpm').textContent = t.formula_freq_to_rpm;
+        document.getElementById('rpm-to-freq').textContent = t.rpm_to_freq;
+        document.getElementById('lbl-rpm').textContent = t.rpm;
+        document.getElementById('lbl-poles2').textContent = t.poles2;
+        document.getElementById('calcRPMToFreq').textContent = t.calc_rpm_to_freq;
+        document.getElementById('rpm-to-freq-label').textContent = t.rpm_to_freq_label;
+        document.getElementById('formula-rpm-to-freq').textContent = t.formula_rpm_to_freq;
+        document.getElementById('table-title').textContent = t.table_title;
+        document.getElementById('th-poles').textContent = t.th_poles;
+        document.getElementById('th-50hz').textContent = t.th_50hz;
+        document.getElementById('th-60hz').textContent = t.th_60hz;
+        document.getElementById('th-typical').textContent = t.th_typical;
+        document.getElementById('table-note').textContent = t.table_note;
+        document.getElementById('backlink').textContent = t.back;
+
+        document.querySelectorAll('#poles option, #poles2 option').forEach(opt => {
+            const text = opt.dataset[lang];
+            if (text) opt.textContent = text;
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        document.body.classList.toggle('lang-persian', lang === 'fa');
+        localStorage.setItem('karatech-lang', lang);
+        updateResults();
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLanguage(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLanguage(savedLang);
+
+    function calcFreqToRPM() {
+        const freq = parseFloat(document.getElementById('freq').value);
+        const poles = parseInt(document.getElementById('poles').value);
+        if (isNaN(freq) || freq <= 0) {
+            document.getElementById('freqToRPMValue').textContent = 'Invalid input';
+            return;
+        }
+        const rpm = (120 * freq) / poles;
+        document.getElementById('freqToRPMValue').textContent = rpm.toFixed(2);
+    }
+
+    function calcRPMToFreq() {
+        const rpm = parseFloat(document.getElementById('rpm').value);
+        const poles = parseInt(document.getElementById('poles2').value);
+        if (isNaN(rpm) || rpm <= 0) {
+            document.getElementById('rpmToFreqValue').textContent = 'Invalid input';
+            return;
+        }
+        const freq = (rpm * poles) / 120;
+        document.getElementById('rpmToFreqValue').textContent = freq.toFixed(2);
+    }
+
+    document.getElementById('calcFreqToRPM').onclick = calcFreqToRPM;
+    document.getElementById('calcRPMToFreq').onclick = calcRPMToFreq;
+
+    function updateResults() {
+        calcFreqToRPM();
+        calcRPMToFreq();
+    }
+
+    updateResults();
+</script>
+
+</body>
+</html>
