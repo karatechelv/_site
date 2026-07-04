@@ -2,29 +2,18 @@
     // ===== وضعیت اولیه =====
     if (localStorage.getItem('dashboardActive') === 'true') {
         document.addEventListener('DOMContentLoaded', function() {
-            const splash = document.getElementById('splash');
-            const dashboard = document.getElementById('dashboard');
-            if (splash && dashboard) {
-                splash.classList.add('hidden');
-                dashboard.classList.add('active');
-            }
+            document.getElementById('splash').classList.add('hidden');
+            document.getElementById('dashboard').classList.add('active');
         });
     }
 
     // ===== دکمه ورود =====
     document.addEventListener('DOMContentLoaded', function() {
-        const enterBtn = document.getElementById('enterBtn');
-        if (enterBtn) {
-            enterBtn.addEventListener('click', function() {
-                localStorage.setItem('dashboardActive', 'true');
-                const splash = document.getElementById('splash');
-                const dashboard = document.getElementById('dashboard');
-                if (splash && dashboard) {
-                    splash.classList.add('hidden');
-                    dashboard.classList.add('active');
-                }
-            });
-        }
+        document.getElementById('enterBtn').addEventListener('click', function() {
+            localStorage.setItem('dashboardActive', 'true');
+            document.getElementById('splash').classList.add('hidden');
+            document.getElementById('dashboard').classList.add('active');
+        });
     });
 
     // ===== تبدیل اعداد به فارسی =====
@@ -38,14 +27,9 @@
         const now = new Date();
         const lang = document.querySelector('.lang-btn.active')?.dataset.lang || 'en';
 
-        // ===== ساعت محلی (همون ساعتی که سیستم نشون میده) =====
-        const hours = now.getHours();
-        const minutes = now.getMinutes();
-        const seconds = now.getSeconds();
-
-        const hh = String(hours).padStart(2, '0');
-        const mm = String(minutes).padStart(2, '0');
-        const ss = String(seconds).padStart(2, '0');
+        const hh = String(now.getHours()).padStart(2, '0');
+        const mm = String(now.getMinutes()).padStart(2, '0');
+        const ss = String(now.getSeconds()).padStart(2, '0');
 
         let timeStr;
         if (lang === 'fa') {
@@ -54,21 +38,16 @@
             timeStr = `${hh}:${mm}:${ss}`;
         }
 
-        // ===== تاریخ (با استفاده از Intl ولی بدون تغییر زمان) =====
         let dateStr;
         if (lang === 'fa') {
-            // تاریخ شمسی با منطقه زمانی ایران
             const formatter = new Intl.DateTimeFormat('fa-IR', {
                 year: 'numeric',
                 month: '2-digit',
                 day: '2-digit',
                 timeZone: 'Asia/Tehran'
             });
-            dateStr = formatter.format(now);
-            // تبدیل اعداد به فارسی
-            dateStr = dateStr.replace(/\d/g, d => toPersianDigits(d));
+            dateStr = formatter.format(now).replace(/\d/g, d => toPersianDigits(d));
         } else {
-            // تاریخ میلادی
             dateStr = now.toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'short',
@@ -120,11 +99,6 @@
     // ===== اجرای هر ثانیه =====
     setInterval(updateDateTime, 1000);
     updateDateTime();
-
-    // ===== رفرش دستی =====
-    window.refreshTime = function() {
-        updateDateTime();
-    };
 
 })();
 
