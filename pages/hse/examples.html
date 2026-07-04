@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · HSE Examples</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📝 HSE Examples</h1>
+    <div class="sub" id="desc">Practical projects and examples to apply health, safety, and environmental management knowledge. Includes complete descriptions and learning outcomes.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Example 1: Safety Management System Implementation</h2>
+        <p id="s1p"><strong>Description:</strong> Implementation of a safety management system (ISO 45001) for a construction company. Includes policy development, hazard identification, risk assessment, training, and incident reporting.</p>
+        <ul id="list1">
+            <li>Scope: All construction sites and offices</li>
+            <li>Duration: 12 months</li>
+            <li>Key skills: Safety policy development, risk assessment, training, incident investigation</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Example 2: Environmental Management Plan (EMP)</h2>
+        <p id="s2p"><strong>Description:</strong> Development of an Environmental Management Plan (EMP) for a mining operation. Includes environmental impact assessment, waste management, water conservation, and emissions control.</p>
+        <ul id="list2">
+            <li>Scope: Entire mining operation</li>
+            <li>Key aspects: EIA, waste reduction, water recycling, air quality monitoring</li>
+            <li>Key skills: Environmental assessment, planning, compliance, reporting</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Example 3: Risk Assessment for a Chemical Plant</h2>
+        <p id="s3p"><strong>Description:</strong> Conduct a risk assessment for a chemical plant to identify and mitigate process safety risks. Includes HAZOP studies, risk matrix analysis, and control measures.</p>
+        <ul id="list3">
+            <li>Scope: Entire chemical manufacturing process</li>
+            <li>Tools: HAZOP, LOPA, risk matrix</li>
+            <li>Key skills: Hazard identification, process safety, control measures, documentation</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example 4: Health and Wellness Program for a Manufacturing Plant</h2>
+        <p id="s4p"><strong>Description:</strong> Design and implementation of a comprehensive health and wellness program for a large manufacturing plant. Includes ergonomic assessments, mental health support, fitness programs, and health screenings.</p>
+        <ul id="list4">
+            <li>Scope: 1,000+ employees</li>
+            <li>Programs: Ergonomics, mental health, fitness, health screenings</li>
+            <li>Key skills: Program design, employee engagement, evaluation, continuous improvement</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📝 HSE Examples',
+            desc: 'Practical projects and examples to apply health, safety, and environmental management knowledge. Includes complete descriptions and learning outcomes.',
+            s1: '🔹 Example 1: Safety Management System Implementation',
+            s1p: 'Implementation of a safety management system (ISO 45001) for a construction company. Includes policy development, hazard identification, risk assessment, training, and incident reporting.',
+            list1: ['Scope: All construction sites and offices','Duration: 12 months','Key skills: Safety policy development, risk assessment, training, incident investigation'],
+            s2: '🔹 Example 2: Environmental Management Plan (EMP)',
+            s2p: 'Development of an Environmental Management Plan (EMP) for a mining operation. Includes environmental impact assessment, waste management, water conservation, and emissions control.',
+            list2: ['Scope: Entire mining operation','Key aspects: EIA, waste reduction, water recycling, air quality monitoring','Key skills: Environmental assessment, planning, compliance, reporting'],
+            s3: '🔹 Example 3: Risk Assessment for a Chemical Plant',
+            s3p: 'Conduct a risk assessment for a chemical plant to identify and mitigate process safety risks. Includes HAZOP studies, risk matrix analysis, and control measures.',
+            list3: ['Scope: Entire chemical manufacturing process','Tools: HAZOP, LOPA, risk matrix','Key skills: Hazard identification, process safety, control measures, documentation'],
+            s4: '🔹 Example 4: Health and Wellness Program for a Manufacturing Plant',
+            s4p: 'Design and implementation of a comprehensive health and wellness program for a large manufacturing plant. Includes ergonomic assessments, mental health support, fitness programs, and health screenings.',
+            list4: ['Scope: 1,000+ employees','Programs: Ergonomics, mental health, fitness, health screenings','Key skills: Program design, employee engagement, evaluation, continuous improvement'],
+            back: '← Back'
+        },
+        fa: {
+            title: '📝 مثال‌های HSE',
+            desc: 'پروژه‌ها و مثال‌های عملی برای به کارگیری دانش مدیریت بهداشت، ایمنی و محیط زیست. شامل توضیحات کامل و نتایج یادگیری.',
+            s1: '🔹 مثال ۱: پیاده‌سازی سیستم مدیریت ایمنی',
+            s1p: 'پیاده‌سازی سیستم مدیریت ایمنی (ISO 45001) برای یک شرکت ساختمانی. شامل توسعه خط‌مشی، شناسایی خطر، ارزیابی ریسک، آموزش و گزارش حوادث.',
+            list1: ['محدوده: تمام سایت‌های ساختمانی و دفاتر','مدت: ۱۲ ماه','مهارت‌های کلیدی: توسعه سیاست ایمنی، ارزیابی ریسک، آموزش، بررسی حوادث'],
+            s2: '🔹 مثال ۲: برنامه مدیریت محیط زیست (EMP)',
+            s2p: 'توسعه یک برنامه مدیریت محیط زیست (EMP) برای یک عملیات معدنی. شامل ارزیابی تأثیرات زیست‌محیطی، مدیریت پسماند، حفاظت از آب و کنترل انتشار.',
+            list2: ['محدوده: کل عملیات معدنی','جنبه‌های کلیدی: EIA، کاهش پسماند، بازیافت آب، پایش کیفیت هوا','مهارت‌های کلیدی: ارزیابی زیست‌محیطی، برنامه‌ریزی، انطباق، گزارش‌دهی'],
+            s3: '🔹 مثال ۳: ارزیابی ریسک برای یک کارخانه شیمیایی',
+            s3p: 'انجام ارزیابی ریسک برای یک کارخانه شیمیایی برای شناسایی و کاهش ریسک‌های ایمنی فرآیند. شامل مطالعات HAZOP، تحلیل ماتریس ریسک و اقدامات کنترلی.',
+            list3: ['محدوده: کل فرآیند تولید شیمیایی','ابزارها: HAZOP، LOPA، ماتریس ریسک','مهارت‌های کلیدی: شناسایی خطر، ایمنی فرآیند، اقدامات کنترلی، مستندسازی'],
+            s4: '🔹 مثال ۴: برنامه بهداشت و تندرستی برای یک کارخانه تولیدی',
+            s4p: 'طراحی و پیاده‌سازی یک برنامه جامع بهداشت و تندرستی برای یک کارخانه تولیدی بزرگ. شامل ارزیابی‌های ارگونومی، پشتیبانی از سلامت روان، برنامه‌های تناسب اندام و غربالگری سلامت.',
+            list4: ['محدوده: بیش از ۱,۰۰۰ کارمند','برنامه‌ها: ارگونومی، سلامت روان، تناسب اندام، غربالگری سلامت','مهارت‌های کلیدی: طراحی برنامه، مشارکت کارکنان، ارزیابی، بهبود مستمر'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s2p').textContent = t.s2p;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s3p').textContent = t.s3p;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        const ul4 = document.getElementById('list4');
+        ul4.innerHTML = '';
+        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
