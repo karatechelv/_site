@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Quality Audits</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📊 Quality Audits</h1>
+    <div class="sub" id="desc">Understanding quality audits, types, processes, and best practices for internal and external auditing in quality management.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is a Quality Audit?</h2>
+        <p id="s1p">A quality audit is a systematic, independent examination of a quality system or process to determine whether activities and results comply with planned arrangements, standards, and requirements. Audits identify strengths, weaknesses, and opportunities for improvement.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Types of Quality Audits</h2>
+        <ul id="list1">
+            <li><b>Internal Audit</b> – Conducted by the organization itself to assess its own QMS</li>
+            <li><b>External Audit</b> – Conducted by external bodies (certification bodies, customers, regulators)</li>
+            <li><b>First-Party Audit</b> – Self-assessment (internal)</li>
+            <li><b>Second-Party Audit</b> – Customer audits of suppliers</li>
+            <li><b>Third-Party Audit</b> – Independent certification audits (e.g., ISO 9001 certification)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Audit Process Steps</h2>
+        <ul id="list2">
+            <li><b>Planning</b> – Define scope, objectives, criteria, and audit team</li>
+            <li><b>Document Review</b> – Review QMS documentation before the audit</li>
+            <li><b>On-Site Audit</b> – Interviews, observations, and evidence collection</li>
+            <li><b>Audit Report</b> – Document findings, non-conformities, and observations</li>
+            <li><b>Corrective Actions</b> – Address non-conformities and implement improvements</li>
+            <li><b>Follow-up</b> – Verify effectiveness of corrective actions</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: ISO 9001 Internal Audit</h2>
+        <p id="s4p">A manufacturing company conducts an internal audit of its QMS to prepare for ISO 9001 recertification. The audit team reviews processes, interviews employees, and checks records. They identify a minor non-conformity in calibration records and recommend corrective action. The audit report is reviewed by management, and corrective action is implemented within 30 days.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📊 Quality Audits',
+            desc: 'Understanding quality audits, types, processes, and best practices for internal and external auditing in quality management.',
+            s1: '🔹 What is a Quality Audit?',
+            s1p: 'A quality audit is a systematic, independent examination of a quality system or process to determine whether activities and results comply with planned arrangements, standards, and requirements. Audits identify strengths, weaknesses, and opportunities for improvement.',
+            s2: '🔹 Types of Quality Audits',
+            list1: ['Internal Audit – Conducted by the organization itself to assess its own QMS','External Audit – Conducted by external bodies (certification bodies, customers, regulators)','First-Party Audit – Self-assessment (internal)','Second-Party Audit – Customer audits of suppliers','Third-Party Audit – Independent certification audits (e.g., ISO 9001 certification)'],
+            s3: '🔹 Audit Process Steps',
+            list2: ['Planning – Define scope, objectives, criteria, and audit team','Document Review – Review QMS documentation before the audit','On-Site Audit – Interviews, observations, and evidence collection','Audit Report – Document findings, non-conformities, and observations','Corrective Actions – Address non-conformities and implement improvements','Follow-up – Verify effectiveness of corrective actions'],
+            s4: '🔹 Example: ISO 9001 Internal Audit',
+            s4p: 'A manufacturing company conducts an internal audit of its QMS to prepare for ISO 9001 recertification. The audit team reviews processes, interviews employees, and checks records. They identify a minor non-conformity in calibration records and recommend corrective action. The audit report is reviewed by management, and corrective action is implemented within 30 days.',
+            back: '← Back'
+        },
+        fa: {
+            title: '📊 حسابرسی کیفیت',
+            desc: 'درک حسابرسی کیفیت، انواع، فرآیندها و بهترین شیوه‌ها برای حسابرسی داخلی و خارجی در مدیریت کیفیت.',
+            s1: '🔹 حسابرسی کیفیت چیست؟',
+            s1p: 'حسابرسی کیفیت یک بررسی سیستماتیک و مستقل از یک سیستم یا فرآیند کیفیت است تا مشخص شود که آیا فعالیت‌ها و نتایج با ترتیبات، استانداردها و الزامات برنامه‌ریزی شده مطابقت دارند یا خیر. حسابرسی نقاط قوت، ضعف و فرصت‌های بهبود را شناسایی می‌کند.',
+            s2: '🔹 انواع حسابرسی کیفیت',
+            list1: ['حسابرسی داخلی – توسط خود سازمان برای ارزیابی QMS خود انجام می‌شود','حسابرسی خارجی – توسط نهادهای خارجی (نهادهای صدور گواهینامه، مشتریان، نهادهای نظارتی) انجام می‌شود','حسابرسی شخص اول – خودارزیابی (داخلی)','حسابرسی شخص دوم – حسابرسی مشتریان از تامین‌کنندگان','حسابرسی شخص سوم – حسابرسی گواهینامه مستقل (مثلاً گواهینامه ISO 9001)'],
+            s3: '🔹 مراحل فرآیند حسابرسی',
+            list2: ['برنامه‌ریزی – تعریف محدوده، اهداف، معیارها و تیم حسابرسی','بررسی مستندات – بررسی مستندات QMS قبل از حسابرسی','حسابرسی در محل – مصاحبه‌ها، مشاهدات و جمع‌آوری شواهد','گزارش حسابرسی – مستندسازی یافته‌ها، عدم انطباق‌ها و مشاهدات','اقدامات اصلاحی – رسیدگی به عدم انطباق‌ها و اجرای بهبودها','پیگیری – تأیید اثربخشی اقدامات اصلاحی'],
+            s4: '🔹 مثال: حسابرسی داخلی ISO 9001',
+            s4p: 'یک شرکت تولیدی یک حسابرسی داخلی از QMS خود برای آماده‌سازی برای گواهینامه مجدد ISO 9001 انجام می‌دهد. تیم حسابرسی فرآیندها را بررسی، با کارکنان مصاحبه و سوابق را بررسی می‌کند. آنها یک عدم انطباق جزئی در سوابق کالیبراسیون شناسایی کرده و اقدام اصلاحی را توصیه می‌کنند. گزارش حسابرسی توسط مدیریت بررسی شده و اقدام اصلاحی ظرف ۳۰ روز اجرا می‌شود.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
