@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Management Videos & Future</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🎬 Management Videos & Future</h1>
+    <div class="sub" id="desc">Curated video tutorials and insights into future trends and technologies in engineering management.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Recommended Video Channels</h2>
+        <ul id="list1">
+            <li>PMI (Project Management Institute) – Webinars and training</li>
+            <li>Engineering Management Institute – Podcasts and videos</li>
+            <li>Lean Enterprise Institute – Lean management and improvement</li>
+            <li>Leadership and Management Training – Soft skills and leadership</li>
+            <li>Project Management Fundamentals – Practical project management</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Popular Video Topics</h2>
+        <ul id="list2">
+            <li>Project planning and scheduling (Gantt charts, CPM)</li>
+            <li>Risk management and mitigation strategies</li>
+            <li>Resource planning and allocation</li>
+            <li>Cost estimation and budgeting</li>
+            <li>Leadership and team building</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Future Trends in Engineering Management</h2>
+        <ul id="list3">
+            <li>AI and data analytics for project decision-making</li>
+            <li>Digital twins for project simulation and risk analysis</li>
+            <li>Agile and hybrid project management methodologies</li>
+            <li>Remote and distributed team management tools</li>
+            <li>Blockchain for contract management and procurement</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 What's Next in Engineering Management?</h2>
+        <p id="s4p">The future of engineering management will be shaped by digital transformation, data-driven decision-making, and flexible project management approaches. Managers will leverage AI for predictive analytics, virtual collaboration tools for remote teams, and agile frameworks for faster project delivery. The integration of sustainability and ESG (Environmental, Social, Governance) factors will also become critical.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🎬 Management Videos & Future',
+            desc: 'Curated video tutorials and insights into future trends and technologies in engineering management.',
+            s1: '🔹 Recommended Video Channels',
+            list1: ['PMI (Project Management Institute) – Webinars and training','Engineering Management Institute – Podcasts and videos','Lean Enterprise Institute – Lean management and improvement','Leadership and Management Training – Soft skills and leadership','Project Management Fundamentals – Practical project management'],
+            s2: '🔹 Popular Video Topics',
+            list2: ['Project planning and scheduling (Gantt charts, CPM)','Risk management and mitigation strategies','Resource planning and allocation','Cost estimation and budgeting','Leadership and team building'],
+            s3: '🔹 Future Trends in Engineering Management',
+            list3: ['AI and data analytics for project decision-making','Digital twins for project simulation and risk analysis','Agile and hybrid project management methodologies','Remote and distributed team management tools','Blockchain for contract management and procurement'],
+            s4: '🔹 What\'s Next in Engineering Management?',
+            s4p: 'The future of engineering management will be shaped by digital transformation, data-driven decision-making, and flexible project management approaches. Managers will leverage AI for predictive analytics, virtual collaboration tools for remote teams, and agile frameworks for faster project delivery. The integration of sustainability and ESG (Environmental, Social, Governance) factors will also become critical.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🎬 ویدئوها و آینده مدیریت مهندسی',
+            desc: 'آموزش‌های ویدئویی منتخب و بینش‌هایی درباره روندها و فناوری‌های آینده در مدیریت مهندسی.',
+            s1: '🔹 کانال‌های ویدئویی پیشنهادی',
+            list1: ['PMI – مؤسسه مدیریت پروژه – وبینارها و آموزش','مؤسسه مدیریت مهندسی – پادکست‌ها و ویدئوها','Lean Enterprise Institute – مدیریت ناب و بهبود','آموزش رهبری و مدیریت – مهارت‌های نرم و رهبری','مبانی مدیریت پروژه – مدیریت پروژه عملی'],
+            s2: '🔹 موضوعات محبوب ویدئویی',
+            list2: ['برنامه‌ریزی و زمان‌بندی پروژه (نمودارهای گانت، CPM)','مدیریت ریسک و راهبردهای کاهش','برنامه‌ریزی و تخصیص منابع','برآورد هزینه و بودجه‌بندی','رهبری و ساخت تیم'],
+            s3: '🔹 روندهای آینده در مدیریت مهندسی',
+            list3: ['هوش مصنوعی و تحلیل داده برای تصمیم‌گیری پروژه','دوقلوی دیجیتال برای شبیه‌سازی پروژه و تحلیل ریسک','روش‌شناسی مدیریت پروژه چابک و ترکیبی','ابزارهای مدیریت تیم‌های از راه دور و توزیع‌شده','بلاکچین برای مدیریت قرارداد و تدارکات'],
+            s4: '🔹 آینده مدیریت مهندسی چیست؟',
+            s4p: 'آینده مدیریت مهندسی توسط تحول دیجیتال، تصمیم‌گیری مبتنی بر داده و رویکردهای مدیریت پروژه انعطاف‌پذیر شکل خواهد گرفت. مدیران از هوش مصنوعی برای تحلیل پیش‌بینی‌کننده، ابزارهای همکاری مجازی برای تیم‌های از راه دور و چارچوب‌های چابک برای تحویل سریع‌تر پروژه استفاده خواهند کرد. یکپارچه‌سازی پایداری و عوامل ESG (زیست‌محیطی، اجتماعی، حاکمیتی) نیز حیاتی خواهد شد.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
