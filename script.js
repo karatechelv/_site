@@ -36,7 +36,6 @@
 
     // ===== تبدیل تاریخ میلادی به شمسی =====
     function toJalaali(gy, gm, gd) {
-        // الگوریتم تبدیل میلادی به شمسی
         const g_days = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
         let gy2 = (gm > 2) ? (gy + 1) : gy;
         let days = 355666 + 365 * gy + Math.floor((gy + 3) / 4) - Math.floor((gy + 99) / 100) + Math.floor((gy + 399) / 400) + g_days[gm - 1] + gd;
@@ -65,7 +64,6 @@
         const now = new Date();
         const lang = document.querySelector('.lang-btn.active')?.dataset.lang || 'en';
         
-        // ساعت ۲۴ ساعته
         const hours = String(now.getHours()).padStart(2, '0');
         const minutes = String(now.getMinutes()).padStart(2, '0');
         const seconds = String(now.getSeconds()).padStart(2, '0');
@@ -73,13 +71,10 @@
         
         let dateStr = '';
         if (lang === 'fa') {
-            // تاریخ شمسی با اعداد فارسی
             const j = toJalaali(now.getFullYear(), now.getMonth() + 1, now.getDate());
             dateStr = `${toPersianDigits(j.jy)}/${toPersianDigits(j.jm)}/${toPersianDigits(j.jd)}`;
-            // زمان با اعداد فارسی
             timeStr = `${toPersianDigits(hours)}:${toPersianDigits(minutes)}:${toPersianDigits(seconds)}`;
         } else {
-            // تاریخ میلادی
             dateStr = now.toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'short',
@@ -91,6 +86,19 @@
         const timeEl = document.getElementById('timeDisplay');
         if (dateEl) dateEl.textContent = dateStr;
         if (timeEl) timeEl.textContent = timeStr;
+    }
+
+    // ===== تابع رفرش دستی زمان =====
+    window.refreshTime = function() {
+        updateDateTime();
+        const btn = document.querySelector('.refresh-time-btn i');
+        if (btn) {
+            btn.style.transition = 'transform 0.5s ease';
+            btn.style.transform = 'rotate(360deg)';
+            setTimeout(() => {
+                btn.style.transform = 'rotate(0deg)';
+            }, 500);
+        }
     }
 
     // ===== تغییر زبان =====
@@ -117,7 +125,6 @@
             btn.classList.toggle('active', btn.dataset.lang === lang);
         });
         
-        // به‌روزرسانی تاریخ و ساعت با زبان جدید
         updateDateTime();
     }
 
