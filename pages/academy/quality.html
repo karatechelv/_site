@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary: #5b3b8c;
             --accent: #d4af37;
@@ -17,7 +18,6 @@
             --text: #eef0f4;
             --muted: #8e95a5;
         }
-        * { margin:0; padding:0; box-sizing:border-box; }
         body {
             font-family: 'Inter', sans-serif;
             background: var(--bg);
@@ -42,6 +42,34 @@
         .brand span { color: var(--accent); }
         .back-link { color: var(--accent); text-decoration:none; font-weight:500; }
         .back-link:hover { color:#fff; }
+
+        .datetime-widget {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4px 16px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 12px;
+            border: 1px solid rgba(212,175,55,0.08);
+            min-width: 120px;
+        }
+        .date-display { font-size: 0.7rem; color: var(--muted); }
+        .time-display { font-size: 1rem; font-weight: 600; color: var(--accent); }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.08);
+            color: var(--muted);
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: 0.2s;
+            text-transform: uppercase;
+        }
+        .lang-btn.active { background: var(--primary); border-color: var(--accent); color: #fff; }
+        .lang-btn:hover { background: var(--primary); color: #fff; }
 
         .page-content {
             max-width: 1200px;
@@ -119,6 +147,10 @@
         .footer a { color: var(--accent); text-decoration: none; }
         .footer a:hover { text-decoration: underline; }
         .footer i { margin-right: 8px; }
+
+        .lang-persian { direction: rtl; }
+        .lang-persian .subtitle { border-left: none; border-right: 3px solid var(--accent); padding-left: 0; padding-right: 16px; }
+
         @media (max-width: 768px) {
             .header { flex-direction: column; align-items: stretch; }
             h1 { font-size: 1.8rem; }
@@ -133,55 +165,65 @@
 
 <header class="header">
     <div class="brand">KARATECH <span>ELV</span></div>
-    <a href="../../index.html" class="back-link" onclick="localStorage.setItem('dashboardActive', 'true')">
-        <i class="fas fa-arrow-left"></i> Back to Dashboard
-    </a>
+    <div class="datetime-widget">
+        <div class="date-display" id="dateDisplay">۱۴۰۴/۰۱/۱۵</div>
+        <div class="time-display" id="timeDisplay">۰۰:۰۰:۰۰</div>
+    </div>
+    <div style="display:flex; align-items:center; gap:12px;">
+        <a href="../../index.html" class="back-link" onclick="localStorage.setItem('dashboardActive', 'true')">
+            <i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span>
+        </a>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
 </header>
 
 <div class="page-content">
-    <h1><i class="fas fa-check-double"></i> Quality Control</h1>
-    <div class="subtitle">Inspection, testing, ISO standards, and continuous improvement for engineering excellence.</div>
+    <h1><i class="fas fa-check-double"></i> <span data-en="Quality Control" data-fa="کنترل کیفیت">Quality Control</span></h1>
+    <div class="subtitle" data-en="Inspection, testing, ISO standards, and continuous improvement for engineering excellence." data-fa="بازرسی، تست، استانداردهای ISO و بهبود مستمر برای تعالی مهندسی.">Inspection, testing, ISO standards, and continuous improvement for engineering excellence.</div>
 
     <div class="grid">
         <div class="card">
             <i class="fas fa-clipboard-list"></i>
-            <h3>Inspection & Testing</h3>
-            <p>Visual inspection, dimensional measurement, electrical testing, and functional testing methods.</p>
+            <h3 data-en="Inspection & Testing" data-fa="بازرسی و تست">Inspection & Testing</h3>
+            <p data-en="Visual inspection, dimensional measurement, electrical testing, and functional testing." data-fa="بازرسی بصری، اندازه‌گیری ابعادی، تست الکتریکی و تست عملکردی.">Visual inspection, dimensional measurement, electrical testing, and functional testing.</p>
         </div>
         <div class="card">
             <i class="fas fa-chart-bar"></i>
-            <h3>SPC - Statistical Process Control</h3>
-            <p>Control charts, process capability analysis, and variation reduction techniques.</p>
+            <h3 data-en="SPC - Statistical Process Control" data-fa="SPC - کنترل آماری فرآیند">SPC - Statistical Process Control</h3>
+            <p data-en="Control charts, process capability, and variation reduction." data-fa="نمودارهای کنترل، قابلیت فرآیند و کاهش تغییرات.">Control charts, process capability, and variation reduction.</p>
         </div>
         <div class="card">
             <i class="fas fa-certificate"></i>
-            <h3>ISO 9001:2015</h3>
-            <p>QMS implementation, documentation, internal audits, and certification process.</p>
+            <h3 data-en="ISO 9001:2015" data-fa="ISO 9001:2015">ISO 9001:2015</h3>
+            <p data-en="QMS implementation, documentation, internal audits." data-fa="پیاده‌سازی QMS، مستندسازی، حسابرسی داخلی.">QMS implementation, documentation, internal audits.</p>
         </div>
         <div class="card">
             <i class="fas fa-search"></i>
-            <h3>7 QC Tools</h3>
-            <p>Pareto charts, Fishbone diagrams, check sheets, histograms, control charts, scatter diagrams, flowcharts.</p>
+            <h3 data-en="7 QC Tools" data-fa="۷ ابزار کیفیت">7 QC Tools</h3>
+            <p data-en="Pareto, Fishbone, check sheets, histograms, control charts, scatter, flowcharts." data-fa="پارتو، استخوان ماهی، برگه‌های بررسی، هیستوگرام، نمودارهای کنترل، پراکندگی، فلوچارت.">Pareto, Fishbone, check sheets, histograms, control charts, scatter, flowcharts.</p>
         </div>
         <div class="card">
             <i class="fas fa-flag-checkered"></i>
-            <h3>Six Sigma</h3>
-            <p>DMAIC methodology, defect reduction, process improvement, and achieving 3.4 DPMO.</p>
+            <h3 data-en="Six Sigma" data-fa="شش سیگما">Six Sigma</h3>
+            <p data-en="DMAIC methodology, defect reduction, 3.4 DPMO." data-fa="روش‌شناسی DMAIC، کاهش عیوب، ۳.۴ DPMO.">DMAIC methodology, defect reduction, 3.4 DPMO.</p>
         </div>
         <div class="card">
             <i class="fas fa-users-cog"></i>
-            <h3>Quality Audits</h3>
-            <p>Internal and external audits, audit planning, non-conformance reporting, and corrective action management.</p>
+            <h3 data-en="Quality Audits" data-fa="حسابرسی کیفیت">Quality Audits</h3>
+            <p data-en="Internal/external audits, non-conformance, corrective action." data-fa="حسابرسی داخلی/خارجی، عدم انطباق، اقدام اصلاحی.">Internal/external audits, non-conformance, corrective action.</p>
         </div>
         <div class="card">
             <i class="fas fa-microscope"></i>
-            <h3>NDT - Non-Destructive Testing</h3>
-            <p>Ultrasonic, radiography, dye penetrant, magnetic particle, and eddy current inspection methods.</p>
+            <h3 data-en="NDT - Non-Destructive Testing" data-fa="تست غیرمخرب">NDT - Non-Destructive Testing</h3>
+            <p data-en="Ultrasonic, radiography, dye penetrant, magnetic particle." data-fa="اولتراسونیک، رادیوگرافی، نافذ رنگ، ذرات مغناطیسی.">Ultrasonic, radiography, dye penetrant, magnetic particle.</p>
         </div>
         <div class="card">
             <i class="fas fa-file-signature"></i>
-            <h3>Quality Documentation</h3>
-            <p>Quality manuals, procedures, work instructions, inspection records, and calibration certificates.</p>
+            <h3 data-en="Quality Documentation" data-fa="مستندات کیفیت">Quality Documentation</h3>
+            <p data-en="Quality manuals, procedures, work instructions, records." data-fa="دفترچه‌های کیفیت، رویه‌ها، دستورالعمل‌ها، سوابق.">Quality manuals, procedures, work instructions, records.</p>
         </div>
     </div>
 
@@ -193,6 +235,93 @@
         <div>© 2026 KARATECH ELV</div>
     </footer>
 </div>
+
+<script>
+(function() {
+    // ===== تبدیل اعداد به فارسی =====
+    function toPersianDigits(num) {
+        const persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+        return String(num).replace(/\d/g, d => persian[parseInt(d)]);
+    }
+
+    // ===== آپدیت ساعت و تاریخ =====
+    function updateDateTime() {
+        const now = new Date();
+        const lang = document.querySelector('.lang-btn.active')?.dataset.lang || 'en';
+
+        const hh = String(now.getHours()).padStart(2, '0');
+        const mm = String(now.getMinutes()).padStart(2, '0');
+        const ss = String(now.getSeconds()).padStart(2, '0');
+
+        let timeStr;
+        if (lang === 'fa') {
+            timeStr = `${toPersianDigits(hh)}:${toPersianDigits(mm)}:${toPersianDigits(ss)}`;
+        } else {
+            timeStr = `${hh}:${mm}:${ss}`;
+        }
+
+        let dateStr;
+        if (lang === 'fa') {
+            const formatter = new Intl.DateTimeFormat('fa-IR', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                timeZone: 'Asia/Tehran'
+            });
+            dateStr = formatter.format(now).replace(/\d/g, d => toPersianDigits(d));
+        } else {
+            dateStr = now.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+        }
+
+        const dateEl = document.getElementById('dateDisplay');
+        const timeEl = document.getElementById('timeDisplay');
+        if (dateEl) dateEl.textContent = dateStr;
+        if (timeEl) timeEl.textContent = timeStr;
+    }
+
+    // ===== تغییر زبان =====
+    const langBtns = document.querySelectorAll('.lang-btn');
+    let currentLang = localStorage.getItem('karatech-lang') || 'en';
+
+    function translate(lang) {
+        document.querySelectorAll('[data-en]').forEach(el => {
+            const txt = el.dataset[lang];
+            if (txt) {
+                const nodes = el.childNodes;
+                for (let n of nodes) {
+                    if (n.nodeType === 3) {
+                        n.textContent = txt;
+                        break;
+                    }
+                }
+            }
+        });
+        document.body.classList.toggle('lang-persian', lang === 'fa');
+        localStorage.setItem('karatech-lang', lang);
+
+        langBtns.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+
+        updateDateTime();
+    }
+
+    translate(currentLang);
+
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            translate(this.dataset.lang);
+        });
+    });
+
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+})();
+</script>
 
 </body>
 </html>
