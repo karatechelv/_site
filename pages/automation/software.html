@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Automation Software</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🛠️ Automation Software</h1>
+    <div class="sub" id="desc">Essential software tools used in automation engineering, including PLC programming, SCADA, simulation, and engineering design.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 PLC Programming Software</h2>
+        <ul id="list1">
+            <li>Siemens TIA Portal – Step7 for S7-1200/1500</li>
+            <li>Rockwell RSLogix 5000 / Studio 5000</li>
+            <li>Schneider EcoStruxure Control Expert</li>
+            <li>Mitsubishi GX Works3</li>
+            <li>Omron CX-Programmer / Sysmac Studio</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 HMI & SCADA Software</h2>
+        <ul id="list2">
+            <li>Siemens WinCC / WinCC Unified</li>
+            <li>Rockwell FactoryTalk View ME/SE</li>
+            <li>Wonderware InTouch</li>
+            <li>GE CIMPLICITY</li>
+            <li>Ignition by Inductive Automation</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Simulation & Design Tools</h2>
+        <ul id="list3">
+            <li>Factory IO – 3D simulation for PLC training</li>
+            <li>PLCSIM – Siemens PLC simulation</li>
+            <li>EPLAN Electric P8 – Electrical engineering design</li>
+            <li>AutoCAD Electrical – Electrical CAD software</li>
+            <li>RoboDK – Robot simulation and programming</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Full Automation Suite</h2>
+        <p id="s4p">A typical automation project uses TIA Portal for PLC programming, WinCC for SCADA, Factory IO for simulation testing, and EPLAN for electrical panel design. All tools are integrated for seamless workflow.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🛠️ Automation Software',
+            desc: 'Essential software tools used in automation engineering, including PLC programming, SCADA, simulation, and engineering design.',
+            s1: '🔹 PLC Programming Software',
+            list1: ['Siemens TIA Portal – Step7 for S7-1200/1500','Rockwell RSLogix 5000 / Studio 5000','Schneider EcoStruxure Control Expert','Mitsubishi GX Works3','Omron CX-Programmer / Sysmac Studio'],
+            s2: '🔹 HMI & SCADA Software',
+            list2: ['Siemens WinCC / WinCC Unified','Rockwell FactoryTalk View ME/SE','Wonderware InTouch','GE CIMPLICITY','Ignition by Inductive Automation'],
+            s3: '🔹 Simulation & Design Tools',
+            list3: ['Factory IO – 3D simulation for PLC training','PLCSIM – Siemens PLC simulation','EPLAN Electric P8 – Electrical engineering design','AutoCAD Electrical – Electrical CAD software','RoboDK – Robot simulation and programming'],
+            s4: '🔹 Example: Full Automation Suite',
+            s4p: 'A typical automation project uses TIA Portal for PLC programming, WinCC for SCADA, Factory IO for simulation testing, and EPLAN for electrical panel design. All tools are integrated for seamless workflow.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🛠️ نرم‌افزارهای اتوماسیون',
+            desc: 'ابزارهای نرم‌افزاری ضروری در مهندسی اتوماسیون، شامل برنامه‌نویسی PLC، SCADA، شبیه‌سازی و طراحی مهندسی.',
+            s1: '🔹 نرم‌افزارهای برنامه‌نویسی PLC',
+            list1: ['زیمنس TIA Portal – Step7 برای S7-1200/1500','راکول RSLogix 5000 / Studio 5000','اشنایدر EcoStruxure Control Expert','میتسوبیشی GX Works3','Omron CX-Programmer / Sysmac Studio'],
+            s2: '🔹 نرم‌افزارهای HMI و SCADA',
+            list2: ['زیمنس WinCC / WinCC Unified','راکول FactoryTalk View ME/SE','Wonderware InTouch','GE CIMPLICITY','Ignition توسط Inductive Automation'],
+            s3: '🔹 ابزارهای شبیه‌سازی و طراحی',
+            list3: ['Factory IO – شبیه‌سازی سه‌بعدی برای آموزش PLC','PLCSIM – شبیه‌سازی PLC زیمنس','EPLAN Electric P8 – طراحی مهندسی برق','AutoCAD Electrical – نرم‌افزار CAD برق','RoboDK – شبیه‌سازی و برنامه‌نویسی ربات'],
+            s4: '🔹 مثال: مجموعه کامل اتوماسیون',
+            s4p: 'یک پروژه معمولی اتوماسیون از TIA Portal برای برنامه‌نویسی PLC، WinCC برای SCADA، Factory IO برای تست شبیه‌سازی و EPLAN برای طراحی پنل برق استفاده می‌کند. همه ابزارها برای جریان کاری یکپارچه ادغام شده‌اند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
