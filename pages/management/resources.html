@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Management Resources</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📚 Management Resources</h1>
+    <div class="sub" id="desc">Books, websites, standards, and educational materials for engineering management.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Recommended Books</h2>
+        <ul id="list1">
+            <li>Project Management: A Systems Approach to Planning, Scheduling, and Controlling – Harold Kerzner</li>
+            <li>A Guide to the Project Management Body of Knowledge (PMBOK) – PMI</li>
+            <li>Engineering Management – C. M. Chang</li>
+            <li>The Lean Startup – Eric Ries (for innovation management)</li>
+            <li>Leadership in Engineering – David L. Goetsch</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Useful Websites and Organizations</h2>
+        <ul id="list2">
+            <li>PMI – Project Management Institute – pmi.org</li>
+            <li>ASEM – American Society for Engineering Management – asem.org</li>
+            <li>IPMA – International Project Management Association – ipma.world</li>
+            <li>Engineering Management Journal – emj.org</li>
+            <li>Lean Enterprise Institute – lean.org</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Key Management Standards</h2>
+        <ul id="list3">
+            <li>ISO 21500 – Guidance on Project Management</li>
+            <li>ISO 31000 – Risk Management</li>
+            <li>ISO 9001 – Quality Management</li>
+            <li>PMBOK Guide – Project Management Body of Knowledge</li>
+            <li>PRINCE2 – Projects in Controlled Environments</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Video Tutorials</h2>
+        <ul id="list4">
+            <li>Project Management Fundamentals (YouTube) – Introduction to project management</li>
+            <li>Risk Management Training – ISO 31000 and practical techniques</li>
+            <li>Leadership in Engineering – Webinars and case studies</li>
+            <li>Cost Estimation and Budgeting – Practical sessions</li>
+            <li>Agile Project Management for Engineering Teams</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📚 Management Resources',
+            desc: 'Books, websites, standards, and educational materials for engineering management.',
+            s1: '🔹 Recommended Books',
+            list1: ['Project Management: A Systems Approach to Planning, Scheduling, and Controlling – Harold Kerzner','A Guide to the Project Management Body of Knowledge (PMBOK) – PMI','Engineering Management – C. M. Chang','The Lean Startup – Eric Ries (for innovation management)','Leadership in Engineering – David L. Goetsch'],
+            s2: '🔹 Useful Websites and Organizations',
+            list2: ['PMI – Project Management Institute – pmi.org','ASEM – American Society for Engineering Management – asem.org','IPMA – International Project Management Association – ipma.world','Engineering Management Journal – emj.org','Lean Enterprise Institute – lean.org'],
+            s3: '🔹 Key Management Standards',
+            list3: ['ISO 21500 – Guidance on Project Management','ISO 31000 – Risk Management','ISO 9001 – Quality Management','PMBOK Guide – Project Management Body of Knowledge','PRINCE2 – Projects in Controlled Environments'],
+            s4: '🔹 Video Tutorials',
+            list4: ['Project Management Fundamentals (YouTube) – Introduction to project management','Risk Management Training – ISO 31000 and practical techniques','Leadership in Engineering – Webinars and case studies','Cost Estimation and Budgeting – Practical sessions','Agile Project Management for Engineering Teams'],
+            back: '← Back'
+        },
+        fa: {
+            title: '📚 منابع مدیریت مهندسی',
+            desc: 'کتاب‌ها، وب‌سایت‌ها، استانداردها و مواد آموزشی برای مدیریت مهندسی.',
+            s1: '🔹 کتاب‌های پیشنهادی',
+            list1: ['Project Management: A Systems Approach to Planning, Scheduling, and Controlling – Harold Kerzner','A Guide to the Project Management Body of Knowledge (PMBOK) – PMI','Engineering Management – C. M. Chang','The Lean Startup – Eric Ries (برای مدیریت نوآوری)','Leadership in Engineering – David L. Goetsch'],
+            s2: '🔹 وب‌سایت‌ها و سازمان‌های مفید',
+            list2: ['PMI – مؤسسه مدیریت پروژه – pmi.org','ASEM – انجمن مدیریت مهندسی آمریکا – asem.org','IPMA – انجمن بین‌المللی مدیریت پروژه – ipma.world','Engineering Management Journal – emj.org','Lean Enterprise Institute – lean.org'],
+            s3: '🔹 استانداردهای کلیدی مدیریت',
+            list3: ['ISO 21500 – راهنمای مدیریت پروژه','ISO 31000 – مدیریت ریسک','ISO 9001 – مدیریت کیفیت','راهنمای PMBOK – بدنه دانش مدیریت پروژه','PRINCE2 – پروژه‌ها در محیط‌های کنترل‌شده'],
+            s4: '🔹 آموزش‌های ویدئویی',
+            list4: ['مبانی مدیریت پروژه (یوتیوب) – آشنایی با مدیریت پروژه','آموزش مدیریت ریسک – ISO 31000 و تکنیک‌های عملی','رهبری در مهندسی – وبینارها و مطالعات موردی','برآورد هزینه و بودجه‌بندی – جلسات عملی','مدیریت پروژه چابک برای تیم‌های مهندسی'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        const ul4 = document.getElementById('list4');
+        ul4.innerHTML = '';
+        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
