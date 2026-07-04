@@ -13,17 +13,21 @@
 </head>
 <body>
 
-<!-- ===== HEADER با ویجت ساعت/تقویم ===== -->
+<!-- ============================================================ -->
+<!-- HEADER با ویجت ساعت + دکمه رفرش -->
+<!-- ============================================================ -->
 <header class="header">
     <div class="brand">KARATECH <span>ELV</span></div>
     
-    <!-- ویجت ساعت و تقویم -->
     <div class="datetime-widget" id="datetimeWidget">
         <div class="date-display" id="dateDisplay">۱۴۰۴/۰۱/۱۵</div>
         <div class="time-display" id="timeDisplay">۱۴:۳۲:۴۵</div>
+        <button class="refresh-time-btn" onclick="refreshTime()" title="Refresh Time">
+            <i class="fas fa-sync-alt"></i>
+        </button>
     </div>
 
-    <div style="display:flex; align-items:center; gap:16px;">
+    <div class="header-actions">
         <button class="exit-btn" onclick="goToSplash()">
             <i class="fas fa-sign-out-alt"></i> <span data-en="Exit" data-fa="خروج">Exit</span>
         </button>
@@ -34,7 +38,9 @@
     </div>
 </header>
 
-<!-- ===== SPLASH ===== -->
+<!-- ============================================================ -->
+<!-- SPLASH -->
+<!-- ============================================================ -->
 <section class="splash" id="splash">
     <div class="splash-logo-img">
         <img src="assets/images/karatechelv.png" alt="Karatech ELV Logo">
@@ -43,7 +49,9 @@
     <button class="splash-btn" id="enterBtn"><i class="fas fa-arrow-right"></i> <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span></button>
 </section>
 
-<!-- ===== DASHBOARD ===== -->
+<!-- ============================================================ -->
+<!-- DASHBOARD -->
+<!-- ============================================================ -->
 <div class="dashboard" id="dashboard">
 
     <!-- Academy -->
