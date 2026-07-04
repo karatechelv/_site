@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Automation Overview</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📘 Overview of Automation Engineering</h1>
+    <div class="sub" id="desc">A comprehensive overview of automation engineering, covering PLC, HMI, SCADA, industrial networks, and control systems.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Automation Engineering?</h2>
+        <p id="s1p">Automation engineering combines control systems, instrumentation, and software to create intelligent industrial systems that operate with minimal human intervention. It is the backbone of modern manufacturing and process industries.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Areas</h2>
+        <ul id="list1">
+            <li>PLC Programming (Ladder, SCL, FBD)</li>
+            <li>HMI/SCADA Design</li>
+            <li>Industrial Networks (Profinet, Modbus)</li>
+            <li>PID Control and Tuning</li>
+            <li>Motion Control and Robotics</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Key Standards</h2>
+        <ul id="list2">
+            <li>IEC 61131-3 – PLC Programming Standards</li>
+            <li>IEC 61508 – Functional Safety</li>
+            <li>ISA 88 – Batch Control</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📘 Overview of Automation Engineering',
+            desc: 'A comprehensive overview of automation engineering, covering PLC, HMI, SCADA, industrial networks, and control systems.',
+            s1: '🔹 What is Automation Engineering?',
+            s1p: 'Automation engineering combines control systems, instrumentation, and software to create intelligent industrial systems that operate with minimal human intervention. It is the backbone of modern manufacturing and process industries.',
+            s2: '🔹 Key Areas',
+            list1: ['PLC Programming (Ladder, SCL, FBD)', 'HMI/SCADA Design', 'Industrial Networks (Profinet, Modbus)', 'PID Control and Tuning', 'Motion Control and Robotics'],
+            s3: '🔹 Key Standards',
+            list2: ['IEC 61131-3 – PLC Programming Standards', 'IEC 61508 – Functional Safety', 'ISA 88 – Batch Control'],
+            back: '← Back'
+        },
+        fa: {
+            title: '📘 مرور کلی مهندسی اتوماسیون',
+            desc: 'مرور جامع مهندسی اتوماسیون، شامل PLC، HMI، SCADA، شبکه‌های صنعتی و سیستم‌های کنترل.',
+            s1: '🔹 مهندسی اتوماسیون چیست؟',
+            s1p: 'مهندسی اتوماسیون ترکیبی از سیستم‌های کنترلی، ابزار دقیق و نرم‌افزار برای ایجاد سیستم‌های صنعتی هوشمند است که با حداقل دخالت انسان کار می‌کنند. این رشته ستون فقرات تولید مدرن و صنایع فرآیندی است.',
+            s2: '🔹 حوزه‌های کلیدی',
+            list1: ['برنامه‌نویسی PLC (نردبانی، SCL، FBD)', 'طراحی HMI/SCADA', 'شبکه‌های صنعتی (Profinet، Modbus)', 'کنترل PID و تنظیم', 'کنترل حرکت و رباتیک'],
+            s3: '🔹 استانداردهای کلیدی',
+            list2: ['IEC 61131-3 – استانداردهای برنامه‌نویسی PLC', 'IEC 61508 – ایمنی عملکردی', 'ISA 88 – کنترل دسته‌ای'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
