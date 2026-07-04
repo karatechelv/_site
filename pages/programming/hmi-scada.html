@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · HMI & SCADA</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .table-wrap{overflow-x:auto;margin:10px 0}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px}
+        th,td{padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        .note{color:#8e95a5;font-size:.85rem;margin-top:10px}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🖥️ HMI & SCADA</h1>
+    <div class="sub" id="desc">Understanding Human-Machine Interface (HMI) and Supervisory Control and Data Acquisition (SCADA) systems – key concepts, differences, and applications.</div>
+
+    <!-- Section 1: HMI -->
+    <div class="section">
+        <h2 id="s1">🔹 What is HMI?</h2>
+        <p id="s1p">Human-Machine Interface (HMI) is the user interface that connects operators to the machines, systems, or processes they control. HMIs provide graphical displays of process data, allow operators to send commands, and display alarms and events. They range from simple touch panels to complex PC-based systems.</p>
+        <ul id="list1">
+            <li><b>Purpose:</b> Enable operators to monitor and control machinery or processes</li>
+            <li><b>Typical Devices:</b> Touch panels, industrial PCs, mobile devices</li>
+            <li><b>Software:</b> WinCC, EasyBuilder, FactoryTalk View ME, GT Designer3</li>
+        </ul>
+    </div>
+
+    <!-- Section 2: SCADA -->
+    <div class="section">
+        <h2 id="s2">🔹 What is SCADA?</h2>
+        <p id="s2p">Supervisory Control and Data Acquisition (SCADA) is a control system architecture that uses computers, networked data communications, and graphical user interfaces for high-level process supervisory management. SCADA systems collect data from remote locations, provide centralized control, and generate reports.</p>
+        <ul id="list2">
+            <li><b>Purpose:</b> Monitor and control large-scale industrial processes across wide areas</li>
+            <li><b>Key Components:</b> SCADA server, RTUs/PLCs, communication infrastructure, HMI</li>
+            <li><b>Software:</b> WinCC, Ignition, Wonderware InTouch, FactoryTalk View SE</li>
+        </ul>
+    </div>
+
+    <!-- Section 3: Comparison Table -->
+    <div class="section">
+        <h2 id="s3">🔹 HMI vs. SCADA: Comparison</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th id="th-aspect">Aspect</th>
+                        <th id="th-hmi">HMI</th>
+                        <th id="th-scada">SCADA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><b>Scope</b></td><td>Local machine or small process</td><td>Large-scale, distributed systems</td></tr>
+                    <tr><td><b>Data Collection</b></td><td>Real-time from local PLCs/I/O</td><td>From multiple remote RTUs/PLCs across large areas</td></tr>
+                    <tr><td><b>Control</b></td><td>Direct control of local equipment</td><td>Supervisory control and setpoint management</td></tr>
+                    <tr><td><b>Alarming</b></td><td>Local alarms and notifications</td><td>Centralized alarm management with escalation</td></tr>
+                    <tr><td><b>Reporting</b></td><td>Basic trend and report generation</td><td>Advanced trending, reporting, and analysis</td></tr>
+                    <tr><td><b>Typical Users</b></td><td>Operators, maintenance technicians</td><td>Control room operators, engineers, managers</td></tr>
+                    <tr><td><b>Examples</b></td><td>Weintek HMI, Siemens HMI Comfort, Allen-Bradley PanelView</td><td>WinCC, Ignition, Wonderware, FactoryTalk SE</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="note" id="note1">Note: Modern HMIs and SCADA systems often overlap in functionality. Many SCADA systems include HMI features.</div>
+    </div>
+
+    <!-- Section 4: Example Applications -->
+    <div class="section">
+        <h2 id="s4">🔹 Example Applications</h2>
+        <ul id="list3">
+            <li><b>HMI Example:</b> A small packaging machine uses a Weintek HMI to display speed, count, and fault status. Operators can start/stop the machine and adjust parameters via the touch screen.</li>
+            <li><b>SCADA Example:</b> A water treatment plant uses WinCC SCADA to monitor pump stations, tank levels, and chemical dosing across multiple remote sites. Operators can view live data, set alarms, and generate reports.</li>
+            <li><b>Hybrid Example:</b> An automotive assembly line uses HMIs at each station for local control and a SCADA system for overall production monitoring, quality tracking, and downtime analysis.</li>
+        </ul>
+    </div>
+
+    <!-- Section 5: Key Design Considerations -->
+    <div class="section">
+        <h2 id="s5">🔹 Key Design Considerations</h2>
+        <ul id="list4">
+            <li><b>Usability:</b> Intuitive navigation, clear graphics, and consistent layout</li>
+            <li><b>Alarm Management:</b> Prioritize alarms, provide clear descriptions, and avoid alarm flooding</li>
+            <li><b>Security:</b> User authentication, access levels, and audit trails</li>
+            <li><b>Redundancy:</b> For critical systems, use redundant servers and communication paths</li>
+            <li><b>Scalability:</b> Design for future expansion and additional devices</li>
+            <li><b>Data Logging:</b> Store historical data for analysis and compliance</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🖥️ HMI & SCADA',
+            desc: 'Understanding Human-Machine Interface (HMI) and Supervisory Control and Data Acquisition (SCADA) systems – key concepts, differences, and applications.',
+            s1: '🔹 What is HMI?',
+            s1p: 'Human-Machine Interface (HMI) is the user interface that connects operators to the machines, systems, or processes they control. HMIs provide graphical displays of process data, allow operators to send commands, and display alarms and events. They range from simple touch panels to complex PC-based systems.',
+            s2: '🔹 What is SCADA?',
+            s2p: 'Supervisory Control and Data Acquisition (SCADA) is a control system architecture that uses computers, networked data communications, and graphical user interfaces for high-level process supervisory management. SCADA systems collect data from remote locations, provide centralized control, and generate reports.',
+            s3: '🔹 HMI vs. SCADA: Comparison',
+            th_aspect: 'Aspect',
+            th_hmi: 'HMI',
+            th_scada: 'SCADA',
+            s4: '🔹 Example Applications',
+            s5: '🔹 Key Design Considerations',
+            list1: ['Purpose: Enable operators to monitor and control machinery or processes','Typical Devices: Touch panels, industrial PCs, mobile devices','Software: WinCC, EasyBuilder, FactoryTalk View ME, GT Designer3'],
+            list2: ['Purpose: Monitor and control large-scale industrial processes across wide areas','Key Components: SCADA server, RTUs/PLCs, communication infrastructure, HMI','Software: WinCC, Ignition, Wonderware InTouch, FactoryTalk View SE'],
+            list3: ['HMI Example: A small packaging machine uses a Weintek HMI to display speed, count, and fault status. Operators can start/stop the machine and adjust parameters via the touch screen.','SCADA Example: A water treatment plant uses WinCC SCADA to monitor pump stations, tank levels, and chemical dosing across multiple remote sites. Operators can view live data, set alarms, and generate reports.','Hybrid Example: An automotive assembly line uses HMIs at each station for local control and a SCADA system for overall production monitoring, quality tracking, and downtime analysis.'],
+            list4: ['Usability: Intuitive navigation, clear graphics, and consistent layout','Alarm Management: Prioritize alarms, provide clear descriptions, and avoid alarm flooding','Security: User authentication, access levels, and audit trails','Redundancy: For critical systems, use redundant servers and communication paths','Scalability: Design for future expansion and additional devices','Data Logging: Store historical data for analysis and compliance'],
+            note1: 'Note: Modern HMIs and SCADA systems often overlap in functionality. Many SCADA systems include HMI features.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🖥️ HMI و SCADA',
+            desc: 'درک رابط انسان و ماشین (HMI) و سیستم‌های نظارت و جمع‌آوری داده (SCADA) – مفاهیم کلیدی، تفاوت‌ها و کاربردها.',
+            s1: '🔹 HMI چیست؟',
+            s1p: 'رابط انسان و ماشین (HMI) رابط کاربری است که اپراتورها را به ماشین‌ها، سیستم‌ها یا فرآیندهایی که کنترل می‌کنند متصل می‌کند. HMIها نمایش‌های گرافیکی از داده‌های فرآیند ارائه می‌دهند، به اپراتورها امکان ارسال دستورات را داده و هشدارها و رویدادها را نمایش می‌دهند. آنها از پنل‌های لمسی ساده تا سیستم‌های پیچیده مبتنی بر رایانه را شامل می‌شوند.',
+            s2: '🔹 SCADA چیست؟',
+            s2p: 'نظارت و جمع‌آوری داده (SCADA) یک معماری سیستم کنترل است که از رایانه‌ها، ارتباطات شبکه و رابط‌های گرافیکی برای مدیریت نظارتی سطح بالا فرآیندها استفاده می‌کند. سیستم‌های SCADA داده‌ها را از مکان‌های دور جمع‌آوری، کنترل متمرکز ارائه داده و گزارش‌ها را تولید می‌کنند.',
+            s3: '🔹 مقایسه HMI و SCADA',
+            th_aspect: 'جنبه',
+            th_hmi: 'HMI',
+            th_scada: 'SCADA',
+            s4: '🔹 مثال‌های کاربردی',
+            s5: '🔹 ملاحظات کلیدی طراحی',
+            list1: ['هدف: امکان نظارت و کنترل ماشین‌آلات یا فرآیندها برای اپراتورها','دستگاه‌های معمول: پنل‌های لمسی، رایانه‌های صنعتی، دستگاه‌های موبایل','نرم‌افزار: WinCC، EasyBuilder، FactoryTalk View ME، GT Designer3'],
+            list2: ['هدف: نظارت و کنترل فرآیندهای صنعتی بزرگ در مناطق وسیع','اجزای کلیدی: سرور SCADA، RTU/PLC، زیرساخت ارتباطی، HMI','نرم‌افزار: WinCC، Ignition، Wonderware InTouch، FactoryTalk View SE'],
+            list3: ['مثال HMI: یک دستگاه بسته‌بندی کوچک از HMI Weintek برای نمایش سرعت، تعداد و وضعیت خطا استفاده می‌کند. اپراتورها می‌توانند دستگاه را روشن/خاموش کرده و پارامترها را از طریق صفحه لمسی تنظیم کنند.','مثال SCADA: یک تصفیه‌خانه آب از SCADA WinCC برای نظارت بر ایستگاه‌های پمپاژ، سطح مخازن و دوز مواد شیمیایی در چندین سایت دور استفاده می‌کند. اپراتورها می‌توانند داده‌های زنده را مشاهده، هشدارها را تنظیم و گزارش‌ها را تولید کنند.','مثال ترکیبی: یک خط مونتاژ خودرو از HMI در هر ایستگاه برای کنترل محلی و یک سیستم SCADA برای نظارت بر تولید کلی، پیگیری کیفیت و تحلیل زمان توقف استفاده می‌کند.'],
+            list4: ['قابلیت استفاده: ناوبری شهودی، گرافیک واضح و چیدمان یکنواخت','مدیریت هشدار: اولویت‌بندی هشدارها، ارائه توضیحات واضح و جلوگیری از سیل هشدار','امنیت: احراز هویت کاربر، سطوح دسترسی و مسیرهای حسابرسی','افزونگی: برای سیستم‌های حیاتی از سرورهای افزونه و مسیرهای ارتباطی استفاده کنید','مقیاس‌پذیری: طراحی برای توسعه آینده و دستگاه‌های اضافی','ثبت داده: ذخیره داده‌های تاریخی برای تحلیل و انطباق'],
+            note1: 'توجه: HMIها و سیستم‌های SCADA مدرن اغلب در عملکرد همپوشانی دارند. بسیاری از سیستم‌های SCADA شامل ویژگی‌های HMI هستند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s2p').textContent = t.s2p;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s5').textContent = t.s5;
+        document.getElementById('th-aspect').textContent = t.th_aspect;
+        document.getElementById('th-hmi').textContent = t.th_hmi;
+        document.getElementById('th-scada').textContent = t.th_scada;
+        document.getElementById('note1').textContent = t.note1;
+        document.getElementById('backlink').textContent = t.back;
+
+        const list1 = document.getElementById('list1');
+        list1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
+
+        const list2 = document.getElementById('list2');
+        list2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
+
+        const list3 = document.getElementById('list3');
+        list3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; list3.appendChild(li); });
+
+        const list4 = document.getElementById('list4');
+        list4.innerHTML = '';
+        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; list4.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
