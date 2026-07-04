@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Engineering Software</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1100px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1.05rem;margin-bottom:30px}
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-bottom:30px}
+        .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+        .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
+        .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
+        .card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
+        .card p{color:#8e95a5;font-size:.85rem}
+        .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:8px}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="page-title">💻 Engineering Software</h1>
+    <div class="sub" id="page-sub">Essential software tools for electrical engineering, automation, instrumentation, and control system design.</div>
+
+    <div class="grid" id="cards-grid">
+        <a href="software/autocad.html" class="card"><i>📐</i><h3>AutoCAD</h3><p>Electrical CAD design</p><span class="badge">Learn More →</span></a>
+        <a href="software/eplan.html" class="card"><i>⚡</i><h3>EPLAN</h3><p>Engineering design & documentation</p><span class="badge">Learn More →</span></a>
+        <a href="software/see-electrical.html" class="card"><i>🔌</i><h3>SEE Electrical</h3><p>Electrical CAD for automation</p><span class="badge">Learn More →</span></a>
+        <a href="software/tia-portal.html" class="card"><i>🎛️</i><h3>TIA Portal</h3><p>Siemens automation platform</p><span class="badge">Learn More →</span></a>
+        <a href="software/wincc.html" class="card"><i>📊</i><h3>WinCC</h3><p>SCADA & HMI design</p><span class="badge">Learn More →</span></a>
+        <a href="software/pcs7.html" class="card"><i>🏭</i><h3>PCS7</h3><p>Siemens DCS system</p><span class="badge">Learn More →</span></a>
+        <a href="software/step7.html" class="card"><i>⚙️</i><h3>STEP7</h3><p>Siemens PLC programming</p><span class="badge">Learn More →</span></a>
+        <a href="software/factory-io.html" class="card"><i>🎮</i><h3>Factory IO</h3><p>3D simulation for PLC</p><span class="badge">Learn More →</span></a>
+        <a href="software/codesys.html" class="card"><i>💡</i><h3>Codesys</h3><p>IEC 61131-3 programming</p><span class="badge">Learn More →</span></a>
+        <a href="software/easybuilder.html" class="card"><i>🖥️</i><h3>EasyBuilder</h3><p>HMI development</p><span class="badge">Learn More →</span></a>
+    </div>
+
+    <div class="back">
+        <a href="../index.html" id="backlink" onclick="localStorage.setItem('dashboardActive', 'true')">← Back to Dashboard</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '💻 Engineering Software',
+            sub: 'Essential software tools for electrical engineering, automation, instrumentation, and control system design.',
+            cards: [
+                ['AutoCAD', 'Electrical CAD design', 'Learn More →'],
+                ['EPLAN', 'Engineering design & documentation', 'Learn More →'],
+                ['SEE Electrical', 'Electrical CAD for automation', 'Learn More →'],
+                ['TIA Portal', 'Siemens automation platform', 'Learn More →'],
+                ['WinCC', 'SCADA & HMI design', 'Learn More →'],
+                ['PCS7', 'Siemens DCS system', 'Learn More →'],
+                ['STEP7', 'Siemens PLC programming', 'Learn More →'],
+                ['Factory IO', '3D simulation for PLC', 'Learn More →'],
+                ['Codesys', 'IEC 61131-3 programming', 'Learn More →'],
+                ['EasyBuilder', 'HMI development', 'Learn More →']
+            ],
+            back: '← Back to Dashboard'
+        },
+        fa: {
+            title: '💻 نرم‌افزارهای مهندسی',
+            sub: 'ابزارهای نرم‌افزاری ضروری برای مهندسی برق، اتوماسیون، ابزار دقیق و طراحی سیستم کنترل.',
+            cards: [
+                ['AutoCAD', 'طراحی CAD برق', 'بیشتر بدانید →'],
+                ['EPLAN', 'طراحی مهندسی و مستندسازی', 'بیشتر بدانید →'],
+                ['SEE Electrical', 'CAD برق برای اتوماسیون', 'بیشتر بدانید →'],
+                ['TIA Portal', 'پلتفرم اتوماسیون زیمنس', 'بیشتر بدانید →'],
+                ['WinCC', 'طراحی SCADA و HMI', 'بیشتر بدانید →'],
+                ['PCS7', 'سیستم DCS زیمنس', 'بیشتر بدانید →'],
+                ['STEP7', 'برنامه‌نویسی PLC زیمنس', 'بیشتر بدانید →'],
+                ['Factory IO', 'شبیه‌سازی سه‌بعدی برای PLC', 'بیشتر بدانید →'],
+                ['Codesys', 'برنامه‌نویسی IEC 61131-3', 'بیشتر بدانید →'],
+                ['EasyBuilder', 'توسعه HMI', 'بیشتر بدانید →']
+            ],
+            back: '← بازگشت به داشبورد'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('page-title').textContent = t.title;
+        document.getElementById('page-sub').textContent = t.sub;
+        document.getElementById('backlink').textContent = t.back;
+
+        const grid = document.getElementById('cards-grid');
+        const cards = grid.querySelectorAll('.card');
+        t.cards.forEach((item, index) => {
+            if (cards[index]) {
+                cards[index].querySelector('h3').textContent = item[0];
+                cards[index].querySelector('p').textContent = item[1];
+                cards[index].querySelector('.badge').textContent = item[2];
+            }
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
