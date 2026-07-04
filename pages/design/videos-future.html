@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Design Videos & Future</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🎬 Design Videos & Future</h1>
+    <div class="sub" id="desc">Curated video tutorials and insights into future trends and technologies in engineering design.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Recommended Video Channels</h2>
+        <ul id="list1">
+            <li>AutoCAD Electrical Tutorials – Official and community</li>
+            <li>EPLAN P8 Training – Engineering design and documentation</li>
+            <li>ETAP Power System Analysis – Tutorials and webinars</li>
+            <li>Dialux Lighting Design – Practical design examples</li>
+            <li>Electrical Design Basics – Fundamentals to advanced</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Popular Video Topics</h2>
+        <ul id="list2">
+            <li>Creating electrical schematics and wiring diagrams</li>
+            <li>Panel layout and 3D cabinet design</li>
+            <li>Cable routing and tray systems</li>
+            <li>Earthing design and lightning protection</li>
+            <li>Power distribution and switchgear design</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Future Trends in Design</h2>
+        <ul id="list3">
+            <li>Digital Twin – Virtual modeling of electrical systems</li>
+            <li>AI-assisted design – Automated routing and optimization</li>
+            <li>BIM (Building Information Modeling) integration</li>
+            <li>Cloud-based collaborative design platforms</li>
+            <li>Augmented Reality (AR) for panel assembly and maintenance</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 What's Next in Design Engineering?</h2>
+        <p id="s4p">The future of design engineering will be driven by automation, collaboration, and integration. Engineers will work with digital twins, AI-assisted tools, and cloud platforms. Design will become more integrated with manufacturing and operations, enabling faster project delivery and higher quality.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🎬 Design Videos & Future',
+            desc: 'Curated video tutorials and insights into future trends and technologies in engineering design.',
+            s1: '🔹 Recommended Video Channels',
+            list1: ['AutoCAD Electrical Tutorials – Official and community','EPLAN P8 Training – Engineering design and documentation','ETAP Power System Analysis – Tutorials and webinars','Dialux Lighting Design – Practical design examples','Electrical Design Basics – Fundamentals to advanced'],
+            s2: '🔹 Popular Video Topics',
+            list2: ['Creating electrical schematics and wiring diagrams','Panel layout and 3D cabinet design','Cable routing and tray systems','Earthing design and lightning protection','Power distribution and switchgear design'],
+            s3: '🔹 Future Trends in Design',
+            list3: ['Digital Twin – Virtual modeling of electrical systems','AI-assisted design – Automated routing and optimization','BIM (Building Information Modeling) integration','Cloud-based collaborative design platforms','Augmented Reality (AR) for panel assembly and maintenance'],
+            s4: '🔹 What\'s Next in Design Engineering?',
+            s4p: 'The future of design engineering will be driven by automation, collaboration, and integration. Engineers will work with digital twins, AI-assisted tools, and cloud platforms. Design will become more integrated with manufacturing and operations, enabling faster project delivery and higher quality.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🎬 ویدئوها و آینده طراحی مهندسی',
+            desc: 'آموزش‌های ویدئویی منتخب و بینش‌هایی درباره روندها و فناوری‌های آینده در طراحی مهندسی.',
+            s1: '🔹 کانال‌های ویدئویی پیشنهادی',
+            list1: ['آموزش AutoCAD Electrical – رسمی و انجمنی','آموزش EPLAN P8 – طراحی مهندسی و مستندسازی','تحلیل سیستم قدرت ETAP – آموزش و وبینارها','طراحی روشنایی Dialux – مثال‌های عملی','مبانی طراحی برق – مقدماتی تا پیشرفته'],
+            s2: '🔹 موضوعات محبوب ویدئویی',
+            list2: ['ایجاد شماتیک برق و نمودارهای سیم‌کشی','چیدمان پنل و طراحی سه‌بعدی کابینت','مسیریابی کابل و سیستم‌های تری','طراحی ارتینگ و حفاظت در برابر صاعقه','توزیع برق و طراحی تابلوها'],
+            s3: '🔹 روندهای آینده در طراحی',
+            list3: ['دوقلوی دیجیتال – مدل‌سازی مجازی سیستم‌های الکتریکی','طراحی به کمک هوش مصنوعی – مسیریابی و بهینه‌سازی خودکار','یکپارچه‌سازی BIM (مدل‌سازی اطلاعات ساختمان)','پلتفرم‌های طراحی مشارکتی ابری','واقعیت افزوده (AR) برای مونتاژ و نگهداری پنل'],
+            s4: '🔹 آینده طراحی مهندسی چیست؟',
+            s4p: 'آینده طراحی مهندسی توسط اتوماسیون، همکاری و یکپارچه‌سازی هدایت خواهد شد. مهندسان با دوقلوی دیجیتال، ابزارهای هوش مصنوعی و پلتفرم‌های ابری کار خواهند کرد. طراحی با تولید و عملیات یکپارچه‌تر شده و تحویل سریع‌تر پروژه و کیفیت بالاتر را امکان‌پذیر می‌کند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
