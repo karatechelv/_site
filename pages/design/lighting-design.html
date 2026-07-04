@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Lighting Design</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">💡 Lighting Design</h1>
+    <div class="sub" id="desc">Principles of lighting design for industrial and commercial facilities, including illuminance calculations, luminaire selection, and energy efficiency.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Importance of Lighting Design</h2>
+        <p id="s1p">Proper lighting design is essential for safety, productivity, and comfort in industrial and commercial spaces. Good lighting reduces accidents, improves visibility, enhances worker performance, and contributes to energy efficiency. Lighting design must meet standards for illuminance levels and uniformity.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Concepts</h2>
+        <ul id="list1">
+            <li><b>Illuminance (Lux)</b> – The amount of light falling on a surface (lm/m²).</li>
+            <li><b>Luminous Flux (Lumens)</b> – The total amount of visible light emitted by a source.</li>
+            <li><b>Color Temperature (K)</b> – The color appearance of light (warm 2700K, cool 6500K).</li>
+            <li><b>Color Rendering Index (CRI)</b> – How accurately colors are rendered.</li>
+            <li><b>Uniformity Ratio</b> – The ratio of minimum to average illuminance.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Common Lighting Types</h2>
+        <ul id="list2">
+            <li><b>LED Lighting</b> – High efficiency, long life, instant start, excellent color rendering.</li>
+            <li><b>Fluorescent Lighting</b> – Good efficiency, but contains mercury.</li>
+            <li><b>HID (High-Intensity Discharge)</b> – Metal halide, high-pressure sodium, used for outdoor and high-bay.</li>
+            <li><b>Emergency Lighting</b> – Battery-backed, for safety during power outages.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Warehouse Lighting Design</h2>
+        <p id="s4p">A warehouse requires an average illuminance of 300 lux at floor level. Using LED high-bay luminaires with 150 lm/W efficiency, the lighting designer calculates the number of fixtures required based on mounting height and spacing. The design ensures uniform illumination and minimizes shadows.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '💡 Lighting Design',
+            desc: 'Principles of lighting design for industrial and commercial facilities, including illuminance calculations, luminaire selection, and energy efficiency.',
+            s1: '🔹 Importance of Lighting Design',
+            s1p: 'Proper lighting design is essential for safety, productivity, and comfort in industrial and commercial spaces. Good lighting reduces accidents, improves visibility, enhances worker performance, and contributes to energy efficiency. Lighting design must meet standards for illuminance levels and uniformity.',
+            s2: '🔹 Key Concepts',
+            list1: ['Illuminance (Lux) – The amount of light falling on a surface (lm/m²).','Luminous Flux (Lumens) – The total amount of visible light emitted by a source.','Color Temperature (K) – The color appearance of light (warm 2700K, cool 6500K).','Color Rendering Index (CRI) – How accurately colors are rendered.','Uniformity Ratio – The ratio of minimum to average illuminance.'],
+            s3: '🔹 Common Lighting Types',
+            list2: ['LED Lighting – High efficiency, long life, instant start, excellent color rendering.','Fluorescent Lighting – Good efficiency, but contains mercury.','HID (High-Intensity Discharge) – Metal halide, high-pressure sodium, used for outdoor and high-bay.','Emergency Lighting – Battery-backed, for safety during power outages.'],
+            s4: '🔹 Example: Warehouse Lighting Design',
+            s4p: 'A warehouse requires an average illuminance of 300 lux at floor level. Using LED high-bay luminaires with 150 lm/W efficiency, the lighting designer calculates the number of fixtures required based on mounting height and spacing. The design ensures uniform illumination and minimizes shadows.',
+            back: '← Back'
+        },
+        fa: {
+            title: '💡 طراحی روشنایی',
+            desc: 'اصول طراحی روشنایی برای تأسیسات صنعتی و تجاری، شامل محاسبات شدت روشنایی، انتخاب چراغ و بهره‌وری انرژی.',
+            s1: '🔹 اهمیت طراحی روشنایی',
+            s1p: 'طراحی مناسب روشنایی برای ایمنی، بهره‌وری و راحتی در فضاهای صنعتی و تجاری ضروری است. روشنایی خوب تصادفات را کاهش می‌دهد، دید را بهبود می‌بخشد، عملکرد کارگران را افزایش داده و به بهره‌وری انرژی کمک می‌کند. طراحی روشنایی باید استانداردهای شدت روشنایی و یکنواختی را برآورده کند.',
+            s2: '🔹 مفاهیم کلیدی',
+            list1: ['شدت روشنایی (لوکس) – مقدار نور تابیده شده به یک سطح (لومن بر متر مربع).','شار نوری (لومن) – کل مقدار نور مرئی ساطع شده از یک منبع.','دمای رنگ (کلوین) – ظاهر رنگ نور (گرم ۲۷۰۰K، سرد ۶۵۰۰K).','شاخص نمود رنگ (CRI) – دقت نمایش رنگ‌ها.','نسبت یکنواختی – نسبت حداقل به متوسط شدت روشنایی.'],
+            s3: '🔹 انواع رایج روشنایی',
+            list2: ['روشنایی LED – بازده بالا، عمر طولانی، استارت فوری، نمود رنگ عالی.','روشنایی فلورسنت – بازده خوب، اما حاوی جیوه است.','روشنایی HID – متال هالید، سدیم پرفشار، برای فضای باز و سقف بلند.','روشنایی اضطراری – با باتری پشتیبان، برای ایمنی در هنگام قطع برق.'],
+            s4: '🔹 مثال: طراحی روشنایی انبار',
+            s4p: 'یک انبار به شدت روشنایی متوسط ۳۰۰ لوکس در سطح کف نیاز دارد. با استفاده از چراغ‌های سقف بلند LED با بازده ۱۵۰ لومن بر وات، طراح روشنایی تعداد چراغ‌های مورد نیاز را بر اساس ارتفاع نصب و فاصله محاسبه می‌کند. طراحی روشنایی یکنواخت را تضمین کرده و سایه‌ها را به حداقل می‌رساند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
