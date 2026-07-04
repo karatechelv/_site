@@ -1,149 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karatech ELV · Engineering Management</title>
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}
-        .brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}
-        .brand span{color:var(--accent)}
-        .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}
-        .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
-        .lang-btn:hover{background:var(--primary);color:#fff}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1100px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
         .lang-switch{display:flex;gap:6px}
-        .page-container{max-width:1100px;margin:0 auto;padding:20px}
-        .page-header{background:#1e2128;padding:30px 40px;border-radius:20px;margin-bottom:30px;border-left:5px solid var(--accent)}
-        .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
-        .page-header h1 i{color:var(--accent)}
-        .page-header p{color:#b0b8c5;margin-top:10px;font-size:1.05rem;line-height:1.7}
-        .content-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:30px}
-        .content-card{background:#1e2128;padding:24px;border-radius:16px;border:1px solid rgba(212,175,55,0.06);transition:.3s}
-        .content-card:hover{background:#282d38;transform:translateY(-3px);border-color:rgba(212,175,55,0.2)}
-        .content-card h3{color:#d4af37;font-size:1.2rem;margin-bottom:10px;display:flex;align-items:center;gap:10px}
-        .content-card h3 i{font-size:1.1rem}
-        .content-card p{color:#b0b8c5;line-height:1.7;font-size:.95rem}
-        .content-card ul{list-style:none;padding:0;margin-top:10px}
-        .content-card ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px;font-size:.9rem}
-        .content-card ul li i{color:var(--accent);font-size:.7rem}
-        .back-link{margin-top:30px;text-align:center}
-        .back-link a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s}
-        .back-link a:hover{transform:translateX(-5px)}
+        h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1.05rem;margin-bottom:30px}
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-bottom:30px}
+        .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+        .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
+        .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
+        .card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
+        .card p{color:#8e95a5;font-size:.85rem}
+        .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:8px}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
         .lang-persian{direction:rtl}
-        .lang-persian .page-header h1{justify-content:flex-end}
-        .lang-persian .content-card h3{justify-content:flex-end}
-        .lang-persian .content-card ul li{flex-direction:row-reverse}
-        .lang-persian .back-link a{flex-direction:row-reverse}
-        @media(max-width:768px){.page-header h1{font-size:1.8rem}.content-grid{grid-template-columns:1fr}}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
-<header class="header">
-    <div class="brand">KARATECH <span>ELV</span></div>
-    <div class="lang-switch">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="fa">FA</button>
-    </div>
-</header>
-<div class="page-container">
-    <div class="page-header">
-        <h1><i class="fas fa-users-cog"></i> <span data-en="Engineering Management" data-fa="مدیریت مهندسی">Engineering Management</span></h1>
-        <p data-en="Project management, engineering workflow, resource planning, and risk management. Essential for delivering engineering projects on time and within budget." 
-           data-fa="مدیریت پروژه، جریان کار مهندسی، برنامه‌ریزی منابع و مدیریت ریسک. برای تحویل پروژه‌های مهندسی در زمان و بودجه تعیین شده ضروری است.">
-           Project management, engineering workflow, resource planning, and risk management. Essential for delivering engineering projects on time and within budget.</p>
-    </div>
+<div class="container">
 
-    <div class="content-grid">
-        <div class="content-card">
-            <h3><i class="fas fa-graduation-cap"></i> <span data-en="Overview" data-fa="مرور کلی">Overview</span></h3>
-            <p data-en="Engineering management combines technical expertise with project management skills to lead engineering projects from conception to completion, ensuring efficiency, quality, and safety." 
-               data-fa="مدیریت مهندسی ترکیبی از تخصص فنی با مهارت‌های مدیریت پروژه برای هدایت پروژه‌های مهندسی از ایده تا اجرا، با تضمین کارایی، کیفیت و ایمنی است.">
-               Engineering management combines technical expertise with project management skills to lead engineering projects from conception to completion, ensuring efficiency, quality, and safety.</p>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-lightbulb"></i> <span data-en="Key Topics" data-fa="موضوعات کلیدی">Key Topics</span></h3>
-            <ul>
-                <li><i class="fas fa-circle"></i> <span data-en="Project planning and scheduling" data-fa="برنامه‌ریزی و زمان‌بندی پروژه">Project planning and scheduling</span></li>
-                <li><i class="fas fa-circle"></i> <span data-en="Resource allocation and budgeting" data-fa="تخصیص منابع و بودجه‌بندی">Resource allocation and budgeting</span></li>
-                <li><i class="fas fa-circle"></i> <span data-en="Risk management and mitigation" data-fa="مدیریت ریسک و کاهش آن">Risk management and mitigation</span></li>
-                <li><i class="fas fa-circle"></i> <span data-en="Engineering workflow optimization" data-fa="بهینه‌سازی جریان کار مهندسی">Engineering workflow optimization</span></li>
-                <li><i class="fas fa-circle"></i> <span data-en="Quality and safety management" data-fa="مدیریت کیفیت و ایمنی">Quality and safety management</span></li>
-            </ul>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-tools"></i> <span data-en="Software" data-fa="نرم‌افزارها">Software</span></h3>
-            <ul>
-                <li><i class="fas fa-check"></i> MS Project</li>
-                <li><i class="fas fa-check"></i> Primavera</li>
-                <li><i class="fas fa-check"></i> Jira</li>
-                <li><i class="fas fa-check"></i> Resource Management Tools</li>
-            </ul>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-book"></i> <span data-en="Resources" data-fa="منابع">Resources</span></h3>
-            <ul>
-                <li><i class="fas fa-file-pdf"></i> <span data-en="PMBOK Guide" data-fa="راهنمای PMBOK">PMBOK Guide</span></li>
-                <li><i class="fas fa-file-pdf"></i> <span data-en="Risk Management Templates" data-fa="قالب‌های مدیریت ریسک">Risk Management Templates</span></li>
-                <li><i class="fas fa-video"></i> <span data-en="Project Management Course" data-fa="دوره مدیریت پروژه">Project Management Course</span></li>
-            </ul>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-road"></i> <span data-en="Learning Path" data-fa="مسیر یادگیری">Learning Path</span></h3>
-            <ul>
-                <li><i class="fas fa-arrow-right"></i> <strong data-en="Foundation:" data-fa="مقدماتی:">Foundation:</strong> <span data-en="Basic management and planning concepts" data-fa="مفاهیم پایه مدیریت و برنامه‌ریزی">Basic management and planning concepts</span></li>
-                <li><i class="fas fa-arrow-right"></i> <strong data-en="Intermediate:" data-fa="متوسط:">Intermediate:</strong> <span data-en="Project execution and control" data-fa="اجرا و کنترل پروژه">Project execution and control</span></li>
-                <li><i class="fas fa-arrow-right"></i> <strong data-en="Advanced:" data-fa="پیشرفته:">Advanced:</strong> <span data-en="Program management and leadership" data-fa="مدیریت برنامه و رهبری">Program management and leadership</span></li>
-            </ul>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-play-circle"></i> <span data-en="Videos & Future" data-fa="ویدئوها و آینده">Videos & Future</span></h3>
-            <ul>
-                <li><i class="fas fa-video"></i> <span data-en="Project Management Tutorial" data-fa="آموزش مدیریت پروژه">Project Management Tutorial</span></li>
-                <li><i class="fas fa-video"></i> <span data-en="Risk Management Workshop" data-fa="کارگاه مدیریت ریسک">Risk Management Workshop</span></li>
-                <li><i class="fas fa-clock"></i> <span data-en="Future: Digital Engineering Management" data-fa="آینده: مدیریت مهندسی دیجیتال">Future: Digital Engineering Management</span></li>
-            </ul>
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
         </div>
     </div>
 
-    <div class="back-link">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
+    <h1 id="page-title">📊 Engineering Management</h1>
+    <div class="sub" id="page-sub">Project management, risk management, engineering workflow, resource planning, cost estimation, quality management, and leadership for engineering projects.</div>
+
+    <div class="grid" id="cards-grid">
+        <a href="../management/overview.html" class="card"><i>📘</i><h3>Overview</h3><p>Complete overview</p><span class="badge">Learn More →</span></a>
+        <a href="../management/project-management.html" class="card"><i>📋</i><h3>Project Management</h3><p>Planning, scheduling, execution</p><span class="badge">Learn More →</span></a>
+        <a href="../management/risk-management.html" class="card"><i>⚠️</i><h3>Risk Management</h3><p>Identification, assessment, mitigation</p><span class="badge">Learn More →</span></a>
+        <a href="../management/engineering-workflow.html" class="card"><i>🔄</i><h3>Engineering Workflow</h3><p>Process optimization</p><span class="badge">Learn More →</span></a>
+        <a href="../management/resource-planning.html" class="card"><i>👥</i><h3>Resource Planning</h3><p>People, equipment, materials</p><span class="badge">Learn More →</span></a>
+        <a href="../management/cost-estimation.html" class="card"><i>💰</i><h3>Cost Estimation</h3><p>Budgeting, forecasting</p><span class="badge">Learn More →</span></a>
+        <a href="../management/quality-management.html" class="card"><i>✅</i><h3>Quality Management</h3><p>Assurance, control, improvement</p><span class="badge">Learn More →</span></a>
+        <a href="../management/leadership.html" class="card"><i>👔</i><h3>Leadership</h3><p>Team building, communication</p><span class="badge">Learn More →</span></a>
+        <a href="../management/software.html" class="card"><i>💻</i><h3>Software</h3><p>Essential tools</p><span class="badge">Learn More →</span></a>
+        <a href="../management/resources.html" class="card"><i>📚</i><h3>Resources</h3><p>Standards, guides</p><span class="badge">Learn More →</span></a>
+        <a href="../management/learning-path.html" class="card"><i>🗺️</i><h3>Learning Path</h3><p>Foundation to advanced</p><span class="badge">Learn More →</span></a>
+        <a href="../management/videos-future.html" class="card"><i>🎬</i><h3>Videos & Future</h3><p>Tutorials & future tech</p><span class="badge">Learn More →</span></a>
+        <a href="../management/examples.html" class="card"><i>📝</i><h3>Examples</h3><p>Practical projects</p><span class="badge">Learn More →</span></a>
     </div>
+
+    <div class="back">
+        <a href="../../index.html" id="backlink" onclick="localStorage.setItem('dashboardActive', 'true')">← Back to Dashboard</a>
+    </div>
+
 </div>
+
 <script>
-    (function() {
-        const langBtns = document.querySelectorAll('.lang-btn');
-        let currentLang = localStorage.getItem('karatech-lang') || 'en';
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-en]').forEach(el => {
-                const txt = el.dataset[lang];
-                if (txt) {
-                    const nodes = el.childNodes;
-                    for (let n of nodes) {
-                        if (n.nodeType === 3) {
-                            n.textContent = txt;
-                            break;
-                        }
-                    }
-                }
-            });
-            document.body.classList.toggle('lang-persian', lang === 'fa');
-            localStorage.setItem('karatech-lang', lang);
-            langBtns.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
+    const lang = {
+        en: {
+            title: '📊 Engineering Management',
+            sub: 'Project management, risk management, engineering workflow, resource planning, cost estimation, quality management, and leadership for engineering projects.',
+            cards: [
+                ['Overview', 'Complete overview', 'Learn More →'],
+                ['Project Management', 'Planning, scheduling, execution', 'Learn More →'],
+                ['Risk Management', 'Identification, assessment, mitigation', 'Learn More →'],
+                ['Engineering Workflow', 'Process optimization', 'Learn More →'],
+                ['Resource Planning', 'People, equipment, materials', 'Learn More →'],
+                ['Cost Estimation', 'Budgeting, forecasting', 'Learn More →'],
+                ['Quality Management', 'Assurance, control, improvement', 'Learn More →'],
+                ['Leadership', 'Team building, communication', 'Learn More →'],
+                ['Software', 'Essential tools', 'Learn More →'],
+                ['Resources', 'Standards, guides', 'Learn More →'],
+                ['Learning Path', 'Foundation to advanced', 'Learn More →'],
+                ['Videos & Future', 'Tutorials & future tech', 'Learn More →'],
+                ['Examples', 'Practical projects', 'Learn More →']
+            ],
+            back: '← Back to Dashboard'
+        },
+        fa: {
+            title: '📊 مدیریت مهندسی',
+            sub: 'مدیریت پروژه، مدیریت ریسک، جریان کار مهندسی، برنامه‌ریزی منابع، برآورد هزینه، مدیریت کیفیت و رهبری برای پروژه‌های مهندسی.',
+            cards: [
+                ['مرور کلی', 'مرور کامل مدیریت مهندسی', 'بیشتر بدانید →'],
+                ['مدیریت پروژه', 'برنامه‌ریزی، زمان‌بندی، اجرا', 'بیشتر بدانید →'],
+                ['مدیریت ریسک', 'شناسایی، ارزیابی، کاهش', 'بیشتر بدانید →'],
+                ['جریان کار مهندسی', 'بهینه‌سازی فرآیند', 'بیشتر بدانید →'],
+                ['برنامه‌ریزی منابع', 'نیروی انسانی، تجهیزات، مواد', 'بیشتر بدانید →'],
+                ['برآورد هزینه', 'بودجه‌بندی، پیش‌بینی', 'بیشتر بدانید →'],
+                ['مدیریت کیفیت', 'تضمین، کنترل، بهبود', 'بیشتر بدانید →'],
+                ['رهبری', 'ساخت تیم، ارتباطات', 'بیشتر بدانید →'],
+                ['نرم‌افزارها', 'ابزارهای ضروری', 'بیشتر بدانید →'],
+                ['منابع', 'استانداردها، راهنماها', 'بیشتر بدانید →'],
+                ['مسیر یادگیری', 'از مبتدی تا پیشرفته', 'بیشتر بدانید →'],
+                ['ویدئوها و آینده', 'آموزش‌ها و فناوری‌های آینده', 'بیشتر بدانید →'],
+                ['مثال‌ها', 'پروژه‌های عملی', 'بیشتر بدانید →']
+            ],
+            back: '← بازگشت به داشبورد'
         }
-        setLanguage(currentLang);
-        langBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                setLanguage(this.dataset.lang);
-            });
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('page-title').textContent = t.title;
+        document.getElementById('page-sub').textContent = t.sub;
+        document.getElementById('backlink').textContent = t.back;
+
+        const grid = document.getElementById('cards-grid');
+        const cards = grid.querySelectorAll('.card');
+        t.cards.forEach((item, index) => {
+            if (cards[index]) {
+                cards[index].querySelector('h3').textContent = item[0];
+                cards[index].querySelector('p').textContent = item[1];
+                cards[index].querySelector('.badge').textContent = item[2];
+            }
         });
-    })();
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
 </script>
+
 </body>
 </html>
