@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Power Distribution</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">⚡ Power Distribution</h1>
+    <div class="sub" id="desc">Design and planning of power distribution systems, including load centers, switchgear, feeders, and protection coordination for industrial facilities.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Power Distribution?</h2>
+        <p id="s1p">Power distribution is the process of transferring electrical power from the main supply (grid, generators) to end-use loads such as motors, lighting, and equipment. It involves transformers, switchgear, distribution panels, feeders, and protection devices. Proper distribution ensures reliable, safe, and efficient operation.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Components</h2>
+        <ul id="list1">
+            <li><b>Main Switchgear</b> – Receives power from utility or generators and distributes to loads.</li>
+            <li><b>Transformers</b> – Step down voltage from medium to low voltage (e.g., 22 kV to 400 V).</li>
+            <li><b>Distribution Panels</b> – Distribute power to local loads (motors, lighting, etc.).</li>
+            <li><b>Busbars</b> – Conductors that carry current in switchgear and panels.</li>
+            <li><b>Feeders</b> – Cables carrying power from switchgear to loads.</li>
+            <li><b>Protection Devices</b> – Circuit breakers, fuses, relays for fault protection.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Distribution Configurations</h2>
+        <ul id="list2">
+            <li><b>Radial System</b> – Simple, cost-effective, but single point of failure.</li>
+            <li><b>Ring Main System</b> – Redundant, used in critical facilities.</li>
+            <li><b>Selective System</b> – Segregates loads, improves reliability.</li>
+            <li><b>Spot Network</b> – Multiple sources for high reliability.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Industrial Plant Distribution</h2>
+        <p id="s4p">An industrial plant receives 22 kV power from the utility. A main transformer steps down to 400 V. The 400 V switchgear feeds several distribution panels in different areas of the plant. Each panel supplies motor control centers (MCCs), lighting panels, and other loads. Protection coordination ensures selective tripping for faults.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '⚡ Power Distribution',
+            desc: 'Design and planning of power distribution systems, including load centers, switchgear, feeders, and protection coordination for industrial facilities.',
+            s1: '🔹 What is Power Distribution?',
+            s1p: 'Power distribution is the process of transferring electrical power from the main supply (grid, generators) to end-use loads such as motors, lighting, and equipment. It involves transformers, switchgear, distribution panels, feeders, and protection devices. Proper distribution ensures reliable, safe, and efficient operation.',
+            s2: '🔹 Key Components',
+            list1: ['Main Switchgear – Receives power from utility or generators and distributes to loads.','Transformers – Step down voltage from medium to low voltage (e.g., 22 kV to 400 V).','Distribution Panels – Distribute power to local loads (motors, lighting, etc.).','Busbars – Conductors that carry current in switchgear and panels.','Feeders – Cables carrying power from switchgear to loads.','Protection Devices – Circuit breakers, fuses, relays for fault protection.'],
+            s3: '🔹 Distribution Configurations',
+            list2: ['Radial System – Simple, cost-effective, but single point of failure.','Ring Main System – Redundant, used in critical facilities.','Selective System – Segregates loads, improves reliability.','Spot Network – Multiple sources for high reliability.'],
+            s4: '🔹 Example: Industrial Plant Distribution',
+            s4p: 'An industrial plant receives 22 kV power from the utility. A main transformer steps down to 400 V. The 400 V switchgear feeds several distribution panels in different areas of the plant. Each panel supplies motor control centers (MCCs), lighting panels, and other loads. Protection coordination ensures selective tripping for faults.',
+            back: '← Back'
+        },
+        fa: {
+            title: '⚡ توزیع برق',
+            desc: 'طراحی و برنامه‌ریزی سیستم‌های توزیع برق، شامل مراکز بار، تابلوها، فیدرها و هماهنگی حفاظتی برای تأسیسات صنعتی.',
+            s1: '🔹 توزیع برق چیست؟',
+            s1p: 'توزیع برق فرآیند انتقال انرژی الکتریکی از منبع اصلی (شبکه، ژنراتورها) به بارهای مصرفی مانند موتورها، روشنایی و تجهیزات است. شامل ترانسفورماتورها، تابلوها، پنل‌های توزیع، فیدرها و تجهیزات حفاظتی است. توزیع مناسب عملکرد قابل اعتماد، ایمن و کارآمد را تضمین می‌کند.',
+            s2: '🔹 اجزای کلیدی',
+            list1: ['تابلوی اصلی – دریافت برق از شبکه یا ژنراتورها و توزیع به بارها.','ترانسفورماتورها – کاهش ولتاژ از متوسط به فشار ضعیف (مثلاً ۲۲ کیلوولت به ۴۰۰ ولت).','پنل‌های توزیع – توزیع برق به بارهای محلی (موتورها، روشنایی و غیره).','شینه‌ها – هادی‌هایی که جریان را در تابلوها حمل می‌کنند.','فیدرها – کابل‌هایی که برق را از تابلو به بارها می‌رسانند.','تجهیزات حفاظتی – کلیدهای مدار، فیوزها، رله‌ها برای حفاظت در برابر خطا.'],
+            s3: '🔹 پیکربندی‌های توزیع',
+            list2: ['سیستم شعاعی – ساده، مقرون‌به‌صرفه، اما نقطه شکست واحد.','سیستم حلقه‌ای – افزونگی، مورد استفاده در تأسیسات حیاتی.','سیستم انتخابی – تفکیک بارها، بهبود قابلیت اطمینان.','شبکه نقطه‌ای – منابع متعدد برای قابلیت اطمینان بالا.'],
+            s4: '🔹 مثال: توزیع برق کارخانه صنعتی',
+            s4p: 'یک کارخانه صنعتی برق ۲۲ کیلوولت را از شبکه دریافت می‌کند. یک ترانسفورماتور اصلی ولتاژ را به ۴۰۰ ولت کاهش می‌دهد. تابلو ۴۰۰ ولت چندین پنل توزیع را در مناطق مختلف کارخانه تغذیه می‌کند. هر پنل مراکز کنترل موتور (MCC)، پنل‌های روشنایی و سایر بارها را تأمین می‌کند. هماهنگی حفاظتی، قطع انتخابی را برای خطاها تضمین می‌کند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
