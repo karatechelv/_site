@@ -1,127 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Datasheets</title>
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Karatech ELV · Technical Datasheets</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}
-        .brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}
-        .brand span{color:var(--accent)}
-        .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}
-        .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
-        .lang-btn:hover{background:var(--primary);color:#fff}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
         .lang-switch{display:flex;gap:6px}
-        .page-container{max-width:1100px;margin:0 auto;padding:20px}
-        .page-header{background:#1e2128;padding:30px 40px;border-radius:20px;margin-bottom:30px;border-left:5px solid var(--accent)}
-        .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
-        .page-header h1 i{color:var(--accent)}
-        .page-header p{color:#b0b8c5;margin-top:10px;font-size:1.05rem;line-height:1.7}
-        .content-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:30px}
-        .content-card{background:#1e2128;padding:24px;border-radius:16px;border:1px solid rgba(212,175,55,0.06);transition:.3s}
-        .content-card:hover{background:#282d38;transform:translateY(-3px);border-color:rgba(212,175,55,0.2)}
-        .content-card h3{color:#d4af37;font-size:1.2rem;margin-bottom:10px;display:flex;align-items:center;gap:10px}
-        .content-card h3 i{font-size:1.1rem}
-        .content-card p{color:#b0b8c5;line-height:1.7;font-size:.95rem}
-        .content-card ul{list-style:none;padding:0;margin-top:10px}
-        .content-card ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px;font-size:.9rem}
-        .content-card ul li i{color:var(--accent);font-size:.7rem}
-        .back-link{margin-top:30px;text-align:center}
-        .back-link a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s}
-        .back-link a:hover{transform:translateX(-5px)}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .table-wrap{overflow-x:auto;margin:10px 0}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px}
+        th,td{padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
         .lang-persian{direction:rtl}
-        .lang-persian .page-header h1{justify-content:flex-end}
-        .lang-persian .content-card h3{justify-content:flex-end}
-        .lang-persian .content-card ul li{flex-direction:row-reverse}
-        .lang-persian .back-link a{flex-direction:row-reverse}
-        @media(max-width:768px){.page-header h1{font-size:1.8rem}.content-grid{grid-template-columns:1fr}}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
-<header class="header">
-    <div class="brand">KARATECH <span>ELV</span></div>
-    <div class="lang-switch">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="fa">FA</button>
-    </div>
-</header>
-<div class="page-container">
-    <div class="page-header">
-        <h1><i class="fas fa-table"></i> <span data-en="Datasheets" data-fa="دیتاشیت‌ها">Datasheets</span></h1>
-        <p data-en="Technical datasheets and specifications for industrial products. Detailed technical information for selection and application." data-fa="دیتاشیت‌های فنی و مشخصات برای محصولات صنعتی. اطلاعات فنی دقیق برای انتخاب و کاربرد.">Technical datasheets and specifications for industrial products. Detailed technical information for selection and application.</p>
-    </div>
-    <div class="content-grid">
-        <div class="content-card">
-            <h3><i class="fas fa-info-circle"></i> <span data-en="Description" data-fa="توضیحات">Description</span></h3>
-            <p data-en="This section contains technical datasheets and specifications for industrial products, providing detailed technical information for selection and application." data-fa="این بخش شامل دیتاشیت‌های فنی و مشخصات برای محصولات صنعتی است که اطلاعات فنی دقیق برای انتخاب و کاربرد را ارائه می‌دهد.">This section contains technical datasheets and specifications for industrial products, providing detailed technical information for selection and application.</p>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-lightbulb"></i> <span data-en="Contents" data-fa="محتويات">Contents</span></h3>
-            <ul>
-                <li><i class="fas fa-circle"></i> <span data-en="Electrical component datasheets" data-fa="دیتاشیت‌های قطعات الکتریکی">Electrical component datasheets</span></li>
-                <li><i class="fas fa-circle"></i> <span data-en="Automation device datasheets" data-fa="دیتاشیت‌های دستگاه‌های اتوماسیون">Automation device datasheets</span></li>
-                <li><i class="fas fa-circle"></i> <span data-en="Instrumentation datasheets" data-fa="دیتاشیت‌های ابزار دقیق">Instrumentation datasheets</span></li>
-                <li><i class="fas fa-circle"></i> <span data-en="Cable and wiring datasheets" data-fa="دیتاشیت‌های کابل و سیم‌کشی">Cable and wiring datasheets</span></li>
-                <li><i class="fas fa-circle"></i> <span data-en="Software and tools datasheets" data-fa="دیتاشیت‌های نرم‌افزار و ابزارها">Software and tools datasheets</span></li>
-            </ul>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-road"></i> <span data-en="How to Use" data-fa="روش استفاده">How to Use</span></h3>
-            <ul>
-                <li><i class="fas fa-arrow-right"></i> <span data-en="Check product specifications" data-fa="بررسی مشخصات محصول">Check product specifications</span></li>
-                <li><i class="fas fa-arrow-right"></i> <span data-en="Compare different products" data-fa="مقایسه محصولات مختلف">Compare different products</span></li>
-                <li><i class="fas fa-arrow-right"></i> <span data-en="Download for reference" data-fa="دانلود برای مرجع">Download for reference</span></li>
-            </ul>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-download"></i> <span data-en="Downloads" data-fa="دانلودها">Downloads</span></h3>
-            <ul>
-                <li><i class="fas fa-file-pdf"></i> <span data-en="PLC Hardware Datasheet" data-fa="دیتاشیت سخت‌افزار PLC">PLC Hardware Datasheet</span></li>
-                <li><i class="fas fa-file-pdf"></i> <span data-en="HMI Panel Datasheet" data-fa="دیتاشیت پنل HMI">HMI Panel Datasheet</span></li>
-                <li><i class="fas fa-file-pdf"></i> <span data-en="VFD Technical Data" data-fa="داده‌های فنی VFD">VFD Technical Data</span></li>
-                <li><i class="fas fa-file-pdf"></i> <span data-en="Sensor Datasheet" data-fa="دیتاشیت سنسور">Sensor Datasheet</span></li>
-            </ul>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
         </div>
     </div>
-    <div class="back-link">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
+
+    <h1 id="title">📄 Technical Datasheets</h1>
+    <div class="sub" id="desc">A collection of technical datasheets for electrical, automation, instrumentation, and control system components.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What are Technical Datasheets?</h2>
+        <p id="s1p">A technical datasheet (or data sheet) is a document that summarizes the performance, technical characteristics, and specifications of a product, material, or component. Datasheets are essential for engineers during the design, selection, and procurement phases of a project. They provide the critical data needed to ensure compatibility, performance, and compliance with project requirements.</p>
     </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Information in a Datasheet</h2>
+        <ul id="list1">
+            <li><b>Product Overview</b> – Name, type, and description of the product</li>
+            <li><b>Technical Specifications</b> – Electrical ratings, mechanical dimensions, environmental conditions, and performance characteristics</li>
+            <li><b>Electrical Characteristics</b> – Voltage, current, power, frequency, and impedance</li>
+            <li><b>Mechanical Characteristics</b> – Dimensions, weight, mounting, and materials</li>
+            <li><b>Environmental Conditions</b> – Temperature range, humidity, IP rating, and altitude</li>
+            <li><b>Compliance</b> – Certifications (CE, UL, CSA, IEC) and standards met</li>
+            <li><b>Ordering Information</b> – Part numbers, options, and accessories</li>
+            <li><b>Typical Applications</b> – Examples of how the product is used</li>
+            <li><b>Safety Information</b> – Warnings, precautions, and safety ratings</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Example Datasheet: 4-20mA Pressure Transmitter</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th id="th-param">Parameter</th>
+                        <th id="th-value">Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><b>Model</b></td><td>Rosemount 3051S</td></tr>
+                    <tr><td><b>Output Signal</b></td><td>4-20 mA with HART</td></tr>
+                    <tr><td><b>Pressure Range</b></td><td>0-100 bar</td></tr>
+                    <tr><td><b>Accuracy</b></td><td>±0.05% of span</td></tr>
+                    <tr><td><b>Power Supply</b></td><td>12-42 VDC</td></tr>
+                    <tr><td><b>Temperature Range</b></td><td>-40 to +85°C</td></tr>
+                    <tr><td><b>Protection Class</b></td><td>IP67</td></tr>
+                    <tr><td><b>Process Connection</b></td><td>1/2" NPT</td></tr>
+                    <tr><td><b>Materials</b></td><td>316L Stainless Steel</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p id="s3p">This datasheet provides all the necessary information for selecting and installing the pressure transmitter in a process application.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Where to Find Datasheets</h2>
+        <ul id="list2">
+            <li><b>Manufacturer Websites</b> – Siemens, Rockwell, Schneider, ABB, Emerson, etc.</li>
+            <li><b>Distributor Portals</b> – RS Online, Farnell, Digi-Key, Mouser</li>
+            <li><b>Industry Databases</b> – Engineering360, ThomasNet, GlobalSpec</li>
+            <li><b>Technical Libraries</b> – IEEE Xplore, ScienceDirect</li>
+            <li><b>APIs and Aggregators</b> – Octopart, FindChips</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s5">🔹 Example: Selecting a Motor Based on Datasheet</h2>
+        <p id="s5p">An engineer is selecting a 45 kW induction motor for a pump application. They review datasheets from different manufacturers to compare efficiency, starting torque, frame size, weight, and protection rating (IP55 vs IP65). Based on the datasheet data, the engineer selects a motor that meets the required performance, fits the space constraints, and provides the best efficiency.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
 </div>
+
 <script>
-    (function() {
-        const langBtns = document.querySelectorAll('.lang-btn');
-        let currentLang = localStorage.getItem('karatech-lang') || 'en';
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-en]').forEach(el => {
-                const txt = el.dataset[lang];
-                if (txt) {
-                    const nodes = el.childNodes;
-                    for (let n of nodes) {
-                        if (n.nodeType === 3) {
-                            n.textContent = txt;
-                            break;
-                        }
-                    }
-                }
-            });
-            document.body.classList.toggle('lang-persian', lang === 'fa');
-            localStorage.setItem('karatech-lang', lang);
-            langBtns.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
+    const lang = {
+        en: {
+            title: '📄 Technical Datasheets',
+            desc: 'A collection of technical datasheets for electrical, automation, instrumentation, and control system components.',
+            s1: '🔹 What are Technical Datasheets?',
+            s1p: 'A technical datasheet (or data sheet) is a document that summarizes the performance, technical characteristics, and specifications of a product, material, or component. Datasheets are essential for engineers during the design, selection, and procurement phases of a project. They provide the critical data needed to ensure compatibility, performance, and compliance with project requirements.',
+            s2: '🔹 Key Information in a Datasheet',
+            list1: ['Product Overview – Name, type, and description of the product','Technical Specifications – Electrical ratings, mechanical dimensions, environmental conditions, and performance characteristics','Electrical Characteristics – Voltage, current, power, frequency, and impedance','Mechanical Characteristics – Dimensions, weight, mounting, and materials','Environmental Conditions – Temperature range, humidity, IP rating, and altitude','Compliance – Certifications (CE, UL, CSA, IEC) and standards met','Ordering Information – Part numbers, options, and accessories','Typical Applications – Examples of how the product is used','Safety Information – Warnings, precautions, and safety ratings'],
+            s3: '🔹 Example Datasheet: 4-20mA Pressure Transmitter',
+            th_param: 'Parameter',
+            th_value: 'Value',
+            s3p: 'This datasheet provides all the necessary information for selecting and installing the pressure transmitter in a process application.',
+            s4: '🔹 Where to Find Datasheets',
+            list2: ['Manufacturer Websites – Siemens, Rockwell, Schneider, ABB, Emerson, etc.','Distributor Portals – RS Online, Farnell, Digi-Key, Mouser','Industry Databases – Engineering360, ThomasNet, GlobalSpec','Technical Libraries – IEEE Xplore, ScienceDirect','APIs and Aggregators – Octopart, FindChips'],
+            s5: '🔹 Example: Selecting a Motor Based on Datasheet',
+            s5p: 'An engineer is selecting a 45 kW induction motor for a pump application. They review datasheets from different manufacturers to compare efficiency, starting torque, frame size, weight, and protection rating (IP55 vs IP65). Based on the datasheet data, the engineer selects a motor that meets the required performance, fits the space constraints, and provides the best efficiency.',
+            back: '← Back'
+        },
+        fa: {
+            title: '📄 دیتاشیت‌های فنی',
+            desc: 'مجموعه‌ای از دیتاشیت‌های فنی برای قطعات سیستم‌های برق، اتوماسیون، ابزار دقیق و کنترل.',
+            s1: '🔹 دیتاشیت‌های فنی چیستند؟',
+            s1p: 'دیتاشیت فنی (یا برگه داده) سندی است که عملکرد، ویژگی‌های فنی و مشخصات یک محصول، ماده یا قطعه را خلاصه می‌کند. دیتاشیت‌ها برای مهندسان در طول مراحل طراحی، انتخاب و تدارکات پروژه ضروری هستند. آنها داده‌های حیاتی مورد نیاز برای اطمینان از سازگاری، عملکرد و انطباق با الزامات پروژه را فراهم می‌کنند.',
+            s2: '🔹 اطلاعات کلیدی در یک دیتاشیت',
+            list1: ['مرور محصول – نام، نوع و توضیحات محصول','مشخصات فنی – رتبه‌بندی الکتریکی، ابعاد مکانیکی، شرایط محیطی و ویژگی‌های عملکرد','ویژگی‌های الکتریکی – ولتاژ، جریان، توان، فرکانس و امپدانس','ویژگی‌های مکانیکی – ابعاد، وزن، نصب و مواد','شرایط محیطی – محدوده دما، رطوبت، درجه IP و ارتفاع','انطباق – گواهینامه‌ها (CE، UL، CSA، IEC) و استانداردهای رعایت شده','اطلاعات سفارش – شماره قطعات، گزینه‌ها و لوازم جانبی','کاربردهای معمول – مثال‌هایی از نحوه استفاده از محصول','اطلاعات ایمنی – هشدارها، نکات احتیاطی و رتبه‌بندی ایمنی'],
+            s3: '🔹 مثال دیتاشیت: ترانسمیتر فشار ۴-۲۰mA',
+            th_param: 'پارامتر',
+            th_value: 'مقدار',
+            s3p: 'این دیتاشیت تمام اطلاعات لازم برای انتخاب و نصب ترانسمیتر فشار در یک کاربرد فرآیندی را فراهم می‌کند.',
+            s4: '🔹 از کجا دیتاشیت پیدا کنیم',
+            list2: ['وب‌سایت‌های تولیدکننده – زیمنس، راکول، اشنایدر، ABB، امرسون و غیره','پورتال‌های توزیع‌کننده – RS Online، Farnell، Digi-Key، Mouser','پایگاه‌های داده صنعتی – Engineering360، ThomasNet، GlobalSpec','کتابخانه‌های فنی – IEEE Xplore، ScienceDirect','APIها و جمع‌کننده‌ها – Octopart، FindChips'],
+            s5: '🔹 مثال: انتخاب موتور بر اساس دیتاشیت',
+            s5p: 'یک مهندس در حال انتخاب یک موتور القایی ۴۵ کیلووات برای یک کاربرد پمپ است. آنها دیتاشیت‌های تولیدکنندگان مختلف را برای مقایسه بازده، گشتاور راه‌اندازی، اندازه فریم، وزن و رتبه حفاظت (IP55 در مقابل IP65) بررسی می‌کنند. بر اساس داده‌های دیتاشیت، مهندس موتوری را انتخاب می‌کند که عملکرد مورد نیاز را برآورده کرده، در محدودیت‌های فضایی قرار گرفته و بهترین بازده را ارائه می‌دهد.',
+            back: '← بازگشت'
         }
-        setLanguage(currentLang);
-        langBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                setLanguage(this.dataset.lang);
-            });
-        });
-    })();
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s3p').textContent = t.s3p;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s5').textContent = t.s5;
+        document.getElementById('s5p').textContent = t.s5p;
+        document.getElementById('backlink').textContent = t.back;
+        document.getElementById('th-param').textContent = t.th_param;
+        document.getElementById('th-value').textContent = t.th_value;
+
+        const list1 = document.getElementById('list1');
+        list1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
+
+        const list2 = document.getElementById('list2');
+        list2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
 </script>
+
 </body>
 </html>
