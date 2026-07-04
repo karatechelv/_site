@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Management Learning Path</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🗺️ Management Learning Path</h1>
+    <div class="sub" id="desc">A structured learning path to become a skilled engineering manager. From fundamentals to advanced leadership and strategic management.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Foundation Level</h2>
+        <ul id="list1">
+            <li>Basic principles of management and leadership</li>
+            <li>Understanding project management concepts (scope, time, cost)</li>
+            <li>Introduction to risk management and quality management</li>
+            <li>Communication and teamwork fundamentals</li>
+            <li>Engineering economics and cost estimation basics</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Intermediate Level</h2>
+        <ul id="list2">
+            <li>Project planning and scheduling (Gantt charts, CPM, PERT)</li>
+            <li>Resource planning and allocation techniques</li>
+            <li>Risk identification, analysis, and mitigation strategies</li>
+            <li>Quality management systems (ISO 9001) and continuous improvement</li>
+            <li>Budgeting and cost control in engineering projects</li>
+            <li>Engineering workflow optimization and process mapping</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Advanced Level</h2>
+        <ul id="list3">
+            <li>Strategic management and organizational behavior</li>
+            <li>Advanced project management (earned value management, risk simulation)</li>
+            <li>Change management and innovation in engineering</li>
+            <li>Leadership styles and team dynamics</li>
+            <li>Contract management and procurement strategies</li>
+            <li>Stakeholder management and negotiation</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Continuous Learning</h2>
+        <ul id="list4">
+            <li>Stay updated with PMBOK, ISO standards, and best practices</li>
+            <li>Attend project management and leadership seminars</li>
+            <li>Certifications (PMP, PRINCE2, PMI-ACP, Lean Six Sigma)</li>
+            <li>Join professional networks (PMI, ASEM, IPMA)</li>
+            <li>Mentoring and coaching in engineering management</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🗺️ Management Learning Path',
+            desc: 'A structured learning path to become a skilled engineering manager. From fundamentals to advanced leadership and strategic management.',
+            s1: '🔹 Foundation Level',
+            list1: ['Basic principles of management and leadership','Understanding project management concepts (scope, time, cost)','Introduction to risk management and quality management','Communication and teamwork fundamentals','Engineering economics and cost estimation basics'],
+            s2: '🔹 Intermediate Level',
+            list2: ['Project planning and scheduling (Gantt charts, CPM, PERT)','Resource planning and allocation techniques','Risk identification, analysis, and mitigation strategies','Quality management systems (ISO 9001) and continuous improvement','Budgeting and cost control in engineering projects','Engineering workflow optimization and process mapping'],
+            s3: '🔹 Advanced Level',
+            list3: ['Strategic management and organizational behavior','Advanced project management (earned value management, risk simulation)','Change management and innovation in engineering','Leadership styles and team dynamics','Contract management and procurement strategies','Stakeholder management and negotiation'],
+            s4: '🔹 Continuous Learning',
+            list4: ['Stay updated with PMBOK, ISO standards, and best practices','Attend project management and leadership seminars','Certifications (PMP, PRINCE2, PMI-ACP, Lean Six Sigma)','Join professional networks (PMI, ASEM, IPMA)','Mentoring and coaching in engineering management'],
+            back: '← Back'
+        },
+        fa: {
+            title: '🗺️ مسیر یادگیری مدیریت مهندسی',
+            desc: 'یک مسیر یادگیری ساختاریافته برای تبدیل شدن به یک مدیر مهندسی ماهر. از مبانی تا رهبری پیشرفته و مدیریت استراتژیک.',
+            s1: '🔹 سطح پایه',
+            list1: ['اصول پایه مدیریت و رهبری','درک مفاهیم مدیریت پروژه (محدوده، زمان، هزینه)','آشنایی با مدیریت ریسک و مدیریت کیفیت','مبانی ارتباطات و کار تیمی','اقتصاد مهندسی و مبانی برآورد هزینه'],
+            s2: '🔹 سطح متوسط',
+            list2: ['برنامه‌ریزی و زمان‌بندی پروژه (نمودارهای گانت، CPM، PERT)','تکنیک‌های برنامه‌ریزی و تخصیص منابع','شناسایی، تحلیل و راهبردهای کاهش ریسک','سیستم‌های مدیریت کیفیت (ISO 9001) و بهبود مستمر','بودجه‌بندی و کنترل هزینه در پروژه‌های مهندسی','بهینه‌سازی جریان کار مهندسی و نقشه‌برداری فرآیند'],
+            s3: '🔹 سطح پیشرفته',
+            list3: ['مدیریت استراتژیک و رفتار سازمانی','مدیریت پروژه پیشرفته (مدیریت ارزش کسب‌شده، شبیه‌سازی ریسک)','مدیریت تغییر و نوآوری در مهندسی','سبک‌های رهبری و پویایی تیم','مدیریت قرارداد و راهبردهای تدارکات','مدیریت ذی‌نفعان و مذاکره'],
+            s4: '🔹 یادگیری مستمر',
+            list4: ['به‌روز ماندن با PMBOK، استانداردهای ISO و بهترین شیوه‌ها','شرکت در سمینارهای مدیریت پروژه و رهبری','گواهینامه‌ها (PMP، PRINCE2، PMI-ACP، ناب و شش سیگما)','عضویت در شبکه‌های حرفه‌ای (PMI، ASEM، IPMA)','منتورینگ و کوچینگ در مدیریت مهندسی'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        const ul4 = document.getElementById('list4');
+        ul4.innerHTML = '';
+        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
