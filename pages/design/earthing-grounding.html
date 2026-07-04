@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Earthing & Grounding</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">⚡ Earthing & Grounding</h1>
+    <div class="sub" id="desc">Principles, design, and installation of earthing and grounding systems for safety, protection, and electromagnetic compatibility.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Importance of Earthing</h2>
+        <p id="s1p">Earthing (or grounding) is a critical safety measure that provides a low-impedance path for fault currents to flow to the earth. It protects personnel from electric shock, prevents equipment damage, ensures proper operation of protection devices, and reduces electromagnetic interference.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Types of Earthing Systems</h2>
+        <ul id="list1">
+            <li><b>TN System</b> – Neutral directly earthed, exposed conductive parts connected to neutral.</li>
+            <li><b>TT System</b> – Neutral earthed, exposed conductive parts earthed separately.</li>
+            <li><b>IT System</b> – Neutral isolated or earthed via high impedance, exposed parts earthed.</li>
+            <li><b>Protective Earthing</b> – For equipment and enclosures.</li>
+            <li><b>Functional Earthing</b> – For sensitive electronic equipment (e.g., PLC, instruments).</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Key Components</h2>
+        <ul id="list2">
+            <li><b>Earth Electrodes</b> – Rods, plates, or strips buried in the ground.</li>
+            <li><b>Earthing Conductors</b> – Copper or galvanized steel connections.</li>
+            <li><b>Earth Bars</b> – Main distribution point for earthing connections.</li>
+            <li><b>Measurement Points</b> – For testing resistance.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Substation Earthing Design</h2>
+        <p id="s4p">A substation earthing system includes a ring earth electrode buried around the perimeter, connected to all equipment. The design ensures that touch and step voltages are within safe limits. Resistance to earth is measured using a fall-of-potential method to verify compliance with IEEE 80.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '⚡ Earthing & Grounding',
+            desc: 'Principles, design, and installation of earthing and grounding systems for safety, protection, and electromagnetic compatibility.',
+            s1: '🔹 Importance of Earthing',
+            s1p: 'Earthing (or grounding) is a critical safety measure that provides a low-impedance path for fault currents to flow to the earth. It protects personnel from electric shock, prevents equipment damage, ensures proper operation of protection devices, and reduces electromagnetic interference.',
+            s2: '🔹 Types of Earthing Systems',
+            list1: ['TN System – Neutral directly earthed, exposed conductive parts connected to neutral.','TT System – Neutral earthed, exposed conductive parts earthed separately.','IT System – Neutral isolated or earthed via high impedance, exposed parts earthed.','Protective Earthing – For equipment and enclosures.','Functional Earthing – For sensitive electronic equipment (e.g., PLC, instruments).'],
+            s3: '🔹 Key Components',
+            list2: ['Earth Electrodes – Rods, plates, or strips buried in the ground.','Earthing Conductors – Copper or galvanized steel connections.','Earth Bars – Main distribution point for earthing connections.','Measurement Points – For testing resistance.'],
+            s4: '🔹 Example: Substation Earthing Design',
+            s4p: 'A substation earthing system includes a ring earth electrode buried around the perimeter, connected to all equipment. The design ensures that touch and step voltages are within safe limits. Resistance to earth is measured using a fall-of-potential method to verify compliance with IEEE 80.',
+            back: '← Back'
+        },
+        fa: {
+            title: '⚡ ارت و ارتینگ',
+            desc: 'اصول، طراحی و نصب سیستم‌های ارتینگ برای ایمنی، حفاظت و سازگاری الکترومغناطیسی.',
+            s1: '🔹 اهمیت ارتینگ',
+            s1p: 'ارتینگ یک اقدام ایمنی حیاتی است که مسیری با امپدانس کم برای جریان‌های خطا به زمین فراهم می‌کند. از پرسنل در برابر شوک الکتریکی محافظت می‌کند، از آسیب به تجهیزات جلوگیری می‌کند، عملکرد صحیح تجهیزات حفاظتی را تضمین کرده و تداخل الکترومغناطیسی را کاهش می‌دهد.',
+            s2: '🔹 انواع سیستم‌های ارتینگ',
+            list1: ['سیستم TN – نول مستقیماً ارت شده، بخش‌های رسانا در معرض به نول متصل می‌شوند.','سیستم TT – نول ارت شده، بخش‌های رسانا در معرض به طور جداگانه ارت می‌شوند.','سیستم IT – نول ایزوله یا از طریق امپدانس بالا ارت شده، بخش‌های در معرض ارت می‌شوند.','ارت حفاظتی – برای تجهیزات و محفظه‌ها.','ارت عملکردی – برای تجهیزات الکترونیکی حساس (مثلاً PLC، ابزار دقیق).'],
+            s3: '🔹 اجزای کلیدی',
+            list2: ['الکترودهای زمین – میله‌ها، صفحات یا نوارهای مدفون در زمین.','هادی‌های ارتینگ – اتصالات مسی یا فولاد گالوانیزه.','شینه‌های ارت – نقطه توزیع اصلی برای اتصالات ارتینگ.','نقاط اندازه‌گیری – برای تست مقاومت.'],
+            s4: '🔹 مثال: طراحی ارتینگ پست برق',
+            s4p: 'یک سیستم ارتینگ پست برق شامل یک الکترود حلقه‌ای مدفون در اطراف محیط است که به تمام تجهیزات متصل می‌شود. طراحی تضمین می‌کند که ولتاژهای تماس و گام در محدوده ایمن هستند. مقاومت به زمین با استفاده از روش افت پتانسیل برای تأیید انطباق با IEEE 80 اندازه‌گیری می‌شود.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
