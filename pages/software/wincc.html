@@ -1,120 +1,199 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karatech ELV · WinCC</title>
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}
-        .brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}
-        .brand span{color:var(--accent)}
-        .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}
-        .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
-        .lang-btn:hover{background:var(--primary);color:#fff}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
         .lang-switch{display:flex;gap:6px}
-        .page-container{max-width:1100px;margin:0 auto;padding:20px}
-        .page-header{background:#1e2128;padding:30px 40px;border-radius:20px;margin-bottom:30px;border-left:5px solid var(--accent)}
-        .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
-        .page-header h1 i{color:var(--accent)}
-        .page-header p{color:#b0b8c5;margin-top:10px;font-size:1.05rem;line-height:1.7}
-        .content-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:30px}
-        .content-card{background:#1e2128;padding:24px;border-radius:16px;border:1px solid rgba(212,175,55,0.06);transition:.3s}
-        .content-card:hover{background:#282d38;transform:translateY(-3px);border-color:rgba(212,175,55,0.2)}
-        .content-card h3{color:#d4af37;font-size:1.2rem;margin-bottom:10px;display:flex;align-items:center;gap:10px}
-        .content-card h3 i{font-size:1.1rem}
-        .content-card p{color:#b0b8c5;line-height:1.7;font-size:.95rem}
-        .content-card ul{list-style:none;padding:0;margin-top:10px}
-        .content-card ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px;font-size:.9rem}
-        .content-card ul li i{color:var(--accent);font-size:.7rem}
-        .back-link{margin-top:30px;text-align:center}
-        .back-link a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s}
-        .back-link a:hover{transform:translateX(-5px)}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
         .lang-persian{direction:rtl}
-        .lang-persian .page-header h1{justify-content:flex-end}
-        .lang-persian .content-card h3{justify-content:flex-end}
-        .lang-persian .content-card ul li{flex-direction:row-reverse}
-        .lang-persian .back-link a{flex-direction:row-reverse}
-        @media(max-width:768px){.page-header h1{font-size:1.8rem}.content-grid{grid-template-columns:1fr}}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
-<header class="header">
-    <div class="brand">KARATECH <span>ELV</span></div>
-    <div class="lang-switch">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="fa">FA</button>
-    </div>
-</header>
-<div class="page-container">
-    <div class="page-header">
-        <h1><i class="fas fa-desktop"></i> <span data-en="WinCC" data-fa="وین‌سی‌سی">WinCC</span></h1>
-        <p data-en="Siemens' SCADA system for visualizing and controlling industrial processes. Comprehensive monitoring, alarming, and reporting capabilities." data-fa="سیستم SCADA زیمنس برای可视化 و کنترل فرآیندهای صنعتی. قابلیت‌های جامع پایش، هشدار و گزارش‌دهی.">Siemens' SCADA system for visualizing and controlling industrial processes. Comprehensive monitoring, alarming, and reporting capabilities.</p>
-    </div>
-    <div class="content-grid">
-        <div class="content-card">
-            <h3><i class="fas fa-info-circle"></i> <span data-en="Description" data-fa="توضیحات">Description</span></h3>
-            <p data-en="WinCC (Windows Control Center) is Siemens' SCADA system for visualizing and controlling industrial processes. It offers comprehensive monitoring, alarming, and reporting capabilities." data-fa="WinCC (مرکز کنترل ویندوز) سیستم SCADA زیمنس برای可视化 و کنترل فرآیندهای صنعتی است. قابلیت‌های جامع پایش، هشدار و گزارش‌دهی را ارائه می‌دهد.">WinCC (Windows Control Center) is Siemens' SCADA system for visualizing and controlling industrial processes. It offers comprehensive monitoring, alarming, and reporting capabilities.</p>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-lightbulb"></i> <span data-en="Example" data-fa="مثال">Example</span></h3>
-            <p data-en="Implementing a WinCC SCADA system for a water treatment plant, including process visualization, trend analysis, and remote monitoring of pumps and valves." data-fa="پیاده‌سازی سیستم SCADA WinCC برای یک تصفیه‌خانه آب، شامل可视化 فرآیند، تحلیل روند و پایش از راه دور پمپ‌ها و شیرها.">Implementing a WinCC SCADA system for a water treatment plant, including process visualization, trend analysis, and remote monitoring of pumps and valves.</p>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-road"></i> <span data-en="Learning Path" data-fa="مسیر یادگیری">Learning Path</span></h3>
-            <ul>
-                <li><i class="fas fa-arrow-right"></i> <strong data-en="Foundation:" data-fa="مقدماتی:">Foundation:</strong> <span data-en="Understanding SCADA and WinCC basics" data-fa="آشنایی با SCADA و مبانی WinCC">Understanding SCADA and WinCC basics</span></li>
-                <li><i class="fas fa-arrow-right"></i> <strong data-en="Intermediate:" data-fa="متوسط:">Intermediate:</strong> <span data-en="Creating screens and connecting to PLCs" data-fa="ایجاد صفحه‌ها و اتصال به PLC">Creating screens and connecting to PLCs</span></li>
-                <li><i class="fas fa-arrow-right"></i> <strong data-en="Advanced:" data-fa="پیشرفته:">Advanced:</strong> <span data-en="Advanced scripting, reporting, and system integration" data-fa="اسکریپت‌نویسی پیشرفته، گزارش‌دهی و یکپارچه‌سازی سیستم">Advanced scripting, reporting, and system integration</span></li>
-            </ul>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-video"></i> <span data-en="Resources" data-fa="منابع">Resources</span></h3>
-            <ul>
-                <li><i class="fas fa-file-pdf"></i> <span data-en="WinCC Training Courses" data-fa="دوره‌های آموزشی WinCC">WinCC Training Courses</span></li>
-                <li><i class="fas fa-file-pdf"></i> <span data-en="System Architecture Examples" data-fa="نمونه معماری سیستم">System Architecture Examples</span></li>
-                <li><i class="fas fa-video"></i> <span data-en="User Community and Support" data-fa="جامعه کاربران و پشتیبانی">User Community and Support</span></li>
-            </ul>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
         </div>
     </div>
-    <div class="back-link">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
+
+    <h1 id="title">📊 WinCC</h1>
+    <div class="sub" id="desc">WinCC (Windows Control Center) is Siemens' SCADA and HMI system for monitoring, controlling, and visualizing industrial processes.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Description</h2>
+        <p id="s1p">WinCC is a comprehensive SCADA (Supervisory Control and Data Acquisition) and HMI (Human-Machine Interface) system from Siemens. It provides powerful tools for process visualization, alarm management, data logging, and operator control. WinCC integrates with Siemens PLCs (S7) and other automation systems via OPC and industrial networks.</p>
     </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Purpose</h2>
+        <p id="s2p">The purpose of WinCC is to provide operators and engineers with real-time visibility and control over industrial processes. It enables efficient monitoring, fault detection, and process optimization. WinCC supports scalable applications from small machines to large plant-wide systems.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Example</h2>
+        <p id="s3p">An engineer uses WinCC to design a SCADA system for a water treatment plant. They create a graphical interface showing tank levels, pump status, flow rates, and chemical dosing parameters. Alarms are configured for high/low levels and equipment faults. Historical data is logged for trend analysis and reporting.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Learning Path</h2>
+        <ul id="list1">
+            <li>Introduction to WinCC and SCADA concepts</li>
+            <li>Creating projects and configuring communication (S7, OPC)</li>
+            <li>Designing graphical screens and process displays</li>
+            <li>Alarm management and event logging</li>
+            <li>Trending, reporting, and data archiving</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s5">🔹 Resources</h2>
+        <ul id="list2">
+            <li>Siemens Industry Online Support (WinCC manuals, FAQs)</li>
+            <li>Official Siemens training (SITRAIN)</li>
+            <li>WinCC Help and Documentation</li>
+            <li>YouTube tutorials (Siemens, RealPars)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s6">🔹 Software</h2>
+        <ul id="list3">
+            <li>WinCC (Basic, Advanced, Professional editions)</li>
+            <li>WinCC Unified (web-based SCADA)</li>
+            <li>WinCC OA (Open Architecture)</li>
+            <li>Integration with TIA Portal</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s7">🔹 Videos & Future Lessons</h2>
+        <ul id="list4">
+            <li>Getting Started with WinCC</li>
+            <li>Creating HMI Screens and Process Displays</li>
+            <li>Alarm Management and Data Logging (Future)</li>
+            <li>Web-Based SCADA with WinCC Unified (Future)</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
 </div>
+
 <script>
-    (function() {
-        const langBtns = document.querySelectorAll('.lang-btn');
-        let currentLang = localStorage.getItem('karatech-lang') || 'en';
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-en]').forEach(el => {
-                const txt = el.dataset[lang];
-                if (txt) {
-                    const nodes = el.childNodes;
-                    for (let n of nodes) {
-                        if (n.nodeType === 3) {
-                            n.textContent = txt;
-                            break;
-                        }
-                    }
-                }
-            });
-            document.body.classList.toggle('lang-persian', lang === 'fa');
-            localStorage.setItem('karatech-lang', lang);
-            langBtns.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
+    const lang = {
+        en: {
+            title: '📊 WinCC',
+            desc: 'WinCC (Windows Control Center) is Siemens\' SCADA and HMI system for monitoring, controlling, and visualizing industrial processes.',
+            s1: '🔹 Description',
+            s1p: 'WinCC is a comprehensive SCADA (Supervisory Control and Data Acquisition) and HMI (Human-Machine Interface) system from Siemens. It provides powerful tools for process visualization, alarm management, data logging, and operator control. WinCC integrates with Siemens PLCs (S7) and other automation systems via OPC and industrial networks.',
+            s2: '🔹 Purpose',
+            s2p: 'The purpose of WinCC is to provide operators and engineers with real-time visibility and control over industrial processes. It enables efficient monitoring, fault detection, and process optimization. WinCC supports scalable applications from small machines to large plant-wide systems.',
+            s3: '🔹 Example',
+            s3p: 'An engineer uses WinCC to design a SCADA system for a water treatment plant. They create a graphical interface showing tank levels, pump status, flow rates, and chemical dosing parameters. Alarms are configured for high/low levels and equipment faults. Historical data is logged for trend analysis and reporting.',
+            s4: '🔹 Learning Path',
+            list1: ['Introduction to WinCC and SCADA concepts','Creating projects and configuring communication (S7, OPC)','Designing graphical screens and process displays','Alarm management and event logging','Trending, reporting, and data archiving'],
+            s5: '🔹 Resources',
+            list2: ['Siemens Industry Online Support (WinCC manuals, FAQs)','Official Siemens training (SITRAIN)','WinCC Help and Documentation','YouTube tutorials (Siemens, RealPars)'],
+            s6: '🔹 Software',
+            list3: ['WinCC (Basic, Advanced, Professional editions)','WinCC Unified (web-based SCADA)','WinCC OA (Open Architecture)','Integration with TIA Portal'],
+            s7: '🔹 Videos & Future Lessons',
+            list4: ['Getting Started with WinCC','Creating HMI Screens and Process Displays','Alarm Management and Data Logging (Future)','Web-Based SCADA with WinCC Unified (Future)'],
+            back: '← Back'
+        },
+        fa: {
+            title: '📊 WinCC',
+            desc: 'WinCC سیستم SCADA و HMI زیمنس برای نظارت، کنترل و تصویرسازی فرآیندهای صنعتی است.',
+            s1: '🔹 توضیحات',
+            s1p: 'WinCC یک سیستم جامع SCADA و HMI از زیمنس است. ابزارهای قدرتمندی برای تصویرسازی فرآیند، مدیریت هشدار، ثبت داده و کنترل اپراتور فراهم می‌کند. WinCC با PLCهای زیمنس (S7) و سایر سیستم‌های اتوماسیون از طریق OPC و شبکه‌های صنعتی یکپارچه می‌شود.',
+            s2: '🔹 هدف',
+            s2p: 'هدف WinCC ارائه دید و کنترل بلادرنگ به اپراتورها و مهندسان بر فرآیندهای صنعتی است. نظارت کارآمد، تشخیص خطا و بهینه‌سازی فرآیند را امکان‌پذیر می‌سازد. WinCC از برنامه‌های مقیاس‌پذیر از ماشین‌های کوچک تا سیستم‌های بزرگ کارخانه پشتیبانی می‌کند.',
+            s3: '🔹 مثال',
+            s3p: 'یک مهندس از WinCC برای طراحی یک سیستم SCADA برای یک تصفیه‌خانه آب استفاده می‌کند. آنها یک رابط گرافیکی ایجاد می‌کنند که سطح مخازن، وضعیت پمپ‌ها، دبی‌ها و پارامترهای دوز مواد شیمیایی را نشان می‌دهد. هشدارها برای سطوح بالا/پایین و خرابی تجهیزات پیکربندی می‌شوند. داده‌های تاریخی برای تحلیل روند و گزارش‌دهی ثبت می‌شوند.',
+            s4: '🔹 مسیر یادگیری',
+            list1: ['آشنایی با WinCC و مفاهیم SCADA','ایجاد پروژه‌ها و پیکربندی ارتباط (S7، OPC)','طراحی صفحه‌های گرافیکی و نمایش‌های فرآیند','مدیریت هشدار و ثبت رویداد','روندیابی، گزارش‌دهی و بایگانی داده'],
+            s5: '🔹 منابع',
+            list2: ['پشتیبانی آنلاین صنعت زیمنس (دفترچه‌های WinCC، سوالات متداول)','آموزش‌های رسمی زیمنس (SITRAIN)','راهنما و مستندات WinCC','آموزش‌های یوتیوب (زیمنس، RealPars)'],
+            s6: '🔹 نرم‌افزار',
+            list3: ['WinCC (نسخه‌های Basic، Advanced، Professional)','WinCC Unified (SCADA مبتنی بر وب)','WinCC OA (معماری باز)','یکپارچه‌سازی با TIA Portal'],
+            s7: '🔹 ویدئوها و درس‌های آینده',
+            list4: ['شروع کار با WinCC','ایجاد صفحه‌های HMI و نمایش‌های فرآیند','مدیریت هشدار و ثبت داده (آینده)','SCADA مبتنی بر وب با WinCC Unified (آینده)'],
+            back: '← بازگشت'
         }
-        setLanguage(currentLang);
-        langBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                setLanguage(this.dataset.lang);
-            });
-        });
-    })();
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s2p').textContent = t.s2p;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s3p').textContent = t.s3p;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s5').textContent = t.s5;
+        document.getElementById('s6').textContent = t.s6;
+        document.getElementById('s7').textContent = t.s7;
+        document.getElementById('backlink').textContent = t.back;
+
+        const list1 = document.getElementById('list1');
+        list1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
+
+        const list2 = document.getElementById('list2');
+        list2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
+
+        const list3 = document.getElementById('list3');
+        list3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; list3.appendChild(li); });
+
+        const list4 = document.getElementById('list4');
+        list4.innerHTML = '';
+        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; list4.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
 </script>
+
 </body>
 </html>
