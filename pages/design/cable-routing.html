@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Cable Routing</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🔌 Cable Routing</h1>
+    <div class="sub" id="desc">Principles and practices for routing cables in industrial facilities, including cable trays, conduits, segregation, and installation standards.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Cable Routing?</h2>
+        <p id="s1p">Cable routing is the process of planning and installing the physical pathways for electrical and instrumentation cables in industrial facilities. Proper routing ensures safety, minimizes interference, provides access for maintenance, and protects cables from mechanical and environmental damage.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Considerations</h2>
+        <ul id="list1">
+            <li><b>Segregation</b> – Separate power and control cables to avoid interference</li>
+            <li><b>Supports</b> – Use cable trays, conduits, or ladder racks with proper spacing</li>
+            <li><b>Bend Radius</b> – Maintain minimum bend radius to prevent cable damage</li>
+            <li><b>Identification</b> – Use tags, labels, and color coding for easy identification</li>
+            <li><b>Earthing</b> – Proper grounding of cable trays and armor</li>
+            <li><b>Fire Protection</b> – Use fire-resistant cables and fire stops in penetrations</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Cable Routing Systems</h2>
+        <ul id="list2">
+            <li><b>Cable Tray</b> – Ladder, perforated, or solid bottom for open routing</li>
+            <li><b>Conduit</b> – Rigid or flexible metallic/plastic tubes for protection</li>
+            <li><b>Trunking</b> – Enclosed channels for indoor wiring</li>
+            <li><b>Underground Ducts</b> – For outdoor and buried installations</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Cable Tray Installation</h2>
+        <p id="s4p">A cable tray system is installed in a chemical plant to support power and control cables. The tray is mounted on supports every 1.5 meters, with segregation using dividers or separate trays. Cables are labeled at both ends and at regular intervals for easy identification.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🔌 Cable Routing',
+            desc: 'Principles and practices for routing cables in industrial facilities, including cable trays, conduits, segregation, and installation standards.',
+            s1: '🔹 What is Cable Routing?',
+            s1p: 'Cable routing is the process of planning and installing the physical pathways for electrical and instrumentation cables in industrial facilities. Proper routing ensures safety, minimizes interference, provides access for maintenance, and protects cables from mechanical and environmental damage.',
+            s2: '🔹 Key Considerations',
+            list1: ['Segregation – Separate power and control cables to avoid interference','Supports – Use cable trays, conduits, or ladder racks with proper spacing','Bend Radius – Maintain minimum bend radius to prevent cable damage','Identification – Use tags, labels, and color coding for easy identification','Earthing – Proper grounding of cable trays and armor','Fire Protection – Use fire-resistant cables and fire stops in penetrations'],
+            s3: '🔹 Cable Routing Systems',
+            list2: ['Cable Tray – Ladder, perforated, or solid bottom for open routing','Conduit – Rigid or flexible metallic/plastic tubes for protection','Trunking – Enclosed channels for indoor wiring','Underground Ducts – For outdoor and buried installations'],
+            s4: '🔹 Example: Cable Tray Installation',
+            s4p: 'A cable tray system is installed in a chemical plant to support power and control cables. The tray is mounted on supports every 1.5 meters, with segregation using dividers or separate trays. Cables are labeled at both ends and at regular intervals for easy identification.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🔌 مسیریابی کابل',
+            desc: 'اصول و روش‌های مسیریابی کابل‌ها در تأسیسات صنعتی، شامل تری‌های کابل، کاندوئیت‌ها، تفکیک و استانداردهای نصب.',
+            s1: '🔹 مسیریابی کابل چیست؟',
+            s1p: 'مسیریابی کابل فرآیند برنامه‌ریزی و نصب مسیرهای فیزیکی برای کابل‌های الکتریکی و ابزار دقیق در تأسیسات صنعتی است. مسیریابی مناسب ایمنی را تضمین، تداخل را به حداقل می‌رساند، دسترسی برای نگهداری را فراهم کرده و کابل‌ها را از آسیب‌های مکانیکی و محیطی محافظت می‌کند.',
+            s2: '🔹 ملاحظات کلیدی',
+            list1: ['تفکیک – جداسازی کابل‌های قدرت و کنترل برای جلوگیری از تداخل','تکیه‌گاه‌ها – استفاده از تری‌های کابل، کاندوئیت یا قفسه‌های نردبانی با فاصله مناسب','شعاع خمش – حفظ حداقل شعاع خمش برای جلوگیری از آسیب کابل','شناسایی – استفاده از برچسب‌ها، لیبل‌ها و کدگذاری رنگی برای شناسایی آسان','ارتینگ – زمین کردن مناسب تری‌های کابل و زره','حفاظت در برابر آتش – استفاده از کابل‌های مقاوم در برابر آتش و توقف‌های آتش در نفوذها'],
+            s3: '🔹 سیستم‌های مسیریابی کابل',
+            list2: ['تری کابل – نردبانی، سوراخ‌دار یا کف جامد برای مسیریابی باز','کاندوئیت – لوله‌های فلزی یا پلاستیکی سخت یا انعطاف‌پذیر برای محافظت','ترانکینگ – کانال‌های بسته برای سیم‌کشی داخلی','داکت‌های زیرزمینی – برای نصب در فضای باز و مدفون'],
+            s4: '🔹 مثال: نصب تری کابل',
+            s4p: 'یک سیستم تری کابل در یک کارخانه شیمیایی برای پشتیبانی از کابل‌های قدرت و کنترل نصب شده است. تری بر روی تکیه‌گاه‌هایی با فاصله ۱.۵ متر نصب شده و با استفاده از تقسیم‌کننده‌ها یا تری‌های جداگانه تفکیک شده است. کابل‌ها در هر دو انتها و در فواصل منظم برای شناسایی آسان برچسب‌گذاری شده‌اند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
