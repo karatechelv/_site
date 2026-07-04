@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · HMI Design</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🖥️ HMI Design</h1>
+    <div class="sub" id="desc">Human-Machine Interface (HMI) design principles, software tools, and best practices for creating effective operator interfaces.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is HMI Design?</h2>
+        <p id="s1p">HMI (Human-Machine Interface) design involves creating graphical interfaces that allow operators to monitor and control industrial processes. Good HMI design improves usability, reduces errors, and enhances operator efficiency.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Principles</h2>
+        <ul id="list1">
+            <li>Simplicity – Avoid clutter, show only necessary information</li>
+            <li>Consistency – Use uniform colors, fonts, and layouts</li>
+            <li>Feedback – Provide clear visual and audible feedback for actions</li>
+            <li>Alarm Management – Prioritize and group alarms logically</li>
+            <li>Navigation – Intuitive and easy to navigate screens</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Popular HMI Software</h2>
+        <ul id="list2">
+            <li>Siemens WinCC</li>
+            <li>Schneider Vijeo Designer</li>
+            <li>Rockwell FactoryTalk View</li>
+            <li>InduSoft Web Studio</li>
+            <li>EasyBuilder Pro (Weintek)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Tank Level Monitor</h2>
+        <div class="code-box">
+            HMI Screen Layout:<br>
+            - Tank graphic with level indicator (bar or numerical)<br>
+            - Start/Stop pump buttons<br>
+            - Alarm indicator (high/low level)<br>
+            - Trend chart for level history
+        </div>
+        <p id="s4p">A simple HMI screen for monitoring and controlling a liquid tank level, with clear status indicators and control elements.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🖥️ HMI Design',
+            desc: 'Human-Machine Interface (HMI) design principles, software tools, and best practices for creating effective operator interfaces.',
+            s1: '🔹 What is HMI Design?',
+            s1p: 'HMI (Human-Machine Interface) design involves creating graphical interfaces that allow operators to monitor and control industrial processes. Good HMI design improves usability, reduces errors, and enhances operator efficiency.',
+            s2: '🔹 Key Principles',
+            list1: ['Simplicity – Avoid clutter, show only necessary information','Consistency – Use uniform colors, fonts, and layouts','Feedback – Provide clear visual and audible feedback for actions','Alarm Management – Prioritize and group alarms logically','Navigation – Intuitive and easy to navigate screens'],
+            s3: '🔹 Popular HMI Software',
+            list2: ['Siemens WinCC','Schneider Vijeo Designer','Rockwell FactoryTalk View','InduSoft Web Studio','EasyBuilder Pro (Weintek)'],
+            s4: '🔹 Example: Tank Level Monitor',
+            s4p: 'A simple HMI screen for monitoring and controlling a liquid tank level, with clear status indicators and control elements.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🖥️ طراحی HMI',
+            desc: 'اصول طراحی رابط انسان و ماشین (HMI)، ابزارهای نرم‌افزاری و بهترین روش‌ها برای ایجاد رابط‌های کاربری مؤثر.',
+            s1: '🔹 طراحی HMI چیست؟',
+            s1p: 'طراحی HMI (رابط انسان و ماشین) شامل ایجاد رابط‌های گرافیکی است که به اپراتورها امکان نظارت و کنترل فرآیندهای صنعتی را می‌دهد. طراحی خوب HMI باعث بهبود قابلیت استفاده، کاهش خطا و افزایش کارایی اپراتور می‌شود.',
+            s2: '🔹 اصول کلیدی',
+            list1: ['سادگی – اجتناب از شلوغی، نمایش فقط اطلاعات ضروری','ثبات – استفاده از رنگ‌ها، فونت‌ها و چیدمان یکنواخت','بازخورد – ارائه بازخورد بصری و صوتی واضح برای اقدامات','مدیریت هشدار – اولویت‌بندی و گروه‌بندی منطقی هشدارها','ناوبری – صفحه‌های شهودی و آسان برای حرکت'],
+            s3: '🔹 نرم‌افزارهای محبوب HMI',
+            list2: ['زیمنس WinCC','اشنایدر Vijeo Designer','راکول FactoryTalk View','InduSoft Web Studio','EasyBuilder Pro (وینتک)'],
+            s4: '🔹 مثال: مانیتور سطح مخزن',
+            s4p: 'یک صفحه HMI ساده برای نظارت و کنترل سطح مخزن مایع، با نشانگرهای وضعیت واضح و عناصر کنترلی.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
