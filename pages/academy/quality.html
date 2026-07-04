@@ -8,86 +8,180 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../../style.css">
+    <style>
+        :root {
+            --primary: #5b3b8c;
+            --accent: #d4af37;
+            --bg: #0d0e12;
+            --card: #1a1d24;
+            --text: #eef0f4;
+            --muted: #8e95a5;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 32px;
+            background: rgba(13,14,18,0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212,175,55,0.12);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .brand { font-weight:700; font-size:1.4rem; color:#fff; }
+        .brand span { color: var(--accent); }
+        .back-link { color: var(--accent); text-decoration:none; font-weight:500; }
+        .back-link:hover { color:#fff; }
+
+        .page-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: 
+                linear-gradient(rgba(13,14,18,0.80), rgba(13,14,18,0.88)),
+                url('https://images.unsplash.com/photo-1581092335872-4f5b7b8c8c9f?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 90vh;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            border-left: 3px solid var(--accent);
+            padding-left: 16px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: rgba(26,29,36,0.85);
+            backdrop-filter: blur(6px);
+            border-radius: 20px;
+            padding: 24px 20px;
+            border: 1px solid rgba(212,175,55,0.08);
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            background: rgba(37,42,52,0.92);
+        }
+        .card i {
+            font-size: 2.2rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+            display: block;
+        }
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+        .card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding: 20px 16px;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+        .footer a { color: var(--accent); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        .footer i { margin-right: 8px; }
+        @media (max-width: 768px) {
+            .header { flex-direction: column; align-items: stretch; }
+            h1 { font-size: 1.8rem; }
+            .grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
-<body class="page-quality">
+<body>
 
 <header class="header">
     <div class="brand">KARATECH <span>ELV</span></div>
-    <div class="datetime-widget">
-        <div class="date-display" id="dateDisplay">۱۴۰۴/۰۱/۱۵</div>
-        <div class="time-display" id="timeDisplay">۰۰:۰۰:۰۰</div>
-    </div>
-    <div class="header-actions">
-        <button class="exit-btn" onclick="goToSplash()"><i class="fas fa-sign-out-alt"></i> <span data-en="Exit" data-fa="خروج">Exit</span></button>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+    <a href="../../index.html" class="back-link" onclick="localStorage.setItem('dashboardActive', 'true')">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
 </header>
 
-<div class="dashboard" style="display:block;">
+<div class="page-content">
+    <h1><i class="fas fa-check-double"></i> Quality Control</h1>
+    <div class="subtitle">Inspection, testing, ISO standards, and continuous improvement for engineering excellence.</div>
 
-    <div style="max-width:1200px; margin:0 auto; padding:30px 20px;">
-
-        <h1 style="font-size:2.5rem; color:var(--accent); display:flex; align-items:center; gap:14px;">
-            <i class="fas fa-check-double"></i> Quality Control
-        </h1>
-        <div style="color:var(--muted); font-size:1.1rem; margin-bottom:30px; border-left:3px solid var(--accent); padding-left:16px;">
-            Inspection, testing, ISO standards, and continuous improvement for engineering excellence.
+    <div class="grid">
+        <div class="card">
+            <i class="fas fa-clipboard-list"></i>
+            <h3>Inspection & Testing</h3>
+            <p>Visual inspection, dimensional measurement, electrical testing, and functional testing methods.</p>
         </div>
-
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:20px;">
-            
-            <div class="card-academy" style="cursor:default;">
-                <i class="fas fa-clipboard-list"></i>
-                <h3>Inspection & Testing</h3>
-                <p>Visual inspection, dimensional measurement, electrical testing, and functional testing methods.</p>
-            </div>
-
-            <div class="card-academy" style="cursor:default;">
-                <i class="fas fa-chart-bar"></i>
-                <h3>SPC - Statistical Process Control</h3>
-                <p>Control charts, process capability analysis, and variation reduction techniques.</p>
-            </div>
-
-            <div class="card-academy" style="cursor:default;">
-                <i class="fas fa-certificate"></i>
-                <h3>ISO 9001:2015</h3>
-                <p>QMS implementation, documentation, internal audits, and certification process.</p>
-            </div>
-
-            <div class="card-academy" style="cursor:default;">
-                <i class="fas fa-search"></i>
-                <h3>7 QC Tools</h3>
-                <p>Pareto charts, Fishbone diagrams, check sheets, histograms, control charts, scatter diagrams, flowcharts.</p>
-            </div>
-
-            <div class="card-academy" style="cursor:default;">
-                <i class="fas fa-flag-checkered"></i>
-                <h3>Six Sigma</h3>
-                <p>DMAIC methodology, defect reduction, process improvement, and achieving 3.4 DPMO.</p>
-            </div>
-
-            <div class="card-academy" style="cursor:default;">
-                <i class="fas fa-users-cog"></i>
-                <h3>Quality Audits</h3>
-                <p>Internal and external audits, audit planning, non-conformance reporting, and corrective action management.</p>
-            </div>
-
-            <div class="card-academy" style="cursor:default;">
-                <i class="fas fa-microscope"></i>
-                <h3>NDT - Non-Destructive Testing</h3>
-                <p>Ultrasonic, radiography, dye penetrant, magnetic particle, and eddy current inspection methods.</p>
-            </div>
-
-            <div class="card-academy" style="cursor:default;">
-                <i class="fas fa-file-signature"></i>
-                <h3>Quality Documentation</h3>
-                <p>Quality manuals, procedures, work instructions, inspection records, and calibration certificates.</p>
-            </div>
-
+        <div class="card">
+            <i class="fas fa-chart-bar"></i>
+            <h3>SPC - Statistical Process Control</h3>
+            <p>Control charts, process capability analysis, and variation reduction techniques.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-certificate"></i>
+            <h3>ISO 9001:2015</h3>
+            <p>QMS implementation, documentation, internal audits, and certification process.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-search"></i>
+            <h3>7 QC Tools</h3>
+            <p>Pareto charts, Fishbone diagrams, check sheets, histograms, control charts, scatter diagrams, flowcharts.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-flag-checkered"></i>
+            <h3>Six Sigma</h3>
+            <p>DMAIC methodology, defect reduction, process improvement, and achieving 3.4 DPMO.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-users-cog"></i>
+            <h3>Quality Audits</h3>
+            <p>Internal and external audits, audit planning, non-conformance reporting, and corrective action management.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-microscope"></i>
+            <h3>NDT - Non-Destructive Testing</h3>
+            <p>Ultrasonic, radiography, dye penetrant, magnetic particle, and eddy current inspection methods.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-file-signature"></i>
+            <h3>Quality Documentation</h3>
+            <p>Quality manuals, procedures, work instructions, inspection records, and calibration certificates.</p>
         </div>
     </div>
 
@@ -100,6 +194,5 @@
     </footer>
 </div>
 
-<script src="../../script.js"></script>
 </body>
 </html>
