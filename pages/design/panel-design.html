@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Panel Design</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📦 Panel Design</h1>
+    <div class="sub" id="desc">Design principles, layout considerations, component selection, and wiring for industrial electrical control panels.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Panel Design?</h2>
+        <p id="s1p">Panel design is the process of planning and creating electrical control panels that house circuit breakers, contactors, relays, PLCs, and other components. Good panel design ensures safe operation, easy maintenance, proper heat dissipation, and compliance with standards.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Components</h2>
+        <ul id="list1">
+            <li><b>Enclosure</b> – Cabinet with IP rating (IP54, IP66) for protection</li>
+            <li><b>Main Switch</b> – Isolates the panel from power supply</li>
+            <li><b>Circuit Breakers</b> – Protection for incoming and outgoing circuits</li>
+            <li><b>Contactors & Relays</b> – Switching and control</li>
+            <li><b>PLCs/Controllers</b> – The brains of the automation</li>
+            <li><b>Terminal Blocks</b> – For wiring connections</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Key Standards</h2>
+        <ul id="list2">
+            <li>IEC 61439 – Low-voltage switchgear and controlgear assemblies</li>
+            <li>IEC 60529 – IP Ratings (Ingress Protection)</li>
+            <li>UL 508A – Industrial Control Panels (US)</li>
+            <li>IEC 60204 – Safety of machinery – Electrical equipment</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Motor Control Panel</h2>
+        <p id="s4p">A motor control panel includes an incoming circuit breaker, contactor, overload relay, and local start/stop buttons. The panel also includes a PLC for remote control and status monitoring. Layout ensures proper spacing for heat dissipation and easy access for maintenance.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📦 Panel Design',
+            desc: 'Design principles, layout considerations, component selection, and wiring for industrial electrical control panels.',
+            s1: '🔹 What is Panel Design?',
+            s1p: 'Panel design is the process of planning and creating electrical control panels that house circuit breakers, contactors, relays, PLCs, and other components. Good panel design ensures safe operation, easy maintenance, proper heat dissipation, and compliance with standards.',
+            s2: '🔹 Key Components',
+            list1: ['Enclosure – Cabinet with IP rating (IP54, IP66) for protection','Main Switch – Isolates the panel from power supply','Circuit Breakers – Protection for incoming and outgoing circuits','Contactors & Relays – Switching and control','PLCs/Controllers – The brains of the automation','Terminal Blocks – For wiring connections'],
+            s3: '🔹 Key Standards',
+            list2: ['IEC 61439 – Low-voltage switchgear and controlgear assemblies','IEC 60529 – IP Ratings (Ingress Protection)','UL 508A – Industrial Control Panels (US)','IEC 60204 – Safety of machinery – Electrical equipment'],
+            s4: '🔹 Example: Motor Control Panel',
+            s4p: 'A motor control panel includes an incoming circuit breaker, contactor, overload relay, and local start/stop buttons. The panel also includes a PLC for remote control and status monitoring. Layout ensures proper spacing for heat dissipation and easy access for maintenance.',
+            back: '← Back'
+        },
+        fa: {
+            title: '📦 طراحی پنل',
+            desc: 'اصول طراحی، ملاحظات چیدمان، انتخاب اجزاء و سیم‌کشی برای پنل‌های کنترل الکتریکی صنعتی.',
+            s1: '🔹 طراحی پنل چیست؟',
+            s1p: 'طراحی پنل فرآیند برنامه‌ریزی و ایجاد پنل‌های کنترل الکتریکی است که کلیدهای مدار، کنتاکتورها، رله‌ها، PLC و سایر اجزاء را در خود جای می‌دهند. طراحی خوب پنل عملکرد ایمن، نگهداری آسان، دفع حرارت مناسب و انطباق با استانداردها را تضمین می‌کند.',
+            s2: '🔹 اجزای کلیدی',
+            list1: ['محفظه – کابینت با درجه حفاظت IP (IP54، IP66)','سوئیچ اصلی – ایزوله کردن پنل از منبع تغذیه','کلیدهای مدار – حفاظت برای مدارهای ورودی و خروجی','کنتاکتورها و رله‌ها – کلیدزنی و کنترل','PLC/کنترل‌کننده‌ها – مغز اتوماسیون','بلوک‌های ترمینال – برای اتصالات سیم‌کشی'],
+            s3: '🔹 استانداردهای کلیدی',
+            list2: ['IEC 61439 – تابلوهای فشار ضعیف','IEC 60529 – درجه حفاظت IP','UL 508A – پنل‌های کنترل صنعتی (آمریکا)','IEC 60204 – ایمنی ماشین‌آلات – تجهیزات الکتریکی'],
+            s4: '🔹 مثال: پنل کنترل موتور',
+            s4p: 'یک پنل کنترل موتور شامل کلید مدار ورودی، کنتاکتور، رله اضافه بار و دکمه‌های استارت/توقف محلی است. پنل همچنین شامل یک PLC برای کنترل از راه دور و نظارت بر وضعیت است. چیدمان فضای مناسب برای دفع حرارت و دسترسی آسان برای نگهداری را تضمین می‌کند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
