@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · ISO 9001</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🏅 ISO 9001: Quality Management System</h1>
+    <div class="sub" id="desc">Understanding the ISO 9001 standard for quality management systems, its requirements, certification process, and benefits for organizations.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is ISO 9001?</h2>
+        <p id="s1p">ISO 9001 is the international standard for quality management systems (QMS). It provides a framework for organizations to ensure they meet customer and regulatory requirements while continually improving their processes. It is applicable to any organization, regardless of size or industry.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Requirements of ISO 9001:2015</h2>
+        <ul id="list1">
+            <li><b>Context of the Organization</b> – Understanding internal and external issues</li>
+            <li><b>Leadership</b> – Top management commitment and quality policy</li>
+            <li><b>Planning</b> – Risk-based thinking and setting quality objectives</li>
+            <li><b>Support</b> – Resources, competence, awareness, communication</li>
+            <li><b>Operation</b> – Planning and controlling production and service delivery</li>
+            <li><b>Performance Evaluation</b> – Monitoring, measurement, analysis, and evaluation</li>
+            <li><b>Improvement</b> – Non-conformity, corrective action, and continual improvement</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Certification Process</h2>
+        <ul id="list2">
+            <li><b>Step 1:</b> Implement a QMS aligned with ISO 9001 requirements</li>
+            <li><b>Step 2:</b> Conduct internal audits and management reviews</li>
+            <li><b>Step 3:</b> Select a certification body and schedule Stage 1 audit (documentation review)</li>
+            <li><b>Step 4:</b> Stage 2 audit (on-site verification)</li>
+            <li><b>Step 5:</b> Receive certification and maintain through surveillance audits</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: ISO 9001 in an Engineering Firm</h2>
+        <p id="s4p">An engineering firm implements ISO 9001 to standardize its design and project management processes. They document procedures for design reviews, change control, and customer feedback. After certification, they experience fewer errors, improved customer satisfaction, and better project delivery times.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🏅 ISO 9001: Quality Management System',
+            desc: 'Understanding the ISO 9001 standard for quality management systems, its requirements, certification process, and benefits for organizations.',
+            s1: '🔹 What is ISO 9001?',
+            s1p: 'ISO 9001 is the international standard for quality management systems (QMS). It provides a framework for organizations to ensure they meet customer and regulatory requirements while continually improving their processes. It is applicable to any organization, regardless of size or industry.',
+            s2: '🔹 Key Requirements of ISO 9001:2015',
+            list1: ['Context of the Organization – Understanding internal and external issues','Leadership – Top management commitment and quality policy','Planning – Risk-based thinking and setting quality objectives','Support – Resources, competence, awareness, communication','Operation – Planning and controlling production and service delivery','Performance Evaluation – Monitoring, measurement, analysis, and evaluation','Improvement – Non-conformity, corrective action, and continual improvement'],
+            s3: '🔹 Certification Process',
+            list2: ['Step 1: Implement a QMS aligned with ISO 9001 requirements','Step 2: Conduct internal audits and management reviews','Step 3: Select a certification body and schedule Stage 1 audit (documentation review)','Step 4: Stage 2 audit (on-site verification)','Step 5: Receive certification and maintain through surveillance audits'],
+            s4: '🔹 Example: ISO 9001 in an Engineering Firm',
+            s4p: 'An engineering firm implements ISO 9001 to standardize its design and project management processes. They document procedures for design reviews, change control, and customer feedback. After certification, they experience fewer errors, improved customer satisfaction, and better project delivery times.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🏅 ISO 9001: سیستم مدیریت کیفیت',
+            desc: 'درک استاندارد ISO 9001 برای سیستم‌های مدیریت کیفیت، الزامات، فرآیند صدور گواهینامه و مزایای آن برای سازمان‌ها.',
+            s1: '🔹 ISO 9001 چیست؟',
+            s1p: 'ISO 9001 استاندارد بین‌المللی برای سیستم‌های مدیریت کیفیت (QMS) است. چارچوبی را برای سازمان‌ها فراهم می‌کند تا اطمینان حاصل کنند که نیازهای مشتری و الزامات نظارتی را برآورده کرده و به طور مداوم فرآیندهای خود را بهبود می‌بخشند. این استاندارد برای هر سازمانی، صرف نظر از اندازه یا صنعت، قابل اجرا است.',
+            s2: '🔹 الزامات کلیدی ISO 9001:2015',
+            list1: ['بستر سازمان – درک مسائل داخلی و خارجی','رهبری – تعهد مدیریت ارشد و سیاست کیفیت','برنامه‌ریزی – تفکر مبتنی بر ریسک و تعیین اهداف کیفیت','پشتیبانی – منابع، شایستگی، آگاهی، ارتباطات','عملیات – برنامه‌ریزی و کنترل تولید و ارائه خدمات','ارزیابی عملکرد – نظارت، اندازه‌گیری، تحلیل و ارزیابی','بهبود – عدم انطباق، اقدام اصلاحی و بهبود مستمر'],
+            s3: '🔹 فرآیند صدور گواهینامه',
+            list2: ['مرحله ۱: پیاده‌سازی QMS مطابق با الزامات ISO 9001','مرحله ۲: انجام حسابرسی داخلی و بازبینی مدیریت','مرحله ۳: انتخاب نهاد صدور گواهینامه و برنامه‌ریزی حسابرسی مرحله ۱ (بررسی مستندات)','مرحله ۴: حسابرسی مرحله ۲ (تأیید در محل)','مرحله ۵: دریافت گواهینامه و حفظ آن از طریق حسابرسی‌های نظارتی'],
+            s4: '🔹 مثال: ISO 9001 در یک شرکت مهندسی',
+            s4p: 'یک شرکت مهندسی ISO 9001 را برای استانداردسازی فرآیندهای طراحی و مدیریت پروژه خود پیاده‌سازی می‌کند. آنها رویه‌هایی برای بازبینی طراحی، کنترل تغییرات و بازخورد مشتری مستند می‌کنند. پس از دریافت گواهینامه، خطاهای کمتری، بهبود رضایت مشتری و زمان تحویل پروژه بهتر را تجربه می‌کنند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
