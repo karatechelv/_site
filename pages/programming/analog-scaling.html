@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Analog Scaling Calculator</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:950px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .calc-box{background:#1e2128;padding:25px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);margin-bottom:20px}
+        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
+        .calc-box input, .calc-box select{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
+        .calc-box input:focus, .calc-box select:focus{outline:1px solid #d4af37}
+        .calc-row{display:flex;gap:15px;flex-wrap:wrap}
+        .calc-row .field{flex:1;min-width:160px}
+        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
+        .btn-calc:hover{background:#d4af37;color:#111}
+        .result{background:#0d0e12;padding:15px;border-radius:12px;border-left:4px solid #d4af37;margin-top:15px;font-size:1.05rem}
+        .result span{color:#d4af37;font-weight:700}
+        .formula-box{background:#0d0e12;padding:12px;border-radius:8px;font-family:monospace;font-size:.95rem;color:#d4af37;border-left:3px solid #d4af37;margin:10px 0;overflow-x:auto}
+        .note{color:#8e95a5;font-size:.85rem;margin-top:10px}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📊 Analog Scaling Calculator</h1>
+    <div class="sub" id="desc">Convert 4‑20mA or 0‑10V signals to engineering units (temperature, pressure, level) and vice versa.</div>
+
+    <!-- Signal to Engineering Units -->
+    <div class="calc-box">
+        <h2 style="color:#d4af37;font-size:1.3rem;margin-bottom:10px;" id="sig-to-eu">🔹 Signal → Engineering Units</h2>
+        <div class="calc-row">
+            <div class="field">
+                <label id="lbl-sig-min">Min Signal (mA / V)</label>
+                <input type="number" id="sigMin" value="4" step="0.1">
+            </div>
+            <div class="field">
+                <label id="lbl-sig-max">Max Signal (mA / V)</label>
+                <input type="number" id="sigMax" value="20" step="0.1">
+            </div>
+            <div class="field">
+                <label id="lbl-eu-min">EU Min</label>
+                <input type="number" id="euMin" value="0" step="any">
+            </div>
+            <div class="field">
+                <label id="lbl-eu-max">EU Max</label>
+                <input type="number" id="euMax" value="100" step="any">
+            </div>
+        </div>
+        <label id="lbl-current-sig">Current Signal (mA / V)</label>
+        <input type="number" id="currentSig" value="12" step="0.01">
+        <button class="btn-calc" id="calcSigToEU">Calculate EU</button>
+        <div class="result" id="sigToEUResult">
+            <span id="sig-to-eu-label">Engineering Value:</span> <span id="sigToEUValue">50.00</span>
+        </div>
+        <div class="formula-box" id="formula-sig-to-eu">
+            EU = ((Raw - RawMin) × (EUmax - EUmin) / (RawMax - RawMin)) + EUmin
+        </div>
+    </div>
+
+    <!-- Engineering Units to Signal -->
+    <div class="calc-box">
+        <h2 style="color:#d4af37;font-size:1.3rem;margin-bottom:10px;" id="eu-to-sig">🔹 Engineering Units → Signal</h2>
+        <div class="calc-row">
+            <div class="field">
+                <label id="lbl-sig-min2">Min Signal (mA / V)</label>
+                <input type="number" id="sigMin2" value="4" step="0.1">
+            </div>
+            <div class="field">
+                <label id="lbl-sig-max2">Max Signal (mA / V)</label>
+                <input type="number" id="sigMax2" value="20" step="0.1">
+            </div>
+            <div class="field">
+                <label id="lbl-eu-min2">EU Min</label>
+                <input type="number" id="euMin2" value="0" step="any">
+            </div>
+            <div class="field">
+                <label id="lbl-eu-max2">EU Max</label>
+                <input type="number" id="euMax2" value="100" step="any">
+            </div>
+        </div>
+        <label id="lbl-eu-value">Engineering Value</label>
+        <input type="number" id="euValue" value="50" step="any">
+        <button class="btn-calc" id="calcEUToSig">Calculate Signal</button>
+        <div class="result" id="euToSigResult">
+            <span id="eu-to-sig-label">Signal:</span> <span id="euToSigValue">12.00</span> mA
+        </div>
+        <div class="formula-box" id="formula-eu-to-sig">
+            Raw = ((EU - EUmin) × (RawMax - RawMin) / (EUmax - EUmin)) + RawMin
+        </div>
+    </div>
+
+    <!-- Reference Table -->
+    <div class="calc-box">
+        <h2 style="color:#d4af37;font-size:1.3rem;margin-bottom:10px;" id="table-title">📊 Common Analog Signal Ranges</h2>
+        <div class="table-wrap" style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px;">
+                <thead>
+                    <tr>
+                        <th id="th-type">Signal Type</th>
+                        <th id="th-min">Min</th>
+                        <th id="th-max">Max</th>
+                        <th id="th-typical">Typical Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Current (mA)</td><td>4</td><td>20</td><td>Process transmitters</td></tr>
+                    <tr><td>Current (mA)</td><td>0</td><td>20</td><td>Legacy systems</td></tr>
+                    <tr><td>Voltage (V)</td><td>0</td><td>10</td><td>PLC analog inputs</td></tr>
+                    <tr><td>Voltage (V)</td><td>0</td><td>5</td><td>Sensor output</td></tr>
+                    <tr><td>Voltage (V)</td><td>-10</td><td>10</td><td>Bidirectional signals</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="note" id="table-note">Note: Always check the specifications of your PLC and transmitter.</div>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const langData = {
+        en: {
+            title: '📊 Analog Scaling Calculator',
+            desc: 'Convert 4‑20mA or 0‑10V signals to engineering units (temperature, pressure, level) and vice versa.',
+            sig_to_eu: '🔹 Signal → Engineering Units',
+            sig_min: 'Min Signal (mA / V)',
+            sig_max: 'Max Signal (mA / V)',
+            eu_min: 'EU Min',
+            eu_max: 'EU Max',
+            current_sig: 'Current Signal (mA / V)',
+            calc_sig_to_eu: 'Calculate EU',
+            sig_to_eu_label: 'Engineering Value:',
+            formula_sig_to_eu: 'EU = ((Raw - RawMin) × (EUmax - EUmin) / (RawMax - RawMin)) + EUmin',
+            eu_to_sig: '🔹 Engineering Units → Signal',
+            sig_min2: 'Min Signal (mA / V)',
+            sig_max2: 'Max Signal (mA / V)',
+            eu_min2: 'EU Min',
+            eu_max2: 'EU Max',
+            eu_value: 'Engineering Value',
+            calc_eu_to_sig: 'Calculate Signal',
+            eu_to_sig_label: 'Signal:',
+            formula_eu_to_sig: 'Raw = ((EU - EUmin) × (RawMax - RawMin) / (EUmax - EUmin)) + RawMin',
+            table_title: '📊 Common Analog Signal Ranges',
+            th_type: 'Signal Type',
+            th_min: 'Min',
+            th_max: 'Max',
+            th_typical: 'Typical Use',
+            table_note: 'Note: Always check the specifications of your PLC and transmitter.',
+            back: '← Back'
+        },
+        fa: {
+            title: '📊 ماشین‌حساب مقیاس‌سازی آنالوگ',
+            desc: 'تبدیل سیگنال‌های ۴-۲۰mA یا ۰-۱۰V به واحدهای مهندسی (دما، فشار، سطح) و برعکس.',
+            sig_to_eu: '🔹 سیگنال → واحد مهندسی',
+            sig_min: 'حداقل سیگنال (mA / V)',
+            sig_max: 'حداکثر سیگنال (mA / V)',
+            eu_min: 'حداقل EU',
+            eu_max: 'حداکثر EU',
+            current_sig: 'سیگنال جاری (mA / V)',
+            calc_sig_to_eu: 'محاسبه EU',
+            sig_to_eu_label: 'مقدار مهندسی:',
+            formula_sig_to_eu: 'EU = ((خام - خام‌مین) × (EUmax - EUmin) / (خام‌max - خام‌min)) + EUmin',
+            eu_to_sig: '🔹 واحد مهندسی → سیگنال',
+            sig_min2: 'حداقل سیگنال (mA / V)',
+            sig_max2: 'حداکثر سیگنال (mA / V)',
+            eu_min2: 'حداقل EU',
+            eu_max2: 'حداکثر EU',
+            eu_value: 'مقدار مهندسی',
+            calc_eu_to_sig: 'محاسبه سیگنال',
+            eu_to_sig_label: 'سیگنال:',
+            formula_eu_to_sig: 'خام = ((EU - EUmin) × (RawMax - RawMin) / (EUmax - EUmin)) + RawMin',
+            table_title: '📊 محدوده‌های رایج سیگنال آنالوگ',
+            th_type: 'نوع سیگنال',
+            th_min: 'حداقل',
+            th_max: 'حداکثر',
+            th_typical: 'کاربرد معمول',
+            table_note: 'توجه: همیشه مشخصات PLC و ترانسمیتر خود را بررسی کنید.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLanguage(lang) {
+        const t = langData[lang];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('sig-to-eu').textContent = t.sig_to_eu;
+        document.getElementById('lbl-sig-min').textContent = t.sig_min;
+        document.getElementById('lbl-sig-max').textContent = t.sig_max;
+        document.getElementById('lbl-eu-min').textContent = t.eu_min;
+        document.getElementById('lbl-eu-max').textContent = t.eu_max;
+        document.getElementById('lbl-current-sig').textContent = t.current_sig;
+        document.getElementById('calcSigToEU').textContent = t.calc_sig_to_eu;
+        document.getElementById('sig-to-eu-label').textContent = t.sig_to_eu_label;
+        document.getElementById('formula-sig-to-eu').textContent = t.formula_sig_to_eu;
+        document.getElementById('eu-to-sig').textContent = t.eu_to_sig;
+        document.getElementById('lbl-sig-min2').textContent = t.sig_min2;
+        document.getElementById('lbl-sig-max2').textContent = t.sig_max2;
+        document.getElementById('lbl-eu-min2').textContent = t.eu_min2;
+        document.getElementById('lbl-eu-max2').textContent = t.eu_max2;
+        document.getElementById('lbl-eu-value').textContent = t.eu_value;
+        document.getElementById('calcEUToSig').textContent = t.calc_eu_to_sig;
+        document.getElementById('eu-to-sig-label').textContent = t.eu_to_sig_label;
+        document.getElementById('formula-eu-to-sig').textContent = t.formula_eu_to_sig;
+        document.getElementById('table-title').textContent = t.table_title;
+        document.getElementById('th-type').textContent = t.th_type;
+        document.getElementById('th-min').textContent = t.th_min;
+        document.getElementById('th-max').textContent = t.th_max;
+        document.getElementById('th-typical').textContent = t.th_typical;
+        document.getElementById('table-note').textContent = t.table_note;
+        document.getElementById('backlink').textContent = t.back;
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        document.body.classList.toggle('lang-persian', lang === 'fa');
+        localStorage.setItem('karatech-lang', lang);
+        updateResults();
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLanguage(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLanguage(savedLang);
+
+    function calcSigToEU() {
+        const rawMin = parseFloat(document.getElementById('sigMin').value);
+        const rawMax = parseFloat(document.getElementById('sigMax').value);
+        const euMin = parseFloat(document.getElementById('euMin').value);
+        const euMax = parseFloat(document.getElementById('euMax').value);
+        const raw = parseFloat(document.getElementById('currentSig').value);
+
+        if (isNaN(rawMin) || isNaN(rawMax) || isNaN(euMin) || isNaN(euMax) || isNaN(raw) || rawMax <= rawMin) {
+            document.getElementById('sigToEUValue').textContent = 'Invalid input';
+            return;
+        }
+        const eu = ((raw - rawMin) * (euMax - euMin) / (rawMax - rawMin)) + euMin;
+        document.getElementById('sigToEUValue').textContent = eu.toFixed(3);
+    }
+
+    function calcEUToSig() {
+        const rawMin = parseFloat(document.getElementById('sigMin2').value);
+        const rawMax = parseFloat(document.getElementById('sigMax2').value);
+        const euMin = parseFloat(document.getElementById('euMin2').value);
+        const euMax = parseFloat(document.getElementById('euMax2').value);
+        const eu = parseFloat(document.getElementById('euValue').value);
+
+        if (isNaN(rawMin) || isNaN(rawMax) || isNaN(euMin) || isNaN(euMax) || isNaN(eu) || rawMax <= rawMin) {
+            document.getElementById('euToSigValue').textContent = 'Invalid input';
+            return;
+        }
+        const raw = ((eu - euMin) * (rawMax - rawMin) / (euMax - euMin)) + rawMin;
+        document.getElementById('euToSigValue').textContent = raw.toFixed(3);
+    }
+
+    document.getElementById('calcSigToEU').onclick = calcSigToEU;
+    document.getElementById('calcEUToSig').onclick = calcEUToSig;
+
+    function updateResults() {
+        calcSigToEU();
+        calcEUToSig();
+    }
+
+    // Auto-calculate on load
+    updateResults();
+</script>
+
+</body>
+</html>
