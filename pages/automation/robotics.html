@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Robotics</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🦾 Robotics</h1>
+    <div class="sub" id="desc">Industrial robotics including robot types, programming, applications, and integration with automation systems.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Industrial Robotics?</h2>
+        <p id="s1p">Industrial robotics is the application of robotic systems to manufacturing and industrial processes. Robots perform tasks such as welding, painting, assembly, picking, packing, and inspection with high precision, speed, and repeatability.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Common Robot Types</h2>
+        <ul id="list1">
+            <li>Articulated Robots – 6-axis, most common in industry</li>
+            <li>SCARA Robots – Selective Compliance Assembly Robot Arm</li>
+            <li>Delta Robots – High-speed picking and packaging</li>
+            <li>Cartesian Robots – Linear movement on X-Y-Z axes</li>
+            <li>Collaborative Robots (Cobots) – Safe to work alongside humans</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Robot Programming</h2>
+        <ul id="list2">
+            <li>Teach Pendant – Manual programming via handheld device</li>
+            <li>Offline Programming – Using simulation software</li>
+            <li>Lead-Through Programming – Physically guiding the robot</li>
+            <li>Text-based – Using languages like RAPID, KRL, or Python</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Welding Robot</h2>
+        <p id="s4p">A 6-axis articulated robot equipped with a welding torch performs arc welding on automotive components. The robot is programmed offline using RoboDK or similar software to ensure optimal path and weld quality.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🦾 Robotics',
+            desc: 'Industrial robotics including robot types, programming, applications, and integration with automation systems.',
+            s1: '🔹 What is Industrial Robotics?',
+            s1p: 'Industrial robotics is the application of robotic systems to manufacturing and industrial processes. Robots perform tasks such as welding, painting, assembly, picking, packing, and inspection with high precision, speed, and repeatability.',
+            s2: '🔹 Common Robot Types',
+            list1: ['Articulated Robots – 6-axis, most common in industry','SCARA Robots – Selective Compliance Assembly Robot Arm','Delta Robots – High-speed picking and packaging','Cartesian Robots – Linear movement on X-Y-Z axes','Collaborative Robots (Cobots) – Safe to work alongside humans'],
+            s3: '🔹 Robot Programming',
+            list2: ['Teach Pendant – Manual programming via handheld device','Offline Programming – Using simulation software','Lead-Through Programming – Physically guiding the robot','Text-based – Using languages like RAPID, KRL, or Python'],
+            s4: '🔹 Example: Welding Robot',
+            s4p: 'A 6-axis articulated robot equipped with a welding torch performs arc welding on automotive components. The robot is programmed offline using RoboDK or similar software to ensure optimal path and weld quality.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🦾 رباتیک صنعتی',
+            desc: 'رباتیک صنعتی شامل انواع ربات‌ها، برنامه‌نویسی، کاربردها و یکپارچه‌سازی با سیستم‌های اتوماسیون.',
+            s1: '🔹 رباتیک صنعتی چیست؟',
+            s1p: 'رباتیک صنعتی کاربرد سیستم‌های رباتیک در فرآیندهای تولیدی و صنعتی است. ربات‌ها کارهایی مانند جوشکاری، رنگ‌آمیزی، مونتاژ، برداشت، بسته‌بندی و بازرسی را با دقت، سرعت و تکرارپذیری بالا انجام می‌دهند.',
+            s2: '🔹 انواع ربات‌های رایج',
+            list1: ['ربات‌های مفصلی – ۶ محور، رایج‌ترین در صنعت','ربات‌های SCARA – بازوی رباتیک مونتاژ','ربات‌های دلتا – برداشت و بسته‌بندی با سرعت بالا','ربات‌های کارتزین – حرکت خطی در محورهای X-Y-Z','ربات‌های مشارکتی (Cobot) – ایمن برای کار در کنار انسان'],
+            s3: '🔹 برنامه‌نویسی ربات',
+            list2: ['آموزش با پندانت – برنامه‌نویسی دستی با دستگاه دستی','برنامه‌نویسی آفلاین – با استفاده از نرم‌افزارهای شبیه‌سازی','برنامه‌نویسی هدایتی – هدایت فیزیکی ربات','متن‌محور – با زبان‌هایی مانند RAPID، KRL یا Python'],
+            s4: '🔹 مثال: ربات جوشکاری',
+            s4p: 'یک ربات مفصلی ۶ محور مجهز به مشعل جوشکاری، جوشکاری قوس‌الکتریکی را روی قطعات خودرو انجام می‌دهد. ربات به صورت آفلاین با استفاده از RoboDK یا نرم‌افزار مشابه برنامه‌ریزی می‌شود تا مسیر بهینه و کیفیت جوش تضمین شود.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
