@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Calibration</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">⚖️ Calibration</h1>
+    <div class="sub" id="desc">Procedures, standards, and best practices for calibrating industrial instruments to ensure accuracy and reliability.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Calibration?</h2>
+        <p id="s1p">Calibration is the process of comparing a measuring instrument's output against a known reference standard. The purpose is to detect and correct any deviation to ensure the instrument provides accurate measurements. Regular calibration is essential for quality control, safety, and regulatory compliance.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Calibration Steps</h2>
+        <ul id="list1">
+            <li><b>Preparation</b> – Select appropriate reference standard, ensure clean environment</li>
+            <li><b>Zero Adjustment</b> – Set instrument to read zero with no input</li>
+            <li><b>Span Adjustment</b> – Set instrument to read the full-scale value</li>
+            <li><b>Multi-point Verification</b> – Check at 25%, 50%, 75% of range</li>
+            <li><b>Documentation</b> – Record results, calculate error, and issue calibration certificate</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Common Calibration Standards</h2>
+        <ul id="list2">
+            <li>ISA 51.1 – Terminology for calibration</li>
+            <li>ISO 10012 – Measurement management systems</li>
+            <li>NIST Traceable – Calibration traceable to national standards</li>
+            <li>IEC 61511 – Functional safety calibration requirements</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Pressure Transmitter Calibration</h2>
+        <p id="s4p">A Rosemount 3051 pressure transmitter (0-100 bar) is calibrated using a deadweight tester. The technician applies known pressures (0, 25, 50, 75, 100 bar) and records the 4-20 mA output. The results are plotted against the ideal curve, and any deviation is adjusted. The calibration certificate is issued with a due date for the next calibration.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '⚖️ Calibration',
+            desc: 'Procedures, standards, and best practices for calibrating industrial instruments to ensure accuracy and reliability.',
+            s1: '🔹 What is Calibration?',
+            s1p: 'Calibration is the process of comparing a measuring instrument\'s output against a known reference standard. The purpose is to detect and correct any deviation to ensure the instrument provides accurate measurements. Regular calibration is essential for quality control, safety, and regulatory compliance.',
+            s2: '🔹 Key Calibration Steps',
+            list1: ['Preparation – Select appropriate reference standard, ensure clean environment','Zero Adjustment – Set instrument to read zero with no input','Span Adjustment – Set instrument to read the full-scale value','Multi-point Verification – Check at 25%, 50%, 75% of range','Documentation – Record results, calculate error, and issue calibration certificate'],
+            s3: '🔹 Common Calibration Standards',
+            list2: ['ISA 51.1 – Terminology for calibration','ISO 10012 – Measurement management systems','NIST Traceable – Calibration traceable to national standards','IEC 61511 – Functional safety calibration requirements'],
+            s4: '🔹 Example: Pressure Transmitter Calibration',
+            s4p: 'A Rosemount 3051 pressure transmitter (0-100 bar) is calibrated using a deadweight tester. The technician applies known pressures (0, 25, 50, 75, 100 bar) and records the 4-20 mA output. The results are plotted against the ideal curve, and any deviation is adjusted. The calibration certificate is issued with a due date for the next calibration.',
+            back: '← Back'
+        },
+        fa: {
+            title: '⚖️ کالیبراسیون',
+            desc: 'روش‌ها، استانداردها و بهترین شیوه‌ها برای کالیبراسیون ابزارهای صنعتی برای اطمینان از دقت و قابلیت اعتماد.',
+            s1: '🔹 کالیبراسیون چیست؟',
+            s1p: 'کالیبراسیون فرآیند مقایسه خروجی یک ابزار اندازه‌گیری با یک استاندارد مرجع شناخته شده است. هدف تشخیص و اصلاح هرگونه انحراف برای اطمینان از ارائه اندازه‌گیری‌های دقیق توسط ابزار است. کالیبراسیون منظم برای کنترل کیفیت، ایمنی و انطباق با مقررات ضروری است.',
+            s2: '🔹 مراحل کلیدی کالیبراسیون',
+            list1: ['آماده‌سازی – انتخاب استاندارد مرجع مناسب، اطمینان از محیط تمیز','تنظیم صفر – تنظیم ابزار برای خواندن صفر بدون ورودی','تنظیم اسپن – تنظیم ابزار برای خواندن مقدار مقیاس کامل','تأیید چندنقطه‌ای – بررسی در ۲۵٪، ۵۰٪، ۷۵٪ محدوده','مستندسازی – ثبت نتایج، محاسبه خطا و صدور گواهی کالیبراسیون'],
+            s3: '🔹 استانداردهای رایج کالیبراسیون',
+            list2: ['ISA 51.1 – اصطلاحات کالیبراسیون','ISO 10012 – سیستم‌های مدیریت اندازه‌گیری','قابل ردیابی NIST – کالیبراسیون قابل ردیابی به استانداردهای ملی','IEC 61511 – الزامات کالیبراسیون ایمنی عملکردی'],
+            s4: '🔹 مثال: کالیبراسیون ترانسمیتر فشار',
+            s4p: 'یک ترانسمیتر فشار Rosemount 3051 (۰-۱۰۰ بار) با استفاده از یک تستر وزنه مرده کالیبره می‌شود. تکنسین فشارهای شناخته شده (۰، ۲۵، ۵۰، ۷۵، ۱۰۰ بار) را اعمال کرده و خروجی ۴-۲۰ میلی‌آمپر را ثبت می‌کند. نتایج در برابر منحنی ایده‌ال ترسیم شده و هرگونه انحراف اصلاح می‌شود. گواهی کالیبراسیون با تاریخ سررسید برای کالیبراسیون بعدی صادر می‌شود.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
