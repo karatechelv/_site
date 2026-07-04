@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Risk Assessment</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">⚠️ Risk Assessment</h1>
+    <div class="sub" id="desc">Methods, tools, and best practices for hazard identification, risk analysis, and risk evaluation in engineering and industrial environments.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Risk Assessment?</h2>
+        <p id="s1p">Risk assessment is a systematic process of identifying hazards, analyzing and evaluating the risks they pose, and determining appropriate control measures. It is a fundamental part of health, safety, and environmental management, helping organizations prevent accidents, injuries, and environmental damage.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Steps in Risk Assessment</h2>
+        <ul id="list1">
+            <li><b>Hazard Identification</b> – Identify all potential hazards associated with activities, equipment, or materials</li>
+            <li><b>Risk Analysis</b> – Determine the likelihood and consequence of each hazard</li>
+            <li><b>Risk Evaluation</b> – Rank risks based on severity and decide on priorities</li>
+            <li><b>Risk Control</b> – Select and implement measures to eliminate or reduce risks</li>
+            <li><b>Monitoring & Review</b> – Regularly review risk assessments and update as conditions change</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Common Risk Assessment Tools</h2>
+        <ul id="list2">
+            <li><b>Risk Matrix</b> – A qualitative tool for assessing likelihood and consequence</li>
+            <li><b>HAZOP (Hazard and Operability Study)</b> – Structured analysis for process safety</li>
+            <li><b>FMEA (Failure Mode and Effects Analysis)</b> – Identifying potential failure modes and their impacts</li>
+            <li><b>JSA (Job Safety Analysis)</b> – Breaking down tasks to identify hazards</li>
+            <li><b>LOPA (Layer of Protection Analysis)</b> – Evaluating layers of protection against hazards</li>
+            <li><b>What-If Analysis</b> – Brainstorming potential scenarios</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Risk Assessment for a Chemical Storage Area</h2>
+        <p id="s4p">A risk assessment is conducted for a chemical storage area. The team identifies hazards: chemical spills, fire, exposure to toxic fumes, and falling objects. Using a risk matrix, they assess each risk and prioritize controls (e.g., bunding for spills, fire suppression systems, ventilation, PPE). The assessment is reviewed annually and updated after any changes to the storage area.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '⚠️ Risk Assessment',
+            desc: 'Methods, tools, and best practices for hazard identification, risk analysis, and risk evaluation in engineering and industrial environments.',
+            s1: '🔹 What is Risk Assessment?',
+            s1p: 'Risk assessment is a systematic process of identifying hazards, analyzing and evaluating the risks they pose, and determining appropriate control measures. It is a fundamental part of health, safety, and environmental management, helping organizations prevent accidents, injuries, and environmental damage.',
+            s2: '🔹 Key Steps in Risk Assessment',
+            list1: ['Hazard Identification – Identify all potential hazards associated with activities, equipment, or materials','Risk Analysis – Determine the likelihood and consequence of each hazard','Risk Evaluation – Rank risks based on severity and decide on priorities','Risk Control – Select and implement measures to eliminate or reduce risks','Monitoring & Review – Regularly review risk assessments and update as conditions change'],
+            s3: '🔹 Common Risk Assessment Tools',
+            list2: ['Risk Matrix – A qualitative tool for assessing likelihood and consequence','HAZOP (Hazard and Operability Study) – Structured analysis for process safety','FMEA (Failure Mode and Effects Analysis) – Identifying potential failure modes and their impacts','JSA (Job Safety Analysis) – Breaking down tasks to identify hazards','LOPA (Layer of Protection Analysis) – Evaluating layers of protection against hazards','What-If Analysis – Brainstorming potential scenarios'],
+            s4: '🔹 Example: Risk Assessment for a Chemical Storage Area',
+            s4p: 'A risk assessment is conducted for a chemical storage area. The team identifies hazards: chemical spills, fire, exposure to toxic fumes, and falling objects. Using a risk matrix, they assess each risk and prioritize controls (e.g., bunding for spills, fire suppression systems, ventilation, PPE). The assessment is reviewed annually and updated after any changes to the storage area.',
+            back: '← Back'
+        },
+        fa: {
+            title: '⚠️ ارزیابی ریسک',
+            desc: 'روش‌ها، ابزارها و بهترین شیوه‌ها برای شناسایی خطر، تحلیل ریسک و ارزیابی ریسک در محیط‌های مهندسی و صنعتی.',
+            s1: '🔹 ارزیابی ریسک چیست؟',
+            s1p: 'ارزیابی ریسک یک فرآیند سیستماتیک برای شناسایی خطرات، تحلیل و ارزیابی ریسک‌های ناشی از آنها و تعیین اقدامات کنترلی مناسب است. این بخشی اساسی از مدیریت بهداشت، ایمنی و محیط زیست است که به سازمان‌ها در پیشگیری از حوادث، آسیب‌ها و آسیب‌های زیست‌محیطی کمک می‌کند.',
+            s2: '🔹 مراحل کلیدی ارزیابی ریسک',
+            list1: ['شناسایی خطر – شناسایی تمام خطرات بالقوه مرتبط با فعالیت‌ها، تجهیزات یا مواد','تحلیل ریسک – تعیین احتمال و پیامد هر خطر','ارزیابی ریسک – رتبه‌بندی ریسک‌ها بر اساس شدت و تصمیم‌گیری در مورد اولویت‌ها','کنترل ریسک – انتخاب و اجرای اقدامات برای حذف یا کاهش ریسک‌ها','نظارت و بازبینی – بازبینی منظم ارزیابی‌های ریسک و به‌روزرسانی با تغییر شرایط'],
+            s3: '🔹 ابزارهای رایج ارزیابی ریسک',
+            list2: ['ماتریس ریسک – یک ابزار کیفی برای ارزیابی احتمال و پیامد','HAZOP (مطالعه خطر و عملکرد) – تحلیل ساختاریافته برای ایمنی فرآیند','FMEA (تحلیل حالت و اثرات خرابی) – شناسایی حالت‌های خرابی بالقوه و تأثیرات آنها','JSA (تحلیل ایمنی شغل) – تقسیم وظایف به مراحل برای شناسایی خطرات','LOPA (تحلیل لایه‌های حفاظتی) – ارزیابی لایه‌های حفاظت در برابر خطرات','تحلیل What-If – طوفان فکری برای سناریوهای بالقوه'],
+            s4: '🔹 مثال: ارزیابی ریسک برای یک منطقه ذخیره مواد شیمیایی',
+            s4p: 'یک ارزیابی ریسک برای یک منطقه ذخیره مواد شیمیایی انجام می‌شود. تیم خطرات را شناسایی می‌کند: نشت مواد شیمیایی، آتش‌سوزی، مواجهه با دودهای سمی و سقوط اشیاء. با استفاده از ماتریس ریسک، هر ریسک را ارزیابی و کنترل‌ها را اولویت‌بندی می‌کنند (مثلاً دیواره‌های مهار برای نشت، سیستم‌های اطفاء حریق، تهویه، PPE). ارزیابی سالانه بازبینی شده و پس از هر گونه تغییر در منطقه ذخیره به‌روز می‌شود.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
