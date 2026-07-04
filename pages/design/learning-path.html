@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Design Learning Path</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🗺️ Design Learning Path</h1>
+    <div class="sub" id="desc">A structured learning path to become a skilled engineering designer. From fundamentals to advanced project design.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Foundation Level</h2>
+        <ul id="list1">
+            <li>Basic electrical concepts (voltage, current, power, resistance)</li>
+            <li>Understanding electrical symbols and diagrams</li>
+            <li>Introduction to design standards (IEC, NEC, IEEE)</li>
+            <li>CAD fundamentals (AutoCAD, EPLAN basics)</li>
+            <li>Safety awareness and design for safety (LOTO, segregation)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Intermediate Level</h2>
+        <ul id="list2">
+            <li>Creating single-line and schematic diagrams</li>
+            <li>Panel design and component selection (circuit breakers, contactors, PLCs)</li>
+            <li>Cable sizing and routing (trays, conduits, duct banks)</li>
+            <li>Earthing and lightning protection design</li>
+            <li>Lighting design calculations (Dialux/Relux)</li>
+            <li>Power distribution and load calculations</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Advanced Level</h2>
+        <ul id="list3">
+            <li>Control system architecture (PLC, DCS, SCADA integration)</li>
+            <li>Protection coordination and selectivity studies</li>
+            <li>Design for hazardous areas (ATEX, IECEx)</li>
+            <li>Power system analysis (ETAP, SKM)</li>
+            <li>3D panel design and virtual commissioning</li>
+            <li>Project management and documentation standards</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Continuous Learning</h2>
+        <ul id="list4">
+            <li>Stay updated with IEC updates and new technologies</li>
+            <li>Attend design software training (AutoCAD, EPLAN, ETAP)</li>
+            <li>Certifications (IEC 60364, NFPA 70, IEEE 80)</li>
+            <li>Participate in design reviews and project collaboration</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🗺️ Design Learning Path',
+            desc: 'A structured learning path to become a skilled engineering designer. From fundamentals to advanced project design.',
+            s1: '🔹 Foundation Level',
+            list1: ['Basic electrical concepts (voltage, current, power, resistance)','Understanding electrical symbols and diagrams','Introduction to design standards (IEC, NEC, IEEE)','CAD fundamentals (AutoCAD, EPLAN basics)','Safety awareness and design for safety (LOTO, segregation)'],
+            s2: '🔹 Intermediate Level',
+            list2: ['Creating single-line and schematic diagrams','Panel design and component selection (circuit breakers, contactors, PLCs)','Cable sizing and routing (trays, conduits, duct banks)','Earthing and lightning protection design','Lighting design calculations (Dialux/Relux)','Power distribution and load calculations'],
+            s3: '🔹 Advanced Level',
+            list3: ['Control system architecture (PLC, DCS, SCADA integration)','Protection coordination and selectivity studies','Design for hazardous areas (ATEX, IECEx)','Power system analysis (ETAP, SKM)','3D panel design and virtual commissioning','Project management and documentation standards'],
+            s4: '🔹 Continuous Learning',
+            list4: ['Stay updated with IEC updates and new technologies','Attend design software training (AutoCAD, EPLAN, ETAP)','Certifications (IEC 60364, NFPA 70, IEEE 80)','Participate in design reviews and project collaboration'],
+            back: '← Back'
+        },
+        fa: {
+            title: '🗺️ مسیر یادگیری طراحی مهندسی',
+            desc: 'یک مسیر یادگیری ساختاریافته برای تبدیل شدن به یک طراح مهندسی ماهر. از مبانی تا طراحی پروژه پیشرفته.',
+            s1: '🔹 سطح پایه',
+            list1: ['مفاهیم پایه برق (ولتاژ، جریان، توان، مقاومت)','درک نمادها و نمودارهای الکتریکی','آشنایی با استانداردهای طراحی (IEC، NEC، IEEE)','مبانی CAD (AutoCAD، EPLAN)','آگاهی ایمنی و طراحی برای ایمنی (LOTO، تفکیک)'],
+            s2: '🔹 سطح متوسط',
+            list2: ['ایجاد نمودارهای تک خطی و شماتیک','طراحی پنل و انتخاب اجزاء (کلیدهای مدار، کنتاکتورها، PLC)','سایزینگ و مسیریابی کابل (ترِی، کاندوئیت، داکت)','طراحی ارتینگ و حفاظت در برابر صاعقه','محاسبات طراحی روشنایی (Dialux/Relux)','توزیع برق و محاسبات بار'],
+            s3: '🔹 سطح پیشرفته',
+            list3: ['معماری سیستم کنترل (PLC، DCS، یکپارچه‌سازی SCADA)','مطالعات هماهنگی حفاظتی و انتخابی','طراحی برای مناطق خطرناک (ATEX، IECEx)','تحلیل سیستم قدرت (ETAP، SKM)','طراحی سه‌بعدی پنل و راه‌اندازی مجازی','مدیریت پروژه و استانداردهای مستندسازی'],
+            s4: '🔹 یادگیری مستمر',
+            list4: ['به‌روز ماندن با به‌روزرسانی‌های IEC و فناوری‌های جدید','شرکت در آموزش‌های نرم‌افزار طراحی (AutoCAD، EPLAN، ETAP)','گواهینامه‌ها (IEC 60364، NFPA 70، IEEE 80)','شرکت در بازبینی طراحی و همکاری پروژه'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        const ul4 = document.getElementById('list4');
+        ul4.innerHTML = '';
+        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
