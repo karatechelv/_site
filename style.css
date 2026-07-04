@@ -36,7 +36,6 @@ body {
     flex-wrap: wrap;
     gap: 10px;
 }
-
 .brand {
     font-weight: 700;
     font-size: 1.4rem;
@@ -178,7 +177,6 @@ body {
     gap: 18px;
     margin: 20px 0 30px;
 }
-
 .card-academy {
     background: var(--card);
     border-radius: var(--radius);
@@ -299,7 +297,7 @@ body {
     .tools-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
 }
 
-/* ===== پس‌زمینه صفحه Quality ===== */
+/* ===== پس‌زمینه Quality ===== */
 body.page-quality .dashboard {
     background: 
         linear-gradient(rgba(13,14,18,0.80), rgba(13,14,18,0.88)),
