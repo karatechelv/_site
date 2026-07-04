@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Resource Planning</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">👥 Resource Planning</h1>
+    <div class="sub" id="desc">Strategies and tools for planning, allocating, and managing resources (people, equipment, materials, and budgets) in engineering projects.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Resource Planning?</h2>
+        <p id="s1p">Resource planning is the process of identifying, estimating, and allocating the resources required to execute a project successfully. In engineering, this includes human resources (engineers, technicians, project managers), equipment (tools, machinery, vehicles), materials (steel, cables, components), and financial resources. Effective resource planning ensures that the right resources are available at the right time and place.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Resource Categories</h2>
+        <ul id="list1">
+            <li><b>Human Resources</b> – Engineers, technicians, project managers, construction crews</li>
+            <li><b>Equipment</b> – Tools, machinery, test equipment, vehicles</li>
+            <li><b>Materials</b> – Raw materials, consumables, fabricated components</li>
+            <li><b>Financial Resources</b> – Budgets, cost estimates, contingency funds</li>
+            <li><b>Information Resources</b> – Drawings, specifications, standards, software</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Resource Planning Process</h2>
+        <ul id="list2">
+            <li><b>Resource Identification</b> – List all required resources for project activities</li>
+            <li><b>Resource Estimation</b> – Determine quantities, durations, and costs</li>
+            <li><b>Resource Allocation</b> – Assign resources to tasks based on availability and skills</li>
+            <li><b>Resource Leveling</b> – Smooth out resource demand to avoid peaks and shortages</li>
+            <li><b>Resource Monitoring</b> – Track resource usage and adjust plans as needed</li>
+            <li><b>Resource Forecasting</b> – Predict future resource needs for project phases</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Resource Planning for a Petrochemical Plant</h2>
+        <p id="s4p">A petrochemical plant project requires a team of 50 engineers, 20 technicians, and 100 construction workers. The project manager creates a resource plan using MS Project, allocates equipment such as cranes and welding machines, and budgets for materials including pipes and fittings. Regular resource reviews identify potential shortages and allow corrective actions to be taken.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '👥 Resource Planning',
+            desc: 'Strategies and tools for planning, allocating, and managing resources (people, equipment, materials, and budgets) in engineering projects.',
+            s1: '🔹 What is Resource Planning?',
+            s1p: 'Resource planning is the process of identifying, estimating, and allocating the resources required to execute a project successfully. In engineering, this includes human resources (engineers, technicians, project managers), equipment (tools, machinery, vehicles), materials (steel, cables, components), and financial resources. Effective resource planning ensures that the right resources are available at the right time and place.',
+            s2: '🔹 Key Resource Categories',
+            list1: ['Human Resources – Engineers, technicians, project managers, construction crews','Equipment – Tools, machinery, test equipment, vehicles','Materials – Raw materials, consumables, fabricated components','Financial Resources – Budgets, cost estimates, contingency funds','Information Resources – Drawings, specifications, standards, software'],
+            s3: '🔹 Resource Planning Process',
+            list2: ['Resource Identification – List all required resources for project activities','Resource Estimation – Determine quantities, durations, and costs','Resource Allocation – Assign resources to tasks based on availability and skills','Resource Leveling – Smooth out resource demand to avoid peaks and shortages','Resource Monitoring – Track resource usage and adjust plans as needed','Resource Forecasting – Predict future resource needs for project phases'],
+            s4: '🔹 Example: Resource Planning for a Petrochemical Plant',
+            s4p: 'A petrochemical plant project requires a team of 50 engineers, 20 technicians, and 100 construction workers. The project manager creates a resource plan using MS Project, allocates equipment such as cranes and welding machines, and budgets for materials including pipes and fittings. Regular resource reviews identify potential shortages and allow corrective actions to be taken.',
+            back: '← Back'
+        },
+        fa: {
+            title: '👥 برنامه‌ریزی منابع',
+            desc: 'راهبردها و ابزارها برای برنامه‌ریزی، تخصیص و مدیریت منابع (نیروی انسانی، تجهیزات، مواد و بودجه) در پروژه‌های مهندسی.',
+            s1: '🔹 برنامه‌ریزی منابع چیست؟',
+            s1p: 'برنامه‌ریزی منابع فرآیند شناسایی، تخمین و تخصیص منابع مورد نیاز برای اجرای موفق پروژه است. در مهندسی، این شامل منابع انسانی (مهندسان، تکنسین‌ها، مدیران پروژه)، تجهیزات (ابزار، ماشین‌آلات، وسایل نقلیه)، مواد (فولاد، کابل، قطعات) و منابع مالی است. برنامه‌ریزی مؤثر منابع تضمین می‌کند که منابع مناسب در زمان و مکان مناسب در دسترس باشند.',
+            s2: '🔹 دسته‌بندی منابع کلیدی',
+            list1: ['نیروی انسانی – مهندسان، تکنسین‌ها، مدیران پروژه، تیم‌های ساخت','تجهیزات – ابزار، ماشین‌آلات، تجهیزات تست، وسایل نقلیه','مواد – مواد اولیه، مواد مصرفی، قطعات ساخته شده','منابع مالی – بودجه، برآورد هزینه، صندوق‌های اضطراری','منابع اطلاعاتی – نقشه‌ها، مشخصات، استانداردها، نرم‌افزار'],
+            s3: '🔹 فرآیند برنامه‌ریزی منابع',
+            list2: ['شناسایی منابع – فهرست همه منابع مورد نیاز برای فعالیت‌های پروژه','تخمین منابع – تعیین مقادیر، مدت‌ها و هزینه‌ها','تخصیص منابع – اختصاص منابع به وظایف بر اساس در دسترس بودن و مهارت','هموارسازی منابع – یکنواخت کردن تقاضای منابع برای جلوگیری از اوج و کمبود','نظارت بر منابع – پیگیری مصرف منابع و تنظیم برنامه‌ها در صورت نیاز','پیش‌بینی منابع – پیش‌بینی نیازهای منابع آینده برای فازهای پروژه'],
+            s4: '🔹 مثال: برنامه‌ریزی منابع برای یک کارخانه پتروشیمی',
+            s4p: 'یک پروژه کارخانه پتروشیمی به تیمی از ۵۰ مهندس، ۲۰ تکنسین و ۱۰۰ کارگر ساختمانی نیاز دارد. مدیر پروژه با استفاده از MS Project یک برنامه منابع ایجاد، تجهیزاتی مانند جرثقیل و دستگاه‌های جوشکاری تخصیص و برای مواد شامل لوله‌ها و اتصالات بودجه‌بندی می‌کند. بازبینی‌های منظم منابع، کمبودهای بالقوه را شناسایی کرده و امکان اقدامات اصلاحی را فراهم می‌کند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
