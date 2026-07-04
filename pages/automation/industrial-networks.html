@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Industrial Networks</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🌐 Industrial Networks</h1>
+    <div class="sub" id="desc">Communication protocols and network topologies used in industrial automation, including Profinet, Modbus, Ethernet/IP, and more.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What are Industrial Networks?</h2>
+        <p id="s1p">Industrial networks are communication systems that connect field devices, controllers, and SCADA systems in industrial environments. They must be robust, deterministic, and support real-time data exchange.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Common Protocols</h2>
+        <ul id="list1">
+            <li>Profinet – Industrial Ethernet for automation (Siemens)</li>
+            <li>Modbus RTU/TCP – Simple, widely used serial/ethernet protocol</li>
+            <li>Ethernet/IP – CIP-based industrial ethernet (Rockwell)</li>
+            <li>PROFIBUS – Fieldbus standard for process and factory automation</li>
+            <li>DeviceNet – CAN-based network for low-level devices</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Network Topologies</h2>
+        <ul id="list2">
+            <li>Star – Central switch, easy troubleshooting</li>
+            <li>Ring – Redundant, high availability</li>
+            <li>Line/Daisy-chain – Simple, cost-effective</li>
+            <li>Tree – Hierarchical, scalable</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Profinet System Setup</h2>
+        <p id="s4p">A Profinet network consists of an IO Controller (e.g., PLC), IO Devices (remote I/O, drives), and a network switch. Configuration is done via TIA Portal or other engineering software.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🌐 Industrial Networks',
+            desc: 'Communication protocols and network topologies used in industrial automation, including Profinet, Modbus, Ethernet/IP, and more.',
+            s1: '🔹 What are Industrial Networks?',
+            s1p: 'Industrial networks are communication systems that connect field devices, controllers, and SCADA systems in industrial environments. They must be robust, deterministic, and support real-time data exchange.',
+            s2: '🔹 Common Protocols',
+            list1: ['Profinet – Industrial Ethernet for automation (Siemens)','Modbus RTU/TCP – Simple, widely used serial/ethernet protocol','Ethernet/IP – CIP-based industrial ethernet (Rockwell)','PROFIBUS – Fieldbus standard for process and factory automation','DeviceNet – CAN-based network for low-level devices'],
+            s3: '🔹 Network Topologies',
+            list2: ['Star – Central switch, easy troubleshooting','Ring – Redundant, high availability','Line/Daisy-chain – Simple, cost-effective','Tree – Hierarchical, scalable'],
+            s4: '🔹 Example: Profinet System Setup',
+            s4p: 'A Profinet network consists of an IO Controller (e.g., PLC), IO Devices (remote I/O, drives), and a network switch. Configuration is done via TIA Portal or other engineering software.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🌐 شبکه‌های صنعتی',
+            desc: 'پروتکل‌های ارتباطی و توپولوژی‌های شبکه مورد استفاده در اتوماسیون صنعتی، شامل Profinet، Modbus، Ethernet/IP و موارد دیگر.',
+            s1: '🔹 شبکه‌های صنعتی چیستند؟',
+            s1p: 'شبکه‌های صنعتی سیستم‌های ارتباطی هستند که دستگاه‌های میدان، کنترل‌کننده‌ها و سیستم‌های SCADA را در محیط‌های صنعتی متصل می‌کنند. آنها باید مقاوم، قطعی و از تبادل داده در زمان واقعی پشتیبانی کنند.',
+            s2: '🔹 پروتکل‌های رایج',
+            list1: ['Profinet – اترنت صنعتی برای اتوماسیون (زیمنس)','Modbus RTU/TCP – پروتکل سریال/اترنت ساده و پرکاربرد','Ethernet/IP – اترنت صنعتی مبتنی بر CIP (راکول)','PROFIBUS – استاندارد فیلدباس برای اتوماسیون فرآیند و کارخانه','DeviceNet – شبکه مبتنی بر CAN برای دستگاه‌های سطح پایین'],
+            s3: '🔹 توپولوژی‌های شبکه',
+            list2: ['ستاره – سوئیچ مرکزی، عیب‌یابی آسان','حلقه – افزونگی، در دسترس‌پذیری بالا','خطی/زنجیره‌ای – ساده، مقرون‌به‌صرفه','درختی – سلسله‌مراتبی، مقیاس‌پذیر'],
+            s4: '🔹 مثال: راه‌اندازی سیستم Profinet',
+            s4p: 'یک شبکه Profinet شامل یک IO Controller (مثلاً PLC)، دستگاه‌های IO (I/O راه دور، درایوها) و یک سوئیچ شبکه است. پیکربندی از طریق TIA Portal یا نرم‌افزارهای دیگر انجام می‌شود.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
