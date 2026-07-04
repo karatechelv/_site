@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · PLC Basics</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .calc-box{background:#1e2128;padding:20px;border-radius:12px;margin-top:15px;border:1px solid rgba(212,175,55,0.08)}
+        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
+        .calc-box input, .calc-box select{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
+        .calc-box input:focus, .calc-box select:focus{outline:1px solid #d4af37}
+        .calc-row{display:flex;gap:15px;flex-wrap:wrap}
+        .calc-row .field{flex:1;min-width:160px}
+        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:10px 25px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
+        .btn-calc:hover{background:#d4af37;color:#111}
+        .result{background:#0d0e12;padding:12px;border-radius:10px;border-left:4px solid #d4af37;margin-top:12px}
+        .result span{color:#d4af37;font-weight:700}
+        .formula-box{background:#0d0e12;padding:10px;border-radius:8px;font-family:monospace;font-size:.9rem;color:#d4af37;border-left:3px solid #d4af37;margin:10px 0;overflow-x:auto}
+        .table-wrap{overflow-x:auto;margin:10px 0}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px}
+        th,td{padding:8px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        .note{color:#8e95a5;font-size:.85rem;margin-top:10px}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🧠 PLC Basics & Calculations</h1>
+    <div class="sub" id="desc">Understand PLC scan time, memory requirements, and I/O addressing with calculators and reference tables.</div>
+
+    <!-- Section 1: What is a PLC -->
+    <div class="section">
+        <h2 id="s1">🔹 What is a PLC?</h2>
+        <p id="s1p">A Programmable Logic Controller (PLC) is an industrial digital computer designed for the control of manufacturing processes, machinery, and automation systems. PLCs are ruggedized, capable of operating in harsh environments, and are programmed using IEC 61131-3 languages. They continuously monitor inputs, execute logic, and update outputs in a cyclic process called the scan cycle.</p>
+    </div>
+
+    <!-- Section 2: Scan Time -->
+    <div class="section">
+        <h2 id="s2">🔹 Scan Time Calculator</h2>
+        <p id="s2p">Scan time is the time required for a PLC to read inputs, execute the user program, and update outputs. It affects system response time and performance. Typical scan times range from 1 ms to 100 ms depending on the PLC and program size.</p>
+
+        <div class="calc-box">
+            <h3 style="color:#d4af37;font-size:1.1rem;margin-bottom:8px;" id="scan-title">📊 Estimate Scan Time</h3>
+            <div class="calc-row">
+                <div class="field">
+                    <label id="lbl-scan-prog">Program Size (KB)</label>
+                    <input type="number" id="progSize" value="50" step="0.1">
+                </div>
+                <div class="field">
+                    <label id="lbl-scan-io">I/O Points</label>
+                    <input type="number" id="ioPoints" value="256" step="1">
+                </div>
+                <div class="field">
+                    <label id="lbl-scan-type">PLC Type</label>
+                    <select id="plcType">
+                        <option value="0.005" data-en="High-end (0.5-2 ms/1KB)" data-fa="پیشرفته (۰.۵-۲ ms/1KB)">High-end (0.5-2 ms/1KB)</option>
+                        <option value="0.015" data-en="Mid-range (1-3 ms/1KB)" data-fa="متوسط (۱-۳ ms/1KB)" selected>Mid-range (1-3 ms/1KB)</option>
+                        <option value="0.04" data-en="Entry-level (2-5 ms/1KB)" data-fa="مقدماتی (۲-۵ ms/1KB)">Entry-level (2-5 ms/1KB)</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn-calc" id="calcScan">Calculate Scan Time</button>
+            <div class="result" id="scanResult">
+                <span id="scan-label">Estimated Scan Time:</span> <span id="scanValue">--</span> ms
+                <br><span id="scan-freq-label">Max Cycle Frequency:</span> <span id="scanFreq">--</span> Hz
+            </div>
+            <div class="formula-box" id="formula-scan">
+                Scan Time ≈ Program Size × Time per KB + (I/O Points × 0.001 ms) + Overhead
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Memory Calculation -->
+    <div class="section">
+        <h2 id="s3">🔹 PLC Memory Calculator</h2>
+        <p id="s3p">PLC memory consists of program memory, data memory, and system memory. Use the calculator below to estimate total memory requirement.</p>
+
+        <div class="calc-box">
+            <h3 style="color:#d4af37;font-size:1.1rem;margin-bottom:8px;" id="mem-title">📊 Estimate Memory Usage</h3>
+            <div class="calc-row">
+                <div class="field">
+                    <label id="lbl-mem-prog">Program Size (KB)</label>
+                    <input type="number" id="memProg" value="50" step="0.1">
+                </div>
+                <div class="field">
+                    <label id="lbl-mem-data">Data Size (KB)</label>
+                    <input type="number" id="memData" value="20" step="0.1">
+                </div>
+            </div>
+            <button class="btn-calc" id="calcMem">Calculate Memory</button>
+            <div class="result" id="memResult">
+                <span id="mem-label">Total Memory Required:</span> <span id="memValue">--</span> KB
+                <br><span id="mem-detail-label">Program:</span> <span id="memProgResult">--</span> KB | <span id="mem-data-label">Data:</span> <span id="memDataResult">--</span> KB
+            </div>
+            <div class="formula-box" id="formula-mem">
+                Total Memory = Program Memory + Data Memory + System Overhead (~10-15%)
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: I/O Addressing Reference -->
+    <div class="section">
+        <h2 id="s4">🔹 I/O Addressing Reference</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th id="th-plc">PLC Brand</th>
+                        <th id="th-di">Digital Input</th>
+                        <th id="th-do">Digital Output</th>
+                        <th id="th-ai">Analog Input</th>
+                        <th id="th-ao">Analog Output</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Siemens (S7-1200/1500)</td><td>I0.0, I0.1...</td><td>Q0.0, Q0.1...</td><td>IW64, IW66...</td><td>QW64, QW66...</td></tr>
+                    <tr><td>Allen-Bradley (CompactLogix)</td><td>Local:0:I.Data.0</td><td>Local:0:O.Data.0</td><td>Local:1:I.Ch0</td><td>Local:1:O.Ch0</td></tr>
+                    <tr><td>Schneider (Modicon)</td><td>%I0.0, %I0.1...</td><td>%Q0.0, %Q0.1...</td><td>%IW0.0, %IW0.1...</td><td>%QW0.0, %QW0.1...</td></tr>
+                    <tr><td>Mitsubishi (FX Series)</td><td>X0, X1...</td><td>Y0, Y1...</td><td>D0 (analog buffer)</td><td>D0 (analog buffer)</td></tr>
+                    <tr><td>Codesys (generic)</td><td>AT%I*</td><td>AT%Q*</td><td>AT%IW*</td><td>AT%QW*</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="note" id="io-note">Note: Addressing conventions vary. Always refer to the specific PLC manual for exact addressing.</div>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const langData = {
+        en: {
+            title: '🧠 PLC Basics & Calculations',
+            desc: 'Understand PLC scan time, memory requirements, and I/O addressing with calculators and reference tables.',
+            s1: '🔹 What is a PLC?',
+            s1p: 'A Programmable Logic Controller (PLC) is an industrial digital computer designed for the control of manufacturing processes, machinery, and automation systems. PLCs are ruggedized, capable of operating in harsh environments, and are programmed using IEC 61131-3 languages. They continuously monitor inputs, execute logic, and update outputs in a cyclic process called the scan cycle.',
+            s2: '🔹 Scan Time Calculator',
+            s2p: 'Scan time is the time required for a PLC to read inputs, execute the user program, and update outputs. It affects system response time and performance. Typical scan times range from 1 ms to 100 ms depending on the PLC and program size.',
+            scan_title: '📊 Estimate Scan Time',
+            scan_prog: 'Program Size (KB)',
+            scan_io: 'I/O Points',
+            scan_type: 'PLC Type',
+            calc_scan: 'Calculate Scan Time',
+            scan_label: 'Estimated Scan Time:',
+            scan_freq_label: 'Max Cycle Frequency:',
+            formula_scan: 'Scan Time ≈ Program Size × Time per KB + (I/O Points × 0.001 ms) + Overhead',
+            s3: '🔹 PLC Memory Calculator',
+            s3p: 'PLC memory consists of program memory, data memory, and system memory. Use the calculator below to estimate total memory requirement.',
+            mem_title: '📊 Estimate Memory Usage',
+            mem_prog: 'Program Size (KB)',
+            mem_data: 'Data Size (KB)',
+            calc_mem: 'Calculate Memory',
+            mem_label: 'Total Memory Required:',
+            mem_detail_label: 'Program:',
+            mem_data_label: 'Data:',
+            formula_mem: 'Total Memory = Program Memory + Data Memory + System Overhead (~10-15%)',
+            s4: '🔹 I/O Addressing Reference',
+            th_plc: 'PLC Brand',
+            th_di: 'Digital Input',
+            th_do: 'Digital Output',
+            th_ai: 'Analog Input',
+            th_ao: 'Analog Output',
+            io_note: 'Note: Addressing conventions vary. Always refer to the specific PLC manual for exact addressing.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🧠 مبانی PLC و محاسبات',
+            desc: 'درک زمان اسکن PLC، نیازهای حافظه و آدرس‌دهی I/O با ماشین‌حساب‌ها و جدول‌های مرجع.',
+            s1: '🔹 PLC چیست؟',
+            s1p: 'کنترل‌کننده منطقی قابل برنامه‌ریزی (PLC) یک کامپیوتر دیجیتال صنعتی است که برای کنترل فرآیندهای تولید، ماشین‌آلات و سیستم‌های اتوماسیون طراحی شده است. PLCها مقاوم بوده و قادر به کار در محیط‌های سخت هستند و با استفاده از زبان‌های IEC 61131-3 برنامه‌نویسی می‌شوند. آنها به طور مداوم ورودی‌ها را نظارت، منطق را اجرا و خروجی‌ها را در یک فرآیند چرخه‌ای به نام چرخه اسکن به‌روز می‌کنند.',
+            s2: '🔹 ماشین‌حساب زمان اسکن',
+            s2p: 'زمان اسکن مدت زمانی است که PLC برای خواندن ورودی‌ها، اجرای برنامه کاربر و به‌روزرسانی خروجی‌ها نیاز دارد. بر زمان پاسخ سیستم و عملکرد تأثیر می‌گذارد. زمان اسکن معمولی بسته به PLC و اندازه برنامه از ۱ میلی‌ثانیه تا ۱۰۰ میلی‌ثانیه متغیر است.',
+            scan_title: '📊 تخمین زمان اسکن',
+            scan_prog: 'اندازه برنامه (KB)',
+            scan_io: 'تعداد I/O',
+            scan_type: 'نوع PLC',
+            calc_scan: 'محاسبه زمان اسکن',
+            scan_label: 'زمان اسکن تخمینی:',
+            scan_freq_label: 'حداکثر فرکانس چرخه:',
+            formula_scan: 'زمان اسکن ≈ اندازه برنامه × زمان هر KB + (تعداد I/O × ۰.۰۰۱ ms) + سربار',
+            s3: '🔹 ماشین‌حساب حافظه PLC',
+            s3p: 'حافظه PLC از حافظه برنامه، حافظه داده و حافظه سیستم تشکیل شده است. از ماشین‌حساب زیر برای تخمین حافظه کل استفاده کنید.',
+            mem_title: '📊 تخمین استفاده از حافظه',
+            mem_prog: 'اندازه برنامه (KB)',
+            mem_data: 'اندازه داده (KB)',
+            calc_mem: 'محاسبه حافظه',
+            mem_label: 'حافظه کل مورد نیاز:',
+            mem_detail_label: 'برنامه:',
+            mem_data_label: 'داده:',
+            formula_mem: 'حافظه کل = حافظه برنامه + حافظه داده + سربار سیستم (~۱۰-۱۵٪)',
+            s4: '🔹 جدول مرجع آدرس‌دهی I/O',
+            th_plc: 'برند PLC',
+            th_di: 'ورودی دیجیتال',
+            th_do: 'خروجی دیجیتال',
+            th_ai: 'ورودی آنالوگ',
+            th_ao: 'خروجی آنالوگ',
+            io_note: 'توجه: قراردادهای آدرس‌دهی متفاوت است. همیشه برای آدرس‌دهی دقیق به دفترچه راهنمای PLC خاص مراجعه کنید.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLanguage(lang) {
+        const t = langData[lang];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s2p').textContent = t.s2p;
+        document.getElementById('scan-title').textContent = t.scan_title;
+        document.getElementById('lbl-scan-prog').textContent = t.scan_prog;
+        document.getElementById('lbl-scan-io').textContent = t.scan_io;
+        document.getElementById('lbl-scan-type').textContent = t.scan_type;
+        document.getElementById('calcScan').textContent = t.calc_scan;
+        document.getElementById('scan-label').textContent = t.scan_label;
+        document.getElementById('scan-freq-label').textContent = t.scan_freq_label;
+        document.getElementById('formula-scan').textContent = t.formula_scan;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s3p').textContent = t.s3p;
+        document.getElementById('mem-title').textContent = t.mem_title;
+        document.getElementById('lbl-mem-prog').textContent = t.mem_prog;
+        document.getElementById('lbl-mem-data').textContent = t.mem_data;
+        document.getElementById('calcMem').textContent = t.calc_mem;
+        document.getElementById('mem-label').textContent = t.mem_label;
+        document.getElementById('mem-detail-label').textContent = t.mem_detail_label;
+        document.getElementById('mem-data-label').textContent = t.mem_data_label;
+        document.getElementById('formula-mem').textContent = t.formula_mem;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('th-plc').textContent = t.th_plc;
+        document.getElementById('th-di').textContent = t.th_di;
+        document.getElementById('th-do').textContent = t.th_do;
+        document.getElementById('th-ai').textContent = t.th_ai;
+        document.getElementById('th-ao').textContent = t.th_ao;
+        document.getElementById('io-note').textContent = t.io_note;
+        document.getElementById('backlink').textContent = t.back;
+
+        document.querySelectorAll('#plcType option').forEach(opt => {
+            const text = opt.dataset[lang];
+            if (text) opt.textContent = text;
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        document.body.classList.toggle('lang-persian', lang === 'fa');
+        localStorage.setItem('karatech-lang', lang);
+        updateResults();
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLanguage(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLanguage(savedLang);
+
+    function calcScan() {
+        const prog = parseFloat(document.getElementById('progSize').value);
+        const io = parseFloat(document.getElementById('ioPoints').value);
+        const factor = parseFloat(document.getElementById('plcType').value);
+
+        if (isNaN(prog) || prog <= 0 || isNaN(io) || io <= 0) {
+            document.getElementById('scanValue').textContent = 'Invalid input';
+            document.getElementById('scanFreq').textContent = '--';
+            return;
+        }
+
+        const scanTime = prog * factor + io * 0.001 + 0.5; // ms
+        const freq = 1000 / scanTime;
+
+        document.getElementById('scanValue').textContent = scanTime.toFixed(2);
+        document.getElementById('scanFreq').textContent = freq.toFixed(1);
+    }
+
+    function calcMem() {
+        const prog = parseFloat(document.getElementById('memProg').value);
+        const data = parseFloat(document.getElementById('memData').value);
+
+        if (isNaN(prog) || prog <= 0 || isNaN(data) || data <= 0) {
+            document.getElementById('memValue').textContent = 'Invalid input';
+            document.getElementById('memProgResult').textContent = '--';
+            document.getElementById('memDataResult').textContent = '--';
+            return;
+        }
+
+        const overhead = (prog + data) * 0.12;
+        const total = prog + data + overhead;
+
+        document.getElementById('memProgResult').textContent = prog.toFixed(1);
+        document.getElementById('memDataResult').textContent = data.toFixed(1);
+        document.getElementById('memValue').textContent = total.toFixed(1);
+    }
+
+    document.getElementById('calcScan').onclick = calcScan;
+    document.getElementById('calcMem').onclick = calcMem;
+
+    function updateResults() {
+        calcScan();
+        calcMem();
+    }
+
+    updateResults();
+</script>
+
+</body>
+</html>
