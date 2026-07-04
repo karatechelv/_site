@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Risk Management</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">⚠️ Risk Management</h1>
+    <div class="sub" id="desc">Principles, methodologies, tools, and best practices for identifying, assessing, and mitigating risks in engineering projects.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Risk Management?</h2>
+        <p id="s1p">Risk management is the systematic process of identifying, analyzing, evaluating, and treating risks that could impact project objectives. In engineering, effective risk management reduces uncertainty, prevents costly failures, ensures safety, and improves project outcomes.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Risk Management Process (ISO 31000)</h2>
+        <ul id="list1">
+            <li><b>Risk Identification</b> – Identify potential risks that could affect the project</li>
+            <li><b>Risk Analysis</b> – Assess the likelihood and impact of each risk</li>
+            <li><b>Risk Evaluation</b> – Prioritize risks based on severity and urgency</li>
+            <li><b>Risk Treatment</b> – Develop and implement strategies to mitigate risks</li>
+            <li><b>Monitoring & Review</b> – Track risks and update treatment plans</li>
+            <li><b>Communication</b> – Ensure stakeholders are informed of risks and responses</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Common Risk Categories in Engineering</h2>
+        <ul id="list2">
+            <li><b>Technical Risks</b> – Design errors, equipment failure, technology obsolescence</li>
+            <li><b>Project Management Risks</b> – Schedule delays, cost overruns, resource shortages</li>
+            <li><b>Safety Risks</b> – Workplace accidents, hazardous materials, electrical hazards</li>
+            <li><b>External Risks</b> – Regulatory changes, supplier issues, economic factors</li>
+            <li><b>Quality Risks</b> – Poor quality materials, inadequate testing, non-conformances</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Risk Management in a Power Plant Project</h2>
+        <p id="s4p">A risk management team identifies risks for a new power plant project: delays in equipment delivery, safety incidents, and design changes. They assess each risk's likelihood and impact, assign risk owners, and develop mitigation strategies. Regular risk reviews are conducted to monitor progress and adjust plans as needed.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '⚠️ Risk Management',
+            desc: 'Principles, methodologies, tools, and best practices for identifying, assessing, and mitigating risks in engineering projects.',
+            s1: '🔹 What is Risk Management?',
+            s1p: 'Risk management is the systematic process of identifying, analyzing, evaluating, and treating risks that could impact project objectives. In engineering, effective risk management reduces uncertainty, prevents costly failures, ensures safety, and improves project outcomes.',
+            s2: '🔹 Risk Management Process (ISO 31000)',
+            list1: ['Risk Identification – Identify potential risks that could affect the project','Risk Analysis – Assess the likelihood and impact of each risk','Risk Evaluation – Prioritize risks based on severity and urgency','Risk Treatment – Develop and implement strategies to mitigate risks','Monitoring & Review – Track risks and update treatment plans','Communication – Ensure stakeholders are informed of risks and responses'],
+            s3: '🔹 Common Risk Categories in Engineering',
+            list2: ['Technical Risks – Design errors, equipment failure, technology obsolescence','Project Management Risks – Schedule delays, cost overruns, resource shortages','Safety Risks – Workplace accidents, hazardous materials, electrical hazards','External Risks – Regulatory changes, supplier issues, economic factors','Quality Risks – Poor quality materials, inadequate testing, non-conformances'],
+            s4: '🔹 Example: Risk Management in a Power Plant Project',
+            s4p: 'A risk management team identifies risks for a new power plant project: delays in equipment delivery, safety incidents, and design changes. They assess each risk\'s likelihood and impact, assign risk owners, and develop mitigation strategies. Regular risk reviews are conducted to monitor progress and adjust plans as needed.',
+            back: '← Back'
+        },
+        fa: {
+            title: '⚠️ مدیریت ریسک',
+            desc: 'اصول، روش‌شناسی، ابزارها و بهترین شیوه‌ها برای شناسایی، ارزیابی و کاهش ریسک‌ها در پروژه‌های مهندسی.',
+            s1: '🔹 مدیریت ریسک چیست؟',
+            s1p: 'مدیریت ریسک فرآیند سیستماتیک شناسایی، تحلیل، ارزیابی و درمان ریسک‌هایی است که می‌توانند بر اهداف پروژه تأثیر بگذارند. در مهندسی، مدیریت ریسک مؤثر عدم قطعیت را کاهش می‌دهد، از شکست‌های پرهزینه جلوگیری می‌کند، ایمنی را تضمین کرده و نتایج پروژه را بهبود می‌بخشد.',
+            s2: '🔹 فرآیند مدیریت ریسک (ISO 31000)',
+            list1: ['شناسایی ریسک – شناسایی ریسک‌های بالقوه که می‌توانند بر پروژه تأثیر بگذارند','تحلیل ریسک – ارزیابی احتمال و تأثیر هر ریسک','ارزیابی ریسک – اولویت‌بندی ریسک‌ها بر اساس شدت و فوریت','درمان ریسک – توسعه و اجرای استراتژی‌ها برای کاهش ریسک‌ها','نظارت و بازبینی – پیگیری ریسک‌ها و به‌روزرسانی برنامه‌های درمانی','ارتباطات – اطمینان از اطلاع ذی‌نفعان از ریسک‌ها و پاسخ‌ها'],
+            s3: '🔹 دسته‌بندی ریسک‌های رایج در مهندسی',
+            list2: ['ریسک‌های فنی – خطاهای طراحی، خرابی تجهیزات، منسوخ شدن فناوری','ریسک‌های مدیریت پروژه – تأخیر در زمان‌بندی، افزایش هزینه، کمبود منابع','ریسک‌های ایمنی – حوادث محیط کار، مواد خطرناک، خطرات الکتریکی','ریسک‌های خارجی – تغییرات نظارتی، مشکلات تأمین‌کننده، عوامل اقتصادی','ریسک‌های کیفیت – مواد با کیفیت پایین، تست ناکافی، عدم انطباق'],
+            s4: '🔹 مثال: مدیریت ریسک در یک پروژه نیروگاه',
+            s4p: 'یک تیم مدیریت ریسک ریسک‌های یک پروژه نیروگاه جدید را شناسایی می‌کند: تأخیر در تحویل تجهیزات، حوادث ایمنی و تغییرات طراحی. آنها احتمال و تأثیر هر ریسک را ارزیابی، مالکان ریسک را تعیین و استراتژی‌های کاهش را توسعه می‌دهند. بازبینی‌های منظم ریسک برای نظارت بر پیشرفت و تنظیم برنامه‌ها در صورت نیاز انجام می‌شود.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
