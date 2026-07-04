@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Health & Wellness</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">❤️ Health & Wellness</h1>
+    <div class="sub" id="desc">Occupational health, wellness programs, psychological safety, and wellbeing strategies for engineering and industrial workplaces.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Health & Wellness in the Workplace?</h2>
+        <p id="s1p">Workplace health and wellness refers to programs, policies, and practices that promote the physical, mental, and emotional wellbeing of employees. In engineering and industrial settings, this includes occupational health (e.g., ergonomics, exposure control), mental health support, stress management, and fostering a positive work environment. A healthy workforce is more productive, engaged, and safe.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Areas of Occupational Health</h2>
+        <ul id="list1">
+            <li><b>Ergonomics</b> – Designing workstations and tasks to reduce strain and injuries</li>
+            <li><b>Chemical Exposure Control</b> – Monitoring and reducing exposure to harmful substances</li>
+            <li><b>Noise Control</b> – Protecting hearing through engineering controls and PPE</li>
+            <li><b>Heat Stress Management</b> – Preventing heat-related illnesses in hot environments</li>
+            <li><b>Respiratory Protection</b> – Ensuring proper breathing protection in hazardous atmospheres</li>
+            <li><b>Medical Surveillance</b> – Regular health check-ups for early detection of occupational diseases</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Mental Health & Wellness Programs</h2>
+        <ul id="list2">
+            <li><b>Employee Assistance Programs (EAP)</b> – Confidential counseling and support services</li>
+            <li><b>Stress Management Training</b> – Techniques to manage workplace stress</li>
+            <li><b>Work-Life Balance</b> – Flexible schedules, leave policies, and remote work options</li>
+            <li><b>Psychological Safety</b> – Creating an environment where employees feel safe to speak up</li>
+            <li><b>Peer Support Programs</b> – Trained colleagues providing emotional support</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Workplace Wellness Program in Engineering Firm</h2>
+        <p id="s4p">An engineering firm implements a comprehensive wellness program including ergonomic assessments, mental health first-aid training, flexible working hours, and regular health screenings. The program leads to reduced sick leave, improved employee satisfaction, and higher productivity. Employee feedback is collected annually to continuously improve the program.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '❤️ Health & Wellness',
+            desc: 'Occupational health, wellness programs, psychological safety, and wellbeing strategies for engineering and industrial workplaces.',
+            s1: '🔹 What is Health & Wellness in the Workplace?',
+            s1p: 'Workplace health and wellness refers to programs, policies, and practices that promote the physical, mental, and emotional wellbeing of employees. In engineering and industrial settings, this includes occupational health (e.g., ergonomics, exposure control), mental health support, stress management, and fostering a positive work environment. A healthy workforce is more productive, engaged, and safe.',
+            s2: '🔹 Key Areas of Occupational Health',
+            list1: ['Ergonomics – Designing workstations and tasks to reduce strain and injuries','Chemical Exposure Control – Monitoring and reducing exposure to harmful substances','Noise Control – Protecting hearing through engineering controls and PPE','Heat Stress Management – Preventing heat-related illnesses in hot environments','Respiratory Protection – Ensuring proper breathing protection in hazardous atmospheres','Medical Surveillance – Regular health check-ups for early detection of occupational diseases'],
+            s3: '🔹 Mental Health & Wellness Programs',
+            list2: ['Employee Assistance Programs (EAP) – Confidential counseling and support services','Stress Management Training – Techniques to manage workplace stress','Work-Life Balance – Flexible schedules, leave policies, and remote work options','Psychological Safety – Creating an environment where employees feel safe to speak up','Peer Support Programs – Trained colleagues providing emotional support'],
+            s4: '🔹 Example: Workplace Wellness Program in Engineering Firm',
+            s4p: 'An engineering firm implements a comprehensive wellness program including ergonomic assessments, mental health first-aid training, flexible working hours, and regular health screenings. The program leads to reduced sick leave, improved employee satisfaction, and higher productivity. Employee feedback is collected annually to continuously improve the program.',
+            back: '← Back'
+        },
+        fa: {
+            title: '❤️ بهداشت و تندرستی',
+            desc: 'بهداشت شغلی، برنامه‌های تندرستی، ایمنی روانی و راهبردهای تندرستی برای محیط‌های کاری مهندسی و صنعتی.',
+            s1: '🔹 بهداشت و تندرستی در محیط کار چیست؟',
+            s1p: 'بهداشت و تندرستی در محیط کار به برنامه‌ها، خط‌مشی‌ها و شیوه‌هایی اشاره دارد که تندرستی جسمی، ذهنی و عاطفی کارکنان را ترویج می‌کنند. در محیط‌های مهندسی و صنعتی، این شامل بهداشت شغلی (مثلاً ارگونومی، کنترل مواجهه)، پشتیبانی از سلامت روان، مدیریت استرس و ایجاد یک محیط کار مثبت است. یک نیروی کار سالم، مولدتر، متعهدتر و ایمن‌تر است.',
+            s2: '🔹 حوزه‌های کلیدی بهداشت شغلی',
+            list1: ['ارگونومی – طراحی ایستگاه‌های کاری و وظایف برای کاهش فشار و آسیب‌ها','کنترل مواجهه شیمیایی – نظارت و کاهش مواجهه با مواد مضر','کنترل سر و صدا – محافظت از شنوایی از طریق کنترل‌های مهندسی و PPE','مدیریت استرس گرمایی – پیشگیری از بیماری‌های ناشی از گرما در محیط‌های گرم','حفاظت تنفسی – اطمینان از حفاظت تنفسی مناسب در جوهای خطرناک','نظارت پزشکی – معاینات منظم سلامت برای تشخیص زودهنگام بیماری‌های شغلی'],
+            s3: '🔹 برنامه‌های سلامت روان و تندرستی',
+            list2: ['برنامه‌های کمک به کارکنان (EAP) – خدمات مشاوره و پشتیبانی محرمانه','آموزش مدیریت استرس – تکنیک‌های مدیریت استرس در محیط کار','تعادل کار و زندگی – برنامه‌های انعطاف‌پذیر، مرخصی و گزینه‌های کار از راه دور','ایمنی روانی – ایجاد محیطی که کارکنان در آن برای صحبت کردن احساس امنیت کنند','برنامه‌های پشتیبانی همتا – همکاران آموزش‌دیده که پشتیبانی عاطفی ارائه می‌دهند'],
+            s4: '🔹 مثال: برنامه تندرستی محیط کار در یک شرکت مهندسی',
+            s4p: 'یک شرکت مهندسی یک برنامه جامع تندرستی شامل ارزیابی‌های ارگونومی، آموزش کمک‌های اولیه سلامت روان، ساعات کاری انعطاف‌پذیر و غربالگری‌های منظم سلامت پیاده‌سازی می‌کند. این برنامه به کاهش مرخصی استعلاجی، بهبود رضایت کارکنان و افزایش بهره‌وری منجر می‌شود. بازخورد کارکنان سالانه برای بهبود مستمر برنامه جمع‌آوری می‌شود.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
