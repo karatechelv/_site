@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Temperature Measurement</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .table-wrap{overflow-x:auto;margin:10px 0}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px}
+        th,td{padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🌡️ Temperature Measurement</h1>
+    <div class="sub" id="desc">Methods and devices for measuring temperature in industrial processes: RTDs, thermocouples, thermistors, and infrared sensors.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Importance of Temperature Measurement</h2>
+        <p id="s1p">Temperature is one of the most critical process variables in industries such as chemical, petrochemical, food, pharmaceuticals, and power generation. Accurate measurement ensures product quality, process efficiency, and equipment safety.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Common Temperature Sensors</h2>
+        <ul id="list1">
+            <li><b>RTD (Resistance Temperature Detector)</b> – High accuracy, wide range (-200 to 850°C). Commonly PT100.</li>
+            <li><b>Thermocouple</b> – Rugged, wide range (-200 to 2300°C). Types: J, K, T, S, R.</li>
+            <li><b>Thermistor</b> – High sensitivity, limited range (-50 to 300°C).</li>
+            <li><b>Infrared Pyrometer</b> – Non-contact measurement for high temperatures.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Comparison Table</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th id="th1">Type</th><th id="th2">Range</th><th id="th3">Accuracy</th><th id="th4">Application</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>RTD PT100</td><td>-200 to 850°C</td><td>±0.1°C</td><td>Industrial processes</td></tr>
+                    <tr><td>Thermocouple K</td><td>-200 to 1350°C</td><td>±0.5°C</td><td>Furnaces, kilns</td></tr>
+                    <tr><td>Thermistor</td><td>-50 to 300°C</td><td>±0.05°C</td><td>Medical, HVAC</td></tr>
+                    <tr><td>Infrared</td><td>0 to 3000°C</td><td>±1%</td><td>Moving/remote objects</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: RTD PT100 for Reactor Temperature</h2>
+        <p id="s4p">In a chemical reactor, a 3-wire PT100 RTD is installed to measure temperature continuously. The RTD connects to a transmitter that outputs 4-20 mA to the DCS. The transmitter is calibrated to a range of 0-200°C, providing accurate control of the exothermic reaction.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🌡️ Temperature Measurement',
+            desc: 'Methods and devices for measuring temperature in industrial processes: RTDs, thermocouples, thermistors, and infrared sensors.',
+            s1: '🔹 Importance of Temperature Measurement',
+            s1p: 'Temperature is one of the most critical process variables in industries such as chemical, petrochemical, food, pharmaceuticals, and power generation. Accurate measurement ensures product quality, process efficiency, and equipment safety.',
+            s2: '🔹 Common Temperature Sensors',
+            list1: ['RTD (Resistance Temperature Detector) – High accuracy, wide range (-200 to 850°C). Commonly PT100.','Thermocouple – Rugged, wide range (-200 to 2300°C). Types: J, K, T, S, R.','Thermistor – High sensitivity, limited range (-50 to 300°C).','Infrared Pyrometer – Non-contact measurement for high temperatures.'],
+            s3: '🔹 Comparison Table',
+            th1: 'Type', th2: 'Range', th3: 'Accuracy', th4: 'Application',
+            s4: '🔹 Example: RTD PT100 for Reactor Temperature',
+            s4p: 'In a chemical reactor, a 3-wire PT100 RTD is installed to measure temperature continuously. The RTD connects to a transmitter that outputs 4-20 mA to the DCS. The transmitter is calibrated to a range of 0-200°C, providing accurate control of the exothermic reaction.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🌡️ اندازه‌گیری دما',
+            desc: 'روش‌ها و دستگاه‌های اندازه‌گیری دما در فرآیندهای صنعتی: RTD، ترموکوپل، ترمیستور و سنسورهای مادون قرمز.',
+            s1: '🔹 اهمیت اندازه‌گیری دما',
+            s1p: 'دما یکی از حیاتی‌ترین متغیرهای فرآیندی در صنایع مانند شیمیایی، پتروشیمی، غذایی، دارویی و تولید برق است. اندازه‌گیری دقیق کیفیت محصول، کارایی فرآیند و ایمنی تجهیزات را تضمین می‌کند.',
+            s2: '🔹 سنسورهای رایج دما',
+            list1: ['RTD (آشکارساز دمای مقاومتی) – دقت بالا، محدوده وسیع (۲۰۰- تا ۸۵۰ درجه سانتی‌گراد). معمولاً PT100.','ترموکوپل – مقاوم، محدوده وسیع (۲۰۰- تا ۲۳۰۰ درجه). انواع: J، K، T، S، R.','ترمیستور – حساسیت بالا، محدوده محدود (۵۰- تا ۳۰۰ درجه).','پیرومتر مادون قرمز – اندازه‌گیری غیرتماسی برای دماهای بالا.'],
+            s3: '🔹 جدول مقایسه',
+            th1: 'نوع', th2: 'محدوده', th3: 'دقت', th4: 'کاربرد',
+            s4: '🔹 مثال: RTD PT100 برای دمای راکتور',
+            s4p: 'در یک راکتور شیمیایی، یک RTD PT100 سه‌سیمه برای اندازه‌گیری مداوم دما نصب شده است. RTD به یک ترانسمیتر متصل است که سیگنال ۴-۲۰ میلی‌آمپر به DCS ارسال می‌کند. ترانسمیتر برای محدوده ۰-۲۰۰ درجه کالیبره شده و کنترل دقیق واکنش گرمازا را فراهم می‌کند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        document.getElementById('th1').textContent = t.th1;
+        document.getElementById('th2').textContent = t.th2;
+        document.getElementById('th3').textContent = t.th3;
+        document.getElementById('th4').textContent = t.th4;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
