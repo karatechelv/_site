@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Standards Videos & Future</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🎬 Standards Videos & Future</h1>
+    <div class="sub" id="desc">Curated video tutorials and insights into future trends and technologies in engineering standards and compliance.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Recommended Video Channels</h2>
+        <ul id="list1">
+            <li>IEC – Official webinars and training videos</li>
+            <li>IEEE – Standards training and application tutorials</li>
+            <li>ISO – Quality management and standards implementation</li>
+            <li>NFPA – National Electrical Code training and updates</li>
+            <li>API – Oil and gas standards and safety training</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Popular Video Topics</h2>
+        <ul id="list2">
+            <li>Understanding IEC 60364 for electrical installations</li>
+            <li>NEC Code updates and compliance strategies</li>
+            <li>ISO 9001 implementation and auditing</li>
+            <li>API standards for instrumentation and process measurement</li>
+            <li>IEEE 1584 arc-flash hazard analysis</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Future Trends in Standards</h2>
+        <ul id="list3">
+            <li>Digitalization of standards – AI-powered search and application</li>
+            <li>Real-time compliance monitoring using IoT and data analytics</li>
+            <li>Harmonization of international standards (IEC/ISO alignment)</li>
+            <li>Smart standards for Industry 4.0 and IIoT</li>
+            <li>Blockchain for standards traceability and certification</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 What's Next in Standards Engineering?</h2>
+        <p id="s4p">The future of standards engineering will be driven by digitalization, automation, and global harmonization. Standards will become more accessible and integrated into design and operations through digital twins and AI tools. Engineers will need to adapt to evolving standards while leveraging new technologies for compliance and quality assurance.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🎬 Standards Videos & Future',
+            desc: 'Curated video tutorials and insights into future trends and technologies in engineering standards and compliance.',
+            s1: '🔹 Recommended Video Channels',
+            list1: ['IEC – Official webinars and training videos','IEEE – Standards training and application tutorials','ISO – Quality management and standards implementation','NFPA – National Electrical Code training and updates','API – Oil and gas standards and safety training'],
+            s2: '🔹 Popular Video Topics',
+            list2: ['Understanding IEC 60364 for electrical installations','NEC Code updates and compliance strategies','ISO 9001 implementation and auditing','API standards for instrumentation and process measurement','IEEE 1584 arc-flash hazard analysis'],
+            s3: '🔹 Future Trends in Standards',
+            list3: ['Digitalization of standards – AI-powered search and application','Real-time compliance monitoring using IoT and data analytics','Harmonization of international standards (IEC/ISO alignment)','Smart standards for Industry 4.0 and IIoT','Blockchain for standards traceability and certification'],
+            s4: '🔹 What\'s Next in Standards Engineering?',
+            s4p: 'The future of standards engineering will be driven by digitalization, automation, and global harmonization. Standards will become more accessible and integrated into design and operations through digital twins and AI tools. Engineers will need to adapt to evolving standards while leveraging new technologies for compliance and quality assurance.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🎬 ویدئوها و آینده استانداردها',
+            desc: 'آموزش‌های ویدئویی منتخب و بینش‌هایی درباره روندها و فناوری‌های آینده در استانداردهای مهندسی و انطباق.',
+            s1: '🔹 کانال‌های ویدئویی پیشنهادی',
+            list1: ['IEC – وبینارها و آموزش‌های رسمی','IEEE – آموزش استانداردها و برنامه‌های کاربردی','ISO – مدیریت کیفیت و پیاده‌سازی استانداردها','NFPA – آموزش و به‌روزرسانی کد ملی برق','API – استانداردهای نفت و گاز و آموزش ایمنی'],
+            s2: '🔹 موضوعات محبوب ویدئویی',
+            list2: ['درک IEC 60364 برای تأسیسات الکتریکی','به‌روزرسانی‌های کد NEC و راهبردهای انطباق','پیاده‌سازی و حسابرسی ISO 9001','استانداردهای API برای ابزار دقیق و اندازه‌گیری فرآیند','تحلیل خطر قوس الکتریکی IEEE 1584'],
+            s3: '🔹 روندهای آینده در استانداردها',
+            list3: ['دیجیتالی‌سازی استانداردها – جستجو و کاربرد مبتنی بر هوش مصنوعی','نظارت بر انطباق زمان واقعی با استفاده از IoT و تحلیل داده','هماهنگ‌سازی استانداردهای بین‌المللی (هم‌ترازی IEC/ISO)','استانداردهای هوشمند برای صنعت ۴.۰ و IIoT','بلاکچین برای قابلیت ردیابی و گواهینامه استانداردها'],
+            s4: '🔹 آینده مهندسی استانداردها چیست؟',
+            s4p: 'آینده مهندسی استانداردها توسط دیجیتالی‌سازی، اتوماسیون و هماهنگ‌سازی جهانی هدایت خواهد شد. استانداردها از طریق دوقلوی دیجیتال و ابزارهای هوش مصنوعی در دسترس‌تر شده و در طراحی و عملیات یکپارچه می‌شوند. مهندسان باید خود را با استانداردهای در حال تحول تطبیق دهند و از فناوری‌های جدید برای انطباق و تضمین کیفیت استفاده کنند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
