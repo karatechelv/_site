@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · PID Control</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .formula-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.9rem;color:#d4af37;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🎯 PID Control</h1>
+    <div class="sub" id="desc">Proportional-Integral-Derivative (PID) control theory, tuning methods, and practical applications in industrial automation.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is PID Control?</h2>
+        <p id="s1p">PID (Proportional-Integral-Derivative) control is a feedback control loop mechanism widely used in industrial control systems. It continuously calculates an error value as the difference between a measured process variable and a desired setpoint, and applies a correction based on proportional, integral, and derivative terms.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 PID Terms</h2>
+        <ul id="list1">
+            <li><b>Proportional (P)</b> – Responds to current error, provides fast response</li>
+            <li><b>Integral (I)</b> – Eliminates steady-state error, accumulates past errors</li>
+            <li><b>Derivative (D)</b> – Predicts future error, dampens overshoot</li>
+        </ul>
+        <div class="formula-box">
+            u(t) = Kp · e(t) + Ki · ∫ e(t)dt + Kd · de(t)/dt
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Tuning Methods</h2>
+        <ul id="list2">
+            <li>Ziegler-Nichols – Classic open/closed-loop tuning</li>
+            <li>Cohen-Coon – For process with dead time</li>
+            <li>Lambda Tuning – Robust and smooth response</li>
+            <li>Software-based – Auto-tuning in PLCs and DCS</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Temperature Control Loop</h2>
+        <p id="s4p">A PID controller maintains the temperature of a chemical reactor at 150°C. The controller receives a temperature reading from a thermocouple, compares it with the setpoint, and adjusts the steam valve position to keep the temperature stable.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🎯 PID Control',
+            desc: 'Proportional-Integral-Derivative (PID) control theory, tuning methods, and practical applications in industrial automation.',
+            s1: '🔹 What is PID Control?',
+            s1p: 'PID (Proportional-Integral-Derivative) control is a feedback control loop mechanism widely used in industrial control systems. It continuously calculates an error value as the difference between a measured process variable and a desired setpoint, and applies a correction based on proportional, integral, and derivative terms.',
+            s2: '🔹 PID Terms',
+            list1: ['Proportional (P) – Responds to current error, provides fast response','Integral (I) – Eliminates steady-state error, accumulates past errors','Derivative (D) – Predicts future error, dampens overshoot'],
+            s3: '🔹 Tuning Methods',
+            list2: ['Ziegler-Nichols – Classic open/closed-loop tuning','Cohen-Coon – For process with dead time','Lambda Tuning – Robust and smooth response','Software-based – Auto-tuning in PLCs and DCS'],
+            s4: '🔹 Example: Temperature Control Loop',
+            s4p: 'A PID controller maintains the temperature of a chemical reactor at 150°C. The controller receives a temperature reading from a thermocouple, compares it with the setpoint, and adjusts the steam valve position to keep the temperature stable.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🎯 کنترل PID',
+            desc: 'تئوری کنترل تناسبی-انتگرالی-مشتقی (PID)، روش‌های تنظیم و کاربردهای عملی در اتوماسیون صنعتی.',
+            s1: '🔹 کنترل PID چیست؟',
+            s1p: 'کنترل PID (تناسبی-انتگرالی-مشتقی) یک مکانیسم حلقه کنترل بازخورد است که به طور گسترده در سیستم‌های کنترل صنعتی استفاده می‌شود. این روش به طور مداوم مقدار خطا را به عنوان اختلاف بین متغیر فرآیند اندازه‌گیری شده و نقطه تنظیم محاسبه کرده و بر اساس عبارت‌های تناسبی، انتگرالی و مشتقی، اصلاحیه اعمال می‌کند.',
+            s2: '🔹 عبارت‌های PID',
+            list1: ['تناسبی (P) – پاسخ به خطای جاری، پاسخ سریع','انتگرالی (I) – حذف خطای حالت ماندگار، تجمع خطاهای گذشته','مشتقی (D) – پیش‌بینی خطای آینده، کاهش Overshoot'],
+            s3: '🔹 روش‌های تنظیم',
+            list2: ['Ziegler-Nichols – تنظیم کلاسیک حلقه باز/بسته','Cohen-Coon – برای فرآیندهای با تاخیر زمانی','Lambda Tuning – پاسخ مقاوم و نرم','مبتنی بر نرم‌افزار – تنظیم خودکار در PLC و DCS'],
+            s4: '🔹 مثال: حلقه کنترل دما',
+            s4p: 'یک کنترل‌کننده PID دمای یک راکتور شیمیایی را در ۱۵۰ درجه سانتی‌گراد حفظ می‌کند. کنترل‌کننده دمای ترموکوپل را دریافت، با نقطه تنظیم مقایسه و موقعیت شیر بخار را تنظیم می‌کند تا دما پایدار بماند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
