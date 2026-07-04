@@ -17,7 +17,7 @@
         .lang-switch{display:flex;gap:6px}
         h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
         .sub{color:#8e95a5;font-size:1.05rem;margin-bottom:30px}
-        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-bottom:30px}
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-bottom:30px}
         .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
         .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
         .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
@@ -44,12 +44,13 @@
     </div>
 
     <h1 id="page-title">📚 Engineering Resources</h1>
-    <div class="sub" id="page-sub">Industrial catalogs, manuals, datasheets, downloadable materials, video tutorials, and document templates for all engineering disciplines.</div>
+    <div class="sub" id="page-sub">Industrial catalogs, manuals, datasheets, documents, downloads, videos, and templates for all engineering disciplines.</div>
 
     <div class="grid" id="cards-grid">
         <a href="resources/catalogs.html" class="card"><i>📖</i><h3>Catalogs</h3><p>Industrial product catalogs</p><span class="badge">Learn More →</span></a>
         <a href="resources/manuals.html" class="card"><i>📘</i><h3>Manuals</h3><p>Operation & maintenance guides</p><span class="badge">Learn More →</span></a>
         <a href="resources/datasheets.html" class="card"><i>📄</i><h3>Datasheets</h3><p>Technical product specifications</p><span class="badge">Learn More →</span></a>
+        <a href="resources/documents.html" class="card"><i>📁</i><h3>Documents</h3><p>Engineering documents & reports</p><span class="badge">Learn More →</span></a>
         <a href="resources/downloads.html" class="card"><i>⬇️</i><h3>Downloads</h3><p>Free software, tools & files</p><span class="badge">Learn More →</span></a>
         <a href="resources/videos.html" class="card"><i>🎬</i><h3>Videos</h3><p>Training & tutorial videos</p><span class="badge">Learn More →</span></a>
         <a href="resources/templates.html" class="card"><i>📝</i><h3>Templates</h3><p>Engineering document templates</p><span class="badge">Learn More →</span></a>
@@ -65,11 +66,12 @@
     const lang = {
         en: {
             title: '📚 Engineering Resources',
-            sub: 'Industrial catalogs, manuals, datasheets, downloadable materials, video tutorials, and document templates for all engineering disciplines.',
+            sub: 'Industrial catalogs, manuals, datasheets, documents, downloads, videos, and templates for all engineering disciplines.',
             cards: [
                 ['Catalogs', 'Industrial product catalogs', 'Learn More →'],
                 ['Manuals', 'Operation & maintenance guides', 'Learn More →'],
                 ['Datasheets', 'Technical product specifications', 'Learn More →'],
+                ['Documents', 'Engineering documents & reports', 'Learn More →'],
                 ['Downloads', 'Free software, tools & files', 'Learn More →'],
                 ['Videos', 'Training & tutorial videos', 'Learn More →'],
                 ['Templates', 'Engineering document templates', 'Learn More →']
@@ -78,11 +80,12 @@
         },
         fa: {
             title: '📚 منابع مهندسی',
-            sub: 'کاتالوگ‌های صنعتی، دفترچه‌های راهنما، دیتاشیت‌ها، دانلودها، آموزش‌های ویدئویی و قالب‌های اسناد مهندسی برای تمام رشته‌های مهندسی.',
+            sub: 'کاتالوگ‌های صنعتی، دفترچه‌ها، دیتاشیت‌ها، اسناد، دانلودها، ویدئوها و قالب‌ها برای تمام رشته‌های مهندسی.',
             cards: [
                 ['کاتالوگ‌ها', 'کاتالوگ‌های محصولات صنعتی', 'بیشتر بدانید →'],
                 ['دفترچه‌ها', 'راهنماهای عملکرد و نگهداری', 'بیشتر بدانید →'],
                 ['دیتاشیت‌ها', 'مشخصات فنی محصولات', 'بیشتر بدانید →'],
+                ['اسناد', 'اسناد و گزارش‌های مهندسی', 'بیشتر بدانید →'],
                 ['دانلودها', 'نرم‌افزار، ابزار و فایل‌های رایگان', 'بیشتر بدانید →'],
                 ['ویدئوها', 'آموزش‌های ویدئویی', 'بیشتر بدانید →'],
                 ['قالب‌ها', 'قالب‌های اسناد مهندسی', 'بیشتر بدانید →']
