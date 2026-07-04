@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Quality Learning Path</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🗺️ Quality Control Learning Path</h1>
+    <div class="sub" id="desc">A structured learning path to become a skilled quality professional. From fundamentals to advanced quality management.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Foundation Level</h2>
+        <ul id="list1">
+            <li>Basic understanding of quality concepts and terminology</li>
+            <li>Introduction to quality management systems (QMS)</li>
+            <li>Understanding inspection and testing methods</li>
+            <li>Basic statistics for quality (mean, median, standard deviation)</li>
+            <li>Introduction to ISO 9001 and quality standards</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Intermediate Level</h2>
+        <ul id="list2">
+            <li>Implementing SPC and control charts (X-bar, R, p, np charts)</li>
+            <li>Process capability analysis (Cp, Cpk, Pp, Ppk)</li>
+            <li>Conducting internal audits and corrective actions</li>
+            <li>Using the 7 QC tools for problem-solving</li>
+            <li>Introduction to Six Sigma and DMAIC methodology</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Advanced Level</h2>
+        <ul id="list3">
+            <li>Advanced statistical methods (DOE, hypothesis testing)</li>
+            <li>Six Sigma Black Belt level tools and techniques</li>
+            <li>Quality risk management (FMEA, HAZOP)</li>
+            <li>Supply chain quality management and supplier audits</li>
+            <li>Quality leadership and continuous improvement culture</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Continuous Learning</h2>
+        <ul id="list4">
+            <li>Stay updated with ISO revisions and quality trends</li>
+            <li>Attend quality conferences and workshops (ASQ, ISO)</li>
+            <li>Certifications (ASQ CQE, Six Sigma Green/Black Belt)</li>
+            <li>Join professional networks and communities of practice</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🗺️ Quality Control Learning Path',
+            desc: 'A structured learning path to become a skilled quality professional. From fundamentals to advanced quality management.',
+            s1: '🔹 Foundation Level',
+            list1: ['Basic understanding of quality concepts and terminology','Introduction to quality management systems (QMS)','Understanding inspection and testing methods','Basic statistics for quality (mean, median, standard deviation)','Introduction to ISO 9001 and quality standards'],
+            s2: '🔹 Intermediate Level',
+            list2: ['Implementing SPC and control charts (X-bar, R, p, np charts)','Process capability analysis (Cp, Cpk, Pp, Ppk)','Conducting internal audits and corrective actions','Using the 7 QC tools for problem-solving','Introduction to Six Sigma and DMAIC methodology'],
+            s3: '🔹 Advanced Level',
+            list3: ['Advanced statistical methods (DOE, hypothesis testing)','Six Sigma Black Belt level tools and techniques','Quality risk management (FMEA, HAZOP)','Supply chain quality management and supplier audits','Quality leadership and continuous improvement culture'],
+            s4: '🔹 Continuous Learning',
+            list4: ['Stay updated with ISO revisions and quality trends','Attend quality conferences and workshops (ASQ, ISO)','Certifications (ASQ CQE, Six Sigma Green/Black Belt)','Join professional networks and communities of practice'],
+            back: '← Back'
+        },
+        fa: {
+            title: '🗺️ مسیر یادگیری کنترل کیفیت',
+            desc: 'یک مسیر یادگیری ساختاریافته برای تبدیل شدن به یک متخصص کیفیت ماهر. از مبانی تا مدیریت کیفیت پیشرفته.',
+            s1: '🔹 سطح پایه',
+            list1: ['درک مفاهیم و اصطلاحات کیفیت','آشنایی با سیستم‌های مدیریت کیفیت (QMS)','درک روش‌های بازرسی و تست','آمار پایه برای کیفیت (میانگین، میانه، انحراف معیار)','آشنایی با ISO 9001 و استانداردهای کیفیت'],
+            s2: '🔹 سطح متوسط',
+            list2: ['پیاده‌سازی SPC و نمودارهای کنترل (نمودارهای X-bar، R، p، np)','تحلیل قابلیت فرآیند (Cp، Cpk، Pp، Ppk)','انجام حسابرسی داخلی و اقدامات اصلاحی','استفاده از ۷ ابزار کیفیت برای حل مسئله','آشنایی با شش سیگما و روش‌شناسی DMAIC'],
+            s3: '🔹 سطح پیشرفته',
+            list3: ['روش‌های آماری پیشرفته (DOE، تست فرضیه)','ابزارها و تکنیک‌های سطح کمربند مشکی شش سیگما','مدیریت ریسک کیفیت (FMEA، HAZOP)','مدیریت کیفیت زنجیره تأمین و حسابرسی تأمین‌کنندگان','رهبری کیفیت و فرهنگ بهبود مستمر'],
+            s4: '🔹 یادگیری مستمر',
+            list4: ['به‌روز ماندن با بازنگری‌های ISO و روندهای کیفیت','شرکت در کنفرانس‌ها و کارگاه‌های کیفیت (ASQ، ISO)','گواهینامه‌ها (ASQ CQE، کمربند سبز/مشکی شش سیگما)','عضویت در شبکه‌های حرفه‌ای و جوامع عملی'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        const ul4 = document.getElementById('list4');
+        ul4.innerHTML = '';
+        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
