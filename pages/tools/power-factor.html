@@ -1,142 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karatech ELV · Power Factor Calculator</title>
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}
-        .brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}
-        .brand span{color:var(--accent)}
-        .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}
-        .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
-        .lang-btn:hover{background:var(--primary);color:#fff}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:800px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
         .lang-switch{display:flex;gap:6px}
-        .page-container{max-width:1100px;margin:0 auto;padding:20px}
-        .page-header{background:#1e2128;padding:30px 40px;border-radius:20px;margin-bottom:30px;border-left:5px solid var(--accent)}
-        .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
-        .page-header h1 i{color:var(--accent)}
-        .page-header p{color:#b0b8c5;margin-top:10px;font-size:1.05rem;line-height:1.7}
-        .content-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:30px}
-        .content-card{background:#1e2128;padding:24px;border-radius:16px;border:1px solid rgba(212,175,55,0.06);transition:.3s}
-        .content-card:hover{background:#282d38;transform:translateY(-3px);border-color:rgba(212,175,55,0.2)}
-        .content-card h3{color:#d4af37;font-size:1.2rem;margin-bottom:10px;display:flex;align-items:center;gap:10px}
-        .content-card h3 i{font-size:1.1rem}
-        .content-card p{color:#b0b8c5;line-height:1.7;font-size:.95rem}
-        .content-card ul{list-style:none;padding:0;margin-top:10px}
-        .content-card ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px;font-size:.9rem}
-        .content-card ul li i{color:var(--accent);font-size:.7rem}
-        .calc-box{background:#1e2128;padding:24px;border-radius:16px;border:1px solid rgba(212,175,55,0.1);margin-top:10px}
-        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#0d0e12;color:#fff;margin:8px 0 15px;font-size:1rem}
-        .calc-box label{color:#b0b8c5;font-size:.9rem}
-        .calc-btn{background:var(--accent);color:#111;border:none;padding:12px 30px;border-radius:30px;font-weight:700;cursor:pointer;font-size:1rem;transition:.3s}
-        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 30px rgba(212,175,55,0.2)}
-        .calc-result{background:rgba(212,175,55,0.08);padding:15px;border-radius:12px;border:1px solid var(--accent);margin-top:15px;text-align:center}
-        .calc-result span{color:var(--accent);font-weight:700;font-size:1.2rem}
-        .back-link{margin-top:30px;text-align:center}
-        .back-link a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s}
-        .back-link a:hover{transform:translateX(-5px)}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .calc-box{background:#1e2128;padding:25px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);margin-bottom:20px}
+        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
+        .calc-box input{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
+        .calc-box input:focus{outline:1px solid #d4af37}
+        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
+        .btn-calc:hover{background:#d4af37;color:#111}
+        .result{background:#0d0e12;padding:15px;border-radius:12px;border-left:4px solid #d4af37;margin-top:15px}
+        .result p{margin:6px 0}
+        .result span{color:#d4af37;font-weight:700}
+        .note{color:#8e95a5;font-size:.85rem;margin-top:10px}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
         .lang-persian{direction:rtl}
-        .lang-persian .page-header h1{justify-content:flex-end}
-        .lang-persian .content-card h3{justify-content:flex-end}
-        .lang-persian .content-card ul li{flex-direction:row-reverse}
-        .lang-persian .back-link a{flex-direction:row-reverse}
-        @media(max-width:768px){.page-header h1{font-size:1.8rem}.content-grid{grid-template-columns:1fr}}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
-<header class="header">
-    <div class="brand">KARATECH <span>ELV</span></div>
-    <div class="lang-switch">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="fa">FA</button>
-    </div>
-</header>
-<div class="page-container">
-    <div class="page-header">
-        <h1><i class="fas fa-chart-line"></i> <span data-en="Power Factor Calculator" data-fa="محاسبه‌گر ضریب توان">Power Factor Calculator</span></h1>
-        <p data-en="Calculate power factor, apparent power, and reactive power. Essential for power system analysis." data-fa="محاسبه ضریب توان، توان ظاهری و توان راکتیو. ضروری برای تحلیل سیستم‌های قدرت.">Calculate power factor, apparent power, and reactive power. Essential for power system analysis.</p>
-    </div>
-    <div class="content-grid">
-        <div class="content-card">
-            <h3><i class="fas fa-info-circle"></i> <span data-en="How to Use" data-fa="روش استفاده">How to Use</span></h3>
-            <p data-en="Enter real power (kW) and apparent power (kVA). Click Calculate to see the power factor and reactive power." data-fa="توان واقعی (kW) و توان ظاهری (kVA) را وارد کنید. روی Calculate کلیک کنید تا ضریب توان و توان راکتیو را ببینید.">Enter real power (kW) and apparent power (kVA). Click Calculate to see the power factor and reactive power.</p>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-lightbulb"></i> <span data-en="Example" data-fa="مثال">Example</span></h3>
-            <p data-en="For a motor with 50kW real power and 60kVA apparent power, power factor = 0.83." data-fa="برای یک موتور با توان واقعی 50 کیلووات و توان ظاهری 60 کیلوولت‌آمپر، ضریب توان = 0.83.">For a motor with 50kW real power and 60kVA apparent power, power factor = 0.83.</p>
-        </div>
-        <div class="content-card" style="grid-column: span 2;">
-            <h3><i class="fas fa-calculator"></i> <span data-en="Calculator" data-fa="ماشین حساب">Calculator</span></h3>
-            <div class="calc-box">
-                <label data-en="Real Power (kW)" data-fa="توان واقعی (کیلووات)">Real Power (kW)</label>
-                <input type="number" id="pf-real" value="50" placeholder="Enter real power in kW">
-                <label data-en="Apparent Power (kVA)" data-fa="توان ظاهری (کیلوولت‌آمپر)">Apparent Power (kVA)</label>
-                <input type="number" id="pf-apparent" value="60" placeholder="Enter apparent power in kVA">
-                <button class="calc-btn" onclick="calculatePowerFactor()" data-en="Calculate" data-fa="محاسبه">Calculate</button>
-                <div class="calc-result" id="pf-result">
-                    <span data-en="Power Factor: 0.83" data-fa="ضریب توان: 0.83">Power Factor: 0.83</span><br>
-                    <span style="font-size:0.9rem;color:#b0b8c5;" data-en="Reactive Power: 33.0 kVAr" data-fa="توان راکتیو: 33.0 کیلووار">Reactive Power: 33.0 kVAr</span>
-                </div>
-            </div>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
         </div>
     </div>
-    <div class="back-link">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
+
+    <h1 id="title">📈 Power Factor Calculator</h1>
+    <div class="sub" id="desc">Calculate power factor, apparent power, reactive power, and required capacitor bank for correction.</div>
+
+    <div class="calc-box">
+        <label id="lbl-voltage">Voltage (V)</label>
+        <input type="number" id="voltage" value="400" step="any">
+
+        <label id="lbl-current">Current (A)</label>
+        <input type="number" id="current" value="100" step="any">
+
+        <label id="lbl-power">Real Power (kW)</label>
+        <input type="number" id="power" value="50" step="any">
+
+        <label id="lbl-target">Target Power Factor (0-1)</label>
+        <input type="number" id="target" value="0.95" step="0.01" min="0" max="1">
+
+        <button class="btn-calc" id="calcBtn">Calculate</button>
+
+        <div class="result" id="result">
+            <p><span id="pf-label">Current Power Factor:</span> <span id="pf-value">--</span></p>
+            <p><span id="apparent-label">Apparent Power (kVA):</span> <span id="s-value">--</span></p>
+            <p><span id="reactive-label">Reactive Power (kVAR):</span> <span id="q-value">--</span></p>
+            <p><span id="cap-label">Required Capacitor (kVAR):</span> <span id="cap-value">--</span></p>
+        </div>
+        <div class="note" id="note">Power Factor = Real Power / Apparent Power. Capacitor bank size needed to reach target PF.</div>
     </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
 </div>
+
 <script>
-    function calculatePowerFactor() {
-        const P = parseFloat(document.getElementById('pf-real').value);
-        const S = parseFloat(document.getElementById('pf-apparent').value);
-        const PF = P / S;
-        const Q = Math.sqrt(S*S - P*P);
-        const resultEl = document.getElementById('pf-result');
-        resultEl.innerHTML = `
-            <span data-en="Power Factor: ${PF.toFixed(3)}" data-fa="ضریب توان: ${PF.toFixed(3)}">Power Factor: ${PF.toFixed(3)}</span><br>
-            <span style="font-size:0.9rem;color:#b0b8c5;" data-en="Reactive Power: ${Q.toFixed(1)} kVAr" data-fa="توان راکتیو: ${Q.toFixed(1)} کیلووار">Reactive Power: ${Q.toFixed(1)} kVAr</span>
-        `;
-        const currentLang = localStorage.getItem('karatech-lang') || 'en';
-        resultEl.querySelectorAll('[data-en]').forEach(el => {
-            const txt = el.dataset[currentLang];
-            if (txt) el.textContent = txt;
-        });
+    const langData = {
+        en: {
+            title: '📈 Power Factor Calculator',
+            desc: 'Calculate power factor, apparent power, reactive power, and required capacitor bank for correction.',
+            voltage: 'Voltage (V)',
+            current: 'Current (A)',
+            power: 'Real Power (kW)',
+            target: 'Target Power Factor (0-1)',
+            calc: 'Calculate',
+            pf_label: 'Current Power Factor:',
+            apparent_label: 'Apparent Power (kVA):',
+            reactive_label: 'Reactive Power (kVAR):',
+            cap_label: 'Required Capacitor (kVAR):',
+            note: 'Power Factor = Real Power / Apparent Power. Capacitor bank size needed to reach target PF.',
+            back: '← Back'
+        },
+        fa: {
+            title: '📈 ماشین‌حساب ضریب توان',
+            desc: 'محاسبه ضریب توان، توان ظاهری، توان راکتیو و بانک خازنی مورد نیاز برای اصلاح.',
+            voltage: 'ولتاژ (ولت)',
+            current: 'جریان (آمپر)',
+            power: 'توان اکتیو (کیلووات)',
+            target: 'ضریب توان هدف (۰-۱)',
+            calc: 'محاسبه',
+            pf_label: 'ضریب توان فعلی:',
+            apparent_label: 'توان ظاهری (kVA):',
+            reactive_label: 'توان راکتیو (kVAR):',
+            cap_label: 'خازن مورد نیاز (kVAR):',
+            note: 'ضریب توان = توان اکتیو / توان ظاهری. اندازه بانک خازنی مورد نیاز برای رسیدن به ضریب توان هدف.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLanguage(lang) {
+        const t = langData[lang];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('lbl-voltage').textContent = t.voltage;
+        document.getElementById('lbl-current').textContent = t.current;
+        document.getElementById('lbl-power').textContent = t.power;
+        document.getElementById('lbl-target').textContent = t.target;
+        document.getElementById('calcBtn').textContent = t.calc;
+        document.getElementById('pf-label').textContent = t.pf_label;
+        document.getElementById('apparent-label').textContent = t.apparent_label;
+        document.getElementById('reactive-label').textContent = t.reactive_label;
+        document.getElementById('cap-label').textContent = t.cap_label;
+        document.getElementById('note').textContent = t.note;
+        document.getElementById('backlink').textContent = t.back;
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        document.body.classList.toggle('lang-persian', lang === 'fa');
+        localStorage.setItem('karatech-lang', lang);
     }
 
-    (function() {
-        const langBtns = document.querySelectorAll('.lang-btn');
-        let currentLang = localStorage.getItem('karatech-lang') || 'en';
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-en]').forEach(el => {
-                const txt = el.dataset[lang];
-                if (txt) {
-                    const nodes = el.childNodes;
-                    for (let n of nodes) {
-                        if (n.nodeType === 3) {
-                            n.textContent = txt;
-                            break;
-                        }
-                    }
-                }
-            });
-            document.body.classList.toggle('lang-persian', lang === 'fa');
-            localStorage.setItem('karatech-lang', lang);
-            langBtns.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLanguage(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLanguage(savedLang);
+
+    function calculate() {
+        const V = parseFloat(document.getElementById('voltage').value);
+        const I = parseFloat(document.getElementById('current').value);
+        const P = parseFloat(document.getElementById('power').value);
+        const target = parseFloat(document.getElementById('target').value);
+
+        if ([V, I, P, target].some(isNaN) || V <= 0 || I <= 0 || P <= 0 || target <= 0 || target > 1) {
+            document.getElementById('pf-value').textContent = 'Invalid input';
+            document.getElementById('s-value').textContent = '--';
+            document.getElementById('q-value').textContent = '--';
+            document.getElementById('cap-value').textContent = '--';
+            return;
         }
-        setLanguage(currentLang);
-        langBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                setLanguage(this.dataset.lang);
-            });
-        });
-    })();
+
+        const S = (V * I) / 1000; // kVA
+        const PF = P / S;
+        const Q = Math.sqrt(S * S - P * P); // kVAR
+        const theta = Math.acos(PF);
+        const theta_target = Math.acos(target);
+        const Qc = P * (Math.tan(theta) - Math.tan(theta_target)); // kVAR
+
+        document.getElementById('pf-value').textContent = PF.toFixed(3);
+        document.getElementById('s-value').textContent = S.toFixed(2);
+        document.getElementById('q-value').textContent = Q.toFixed(2);
+        document.getElementById('cap-value').textContent = (Qc > 0 ? Qc.toFixed(2) : '0 (already above target)');
+    }
+
+    document.getElementById('calcBtn').onclick = calculate;
+    calculate();
 </script>
+
 </body>
 </html>
