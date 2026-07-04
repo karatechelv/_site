@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Flow Measurement</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .table-wrap{overflow-x:auto;margin:10px 0}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px}
+        th,td{padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">💧 Flow Measurement</h1>
+    <div class="sub" id="desc">Methods and devices for measuring flow rate in industrial processes: orifice plates, magnetic, ultrasonic, Coriolis, and more.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Importance of Flow Measurement</h2>
+        <p id="s1p">Flow measurement is critical in industries such as water treatment, oil & gas, chemical, and food processing. Accurate flow measurement ensures proper dosing, process efficiency, and regulatory compliance.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Common Flow Meters</h2>
+        <ul id="list1">
+            <li><b>Orifice Plate</b> – Differential pressure based, simple and low cost</li>
+            <li><b>Magnetic Flowmeter</b> – For conductive liquids, no moving parts</li>
+            <li><b>Ultrasonic Flowmeter</b> – Clamp-on or inline, for clean liquids</li>
+            <li><b>Coriolis Flowmeter</b> – Mass flow measurement, high accuracy</li>
+            <li><b>Vortex Flowmeter</b> – For steam, gas, and liquids</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Comparison Table</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th id="th1">Type</th><th id="th2">Fluid</th><th id="th3">Accuracy</th><th id="th4">Application</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Orifice Plate</td><td>Liquid, Gas</td><td>±1-2%</td><td>General process</td></tr>
+                    <tr><td>Magnetic</td><td>Conductive liquid</td><td>±0.5%</td><td>Water, wastewater</td></tr>
+                    <tr><td>Ultrasonic</td><td>Clean liquid</td><td>±0.5%</td><td>Water, chemicals</td></tr>
+                    <tr><td>Coriolis</td><td>Liquid, Gas</td><td>±0.1%</td><td>Mass flow, custody transfer</td></tr>
+                    <tr><td>Vortex</td><td>Steam, Gas</td><td>±1%</td><td>Steam, utilities</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Magnetic Flowmeter for Water Line</h2>
+        <p id="s4p">A 4-inch magnetic flowmeter is installed on a water supply line in a manufacturing plant. It measures flow rate in the range of 0-100 m³/h and outputs 4-20 mA to the PLC. The flowmeter is used for batching and totalization.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '💧 Flow Measurement',
+            desc: 'Methods and devices for measuring flow rate in industrial processes: orifice plates, magnetic, ultrasonic, Coriolis, and more.',
+            s1: '🔹 Importance of Flow Measurement',
+            s1p: 'Flow measurement is critical in industries such as water treatment, oil & gas, chemical, and food processing. Accurate flow measurement ensures proper dosing, process efficiency, and regulatory compliance.',
+            s2: '🔹 Common Flow Meters',
+            list1: ['Orifice Plate – Differential pressure based, simple and low cost','Magnetic Flowmeter – For conductive liquids, no moving parts','Ultrasonic Flowmeter – Clamp-on or inline, for clean liquids','Coriolis Flowmeter – Mass flow measurement, high accuracy','Vortex Flowmeter – For steam, gas, and liquids'],
+            s3: '🔹 Comparison Table',
+            th1: 'Type', th2: 'Fluid', th3: 'Accuracy', th4: 'Application',
+            s4: '🔹 Example: Magnetic Flowmeter for Water Line',
+            s4p: 'A 4-inch magnetic flowmeter is installed on a water supply line in a manufacturing plant. It measures flow rate in the range of 0-100 m³/h and outputs 4-20 mA to the PLC. The flowmeter is used for batching and totalization.',
+            back: '← Back'
+        },
+        fa: {
+            title: '💧 اندازه‌گیری جریان',
+            desc: 'روش‌ها و دستگاه‌های اندازه‌گیری دبی در فرآیندهای صنعتی: اوریفیس، مغناطیسی، اولتراسونیک، کوریولیس و موارد دیگر.',
+            s1: '🔹 اهمیت اندازه‌گیری جریان',
+            s1p: 'اندازه‌گیری جریان در صنایعی مانند تصفیه آب، نفت و گاز، شیمیایی و فرآوری مواد غذایی حیاتی است. اندازه‌گیری دقیق جریان، دوزینگ مناسب، کارایی فرآیند و انطباق با مقررات را تضمین می‌کند.',
+            s2: '🔹 فلومترهای رایج',
+            list1: ['اوریفیس – مبتنی بر فشار دیفرانسیل، ساده و کم‌هزینه','فلومتر مغناطیسی – برای مایعات رسانا، بدون قطعات متحرک','فلومتر اولتراسونیک – گیره‌ای یا درون‌خطی، برای مایعات تمیز','فلومتر کوریولیس – اندازه‌گیری جریان جرمی، دقت بالا','فلومتر گرداب‌ای – برای بخار، گاز و مایعات'],
+            s3: '🔹 جدول مقایسه',
+            th1: 'نوع', th2: 'سیال', th3: 'دقت', th4: 'کاربرد',
+            s4: '🔹 مثال: فلومتر مغناطیسی برای خط آب',
+            s4p: 'یک فلومتر مغناطیسی ۴ اینچی روی خط تامین آب در یک کارخانه تولیدی نصب شده است. دبی را در محدوده ۰-۱۰۰ متر مکعب در ساعت اندازه‌گیری کرده و سیگنال ۴-۲۰ میلی‌آمپر به PLC ارسال می‌کند. فلومتر برای دسته‌بندی و کل‌سازی استفاده می‌شود.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        document.getElementById('th1').textContent = t.th1;
+        document.getElementById('th2').textContent = t.th2;
+        document.getElementById('th3').textContent = t.th3;
+        document.getElementById('th4').textContent = t.th4;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
