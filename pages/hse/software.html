@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · HSE Software</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">💻 HSE Software</h1>
+    <div class="sub" id="desc">Essential software tools for health, safety, and environment management, including incident reporting, risk assessment, compliance tracking, and training.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Incident & Hazard Reporting Software</h2>
+        <ul id="list1">
+            <li><b>Gensuite</b> – Incident reporting, corrective action tracking, and safety management</li>
+            <li><b>Intelex</b> – EHS (Environment, Health & Safety) management platform</li>
+            <li><b>SafetyCulture iAuditor</b> – Mobile inspections and safety checklists</li>
+            <li><b>Cority</b> – Environmental, health, safety, and quality management</li>
+            <li><b>EcoOnline</b> – Chemical safety, risk assessments, and incident reporting</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Risk Assessment & Compliance</h2>
+        <ul id="list2">
+            <li><b>BowtieXP</b> – Bowtie risk assessment and barrier management</li>
+            <li><b>RiskWatch</b> – Risk assessment and compliance software</li>
+            <li><b>Isometrix</b> – Audit management and risk assessment</li>
+            <li><b>LogicGate</b> – Governance, risk, and compliance (GRC) platform</li>
+            <li><b>ProcessMAP</b> – EHS data management and risk analysis</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Environmental Management Software</h2>
+        <ul id="list3">
+            <li><b>Enablon</b> – Integrated EHS and sustainability management</li>
+            <li><b>ESG Flo</b> – ESG and sustainability reporting</li>
+            <li><b>Enviance</b> – Environmental compliance and emissions tracking</li>
+            <li><b>Thinkstep</b> – Life cycle assessment and carbon footprint</li>
+            <li><b>Carbon Stop</b> – Carbon management and reporting</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Using Gensuite for Safety Management</h2>
+        <p id="s4p">A multinational company uses Gensuite for incident reporting, safety observations, and corrective action tracking. Employees report near-misses via mobile app, and safety managers analyze trends to identify high-risk areas. The platform integrates with training records and compliance calendars to ensure continuous improvement.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '💻 HSE Software',
+            desc: 'Essential software tools for health, safety, and environment management, including incident reporting, risk assessment, compliance tracking, and training.',
+            s1: '🔹 Incident & Hazard Reporting Software',
+            list1: ['Gensuite – Incident reporting, corrective action tracking, and safety management','Intelex – EHS (Environment, Health & Safety) management platform','SafetyCulture iAuditor – Mobile inspections and safety checklists','Cority – Environmental, health, safety, and quality management','EcoOnline – Chemical safety, risk assessments, and incident reporting'],
+            s2: '🔹 Risk Assessment & Compliance',
+            list2: ['BowtieXP – Bowtie risk assessment and barrier management','RiskWatch – Risk assessment and compliance software','Isometrix – Audit management and risk assessment','LogicGate – Governance, risk, and compliance (GRC) platform','ProcessMAP – EHS data management and risk analysis'],
+            s3: '🔹 Environmental Management Software',
+            list3: ['Enablon – Integrated EHS and sustainability management','ESG Flo – ESG and sustainability reporting','Enviance – Environmental compliance and emissions tracking','Thinkstep – Life cycle assessment and carbon footprint','Carbon Stop – Carbon management and reporting'],
+            s4: '🔹 Example: Using Gensuite for Safety Management',
+            s4p: 'A multinational company uses Gensuite for incident reporting, safety observations, and corrective action tracking. Employees report near-misses via mobile app, and safety managers analyze trends to identify high-risk areas. The platform integrates with training records and compliance calendars to ensure continuous improvement.',
+            back: '← Back'
+        },
+        fa: {
+            title: '💻 نرم‌افزارهای HSE',
+            desc: 'ابزارهای نرم‌افزاری ضروری برای مدیریت بهداشت، ایمنی و محیط زیست، شامل گزارش حوادث، ارزیابی ریسک، پیگیری انطباق و آموزش.',
+            s1: '🔹 نرم‌افزارهای گزارش حوادث و خطر',
+            list1: ['Gensuite – گزارش حوادث، پیگیری اقدامات اصلاحی و مدیریت ایمنی','Intelex – پلتفرم مدیریت EHS (محیط زیست، بهداشت و ایمنی)','SafetyCulture iAuditor – بازرسی‌های موبایل و چک‌لیست‌های ایمنی','Cority – مدیریت محیط زیست، بهداشت، ایمنی و کیفیت','EcoOnline – ایمنی شیمیایی، ارزیابی ریسک و گزارش حوادث'],
+            s2: '🔹 ارزیابی ریسک و انطباق',
+            list2: ['BowtieXP – ارزیابی ریسک و مدیریت موانع','RiskWatch – نرم‌افزار ارزیابی ریسک و انطباق','Isometrix – مدیریت حسابرسی و ارزیابی ریسک','LogicGate – پلتفرم حاکمیت، ریسک و انطباق (GRC)','ProcessMAP – مدیریت داده‌های HSE و تحلیل ریسک'],
+            s3: '🔹 نرم‌افزارهای مدیریت محیط زیست',
+            list3: ['Enablon – مدیریت یکپارچه EHS و پایداری','ESG Flo – گزارش‌دهی ESG و پایداری','Enviance – انطباق زیست‌محیطی و پیگیری انتشار','Thinkstep – ارزیابی چرخه حیات و ردپای کربن','Carbon Stop – مدیریت و گزارش‌دهی کربن'],
+            s4: '🔹 مثال: استفاده از Gensuite برای مدیریت ایمنی',
+            s4p: 'یک شرکت چندملیتی از Gensuite برای گزارش حوادث، مشاهدات ایمنی و پیگیری اقدامات اصلاحی استفاده می‌کند. کارکنان نزدیک‌به‌حوادث را از طریق برنامه موبایل گزارش می‌دهند و مدیران ایمنی روندها را برای شناسایی مناطق پرخطر تحلیل می‌کنند. این پلتفرم با سوابق آموزش و تقویم‌های انطباق یکپارچه شده تا بهبود مستمر را تضمین کند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
