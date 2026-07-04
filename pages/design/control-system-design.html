@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Control System Design</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🎛️ Control System Design</h1>
+    <div class="sub" id="desc">Design of industrial control systems including PLC, DCS, SCADA architecture, networking, and integration for automation projects.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Control System Design?</h2>
+        <p id="s1p">Control system design is the process of planning, selecting, and implementing control hardware and software to automate industrial processes. It includes PLC and DCS selection, I/O configuration, network architecture, HMI/SCADA design, and integration with instrumentation and drives.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Components</h2>
+        <ul id="list1">
+            <li><b>Controllers</b> – PLC (Programmable Logic Controller), DCS (Distributed Control System), or PAC (Programmable Automation Controller).</li>
+            <li><b>I/O Modules</b> – Digital input/output, analog input/output, and communication modules.</li>
+            <li><b>Networks</b> – Industrial protocols like Profinet, Modbus, Ethernet/IP, and Foundation Fieldbus.</li>
+            <li><b>HMI/SCADA</b> – Operator interfaces for monitoring and control.</li>
+            <li><b>Engineering Software</b> – TIA Portal, Studio 5000, EcoStruxure, etc.</li>
+            <li><b>Power Supplies</b> – Redundant and uninterruptible power for critical systems.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 System Architectures</h2>
+        <ul id="list2">
+            <li><b>Centralized</b> – Single controller handles all processes (small systems).</li>
+            <li><b>Distributed</b> – Multiple controllers distributed across plant areas (DCS).</li>
+            <li><b>Hierarchical</b> – Layers of control: field, control, supervisory, management.</li>
+            <li><b>Hybrid</b> – Combination of PLC and DCS for specific applications.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: PLC-Based Control System</h2>
+        <p id="s4p">A PLC-based control system for a conveyor line includes a Siemens S7-1500 PLC with digital and analog I/O. The PLC communicates with drives via Profinet. An HMI screen provides start/stop controls and status monitoring. The system is designed for scalability and easy fault-finding.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🎛️ Control System Design',
+            desc: 'Design of industrial control systems including PLC, DCS, SCADA architecture, networking, and integration for automation projects.',
+            s1: '🔹 What is Control System Design?',
+            s1p: 'Control system design is the process of planning, selecting, and implementing control hardware and software to automate industrial processes. It includes PLC and DCS selection, I/O configuration, network architecture, HMI/SCADA design, and integration with instrumentation and drives.',
+            s2: '🔹 Key Components',
+            list1: ['Controllers – PLC (Programmable Logic Controller), DCS (Distributed Control System), or PAC (Programmable Automation Controller).','I/O Modules – Digital input/output, analog input/output, and communication modules.','Networks – Industrial protocols like Profinet, Modbus, Ethernet/IP, and Foundation Fieldbus.','HMI/SCADA – Operator interfaces for monitoring and control.','Engineering Software – TIA Portal, Studio 5000, EcoStruxure, etc.','Power Supplies – Redundant and uninterruptible power for critical systems.'],
+            s3: '🔹 System Architectures',
+            list2: ['Centralized – Single controller handles all processes (small systems).','Distributed – Multiple controllers distributed across plant areas (DCS).','Hierarchical – Layers of control: field, control, supervisory, management.','Hybrid – Combination of PLC and DCS for specific applications.'],
+            s4: '🔹 Example: PLC-Based Control System',
+            s4p: 'A PLC-based control system for a conveyor line includes a Siemens S7-1500 PLC with digital and analog I/O. The PLC communicates with drives via Profinet. An HMI screen provides start/stop controls and status monitoring. The system is designed for scalability and easy fault-finding.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🎛️ طراحی سیستم کنترل',
+            desc: 'طراحی سیستم‌های کنترل صنعتی شامل معماری PLC، DCS، SCADA، شبکه‌سازی و یکپارچه‌سازی برای پروژه‌های اتوماسیون.',
+            s1: '🔹 طراحی سیستم کنترل چیست؟',
+            s1p: 'طراحی سیستم کنترل فرآیند برنامه‌ریزی، انتخاب و پیاده‌سازی سخت‌افزار و نرم‌افزار کنترل برای خودکارسازی فرآیندهای صنعتی است. شامل انتخاب PLC و DCS، پیکربندی I/O، معماری شبکه، طراحی HMI/SCADA و یکپارچه‌سازی با ابزار دقیق و درایوها است.',
+            s2: '🔹 اجزای کلیدی',
+            list1: ['کنترل‌کننده‌ها – PLC، DCS یا PAC.','ماژول‌های I/O – ورودی/خروجی دیجیتال، آنالوگ و ماژول‌های ارتباطی.','شبکه‌ها – پروتکل‌های صنعتی مانند Profinet، Modbus، Ethernet/IP و Foundation Fieldbus.','HMI/SCADA – رابط‌های اپراتور برای نظارت و کنترل.','نرم‌افزارهای مهندسی – TIA Portal، Studio 5000، EcoStruxure و غیره.','منابع تغذیه – برق اضافی و بدون وقفه برای سیستم‌های حیاتی.'],
+            s3: '🔹 معماری‌های سیستم',
+            list2: ['متمرکز – یک کنترل‌کننده تمام فرآیندها را مدیریت می‌کند (سیستم‌های کوچک).','توزیع‌شده – چندین کنترل‌کننده در مناطق مختلف کارخانه (DCS).','سلسله‌مراتبی – لایه‌های کنترل: میدان، کنترل، نظارتی، مدیریت.','ترکیبی – ترکیبی از PLC و DCS برای کاربردهای خاص.'],
+            s4: '🔹 مثال: سیستم کنترل مبتنی بر PLC',
+            s4p: 'یک سیستم کنترل مبتنی بر PLC برای یک خط نقاله شامل PLC زیمنس S7-1500 با I/O دیجیتال و آنالوگ است. PLC از طریق Profinet با درایوها ارتباط برقرار می‌کند. یک صفحه HMI کنترل‌های استارت/توقف و نظارت بر وضعیت را فراهم می‌کند. سیستم برای مقیاس‌پذیری و عیب‌یابی آسان طراحی شده است.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
