@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Engineering Workflow</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1100px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1.05rem;margin-bottom:30px}
+        .workflow-visual{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;background:#1e2128;padding:30px 24px;border-radius:16px;margin-bottom:30px;border:1px solid rgba(212,175,55,0.08)}
+        .wf-step{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.03);padding:8px 16px;border-radius:40px;font-size:.8rem;font-weight:500;border:1px solid rgba(255,255,255,0.04);cursor:pointer;transition:.2s;text-decoration:none;color:inherit}
+        .wf-step:hover{background:#2f3340;border-color:#d4af37}
+        .wf-step i{color:#d4af37;font-size:.9rem}
+        .wf-arrow{color:#8e95a5;font-size:1.2rem}
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-bottom:30px}
+        .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+        .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
+        .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
+        .card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
+        .card p{color:#8e95a5;font-size:.85rem}
+        .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:8px}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="page-title">🔄 Engineering Workflow</h1>
+    <div class="sub" id="page-sub">Complete engineering workflow from P&ID to operation. Click each step to learn more.</div>
+
+    <!-- Visual workflow with links -->
+    <div class="workflow-visual" id="workflow-visual">
+        <a href="workflow/pid.html" class="wf-step"><i class="fas fa-file-pdf"></i> P&ID</a><span class="wf-arrow">→</span>
+        <a href="workflow/design.html" class="wf-step"><i class="fas fa-pencil-ruler"></i> Design</a><span class="wf-arrow">→</span>
+        <a href="workflow/panel.html" class="wf-step"><i class="fas fa-layer-group"></i> Panel</a><span class="wf-arrow">→</span>
+        <a href="workflow/procurement.html" class="wf-step"><i class="fas fa-shopping-cart"></i> Procurement</a><span class="wf-arrow">→</span>
+        <a href="workflow/assembly.html" class="wf-step"><i class="fas fa-tools"></i> Assembly</a><span class="wf-arrow">→</span>
+        <a href="workflow/fat.html" class="wf-step"><i class="fas fa-vial"></i> FAT</a><span class="wf-arrow">→</span>
+        <a href="workflow/installation.html" class="wf-step"><i class="fas fa-plug"></i> Installation</a><span class="wf-arrow">→</span>
+        <a href="workflow/loop-check.html" class="wf-step"><i class="fas fa-circle-notch"></i> Loop Check</a><span class="wf-arrow">→</span>
+        <a href="workflow/commissioning.html" class="wf-step"><i class="fas fa-play"></i> Commissioning</a><span class="wf-arrow">→</span>
+        <a href="workflow/sat.html" class="wf-step"><i class="fas fa-check-circle"></i> SAT</a><span class="wf-arrow">→</span>
+        <a href="workflow/documentation.html" class="wf-step"><i class="fas fa-file-alt"></i> Documentation</a><span class="wf-arrow">→</span>
+        <a href="workflow/operation.html" class="wf-step"><i class="fas fa-cogs"></i> Operation</a>
+    </div>
+
+    <!-- Cards for each step as well -->
+    <div class="grid" id="cards-grid">
+        <a href="workflow/pid.html" class="card"><i>📄</i><h3>P&ID</h3><p>Piping & Instrumentation Diagram</p><span class="badge">Learn More →</span></a>
+        <a href="workflow/design.html" class="card"><i>✏️</i><h3>Design</h3><p>Engineering design phase</p><span class="badge">Learn More →</span></a>
+        <a href="workflow/panel.html" class="card"><i>📦</i><h3>Panel Design</h3><p>Control panel layout</p><span class="badge">Learn More →</span></a>
+        <a href="workflow/procurement.html" class="card"><i>🛒</i><h3>Procurement</h3><p>Sourcing materials & equipment</p><span class="badge">Learn More →</span></a>
+        <a href="workflow/assembly.html" class="card"><i>🔧</i><h3>Assembly</h3><p>Fabrication & assembly</p><span class="badge">Learn More →</span></a>
+        <a href="workflow/fat.html" class="card"><i>🧪</i><h3>FAT</h3><p>Factory Acceptance Test</p><span class="badge">Learn More →</span></a>
+        <a href="workflow/installation.html" class="card"><i>🔌</i><h3>Installation</h3><p>On-site installation</p><span class="badge">Learn More →</span></a>
+        <a href="workflow/loop-check.html" class="card"><i>🔄</i><h3>Loop Check</h3><p>Signal verification</p><span class="badge">Learn More →</span></a>
+        <a href="workflow/commissioning.html" class="card"><i>▶️</i><h3>Commissioning</h3><p>Start-up & testing</p><span class="badge">Learn More →</span></a>
+        <a href="workflow/sat.html" class="card"><i>✅</i><h3>SAT</h3><p>Site Acceptance Test</p><span class="badge">Learn More →</span></a>
+        <a href="workflow/documentation.html" class="card"><i>📝</i><h3>Documentation</h3><p>As-built & manuals</p><span class="badge">Learn More →</span></a>
+        <a href="workflow/operation.html" class="card"><i>⚙️</i><h3>Operation</h3><p>Ongoing operations</p><span class="badge">Learn More →</span></a>
+    </div>
+
+    <div class="back">
+        <a href="../index.html" id="backlink" onclick="localStorage.setItem('dashboardActive', 'true')">← Back to Dashboard</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🔄 Engineering Workflow',
+            sub: 'Complete engineering workflow from P&ID to operation. Click each step to learn more.',
+            cards: [
+                ['P&ID', 'Piping & Instrumentation Diagram', 'Learn More →'],
+                ['Design', 'Engineering design phase', 'Learn More →'],
+                ['Panel Design', 'Control panel layout', 'Learn More →'],
+                ['Procurement', 'Sourcing materials & equipment', 'Learn More →'],
+                ['Assembly', 'Fabrication & assembly', 'Learn More →'],
+                ['FAT', 'Factory Acceptance Test', 'Learn More →'],
+                ['Installation', 'On-site installation', 'Learn More →'],
+                ['Loop Check', 'Signal verification', 'Learn More →'],
+                ['Commissioning', 'Start-up & testing', 'Learn More →'],
+                ['SAT', 'Site Acceptance Test', 'Learn More →'],
+                ['Documentation', 'As-built & manuals', 'Learn More →'],
+                ['Operation', 'Ongoing operations', 'Learn More →']
+            ],
+            back: '← Back to Dashboard'
+        },
+        fa: {
+            title: '🔄 جریان کار مهندسی',
+            sub: 'جریان کار کامل مهندسی از P&ID تا بهره‌برداری. روی هر مرحله کلیک کنید تا بیشتر بدانید.',
+            cards: [
+                ['P&ID', 'نمودار لوله‌کشی و ابزار دقیق', 'بیشتر بدانید →'],
+                ['طراحی', 'فاز طراحی مهندسی', 'بیشتر بدانید →'],
+                ['طراحی پنل', 'چیدمان پنل کنترل', 'بیشتر بدانید →'],
+                ['تدارکات', 'تأمین مواد و تجهیزات', 'بیشتر بدانید →'],
+                ['مونتاژ', 'ساخت و مونتاژ', 'بیشتر بدانید →'],
+                ['FAT', 'تست پذیرش کارخانه', 'بیشتر بدانید →'],
+                ['نصب', 'نصب در محل', 'بیشتر بدانید →'],
+                ['بررسی حلقه', 'تأیید سیگنال‌ها', 'بیشتر بدانید →'],
+                ['راه‌اندازی', 'شروع و تست', 'بیشتر بدانید →'],
+                ['SAT', 'تست پذیرش سایت', 'بیشتر بدانید →'],
+                ['مستندسازی', 'نقشه‌های built و دفترچه‌ها', 'بیشتر بدانید →'],
+                ['بهره‌برداری', 'عملیات جاری', 'بیشتر بدانید →']
+            ],
+            back: '← بازگشت به داشبورد'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('page-title').textContent = t.title;
+        document.getElementById('page-sub').textContent = t.sub;
+        document.getElementById('backlink').textContent = t.back;
+
+        const grid = document.getElementById('cards-grid');
+        const cards = grid.querySelectorAll('.card');
+        t.cards.forEach((item, index) => {
+            if (cards[index]) {
+                cards[index].querySelector('h3').textContent = item[0];
+                cards[index].querySelector('p').textContent = item[1];
+                cards[index].querySelector('.badge').textContent = item[2];
+            }
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
