@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · PLC Programming</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">⚡ PLC Programming</h1>
+    <div class="sub" id="desc">Learn PLC programming using Ladder Logic, Structured Text (SCL), and Function Block Diagram (FBD) for industrial automation.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is PLC Programming?</h2>
+        <p id="s1p">PLC (Programmable Logic Controller) programming is the process of creating logic that controls industrial machines and processes. It uses IEC 61131-3 languages including Ladder Diagram (LD), Structured Text (ST), Function Block Diagram (FBD), Instruction List (IL), and Sequential Function Chart (SFC).</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Programming Languages</h2>
+        <ul id="list1">
+            <li>Ladder Diagram (LD) – Graphical, relay-logic based</li>
+            <li>Structured Text (ST) – High-level, Pascal-like syntax</li>
+            <li>Function Block Diagram (FBD) – Graphical data flow</li>
+            <li>Instruction List (IL) – Low-level, assembly-like</li>
+            <li>Sequential Function Chart (SFC) – State-based logic</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Example: Simple Motor Start/Stop</h2>
+        <div class="code-box">
+            // Ladder Logic Example<br>
+            // Start (I0.0) --| |-- Stop (I0.1) --|/|-- Motor (Q0.0) --( )--<br>
+            // Motor (Q0.0) --| |-- (Seal-in)
+        </div>
+        <p id="s3p">This is a classic seal-in circuit. Pressing start energizes the motor coil and seals it until the stop button is pressed.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Common PLC Brands</h2>
+        <ul id="list2">
+            <li>Siemens (S7-1200, S7-1500)</li>
+            <li>Allen-Bradley (CompactLogix, ControlLogix)</li>
+            <li>Schneider Electric (Modicon)</li>
+            <li>Mitsubishi (FX, Q Series)</li>
+            <li>Omron (CJ, NJ Series)</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '⚡ PLC Programming',
+            desc: 'Learn PLC programming using Ladder Logic, Structured Text (SCL), and Function Block Diagram (FBD) for industrial automation.',
+            s1: '🔹 What is PLC Programming?',
+            s1p: 'PLC (Programmable Logic Controller) programming is the process of creating logic that controls industrial machines and processes. It uses IEC 61131-3 languages including Ladder Diagram (LD), Structured Text (ST), Function Block Diagram (FBD), Instruction List (IL), and Sequential Function Chart (SFC).',
+            s2: '🔹 Programming Languages',
+            list1: ['Ladder Diagram (LD) – Graphical, relay-logic based','Structured Text (ST) – High-level, Pascal-like syntax','Function Block Diagram (FBD) – Graphical data flow','Instruction List (IL) – Low-level, assembly-like','Sequential Function Chart (SFC) – State-based logic'],
+            s3: '🔹 Example: Simple Motor Start/Stop',
+            s3p: 'This is a classic seal-in circuit. Pressing start energizes the motor coil and seals it until the stop button is pressed.',
+            s4: '🔹 Common PLC Brands',
+            list2: ['Siemens (S7-1200, S7-1500)','Allen-Bradley (CompactLogix, ControlLogix)','Schneider Electric (Modicon)','Mitsubishi (FX, Q Series)','Omron (CJ, NJ Series)'],
+            back: '← Back'
+        },
+        fa: {
+            title: '⚡ برنامه‌نویسی PLC',
+            desc: 'یادگیری برنامه‌نویسی PLC با استفاده از نردبانی، Structured Text (SCL) و Function Block Diagram (FBD) برای اتوماسیون صنعتی.',
+            s1: '🔹 برنامه‌نویسی PLC چیست؟',
+            s1p: 'برنامه‌نویسی PLC (کنترل‌کننده منطقی قابل برنامه‌ریزی) فرآیند ایجاد منطق برای کنترل ماشین‌آلات و فرآیندهای صنعتی است. این کار از زبان‌های استاندارد IEC 61131-3 شامل نردبانی (LD)، Structured Text (ST)، Function Block Diagram (FBD)، Instruction List (IL) و Sequential Function Chart (SFC) استفاده می‌کند.',
+            s2: '🔹 زبان‌های برنامه‌نویسی',
+            list1: ['نردبانی (LD) – گرافیکی، مبتنی بر رله','Structured Text (ST) – سطح بالا، شبیه Pascal','Function Block Diagram (FBD) – جریان داده گرافیکی','Instruction List (IL) – سطح پایین، شبیه اسمبلی','Sequential Function Chart (SFC) – منطق مبتنی بر حالت'],
+            s3: '🔹 مثال: شروع/توقف ساده موتور',
+            s3p: 'این یک مدار Seal-in کلاسیک است. با فشار دادن استارت، سیم‌پیچ موتور فعال می‌شود و تا زمانی که دکمه توقف فشار داده نشود، روشن می‌ماند.',
+            s4: '🔹 برندهای رایج PLC',
+            list2: ['زیمنس (S7-1200، S7-1500)','Allen-Bradley (CompactLogix، ControlLogix)','Schneider Electric (Modicon)','میتسوبیشی (FX، Q Series)','Omron (CJ، NJ Series)'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s3p').textContent = t.s3p;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
