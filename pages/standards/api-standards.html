@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · API Standards</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🛢️ API Standards</h1>
+    <div class="sub" id="desc">Overview of key American Petroleum Institute (API) standards for the oil and gas industry, including equipment design, safety, and quality management.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is API?</h2>
+        <p id="s1p">The American Petroleum Institute (API) is a trade association that represents the oil and gas industry. API develops standards for equipment, materials, and procedures used in exploration, production, refining, and transportation of oil and gas. API standards are widely adopted globally to ensure safety, reliability, and environmental protection.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key API Standards</h2>
+        <ul id="list1">
+            <li><b>API 551</b> – Process Measurement (Instrumentation)</li>
+            <li><b>API 552</b> – Control Valve Sizing and Selection</li>
+            <li><b>API 553</b> – Control Valve and Actuator Installation</li>
+            <li><b>API 554</b> – Process Control Systems</li>
+            <li><b>API 555</b> – Process Analyzers</li>
+            <li><b>API 560</b> – Fired Heaters for General Refinery Service</li>
+            <li><b>API 570</b> – Piping Inspection Code</li>
+            <li><b>API 650</b> – Welded Tanks for Oil Storage</li>
+            <li><b>API 653</b> – Tank Inspection, Repair, Alteration, and Reconstruction</li>
+            <li><b>API RP 500</b> – Classification of Locations for Electrical Installations</li>
+            <li><b>API RP 505</b> – Electrical Installations in Class I, Zone 0/1/2 Locations</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 API Standards by Discipline</h2>
+        <ul id="list2">
+            <li><b>Instrumentation:</b> API 551, API 552, API 553</li>
+            <li><b>Electrical:</b> API RP 500, API RP 505</li>
+            <li><b>Quality:</b> API Q1 – Quality Management for Oil and Gas</li>
+            <li><b>Safety:</b> API RP 75 – Safety and Environmental Management</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: API 551 for Instrumentation Design</h2>
+        <p id="s4p">An instrumentation engineer uses API 551 to select and specify pressure, temperature, flow, and level instruments for an oil refinery. The standard provides guidelines for instrument selection, accuracy requirements, and installation practices. Compliance with API 551 ensures reliable measurement and process safety.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🛢️ API Standards',
+            desc: 'Overview of key American Petroleum Institute (API) standards for the oil and gas industry, including equipment design, safety, and quality management.',
+            s1: '🔹 What is API?',
+            s1p: 'The American Petroleum Institute (API) is a trade association that represents the oil and gas industry. API develops standards for equipment, materials, and procedures used in exploration, production, refining, and transportation of oil and gas. API standards are widely adopted globally to ensure safety, reliability, and environmental protection.',
+            s2: '🔹 Key API Standards',
+            list1: ['API 551 – Process Measurement (Instrumentation)','API 552 – Control Valve Sizing and Selection','API 553 – Control Valve and Actuator Installation','API 554 – Process Control Systems','API 555 – Process Analyzers','API 560 – Fired Heaters for General Refinery Service','API 570 – Piping Inspection Code','API 650 – Welded Tanks for Oil Storage','API 653 – Tank Inspection, Repair, Alteration, and Reconstruction','API RP 500 – Classification of Locations for Electrical Installations','API RP 505 – Electrical Installations in Class I, Zone 0/1/2 Locations'],
+            s3: '🔹 API Standards by Discipline',
+            list2: ['Instrumentation: API 551, API 552, API 553','Electrical: API RP 500, API RP 505','Quality: API Q1 – Quality Management for Oil and Gas','Safety: API RP 75 – Safety and Environmental Management'],
+            s4: '🔹 Example: API 551 for Instrumentation Design',
+            s4p: 'An instrumentation engineer uses API 551 to select and specify pressure, temperature, flow, and level instruments for an oil refinery. The standard provides guidelines for instrument selection, accuracy requirements, and installation practices. Compliance with API 551 ensures reliable measurement and process safety.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🛢️ استانداردهای API',
+            desc: 'مروری بر استانداردهای کلیدی مؤسسه نفت آمریکا (API) برای صنعت نفت و گاز، شامل طراحی تجهیزات، ایمنی و مدیریت کیفیت.',
+            s1: '🔹 API چیست؟',
+            s1p: 'مؤسسه نفت آمریکا (API) یک انجمن صنعتی است که نماینده صنعت نفت و گاز است. API استانداردهایی را برای تجهیزات، مواد و رویه‌های مورد استفاده در اکتشاف، تولید، پالایش و حمل و نقل نفت و گاز تدوین می‌کند. استانداردهای API به طور گسترده در سطح جهان برای اطمینان از ایمنی، قابلیت اطمینان و حفاظت از محیط زیست پذیرفته شده‌اند.',
+            s2: '🔹 استانداردهای کلیدی API',
+            list1: ['API 551 – اندازه‌گیری فرآیند (ابزار دقیق)','API 552 – سایزینگ و انتخاب شیر کنترلی','API 553 – نصب شیر کنترلی و اکچویتور','API 554 – سیستم‌های کنترل فرآیند','API 555 – آنالایزرهای فرآیندی','API 560 – بخاری‌های شعله‌دار برای سرویس پالایشگاه عمومی','API 570 – کد بازرسی لوله‌کشی','API 650 – مخازن جوشکاری شده برای ذخیره نفت','API 653 – بازرسی، تعمیر، تغییر و بازسازی مخزن','API RP 500 – طبقه‌بندی مکان‌ها برای تأسیسات الکتریکی','API RP 505 – تأسیسات الکتریکی در مکان‌های کلاس I، منطقه ۰/۱/۲'],
+            s3: '🔹 استانداردهای API بر اساس رشته',
+            list2: ['ابزار دقیق: API 551، API 552، API 553','برق: API RP 500، API RP 505','کیفیت: API Q1 – مدیریت کیفیت برای نفت و گاز','ایمنی: API RP 75 – مدیریت ایمنی و محیط زیست'],
+            s4: '🔹 مثال: API 551 برای طراحی ابزار دقیق',
+            s4p: 'یک مهندس ابزار دقیق از API 551 برای انتخاب و مشخص کردن ابزارهای فشار، دما، جریان و سطح برای یک پالایشگاه نفت استفاده می‌کند. این استاندارد دستورالعمل‌هایی برای انتخاب ابزار، الزامات دقت و روش‌های نصب ارائه می‌دهد. انطباق با API 551 اندازه‌گیری قابل اعتماد و ایمنی فرآیند را تضمین می‌کند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
