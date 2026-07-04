@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Management Overview</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📘 Overview of Engineering Management</h1>
+    <div class="sub" id="desc">A comprehensive overview of engineering management principles, including project management, risk, workflow, resources, cost, quality, and leadership.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Engineering Management?</h2>
+        <p id="s1p">Engineering management is the art and science of planning, organizing, directing, and controlling engineering activities and resources. It combines technical knowledge with management skills to deliver successful engineering projects on time, within budget, and to the required quality standards.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Management Areas</h2>
+        <ul id="list1">
+            <li>Project Management – Planning, scheduling, execution, and monitoring</li>
+            <li>Risk Management – Identifying, assessing, and mitigating risks</li>
+            <li>Engineering Workflow – Optimizing processes and handovers</li>
+            <li>Resource Planning – Managing people, equipment, and materials</li>
+            <li>Cost Estimation – Budgeting, cost control, and forecasting</li>
+            <li>Quality Management – Assurance, control, and continuous improvement</li>
+            <li>Leadership – Team building, communication, and decision-making</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Key Standards and Frameworks</h2>
+        <ul id="list2">
+            <li>PMBOK – Project Management Body of Knowledge</li>
+            <li>ISO 21500 – Guidance on Project Management</li>
+            <li>ISO 31000 – Risk Management</li>
+            <li>ISO 9001 – Quality Management</li>
+            <li>Lean and Six Sigma – Process improvement</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📘 Overview of Engineering Management',
+            desc: 'A comprehensive overview of engineering management principles, including project management, risk, workflow, resources, cost, quality, and leadership.',
+            s1: '🔹 What is Engineering Management?',
+            s1p: 'Engineering management is the art and science of planning, organizing, directing, and controlling engineering activities and resources. It combines technical knowledge with management skills to deliver successful engineering projects on time, within budget, and to the required quality standards.',
+            s2: '🔹 Key Management Areas',
+            list1: ['Project Management – Planning, scheduling, execution, and monitoring','Risk Management – Identifying, assessing, and mitigating risks','Engineering Workflow – Optimizing processes and handovers','Resource Planning – Managing people, equipment, and materials','Cost Estimation – Budgeting, cost control, and forecasting','Quality Management – Assurance, control, and continuous improvement','Leadership – Team building, communication, and decision-making'],
+            s3: '🔹 Key Standards and Frameworks',
+            list2: ['PMBOK – Project Management Body of Knowledge','ISO 21500 – Guidance on Project Management','ISO 31000 – Risk Management','ISO 9001 – Quality Management','Lean and Six Sigma – Process improvement'],
+            back: '← Back'
+        },
+        fa: {
+            title: '📘 مرور کلی مدیریت مهندسی',
+            desc: 'مرور جامع اصول مدیریت مهندسی، شامل مدیریت پروژه، ریسک، جریان کار، منابع، هزینه، کیفیت و رهبری.',
+            s1: '🔹 مدیریت مهندسی چیست؟',
+            s1p: 'مدیریت مهندسی هنر و علم برنامه‌ریزی، سازماندهی، هدایت و کنترل فعالیت‌ها و منابع مهندسی است. دانش فنی را با مهارت‌های مدیریتی ترکیب می‌کند تا پروژه‌های مهندسی موفق را به موقع، در چارچوب بودجه و با استانداردهای کیفیت مورد نیاز تحویل دهد.',
+            s2: '🔹 حوزه‌های کلیدی مدیریت',
+            list1: ['مدیریت پروژه – برنامه‌ریزی، زمان‌بندی، اجرا و نظارت','مدیریت ریسک – شناسایی، ارزیابی و کاهش ریسک‌ها','جریان کار مهندسی – بهینه‌سازی فرآیندها و تحویل‌ها','برنامه‌ریزی منابع – مدیریت نیروی انسانی، تجهیزات و مواد','برآورد هزینه – بودجه‌بندی، کنترل هزینه و پیش‌بینی','مدیریت کیفیت – تضمین، کنترل و بهبود مستمر','رهبری – ساخت تیم، ارتباطات و تصمیم‌گیری'],
+            s3: '🔹 استانداردها و چارچوب‌های کلیدی',
+            list2: ['PMBOK – بدنه دانش مدیریت پروژه','ISO 21500 – راهنمای مدیریت پروژه','ISO 31000 – مدیریت ریسک','ISO 9001 – مدیریت کیفیت','ناب و شش سیگما – بهبود فرآیند'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
