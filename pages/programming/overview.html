@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Industrial Programming Overview</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📘 Industrial Programming Overview</h1>
+    <div class="sub" id="desc">A comprehensive overview of industrial programming – covering PLC, HMI, SCADA, VFD, and industrial network programming.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Industrial Programming?</h2>
+        <p id="s1p">Industrial programming refers to the development of software and logic that controls industrial machinery, processes, and systems. It encompasses PLC programming, HMI design, SCADA configuration, VFD parameterization, and network setup. Industrial programmers bridge the gap between hardware and automation, enabling efficient and reliable production.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Components of Industrial Programming</h2>
+        <ul id="list1">
+            <li><b>PLC (Programmable Logic Controller)</b> – The brain of industrial control, executing logic based on inputs and outputs.</li>
+            <li><b>HMI (Human-Machine Interface)</b> – Operator interface for monitoring and controlling processes.</li>
+            <li><b>SCADA (Supervisory Control and Data Acquisition)</b> – Centralized control and data collection for large-scale systems.</li>
+            <li><b>VFD (Variable Frequency Drive)</b> – Controls motor speed by varying frequency and voltage.</li>
+            <li><b>Industrial Networks</b> – Communication protocols (Modbus, Profinet, Ethernet/IP) for device connectivity.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Programming Languages (IEC 61131-3)</h2>
+        <ul id="list2">
+            <li><b>Ladder Diagram (LD)</b> – Graphical relay-logic representation, most common for electricians.</li>
+            <li><b>Function Block Diagram (FBD)</b> – Graphical data-flow language for complex logic.</li>
+            <li><b>Structured Text (ST)</b> – High-level text-based language similar to Pascal/C.</li>
+            <li><b>Instruction List (IL)</b> – Low-level assembly-like language (less common now).</li>
+            <li><b>Sequential Function Chart (SFC)</b> – State-based language for sequential processes.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Common Platforms & Software</h2>
+        <ul id="list3">
+            <li><b>Siemens</b> – TIA Portal, STEP7, WinCC, PCS7</li>
+            <li><b>Rockwell Automation</b> – Studio 5000, FactoryTalk View</li>
+            <li><b>Schneider Electric</b> – EcoStruxure Control Expert, Vijeo Designer</li>
+            <li><b>Mitsubishi</b> – GX Works3, GT Designer3</li>
+            <li><b>Codesys</b> – Open platform for many hardware brands</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s5">🔹 Typical Applications</h2>
+        <ul id="list4">
+            <li>Factory automation (conveyors, robots, packaging)</li>
+            <li>Process control (chemical, oil & gas, water treatment)</li>
+            <li>Building automation (HVAC, lighting, access control)</li>
+            <li>Energy management (power plants, renewable energy)</li>
+            <li>Transportation (railways, elevators, material handling)</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📘 Industrial Programming Overview',
+            desc: 'A comprehensive overview of industrial programming – covering PLC, HMI, SCADA, VFD, and industrial network programming.',
+            s1: '🔹 What is Industrial Programming?',
+            s1p: 'Industrial programming refers to the development of software and logic that controls industrial machinery, processes, and systems. It encompasses PLC programming, HMI design, SCADA configuration, VFD parameterization, and network setup. Industrial programmers bridge the gap between hardware and automation, enabling efficient and reliable production.',
+            s2: '🔹 Key Components of Industrial Programming',
+            list1: ['PLC (Programmable Logic Controller) – The brain of industrial control, executing logic based on inputs and outputs.','HMI (Human-Machine Interface) – Operator interface for monitoring and controlling processes.','SCADA (Supervisory Control and Data Acquisition) – Centralized control and data collection for large-scale systems.','VFD (Variable Frequency Drive) – Controls motor speed by varying frequency and voltage.','Industrial Networks – Communication protocols (Modbus, Profinet, Ethernet/IP) for device connectivity.'],
+            s3: '🔹 Programming Languages (IEC 61131-3)',
+            list2: ['Ladder Diagram (LD) – Graphical relay-logic representation, most common for electricians.','Function Block Diagram (FBD) – Graphical data-flow language for complex logic.','Structured Text (ST) – High-level text-based language similar to Pascal/C.','Instruction List (IL) – Low-level assembly-like language (less common now).','Sequential Function Chart (SFC) – State-based language for sequential processes.'],
+            s4: '🔹 Common Platforms & Software',
+            list3: ['Siemens – TIA Portal, STEP7, WinCC, PCS7','Rockwell Automation – Studio 5000, FactoryTalk View','Schneider Electric – EcoStruxure Control Expert, Vijeo Designer','Mitsubishi – GX Works3, GT Designer3','Codesys – Open platform for many hardware brands'],
+            s5: '🔹 Typical Applications',
+            list4: ['Factory automation (conveyors, robots, packaging)','Process control (chemical, oil & gas, water treatment)','Building automation (HVAC, lighting, access control)','Energy management (power plants, renewable energy)','Transportation (railways, elevators, material handling)'],
+            back: '← Back'
+        },
+        fa: {
+            title: '📘 مرور کلی برنامه‌نویسی صنعتی',
+            desc: 'مرور جامع برنامه‌نویسی صنعتی – شامل PLC، HMI، SCADA، VFD و برنامه‌نویسی شبکه‌های صنعتی.',
+            s1: '🔹 برنامه‌نویسی صنعتی چیست؟',
+            s1p: 'برنامه‌نویسی صنعتی به توسعه نرم‌افزار و منطقی اشاره دارد که ماشین‌آلات، فرآیندها و سیستم‌های صنعتی را کنترل می‌کند. شامل برنامه‌نویسی PLC، طراحی HMI، پیکربندی SCADA، پارامترگذاری VFD و راه‌اندازی شبکه است. برنامه‌نویسان صنعتی پل بین سخت‌افزار و اتوماسیون را ایجاد کرده و تولید کارآمد و قابل اعتماد را امکان‌پذیر می‌سازند.',
+            s2: '🔹 اجزای کلیدی برنامه‌نویسی صنعتی',
+            list1: ['PLC (کنترل‌کننده منطقی قابل برنامه‌ریزی) – مغز کنترل صنعتی، اجرای منطق بر اساس ورودی‌ها و خروجی‌ها.','HMI (رابط انسان و ماشین) – رابط اپراتور برای نظارت و کنترل فرآیندها.','SCADA (نظارت و جمع‌آوری داده) – کنترل متمرکز و جمع‌آوری داده برای سیستم‌های بزرگ.','VFD (درایو فرکانس متغیر) – کنترل سرعت موتور با تغییر فرکانس و ولتاژ.','شبکه‌های صنعتی – پروتکل‌های ارتباطی (Modbus، Profinet، Ethernet/IP) برای اتصال دستگاه‌ها.'],
+            s3: '🔹 زبان‌های برنامه‌نویسی (IEC 61131-3)',
+            list2: ['نمودار نردبانی (LD) – نمایش گرافیکی منطق رله‌ای، رایج‌ترین برای برقکاران.','نمودار بلوک عملکردی (FBD) – زبان جریان داده گرافیکی برای منطق پیچیده.','متن ساختاریافته (ST) – زبان متنی سطح بالا مشابه Pascal/C.','لیست دستورالعمل‌ها (IL) – زبان سطح پایین شبیه اسمبلی (اکنون کمتر رایج).','نمودار توالی عملکردی (SFC) – زبان مبتنی بر حالت برای فرآیندهای ترتیبی.'],
+            s4: '🔹 پلتفرم‌ها و نرم‌افزارهای رایج',
+            list3: ['زیمنس – TIA Portal، STEP7، WinCC، PCS7','راکول اتوماسیون – Studio 5000، FactoryTalk View','اشنایدر الکتریک – EcoStruxure Control Expert، Vijeo Designer','میتسوبیشی – GX Works3، GT Designer3','Codesys – پلتفرم باز برای بسیاری از برندهای سخت‌افزاری'],
+            s5: '🔹 کاربردهای معمول',
+            list4: ['اتوماسیون کارخانه (نقاله‌ها، ربات‌ها، بسته‌بندی)','کنترل فرآیند (شیمیایی، نفت و گاز، تصفیه آب)','اتوماسیون ساختمان (HVAC، روشنایی، کنترل دسترسی)','مدیریت انرژی (نیروگاه‌ها، انرژی تجدیدپذیر)','حمل و نقل (راه‌آهن، آسانسورها، جابجایی مواد)'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s5').textContent = t.s5;
+        document.getElementById('backlink').textContent = t.back;
+
+        const list1 = document.getElementById('list1');
+        list1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
+
+        const list2 = document.getElementById('list2');
+        list2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
+
+        const list3 = document.getElementById('list3');
+        list3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; list3.appendChild(li); });
+
+        const list4 = document.getElementById('list4');
+        list4.innerHTML = '';
+        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; list4.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
