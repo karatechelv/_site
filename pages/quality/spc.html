@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Statistical Process Control</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .formula-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.9rem;color:#d4af37;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📈 Statistical Process Control (SPC)</h1>
+    <div class="sub" id="desc">Statistical methods for monitoring and controlling process quality, including control charts, process capability, and variation analysis.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Statistical Process Control (SPC)?</h2>
+        <p id="s1p">SPC is a method of quality control that uses statistical techniques to monitor and control processes. It helps distinguish between common cause variation (inherent to the process) and special cause variation (assignable to specific factors). SPC enables process stability and capability assessment.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key SPC Tools</h2>
+        <ul id="list1">
+            <li><b>Control Charts</b> – X-bar, R, p, np, c, u charts</li>
+            <li><b>Process Capability Analysis</b> – Cp, Cpk, Pp, Ppk indices</li>
+            <li><b>Run Charts</b> – Plotting data over time to identify trends</li>
+            <li><b>Pareto Analysis</b> – Identifying the most significant factors</li>
+            <li><b>Cause-and-Effect Diagrams</b> – Fishbone or Ishikawa diagrams</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Key SPC Formulas</h2>
+        <div class="formula-box">
+            Cp = (USL - LSL) / (6 × σ)<br>
+            Cpk = min[(USL - μ) / (3 × σ), (μ - LSL) / (3 × σ)]<br>
+            UCL = μ + 3 × σ &nbsp;|&nbsp; LCL = μ - 3 × σ
+        </div>
+        <p id="s3p">Where USL = Upper Specification Limit, LSL = Lower Specification Limit, μ = Process Mean, σ = Process Standard Deviation.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Control Chart for Machine Shop</h2>
+        <p id="s4p">A machine shop uses X-bar and R charts to monitor the diameter of machined parts. Samples of 5 parts are taken every hour. The X-bar chart tracks the average diameter, while the R chart tracks the range (variation) within samples. Points outside the control limits trigger investigation and corrective action.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📈 Statistical Process Control (SPC)',
+            desc: 'Statistical methods for monitoring and controlling process quality, including control charts, process capability, and variation analysis.',
+            s1: '🔹 What is Statistical Process Control (SPC)?',
+            s1p: 'SPC is a method of quality control that uses statistical techniques to monitor and control processes. It helps distinguish between common cause variation (inherent to the process) and special cause variation (assignable to specific factors). SPC enables process stability and capability assessment.',
+            s2: '🔹 Key SPC Tools',
+            list1: ['Control Charts – X-bar, R, p, np, c, u charts','Process Capability Analysis – Cp, Cpk, Pp, Ppk indices','Run Charts – Plotting data over time to identify trends','Pareto Analysis – Identifying the most significant factors','Cause-and-Effect Diagrams – Fishbone or Ishikawa diagrams'],
+            s3: '🔹 Key SPC Formulas',
+            s3p: 'Where USL = Upper Specification Limit, LSL = Lower Specification Limit, μ = Process Mean, σ = Process Standard Deviation.',
+            s4: '🔹 Example: Control Chart for Machine Shop',
+            s4p: 'A machine shop uses X-bar and R charts to monitor the diameter of machined parts. Samples of 5 parts are taken every hour. The X-bar chart tracks the average diameter, while the R chart tracks the range (variation) within samples. Points outside the control limits trigger investigation and corrective action.',
+            back: '← Back'
+        },
+        fa: {
+            title: '📈 کنترل آماری فرآیند (SPC)',
+            desc: 'روش‌های آماری برای نظارت و کنترل کیفیت فرآیند، شامل نمودارهای کنترل، قابلیت فرآیند و تحلیل تغییرات.',
+            s1: '🔹 کنترل آماری فرآیند (SPC) چیست؟',
+            s1p: 'SPC روشی برای کنترل کیفیت است که از تکنیک‌های آماری برای نظارت و کنترل فرآیندها استفاده می‌کند. به تشخیص تغییرات علت مشترک (ذاتی فرآیند) از تغییرات علت خاص (نسبت داده شده به عوامل خاص) کمک می‌کند. SPC امکان ارزیابی پایداری و قابلیت فرآیند را فراهم می‌کند.',
+            s2: '🔹 ابزارهای کلیدی SPC',
+            list1: ['نمودارهای کنترل – X-bar، R، p، np، c، u','تحلیل قابلیت فرآیند – شاخص‌های Cp، Cpk، Pp، Ppk','نمودارهای روند – ترسیم داده‌ها در طول زمان برای شناسایی روندها','تحلیل پارتو – شناسایی مهم‌ترین عوامل','نمودارهای علت و معلول – نمودار استخوان ماهی یا ایشیکاوا'],
+            s3: '🔹 فرمول‌های کلیدی SPC',
+            s3p: 'که در آن USL = حد مشخصات بالا، LSL = حد مشخصات پایین، μ = میانگین فرآیند، σ = انحراف معیار فرآیند.',
+            s4: '🔹 مثال: نمودار کنترل برای کارگاه ماشین‌کاری',
+            s4p: 'یک کارگاه ماشین‌کاری از نمودارهای X-bar و R برای نظارت بر قطر قطعات ماشین‌کاری شده استفاده می‌کند. نمونه‌هایی از ۵ قطعه هر ساعت گرفته می‌شود. نمودار X-bar میانگین قطر را ردیابی می‌کند، در حالی که نمودار R محدوده (تغییرات) را در نمونه‌ها ردیابی می‌کند. نقاط خارج از حدود کنترل باعث بررسی و اقدام اصلاحی می‌شوند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s3p').textContent = t.s3p;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
