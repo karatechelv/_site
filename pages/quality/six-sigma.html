@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Six Sigma</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">⚙️ Six Sigma</h1>
+    <div class="sub" id="desc">Understanding Six Sigma methodology, DMAIC framework, tools, belts, and benefits for process improvement and quality excellence.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Six Sigma?</h2>
+        <p id="s1p">Six Sigma is a data-driven methodology for process improvement that aims to reduce defects and variability to near-zero levels. It seeks to achieve 3.4 defects per million opportunities (DPMO) by focusing on customer requirements, process capability, and statistical analysis. Developed by Motorola and widely adopted by organizations worldwide.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 DMAIC Framework</h2>
+        <ul id="list1">
+            <li><b>Define</b> – Identify the problem, project goals, and customer requirements</li>
+            <li><b>Measure</b> – Collect data to understand current process performance</li>
+            <li><b>Analyze</b> – Identify root causes of defects and variation</li>
+            <li><b>Improve</b> – Develop and implement solutions to address root causes</li>
+            <li><b>Control</b> – Sustain improvements and monitor process stability</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Six Sigma Roles and Belts</h2>
+        <ul id="list2">
+            <li><b>Yellow Belt</b> – Basic awareness, supports project teams</li>
+            <li><b>Green Belt</b> – Leads small projects, works part-time on improvement</li>
+            <li><b>Black Belt</b> – Leads complex projects, full-time improvement role</li>
+            <li><b>Master Black Belt</b> – Coaches and mentors, drives strategic deployment</li>
+            <li><b>Champion</b> – Executive sponsor, provides resources and strategic direction</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Six Sigma in Manufacturing</h2>
+        <p id="s4p">A manufacturing company uses Six Sigma to reduce defects in an assembly process. The team defines the problem (high rework rate), measures defect data, analyzes root causes (misalignment of components), improves the process by adding a fixturing system, and controls with ongoing monitoring using control charts. Result: defects reduced by 70%.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '⚙️ Six Sigma',
+            desc: 'Understanding Six Sigma methodology, DMAIC framework, tools, belts, and benefits for process improvement and quality excellence.',
+            s1: '🔹 What is Six Sigma?',
+            s1p: 'Six Sigma is a data-driven methodology for process improvement that aims to reduce defects and variability to near-zero levels. It seeks to achieve 3.4 defects per million opportunities (DPMO) by focusing on customer requirements, process capability, and statistical analysis. Developed by Motorola and widely adopted by organizations worldwide.',
+            s2: '🔹 DMAIC Framework',
+            list1: ['Define – Identify the problem, project goals, and customer requirements','Measure – Collect data to understand current process performance','Analyze – Identify root causes of defects and variation','Improve – Develop and implement solutions to address root causes','Control – Sustain improvements and monitor process stability'],
+            s3: '🔹 Six Sigma Roles and Belts',
+            list2: ['Yellow Belt – Basic awareness, supports project teams','Green Belt – Leads small projects, works part-time on improvement','Black Belt – Leads complex projects, full-time improvement role','Master Black Belt – Coaches and mentors, drives strategic deployment','Champion – Executive sponsor, provides resources and strategic direction'],
+            s4: '🔹 Example: Six Sigma in Manufacturing',
+            s4p: 'A manufacturing company uses Six Sigma to reduce defects in an assembly process. The team defines the problem (high rework rate), measures defect data, analyzes root causes (misalignment of components), improves the process by adding a fixturing system, and controls with ongoing monitoring using control charts. Result: defects reduced by 70%.',
+            back: '← Back'
+        },
+        fa: {
+            title: '⚙️ شش سیگما',
+            desc: 'درک روش‌شناسی شش سیگما، چارچوب DMAIC، ابزارها، کمربندها و مزایای آن برای بهبود فرآیند و تعالی کیفیت.',
+            s1: '🔹 شش سیگما چیست؟',
+            s1p: 'شش سیگما یک روش‌شناسی مبتنی بر داده برای بهبود فرآیند است که هدف آن کاهش عیوب و تغییرات به سطح نزدیک به صفر است. با تمرکز بر نیازهای مشتری، قابلیت فرآیند و تحلیل آماری، به دنبال دستیابی به ۳.۴ عیب در هر میلیون فرصت (DPMO) است. توسط موتورولا توسعه یافته و به طور گسترده توسط سازمان‌ها در سراسر جهان پذیرفته شده است.',
+            s2: '🔹 چارچوب DMAIC',
+            list1: ['تعریف – شناسایی مشکل، اهداف پروژه و نیازهای مشتری','اندازه‌گیری – جمع‌آوری داده برای درک عملکرد فعلی فرآیند','تحلیل – شناسایی ریشه‌های عیوب و تغییرات','بهبود – توسعه و پیاده‌سازی راه‌حل‌ها برای رفع ریشه‌ها','کنترل – حفظ بهبودها و نظارت بر پایداری فرآیند'],
+            s3: '🔹 نقش‌ها و کمربندهای شش سیگما',
+            list2: ['کمربند زرد – آگاهی پایه، پشتیبانی از تیم‌های پروژه','کمربند سبز – رهبری پروژه‌های کوچک، کار نیمه‌وقت','کمربند مشکی – رهبری پروژه‌های پیچیده، نقش تمام‌وقت','کمربند مشکی ارشد – مربی‌گری و راهنمایی، هدایت استقرار استراتژیک','قهرمان – حامی اجرایی، تأمین منابع و جهت‌گیری استراتژیک'],
+            s4: '🔹 مثال: شش سیگما در تولید',
+            s4p: 'یک شرکت تولیدی از شش سیگما برای کاهش عیوب در یک فرآیند مونتاژ استفاده می‌کند. تیم مشکل را تعریف (نرخ بالای بازکاری)، داده‌های عیب را اندازه‌گیری، ریشه‌ها (نامرتبی اجزاء) را تحلیل، فرآیند را با اضافه کردن یک سیستم فیکسچر بهبود و با نظارت مداوم با نمودارهای کنترل حفظ می‌کند. نتیجه: عیوب ۷۰٪ کاهش یافت.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
