@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Sensors & Transmitters</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .table-wrap{overflow-x:auto;margin:10px 0}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px}
+        th,td{padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📟 Sensors & Transmitters</h1>
+    <div class="sub" id="desc">An overview of industrial sensors and transmitters used to measure temperature, pressure, flow, level, and other process variables.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What are Sensors and Transmitters?</h2>
+        <p id="s1p">Sensors detect physical or chemical changes in the process (temperature, pressure, flow, level, etc.) and convert them into electrical signals. Transmitters amplify, convert, and transmit these signals to control systems (PLC, DCS, SCADA).</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Common Sensor Types</h2>
+        <ul id="list1">
+            <li>Temperature Sensors – RTD, Thermocouple, Thermistor</li>
+            <li>Pressure Sensors – Piezoresistive, Capacitive, Strain Gauge</li>
+            <li>Flow Sensors – Orifice, Magnetic, Ultrasonic, Coriolis</li>
+            <li>Level Sensors – Radar, Ultrasonic, Capacitance, Float</li>
+            <li>Analytical Sensors – pH, Conductivity, Dissolved Oxygen</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Comparison Table</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th id="th1">Parameter</th><th id="th2">Sensor Type</th><th id="th3">Output Signal</th><th id="th4">Application</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Temperature</td><td>RTD PT100</td><td>4-20 mA</td><td>Process heating/cooling</td></tr>
+                    <tr><td>Pressure</td><td>Piezoresistive</td><td>4-20 mA</td><td>Hydraulic systems</td></tr>
+                    <tr><td>Flow</td><td>Magnetic</td><td>4-20 mA</td><td>Water/Wastewater</td></tr>
+                    <tr><td>Level</td><td>Radar</td><td>4-20 mA</td><td>Tank level monitoring</td></tr>
+                    <tr><td>pH</td><td>Glass electrode</td><td>4-20 mA</td><td>Chemical processes</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Pressure Transmitter</h2>
+        <p id="s4p">A Rosemount 3051 pressure transmitter measures pipeline pressure and outputs a 4-20 mA signal to the PLC. The transmitter is calibrated for 0-100 bar range and includes a local display for verification.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📟 Sensors & Transmitters',
+            desc: 'An overview of industrial sensors and transmitters used to measure temperature, pressure, flow, level, and other process variables.',
+            s1: '🔹 What are Sensors and Transmitters?',
+            s1p: 'Sensors detect physical or chemical changes in the process (temperature, pressure, flow, level, etc.) and convert them into electrical signals. Transmitters amplify, convert, and transmit these signals to control systems (PLC, DCS, SCADA).',
+            s2: '🔹 Common Sensor Types',
+            list1: ['Temperature Sensors – RTD, Thermocouple, Thermistor','Pressure Sensors – Piezoresistive, Capacitive, Strain Gauge','Flow Sensors – Orifice, Magnetic, Ultrasonic, Coriolis','Level Sensors – Radar, Ultrasonic, Capacitance, Float','Analytical Sensors – pH, Conductivity, Dissolved Oxygen'],
+            s3: '🔹 Comparison Table',
+            th1: 'Parameter', th2: 'Sensor Type', th3: 'Output Signal', th4: 'Application',
+            s4: '🔹 Example: Pressure Transmitter',
+            s4p: 'A Rosemount 3051 pressure transmitter measures pipeline pressure and outputs a 4-20 mA signal to the PLC. The transmitter is calibrated for 0-100 bar range and includes a local display for verification.',
+            back: '← Back'
+        },
+        fa: {
+            title: '📟 سنسورها و ترانسمیترها',
+            desc: 'مروری بر سنسورها و ترانسمیترهای صنعتی مورد استفاده برای اندازه‌گیری دما، فشار، جریان، سطح و سایر متغیرهای فرآیندی.',
+            s1: '🔹 سنسورها و ترانسمیترها چیستند؟',
+            s1p: 'سنسورها تغییرات فیزیکی یا شیمیایی فرآیند (دما، فشار، جریان، سطح و غیره) را تشخیص داده و به سیگنال الکتریکی تبدیل می‌کنند. ترانسمیترها این سیگنال‌ها را تقویت، تبدیل و به سیستم‌های کنترل (PLC، DCS، SCADA) ارسال می‌کنند.',
+            s2: '🔹 انواع رایج سنسورها',
+            list1: ['سنسورهای دما – RTD، ترموکوپل، ترمیستور','سنسورهای فشار – پیزورزیستیو، خازنی، کرنش سنج','سنسورهای جریان – اوریفیس، مغناطیسی، اولتراسونیک، کوریولیس','سنسورهای سطح – راداری، اولتراسونیک، خازنی، شناوری','سنسورهای تحلیلی – pH، رسانایی، اکسیژن محلول'],
+            s3: '🔹 جدول مقایسه',
+            th1: 'پارامتر', th2: 'نوع سنسور', th3: 'سیگنال خروجی', th4: 'کاربرد',
+            s4: '🔹 مثال: ترانسمیتر فشار',
+            s4p: 'ترانسمیتر فشار Rosemount 3051 فشار خط لوله را اندازه‌گیری کرده و سیگنال ۴-۲۰ میلی‌آمپر به PLC ارسال می‌کند. ترانسمیتر برای محدوده ۰-۱۰۰ بار کالیبره شده و دارای نمایشگر محلی برای تأیید است.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        document.getElementById('th1').textContent = t.th1;
+        document.getElementById('th2').textContent = t.th2;
+        document.getElementById('th3').textContent = t.th3;
+        document.getElementById('th4').textContent = t.th4;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
