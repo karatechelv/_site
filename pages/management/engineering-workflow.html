@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Engineering Workflow</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🔄 Engineering Workflow</h1>
+    <div class="sub" id="desc">Optimizing engineering processes, handovers, and collaboration across disciplines to improve efficiency and quality in engineering projects.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Engineering Workflow?</h2>
+        <p id="s1p">Engineering workflow refers to the sequence of tasks, processes, and handovers that occur during the engineering lifecycle. It includes design, review, approval, procurement, fabrication, installation, commissioning, and handover. An optimized workflow reduces delays, improves quality, and ensures smooth project execution.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Workflow Stages</h2>
+        <ul id="list1">
+            <li><b>Concept & Feasibility</b> – Initial studies, requirements gathering</li>
+            <li><b>Preliminary Design</b> – Developing conceptual designs, basic engineering</li>
+            <li><b>Detailed Design</b> – Creating detailed drawings, specifications, and calculations</li>
+            <li><b>Procurement</b> – Sourcing materials, equipment, and services</li>
+            <li><b>Fabrication & Assembly</b> – Building and assembling components</li>
+            <li><b>Installation & Commissioning</b> – On-site installation and testing</li>
+            <li><b>Handover & Operations</b> – Final delivery and ongoing support</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Workflow Optimization Strategies</h2>
+        <ul id="list2">
+            <li><b>Standardization</b> – Using templates, checklists, and common processes</li>
+            <li><b>Collaboration</b> – Effective communication between disciplines and teams</li>
+            <li><b>Digital Tools</b> – Using engineering software, BIM, and digital twin</li>
+            <li><b>Continuous Improvement</b> – Learning from past projects, feedback loops</li>
+            <li><b>Risk Management</b> – Proactive identification and mitigation of workflow bottlenecks</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Workflow for a Large Industrial Project</h2>
+        <p id="s4p">In a large industrial project, the engineering workflow is managed using a digital platform that connects design teams, procurement, and construction. Design reviews are scheduled at each stage, and changes are tracked in real-time. The workflow ensures that all disciplines are aligned, reducing rework and delays.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🔄 Engineering Workflow',
+            desc: 'Optimizing engineering processes, handovers, and collaboration across disciplines to improve efficiency and quality in engineering projects.',
+            s1: '🔹 What is Engineering Workflow?',
+            s1p: 'Engineering workflow refers to the sequence of tasks, processes, and handovers that occur during the engineering lifecycle. It includes design, review, approval, procurement, fabrication, installation, commissioning, and handover. An optimized workflow reduces delays, improves quality, and ensures smooth project execution.',
+            s2: '🔹 Key Workflow Stages',
+            list1: ['Concept & Feasibility – Initial studies, requirements gathering','Preliminary Design – Developing conceptual designs, basic engineering','Detailed Design – Creating detailed drawings, specifications, and calculations','Procurement – Sourcing materials, equipment, and services','Fabrication & Assembly – Building and assembling components','Installation & Commissioning – On-site installation and testing','Handover & Operations – Final delivery and ongoing support'],
+            s3: '🔹 Workflow Optimization Strategies',
+            list2: ['Standardization – Using templates, checklists, and common processes','Collaboration – Effective communication between disciplines and teams','Digital Tools – Using engineering software, BIM, and digital twin','Continuous Improvement – Learning from past projects, feedback loops','Risk Management – Proactive identification and mitigation of workflow bottlenecks'],
+            s4: '🔹 Example: Workflow for a Large Industrial Project',
+            s4p: 'In a large industrial project, the engineering workflow is managed using a digital platform that connects design teams, procurement, and construction. Design reviews are scheduled at each stage, and changes are tracked in real-time. The workflow ensures that all disciplines are aligned, reducing rework and delays.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🔄 جریان کار مهندسی',
+            desc: 'بهینه‌سازی فرآیندهای مهندسی، تحویل‌ها و همکاری بین رشته‌ها برای بهبود کارایی و کیفیت در پروژه‌های مهندسی.',
+            s1: '🔹 جریان کار مهندسی چیست؟',
+            s1p: 'جریان کار مهندسی به دنباله وظایف، فرآیندها و تحویل‌هایی اشاره دارد که در طول چرخه حیات مهندسی رخ می‌دهد. شامل طراحی، بازبینی، تأیید، تدارکات، ساخت، نصب، راه‌اندازی و تحویل است. یک جریان کار بهینه تأخیرها را کاهش می‌دهد، کیفیت را بهبود می‌بخشد و اجرای روان پروژه را تضمین می‌کند.',
+            s2: '🔹 مراحل کلیدی جریان کار',
+            list1: ['مفهوم و امکان‌سنجی – مطالعات اولیه، جمع‌آوری الزامات','طراحی مقدماتی – توسعه طرح‌های مفهومی، مهندسی پایه','طراحی تفصیلی – ایجاد نقشه‌های دقیق، مشخصات و محاسبات','تدارکات – تأمین مواد، تجهیزات و خدمات','ساخت و مونتاژ – ساخت و مونتاژ قطعات','نصب و راه‌اندازی – نصب و تست در محل','تحویل و عملیات – تحویل نهایی و پشتیبانی مستمر'],
+            s3: '🔹 راهبردهای بهینه‌سازی جریان کار',
+            list2: ['استانداردسازی – استفاده از قالب‌ها، چک‌لیست‌ها و فرآیندهای مشترک','همکاری – ارتباط مؤثر بین رشته‌ها و تیم‌ها','ابزارهای دیجیتال – استفاده از نرم‌افزارهای مهندسی، BIM و دوقلوی دیجیتال','بهبود مستمر – یادگیری از پروژه‌های گذشته، حلقه‌های بازخورد','مدیریت ریسک – شناسایی و کاهش پیش‌گیرانه گلوگاه‌های جریان کار'],
+            s4: '🔹 مثال: جریان کار برای یک پروژه بزرگ صنعتی',
+            s4p: 'در یک پروژه بزرگ صنعتی، جریان کار مهندسی با استفاده از یک پلتفرم دیجیتال مدیریت می‌شود که تیم‌های طراحی، تدارکات و ساخت را به هم متصل می‌کند. بازبینی‌های طراحی در هر مرحله برنامه‌ریزی شده و تغییرات در زمان واقعی پیگیری می‌شوند. جریان کار تضمین می‌کند که همه رشته‌ها هماهنگ هستند و کار مجدد و تأخیرها را کاهش می‌دهد.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
