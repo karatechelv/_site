@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · NEC Standards</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🔌 NEC Standards (National Electrical Code)</h1>
+    <div class="sub" id="desc">Overview of the National Electrical Code (NFPA 70), its structure, key articles, and applications in electrical design and installation.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is the NEC?</h2>
+        <p id="s1p">The National Electrical Code (NEC), published by the National Fire Protection Association (NFPA), is the standard for safe electrical installation in the United States. It is adopted in many countries and serves as a benchmark for electrical safety. The NEC is updated every three years to incorporate new technologies and safety practices.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Articles of the NEC</h2>
+        <ul id="list1">
+            <li><b>Article 110</b> – General Requirements for Electrical Installations</li>
+            <li><b>Article 210</b> – Branch Circuits</li>
+            <li><b>Article 215</b> – Feeders</li>
+            <li><b>Article 220</b> – Branch-Circuit, Feeder, and Service Load Calculations</li>
+            <li><b>Article 230</b> – Services</li>
+            <li><b>Article 240</b> – Overcurrent Protection</li>
+            <li><b>Article 250</b> – Grounding and Bonding</li>
+            <li><b>Article 300</b> – Wiring Methods and Materials</li>
+            <li><b>Article 310</b> – Conductors for General Wiring</li>
+            <li><b>Article 430</b> – Motors, Motor Circuits, and Controllers</li>
+            <li><b>Article 500</b> – Hazardous (Classified) Locations</li>
+            <li><b>Article 700</b> – Emergency Systems</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 NEC Applications</h2>
+        <ul id="list2">
+            <li><b>Residential</b> – Wiring, service panels, branch circuits</li>
+            <li><b>Commercial</b> – Office buildings, retail, warehouses</li>
+            <li><b>Industrial</b> – Factories, process plants, hazardous areas</li>
+            <li><b>Special Occupancies</b> – Health care, theaters, hazardous locations</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Applying NEC in Panel Design</h2>
+        <p id="s4p">An engineer designs a motor control panel for a manufacturing plant. NEC Article 430 specifies requirements for motor branch circuits, including overcurrent protection, disconnecting means, and conductor sizing. The engineer ensures compliance with Article 250 for grounding and bonding, and Article 110 for working clearances.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🔌 NEC Standards (National Electrical Code)',
+            desc: 'Overview of the National Electrical Code (NFPA 70), its structure, key articles, and applications in electrical design and installation.',
+            s1: '🔹 What is the NEC?',
+            s1p: 'The National Electrical Code (NEC), published by the National Fire Protection Association (NFPA), is the standard for safe electrical installation in the United States. It is adopted in many countries and serves as a benchmark for electrical safety. The NEC is updated every three years to incorporate new technologies and safety practices.',
+            s2: '🔹 Key Articles of the NEC',
+            list1: ['Article 110 – General Requirements for Electrical Installations','Article 210 – Branch Circuits','Article 215 – Feeders','Article 220 – Branch-Circuit, Feeder, and Service Load Calculations','Article 230 – Services','Article 240 – Overcurrent Protection','Article 250 – Grounding and Bonding','Article 300 – Wiring Methods and Materials','Article 310 – Conductors for General Wiring','Article 430 – Motors, Motor Circuits, and Controllers','Article 500 – Hazardous (Classified) Locations','Article 700 – Emergency Systems'],
+            s3: '🔹 NEC Applications',
+            list2: ['Residential – Wiring, service panels, branch circuits','Commercial – Office buildings, retail, warehouses','Industrial – Factories, process plants, hazardous areas','Special Occupancies – Health care, theaters, hazardous locations'],
+            s4: '🔹 Example: Applying NEC in Panel Design',
+            s4p: 'An engineer designs a motor control panel for a manufacturing plant. NEC Article 430 specifies requirements for motor branch circuits, including overcurrent protection, disconnecting means, and conductor sizing. The engineer ensures compliance with Article 250 for grounding and bonding, and Article 110 for working clearances.',
+            back: '← Back'
+        },
+        fa: {
+            title: '🔌 استانداردهای NEC (کد ملی برق)',
+            desc: 'مروری بر کد ملی برق (NFPA 70)، ساختار، مقالات کلیدی و کاربردها در طراحی و نصب برق.',
+            s1: '🔹 NEC چیست؟',
+            s1p: 'کد ملی برق (NEC) که توسط انجمن ملی حفاظت در برابر آتش (NFPA) منتشر می‌شود، استاندارد نصب برق ایمن در ایالات متحده است. این استاندارد در بسیاری از کشورها پذیرفته شده و به عنوان معیاری برای ایمنی برق عمل می‌کند. NEC هر سه سال یکبار به‌روز می‌شود تا فناوری‌ها و روش‌های ایمنی جدید را در خود جای دهد.',
+            s2: '🔹 مقالات کلیدی NEC',
+            list1: ['مقاله ۱۱۰ – الزامات عمومی برای تأسیسات الکتریکی','مقاله ۲۱۰ – مدارهای انشعاب','مقاله ۲۱۵ – فیدرها','مقاله ۲۲۰ – محاسبات بار مدارهای انشعاب، فیدر و سرویس','مقاله ۲۳۰ – سرویس‌ها','مقاله ۲۴۰ – حفاظت در برابر اضافه جریان','مقاله ۲۵۰ – ارتینگ و باندینگ','مقاله ۳۰۰ – روش‌ها و مواد سیم‌کشی','مقاله ۳۱۰ – هادی‌ها برای سیم‌کشی عمومی','مقاله ۴۳۰ – موتورها، مدارهای موتور و کنترل‌کننده‌ها','مقاله ۵۰۰ – مکان‌های خطرناک (طبقه‌بندی شده)','مقاله ۷۰۰ – سیستم‌های اضطراری'],
+            s3: '🔹 کاربردهای NEC',
+            list2: ['مسکونی – سیم‌کشی، پنل‌های سرویس، مدارهای انشعاب','تجاری – ساختمان‌های اداری، خرده‌فروشی، انبارها','صنعتی – کارخانه‌ها، کارخانه‌های فرآیندی، مناطق خطرناک','مشاغل خاص – مراکز درمانی، تئاترها، مکان‌های خطرناک'],
+            s4: '🔹 مثال: کاربرد NEC در طراحی پنل',
+            s4p: 'یک مهندس یک پنل کنترل موتور را برای یک کارخانه تولیدی طراحی می‌کند. مقاله ۴۳۰ NEC الزامات مدارهای انشعاب موتور، از جمله حفاظت در برابر اضافه جریان، وسیله قطع و سایزینگ هادی را مشخص می‌کند. مهندس انطباق با مقاله ۲۵۰ برای ارتینگ و باندینگ و مقاله ۱۱۰ برای فاصله کاری را تضمین می‌کند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
