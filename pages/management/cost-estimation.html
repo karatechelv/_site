@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Cost Estimation</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">💰 Cost Estimation</h1>
+    <div class="sub" id="desc">Methods, techniques, and tools for estimating project costs, budgeting, cost control, and forecasting in engineering projects.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Cost Estimation?</h2>
+        <p id="s1p">Cost estimation is the process of forecasting the financial resources required to complete a project. In engineering, accurate cost estimation is essential for budgeting, project approval, procurement, and financial control. It involves analyzing past data, identifying cost drivers, and estimating costs for labor, materials, equipment, and overhead.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Cost Estimation Methods</h2>
+        <ul id="list1">
+            <li><b>Analogous Estimation</b> – Based on historical data from similar projects</li>
+            <li><b>Parametric Estimation</b> – Using statistical models and cost per unit (e.g., cost per meter, per kW)</li>
+            <li><b>Bottom-Up Estimation</b> – Detailed estimation by breaking down work into components and summing costs</li>
+            <li><b>Three-Point Estimation</b> – Using optimistic, pessimistic, and most likely scenarios</li>
+            <li><b>Expert Judgment</b> – Leveraging expertise from experienced professionals</li>
+            <li><b>Vendor Quotes</b> – Obtaining quotes from suppliers and contractors</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Key Cost Components</h2>
+        <ul id="list2">
+            <li><b>Direct Costs</b> – Labor, materials, equipment rental, subcontractor costs</li>
+            <li><b>Indirect Costs</b> – Overhead, administration, utilities, insurance</li>
+            <li><b>Contingency</b> – Reserve for unforeseen expenses (typically 5–20% of total)</li>
+            <li><b>Escalation</b> – Allowance for inflation and price increases during project duration</li>
+            <li><b>Profit Margin</b> – For contractors and service providers</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Example: Cost Estimation for a Substation Project</h2>
+        <p id="s4p">A cost estimator prepares a budget for a 132 kV substation project. They use parametric estimation based on cost per MVA, bottom-up estimation for equipment (transformers, switchgear), and vendor quotes for specialized items. A 10% contingency is added, and escalation is factored in for a 2-year construction period. The total estimated cost is presented to the client for approval.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '💰 Cost Estimation',
+            desc: 'Methods, techniques, and tools for estimating project costs, budgeting, cost control, and forecasting in engineering projects.',
+            s1: '🔹 What is Cost Estimation?',
+            s1p: 'Cost estimation is the process of forecasting the financial resources required to complete a project. In engineering, accurate cost estimation is essential for budgeting, project approval, procurement, and financial control. It involves analyzing past data, identifying cost drivers, and estimating costs for labor, materials, equipment, and overhead.',
+            s2: '🔹 Cost Estimation Methods',
+            list1: ['Analogous Estimation – Based on historical data from similar projects','Parametric Estimation – Using statistical models and cost per unit (e.g., cost per meter, per kW)','Bottom-Up Estimation – Detailed estimation by breaking down work into components and summing costs','Three-Point Estimation – Using optimistic, pessimistic, and most likely scenarios','Expert Judgment – Leveraging expertise from experienced professionals','Vendor Quotes – Obtaining quotes from suppliers and contractors'],
+            s3: '🔹 Key Cost Components',
+            list2: ['Direct Costs – Labor, materials, equipment rental, subcontractor costs','Indirect Costs – Overhead, administration, utilities, insurance','Contingency – Reserve for unforeseen expenses (typically 5–20% of total)','Escalation – Allowance for inflation and price increases during project duration','Profit Margin – For contractors and service providers'],
+            s4: '🔹 Example: Cost Estimation for a Substation Project',
+            s4p: 'A cost estimator prepares a budget for a 132 kV substation project. They use parametric estimation based on cost per MVA, bottom-up estimation for equipment (transformers, switchgear), and vendor quotes for specialized items. A 10% contingency is added, and escalation is factored in for a 2-year construction period. The total estimated cost is presented to the client for approval.',
+            back: '← Back'
+        },
+        fa: {
+            title: '💰 برآورد هزینه',
+            desc: 'روش‌ها، تکنیک‌ها و ابزارها برای برآورد هزینه پروژه، بودجه‌بندی، کنترل هزینه و پیش‌بینی در پروژه‌های مهندسی.',
+            s1: '🔹 برآورد هزینه چیست؟',
+            s1p: 'برآورد هزینه فرآیند پیش‌بینی منابع مالی مورد نیاز برای تکمیل یک پروژه است. در مهندسی، برآورد هزینه دقیق برای بودجه‌بندی، تأیید پروژه، تدارکات و کنترل مالی ضروری است. شامل تحلیل داده‌های گذشته، شناسایی محرک‌های هزینه و برآورد هزینه‌های نیروی کار، مواد، تجهیزات و سربار است.',
+            s2: '🔹 روش‌های برآورد هزینه',
+            list1: ['برآورد مشابه – بر اساس داده‌های تاریخی از پروژه‌های مشابه','برآورد پارامتریک – استفاده از مدل‌های آماری و هزینه هر واحد (مثلاً هزینه هر متر، هر کیلووات)','برآورد از پایین به بالا – برآورد دقیق با تقسیم کار به اجزاء و جمع هزینه‌ها','برآورد سه نقطه‌ای – استفاده از سناریوهای خوش‌بینانه، بدبینانه و محتمل‌ترین','قضاوت خبرگان – بهره‌گیری از تخصص متخصصان با تجربه','نقل قول از فروشندگان – دریافت قیمت از تأمین‌کنندگان و پیمانکاران'],
+            s3: '🔹 اجزای کلیدی هزینه',
+            list2: ['هزینه‌های مستقیم – نیروی کار، مواد، اجاره تجهیزات، هزینه‌های پیمانکاران فرعی','هزینه‌های غیرمستقیم – سربار، مدیریت، خدمات شهری، بیمه','بند اضطراری – ذخیره برای هزینه‌های پیش‌بینی نشده (معمولاً ۵–۲۰٪ کل)','افزایش هزینه – کمک هزینه برای تورم و افزایش قیمت در طول پروژه','حاشیه سود – برای پیمانکاران و ارائه‌دهندگان خدمات'],
+            s4: '🔹 مثال: برآورد هزینه برای یک پروژه پست برق',
+            s4p: 'یک برآوردگر هزینه بودجه یک پروژه پست ۱۳۲ کیلوولت را تهیه می‌کند. آنها از برآورد پارامتریک بر اساس هزینه هر مگاولت آمپر، برآورد از پایین به بالا برای تجهیزات (ترانسفورماتورها، تابلوها) و نقل قول از فروشندگان برای اقلام تخصصی استفاده می‌کنند. ۱۰٪ بند اضطراری اضافه شده و افزایش هزینه برای دوره ساخت ۲ ساله محاسبه می‌شود. کل هزینه برآورد شده برای تأیید به مشتری ارائه می‌شود.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s4p').textContent = t.s4p;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
