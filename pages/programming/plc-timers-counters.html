@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · PLC Timers & Counters Calculator</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:950px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .calc-box{background:#1e2128;padding:25px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);margin-bottom:20px}
+        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
+        .calc-box input, .calc-box select{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
+        .calc-box input:focus, .calc-box select:focus{outline:1px solid #d4af37}
+        .calc-row{display:flex;gap:15px;flex-wrap:wrap}
+        .calc-row .field{flex:1;min-width:180px}
+        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
+        .btn-calc:hover{background:#d4af37;color:#111}
+        .result{background:#0d0e12;padding:15px;border-radius:12px;border-left:4px solid #d4af37;margin-top:15px;font-size:1.05rem}
+        .result span{color:#d4af37;font-weight:700}
+        .table-wrap{overflow-x:auto;margin:15px 0}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px}
+        th,td{padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        .note{color:#8e95a5;font-size:.85rem;margin-top:10px}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">⏱️ PLC Timers & Counters Calculator</h1>
+    <div class="sub" id="desc">Calculate timer preset values (TON/TOF) and counter preset values for PLC programming (IEC 61131-3).</div>
+
+    <!-- Timer Section -->
+    <div class="calc-box">
+        <h2 style="color:#d4af37;font-size:1.3rem;margin-bottom:10px;" id="timer-title">🔹 Timer (TON/TOF)</h2>
+        <div class="calc-row">
+            <div class="field">
+                <label id="lbl-timer-time">Desired Time (ms)</label>
+                <input type="number" id="timerTime" value="5000" step="any">
+            </div>
+            <div class="field">
+                <label id="lbl-timer-base">Time Base</label>
+                <select id="timerBase">
+                    <option value="0.001" data-en="1 ms" data-fa="۱ میلی‌ثانیه">1 ms</option>
+                    <option value="0.01" data-en="10 ms" data-fa="۱۰ میلی‌ثانیه">10 ms</option>
+                    <option value="0.1" data-en="100 ms" data-fa="۱۰۰ میلی‌ثانیه" selected>100 ms</option>
+                    <option value="1" data-en="1 s" data-fa="۱ ثانیه">1 s</option>
+                    <option value="10" data-en="10 s" data-fa="۱۰ ثانیه">10 s</option>
+                </select>
+            </div>
+            <div class="field">
+                <label id="lbl-timer-preset">Preset Value (PV)</label>
+                <input type="number" id="timerPreset" value="50" step="1">
+            </div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+            <button class="btn-calc" id="calcTimerFromTime">Calculate Preset from Time</button>
+            <button class="btn-calc" id="calcTimerFromPreset">Calculate Time from Preset</button>
+        </div>
+        <div class="result" id="timerResult">
+            <span id="timer-res-label">Result:</span> <span id="timerResultValue">Preset = 50  |  Time = 5000 ms</span>
+        </div>
+    </div>
+
+    <!-- Counter Section -->
+    <div class="calc-box">
+        <h2 style="color:#d4af37;font-size:1.3rem;margin-bottom:10px;" id="counter-title">🔹 Counter (CTU/CTD)</h2>
+        <div class="calc-row">
+            <div class="field">
+                <label id="lbl-counter-count">Desired Count</label>
+                <input type="number" id="counterCount" value="100" step="1">
+            </div>
+            <div class="field">
+                <label id="lbl-counter-preset">Counter Preset (PV)</label>
+                <input type="number" id="counterPreset" value="100" step="1">
+            </div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+            <button class="btn-calc" id="calcCounterFromCount">Calculate Preset from Count</button>
+            <button class="btn-calc" id="calcCounterFromPreset">Calculate Max Count from Preset</button>
+        </div>
+        <div class="result" id="counterResult">
+            <span id="counter-res-label">Result:</span> <span id="counterResultValue">Preset = 100  |  Max Count = 100</span>
+        </div>
+    </div>
+
+    <!-- Reference Table -->
+    <div class="calc-box">
+        <h2 style="color:#d4af37;font-size:1.3rem;margin-bottom:10px;" id="table-title">📊 Reference: Time Bases & Max Timer Values</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th id="th-base">Time Base</th>
+                        <th id="th-max">Max Time (ms)</th>
+                        <th id="th-resolution">Resolution</th>
+                        <th id="th-typical">Typical PLC</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1 ms</td><td>65.535</td><td>1 ms</td><td>Siemens S7-1200/1500</td></tr>
+                    <tr><td>10 ms</td><td>655.35</td><td>10 ms</td><td>Siemens S7-300/400</td></tr>
+                    <tr><td>100 ms</td><td>6553.5</td><td>100 ms</td><td>Allen-Bradley, Mitsubishi</td></tr>
+                    <tr><td>1 s</td><td>65535</td><td>1 s</td><td>Omron, Schneider</td></tr>
+                    <tr><td>10 s</td><td>655350</td><td>10 s</td><td>Legacy systems</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="note" id="table-note">Maximum timer value = Preset (16-bit) × Time Base. For 32-bit timers, range is much larger.</div>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const langData = {
+        en: {
+            title: '⏱️ PLC Timers & Counters Calculator',
+            desc: 'Calculate timer preset values (TON/TOF) and counter preset values for PLC programming (IEC 61131-3).',
+            timer_title: '🔹 Timer (TON/TOF)',
+            timer_time: 'Desired Time (ms)',
+            timer_base: 'Time Base',
+            timer_preset: 'Preset Value (PV)',
+            calc_from_time: 'Calculate Preset from Time',
+            calc_from_preset: 'Calculate Time from Preset',
+            timer_result: 'Result:',
+            counter_title: '🔹 Counter (CTU/CTD)',
+            counter_count: 'Desired Count',
+            counter_preset: 'Counter Preset (PV)',
+            calc_from_count: 'Calculate Preset from Count',
+            calc_from_preset_c: 'Calculate Max Count from Preset',
+            counter_result: 'Result:',
+            table_title: '📊 Reference: Time Bases & Max Timer Values',
+            th_base: 'Time Base',
+            th_max: 'Max Time (ms)',
+            th_resolution: 'Resolution',
+            th_typical: 'Typical PLC',
+            table_note: 'Maximum timer value = Preset (16-bit) × Time Base. For 32-bit timers, range is much larger.',
+            back: '← Back'
+        },
+        fa: {
+            title: '⏱️ ماشین‌حساب تایمر و کانتر PLC',
+            desc: 'محاسبه مقدار Preset تایمر (TON/TOF) و مقدار Preset کانتر برای برنامه‌نویسی PLC (IEC 61131-3).',
+            timer_title: '🔹 تایمر (TON/TOF)',
+            timer_time: 'زمان مورد نظر (میلی‌ثانیه)',
+            timer_base: 'واحد زمان (Time Base)',
+            timer_preset: 'مقدار Preset (PV)',
+            calc_from_time: 'محاسبه Preset از زمان',
+            calc_from_preset: 'محاسبه زمان از Preset',
+            timer_result: 'نتیجه:',
+            counter_title: '🔹 کانتر (CTU/CTD)',
+            counter_count: 'تعداد شمارش مورد نظر',
+            counter_preset: 'مقدار Preset کانتر (PV)',
+            calc_from_count: 'محاسبه Preset از تعداد',
+            calc_from_preset_c: 'محاسبه حداکثر تعداد از Preset',
+            counter_result: 'نتیجه:',
+            table_title: '📊 جدول مرجع: واحدهای زمان و حداکثر مقادیر تایمر',
+            th_base: 'واحد زمان',
+            th_max: 'حداکثر زمان (ms)',
+            th_resolution: 'دقت',
+            th_typical: 'PLC معمول',
+            table_note: 'حداکثر مقدار تایمر = Preset (۱۶ بیتی) × Time Base. برای تایمرهای ۳۲ بیتی، محدوده بسیار بزرگتر است.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLanguage(lang) {
+        const t = langData[lang];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('timer-title').textContent = t.timer_title;
+        document.getElementById('lbl-timer-time').textContent = t.timer_time;
+        document.getElementById('lbl-timer-base').textContent = t.timer_base;
+        document.getElementById('lbl-timer-preset').textContent = t.timer_preset;
+        document.getElementById('calcTimerFromTime').textContent = t.calc_from_time;
+        document.getElementById('calcTimerFromPreset').textContent = t.calc_from_preset;
+        document.getElementById('timer-res-label').textContent = t.timer_result;
+        document.getElementById('counter-title').textContent = t.counter_title;
+        document.getElementById('lbl-counter-count').textContent = t.counter_count;
+        document.getElementById('lbl-counter-preset').textContent = t.counter_preset;
+        document.getElementById('calcCounterFromCount').textContent = t.calc_from_count;
+        document.getElementById('calcCounterFromPreset').textContent = t.calc_from_preset_c;
+        document.getElementById('counter-res-label').textContent = t.counter_result;
+        document.getElementById('table-title').textContent = t.table_title;
+        document.getElementById('th-base').textContent = t.th_base;
+        document.getElementById('th-max').textContent = t.th_max;
+        document.getElementById('th-resolution').textContent = t.th_resolution;
+        document.getElementById('th-typical').textContent = t.th_typical;
+        document.getElementById('table-note').textContent = t.table_note;
+        document.getElementById('backlink').textContent = t.back;
+
+        document.querySelectorAll('#timerBase option').forEach(opt => {
+            const text = opt.dataset[lang];
+            if (text) opt.textContent = text;
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        document.body.classList.toggle('lang-persian', lang === 'fa');
+        localStorage.setItem('karatech-lang', lang);
+        updateAllResults();
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLanguage(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLanguage(savedLang);
+
+    // Timer calculations
+    function calcTimerFromTime() {
+        const time = parseFloat(document.getElementById('timerTime').value);
+        const base = parseFloat(document.getElementById('timerBase').value);
+        if (isNaN(time) || time <= 0) {
+            document.getElementById('timerResultValue').textContent = 'Invalid input';
+            return;
+        }
+        const preset = Math.round(time / base);
+        document.getElementById('timerPreset').value = preset;
+        document.getElementById('timerResultValue').textContent = `Preset = ${preset}  |  Time = ${time} ms  (Base: ${base*1000} ms)`;
+    }
+
+    function calcTimerFromPreset() {
+        const preset = parseFloat(document.getElementById('timerPreset').value);
+        const base = parseFloat(document.getElementById('timerBase').value);
+        if (isNaN(preset) || preset <= 0) {
+            document.getElementById('timerResultValue').textContent = 'Invalid input';
+            return;
+        }
+        const time = preset * base;
+        document.getElementById('timerTime').value = time;
+        document.getElementById('timerResultValue').textContent = `Preset = ${preset}  |  Time = ${time} ms  (Base: ${base*1000} ms)`;
+    }
+
+    document.getElementById('calcTimerFromTime').onclick = calcTimerFromTime;
+    document.getElementById('calcTimerFromPreset').onclick = calcTimerFromPreset;
+
+    // Counter calculations
+    function calcCounterFromCount() {
+        const count = parseInt(document.getElementById('counterCount').value);
+        if (isNaN(count) || count <= 0) {
+            document.getElementById('counterResultValue').textContent = 'Invalid input';
+            return;
+        }
+        document.getElementById('counterPreset').value = count;
+        document.getElementById('counterResultValue').textContent = `Preset = ${count}  |  Max Count = ${count}`;
+    }
+
+    function calcCounterFromPreset() {
+        const preset = parseInt(document.getElementById('counterPreset').value);
+        if (isNaN(preset) || preset <= 0) {
+            document.getElementById('counterResultValue').textContent = 'Invalid input';
+            return;
+        }
+        document.getElementById('counterCount').value = preset;
+        document.getElementById('counterResultValue').textContent = `Preset = ${preset}  |  Max Count = ${preset}`;
+    }
+
+    document.getElementById('calcCounterFromCount').onclick = calcCounterFromCount;
+    document.getElementById('calcCounterFromPreset').onclick = calcCounterFromPreset;
+
+    function updateAllResults() {
+        calcTimerFromPreset();
+        calcCounterFromPreset();
+    }
+
+    // Auto-run on load
+    updateAllResults();
+</script>
+
+</body>
+</html>
