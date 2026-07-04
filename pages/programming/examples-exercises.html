@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · PLC Examples & Exercises</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .code-box{background:#0d0e12;padding:12px;border-radius:8px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:10px 0;overflow-x:auto}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📝 PLC Examples & Exercises</h1>
+    <div class="sub" id="desc">Practical programming examples and exercises for PLC, HMI, SCADA, and industrial networks to strengthen your skills.</div>
+
+    <!-- Example 1 -->
+    <div class="section">
+        <h2 id="ex1-title">🔹 Example 1: Motor Start/Stop with Seal-in Circuit</h2>
+        <p id="ex1-desc"><strong>Description:</strong> A classic motor control circuit using a PLC. The motor starts when the Start button is pressed and continues running (seal-in) until the Stop button is pressed.</p>
+        <p><strong id="ex1-i">Inputs:</strong></p>
+        <ul id="ex1-inputs">
+            <li>I0.0 – Start Push Button (NO)</li>
+            <li>I0.1 – Stop Push Button (NC)</li>
+        </ul>
+        <p><strong id="ex1-o">Outputs:</strong></p>
+        <ul id="ex1-outputs">
+            <li>Q0.0 – Motor Contactor</li>
+        </ul>
+        <div class="code-box" id="ex1-code">
+            // Ladder Logic<br>
+            // Network 1: Seal-in circuit<br>
+            |----[I0.0]----[I0.1]----(Q0.0)----|<br>
+            |----[Q0.0]----|                    |
+        </div>
+        <p id="ex1-learn"><strong>Learning Outcome:</strong> Understand how to implement a seal-in (latching) circuit in ladder logic.</p>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="section">
+        <h2 id="ex2-title">🔹 Example 2: Timer – Delay ON (TON)</h2>
+        <p id="ex2-desc"><strong>Description:</strong> A motor starts 5 seconds after the Start button is pressed. The TON timer provides the delay.</p>
+        <ul id="ex2-details">
+            <li><strong>Inputs:</strong> I0.0 – Start Button</li>
+            <li><strong>Outputs:</strong> Q0.0 – Motor</li>
+            <li><strong>Timer:</strong> TON (Preset = 5s, Time Base = 100ms → Preset Value = 50)</li>
+        </ul>
+        <div class="code-box" id="ex2-code">
+            // Ladder Logic<br>
+            |----[I0.0]----[TON]----(Q0.0)----|<br>
+            // TON: PT=50, ET=...
+        </div>
+        <p id="ex2-learn"><strong>Learning Outcome:</strong> Learn how to use TON timers for delay-on applications.</p>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="section">
+        <h2 id="ex3-title">🔹 Example 3: Counter – Count Products</h2>
+        <p id="ex3-desc"><strong>Description:</strong> A conveyor system counts products passing a sensor. After 100 products, a signal is sent to a packing station.</p>
+        <ul id="ex3-details">
+            <li><strong>Inputs:</strong> I0.0 – Product Sensor (pulse)</li>
+            <li><strong>Outputs:</strong> Q0.0 – Packing Station Signal</li>
+            <li><strong>Counter:</strong> CTU (Preset = 100)</li>
+        </ul>
+        <div class="code-box" id="ex3-code">
+            // Ladder Logic<br>
+            |----[I0.0]----[CTU: PV=100]----(Q0.0)----|<br>
+            // Reset using I0.1
+        </div>
+        <p id="ex3-learn"><strong>Learning Outcome:</strong> Understand how to use CTU counters for counting applications.</p>
+    </div>
+
+    <!-- Example 4 -->
+    <div class="section">
+        <h2 id="ex4-title">🔹 Example 4: Analog Scaling – 4-20mA to Temperature</h2>
+        <p id="ex4-desc"><strong>Description:</strong> A temperature transmitter outputs 4-20mA corresponding to 0-100°C. Scale the analog input to display the actual temperature.</p>
+        <ul id="ex4-details">
+            <li><strong>Input:</strong> AIW0 – 4-20mA (raw value 0-27648 for 0-20mA)</li>
+            <li><strong>Output:</strong> MW10 – Temperature in °C (scaled 0-100)</li>
+        </ul>
+        <div class="code-box" id="ex4-code">
+            // Structured Text (ST)<br>
+            Raw := AIW0; // 0-27648<br>
+            Temp := (Raw - 5530) * 100 / 22118; // 5530 = 4mA, 22118 = 16mA range<br>
+            MW10 := Temp;
+        </div>
+        <p id="ex4-learn"><strong>Learning Outcome:</strong> Practice analog scaling and conversion using ST.</p>
+    </div>
+
+    <!-- Exercises -->
+    <div class="section">
+        <h2 id="ex-title">🔹 Exercises for Practice</h2>
+        <ul id="ex-list">
+            <li><strong>Exercise 1:</strong> Design a 3-phase motor starter with overload protection. Use a PLC with start, stop, and thermal overload inputs.</li>
+            <li><strong>Exercise 2:</strong> Create a traffic light control system with a TON timer (Red 30s, Yellow 5s, Green 25s).</li>
+            <li><strong>Exercise 3:</strong> Implement a FIFO (First-In-First-Out) queue for product tracking on a conveyor.</li>
+            <li><strong>Exercise 4:</strong> Scale a 0-10V analog input to 0-150 bar for a pressure transmitter.</li>
+            <li><strong>Exercise 5:</strong> Design a simple HMI screen with Start/Stop buttons and a speed indicator (RPM).</li>
+        </ul>
+        <p id="ex-note"><strong>Tip:</strong> Use a PLC simulator (PLCSIM, Factory IO, or Codesys) to test and verify your programs.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📝 PLC Examples & Exercises',
+            desc: 'Practical programming examples and exercises for PLC, HMI, SCADA, and industrial networks to strengthen your skills.',
+            ex1_title: '🔹 Example 1: Motor Start/Stop with Seal-in Circuit',
+            ex1_desc: 'A classic motor control circuit using a PLC. The motor starts when the Start button is pressed and continues running (seal-in) until the Stop button is pressed.',
+            ex1_i: 'Inputs:',
+            ex1_inputs: ['I0.0 – Start Push Button (NO)', 'I0.1 – Stop Push Button (NC)'],
+            ex1_o: 'Outputs:',
+            ex1_outputs: ['Q0.0 – Motor Contactor'],
+            ex1_code: '// Ladder Logic\n// Network 1: Seal-in circuit\n|----[I0.0]----[I0.1]----(Q0.0)----|\n|----[Q0.0]----|                    |',
+            ex1_learn: 'Learning Outcome: Understand how to implement a seal-in (latching) circuit in ladder logic.',
+            ex2_title: '🔹 Example 2: Timer – Delay ON (TON)',
+            ex2_desc: 'A motor starts 5 seconds after the Start button is pressed. The TON timer provides the delay.',
+            ex2_details: ['Inputs: I0.0 – Start Button', 'Outputs: Q0.0 – Motor', 'Timer: TON (Preset = 5s, Time Base = 100ms → Preset Value = 50)'],
+            ex2_code: '// Ladder Logic\n|----[I0.0]----[TON]----(Q0.0)----|\n// TON: PT=50, ET=...',
+            ex2_learn: 'Learning Outcome: Learn how to use TON timers for delay-on applications.',
+            ex3_title: '🔹 Example 3: Counter – Count Products',
+            ex3_desc: 'A conveyor system counts products passing a sensor. After 100 products, a signal is sent to a packing station.',
+            ex3_details: ['Inputs: I0.0 – Product Sensor (pulse)', 'Outputs: Q0.0 – Packing Station Signal', 'Counter: CTU (Preset = 100)'],
+            ex3_code: '// Ladder Logic\n|----[I0.0]----[CTU: PV=100]----(Q0.0)----|\n// Reset using I0.1',
+            ex3_learn: 'Learning Outcome: Understand how to use CTU counters for counting applications.',
+            ex4_title: '🔹 Example 4: Analog Scaling – 4-20mA to Temperature',
+            ex4_desc: 'A temperature transmitter outputs 4-20mA corresponding to 0-100°C. Scale the analog input to display the actual temperature.',
+            ex4_details: ['Input: AIW0 – 4-20mA (raw value 0-27648 for 0-20mA)', 'Output: MW10 – Temperature in °C (scaled 0-100)'],
+            ex4_code: '// Structured Text (ST)\nRaw := AIW0; // 0-27648\nTemp := (Raw - 5530) * 100 / 22118; // 5530 = 4mA, 22118 = 16mA range\nMW10 := Temp;',
+            ex4_learn: 'Learning Outcome: Practice analog scaling and conversion using ST.',
+            ex_title: '🔹 Exercises for Practice',
+            ex_list: [
+                'Exercise 1: Design a 3-phase motor starter with overload protection. Use a PLC with start, stop, and thermal overload inputs.',
+                'Exercise 2: Create a traffic light control system with a TON timer (Red 30s, Yellow 5s, Green 25s).',
+                'Exercise 3: Implement a FIFO (First-In-First-Out) queue for product tracking on a conveyor.',
+                'Exercise 4: Scale a 0-10V analog input to 0-150 bar for a pressure transmitter.',
+                'Exercise 5: Design a simple HMI screen with Start/Stop buttons and a speed indicator (RPM).'
+            ],
+            ex_note: 'Tip: Use a PLC simulator (PLCSIM, Factory IO, or Codesys) to test and verify your programs.',
+            back: '← Back'
+        },
+        fa: {
+            title: '📝 مثال‌ها و تمرین‌های PLC',
+            desc: 'مثال‌های برنامه‌نویسی عملی و تمرین‌ها برای PLC، HMI، SCADA و شبکه‌های صنعتی برای تقویت مهارت‌های شما.',
+            ex1_title: '🔹 مثال ۱: استارت/توقف موتور با مدار Seal-in',
+            ex1_desc: 'یک مدار کنترل موتور کلاسیک با استفاده از PLC. موتور با فشار دادن دکمه استارت روشن می‌شود و تا زمانی که دکمه توقف فشار داده نشود، به کار خود ادامه می‌دهد (Seal-in).',
+            ex1_i: 'ورودی‌ها:',
+            ex1_inputs: ['I0.0 – دکمه استارت (باز)', 'I0.1 – دکمه توقف (بسته)'],
+            ex1_o: 'خروجی‌ها:',
+            ex1_outputs: ['Q0.0 – کنتاکتور موتور'],
+            ex1_code: '// منطق نردبانی\n// شبکه ۱: مدار Seal-in\n|----[I0.0]----[I0.1]----(Q0.0)----|\n|----[Q0.0]----|                    |',
+            ex1_learn: 'نتیجه یادگیری: درک نحوه پیاده‌سازی مدار قفل (Seal-in) در منطق نردبانی.',
+            ex2_title: '🔹 مثال ۲: تایمر – تاخیر روشن (TON)',
+            ex2_desc: 'موتور ۵ ثانیه پس از فشار دادن دکمه استارت روشن می‌شود. تایمر TON تاخیر را ایجاد می‌کند.',
+            ex2_details: ['ورودی: I0.0 – دکمه استارت', 'خروجی: Q0.0 – موتور', 'تایمر: TON (Preset = ۵ ثانیه، Time Base = ۱۰۰ms → مقدار Preset = ۵۰)'],
+            ex2_code: '// منطق نردبانی\n|----[I0.0]----[TON]----(Q0.0)----|\n// TON: PT=۵۰، ET=...',
+            ex2_learn: 'نتیجه یادگیری: نحوه استفاده از تایمرهای TON برای کاربردهای تاخیر روشن.',
+            ex3_title: '🔹 مثال ۳: کانتر – شمارش محصولات',
+            ex3_desc: 'یک سیستم نقاله محصولات عبوری از سنسور را شمارش می‌کند. پس از ۱۰۰ محصول، سیگنالی به ایستگاه بسته‌بندی ارسال می‌شود.',
+            ex3_details: ['ورودی: I0.0 – سنسور محصول (پالس)', 'خروجی: Q0.0 – سیگنال ایستگاه بسته‌بندی', 'کانتر: CTU (Preset = ۱۰۰)'],
+            ex3_code: '// منطق نردبانی\n|----[I0.0]----[CTU: PV=۱۰۰]----(Q0.0)----|\n// ریست با I0.1',
+            ex3_learn: 'نتیجه یادگیری: نحوه استفاده از کانترهای CTU برای کاربردهای شمارش.',
+            ex4_title: '🔹 مثال ۴: مقیاس‌سازی آنالوگ – ۴-۲۰mA به دما',
+            ex4_desc: 'یک ترانسمیتر دما خروجی ۴-۲۰mA معادل ۰-۱۰۰ درجه سانتی‌گراد تولید می‌کند. ورودی آنالوگ را برای نمایش دمای واقعی مقیاس‌سازی کنید.',
+            ex4_details: ['ورودی: AIW0 – ۴-۲۰mA (مقدار خام ۰-۲۷۶۴۸ برای ۰-۲۰mA)', 'خروجی: MW10 – دما بر حسب درجه سانتی‌گراد (مقیاس‌شده ۰-۱۰۰)'],
+            ex4_code: '// Structured Text (ST)\nRaw := AIW0; // ۰-۲۷۶۴۸\nTemp := (Raw - ۵۵۳۰) * ۱۰۰ / ۲۲۱۱۸; // ۵۵۳۰ = ۴mA، ۲۲۱۱۸ = محدوده ۱۶mA\nMW10 := Temp;',
+            ex4_learn: 'نتیجه یادگیری: تمرین مقیاس‌سازی آنالوگ و تبدیل با استفاده از ST.',
+            ex_title: '🔹 تمرین‌ها برای تمرین',
+            ex_list: [
+                'تمرین ۱: یک استارت موتور سه‌فاز با حفاظت اضافه بار طراحی کنید. از PLC با ورودی‌های استارت، توقف و اضافه بار حرارتی استفاده کنید.',
+                'تمرین ۲: یک سیستم کنترل چراغ راهنمایی با تایمر TON ایجاد کنید (قرمز ۳۰ ثانیه، زرد ۵ ثانیه، سبز ۲۵ ثانیه).',
+                'تمرین ۳: یک صف FIFO (اولین ورودی، اولین خروجی) برای ردیابی محصولات روی یک نقاله پیاده‌سازی کنید.',
+                'تمرین ۴: یک ورودی آنالوگ ۰-۱۰V را به ۰-۱۵۰ بار برای یک ترانسمیتر فشار مقیاس‌سازی کنید.',
+                'تمرین ۵: یک صفحه HMI ساده با دکمه‌های استارت/توقف و نشانگر سرعت (RPM) طراحی کنید.'
+            ],
+            ex_note: 'نکته: از یک شبیه‌ساز PLC (PLCSIM، Factory IO یا Codesys) برای تست و تأیید برنامه‌های خود استفاده کنید.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('ex1-title').textContent = t.ex1_title;
+        document.getElementById('ex1-desc').textContent = t.ex1_desc;
+        document.getElementById('ex1-i').textContent = t.ex1_i;
+        document.getElementById('ex1-o').textContent = t.ex1_o;
+        document.getElementById('ex1-code').innerHTML = t.ex1_code.replace(/\n/g, '<br>');
+        document.getElementById('ex1-learn').textContent = t.ex1_learn;
+        document.getElementById('ex2-title').textContent = t.ex2_title;
+        document.getElementById('ex2-desc').textContent = t.ex2_desc;
+        document.getElementById('ex2-code').innerHTML = t.ex2_code.replace(/\n/g, '<br>');
+        document.getElementById('ex2-learn').textContent = t.ex2_learn;
+        document.getElementById('ex3-title').textContent = t.ex3_title;
+        document.getElementById('ex3-desc').textContent = t.ex3_desc;
+        document.getElementById('ex3-code').innerHTML = t.ex3_code.replace(/\n/g, '<br>');
+        document.getElementById('ex3-learn').textContent = t.ex3_learn;
+        document.getElementById('ex4-title').textContent = t.ex4_title;
+        document.getElementById('ex4-desc').textContent = t.ex4_desc;
+        document.getElementById('ex4-code').innerHTML = t.ex4_code.replace(/\n/g, '<br>');
+        document.getElementById('ex4-learn').textContent = t.ex4_learn;
+        document.getElementById('ex-title').textContent = t.ex_title;
+        document.getElementById('ex-note').textContent = t.ex_note;
+        document.getElementById('backlink').textContent = t.back;
+
+        const exInputs = document.getElementById('ex1-inputs');
+        exInputs.innerHTML = '';
+        t.ex1_inputs.forEach(item => { const li = document.createElement('li'); li.textContent = item; exInputs.appendChild(li); });
+
+        const exOutputs = document.getElementById('ex1-outputs');
+        exOutputs.innerHTML = '';
+        t.ex1_outputs.forEach(item => { const li = document.createElement('li'); li.textContent = item; exOutputs.appendChild(li); });
+
+        const ex2Details = document.getElementById('ex2-details');
+        ex2Details.innerHTML = '';
+        t.ex2_details.forEach(item => { const li = document.createElement('li'); li.textContent = item; ex2Details.appendChild(li); });
+
+        const ex3Details = document.getElementById('ex3-details');
+        ex3Details.innerHTML = '';
+        t.ex3_details.forEach(item => { const li = document.createElement('li'); li.textContent = item; ex3Details.appendChild(li); });
+
+        const ex4Details = document.getElementById('ex4-details');
+        ex4Details.innerHTML = '';
+        t.ex4_details.forEach(item => { const li = document.createElement('li'); li.textContent = item; ex4Details.appendChild(li); });
+
+        const exList = document.getElementById('ex-list');
+        exList.innerHTML = '';
+        t.ex_list.forEach(item => { const li = document.createElement('li'); li.textContent = item; exList.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
