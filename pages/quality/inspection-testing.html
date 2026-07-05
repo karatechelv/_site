@@ -45,7 +45,7 @@
     <h1 id="pageTitle">🔍 بازرسی و تست</h1>
     <div class="sub" id="pageSub">انواع روش‌های بازرسی و تست در کنترل کیفیت را انتخاب کنید.</div>
 
-    <div class="grid" id="cardsGrid">
+    <div class="grid">
         <a href="visual-inspection.html" class="card">
             <i>🔍</i>
             <h3 id="c1t">بازرسی بصری</h3>
@@ -113,11 +113,15 @@
         document.getElementById('backLink').textContent = t.back;
 
         const cards = document.querySelectorAll('.card');
+        const titles = ['c1t','c2t','c3t','c4t'];
+        const descs = ['c1p','c2p','c3p','c4p'];
+        const badges = ['c1b','c2b','c3b','c4b'];
+
         t.cards.forEach((item, index) => {
             if (cards[index]) {
-                cards[index].querySelector('h3').textContent = item[0];
-                cards[index].querySelector('p').textContent = item[1];
-                cards[index].querySelector('.badge').textContent = item[2];
+                document.getElementById(titles[index]).textContent = item[0];
+                document.getElementById(descs[index]).textContent = item[1];
+                document.getElementById(badges[index]).textContent = item[2];
             }
         });
 
