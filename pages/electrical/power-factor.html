@@ -35,4 +35,153 @@
         .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
         .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📈 Power Factor</h1>
+    <div class="sub" id="desc">Calculate power factor, apparent power, reactive power, and required capacitor for correction.</div>
+
+    <div class="section">
+        <h2 id="s1">What is Power Factor?</h2>
+        <p id="s1p">Power factor is the ratio of real power (kW) to apparent power (kVA). It indicates how efficiently electrical power is being used. A low power factor causes higher current, increased losses, and utility penalties.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🧮 Power Factor Calculator</h2>
+        <div class="calc-box">
+            <label id="l1">Voltage (V)</label>
+            <input type="number" id="pf-voltage" value="400">
+            <label id="l2">Current (A)</label>
+            <input type="number" id="pf-current" value="100">
+            <label id="l3">Real Power (kW)</label>
+            <input type="number" id="pf-power" value="50">
+            <label id="l4">Target PF (0-1)</label>
+            <input type="number" id="pf-target" value="0.95" step="0.01">
+            <button class="calc-btn" onclick="calcPowerFactor()" id="btn-calc">Calculate</button>
+            <div class="result-box" id="pf-result">
+                <span id="r1">Current PF: 0.85</span><br>
+                <span style="font-size:0.9rem;color:#8e95a5;" id="r2">Required Capacitor: 12.5 kVAR</span>
+            </div>
+        </div>
+        <div class="code-box">PF = P / (V × I) &nbsp; Qc = P × (tan(θ₁) - tan(θ₂))</div>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">Key Factors</h2>
+        <ul id="list1">
+            <li>Inductive loads (motors, transformers) lower PF</li>
+            <li>Capacitor banks improve PF</li>
+            <li>Utility penalties for low PF</li>
+            <li>PF correction reduces losses</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="electrical-index.html" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📈 Power Factor',
+            desc: 'Calculate power factor, apparent power, reactive power, and required capacitor for correction.',
+            s1: 'What is Power Factor?',
+            s1p: 'Power factor is the ratio of real power (kW) to apparent power (kVA). It indicates how efficiently electrical power is being used. A low power factor causes higher current, increased losses, and utility penalties.',
+            s2: '🧮 Power Factor Calculator',
+            l1: 'Voltage (V)', l2: 'Current (A)', l3: 'Real Power (kW)', l4: 'Target PF (0-1)',
+            btn: 'Calculate',
+            r1: 'Current PF: 0.85',
+            r2: 'Required Capacitor: 12.5 kVAR',
+            s3: 'Key Factors',
+            list1: ['Inductive loads (motors, transformers) lower PF','Capacitor banks improve PF','Utility penalties for low PF','PF correction reduces losses'],
+            back: '← Back'
+        },
+        fa: {
+            title: '📈 ضریب توان',
+            desc: 'محاسبه ضریب توان، توان ظاهری، توان راکتیو و خازن مورد نیاز برای اصلاح.',
+            s1: 'ضریب توان چیست؟',
+            s1p: 'ضریب توان نسبت توان اکتیو (kW) به توان ظاهری (kVA) است. نشان می‌دهد که توان الکتریکی چقدر کارآمد استفاده می‌شود. ضریب توان پایین باعث جریان بیشتر، تلفات بالاتر و جریمه‌های برق می‌شود.',
+            s2: '🧮 ماشین حساب ضریب توان',
+            l1: 'ولتاژ (V)', l2: 'جریان (A)', l3: 'توان اکتیو (kW)', l4: 'ضریب توان هدف (۰-۱)',
+            btn: 'محاسبه',
+            r1: 'ضریب توان فعلی: 0.85',
+            r2: 'خازن مورد نیاز: 12.5 kVAR',
+            s3: 'عوامل کلیدی',
+            list1: ['بارهای سلفی (موتورها، ترانسفورماتورها) ضریب توان را کاهش می‌دهند','بانک‌های خازنی ضریب توان را بهبود می‌بخشند','جریمه‌های برق برای ضریب توان پایین','اصلاح ضریب توان تلفات را کاهش می‌دهد'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('l1').textContent = t.l1;
+        document.getElementById('l2').textContent = t.l2;
+        document.getElementById('l3').textContent = t.l3;
+        document.getElementById('l4').textContent = t.l4;
+        document.getElementById('btn-calc').textContent = t.btn;
+        document.getElementById('r1').textContent = t.r1;
+        document.getElementById('r2').textContent = t.r2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul = document.getElementById('list1');
+        ul.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    function calcPowerFactor() {
+        var V = parseFloat(document.getElementById('pf-voltage').value);
+        var I = parseFloat(document.getElementById('pf-current').value);
+        var P = parseFloat(document.getElementById('pf-power').value);
+        var target = parseFloat(document.getElementById('pf-target').value);
+        if (isNaN(V) || isNaN(I) || isNaN(P) || isNaN(target)) { return; }
+        var S = (V * I) / 1000;
+        var pf = P / S;
+        if (pf > 1) pf = 0.99;
+        if (pf < 0.1) pf = 0.1;
+        var Q = Math.sqrt(S*S - P*P);
+        var theta1 = Math.acos(pf);
+        var theta2 = Math.acos(target);
+        var Qc = P * (Math.tan(theta1) - Math.tan(theta2));
+        if (Qc < 0) Qc = 0;
+        var lang = document.querySelector('.lang-btn.active').dataset.lang;
+        document.getElementById('pf-result').innerHTML =
+            '<span id="r1">' + (lang === 'fa' ? 'ضریب توان فعلی: ' + pf.toFixed(3) : 'Current PF: ' + pf.toFixed(3)) + '</span><br>' +
+            '<span style="font-size:0.9rem;color:#8e95a5;" id="r2">' + (lang === 'fa' ? 'خازن مورد نیاز: ' + Qc.toFixed(1) + ' kVAR' : 'Required Capacitor: ' + Qc.toFixed(1) + ' kVAR') + '</span>';
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); calcPowerFactor(); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+    calcPowerFactor();
+</script>
+
+</body>
+</html>
