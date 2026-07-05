@@ -1,17 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تست عملکردی</title>
     <style>
+        *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
-        a{color:#d4af37}
-        h1{color:#d4af37}
+        .container{max-width:1000px;margin:0 auto}
+        .back-link{color:#d4af37;text-decoration:none;font-weight:600}
+        .back-link:hover{color:#fff}
+        h1{color:#d4af37;margin-bottom:10px}
+        .sub{color:#8e95a5;margin-bottom:25px;font-size:1rem;line-height:1.8}
+        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;margin-bottom:12px;font-size:1.3rem}
+        .section p{color:#b0b8c5;line-height:1.8}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .note-box{background:#0d0e12;padding:15px;border-radius:12px;border-right:3px solid #d4af37;margin-top:10px;color:#b0b8c5;line-height:1.8}
     </style>
 </head>
 <body>
+<div class="container">
+
+    <a href="inspection-testing.html" class="back-link">← بازگشت به بازرسی و تست</a>
+
     <h1>🎯 تست عملکردی</h1>
-    <p>این صفحه برای تست عملکردی است.</p>
-    <a href="inspection-testing.html">← بازگشت</a>
+    <div class="sub">بررسی عملکرد واقعی قطعه یا سیستم در شرایط عملیاتی مشابه با محیط واقعی برای اطمینان از عملکرد صحیح و مطابقت با مشخصات.</div>
+
+    <div class="section">
+        <h2>📌 تعریف</h2>
+        <p>تست عملکردی فرآیندی است که در آن یک قطعه، مجموعه یا سیستم کامل تحت شرایط عملیاتی واقعی یا شبیه‌سازی‌شده قرار می‌گیرد تا عملکرد آن تأیید شود. این تست شامل بررسی تمامی ورودی‌ها، خروجی‌ها، حالت‌ها و سناریوهای ممکن است.</p>
+    </div>
+
+    <div class="section">
+        <h2>🛠️ مراحل تست عملکردی</h2>
+        <ul>
+            <li><strong>مرحله ۱:</strong> تهیه سناریوی تست بر اساس مشخصات فنی</li>
+            <li><strong>مرحله ۲:</strong> راه‌اندازی سیستم در شرایط مشابه واقعی</li>
+            <li><strong>مرحله ۳:</strong> اعمال ورودی‌ها و ثبت خروجی‌ها</li>
+            <li><strong>مرحله ۴:</strong> مقایسه نتایج با مقادیر مورد انتظار</li>
+            <li><strong>مرحله ۵:</strong> ثبت نتایج و تهیه گزارش</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🔧 تجهیزات مورد نیاز</h2>
+        <ul>
+            <li><strong>منبع تغذیه</strong> – برای شبیه‌سازی شرایط عملیاتی</li>
+            <li><strong>سیگنال‌ژنراتور</strong> – برای اعمال سیگنال‌های ورودی</li>
+            <li><strong>مولتی‌متر و اسیلوسکوپ</strong> – برای اندازه‌گیری و مشاهده سیگنال‌ها</li>
+            <li><strong>رایانه و نرم‌افزار</strong> – برای ثبت و تحلیل داده‌ها</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📌 استانداردهای مرتبط</h2>
+        <ul>
+            <li><strong>ISO 9001</strong> – کنترل کیفیت و مستندسازی تست‌ها</li>
+            <li><strong>API 610</strong> – پمپ‌های سانتریفیوژ</li>
+            <li><strong>IEC 60034</strong> – تست موتورهای الکتریکی</li>
+            <li><strong>ASME PTC 8.2</strong> – تست عملکردی پمپ‌ها</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>💡 نکات کلیدی</h2>
+        <div class="note-box">
+            ✔️ تمامی تست‌ها باید مطابق با سناریوی از پیش تعیین‌شده انجام شوند.<br>
+            ✔️ شرایط محیطی (دما، رطوبت، فشار) باید ثبت شوند.<br>
+            ✔️ نتایج باید با مشخصات فنی و استانداردها مقایسه شوند.<br>
+            ✔️ هرگونه انحراف باید مستند و تحلیل شود.
+        </div>
+    </div>
+
+</div>
 </body>
 </html>
