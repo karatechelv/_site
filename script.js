@@ -31,12 +31,9 @@
         const mm = String(now.getMinutes()).padStart(2, '0');
         const ss = String(now.getSeconds()).padStart(2, '0');
 
-        let timeStr;
-        if (lang === 'fa') {
-            timeStr = `${toPersianDigits(hh)}:${toPersianDigits(mm)}:${toPersianDigits(ss)}`;
-        } else {
-            timeStr = `${hh}:${mm}:${ss}`;
-        }
+        let timeStr = lang === 'fa' 
+            ? `${toPersianDigits(hh)}:${toPersianDigits(mm)}:${toPersianDigits(ss)}`
+            : `${hh}:${mm}:${ss}`;
 
         let dateStr;
         if (lang === 'fa') {
@@ -55,10 +52,8 @@
             });
         }
 
-        const dateEl = document.getElementById('dateDisplay');
-        const timeEl = document.getElementById('timeDisplay');
-        if (dateEl) dateEl.textContent = dateStr;
-        if (timeEl) timeEl.textContent = timeStr;
+        document.getElementById('dateDisplay').textContent = dateStr;
+        document.getElementById('timeDisplay').textContent = timeStr;
     }
 
     // ===== تغییر زبان =====
