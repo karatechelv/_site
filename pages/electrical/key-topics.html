@@ -1,134 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Key Topics</title>
+    <title>مباحث کلیدی برق</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
         .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        h1{color:#d4af37;margin-bottom:10px}
+        .sub{color:#8e95a5;margin-bottom:25px;font-size:1rem;line-height:1.8}
+        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;margin-bottom:12px;font-size:1.3rem}
+        .section p{color:#b0b8c5;line-height:1.8}
         .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:inline-block;margin-top:30px}
+        .back-link:hover{color:#fff}
+        @media(max-width:600px){.grid{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
 <div class="container">
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">💡 Key Topics</h1>
-    <div class="sub" id="desc">Explore the most important topics in electrical engineering, from power systems to control and electronics.</div>
+    <h1>📘 مباحث کلیدی مهندسی برق</h1>
+    <div class="sub">مهم‌ترین مباحث و مفاهیم پایه‌ای در مهندسی برق.</div>
 
     <div class="section">
-        <h2 id="s1">Power Systems</h2>
-        <p id="s1p">Power systems deal with the generation, transmission, distribution, and utilization of electrical power. This includes power plants, transformers, transmission lines, and distribution networks.</p>
+        <h2>🔹 مبانی الکتریسیته</h2>
+        <ul>
+            <li><strong>ولتاژ (V)</strong> – اختلاف پتانسیل الکتریکی</li>
+            <li><strong>جریان (I)</strong> – عبور بار الکتریکی</li>
+            <li><strong>مقاومت (R)</strong> – مخالفت با عبور جریان</li>
+            <li><strong>توان (P)</strong> – P = V × I</li>
+            <li><strong>قانون اهم</strong> – V = I × R</li>
+        </ul>
     </div>
 
     <div class="section">
-        <h2 id="s2">Control Systems</h2>
-        <p id="s2p">Control systems are used to regulate the behavior of dynamic systems. They are essential in industrial automation, robotics, and process control.</p>
+        <h2>🔹 سیستم‌های AC و DC</h2>
+        <ul>
+            <li><strong>AC (جریان متناوب)</strong> – متداول در شبکه‌های برق</li>
+            <li><strong>DC (جریان مستقیم)</strong> – باتری‌ها، الکترونیک</li>
+            <li><strong>فرکانس</strong> – 50 Hz (ایران) / 60 Hz (آمریکا)</li>
+            <li><strong>تک‌فاز و سه‌فاز</strong> – کاربردها و تفاوت‌ها</li>
+        </ul>
     </div>
 
     <div class="section">
-        <h2 id="s3">Electronics</h2>
-        <p id="s3p">Electronics deals with circuits and devices that control the flow of electrons. It includes analog and digital circuits, semiconductors, and integrated circuits.</p>
+        <h2>🔹 تجهیزات اصلی برق</h2>
+        <ul>
+            <li><strong>ترانسفورماتور</strong> – تغییر ولتاژ</li>
+            <li><strong>موتور الکتریکی</strong> – تبدیل انرژی الکتریکی به مکانیکی</li>
+            <li><strong>ژنراتور</strong> – تبدیل انرژی مکانیکی به الکتریکی</li>
+            <li><strong>کلیدهای مدار</strong> – حفاظت و کنترل</li>
+        </ul>
     </div>
 
-    <div class="section">
-        <h2 id="s4">Renewable Energy</h2>
-        <p id="s4p">Renewable energy systems harness energy from natural sources such as sunlight, wind, and water. They are essential for sustainable development.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
+    <a href="electrical-index.html" class="back-link">← بازگشت به مباحث برق</a>
 
 </div>
-
-<script>
-    const lang = {
-        en: {
-            title: '💡 Key Topics',
-            desc: 'Explore the most important topics in electrical engineering, from power systems to control and electronics.',
-            s1: 'Power Systems',
-            s1p: 'Power systems deal with the generation, transmission, distribution, and utilization of electrical power. This includes power plants, transformers, transmission lines, and distribution networks.',
-            s2: 'Control Systems',
-            s2p: 'Control systems are used to regulate the behavior of dynamic systems. They are essential in industrial automation, robotics, and process control.',
-            s3: 'Electronics',
-            s3p: 'Electronics deals with circuits and devices that control the flow of electrons. It includes analog and digital circuits, semiconductors, and integrated circuits.',
-            s4: 'Renewable Energy',
-            s4p: 'Renewable energy systems harness energy from natural sources such as sunlight, wind, and water. They are essential for sustainable development.',
-            back: '← Back'
-        },
-        fa: {
-            title: '💡 موضوعات کلیدی',
-            desc: 'مهم‌ترین موضوعات در مهندسی برق، از سیستم‌های قدرت تا کنترل و الکترونیک را کاوش کنید.',
-            s1: 'سیستم‌های قدرت',
-            s1p: 'سیستم‌های قدرت به تولید، انتقال، توزیع و استفاده از توان الکتریکی می‌پردازند. این شامل نیروگاه‌ها، ترانسفورماتورها، خطوط انتقال و شبکه‌های توزیع است.',
-            s2: 'سیستم‌های کنترل',
-            s2p: 'سیستم‌های کنترل برای تنظیم رفتار سیستم‌های دینامیکی استفاده می‌شوند. آنها در اتوماسیون صنعتی، رباتیک و کنترل فرآیند ضروری هستند.',
-            s3: 'الکترونیک',
-            s3p: 'الکترونیک به مدارها و دستگاه‌هایی می‌پردازد که جریان الکترون‌ها را کنترل می‌کنند. شامل مدارهای آنالوگ و دیجیتال، نیمه‌هادی‌ها و مدارهای مجتمع است.',
-            s4: 'انرژی تجدیدپذیر',
-            s4p: 'سیستم‌های انرژی تجدیدپذیر انرژی را از منابع طبیعی مانند نور خورشید، باد و آب استخراج می‌کنند. آنها برای توسعه پایدار ضروری هستند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s2p').textContent = t.s2p;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
-</script>
-
 </body>
 </html>
