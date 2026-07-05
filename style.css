@@ -863,3 +863,43 @@ body {
         gap: 8px;
     }
 }
+/* ============================================================ */
+/* ========== شروع: پس‌زمینه داشبورد ========== */
+/* ============================================================ */
+
+/* پس‌زمینه اصلی داشبورد */
+.dashboard.active {
+    background: 
+        linear-gradient(rgba(13, 14, 18, 0.75), rgba(13, 14, 18, 0.88)),
+        url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* افکت شیشه‌ای روی کارت‌ها */
+.card-academy {
+    background: rgba(26, 29, 36, 0.88) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+}
+
+.workflow-container {
+    background: rgba(26, 29, 36, 0.88) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+}
+
+.tool-badge {
+    background: rgba(26, 29, 36, 0.88) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+}
+
+.section-title {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* ============================================================ */
+/* ========== پایان: پس‌زمینه داشبورد ========== */
+/* ============================================================ */
