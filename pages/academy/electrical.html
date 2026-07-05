@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مهندسی برق</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../../style.css">
+    <title>Karatech ELV · Electrical</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:12px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}.brand span{color:#d4af37}
+        body{background:#0d0e12;color:#eef0f4;font-family:sans-serif;padding:40px 20px}
+        .container{max-width:1100px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
         .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
         .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
         .lang-btn:hover{background:#5b3b8c;color:#fff}
         .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;margin-bottom:10px}
-        .sub{color:#8e95a5;margin-bottom:25px}
-        .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-        .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid rgba(212,175,55,0.1);transition:.3s;text-decoration:none;color:inherit;display:block}
+        h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1.05rem;margin-bottom:30px}
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:30px}
+        .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
         .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
         .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
-        .card h3{color:#fff;margin-bottom:6px}
-        .card p{color:#8e95a5;font-size:.9rem}
-        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:inline-block;margin-top:30px}
-        .back-link:hover{color:#fff}
-        @media(max-width:768px){.grid{grid-template-columns:1fr}}
+        .card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
+        .card p{color:#8e95a5;font-size:.85rem}
+        .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:8px}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
@@ -38,59 +38,110 @@
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
         <div class="lang-switch">
-            <button class="lang-btn active" data-lang="fa">FA</button>
-            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
         </div>
     </div>
 
-    <h1 data-en="⚡ Electrical Engineering" data-fa="⚡ مهندسی برق">⚡ مهندسی برق</h1>
-    <div class="sub" data-en="Design, calculations and standards of power systems, protection, earthing and switchgear." data-fa="طراحی، محاسبات و استانداردهای سیستم‌های قدرت، حفاظت، ارتینگ و تابلوهای برق.">طراحی، محاسبات و استانداردهای سیستم‌های قدرت، حفاظت، ارتینگ و تابلوهای برق.</div>
+    <h1 id="page-title">⚡ Electrical Engineering</h1>
+    <div class="sub" id="page-sub">Power systems, protection coordination, load calculation. Essential for all industrial and commercial projects.</div>
 
-    <div class="grid">
-        <a href="../electrical/electrical-index.html" class="card">
-            <i>📘</i>
-            <h3 data-en="Enter Electrical Section" data-fa="ورود به بخش برق">ورود به بخش برق</h3>
-            <p data-en="View all electrical engineering topics" data-fa="مشاهده تمام مباحث مهندسی برق">مشاهده تمام مباحث مهندسی برق</p>
-        </a>
+    <div class="grid" id="cards-grid">
+        <a href="../electrical/overview.html" class="card"><i>📘</i><h3>Overview</h3><p>Complete overview</p><span class="badge">Learn More →</span></a>
+        <a href="../electrical/voltage-drop.html" class="card"><i>⚡</i><h3>Voltage Drop</h3><p>Calculate drop in circuits</p><span class="badge">Calculator →</span></a>
+        <a href="../electrical/power-factor.html" class="card"><i>📊</i><h3>Power Factor</h3><p>Calculate power factor</p><span class="badge">Calculator →</span></a>
+        <a href="../electrical/transformer-sizing.html" class="card"><i>🔌</i><h3>Transformer Sizing</h3><p>Size transformers</p><span class="badge">Calculator →</span></a>
+        <a href="../electrical/cable-sizing.html" class="card"><i>📏</i><h3>Cable Sizing</h3><p>Select cable size</p><span class="badge">Calculator →</span></a>
+        <a href="../electrical/earthing-resistance.html" class="card"><i>🌍</i><h3>Earthing Resistance</h3><p>Calculate earth resistance</p><span class="badge">Calculator →</span></a>
+        <a href="../electrical/key-topics.html" class="card"><i>💡</i><h3>Key Topics</h3><p>Important topics</p><span class="badge">Learn More →</span></a>
+        <a href="../electrical/software.html" class="card"><i>🛠️</i><h3>Software</h3><p>Essential software</p><span class="badge">Learn More →</span></a>
+        <a href="../electrical/resources.html" class="card"><i>📚</i><h3>Resources</h3><p>Standards, handbooks</p><span class="badge">Learn More →</span></a>
+        <a href="../electrical/learning-path.html" class="card"><i>🗺️</i><h3>Learning Path</h3><p>Foundation to advanced</p><span class="badge">Learn More →</span></a>
+        <a href="../electrical/videos-future.html" class="card"><i>🎬</i><h3>Videos & Future</h3><p>Tutorials and future tech</p><span class="badge">Learn More →</span></a>
+        <a href="../electrical/power-system-analysis.html" class="card"><i>📈</i><h3>Power System Analysis</h3><p>Load flow, short-circuit</p><span class="badge">Learn More →</span></a>
+        <a href="../electrical/protection-coordination.html" class="card"><i>🛡️</i><h3>Protection Coordination</h3><p>Protective devices</p><span class="badge">Learn More →</span></a>
     </div>
 
-    <a href="../../index.html" class="back-link" onclick="localStorage.setItem('dashboardActive', 'true')">
-        <span data-en="← Back to Dashboard" data-fa="← بازگشت به داشبورد">← بازگشت به داشبورد</span>
-    </a>
+    <div class="back">
+        <a href="../../index.html" id="backlink" onclick="localStorage.setItem('dashboardActive', 'true')">← Back to Dashboard</a>
+    </div>
 
 </div>
 
 <script>
-(function() {
-    const langBtns = document.querySelectorAll('.lang-btn');
-    let currentLang = localStorage.getItem('karatech-lang') || 'fa';
+    const lang = {
+        en: {
+            title: '⚡ Electrical Engineering',
+            sub: 'Power systems, protection coordination, load calculation. Essential for all industrial and commercial projects.',
+            cards: [
+                ['Overview', 'Complete overview', 'Learn More →'],
+                ['Voltage Drop', 'Calculate drop in circuits', 'Calculator →'],
+                ['Power Factor', 'Calculate power factor', 'Calculator →'],
+                ['Transformer Sizing', 'Size transformers', 'Calculator →'],
+                ['Cable Sizing', 'Select cable size', 'Calculator →'],
+                ['Earthing Resistance', 'Calculate earth resistance', 'Calculator →'],
+                ['Key Topics', 'Important topics', 'Learn More →'],
+                ['Software', 'Essential software', 'Learn More →'],
+                ['Resources', 'Standards, handbooks', 'Learn More →'],
+                ['Learning Path', 'Foundation to advanced', 'Learn More →'],
+                ['Videos & Future', 'Tutorials and future tech', 'Learn More →'],
+                ['Power System Analysis', 'Load flow, short-circuit', 'Learn More →'],
+                ['Protection Coordination', 'Protective devices', 'Learn More →']
+            ],
+            back: '← Back to Dashboard'
+        },
+        fa: {
+            title: '⚡ مهندسی برق',
+            sub: 'سیستم‌های قدرت، هماهنگی حفاظت، محاسبات بار. برای تمام پروژه‌های صنعتی و تجاری ضروری است.',
+            cards: [
+                ['مرور کلی', 'مرور کامل مهندسی برق', 'بیشتر بدانید →'],
+                ['افت ولتاژ', 'محاسبه افت ولتاژ در مدارها', 'ماشین حساب →'],
+                ['ضریب توان', 'محاسبه ضریب توان', 'ماشین حساب →'],
+                ['سایزینگ ترانس', 'سایزینگ ترانسفورماتور', 'ماشین حساب →'],
+                ['سایزینگ کابل', 'انتخاب سایز مناسب کابل', 'ماشین حساب →'],
+                ['مقاومت ارتینگ', 'محاسبه مقاومت زمین', 'ماشین حساب →'],
+                ['موضوعات کلیدی', 'موضوعات مهم در مهندسی برق', 'بیشتر بدانید →'],
+                ['نرم‌افزارها', 'نرم‌افزارهای ضروری', 'بیشتر بدانید →'],
+                ['منابع', 'استانداردها، کتابچه‌ها', 'بیشتر بدانید →'],
+                ['مسیر یادگیری', 'از مبتدی تا پیشرفته', 'بیشتر بدانید →'],
+                ['ویدئوها و آینده', 'آموزش‌ها و فناوری‌های آینده', 'بیشتر بدانید →'],
+                ['تحلیل سیستم‌های قدرت', 'جریان بار، اتصال کوتاه', 'بیشتر بدانید →'],
+                ['هماهنگی حفاظت', 'دستگاه‌های حفاظتی', 'بیشتر بدانید →']
+            ],
+            back: '← بازگشت به داشبورد'
+        }
+    };
 
-    function translate(lang) {
-        document.querySelectorAll('[data-en]').forEach(el => {
-            const txt = el.dataset[lang];
-            if (txt) {
-                const nodes = el.childNodes;
-                for (let n of nodes) {
-                    if (n.nodeType === 3) {
-                        n.textContent = txt;
-                        break;
-                    }
-                }
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('page-title').textContent = t.title;
+        document.getElementById('page-sub').textContent = t.sub;
+        document.getElementById('backlink').textContent = t.back;
+
+        const grid = document.getElementById('cards-grid');
+        const cards = grid.querySelectorAll('.card');
+        t.cards.forEach((item, index) => {
+            if (cards[index]) {
+                cards[index].querySelector('h3').textContent = item[0];
+                cards[index].querySelector('p').textContent = item[1];
+                cards[index].querySelector('.badge').textContent = item[2];
             }
         });
-        document.body.classList.toggle('lang-persian', lang === 'fa');
-        localStorage.setItem('karatech-lang', lang);
-        langBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
     }
 
-    translate(currentLang);
-
-    langBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            translate(this.dataset.lang);
-        });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() {
+            setLang(this.dataset.lang);
+        };
     });
-})();
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
 </script>
 
 </body>
