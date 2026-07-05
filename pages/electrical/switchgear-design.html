@@ -1,120 +1,180 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>طراحی تابلو</title>
+    <title>Karatech ELV · Switchgear Design</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
         .container{max-width:1000px;margin:0 auto}
-        h1{color:#d4af37;margin-bottom:10px}
-        .sub{color:#8e95a5;margin-bottom:25px;font-size:1rem;line-height:1.8}
-        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;margin-bottom:12px;font-size:1.3rem}
-        .section p{color:#b0b8c5;line-height:1.8}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
         .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:inline-block;margin-top:30px}
-        .back-link:hover{color:#fff}
-        .calc-box{background:#0d0e12;padding:20px;border-radius:12px;border:1px solid rgba(212,175,55,0.15);margin-top:15px}
-        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
-        .calc-box input{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
-        .calc-box input:focus{outline:1px solid #d4af37}
-        .calc-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
-        .btn-calc:hover{background:#d4af37;color:#111}
-        .result-box{background:#0d0e12;padding:15px;border-radius:12px;border-left:3px solid #d4af37;margin-top:15px}
-        .result-box span{color:#d4af37;font-weight:700}
-        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px;margin-top:10px}
-        th,td{padding:10px 14px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.06)}
-        th{color:#d4af37;font-weight:600}
-        @media(max-width:600px){.calc-row{grid-template-columns:1fr}}
+        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
+        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
+        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
+        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
+        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
+        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
+        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
+        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
 <div class="container">
 
-    <h1>📦 طراحی تابلوهای برق</h1>
-    <div class="sub">اصول طراحی، چیدمان و انتخاب اجزای تابلوهای فشار ضعیف و متوسط.</div>
-
-    <div class="section">
-        <h2>🔹 اجزای اصلی تابلو</h2>
-        <ul>
-            <li><strong>کلید اصلی (Main Switch)</strong> – قطع و وصل کل تغذیه</li>
-            <li><strong>کلیدهای مدار (Circuit Breakers)</strong> – حفاظت از مدارها</li>
-            <li><strong>کنتاکتورها (Contactors)</strong> – برای قطع و وصل بارهای بزرگ</li>
-            <li><strong>رله‌ها (Relays)</strong> – کنترل و حفاظت</li>
-            <li><strong>ترمینال‌ها (Terminal Blocks)</strong> – اتصال سیم‌ها</li>
-            <li><strong>PLC یا کنترل‌کننده</strong> – برای اتوماسیون</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>📊 رنج تجهیزات استاندارد</h2>
-        <table>
-            <tr><th>تجهیزات</th><th>رنج استاندارد</th></tr>
-            <tr><td>کلید مینیاتوری (MCB)</td><td>تا 125 A</td></tr>
-            <tr><td>کلید قالبی (MCCB)</td><td>تا 2500 A</td></tr>
-            <tr><td>کنتاکتور</td><td>تا 630 A</td></tr>
-        </table>
-    </div>
-
-    <div class="section calculator">
-        <h2>🧮 ماشین‌حساب بار تابلو</h2>
-        <div class="calc-box">
-            <div class="calc-row">
-                <div>
-                    <label>تعداد تجهیزات</label>
-                    <input type="number" id="deviceCount" value="10">
-                </div>
-                <div>
-                    <label>توان هر تجهیز (kW)</label>
-                    <input type="number" id="devicePower" value="5">
-                </div>
-                <div>
-                    <label>ضریب همزمانی</label>
-                    <input type="number" id="diversity" value="0.8" step="0.1" min="0" max="1">
-                </div>
-                <div>
-                    <label>ولتاژ (V)</label>
-                    <input type="number" id="voltage" value="400">
-                </div>
-            </div>
-            <button class="btn-calc" onclick="calculatePanel()">محاسبه</button>
-            <div class="result-box" id="result">
-                <p><span>کل توان (kW):</span> <span id="totalPower">--</span></p>
-                <p><span>جریان کل (A):</span> <span id="totalCurrent">--</span></p>
-                <p><span>کلید اصلی پیشنهادی:</span> <span id="mainSwitch">--</span> A</p>
-            </div>
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
         </div>
     </div>
 
-    <a href="electrical-index.html" class="back-link">← بازگشت به مباحث برق</a>
+    <h1 id="title">📦 Switchgear Design</h1>
+    <div class="sub" id="desc">Calculate panel load, main switch rating, and component selection for industrial switchgear and MCC panels.</div>
+
+    <div class="section">
+        <h2 id="s1">What is Switchgear Design?</h2>
+        <p id="s1p">Switchgear design involves selecting and arranging circuit breakers, contactors, relays, and busbars within an enclosure to safely distribute and control electrical power.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🧮 Switchgear Load Calculator</h2>
+        <div class="calc-box">
+            <label id="l1">Number of Feeders</label>
+            <input type="number" id="sg-n" value="5">
+            <label id="l2">Load per Feeder (kW)</label>
+            <input type="number" id="sg-kw" value="10">
+            <label id="l3">Diversity Factor</label>
+            <input type="number" id="sg-df" value="0.8" step="0.1">
+            <label id="l4">Voltage (V)</label>
+            <input type="number" id="sg-v" value="400">
+            <button class="calc-btn" onclick="calcSwitchgear()" id="btn-calc">Calculate</button>
+            <div class="result-box" id="sg-result">
+                <span id="r1">Total Load: 40.0 kW</span><br>
+                <span style="font-size:0.9rem;color:#8e95a5;" id="r2">Main Switch: 80 A</span>
+            </div>
+        </div>
+        <div class="code-box">I = (P_total × 1000) / (√3 × V)</div>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">Key Factors</h2>
+        <ul id="list1">
+            <li>Number and type of loads</li>
+            <li>Diversity and demand factors</li>
+            <li>Short-circuit rating of components</li>
+            <li>IP rating and enclosure type</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="electrical-index.html" id="backlink">← Back</a>
+    </div>
 
 </div>
 
 <script>
-function calculatePanel() {
-    const n = parseFloat(document.getElementById('deviceCount').value);
-    const p = parseFloat(document.getElementById('devicePower').value);
-    const df = parseFloat(document.getElementById('diversity').value);
-    const V = parseFloat(document.getElementById('voltage').value);
+    const lang = {
+        en: {
+            title: '📦 Switchgear Design',
+            desc: 'Calculate panel load, main switch rating, and component selection for industrial switchgear and MCC panels.',
+            s1: 'What is Switchgear Design?',
+            s1p: 'Switchgear design involves selecting and arranging circuit breakers, contactors, relays, and busbars within an enclosure to safely distribute and control electrical power.',
+            s2: '🧮 Switchgear Load Calculator',
+            l1: 'Number of Feeders', l2: 'Load per Feeder (kW)', l3: 'Diversity Factor', l4: 'Voltage (V)',
+            btn: 'Calculate',
+            r1: 'Total Load: 40.0 kW',
+            r2: 'Main Switch: 80 A',
+            s3: 'Key Factors',
+            list1: ['Number and type of loads','Diversity and demand factors','Short-circuit rating of components','IP rating and enclosure type'],
+            back: '← Back'
+        },
+        fa: {
+            title: '📦 طراحی تابلوهای برق',
+            desc: 'محاسبه بار پنل، رتبه کلید اصلی و انتخاب اجزاء برای تابلوهای صنعتی و MCC.',
+            s1: 'طراحی تابلوهای برق چیست؟',
+            s1p: 'طراحی تابلوهای برق شامل انتخاب و چیدمان کلیدهای مدار، کنتاکتورها، رله‌ها و شینه‌ها در داخل یک محفظه برای توزیع و کنترل ایمن توان الکتریکی است.',
+            s2: '🧮 ماشین حساب بار تابلو',
+            l1: 'تعداد فیدرها', l2: 'بار هر فیدر (kW)', l3: 'ضریب همزمانی', l4: 'ولتاژ (V)',
+            btn: 'محاسبه',
+            r1: 'کل بار: 40.0 کیلووات',
+            r2: 'کلید اصلی: 80 آمپر',
+            s3: 'عوامل کلیدی',
+            list1: ['تعداد و نوع بارها','ضریب همزمانی و تقاضا','رتبه اتصال کوتاه قطعات','درجه حفاظت IP و نوع محفظه'],
+            back: '← بازگشت'
+        }
+    };
 
-    if (isNaN(n) || isNaN(p) || isNaN(df) || isNaN(V) || n<=0 || p<=0 || df<=0 || V<=0) {
-        alert('لطفاً همه مقادیر را به‌درستی وارد کنید.');
-        return;
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('l1').textContent = t.l1;
+        document.getElementById('l2').textContent = t.l2;
+        document.getElementById('l3').textContent = t.l3;
+        document.getElementById('l4').textContent = t.l4;
+        document.getElementById('btn-calc').textContent = t.btn;
+        document.getElementById('r1').textContent = t.r1;
+        document.getElementById('r2').textContent = t.r2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul = document.getElementById('list1');
+        ul.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
     }
 
-    const total = n * p * df;
-    const I = (total * 1000) / (Math.sqrt(3) * V);
-    const mainSwitch = Math.ceil(I / 50) * 50;
+    function calcSwitchgear() {
+        var n = parseFloat(document.getElementById('sg-n').value);
+        var kw = parseFloat(document.getElementById('sg-kw').value);
+        var df = parseFloat(document.getElementById('sg-df').value);
+        var V = parseFloat(document.getElementById('sg-v').value);
+        if (isNaN(n) || isNaN(kw) || isNaN(df) || isNaN(V)) { return; }
+        var total = n * kw * df;
+        var I = (total * 1000) / (Math.sqrt(3) * V);
+        var main = Math.ceil(I / 10) * 10;
+        var lang = document.querySelector('.lang-btn.active').dataset.lang;
+        document.getElementById('sg-result').innerHTML =
+            '<span id="r1">' + (lang === 'fa' ? 'کل بار: ' + total.toFixed(1) + ' کیلووات' : 'Total Load: ' + total.toFixed(1) + ' kW') + '</span><br>' +
+            '<span style="font-size:0.9rem;color:#8e95a5;" id="r2">' + (lang === 'fa' ? 'کلید اصلی: ' + main + ' A' : 'Main Switch: ' + main + ' A') + '</span>';
+    }
 
-    document.getElementById('totalPower').textContent = total.toFixed(2);
-    document.getElementById('totalCurrent').textContent = I.toFixed(2);
-    document.getElementById('mainSwitch').textContent = mainSwitch;
-}
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); calcSwitchgear(); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+    calcSwitchgear();
 </script>
 
 </body>
