@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Karatech ELV · Engineering Ecosystem</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -12,101 +13,145 @@
 </head>
 <body>
 
+<!-- ===== HEADER با ویجت ساعت/تقویم ===== -->
 <header class="header">
     <div class="brand">KARATECH <span>ELV</span></div>
-    <div class="datetime-widget">
+    
+    <!-- ویجت ساعت و تقویم -->
+    <div class="datetime-widget" id="datetimeWidget">
         <div class="date-display" id="dateDisplay">۱۴۰۴/۰۱/۱۵</div>
-        <div class="time-display" id="timeDisplay">۰۰:۰۰:۰۰</div>
+        <div class="time-display" id="timeDisplay">۱۴:۳۲:۴۵</div>
     </div>
-    <div class="header-actions">
-        <button class="exit-btn" onclick="goToSplash()"><i class="fas fa-sign-out-alt"></i> <span data-en="Exit" data-fa="خروج">خروج</span></button>
+
+    <div style="display:flex; align-items:center; gap:16px;">
+        <button class="exit-btn" onclick="goToSplash()">
+            <i class="fas fa-sign-out-alt"></i> <span data-en="Exit" data-fa="خروج">Exit</span>
+        </button>
         <div class="lang-switch">
-            <button class="lang-btn active" data-lang="fa">FA</button>
-            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
         </div>
     </div>
 </header>
 
+<!-- ===== SPLASH ===== -->
 <section class="splash" id="splash">
-    <div class="splash-sub" data-en="Engineering · Automation · Intelligence" data-fa="مهندسی · اتوماسیون · هوش">مهندسی · اتوماسیون · هوش</div>
-    <button class="splash-btn" id="enterBtn"><i class="fas fa-arrow-right"></i> <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">ورود به سیستم مهندسی</span></button>
+    <div class="splash-logo-img">
+        <img src="assets/images/karatechelv.png" alt="Karatech ELV Logo">
+    </div>
+    <div class="splash-sub" data-en="Engineering · Automation · Intelligence" data-fa="مهندسی · اتوماسیون · هوش">Engineering · Automation · Intelligence</div>
+    <button class="splash-btn" id="enterBtn"><i class="fas fa-arrow-right"></i> <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span></button>
 </section>
 
+<!-- ===== DASHBOARD ===== -->
 <div class="dashboard" id="dashboard">
 
-    <div class="section-title"><i class="fas fa-graduation-cap"></i> <span data-en="Academy" data-fa="آکادمی">آکادمی</span></div>
+    <!-- Academy -->
+    <div class="section-title"><i class="fas fa-graduation-cap"></i> <span data-en="Academy" data-fa="آکادمی">Academy</span></div>
     <div class="grid-4">
-        <!-- برق - مستقیم به مباحث مهندسی برق -->
-        <a href="page/electrical/electrical-index.html" class="card-academy">
-            <i class="fas fa-bolt"></i>
-            <h3 data-en="Electrical" data-fa="برق">برق</h3>
-            <p data-en="Power systems, protection" data-fa="سیستم‌های برق، حفاظت">سیستم‌های برق، حفاظت</p>
-        </a>
-        <a href="#" class="card-academy" onclick="alert('Automation Engineering')">
-            <i class="fas fa-robot"></i>
-            <h3 data-en="Automation" data-fa="اتوماسیون">اتوماسیون</h3>
-            <p data-en="PLC, SCADA, control" data-fa="PLC، SCADA، کنترل">PLC، SCADA، کنترل</p>
-        </a>
-        <a href="#" class="card-academy" onclick="alert('Instrumentation Engineering')">
-            <i class="fas fa-tachometer-alt"></i>
-            <h3 data-en="Instrumentation" data-fa="ابزار دقیق">ابزار دقیق</h3>
-            <p data-en="Sensors, transmitters" data-fa="سنسورها، ترانسمیترها">سنسورها، ترانسمیترها</p>
-        </a>
-        <a href="#" class="card-academy" onclick="alert('Engineering Design')">
-            <i class="fas fa-drafting-compass"></i>
-            <h3 data-en="Design" data-fa="طراحی">طراحی</h3>
-            <p data-en="Schematics, CAD" data-fa="شماتیک، CAD">شماتیک، CAD</p>
-        </a>
-        <a href="page/academy/quality.html" class="card-academy">
-            <i class="fas fa-check-double"></i>
-            <h3 data-en="Quality Control" data-fa="کنترل کیفیت">کنترل کیفیت</h3>
-            <p data-en="Inspection, testing, ISO" data-fa="بازرسی، تست، ISO">بازرسی، تست، ISO</p>
-        </a>
-        <a href="#" class="card-academy" onclick="alert('Engineering Standards')">
-            <i class="fas fa-book"></i>
-            <h3 data-en="Standards" data-fa="استانداردها">استانداردها</h3>
-            <p data-en="IEC, NEC, ISO" data-fa="IEC، NEC، ISO">IEC، NEC، ISO</p>
-        </a>
-        <a href="#" class="card-academy" onclick="alert('Engineering Management')">
-            <i class="fas fa-users-cog"></i>
-            <h3 data-en="Management" data-fa="مدیریت">مدیریت</h3>
-            <p data-en="Project, risk, workflow" data-fa="پروژه، ریسک، جریان کار">پروژه، ریسک، جریان کار</p>
-        </a>
-        <a href="#" class="card-academy" onclick="alert('HSE Engineering')">
-            <i class="fas fa-hard-hat"></i>
-            <h3 data-en="HSE" data-fa="HSE">HSE</h3>
-            <p data-en="Safety, environment, health" data-fa="ایمنی، محیط زیست، بهداشت">ایمنی، محیط زیست، بهداشت</p>
-        </a>
+        <a href="pages/academy/electrical.html" class="card-academy"><i class="fas fa-bolt"></i><h3>Electrical</h3><p data-en="Power systems, protection coordination" data-fa="سیستم‌های برق، هماهنگی حفاظت">Power systems, protection coordination</p></a>
+        <a href="pages/academy/automation.html" class="card-academy"><i class="fas fa-robot"></i><h3>Automation</h3><p data-en="PLC, SCADA, industrial control" data-fa="PLC، SCADA، کنترل صنعتی">PLC, SCADA, industrial control</p></a>
+        <a href="pages/academy/instrumentation.html" class="card-academy"><i class="fas fa-tachometer-alt"></i><h3>Instrumentation</h3><p data-en="Sensors, transmitters, analyzers" data-fa="سنسورها، ترانسمیترها، آنالیزورها">Sensors, transmitters, analyzers</p></a>
+        <a href="pages/academy/design.html" class="card-academy"><i class="fas fa-drafting-compass"></i><h3>Design</h3><p data-en="Schematics, layouts, CAD" data-fa="شماتیک، نقشه‌ها، CAD">Schematics, layouts, CAD</p></a>
+        <a href="pages/academy/quality.html" class="card-academy"><i class="fas fa-check-double"></i><h3>Quality Control</h3><p data-en="Inspection, testing, ISO" data-fa="بازرسی، تست، ISO">Inspection, testing, ISO</p></a>
+        <a href="pages/academy/standards.html" class="card-academy"><i class="fas fa-book"></i><h3>Standards</h3><p data-en="IEC, NEC, ISO, API" data-fa="IEC، NEC، ISO، API">IEC, NEC, ISO, API</p></a>
+        <a href="pages/academy/management.html" class="card-academy"><i class="fas fa-users-cog"></i><h3>Management</h3><p data-en="Project, risk, workflow" data-fa="پروژه، ریسک، جریان کار">Project, risk, workflow</p></a>
+        <a href="pages/academy/hse.html" class="card-academy"><i class="fas fa-hard-hat"></i><h3>HSE</h3><p data-en="Safety, environment, health" data-fa="ایمنی، محیط زیست، بهداشت">Safety, environment, health</p></a>
     </div>
 
-    <div class="section-title"><i class="fas fa-project-diagram"></i> <span data-en="Workflow" data-fa="جریان کار">جریان کار</span></div>
+    <!-- Workflow -->
+    <div class="section-title"><i class="fas fa-project-diagram"></i> <span data-en="Engineering Workflow" data-fa="جریان کار مهندسی">Engineering Workflow</span></div>
     <div class="workflow-container">
-        <span class="wf-step"><i class="fas fa-file-pdf"></i> P&ID</span><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <span class="wf-step"><i class="fas fa-pencil-ruler"></i> Design</span><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <span class="wf-step"><i class="fas fa-layer-group"></i> Panel</span><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <span class="wf-step"><i class="fas fa-shopping-cart"></i> Procurement</span><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <span class="wf-step"><i class="fas fa-tools"></i> Assembly</span><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <span class="wf-step"><i class="fas fa-vial"></i> FAT</span><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <span class="wf-step"><i class="fas fa-plug"></i> Installation</span><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <span class="wf-step"><i class="fas fa-circle-notch"></i> Loop Check</span><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <span class="wf-step"><i class="fas fa-play"></i> Commissioning</span><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <span class="wf-step"><i class="fas fa-check-circle"></i> SAT</span><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <span class="wf-step"><i class="fas fa-file-alt"></i> Documentation</span><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <span class="wf-step"><i class="fas fa-cogs"></i> Operation</span>
+        <a href="pages/workflow/pid.html" class="wf-step"><i class="fas fa-file-pdf"></i> P&ID</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <a href="pages/workflow/design.html" class="wf-step"><i class="fas fa-pencil-ruler"></i> Design</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <a href="pages/workflow/panel.html" class="wf-step"><i class="fas fa-layer-group"></i> Panel</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <a href="pages/workflow/procurement.html" class="wf-step"><i class="fas fa-shopping-cart"></i> Procurement</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <a href="pages/workflow/assembly.html" class="wf-step"><i class="fas fa-tools"></i> Assembly</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <a href="pages/workflow/fat.html" class="wf-step"><i class="fas fa-vial"></i> FAT</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <a href="pages/workflow/installation.html" class="wf-step"><i class="fas fa-plug"></i> Installation</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <a href="pages/workflow/loop-check.html" class="wf-step"><i class="fas fa-circle-notch"></i> Loop Check</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <a href="pages/workflow/commissioning.html" class="wf-step"><i class="fas fa-play"></i> Commissioning</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <a href="pages/workflow/sat.html" class="wf-step"><i class="fas fa-check-circle"></i> SAT</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <a href="pages/workflow/documentation.html" class="wf-step"><i class="fas fa-file-alt"></i> Documentation</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
+        <a href="pages/workflow/operation.html" class="wf-step"><i class="fas fa-cogs"></i> Operation</a>
     </div>
 
-    <div class="section-title"><i class="fas fa-calculator"></i> <span data-en="Tools" data-fa="ابزارها">ابزارها</span></div>
+    <!-- Tools -->
+    <div class="section-title"><i class="fas fa-calculator"></i> <span data-en="Engineering Tools" data-fa="ابزارهای مهندسی">Engineering Tools</span></div>
     <div class="tools-grid">
-        <span class="tool-badge"><i class="fas fa-bolt"></i> Voltage Drop</span>
-        <span class="tool-badge"><i class="fas fa-chart-line"></i> Power Factor</span>
-        <span class="tool-badge"><i class="fas fa-ruler"></i> Cable Size</span>
-        <span class="tool-badge"><i class="fas fa-shield-alt"></i> Breaker</span>
-        <span class="tool-badge"><i class="fas fa-sync-alt"></i> Motor Current</span>
-        <span class="tool-badge"><i class="fas fa-bolt"></i> Transformer</span>
-        <span class="tool-badge"><i class="fas fa-arrows-alt-h"></i> AWG Conv.</span>
-        <span class="tool-badge"><i class="fas fa-exchange-alt"></i> Unit Conv.</span>
-        <span class="tool-badge"><i class="fas fa-water"></i> IP Rating</span>
-        <span class="tool-badge"><i class="fas fa-table"></i> IEC Tables</span>
+        <a href="pages/tools/voltage-drop.html" class="tool-badge"><i class="fas fa-bolt"></i> Voltage Drop</a>
+        <a href="pages/tools/power-factor.html" class="tool-badge"><i class="fas fa-chart-line"></i> Power Factor</a>
+        <a href="pages/tools/cable-size.html" class="tool-badge"><i class="fas fa-ruler"></i> Cable Size</a>
+        <a href="pages/tools/breaker-selection.html" class="tool-badge"><i class="fas fa-shield-alt"></i> Breaker</a>
+        <a href="pages/tools/motor-current.html" class="tool-badge"><i class="fas fa-sync-alt"></i> Motor Current</a>
+        <a href="pages/tools/transformer.html" class="tool-badge"><i class="fas fa-bolt"></i> Transformer</a>
+        <a href="pages/tools/awg-converter.html" class="tool-badge"><i class="fas fa-arrows-alt-h"></i> AWG Conv.</a>
+        <a href="pages/tools/unit-converter.html" class="tool-badge"><i class="fas fa-exchange-alt"></i> Unit Conv.</a>
+        <a href="pages/tools/ip-rating.html" class="tool-badge"><i class="fas fa-water"></i> IP Rating</a>
+        <a href="pages/tools/iec-tables.html" class="tool-badge"><i class="fas fa-table"></i> IEC Tables</a>
+        <div class="tool-badge"><i class="fas fa-future"></i> <span class="coming">Coming</span></div>
+    </div>
+
+    <!-- Software -->
+    <div class="section-title"><i class="fas fa-laptop-code"></i> <span data-en="Engineering Software" data-fa="نرم‌افزارهای مهندسی">Engineering Software</span></div>
+    <div class="soft-list">
+        <a href="pages/software/autocad.html" class="soft-item">AutoCAD</a>
+        <a href="pages/software/eplan.html" class="soft-item">EPLAN</a>
+        <a href="pages/software/see-electrical.html" class="soft-item">SEE Electrical</a>
+        <a href="pages/software/tia-portal.html" class="soft-item">TIA Portal</a>
+        <a href="pages/software/wincc.html" class="soft-item">WinCC</a>
+        <a href="pages/software/pcs7.html" class="soft-item">PCS7</a>
+        <a href="pages/software/step7.html" class="soft-item">STEP7</a>
+        <a href="pages/software/factory-io.html" class="soft-item">Factory IO</a>
+        <a href="pages/software/codesys.html" class="soft-item">Codesys</a>
+        <a href="pages/software/easybuilder.html" class="soft-item">EasyBuilder</a>
+    </div>
+
+    <!-- Programming -->
+    <div class="section-title"><i class="fas fa-code"></i> <span data-en="Programming" data-fa="برنامه‌نویسی">Programming</span></div>
+    <div class="programming-grid">
+        <a href="pages/programming/plc.html" class="programming-card"><i class="fas fa-microchip"></i><h4>PLC</h4><p data-en="Programmable Logic Controllers" data-fa="کنترل‌کننده‌های منطقی قابل برنامه‌ریزی">Programmable Logic Controllers</p></a>
+        <a href="pages/programming/hmi.html" class="programming-card"><i class="fas fa-desktop"></i><h4>HMI</h4><p data-en="Human-Machine Interface" data-fa="رابط انسان و ماشین">Human-Machine Interface</p></a>
+        <a href="pages/programming/scada.html" class="programming-card"><i class="fas fa-server"></i><h4>SCADA</h4><p data-en="Supervisory Control & Data Acquisition" data-fa="سیستم کنترل و جمع‌آوری داده">Supervisory Control & Data Acquisition</p></a>
+        <a href="pages/programming/vfd.html" class="programming-card"><i class="fas fa-sync-alt"></i><h4>VFD</h4><p data-en="Variable Frequency Drives" data-fa="درایوهای فرکانس متغیر">Variable Frequency Drives</p></a>
+        <a href="pages/programming/modbus.html" class="programming-card"><i class="fas fa-network-wired"></i><h4>Modbus</h4><p data-en="Industrial Communication Protocol" data-fa="پروتکل ارتباطی صنعتی">Industrial Communication Protocol</p></a>
+        <a href="pages/programming/profinet.html" class="programming-card"><i class="fas fa-wifi"></i><h4>Profinet</h4><p data-en="Industrial Ethernet Standard" data-fa="استاندارد اترنت صنعتی">Industrial Ethernet Standard</p></a>
+        <a href="pages/programming/ethernet-ip.html" class="programming-card"><i class="fas fa-ethernet"></i><h4>Ethernet/IP</h4><p data-en="Industrial Protocol Suite" data-fa="مجموعه پروتکل‌های صنعتی">Industrial Protocol Suite</p></a>
+        <a href="pages/programming/examples.html" class="programming-card"><i class="fas fa-play-circle"></i><h4>Examples</h4><p data-en="Practical exercises & code" data-fa="تمرینات عملی و کد">Practical exercises & code</p></a>
+    </div>
+
+    <!-- Resources -->
+    <div class="section-title"><i class="fas fa-folder-open"></i> <span data-en="Resources" data-fa="منابع">Resources</span></div>
+    <div class="resources-grid">
+        <a href="pages/resources/catalogs.html" class="resource-card"><i class="fas fa-file-pdf"></i><h4>Catalogs</h4><p data-en="Product catalogs from leading manufacturers" data-fa="کاتالوگ‌های محصولات از تولیدکنندگان برتر">Product catalogs from leading manufacturers</p><span class="badge">Coming Soon</span></a>
+        <a href="pages/resources/manuals.html" class="resource-card"><i class="fas fa-book"></i><h4>Manuals</h4><p data-en="Technical manuals and user guides" data-fa="راهنماهای فنی و کاربردی">Technical manuals and user guides</p><span class="badge">Coming Soon</span></a>
+        <a href="pages/resources/datasheets.html" class="resource-card"><i class="fas fa-table"></i><h4>Datasheets</h4><p data-en="Technical datasheets and specifications" data-fa="دیتاشیت‌های فنی و مشخصات">Technical datasheets and specifications</p><span class="badge">Coming Soon</span></a>
+        <a href="pages/resources/templates.html" class="resource-card"><i class="fas fa-file-alt"></i><h4>Templates</h4><p data-en="Engineering document templates" data-fa="قالب‌های مستندات مهندسی">Engineering document templates</p><span class="badge">Coming Soon</span></a>
+        <a href="pages/resources/videos.html" class="resource-card"><i class="fas fa-video"></i><h4>Videos</h4><p data-en="Training and tutorial videos" data-fa="ویدئوهای آموزشی و تمرینی">Training and tutorial videos</p><span class="badge">Coming Soon</span></a>
+        <a href="pages/resources/documents.html" class="resource-card"><i class="fas fa-folder"></i><h4>Documents</h4><p data-en="Engineering documents and reports" data-fa="مستندات و گزارش‌های مهندسی">Engineering documents and reports</p><span class="badge">Coming Soon</span></a>
+    </div>
+
+    <!-- Vision -->
+    <div class="section-title"><i class="fas fa-eye"></i> <span data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</span></div>
+    <div class="vision-container">
+        <span class="vision-item"><i class="fas fa-industry"></i> Factory <span class="coming">In Dev</span></span>
+        <span class="vision-item"><i class="fas fa-boxes"></i> Products <span class="coming">Soon</span></span>
+        <span class="vision-item"><i class="fas fa-project-diagram"></i> Projects <span class="coming">Soon</span></span>
+        <span class="vision-item"><i class="fas fa-users"></i> Community <span class="coming">In Dev</span></span>
+        <span class="vision-item"><i class="fas fa-flask"></i> Research <span class="coming">Soon</span></span>
+        <span class="vision-item"><i class="fas fa-blog"></i> Blog <span class="coming">Soon</span></span>
+        <span class="vision-item"><i class="fas fa-briefcase"></i> Job Board <span class="coming">Soon</span></span>
+    </div>
+
+    <!-- Contact -->
+    <div class="section-title"><i class="fas fa-address-card"></i> <span data-en="Contact Information" data-fa="اطلاعات تماس">Contact Information</span></div>
+    <div class="contact-grid">
+        <div class="contact-card"><i class="fas fa-map-marker-alt"></i><h4 data-en="Head Office" data-fa="دفتر مرکزی">Head Office</h4><p data-en="Tehran, Iran" data-fa="تهران، ایران">Tehran, Iran</p></div>
+        <div class="contact-card"><i class="fas fa-phone-alt"></i><h4 data-en="Phone" data-fa="تلفن">Phone</h4><p><a href="tel:+989120891544">+98 912 089 1544</a></p></div>
+        <div class="contact-card"><i class="fas fa-envelope"></i><h4 data-en="Email" data-fa="ایمیل">Email</h4><p><a href="mailto:karatechelv@gmail.com">karatechelv@gmail.com</a></p></div>
+        <div class="contact-card"><i class="fas fa-clock"></i><h4 data-en="Working Hours" data-fa="ساعات کاری">Working Hours</h4><p data-en="Sat - Thu: 8:00 - 17:00" data-fa="شنبه تا چهارشنبه: ۸ تا ۱۷">Sat - Thu: 8:00 - 17:00</p><p data-en="Fri: Closed" data-fa="جمعه: تعطیل">Fri: Closed</p></div>
+        <div class="contact-card"><i class="fab fa-linkedin"></i><h4>LinkedIn</h4><p><a href="#">/karatechelv</a></p></div>
+        <div class="contact-card"><i class="fab fa-github"></i><h4>GitHub</h4><p><a href="#">/karatechelv</a></p></div>
     </div>
 
     <footer class="footer">
@@ -119,34 +164,5 @@
 </div>
 
 <script src="script.js"></script>
-<script>
-function updateDateTime() {
-    const now = new Date();
-    const lang = document.querySelector('.lang-btn.active')?.dataset.lang || 'fa';
-    const h = String(now.getHours()).padStart(2,'0');
-    const m = String(now.getMinutes()).padStart(2,'0');
-    const s = String(now.getSeconds()).padStart(2,'0');
-    document.getElementById('timeDisplay').textContent = h+':'+m+':'+s;
-    const d = now.toLocaleDateString(lang === 'fa' ? 'fa-IR' : 'en-US', { year:'numeric', month:'2-digit', day:'2-digit' });
-    document.getElementById('dateDisplay').textContent = d;
-}
-setInterval(updateDateTime, 1000);
-updateDateTime();
-
-document.getElementById('enterBtn').addEventListener('click', function() {
-    localStorage.setItem('dashboardActive','true');
-    document.getElementById('splash').classList.add('hidden');
-    document.getElementById('dashboard').classList.add('active');
-});
-if(localStorage.getItem('dashboardActive') === 'true') {
-    document.getElementById('splash').classList.add('hidden');
-    document.getElementById('dashboard').classList.add('active');
-}
-function goToSplash() {
-    localStorage.removeItem('dashboardActive');
-    location.reload();
-}
-</script>
-
 </body>
 </html>
