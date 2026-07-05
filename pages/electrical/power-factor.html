@@ -1,165 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Power Factor</title>
+    <title>محاسبه ضریب توان</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
         .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        h1{color:#d4af37;margin-bottom:10px}
+        .sub{color:#8e95a5;margin-bottom:25px;font-size:1rem;line-height:1.8}
+        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;margin-bottom:12px;font-size:1.3rem}
+        .section p{color:#b0b8c5;line-height:1.8}
         .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
-        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
-        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
-        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
-        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
-        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
-        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
-        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:inline-block;margin-top:30px}
+        .back-link:hover{color:#fff}
+        .calc-box{background:#0d0e12;padding:20px;border-radius:12px;border:1px solid rgba(212,175,55,0.15);margin-top:15px}
+        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
+        .calc-box input{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
+        .calc-box input:focus{outline:1px solid #d4af37}
+        .calc-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
+        .btn-calc:hover{background:#d4af37;color:#111}
+        .result-box{background:#0d0e12;padding:15px;border-radius:12px;border-left:3px solid #d4af37;margin-top:15px}
+        .result-box span{color:#d4af37;font-weight:700}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px;margin-top:10px}
+        th,td{padding:10px 14px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        @media(max-width:600px){.calc-row{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
 <div class="container">
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">📊 Power Factor</h1>
-    <div class="sub" id="desc">Calculate power factor, apparent power, and reactive power. Essential for power system analysis.</div>
+    <h1>📈 محاسبه ضریب توان</h1>
+    <div class="sub">محاسبه ضریب توان، توان ظاهری، توان راکتیو و خازن مورد نیاز برای اصلاح ضریب توان.</div>
 
     <div class="section">
-        <h2 id="s1">What is Power Factor?</h2>
-        <p id="s1p">Power factor is the ratio of real power (kW) to apparent power (kVA). It indicates how effectively electrical power is being used.</p>
+        <h2>📌 فرمول‌های ضریب توان</h2>
+        <ul>
+            <li><strong>ضریب توان (PF)</strong> = توان اکتیو (W) / توان ظاهری (VA)</li>
+            <li><strong>توان ظاهری (S)</strong> = V × I (تک‌فاز) یا √3 × V × I (سه‌فاز)</li>
+            <li><strong>توان راکتیو (Q)</strong> = √(S² - P²)</li>
+            <li><strong>خازن مورد نیاز (Qc)</strong> = P × (tan(θ₁) - tan(θ₂))</li>
+        </ul>
     </div>
 
     <div class="section">
-        <h2 id="s2">🧮 Power Factor Calculator</h2>
+        <h2>📊 جدول ضریب توان استاندارد</h2>
+        <table>
+            <tr><th>نوع بار</th><th>ضریب توان معمول</th></tr>
+            <tr><td>موتورهای القایی</td><td>۰.۷۰ - ۰.۸۵</td></tr>
+            <tr><td>لامپ‌های فلورسنت</td><td>۰.۵۰ - ۰.۶۰</td></tr>
+            <tr><td>کوره‌های القایی</td><td>۰.۸۰ - ۰.۹۰</td></tr>
+            <tr><td>بارهای مقاومتی</td><td>۱.۰۰</td></tr>
+        </table>
+    </div>
+
+    <div class="section calculator">
+        <h2>🧮 ماشین‌حساب ضریب توان</h2>
         <div class="calc-box">
-            <label id="l1">Real Power (kW)</label>
-            <input type="number" id="pf-real" value="50">
-            <label id="l2">Apparent Power (kVA)</label>
-            <input type="number" id="pf-apparent" value="60">
-            <button class="calc-btn" onclick="calcPowerFactor()" id="btn-calc">Calculate</button>
-            <div class="result-box" id="pf-result">
-                <span id="r1">Power Factor: 0.83</span><br>
-                <span style="font-size:0.9rem;color:#8e95a5;" id="r2">Reactive Power: 33.0 kVAr</span>
+            <div class="calc-row">
+                <div>
+                    <label>ولتاژ (V)</label>
+                    <input type="number" id="voltage" value="400">
+                </div>
+                <div>
+                    <label>جریان (A)</label>
+                    <input type="number" id="current" value="100">
+                </div>
+                <div>
+                    <label>توان اکتیو (kW)</label>
+                    <input type="number" id="power" value="50">
+                </div>
+                <div>
+                    <label>ضریب توان هدف (۰-۱)</label>
+                    <input type="number" id="targetPf" value="0.95" step="0.01" min="0" max="1">
+                </div>
+            </div>
+            <button class="btn-calc" onclick="calculatePF()">محاسبه</button>
+            <div class="result-box" id="result">
+                <p><span>ضریب توان فعلی:</span> <span id="pfValue">--</span></p>
+                <p><span>توان ظاهری (kVA):</span> <span id="sValue">--</span></p>
+                <p><span>توان راکتیو (kVAR):</span> <span id="qValue">--</span></p>
+                <p><span>خازن مورد نیاز (kVAR):</span> <span id="capValue">--</span></p>
             </div>
         </div>
-        <div class="code-box">PF = P / S &nbsp;|&nbsp; Q = √(S² - P²)</div>
     </div>
 
-    <div class="section">
-        <h2 id="s3">Power Factor Correction</h2>
-        <p id="s3p">Improving power factor reduces energy losses, lowers electricity bills, and increases system capacity.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
+    <a href="electrical-index.html" class="back-link">← بازگشت به مباحث برق</a>
 
 </div>
 
 <script>
-    const lang = {
-        en: {
-            title: '📊 Power Factor',
-            desc: 'Calculate power factor, apparent power, and reactive power. Essential for power system analysis.',
-            s1: 'What is Power Factor?',
-            s1p: 'Power factor is the ratio of real power (kW) to apparent power (kVA). It indicates how effectively electrical power is being used.',
-            s2: '🧮 Power Factor Calculator',
-            l1: 'Real Power (kW)', l2: 'Apparent Power (kVA)',
-            btn: 'Calculate',
-            r1: 'Power Factor: 0.83',
-            r2: 'Reactive Power: 33.0 kVAr',
-            s3: 'Power Factor Correction',
-            s3p: 'Improving power factor reduces energy losses, lowers electricity bills, and increases system capacity.',
-            back: '← Back'
-        },
-        fa: {
-            title: '📊 ضریب توان',
-            desc: 'محاسبه ضریب توان، توان ظاهری و توان راکتیو. ضروری برای تحلیل سیستم‌های قدرت.',
-            s1: 'ضریب توان چیست؟',
-            s1p: 'ضریب توان نسبت توان واقعی (kW) به توان ظاهری (kVA) است. نشان می‌دهد که توان الکتریکی چقدر به طور مؤثر استفاده می‌شود.',
-            s2: '🧮 ماشین حساب ضریب توان',
-            l1: 'توان واقعی (kW)', l2: 'توان ظاهری (kVA)',
-            btn: 'محاسبه',
-            r1: 'ضریب توان: 0.83',
-            r2: 'توان راکتیو: 33.0 kVAr',
-            s3: 'اصلاح ضریب توان',
-            s3p: 'بهبود ضریب توان تلفات انرژی را کاهش می‌دهد، قبوض برق را پایین می‌آورد و ظرفیت سیستم را افزایش می‌دهد.',
-            back: '← بازگشت'
-        }
-    };
+function calculatePF() {
+    const V = parseFloat(document.getElementById('voltage').value);
+    const I = parseFloat(document.getElementById('current').value);
+    const P = parseFloat(document.getElementById('power').value);
+    const target = parseFloat(document.getElementById('targetPf').value);
 
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('l1').textContent = t.l1;
-        document.getElementById('l2').textContent = t.l2;
-        document.getElementById('btn-calc').textContent = t.btn;
-        document.getElementById('r1').textContent = t.r1;
-        document.getElementById('r2').textContent = t.r2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('backlink').textContent = t.back;
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
+    if (isNaN(V) || isNaN(I) || isNaN(P) || isNaN(target) || V<=0 || I<=0 || P<=0) {
+        alert('لطفاً همه مقادیر را به‌درستی وارد کنید.');
+        return;
     }
 
-    function calcPowerFactor() {
-        var P = parseFloat(document.getElementById('pf-real').value);
-        var S = parseFloat(document.getElementById('pf-apparent').value);
-        var PF = P / S;
-        var Q = Math.sqrt(S*S - P*P);
-        var lang = document.querySelector('.lang-btn.active').dataset.lang;
-        document.getElementById('pf-result').innerHTML = 
-            '<span id="r1">' + (lang === 'fa' ? 'ضریب توان: ' + PF.toFixed(3) : 'Power Factor: ' + PF.toFixed(3)) + '</span><br>' +
-            '<span style="font-size:0.9rem;color:#8e95a5;" id="r2">' + (lang === 'fa' ? 'توان راکتیو: ' + Q.toFixed(1) + ' kVAr' : 'Reactive Power: ' + Q.toFixed(1) + ' kVAr') + '</span>';
-    }
+    const S = (V * I) / 1000; // kVA
+    const PF = P / S;
+    const Q = Math.sqrt(S * S - P * P); // kVAR
+    const theta = Math.acos(PF);
+    const thetaTarget = Math.acos(target);
+    const Qc = P * (Math.tan(theta) - Math.tan(thetaTarget));
 
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { 
-            setLang(this.dataset.lang); 
-            calcPowerFactor();
-        };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
-    calcPowerFactor();
+    document.getElementById('pfValue').textContent = PF.toFixed(3);
+    document.getElementById('sValue').textContent = S.toFixed(2);
+    document.getElementById('qValue').textContent = Q.toFixed(2);
+    document.getElementById('capValue').textContent = (Qc > 0 ? Qc.toFixed(2) : '۰ (نیاز به اصلاح نیست)');
+}
 </script>
 
 </body>
