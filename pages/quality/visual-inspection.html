@@ -3,15 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بازرسی بصری</title>
+    <title>Karatech ELV · بازرسی بصری</title>
     <style>
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
-        a{color:#d4af37}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:900px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:12px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}.brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:flex;align-items:center;gap:8px}
+        .back-link:hover{color:#fff}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:15px;display:flex;align-items:center;gap:12px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .table-wrap{overflow-x:auto;margin:15px 0}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px}
+        th,td{padding:10px 14px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        .note-box{background:#0d0e12;padding:15px;border-radius:12px;border-right:3px solid #d4af37;margin:15px 0}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;gap:12px}}
     </style>
 </head>
 <body>
-    <h1 style="color:#d4af37;">🔍 بازرسی بصری</h1>
-    <p>این صفحه برای تست بازرسی بصری است.</p>
-    <a href="inspection-testing.html">← بازگشت به بازرسی و تست</a>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+            <a href="inspection-testing.html" class="back-link" id="backLink">← بازگشت به بازرسی و تست</a>
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="fa">FA</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+    </div>
+
+    <h1 id="pageTitle">🔍 بازرسی بصری</h1>
+    <div class="sub" id="pageSub">بررسی قطعات، مجموعه‌ها و سطوح از نظر عیوب ظاهری، ترک‌ها، زنگ‌زدگی، تغییر شکل و سایر نقص‌های قابل مشاهده بدون استفاده از ابزارهای پیچیده.</div>
+
+    <!-- تعریف -->
+    <div class="section">
+        <h2 id="defTitle">📌 تعریف</h2>
+        <p id="defText">بازرسی بصری یکی از ابتدایی‌ترین و پرکاربردترین روش‌های کنترل کیفیت است که در آن قطعات و مجموعه‌ها با چشم غیرمسلح یا با کمک ابزارهای ساده مانند ذره‌بین، آینه و چراغ‌های مخصوص بررسی می‌شوند. این روش برای شناسایی عیوب سطحی، ترک‌ها، خوردگی، تغییر شکل، جوش‌های نامرغوب و سایر نقص‌های قابل مشاهده استفاده می‌شود.</p>
+    </div>
+
+    <!-- نحوه انجام -->
+    <div class="section">
+        <h2 id="howTitle">🛠️ نحوه انجام بازرسی بصری</h2>
+        <ul id="howList">
+            <li><strong>مرحله ۱:</strong> آماده‌سازی قطعه – تمیز کردن سطح از گرد و غبار، روغن و آلودگی‌ها</li>
+            <li><strong>مرحله ۲:</strong> انتخاب شرایط نوری مناسب – استفاده از نور کافی (طبیعی یا مصنوعی) برای مشاهده دقیق</li>
+            <li><strong>مرحله ۳:</strong> بررسی سطح قطعه از نظر عیوب ظاهری (ترک، فرورفتگی، برآمدگی، زنگ‌زدگی، تغییر رنگ)</li>
+            <li><strong>مرحله ۴:</strong> بررسی ابعاد و انطباق با نقشه (در صورت نیاز با ابزارهای ساده)</li>
+            <li><strong>مرحله ۵:</strong> ثبت نتایج در فرم بازرسی و مقایسه با استانداردهای مرجع</li>
+        </ul>
+    </div>
+
+    <!-- تجهیزات -->
+    <div class="section">
+        <h2 id="eqTitle">🔧 تجهیزات مورد نیاز</h2>
+        <ul id="eqList">
+            <li>چراغ قوه یا نورپردازی مناسب (LED، نور روز)</li>
+            <li>ذره‌بین یا لوپ (بزرگنمایی ۵ تا ۱۰ برابر)</li>
+            <li>آینه‌های بازرسی برای دسترسی به نقاط دور از دید</li>
+            <li>بورسکوپ یا دوربین فیبر نوری برای بازرسی داخلی</li>
+            <li>کیت تمیزکاری (الکل، پارچه بدون پرز، برس نرم)</li>
+            <li>قالب‌های مقایسه (برای تشخیص انحرافات سطحی)</li>
+        </ul>
+    </div>
+
+    <!-- جدول عیوب -->
+    <div class="section">
+        <h2 id="tableTitle">📊 عیوب قابل تشخیص در بازرسی بصری</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th id="th1">نوع عیب</th><th id="th2">شرح</th><th id="th3">روش تشخیص</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>ترک</td><td>شکستگی یا خطوط مویی روی سطح</td><td>مشاهده مستقیم یا با ذره‌بین</td></tr>
+                    <tr><td>زنگ‌زدگی</td><td>لکه‌های قهوه‌ای یا نارنجی روی فلزات</td><td>مشاهده مستقیم</td></tr>
+                    <tr><td>تغییر شکل</td><td>خمیدگی، پیچش یا انحراف از شکل اصلی</td><td>مقایسه با نمونه یا نقشه</td></tr>
+                    <tr><td>جوش نامرغوب</td><td>ناخالصی، تخلخل یا عدم نفوذ جوش</td><td>مشاهده سطح جوش</td></tr>
+                    <tr><td>خراش و فرورفتگی</td><td>خطوط یا گودی‌های سطحی</td><td>مشاهده با نور مایل</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- استانداردها -->
+    <div class="section">
+        <h2 id="stdTitle">📌 استانداردهای مرتبط</h2>
+        <ul id="stdList">
+            <li><strong>ISO 9001</strong> – کنترل کیفیت و مستندسازی بازرسی‌ها</li>
+            <li><strong>ASTM E125</strong> – راهنمای بازرسی بصری قطعات ریخته‌گری</li>
+            <li><strong>ASME B31.3</strong> – بازرسی بصری در سیستم‌های لوله‌کشی</li>
+            <li><strong>API 570</strong> – بازرسی بصری خطوط لوله</li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+(function() {
+    const langBtns = document.querySelectorAll('.lang-btn');
+    let currentLang = localStorage.getItem('karatech-lang') || 'fa';
+
+    const translations = {
+        fa: {
+            title: '🔍 بازرسی بصری',
+            sub: 'بررسی قطعات، مجموعه‌ها و سطوح از نظر عیوب ظاهری، ترک‌ها، زنگ‌زدگی، تغییر شکل و سایر نقص‌های قابل مشاهده بدون استفاده از ابزارهای پیچیده.',
+            defTitle: '📌 تعریف',
+            defText: 'بازرسی بصری یکی از ابتدایی‌ترین و پرکاربردترین روش‌های کنترل کیفیت است که در آن قطعات و مجموعه‌ها با چشم غیرمسلح یا با کمک ابزارهای ساده مانند ذره‌بین، آینه و چراغ‌های مخصوص بررسی می‌شوند. این روش برای شناسایی عیوب سطحی، ترک‌ها، خوردگی، تغییر شکل، جوش‌های نامرغوب و سایر نقص‌های قابل مشاهده استفاده می‌شود.',
+            howTitle: '🛠️ نحوه انجام بازرسی بصری',
+            howList: ['مرحله ۱: آماده‌سازی قطعه – تمیز کردن سطح از گرد و غبار، روغن و آلودگی‌ها','مرحله ۲: انتخاب شرایط نوری مناسب – استفاده از نور کافی (طبیعی یا مصنوعی) برای مشاهده دقیق','مرحله ۳: بررسی سطح قطعه از نظر عیوب ظاهری (ترک، فرورفتگی، برآمدگی، زنگ‌زدگی، تغییر رنگ)','مرحله ۴: بررسی ابعاد و انطباق با نقشه (در صورت نیاز با ابزارهای ساده)','مرحله ۵: ثبت نتایج در فرم بازرسی و مقایسه با استانداردهای مرجع'],
+            eqTitle: '🔧 تجهیزات مورد نیاز',
+            eqList: ['چراغ قوه یا نورپردازی مناسب (LED، نور روز)','ذره‌بین یا لوپ (بزرگنمایی ۵ تا ۱۰ برابر)','آینه‌های بازرسی برای دسترسی به نقاط دور از دید','بورسکوپ یا دوربین فیبر نوری برای بازرسی داخلی','کیت تمیزکاری (الکل، پارچه بدون پرز، برس نرم)','قالب‌های مقایسه (برای تشخیص انحرافات سطحی)'],
+            tableTitle: '📊 عیوب قابل تشخیص در بازرسی بصری',
+            th1: 'نوع عیب', th2: 'شرح', th3: 'روش تشخیص',
+            stdTitle: '📌 استانداردهای مرتبط',
+            stdList: ['ISO 9001 – کنترل کیفیت و مستندسازی بازرسی‌ها','ASTM E125 – راهنمای بازرسی بصری قطعات ریخته‌گری','ASME B31.3 – بازرسی بصری در سیستم‌های لوله‌کشی','API 570 – بازرسی بصری خطوط لوله'],
+            back: '← بازگشت به بازرسی و تست'
+        },
+        en: {
+            title: '🔍 Visual Inspection',
+            sub: 'Checking components, assemblies and surfaces for surface defects, cracks, rust, deformation and other visible defects without using complex tools.',
+            defTitle: '📌 Definition',
+            defText: 'Visual Inspection is one of the most basic and widely used quality control methods in which parts and assemblies are inspected with the naked eye or with simple tools such as magnifying glasses, mirrors and special lights. This method is used to identify surface defects, cracks, corrosion, deformation, poor welds and other visible defects.',
+            howTitle: '🛠️ How to Perform Visual Inspection',
+            howList: ['Step 1: Prepare the part – Clean the surface of dust, oil and contaminants','Step 2: Choose proper lighting – Use adequate light (natural or artificial) for accurate viewing','Step 3: Inspect the surface for visible defects (cracks, dents, bulges, rust, discoloration)','Step 4: Check dimensions and conformity with drawing (if needed with simple tools)','Step 5: Record results in inspection form and compare with reference standards'],
+            eqTitle: '🔧 Required Equipment',
+            eqList: ['Flashlight or proper lighting (LED, daylight)','Magnifying glass or loupe (5x to 10x magnification)','Inspection mirrors for hard-to-reach areas','Borescope or fiber optic camera for internal inspection','Cleaning kit (alcohol, lint-free cloth, soft brush)','Comparison templates (for detecting surface deviations)'],
+            tableTitle: '📊 Defects Detectable in Visual Inspection',
+            th1: 'Defect Type', th2: 'Description', th3: 'Detection Method',
+            stdTitle: '📌 Related Standards',
+            stdList: ['ISO 9001 – Quality control and inspection documentation','ASTM E125 – Guide for visual inspection of castings','ASME B31.3 – Visual inspection in piping systems','API 570 – Visual inspection of pipelines'],
+            back: '← Back to Inspection & Testing'
+        }
+    };
+
+    function updateContent(lang) {
+        const t = translations[lang];
+        if (!t) return;
+
+        document.getElementById('pageTitle').textContent = t.title;
+        document.getElementById('pageSub').textContent = t.sub;
+        document.getElementById('defTitle').textContent = t.defTitle;
+        document.getElementById('defText').textContent = t.defText;
+        document.getElementById('howTitle').textContent = t.howTitle;
+        document.getElementById('eqTitle').textContent = t.eqTitle;
+        document.getElementById('tableTitle').textContent = t.tableTitle;
+        document.getElementById('stdTitle').textContent = t.stdTitle;
+        document.getElementById('backLink').textContent = t.back;
+
+        document.getElementById('th1').textContent = t.th1;
+        document.getElementById('th2').textContent = t.th2;
+        document.getElementById('th3').textContent = t.th3;
+
+        const howList = document.getElementById('howList');
+        howList.innerHTML = '';
+        t.howList.forEach(item => { const li = document.createElement('li'); li.innerHTML = item; howList.appendChild(li); });
+
+        const eqList = document.getElementById('eqList');
+        eqList.innerHTML = '';
+        t.eqList.forEach(item => { const li = document.createElement('li'); li.innerHTML = item; eqList.appendChild(li); });
+
+        const stdList = document.getElementById('stdList');
+        stdList.innerHTML = '';
+        t.stdList.forEach(item => { const li = document.createElement('li'); li.innerHTML = item; stdList.appendChild(li); });
+
+        document.body.classList.toggle('lang-persian', lang === 'fa');
+        localStorage.setItem('karatech-lang', lang);
+        langBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+    }
+
+    updateContent(currentLang);
+
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            updateContent(this.dataset.lang);
+        });
+    });
+})();
+</script>
+
 </body>
 </html>
