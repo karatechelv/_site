@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طراحی تابلو</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
+        .container{max-width:1000px;margin:0 auto}
+        h1{color:#d4af37;margin-bottom:10px}
+        .sub{color:#8e95a5;margin-bottom:25px;font-size:1rem;line-height:1.8}
+        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;margin-bottom:12px;font-size:1.3rem}
+        .section p{color:#b0b8c5;line-height:1.8}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:inline-block;margin-top:30px}
+        .back-link:hover{color:#fff}
+        .calc-box{background:#0d0e12;padding:20px;border-radius:12px;border:1px solid rgba(212,175,55,0.15);margin-top:15px}
+        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
+        .calc-box input{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
+        .calc-box input:focus{outline:1px solid #d4af37}
+        .calc-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
+        .btn-calc:hover{background:#d4af37;color:#111}
+        .result-box{background:#0d0e12;padding:15px;border-radius:12px;border-left:3px solid #d4af37;margin-top:15px}
+        .result-box span{color:#d4af37;font-weight:700}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px;margin-top:10px}
+        th,td{padding:10px 14px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        @media(max-width:600px){.calc-row{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <h1>📦 طراحی تابلوهای برق</h1>
+    <div class="sub">اصول طراحی، چیدمان و انتخاب اجزای تابلوهای فشار ضعیف و متوسط.</div>
+
+    <div class="section">
+        <h2>🔹 اجزای اصلی تابلو</h2>
+        <ul>
+            <li><strong>کلید اصلی (Main Switch)</strong> – قطع و وصل کل تغذیه</li>
+            <li><strong>کلیدهای مدار (Circuit Breakers)</strong> – حفاظت از مدارها</li>
+            <li><strong>کنتاکتورها (Contactors)</strong> – برای قطع و وصل بارهای بزرگ</li>
+            <li><strong>رله‌ها (Relays)</strong> – کنترل و حفاظت</li>
+            <li><strong>ترمینال‌ها (Terminal Blocks)</strong> – اتصال سیم‌ها</li>
+            <li><strong>PLC یا کنترل‌کننده</strong> – برای اتوماسیون</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📊 رنج تجهیزات استاندارد</h2>
+        <table>
+            <tr><th>تجهیزات</th><th>رنج استاندارد</th></tr>
+            <tr><td>کلید مینیاتوری (MCB)</td><td>تا 125 A</td></tr>
+            <tr><td>کلید قالبی (MCCB)</td><td>تا 2500 A</td></tr>
+            <tr><td>کنتاکتور</td><td>تا 630 A</td></tr>
+        </table>
+    </div>
+
+    <div class="section calculator">
+        <h2>🧮 ماشین‌حساب بار تابلو</h2>
+        <div class="calc-box">
+            <div class="calc-row">
+                <div>
+                    <label>تعداد تجهیزات</label>
+                    <input type="number" id="deviceCount" value="10">
+                </div>
+                <div>
+                    <label>توان هر تجهیز (kW)</label>
+                    <input type="number" id="devicePower" value="5">
+                </div>
+                <div>
+                    <label>ضریب همزمانی</label>
+                    <input type="number" id="diversity" value="0.8" step="0.1" min="0" max="1">
+                </div>
+                <div>
+                    <label>ولتاژ (V)</label>
+                    <input type="number" id="voltage" value="400">
+                </div>
+            </div>
+            <button class="btn-calc" onclick="calculatePanel()">محاسبه</button>
+            <div class="result-box" id="result">
+                <p><span>کل توان (kW):</span> <span id="totalPower">--</span></p>
+                <p><span>جریان کل (A):</span> <span id="totalCurrent">--</span></p>
+                <p><span>کلید اصلی پیشنهادی:</span> <span id="mainSwitch">--</span> A</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="electrical-index.html" class="back-link">← بازگشت به مباحث برق</a>
+
+</div>
+
+<script>
+function calculatePanel() {
+    const n = parseFloat(document.getElementById('deviceCount').value);
+    const p = parseFloat(document.getElementById('devicePower').value);
+    const df = parseFloat(document.getElementById('diversity').value);
+    const V = parseFloat(document.getElementById('voltage').value);
+
+    if (isNaN(n) || isNaN(p) || isNaN(df) || isNaN(V) || n<=0 || p<=0 || df<=0 || V<=0) {
+        alert('لطفاً همه مقادیر را به‌درستی وارد کنید.');
+        return;
+    }
+
+    const total = n * p * df;
+    const I = (total * 1000) / (Math.sqrt(3) * V);
+    const mainSwitch = Math.ceil(I / 50) * 50;
+
+    document.getElementById('totalPower').textContent = total.toFixed(2);
+    document.getElementById('totalCurrent').textContent = I.toFixed(2);
+    document.getElementById('mainSwitch').textContent = mainSwitch;
+}
+</script>
+
+</body>
+</html>
