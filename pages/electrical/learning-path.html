@@ -1,63 +1,142 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مسیر یادگیری برق</title>
+    <title>Karatech ELV · Learning Path</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
         .container{max-width:1000px;margin:0 auto}
-        h1{color:#d4af37;margin-bottom:10px}
-        .sub{color:#8e95a5;margin-bottom:25px;font-size:1rem;line-height:1.8}
-        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;margin-bottom:12px;font-size:1.3rem}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
         .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:inline-block;margin-top:30px}
-        .back-link:hover{color:#fff}
-        @media(max-width:600px){.grid{grid-template-columns:1fr}}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
 <div class="container">
 
-    <h1>🗺️ مسیر یادگیری مهندسی برق</h1>
-    <div class="sub">از مبانی تا تخصص، مسیر یادگیری مهندسی برق را گام‌به‌گام طی کنید.</div>
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🗺️ Learning Path</h1>
+    <div class="sub" id="desc">A structured learning path for electrical engineering from fundamentals to advanced topics.</div>
 
     <div class="section">
-        <h2>🔹 سطح مقدماتی</h2>
-        <ul>
-            <li><strong>مبانی الکتریسیته</strong> – ولتاژ، جریان، مقاومت، توان</li>
-            <li><strong>مدارهای الکتریکی</strong> – تحلیل مدارهای AC/DC</li>
-            <li><strong>ماشین‌های الکتریکی</strong> – موتورها و ژنراتورها</li>
-            <li><strong>آشنایی با استانداردها</strong> – IEC، NEC، IEEE</li>
+        <h2 id="s1">🔹 Foundation</h2>
+        <ul id="list1">
+            <li>Basic electrical circuits (AC/DC)</li>
+            <li>Ohm's law and power calculations</li>
+            <li>Electrical safety fundamentals</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>🔹 سطح متوسط</h2>
-        <ul>
-            <li><strong>سیستم‌های قدرت</strong> – تولید، انتقال و توزیع</li>
-            <li><strong>حفاظت و هماهنگی</strong> – رله‌ها، کلیدها و فیوزها</li>
-            <li><strong>طراحی تابلوهای برق</strong> – اصول و استانداردها</li>
-            <li><strong>ارتینگ و زمین کردن</strong> – طراحی و اجرا</li>
+        <h2 id="s2">🔹 Intermediate</h2>
+        <ul id="list2">
+            <li>Power systems analysis</li>
+            <li>Transformer and motor selection</li>
+            <li>Protection and earthing design</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>🔹 سطح پیشرفته</h2>
-        <ul>
-            <li><strong>تحلیل سیستم‌های قدرت</strong> – بار، اتصال کوتاه، پایداری</li>
-            <li><strong>هماهنگی حفاظت پیشرفته</strong> – استفاده از نرم‌افزارها</li>
-            <li><strong>انرژی‌های تجدیدپذیر</strong> – خورشیدی، بادی، ذخیره‌سازی</li>
-            <li><strong>مدیریت پروژه‌های برق</strong> – برنامه‌ریزی و اجرا</li>
+        <h2 id="s3">🔹 Advanced</h2>
+        <ul id="list3">
+            <li>Smart grids and renewable energy</li>
+            <li>Power system protection coordination</li>
+            <li>Engineering project management</li>
         </ul>
     </div>
 
-    <a href="electrical-index.html" class="back-link">← بازگشت به مباحث برق</a>
+    <div class="back">
+        <a href="electrical-index.html" id="backlink">← Back</a>
+    </div>
 
 </div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🗺️ Learning Path',
+            desc: 'A structured learning path for electrical engineering from fundamentals to advanced topics.',
+            s1: '🔹 Foundation',
+            list1: ['Basic electrical circuits (AC/DC)','Ohm\'s law and power calculations','Electrical safety fundamentals'],
+            s2: '🔹 Intermediate',
+            list2: ['Power systems analysis','Transformer and motor selection','Protection and earthing design'],
+            s3: '🔹 Advanced',
+            list3: ['Smart grids and renewable energy','Power system protection coordination','Engineering project management'],
+            back: '← Back'
+        },
+        fa: {
+            title: '🗺️ مسیر یادگیری',
+            desc: 'یک مسیر یادگیری ساختاریافته برای مهندسی برق از مبانی تا موضوعات پیشرفته.',
+            s1: '🔹 مقدماتی',
+            list1: ['مدارهای الکتریکی پایه (AC/DC)','قانون اهم و محاسبات توان','مبانی ایمنی الکتریکی'],
+            s2: '🔹 متوسط',
+            list2: ['تحلیل سیستم‌های قدرت','انتخاب ترانسفورماتور و موتور','طراحی حفاظت و ارتینگ'],
+            s3: '🔹 پیشرفته',
+            list3: ['شبکه‌های هوشمند و انرژی تجدیدپذیر','هماهنگی حفاظت سیستم‌های قدرت','مدیریت پروژه مهندسی'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
 </body>
 </html>
