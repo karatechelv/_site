@@ -1,171 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Earthing Resistance</title>
+    <title>ارتینگ و زمین کردن</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
         .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        h1{color:#d4af37;margin-bottom:10px}
+        .sub{color:#8e95a5;margin-bottom:25px;font-size:1rem;line-height:1.8}
+        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;margin-bottom:12px;font-size:1.3rem}
+        .section p{color:#b0b8c5;line-height:1.8}
         .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
-        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
-        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
-        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
-        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
-        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
-        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
-        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:inline-block;margin-top:30px}
+        .back-link:hover{color:#fff}
+        .calc-box{background:#0d0e12;padding:20px;border-radius:12px;border:1px solid rgba(212,175,55,0.15);margin-top:15px}
+        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
+        .calc-box input{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
+        .calc-box input:focus{outline:1px solid #d4af37}
+        .calc-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
+        .btn-calc:hover{background:#d4af37;color:#111}
+        .result-box{background:#0d0e12;padding:15px;border-radius:12px;border-left:3px solid #d4af37;margin-top:15px}
+        .result-box span{color:#d4af37;font-weight:700}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px;margin-top:10px}
+        th,td{padding:10px 14px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        @media(max-width:600px){.calc-row{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
 <div class="container">
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">🌍 Earthing Resistance</h1>
-    <div class="sub" id="desc">Calculate earth resistance for different electrode types and soil resistivity.</div>
+    <h1>🌍 ارتینگ و زمین کردن</h1>
+    <div class="sub">اصول طراحی و اجرای سیستم‌های ارتینگ برای ایمنی، حفاظت و پایداری سیستم‌های الکتریکی.</div>
 
     <div class="section">
-        <h2 id="s1">What is Earthing Resistance?</h2>
-        <p id="s1p">Earthing resistance is the resistance between an earthing electrode and the earth. A low earthing resistance is essential for safety, equipment protection, and lightning protection.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🧮 Earthing Resistance Calculator</h2>
-        <div class="calc-box">
-            <label id="l1">Soil Resistivity (Ω·m)</label>
-            <input type="number" id="er-rho" value="100">
-            <label id="l2">Electrode Length (m)</label>
-            <input type="number" id="er-length" value="3">
-            <label id="l3">Electrode Diameter (m)</label>
-            <input type="number" id="er-diam" value="0.025">
-            <button class="calc-btn" onclick="calcEarthing()" id="btn-calc">Calculate</button>
-            <div class="result-box" id="er-result">
-                <span id="r1">Earth Resistance: 8.5 Ω</span>
-            </div>
-        </div>
-        <div class="code-box">R = (ρ / 2πL) × ln(4L/d)</div>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">Types of Earthing Electrodes</h2>
-        <ul id="list1">
-            <li>Rod Electrodes</li>
-            <li>Plate Electrodes</li>
-            <li>Mesh Electrodes</li>
-            <li>Chemical Electrodes</li>
+        <h2>🔹 انواع سیستم‌های ارتینگ</h2>
+        <ul>
+            <li><strong>سیستم TN</strong> – نول مستقیماً زمین شده</li>
+            <li><strong>سیستم TT</strong> – نول زمین شده و بدنه تجهیزات جداگانه زمین می‌شود</li>
+            <li><strong>سیستم IT</strong> – نول ایزوله یا با امپدانس بالا زمین شده</li>
+            <li><strong>ارت حفاظتی</strong> – برای حفاظت از تجهیزات</li>
+            <li><strong>ارت عملکردی</strong> – برای عملکرد صحیح تجهیزات حساس</li>
         </ul>
     </div>
 
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
+    <div class="section">
+        <h2>📊 مقاومت استاندارد زمین</h2>
+        <table>
+            <tr><th>نوع سیستم</th><th>مقاومت مجاز (Ω)</th></tr>
+            <tr><td>پست‌های فشار قوی</td><td>&lt; 1</td></tr>
+            <tr><td>پست‌های فشار متوسط</td><td>&lt; 5</td></tr>
+            <tr><td>تأسیسات صنعتی</td><td>&lt; 10</td></tr>
+            <tr><td>ساختمان‌های مسکونی</td><td>&lt; 20</td></tr>
+        </table>
     </div>
+
+    <div class="section calculator">
+        <h2>🧮 ماشین‌حساب مقاومت زمین</h2>
+        <div class="calc-box">
+            <div class="calc-row">
+                <div>
+                    <label>نوع خاک</label>
+                    <select id="soilType" style="width:100%; padding:10px; border-radius:8px; background:#0d0e12; border:1px solid #333; color:#fff; font-size:1rem;">
+                        <option value="100">خاک مرطوب (100 Ω·m)</option>
+                        <option value="300">خاک معمولی (300 Ω·m)</option>
+                        <option value="1000">خاک خشک (1000 Ω·m)</option>
+                        <option value="3000">خاک سنگی (3000 Ω·m)</option>
+                    </select>
+                </div>
+                <div>
+                    <label>طول الکترود (m)</label>
+                    <input type="number" id="length" value="3">
+                </div>
+                <div>
+                    <label>قطر الکترود (mm)</label>
+                    <input type="number" id="diameter" value="16">
+                </div>
+                <div>
+                    <label>تعداد الکترود</label>
+                    <input type="number" id="count" value="1">
+                </div>
+            </div>
+            <button class="btn-calc" onclick="calculateEarthing()">محاسبه</button>
+            <div class="result-box" id="result">
+                <p><span>مقاومت زمین:</span> <span id="resValue">--</span> Ω</p>
+                <p><span>وضعیت:</span> <span id="statusValue">--</span></p>
+            </div>
+        </div>
+    </div>
+
+    <a href="electrical-index.html" class="back-link">← بازگشت به مباحث برق</a>
 
 </div>
 
 <script>
-    const lang = {
-        en: {
-            title: '🌍 Earthing Resistance',
-            desc: 'Calculate earth resistance for different electrode types and soil resistivity.',
-            s1: 'What is Earthing Resistance?',
-            s1p: 'Earthing resistance is the resistance between an earthing electrode and the earth. A low earthing resistance is essential for safety, equipment protection, and lightning protection.',
-            s2: '🧮 Earthing Resistance Calculator',
-            l1: 'Soil Resistivity (Ω·m)', l2: 'Electrode Length (m)', l3: 'Electrode Diameter (m)',
-            btn: 'Calculate',
-            r1: 'Earth Resistance: 8.5 Ω',
-            s3: 'Types of Earthing Electrodes',
-            list1: ['Rod Electrodes', 'Plate Electrodes', 'Mesh Electrodes', 'Chemical Electrodes'],
-            back: '← Back'
-        },
-        fa: {
-            title: '🌍 مقاومت ارتینگ',
-            desc: 'محاسبه مقاومت زمین برای انواع الکترود و مقاومت ویژه خاک.',
-            s1: 'مقاومت ارتینگ چیست؟',
-            s1p: 'مقاومت ارتینگ مقاومت بین یک الکترود زمین و زمین است. مقاومت کم ارتینگ برای ایمنی، حفاظت تجهیزات و حفاظت در برابر صاعقه ضروری است.',
-            s2: '🧮 ماشین حساب مقاومت ارتینگ',
-            l1: 'مقاومت ویژه خاک (Ω·m)', l2: 'طول الکترود (m)', l3: 'قطر الکترود (m)',
-            btn: 'محاسبه',
-            r1: 'مقاومت ارتینگ: 8.5 اهم',
-            s3: 'انواع الکترودهای ارتینگ',
-            list1: ['الکترود میله‌ای', 'الکترود صفحه‌ای', 'الکترود مش', 'الکترود شیمیایی'],
-            back: '← بازگشت'
-        }
-    };
+function calculateEarthing() {
+    const rho = parseFloat(document.getElementById('soilType').value);
+    const L = parseFloat(document.getElementById('length').value);
+    const d = parseFloat(document.getElementById('diameter').value) / 1000;
+    const n = parseFloat(document.getElementById('count').value);
 
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('l1').textContent = t.l1;
-        document.getElementById('l2').textContent = t.l2;
-        document.getElementById('l3').textContent = t.l3;
-        document.getElementById('btn-calc').textContent = t.btn;
-        document.getElementById('r1').textContent = t.r1;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul = document.getElementById('list1');
-        ul.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
+    if (isNaN(rho) || isNaN(L) || isNaN(d) || isNaN(n) || L<=0 || d<=0 || n<=0) {
+        alert('لطفاً همه مقادیر را به‌درستی وارد کنید.');
+        return;
     }
 
-    function calcEarthing() {
-        var rho = parseFloat(document.getElementById('er-rho').value);
-        var L = parseFloat(document.getElementById('er-length').value);
-        var d = parseFloat(document.getElementById('er-diam').value);
-        var R = (rho / (2 * Math.PI * L)) * Math.log(4 * L / d);
-        var lang = document.querySelector('.lang-btn.active').dataset.lang;
-        document.getElementById('er-result').innerHTML = 
-            '<span id="r1">' + (lang === 'fa' ? 'مقاومت ارتینگ: ' + R.toFixed(2) + ' اهم' : 'Earth Resistance: ' + R.toFixed(2) + ' Ω') + '</span>';
-    }
+    // فرمول مقاومت یک الکترود قائم (Simplified Dwight formula)
+    const R = (rho / (2 * Math.PI * L)) * (Math.log(4 * L / d) - 1);
+    const Rtotal = R / n;
 
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { 
-            setLang(this.dataset.lang); 
-            calcEarthing();
-        };
-    });
+    let status = '✅ عالی';
+    if (Rtotal > 10) status = '⚠️ نیاز به بهبود (بیش از 10 Ω)';
+    if (Rtotal > 20) status = '❌ غیرقابل قبول (بیش از 20 Ω)';
 
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
-    calcEarthing();
+    document.getElementById('resValue').textContent = Rtotal.toFixed(2);
+    document.getElementById('statusValue').textContent = status;
+}
 </script>
 
 </body>
