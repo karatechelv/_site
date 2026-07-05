@@ -1,315 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Karatech ELV · Quality Control</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../../style.css">
-    <style>
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            min-height: 100vh;
+<!DOCTYPE HTML>
+<HTML LANG="EN">
+<HEAD>
+    <META CHARSET="UTF-8" />
+    <META NAME="VIEWPORT" CONTENT="WIDTH=DEVICE-WIDTH, INITIAL-SCALE=1.0"/>
+    <TITLE>KARATECH ELV · QUALITY CONTROL</TITLE>
+    <LINK REL="STYLESHEET" HREF="../../STYLE.CSS" />
+    <LINK REL="PRECONNECT" HREF="HTTPS://FONTS.GOOGLEAPIS.COM">
+    <LINK REL="PRECONNECT" HREF="HTTPS://FONTS.GSTATIC.COM" CROSSORIGIN>
+    <LINK HREF="HTTPS://FONTS.GOOGLEAPIS.COM/CSS2?FAMILY=INTER:OPSZ,WGHT@14..32,400;14..32,500;14..32,600;14..32,700&DISPLAY=SWAP" REL="STYLESHEET">
+    <LINK REL="STYLESHEET" HREF="HTTPS://CDNJS.CLOUDFLARE.COM/AJAX/LIBS/FONT-AWESOME/6.5.0/CSS/ALL.MIN.CSS">
+    <STYLE>
+        BODY.PAGE-QUALITY .DASHBOARD {
+            BACKGROUND: 
+                LINEAR-GRADIENT(RGBA(13,14,18,0.80), RGBA(13,14,18,0.88)),
+                URL('HTTPS://IMAGES.UNSPLASH.COM/PHOTO-1581092335872-4F5B7B8C8C9F?W=1600&Q=80');
+            BACKGROUND-SIZE: COVER;
+            BACKGROUND-POSITION: CENTER;
+            BACKGROUND-ATTACHMENT: FIXED;
         }
-        .quality-page {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        BODY.PAGE-QUALITY .CARD-ACADEMY {
+            BACKDROP-FILTER: BLUR(6PX);
+            BACKGROUND: RGBA(26, 29, 36, 0.85);
+            BORDER: 1PX SOLID RGBA(212, 175, 55, 0.08);
         }
-        .quality-page h1 {
-            font-size: 2.5rem;
-            color: var(--accent);
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 8px;
+        BODY.PAGE-QUALITY .CARD-ACADEMY:HOVER {
+            BACKGROUND: RGBA(37, 42, 52, 0.92);
+            BORDER-COLOR: VAR(--ACCENT);
         }
-        .quality-page .subtitle {
-            color: var(--muted);
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            border-left: 3px solid var(--accent);
-            padding-left: 16px;
-        }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link:hover {
-            color: #fff;
-        }
-        .accordion {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .accordion-item {
-            background: var(--card);
-            border-radius: 16px;
-            border: 1px solid rgba(212, 175, 55, 0.08);
-            overflow: hidden;
-            transition: 0.3s;
-        }
-        .accordion-item:hover {
-            border-color: var(--accent);
-        }
-        .accordion-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 24px;
-            cursor: pointer;
-            transition: 0.2s;
-            user-select: none;
-        }
-        .accordion-header:hover {
-            background: rgba(255, 255, 255, 0.03);
-        }
-        .accordion-header .icon {
-            font-size: 1.6rem;
-            color: var(--accent);
-            margin-right: 14px;
-        }
-        .accordion-header .title {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: #fff;
-            flex: 1;
-        }
-        .accordion-header .arrow {
-            color: var(--accent);
-            transition: transform 0.3s;
-            font-size: 1.2rem;
-        }
-        .accordion-item.open .accordion-header .arrow {
-            transform: rotate(180deg);
-        }
-        .accordion-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.3s ease;
-            padding: 0 24px;
-            color: var(--muted);
-            line-height: 1.7;
-        }
-        .accordion-item.open .accordion-body {
-            max-height: 300px;
-            padding: 0 24px 20px 24px;
-        }
-        .accordion-body ul {
-            list-style: none;
-            padding: 0;
-        }
-        .accordion-body ul li {
-            padding: 4px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .accordion-body ul li::before {
-            content: "▸";
-            color: var(--accent);
-            font-weight: 700;
-        }
-        .footer {
-            margin-top: 50px;
-            padding: 20px 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 12px;
-            color: var(--muted);
-            font-size: 0.85rem;
-        }
-        .footer a { color: var(--accent); text-decoration: none; }
-        .footer a:hover { text-decoration: underline; }
-        .footer i { margin-right: 8px; }
-        .lang-persian .quality-page .subtitle {
-            border-left: none;
-            border-right: 3px solid var(--accent);
-            padding-left: 0;
-            padding-right: 16px;
-        }
-        .lang-persian .accordion-header .icon {
-            margin-right: 0;
-            margin-left: 14px;
-        }
-        @media (max-width: 768px) {
-            .quality-page h1 { font-size: 1.8rem; }
-            .accordion-header { padding: 14px 16px; }
-            .accordion-body { padding: 0 16px; }
-            .accordion-item.open .accordion-body { padding: 0 16px 16px 16px; }
-        }
-        @media (max-width: 480px) {
-            .quality-page h1 { font-size: 1.4rem; }
-            .quality-page .subtitle { font-size: 0.9rem; }
-        }
-    </style>
-</head>
-<body>
-
-<div class="quality-page">
-    <a href="../../index.html" class="back-link" onclick="localStorage.setItem('dashboardActive', 'true')">
-        <i class="fas fa-arrow-left"></i> Back to Dashboard
-    </a>
-
-    <h1><i class="fas fa-check-double"></i> Quality Control</h1>
-    <div class="subtitle">Inspection, testing, ISO standards, and continuous improvement for engineering excellence.</div>
-
-    <div class="accordion">
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span class="icon"><i class="fas fa-clipboard-list"></i></span>
-                <span class="title">Inspection & Testing</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <ul>
-                    <li>Visual inspection of components</li>
-                    <li>Dimensional measurement</li>
-                    <li>Electrical testing</li>
-                    <li>Functional testing</li>
-                </ul>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span class="icon"><i class="fas fa-chart-bar"></i></span>
-                <span class="title">SPC - Statistical Process Control</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <ul>
-                    <li>Control charts</li>
-                    <li>Process capability</li>
-                    <li>Variation analysis</li>
-                    <li>Pareto analysis</li>
-                </ul>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span class="icon"><i class="fas fa-certificate"></i></span>
-                <span class="title">ISO 9001:2015</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <ul>
-                    <li>QMS requirements</li>
-                    <li>Documentation</li>
-                    <li>Internal audit</li>
-                    <li>Certification process</li>
-                </ul>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span class="icon"><i class="fas fa-search"></i></span>
-                <span class="title">7 QC Tools</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <ul>
-                    <li>Pareto Chart</li>
-                    <li>Fishbone Diagram</li>
-                    <li>Check Sheets</li>
-                    <li>Histograms</li>
-                    <li>Control Charts</li>
-                    <li>Scatter Diagrams</li>
-                    <li>Flowcharts</li>
-                </ul>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span class="icon"><i class="fas fa-flag-checkered"></i></span>
-                <span class="title">Six Sigma</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <ul>
-                    <li>DMAIC methodology</li>
-                    <li>Defect reduction</li>
-                    <li>3.4 DPMO</li>
-                    <li>Six Sigma Belts</li>
-                </ul>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span class="icon"><i class="fas fa-users-cog"></i></span>
-                <span class="title">Quality Audits</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <ul>
-                    <li>Internal audits</li>
-                    <li>External audits</li>
-                    <li>Audit planning</li>
-                    <li>Corrective action</li>
-                </ul>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span class="icon"><i class="fas fa-microscope"></i></span>
-                <span class="title">NDT - Non-Destructive Testing</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <ul>
-                    <li>Ultrasonic testing</li>
-                    <li>Radiography (X-ray)</li>
-                    <li>Dye penetrant</li>
-                    <li>Magnetic particle</li>
-                </ul>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span class="icon"><i class="fas fa-file-signature"></i></span>
-                <span class="title">Quality Documentation</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-body">
-                <ul>
-                    <li>Quality manuals</li>
-                    <li>Procedures</li>
-                    <li>Work instructions</li>
-                    <li>Inspection records</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <div><i class="fas fa-envelope"></i> <a href="mailto:karatechelv@gmail.com">karatechelv@gmail.com</a></div>
-        <div><i class="fas fa-phone"></i> <a href="tel:+989120891544">+98 912 089 1544</a></div>
-        <div><i class="fab fa-linkedin"></i> <a href="#">/karatechelv</a></div>
-        <div><i class="fab fa-github"></i> <a href="#">/karatechelv</a></div>
-        <div>© 2026 KARATECH ELV</div>
-    </footer>
-</div>
-
-<script>
-function toggleAccordion(header) {
-    const item = header.closest('.accordion-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('open'));
-    if (!isOpen) {
-        item.classList.add('open');
-    }
-}
-</script>
-
-</body>
-</html>
+    </STYLE>
+</HEAD>
+<BODY CLASS="PAGE-QUALITY">
+    <H1 STYLE="TEXT-ALIGN:CENTER; MARGIN-TOP:50PX; FONT-SIZE:2REM; COLOR:VAR(--ACCENT);">
+        <I CLASS="FAS FA-CHECK-DOUBLE"></I> QUALITY CONTROL
+    </H1>
+    <P STYLE="TEXT-ALIGN:CENTER; COLOR:VAR(--MUTED); MARGIN-TOP:10PX;">
+        INSPECTION, TESTING, ISO STANDARDS, AND CONTINUOUS IMPROVEMENT.
+    </P>
+    <DIV STYLE="TEXT-ALIGN:CENTER; MARGIN-TOP:30PX;">
+        <A HREF="../../INDEX.HTML" STYLE="COLOR:VAR(--ACCENT); TEXT-DECORATION:NONE;">
+            <I CLASS="FAS FA-ARROW-LEFT"></I> BACK TO DASHBOARD
+        </A>
+    </DIV>
+</BODY>
+</HTML>
