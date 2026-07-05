@@ -19,30 +19,15 @@
         .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
         .lang-btn:hover{background:var(--primary);color:#fff}
         .lang-switch{display:flex;gap:6px}
-        
-        /* ===== SPLASH با عکس لوگو ===== */
         .splash{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh;text-align:center;padding:20px;background:radial-gradient(ellipse at 30% 20%,#2a1a44,#0a0b0f 80%);position:relative}
         .splash::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L50 10 L50 50 L10 50 Z' stroke='%235b3b8c' stroke-width='.4' fill='none' opacity='.15'/%3E%3Ccircle cx='30' cy='30' r='12' stroke='%23d4af37' stroke-width='.3' fill='none' opacity='.12'/%3E%3C/svg%3E");background-size:60px 60px;opacity:.5}
         .splash>*{position:relative;z-index:2}
-        
-        /* استایل عکس لوگو */
-        .splash-logo-img {
-            margin-bottom: 10px;
-        }
-        .splash-logo-img img {
-            max-width: 220px;
-            height: auto;
-            filter: drop-shadow(0 0 40px rgba(212,175,55,0.2));
-            transition: transform 0.4s ease;
-        }
-        .splash-logo-img img:hover {
-            transform: scale(1.05);
-        }
-        
+        .splash-logo-img{margin-bottom:10px}
+        .splash-logo-img img{max-width:220px;height:auto;filter:drop-shadow(0 0 40px rgba(212,175,55,0.2));transition:transform 0.4s ease}
+        .splash-logo-img img:hover{transform:scale(1.05)}
         .splash-sub{color:var(--muted);font-size:1.1rem;margin:10px 0 28px;letter-spacing:2px;font-weight:300}
         .splash-btn{background:var(--primary);border:1px solid var(--accent);color:#fff;padding:14px 44px;border-radius:60px;font-weight:600;font-size:1rem;cursor:pointer;transition:.25s;box-shadow:0 0 30px rgba(91,59,140,.3)}
         .splash-btn:hover{background:var(--accent);color:#111;transform:scale(1.03);box-shadow:0 0 50px rgba(212,175,55,.25)}
-        
         .dashboard{display:none;padding:24px 32px 50px;max-width:1400px;margin:0 auto}
         .dashboard.active{display:block}
         .splash.hidden{display:none}
@@ -76,12 +61,17 @@
         .wf-step:nth-child(12){animation-delay:0.60s}
         .wf-step:nth-child(13){animation-delay:0.65s}
         .wf-step:nth-child(14){animation-delay:0.70s}
+        
+        /* ===== TOOLS - شناور ===== */
         .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin:16px 0}
         .tool-badge{background:var(--card);padding:12px 8px;border-radius:30px;text-align:center;font-size:.82rem;border:1px solid rgba(255,255,255,.03);transition:.2s}
         .tool-badge i{color:var(--accent)}
         .tool-badge:hover{background:#2a2f3a}
+        
+        /* ===== SOFTWARE - شناور ===== */
         .soft-list{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
-        .soft-item{background:var(--card);padding:8px 18px;border-radius:30px;border-left:2px solid var(--accent);font-size:.9rem}
+        .soft-item{background:var(--card);padding:8px 18px;border-radius:30px;border-left:2px solid var(--accent);font-size:.9rem;white-space:nowrap}
+        
         .flex-row{display:flex;flex-wrap:wrap;gap:28px;margin:24px 0}
         .flex-col{flex:1;min-width:180px}
         .flex-col h3{margin-bottom:8px;font-size:1.1rem}
@@ -100,8 +90,23 @@
         .footer{margin-top:50px;padding:24px 16px;border-top:1px solid rgba(255,255,255,.05);display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;color:var(--muted);font-size:.85rem}
         .footer i{margin-right:8px}
         .lang-persian{direction:rtl}
-        @media(max-width:768px){.header{padding:12px 18px}.grid-4{grid-template-columns:1fr 1fr}.splash-logo-img img{max-width:160px}.splash-btn{padding:12px 32px;font-size:.9rem}}
-        @media(max-width:480px){.grid-4{grid-template-columns:1fr}}
+        
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:768px){
+            .header{padding:12px 18px}
+            .grid-4{grid-template-columns:1fr 1fr}
+            .splash-logo-img img{max-width:160px}
+            .splash-btn{padding:12px 32px;font-size:.9rem}
+            .tools-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+            .soft-item{font-size:.8rem;padding:6px 14px}
+            .contact-grid{grid-template-columns:1fr 1fr}
+        }
+        @media(max-width:480px){
+            .grid-4{grid-template-columns:1fr}
+            .tools-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px}
+            .soft-item{font-size:.7rem;padding:5px 12px}
+            .contact-grid{grid-template-columns:1fr}
+        }
     </style>
 </head>
 <body>
@@ -115,7 +120,7 @@
     </div>
 </header>
 
-<!-- ===== SPLASH (با عکس لوگو) ===== -->
+<!-- ===== SPLASH ===== -->
 <section class="splash" id="splash">
     <div class="splash-logo-img">
         <img src="assets/images/logo.png" alt="Karatech ELV Logo">
