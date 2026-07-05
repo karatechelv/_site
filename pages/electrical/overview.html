@@ -1,111 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Overview</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرور کلی برق</title>
     <style>
-        body{background:#0d0e12;color:#fff;font-family:sans-serif;padding:40px}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-switch{display:flex;gap:6px}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
+        .container{max-width:900px;margin:0 auto}
+        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:inline-block;margin-top:20px}
+        .back-link:hover{color:#fff}
         h1{color:#d4af37}
-        .content{background:#1e2128;padding:20px;border-radius:12px;margin-top:20px}
-        .back{margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
+        .section{background:#1e2128;padding:20px;border-radius:16px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37}
+        .section p{color:#b0b8c5;line-height:1.8}
     </style>
 </head>
 <body>
+<div class="container">
 
-<div style="max-width:1000px;margin:0 auto;">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
+    <h1>📘 مرور کلی مهندسی برق</h1>
+    <div class="section">
+        <h2>تعریف</h2>
+        <p>مهندسی برق شاخه‌ای از مهندسی است که به مطالعه و کاربرد الکتریسیته، الکترونیک و الکترومغناطیس می‌پردازد.</p>
     </div>
 
-    <h1 id="title">📘 Overview of Electrical Engineering</h1>
-    <p id="desc" style="color:#8e95a5;">A comprehensive overview of electrical engineering, covering key concepts, applications, and career paths.</p>
-
-    <div class="content">
-        <h2 id="s1" style="color:#d4af37;">What is Electrical Engineering?</h2>
-        <p id="s1p" style="color:#b0b8c5;">Electrical engineering is a professional engineering discipline that deals with the study and application of electricity, electronics, and electromagnetism.</p>
-    </div>
-
-    <div class="content">
-        <h2 id="s2" style="color:#d4af37;">Key Areas</h2>
-        <ul id="list1" style="color:#b0b8c5;list-style:none;padding:0;">
-            <li>▸ Power Generation & Transmission</li>
-            <li>▸ Control Systems & Automation</li>
-            <li>▸ Electronics & Signal Processing</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
+    <a href="electrical-index.html" class="back-link">← بازگشت به مباحث برق</a>
 
 </div>
-
-<script>
-    const lang = {
-        en: {
-            title: '📘 Overview of Electrical Engineering',
-            desc: 'A comprehensive overview of electrical engineering, covering key concepts, applications, and career paths.',
-            s1: 'What is Electrical Engineering?',
-            s1p: 'Electrical engineering is a professional engineering discipline that deals with the study and application of electricity, electronics, and electromagnetism.',
-            s2: 'Key Areas',
-            list: ['Power Generation & Transmission', 'Control Systems & Automation', 'Electronics & Signal Processing'],
-            back: '← Back'
-        },
-        fa: {
-            title: '📘 مرور کلی مهندسی برق',
-            desc: 'مرور جامع مهندسی برق، شامل مفاهیم کلیدی، کاربردها و مسیرهای شغلی.',
-            s1: 'مهندسی برق چیست؟',
-            s1p: 'مهندسی برق یک رشته مهندسی حرفه‌ای است که به مطالعه و کاربرد برق، الکترونیک و الکترومغناطیس می‌پردازد.',
-            s2: 'حوزه‌های کلیدی',
-            list: ['تولید و انتقال برق', 'سیستم‌های کنترل و اتوماسیون', 'الکترونیک و پردازش سیگنال'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul = document.getElementById('list1');
-        ul.innerHTML = '';
-        t.list.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = '▸ ' + item;
-            ul.appendChild(li);
-        });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() {
-            setLang(this.dataset.lang);
-        };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
-</script>
-
 </body>
 </html>
