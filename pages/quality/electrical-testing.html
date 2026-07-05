@@ -1,17 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تست الکتریکی</title>
     <style>
+        *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
-        a{color:#d4af37}
-        h1{color:#d4af37}
+        .container{max-width:1000px;margin:0 auto}
+        .back-link{color:#d4af37;text-decoration:none;font-weight:600}
+        .back-link:hover{color:#fff}
+        h1{color:#d4af37;margin-bottom:10px}
+        .sub{color:#8e95a5;margin-bottom:25px;font-size:1rem;line-height:1.8}
+        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;margin-bottom:12px;font-size:1.3rem}
+        .section p{color:#b0b8c5;line-height:1.8}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px;margin-top:10px}
+        th,td{padding:10px 14px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        .note-box{background:#0d0e12;padding:15px;border-radius:12px;border-right:3px solid #d4af37;margin-top:10px;color:#b0b8c5;line-height:1.8}
     </style>
 </head>
 <body>
+<div class="container">
+
+    <a href="inspection-testing.html" class="back-link">← بازگشت به بازرسی و تست</a>
+
     <h1>⚡ تست الکتریکی</h1>
-    <p>این صفحه برای تست الکتریکی است.</p>
-    <a href="inspection-testing.html">← بازگشت</a>
+    <div class="sub">انجام تست‌های الکتریکی شامل تست پیوستگی، مقاومت عایق، تست ولتاژ بالا (Hi-Pot) و سایر تست‌های مربوط به تجهیزات الکتریکی.</div>
+
+    <div class="section">
+        <h2>📌 تعریف</h2>
+        <p>تست الکتریکی شامل مجموعه‌ای از آزمایش‌ها بر روی تجهیزات الکتریکی برای اطمینان از عملکرد صحیح، ایمنی و انطباق با استانداردها است. این تست‌ها شامل اندازه‌گیری مقاومت، ولتاژ، جریان، عایق‌بندی و سایر پارامترهای الکتریکی می‌شود.</p>
+    </div>
+
+    <div class="section">
+        <h2>🔬 انواع تست الکتریکی</h2>
+        <ul>
+            <li><strong>تست پیوستگی (Continuity Test)</strong> – بررسی اتصال صحیح مدار و عدم وجود قطعی</li>
+            <li><strong>تست مقاومت عایق (Insulation Resistance Test)</strong> – اندازه‌گیری مقاومت عایق با مگااهم‌متر</li>
+            <li><strong>تست ولتاژ بالا (Hi-Pot Test)</strong> – اعمال ولتاژ بالا برای بررسی عایق‌بندی</li>
+            <li><strong>تست زمین (Grounding Test)</strong> – اندازه‌گیری مقاومت ارت</li>
+            <li><strong>تست عملکرد (Functional Test)</strong> – بررسی عملکرد مدار تحت بار</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📊 مقادیر استاندارد</h2>
+        <table>
+            <tr><th>تست</th><th>مقدار مجاز</th><th>ابزار</th></tr>
+            <tr><td>مقاومت عایق</td><td>&gt; 1 MΩ</td><td>مگااهم‌متر</td></tr>
+            <tr><td>مقاومت ارت</td><td>&lt; 10 Ω</td><td>ارت‌متر</td></tr>
+            <tr><td>ولتاژ Hi-Pot</td><td>2×Vnom + 1000V</td><td>Hi-Pot Tester</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>📌 استانداردهای مرتبط</h2>
+        <ul>
+            <li><strong>IEC 60364</strong> – تأسیسات الکتریکی</li>
+            <li><strong>IEC 61557</strong> – تجهیزات تست الکتریکی</li>
+            <li><strong>IEEE 1584</strong> – ایمنی قوس الکتریکی</li>
+            <li><strong>NFPA 70E</strong> – ایمنی برق در محل کار</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>💡 نکات ایمنی</h2>
+        <div class="note-box">
+            ✔️ قبل از انجام تست، تجهیزات را از برق جدا کنید.<br>
+            ✔️ از تجهیزات حفاظت فردی (PPE) مناسب استفاده کنید.<br>
+            ✔️ برای تست‌های ولتاژ بالا، منطقه ایمن تعیین کنید.<br>
+            ✔️ تمامی تست‌ها باید توسط پرسنل آموزش‌دیده انجام شود.
+        </div>
+    </div>
+
+</div>
 </body>
 </html>
