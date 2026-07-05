@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مثال‌های مهندسی برق</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
+        .container{max-width:1000px;margin:0 auto}
+        h1{color:#d4af37;margin-bottom:10px}
+        .sub{color:#8e95a5;margin-bottom:25px;font-size:1rem;line-height:1.8}
+        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;margin-bottom:12px;font-size:1.3rem}
+        .section p{color:#b0b8c5;line-height:1.8}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:inline-block;margin-top:30px}
+        .back-link:hover{color:#fff}
+        .example-box{background:#0d0e12;padding:20px;border-radius:12px;border-right:3px solid #d4af37;margin-top:15px}
+        .example-box h3{color:#d4af37;margin-bottom:10px}
+        .example-box p{color:#b0b8c5;line-height:1.8}
+        @media(max-width:600px){.calc-row{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <h1>📝 مثال‌های مهندسی برق</h1>
+    <div class="sub">پروژه‌ها و مثال‌های عملی برای درک بهتر مفاهیم مهندسی برق.</div>
+
+    <div class="section">
+        <h2>🔹 مثال ۱: طراحی تابلو فشار ضعیف</h2>
+        <div class="example-box">
+            <h3>📋 شرح پروژه</h3>
+            <p>طراحی یک تابلو برای تأمین تغذیه یک کارگاه صنعتی با ۱۰ دستگاه موتور سه‌فاز ۵ کیلوواتی. شامل انتخاب کلیدها، کنتاکتورها و رله‌ها با رعایت استانداردهای IEC 61439.</p>
+            <h3>🔧 مراحل انجام</h3>
+            <ul>
+                <li>محاسبه جریان کل بار</li>
+                <li>انتخاب کلید اصلی و کلیدهای انشعاب</li>
+                <li>انتخاب کنتاکتور و رله اضافه بار</li>
+                <li>چیدمان اجزاء در تابلو</li>
+                <li>تهیه شماتیک و نقشه چیدمان</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🔹 مثال ۲: محاسبه سایز کابل</h2>
+        <div class="example-box">
+            <h3>📋 شرح پروژه</h3>
+            <p>انتخاب سطح مقطع کابل برای یک موتور ۴۵ کیلووات با فاصله ۱۰۰ متر از تابلو، با در نظر گرفتن افت ولتاژ ۳٪ و دمای محیط ۳۵ درجه سانتی‌گراد.</p>
+            <h3>🔧 مراحل انجام</h3>
+            <ul>
+                <li>محاسبه جریان نامی موتور</li>
+                <li>انتخاب سطح مقطع اولیه از جداول</li>
+                <li>بررسی افت ولتاژ</li>
+                <li>بررسی دمایی و ضریب تصحیح</li>
+                <li>انتخاب نهایی کابل</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🔹 مثال ۳: هماهنگی حفاظت</h2>
+        <div class="example-box">
+            <h3>📋 شرح پروژه</h3>
+            <p>تنظیم رله‌های حفاظتی برای یک فیدر فشار متوسط با استفاده از منحنی‌های زمان-جریان و رعایت استانداردهای IEC 60255.</p>
+            <h3>🔧 مراحل انجام</h3>
+            <ul>
+                <li>محاسبه جریان اتصال کوتاه</li>
+                <li>انتخاب رله مناسب</li>
+                <li>تنظیم جریان pick-up و TMS</li>
+                <li>بررسی هماهنگی با رله‌های پایین‌دست</li>
+                <li>تهیه منحنی TCC</li>
+            </ul>
+        </div>
+    </div>
+
+    <a href="electrical-index.html" class="back-link">← بازگشت به مباحث برق</a>
+
+</div>
+</body>
+</html>
