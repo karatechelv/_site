@@ -121,6 +121,11 @@ body {
     padding: 20px;
     background: radial-gradient(ellipse at 30% 20%, #2a1a44, #0a0b0f 80%);
 }
+.splash-logo-img img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 12px;
+}
 .splash-sub {
     color: var(--muted);
     font-size: 1.1rem;
@@ -279,18 +284,34 @@ body {
 
 /* ===== RTL ===== */
 .lang-persian { direction: rtl; }
-.lang-persian .card-academy { border-left: none; border-right: 4px solid var(--accent); }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .header { padding: 10px 16px; flex-direction: column; align-items: stretch; }
     .grid-4 { grid-template-columns: 1fr 1fr; }
+    .splash-logo-img img { max-width: 150px; }
     .tools-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
 }
 @media (max-width: 480px) {
     .grid-4 { grid-template-columns: 1fr; }
     .tools-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
-    .datetime-widget { min-width: 80px; padding: 2px 10px; }
-    .date-display { font-size: 0.55rem; }
-    .time-display { font-size: 0.8rem; }
+}
+
+/* ===== پس‌زمینه Quality ===== */
+body.page-quality .dashboard {
+    background: 
+        linear-gradient(rgba(13,14,18,0.80), rgba(13,14,18,0.88)),
+        url('https://images.unsplash.com/photo-1581092335872-4f5b7b8c8c9f?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+body.page-quality .card-academy {
+    backdrop-filter: blur(6px);
+    background: rgba(26, 29, 36, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.08);
+}
+body.page-quality .card-academy:hover {
+    background: rgba(37, 42, 52, 0.92);
+    border-color: var(--accent);
 }
