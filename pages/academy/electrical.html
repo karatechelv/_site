@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مهندسی برق</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
         .container{max-width:1000px;margin:0 auto}
         .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:12px}
         .brand{font-weight:700;font-size:1.5rem;color:#fff}.brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
         h1{color:#d4af37;margin-bottom:10px}
         .sub{color:#8e95a5;margin-bottom:25px}
         .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -28,21 +37,61 @@
 
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="fa">FA</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
     </div>
 
-    <h1>⚡ مهندسی برق</h1>
-    <div class="sub">طراحی، محاسبات و استانداردهای سیستم‌های قدرت، حفاظت، ارتینگ و تابلوهای برق.</div>
+    <h1 data-en="⚡ Electrical Engineering" data-fa="⚡ مهندسی برق">⚡ مهندسی برق</h1>
+    <div class="sub" data-en="Design, calculations and standards of power systems, protection, earthing and switchgear." data-fa="طراحی، محاسبات و استانداردهای سیستم‌های قدرت، حفاظت، ارتینگ و تابلوهای برق.">طراحی، محاسبات و استانداردهای سیستم‌های قدرت، حفاظت، ارتینگ و تابلوهای برق.</div>
 
     <div class="grid">
         <a href="../electrical/electrical-index.html" class="card">
             <i>📘</i>
-            <h3>ورود به بخش برق</h3>
-            <p>مشاهده تمام مباحث مهندسی برق</p>
+            <h3 data-en="Enter Electrical Section" data-fa="ورود به بخش برق">ورود به بخش برق</h3>
+            <p data-en="View all electrical engineering topics" data-fa="مشاهده تمام مباحث مهندسی برق">مشاهده تمام مباحث مهندسی برق</p>
         </a>
     </div>
 
-    <a href="../../index.html" class="back-link" onclick="localStorage.setItem('dashboardActive', 'true')">← بازگشت به داشبورد</a>
+    <a href="../../index.html" class="back-link" onclick="localStorage.setItem('dashboardActive', 'true')">
+        <span data-en="← Back to Dashboard" data-fa="← بازگشت به داشبورد">← بازگشت به داشبورد</span>
+    </a>
 
 </div>
+
+<script>
+(function() {
+    const langBtns = document.querySelectorAll('.lang-btn');
+    let currentLang = localStorage.getItem('karatech-lang') || 'fa';
+
+    function translate(lang) {
+        document.querySelectorAll('[data-en]').forEach(el => {
+            const txt = el.dataset[lang];
+            if (txt) {
+                const nodes = el.childNodes;
+                for (let n of nodes) {
+                    if (n.nodeType === 3) {
+                        n.textContent = txt;
+                        break;
+                    }
+                }
+            }
+        });
+        document.body.classList.toggle('lang-persian', lang === 'fa');
+        localStorage.setItem('karatech-lang', lang);
+        langBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+    }
+
+    translate(currentLang);
+
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            translate(this.dataset.lang);
+        });
+    });
+})();
+</script>
+
 </body>
 </html>
