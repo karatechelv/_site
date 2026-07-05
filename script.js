@@ -1,16 +1,5 @@
 (function() {
     // ===== وضعیت اولیه =====
-    if (!localStorage.getItem('dashboardActive')) {
-        document.addEventListener('DOMContentLoaded', function() {
-            const splash = document.getElementById('splash');
-            const dashboard = document.getElementById('dashboard');
-            if (splash && dashboard) {
-                splash.classList.remove('hidden');
-                dashboard.classList.remove('active');
-            }
-        });
-    }
-
     if (localStorage.getItem('dashboardActive') === 'true') {
         document.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById('splash');
@@ -28,56 +17,55 @@
         if (enterBtn) {
             enterBtn.addEventListener('click', function() {
                 localStorage.setItem('dashboardActive', 'true');
-                document.getElementById('splash').classList.add('hidden');
-                document.getElementById('dashboard').classList.add('active');
+                const splash = document.getElementById('splash');
+                const dashboard = document.getElementById('dashboard');
+                if (splash && dashboard) {
+                    splash.classList.add('hidden');
+                    dashboard.classList.add('active');
+                }
             });
         }
     });
 
-    // ===== تبدیل تاریخ میلادی به شمسی =====
-    function toJalaali(gy, gm, gd) {
-        // الگوریتم تبدیل میلادی به شمسی
-        const g_days = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
-        let gy2 = (gm > 2) ? (gy + 1) : gy;
-        let days = 355666 + 365 * gy + Math.floor((gy + 3) / 4) - Math.floor((gy + 99) / 100) + Math.floor((gy + 399) / 400) + g_days[gm - 1] + gd;
-        if (gm > 2) days -= (gy2 % 4 === 0 && (gy2 % 100 !== 0 || gy2 % 400 === 0)) ? 0 : 1;
-        let jy = -1595 + 33 * Math.floor(days / 12053);
-        days %= 12053;
-        jy += 4 * Math.floor(days / 1461);
-        days %= 1461;
-        if (days > 365) {
-            jy += Math.floor((days - 1) / 366);
-            days = (days - 1) % 366;
-        }
-        let jm = (days < 186) ? 1 + Math.floor(days / 31) : 7 + Math.floor((days - 186) / 30);
-        let jd = 1 + ((days < 186) ? (days % 31) : ((days - 186) % 30));
-        return { jy, jm, jd };
-    }
-
-    // ===== تبدیل اعداد انگلیسی به فارسی =====
-    function toPersianDigits(num) {
-        const persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-        return num.toString().replace(/\d/g, d => persian[parseInt(d)]);
-    }
-
-    // ===== آپدیت ساعت و تاریخ =====
+    // ===== آپدیت ساعت و تاریخ با استفاده از Intl =====
     function updateDateTime() {
         const now = new Date();
         const lang = document.querySelector('.lang-btn.active')?.dataset.lang || 'en';
         
-        // ساعت ۲۴ ساعته
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const seconds = String(now.getSeconds()).padStart(2, '0');
-        let timeStr = `${hours}:${minutes}:${seconds}`;
-        
-        let dateStr = '';
+        // ===== ساعت ۲۴ ساعته =====
+        let timeStr;
         if (lang === 'fa') {
-            // تاریخ شمسی با اعداد فارسی
-            const j = toJalaali(now.getFullYear(), now.getMonth() + 1, now.getDate());
-            dateStr = `${toPersianDigits(j.jy)}/${toPersianDigits(j.jm)}/${toPersianDigits(j.jd)}`;
-            // زمان با اعداد فارسی
-            timeStr = `${toPersianDigits(hours)}:${toPersianDigits(minutes)}:${toPersianDigits(seconds)}`;
+            // ساعت با اعداد فارسی
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            const s = String(now.getSeconds()).padStart(2, '0');
+            const persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+            timeStr = h.replace(/\d/g, d => persian[parseInt(d)]) + ':' +
+                      m.replace(/\d/g, d => persian[parseInt(d)]) + ':' +
+                      s.replace(/\d/g, d => persian[parseInt(d)]);
+        } else {
+            timeStr = now.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+        }
+
+        // ===== تاریخ =====
+        let dateStr;
+        if (lang === 'fa') {
+            // تاریخ شمسی با استفاده از Intl
+            dateStr = new Intl.DateTimeFormat('fa-IR', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            }).format(now);
+            // تبدیل تاریخ به فرمت با اسلش (مثلاً ۱۴۰۴/۰۱/۱۵)
+            // با اعداد فارسی
+            const parts = dateStr.split('/');
+            const persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+            dateStr = parts.map(p => p.replace(/\d/g, d => persian[parseInt(d)])).join('/');
         } else {
             // تاریخ میلادی
             dateStr = now.toLocaleDateString('en-US', {
@@ -86,7 +74,7 @@
                 day: 'numeric'
             });
         }
-        
+
         const dateEl = document.getElementById('dateDisplay');
         const timeEl = document.getElementById('timeDisplay');
         if (dateEl) dateEl.textContent = dateStr;
@@ -116,7 +104,7 @@
         langBtns.forEach(btn => {
             btn.classList.toggle('active', btn.dataset.lang === lang);
         });
-        
+
         // به‌روزرسانی تاریخ و ساعت با زبان جدید
         updateDateTime();
     }
@@ -132,6 +120,11 @@
     // ===== اجرای هر ثانیه =====
     setInterval(updateDateTime, 1000);
     updateDateTime();
+
+    // ===== رفرش دستی =====
+    window.refreshTime = function() {
+        updateDateTime();
+    };
 
 })();
 
