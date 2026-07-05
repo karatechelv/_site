@@ -1,60 +1,38 @@
 (function() {
-    // ===== وضعیت اولیه =====
+    // ===== وضعیت اولیه: بررسی localStorage برای نمایش Splash یا Dashboard =====
+    if (!localStorage.getItem('dashboardActive')) {
+        document.addEventListener('DOMContentLoaded', function() {
+            const splash = document.getElementById('splash');
+            const dashboard = document.getElementById('dashboard');
+            if (splash && dashboard) {
+                splash.classList.remove('hidden');
+                dashboard.classList.remove('active');
+            }
+        });
+    }
+
     if (localStorage.getItem('dashboardActive') === 'true') {
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('splash').classList.add('hidden');
-            document.getElementById('dashboard').classList.add('active');
+            const splash = document.getElementById('splash');
+            const dashboard = document.getElementById('dashboard');
+            if (splash && dashboard) {
+                splash.classList.add('hidden');
+                dashboard.classList.add('active');
+            }
         });
     }
 
     // ===== دکمه ورود =====
     document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('enterBtn').addEventListener('click', function() {
-            localStorage.setItem('dashboardActive', 'true');
-            document.getElementById('splash').classList.add('hidden');
-            document.getElementById('dashboard').classList.add('active');
-        });
-    });
-
-    // ===== تبدیل اعداد به فارسی =====
-    function toPersianDigits(num) {
-        const persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-        return String(num).replace(/\d/g, d => persian[parseInt(d)]);
-    }
-
-    // ===== آپدیت ساعت و تاریخ =====
-    function updateDateTime() {
-        const now = new Date();
-        const lang = document.querySelector('.lang-btn.active')?.dataset.lang || 'en';
-
-        const hh = String(now.getHours()).padStart(2, '0');
-        const mm = String(now.getMinutes()).padStart(2, '0');
-        const ss = String(now.getSeconds()).padStart(2, '0');
-
-        let timeStr = lang === 'fa' 
-            ? `${toPersianDigits(hh)}:${toPersianDigits(mm)}:${toPersianDigits(ss)}`
-            : `${hh}:${mm}:${ss}`;
-
-        let dateStr;
-        if (lang === 'fa') {
-            const formatter = new Intl.DateTimeFormat('fa-IR', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                timeZone: 'Asia/Tehran'
-            });
-            dateStr = formatter.format(now).replace(/\d/g, d => toPersianDigits(d));
-        } else {
-            dateStr = now.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric'
+        const enterBtn = document.getElementById('enterBtn');
+        if (enterBtn) {
+            enterBtn.addEventListener('click', function() {
+                localStorage.setItem('dashboardActive', 'true');
+                document.getElementById('splash').classList.add('hidden');
+                document.getElementById('dashboard').classList.add('active');
             });
         }
-
-        document.getElementById('dateDisplay').textContent = dateStr;
-        document.getElementById('timeDisplay').textContent = timeStr;
-    }
+    });
 
     // ===== تغییر زبان =====
     const langBtns = document.querySelectorAll('.lang-btn');
@@ -79,8 +57,6 @@
         langBtns.forEach(btn => {
             btn.classList.toggle('active', btn.dataset.lang === lang);
         });
-
-        updateDateTime();
     }
 
     translate(currentLang);
@@ -90,11 +66,6 @@
             translate(this.dataset.lang);
         });
     });
-
-    // ===== اجرای هر ثانیه =====
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
-
 })();
 
 // ===== تابع خروج =====
