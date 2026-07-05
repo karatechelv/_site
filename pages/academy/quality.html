@@ -1,45 +1,377 @@
-<!DOCTYPE HTML>
-<HTML LANG="EN">
-<HEAD>
-    <META CHARSET="UTF-8" />
-    <META NAME="VIEWPORT" CONTENT="WIDTH=DEVICE-WIDTH, INITIAL-SCALE=1.0"/>
-    <TITLE>KARATECH ELV · QUALITY CONTROL</TITLE>
-    <LINK REL="STYLESHEET" HREF="../../STYLE.CSS" />
-    <LINK REL="PRECONNECT" HREF="HTTPS://FONTS.GOOGLEAPIS.COM">
-    <LINK REL="PRECONNECT" HREF="HTTPS://FONTS.GSTATIC.COM" CROSSORIGIN>
-    <LINK HREF="HTTPS://FONTS.GOOGLEAPIS.COM/CSS2?FAMILY=INTER:OPSZ,WGHT@14..32,400;14..32,500;14..32,600;14..32,700&DISPLAY=SWAP" REL="STYLESHEET">
-    <LINK REL="STYLESHEET" HREF="HTTPS://CDNJS.CLOUDFLARE.COM/AJAX/LIBS/FONT-AWESOME/6.5.0/CSS/ALL.MIN.CSS">
-    <STYLE>
-        BODY.PAGE-QUALITY .DASHBOARD {
-            BACKGROUND: 
-                LINEAR-GRADIENT(RGBA(13,14,18,0.80), RGBA(13,14,18,0.88)),
-                URL('HTTPS://IMAGES.UNSPLASH.COM/PHOTO-1581092335872-4F5B7B8C8C9F?W=1600&Q=80');
-            BACKGROUND-SIZE: COVER;
-            BACKGROUND-POSITION: CENTER;
-            BACKGROUND-ATTACHMENT: FIXED;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Karatech ELV · Quality Control</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* استایل‌های اختصاصی کیفیت که با تم اصلی هماهنگه */
+        .quality-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px 32px 50px;
         }
-        BODY.PAGE-QUALITY .CARD-ACADEMY {
-            BACKDROP-FILTER: BLUR(6PX);
-            BACKGROUND: RGBA(26, 29, 36, 0.85);
-            BORDER: 1PX SOLID RGBA(212, 175, 55, 0.08);
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            background: var(--card);
+            border-radius: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: 0.2s;
         }
-        BODY.PAGE-QUALITY .CARD-ACADEMY:HOVER {
-            BACKGROUND: RGBA(37, 42, 52, 0.92);
-            BORDER-COLOR: VAR(--ACCENT);
+        .back-link:hover {
+            background: var(--primary);
+            border-color: var(--accent);
+            color: #fff;
         }
-    </STYLE>
-</HEAD>
-<BODY CLASS="PAGE-QUALITY">
-    <H1 STYLE="TEXT-ALIGN:CENTER; MARGIN-TOP:50PX; FONT-SIZE:2REM; COLOR:VAR(--ACCENT);">
-        <I CLASS="FAS FA-CHECK-DOUBLE"></I> QUALITY CONTROL
-    </H1>
-    <P STYLE="TEXT-ALIGN:CENTER; COLOR:VAR(--MUTED); MARGIN-TOP:10PX;">
-        INSPECTION, TESTING, ISO STANDARDS, AND CONTINUOUS IMPROVEMENT.
-    </P>
-    <DIV STYLE="TEXT-ALIGN:CENTER; MARGIN-TOP:30PX;">
-        <A HREF="../../INDEX.HTML" STYLE="COLOR:VAR(--ACCENT); TEXT-DECORATION:NONE;">
-            <I CLASS="FAS FA-ARROW-LEFT"></I> BACK TO DASHBOARD
-        </A>
-    </DIV>
-</BODY>
-</HTML>
+
+        .quality-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 8px;
+        }
+        .quality-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .quality-header i {
+            color: var(--accent);
+            font-size: 2.2rem;
+        }
+        .quality-subtitle {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent);
+            padding-left: 16px;
+        }
+
+        /* آکاردئون با استایل کارت‌های اصلی */
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .accordion-item {
+            background: var(--card);
+            border-radius: var(--radius);
+            border: 1px solid rgba(212, 175, 55, 0.06);
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+        .accordion-item:hover {
+            border-color: var(--accent);
+        }
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 24px;
+            cursor: pointer;
+            user-select: none;
+            transition: 0.2s;
+        }
+        .accordion-header:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .accordion-header .icon {
+            font-size: 1.4rem;
+            color: var(--accent);
+            width: 30px;
+            text-align: center;
+        }
+        .accordion-header .title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #fff;
+            flex: 1;
+        }
+        .accordion-header .arrow {
+            color: var(--accent);
+            transition: transform 0.3s;
+            font-size: 1rem;
+        }
+        .accordion-item.open .accordion-header .arrow {
+            transform: rotate(180deg);
+        }
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 24px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+        .accordion-item.open .accordion-body {
+            max-height: 400px;
+            padding: 0 24px 20px 24px;
+        }
+        .accordion-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .accordion-body ul li {
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .accordion-body ul li::before {
+            content: "▸";
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 768px) {
+            .quality-container { padding: 16px; }
+            .quality-header h1 { font-size: 1.8rem; }
+            .accordion-header { padding: 14px 16px; }
+            .accordion-body { padding: 0 16px; }
+            .accordion-item.open .accordion-body { padding: 0 16px 16px 16px; }
+        }
+        @media (max-width: 480px) {
+            .quality-header h1 { font-size: 1.4rem; }
+            .quality-subtitle { font-size: 0.9rem; }
+        }
+
+        /* حالت RTL (فارسی) */
+        .lang-persian .quality-subtitle {
+            border-left: none;
+            border-right: 4px solid var(--accent);
+            padding-left: 0;
+            padding-right: 16px;
+        }
+        .lang-persian .accordion-header .icon {
+            margin-right: 0;
+            margin-left: 4px;
+        }
+        .lang-persian .back-link i {
+            transform: scaleX(-1);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== هدر ===== (دقیقاً مثل ایندکس) -->
+<header class="header">
+    <div class="brand">KARATECH <span>ELV</span></div>
+    <div class="datetime-widget">
+        <div class="date-display" id="dateDisplay">۱۴۰۴/۰۱/۱۵</div>
+        <div class="time-display" id="timeDisplay">۰۰:۰۰:۰۰</div>
+    </div>
+    <div class="header-actions">
+        <button class="exit-btn" onclick="goToSplash()"><i class="fas fa-sign-out-alt"></i> <span data-en="Exit" data-fa="خروج">Exit</span></button>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+</header>
+
+<!-- ===== محتوای اصلی کیفیت ===== -->
+<div class="quality-container">
+    
+    <!-- دکمه بازگشت -->
+    <a href="../../index.html" class="back-link" onclick="localStorage.setItem('dashboardActive', 'true')">
+        <i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span>
+    </a>
+
+    <!-- تیتر -->
+    <div class="quality-header">
+        <i class="fas fa-check-double"></i>
+        <h1 data-en="Quality Control" data-fa="کنترل کیفیت">Quality Control</h1>
+    </div>
+    <div class="quality-subtitle" data-en="Inspection, testing, ISO standards, and continuous improvement for engineering excellence." data-fa="بازرسی، تست، استانداردهای ISO و بهبود مستمر برای تعالی مهندسی.">
+        Inspection, testing, ISO standards, and continuous improvement for engineering excellence.
+    </div>
+
+    <!-- آکاردئون -->
+    <div class="accordion">
+
+        <!-- آیتم ۱ -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="icon"><i class="fas fa-clipboard-list"></i></span>
+                <span class="title" data-en="Inspection &amp; Testing" data-fa="بازرسی و تست">Inspection &amp; Testing</span>
+                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="accordion-body">
+                <ul>
+                    <li data-en="Visual inspection of components" data-fa="بازرسی چشمی قطعات">Visual inspection of components</li>
+                    <li data-en="Dimensional measurement" data-fa="اندازه‌گیری ابعادی">Dimensional measurement</li>
+                    <li data-en="Electrical testing" data-fa="تست الکتریکی">Electrical testing</li>
+                    <li data-en="Functional testing" data-fa="تست عملکردی">Functional testing</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- آیتم ۲ -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="icon"><i class="fas fa-chart-bar"></i></span>
+                <span class="title" data-en="SPC - Statistical Process Control" data-fa="SPC - کنترل فرآیند آماری">SPC - Statistical Process Control</span>
+                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="accordion-body">
+                <ul>
+                    <li data-en="Control charts" data-fa="نمودارهای کنترل">Control charts</li>
+                    <li data-en="Process capability" data-fa="توانایی فرآیند">Process capability</li>
+                    <li data-en="Variation analysis" data-fa="تحلیل تغییرات">Variation analysis</li>
+                    <li data-en="Pareto analysis" data-fa="تحلیل پارتو">Pareto analysis</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- آیتم ۳ -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="icon"><i class="fas fa-certificate"></i></span>
+                <span class="title" data-en="ISO 9001:2015" data-fa="ISO 9001:2015">ISO 9001:2015</span>
+                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="accordion-body">
+                <ul>
+                    <li data-en="QMS requirements" data-fa="نیازمندی‌های سیستم مدیریت کیفیت">QMS requirements</li>
+                    <li data-en="Documentation" data-fa="مستندسازی">Documentation</li>
+                    <li data-en="Internal audit" data-fa="بازرسی داخلی">Internal audit</li>
+                    <li data-en="Certification process" data-fa="فرآیند صدور گواهینامه">Certification process</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- آیتم ۴ -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="icon"><i class="fas fa-search"></i></span>
+                <span class="title" data-en="7 QC Tools" data-fa="۷ ابزار کنترل کیفیت">7 QC Tools</span>
+                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="accordion-body">
+                <ul>
+                    <li data-en="Pareto Chart" data-fa="نمودار پارتو">Pareto Chart</li>
+                    <li data-en="Fishbone Diagram" data-fa="نمودار استخوان ماهی">Fishbone Diagram</li>
+                    <li data-en="Check Sheets" data-fa="برگه‌های بررسی">Check Sheets</li>
+                    <li data-en="Histograms" data-fa="هیستوگرام‌ها">Histograms</li>
+                    <li data-en="Control Charts" data-fa="نمودارهای کنترل">Control Charts</li>
+                    <li data-en="Scatter Diagrams" data-fa="نمودارهای پراکندگی">Scatter Diagrams</li>
+                    <li data-en="Flowcharts" data-fa="نمودارهای جریان">Flowcharts</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- آیتم ۵ -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="icon"><i class="fas fa-flag-checkered"></i></span>
+                <span class="title" data-en="Six Sigma" data-fa="سیگما شش">Six Sigma</span>
+                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="accordion-body">
+                <ul>
+                    <li data-en="DMAIC methodology" data-fa="روش‌شناسی DMAIC">DMAIC methodology</li>
+                    <li data-en="Defect reduction" data-fa="کاهش عیوب">Defect reduction</li>
+                    <li data-en="3.4 DPMO" data-fa="۳.۴ DPMO">3.4 DPMO</li>
+                    <li data-en="Six Sigma Belts" data-fa="کمربندهای سیگما شش">Six Sigma Belts</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- آیتم ۶ -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="icon"><i class="fas fa-users-cog"></i></span>
+                <span class="title" data-en="Quality Audits" data-fa="بازرسی‌های کیفیت">Quality Audits</span>
+                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="accordion-body">
+                <ul>
+                    <li data-en="Internal audits" data-fa="بازرسی داخلی">Internal audits</li>
+                    <li data-en="External audits" data-fa="بازرسی خارجی">External audits</li>
+                    <li data-en="Audit planning" data-fa="برنامه‌ریزی بازرسی">Audit planning</li>
+                    <li data-en="Corrective action" data-fa="اقدام اصلاحی">Corrective action</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- آیتم ۷ -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="icon"><i class="fas fa-microscope"></i></span>
+                <span class="title" data-en="NDT - Non-Destructive Testing" data-fa="NDT - تست غیرمخرب">NDT - Non-Destructive Testing</span>
+                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="accordion-body">
+                <ul>
+                    <li data-en="Ultrasonic testing" data-fa="تست فراصوتی">Ultrasonic testing</li>
+                    <li data-en="Radiography (X-ray)" data-fa="رادیوگرافی (اشعه ایکس)">Radiography (X-ray)</li>
+                    <li data-en="Dye penetrant" data-fa="نفوذ رنگ">Dye penetrant</li>
+                    <li data-en="Magnetic particle" data-fa="ذرات مغناطیسی">Magnetic particle</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- آیتم ۸ -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="icon"><i class="fas fa-file-signature"></i></span>
+                <span class="title" data-en="Quality Documentation" data-fa="مستندات کیفیت">Quality Documentation</span>
+                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="accordion-body">
+                <ul>
+                    <li data-en="Quality manuals" data-fa="دفترچه‌های کیفیت">Quality manuals</li>
+                    <li data-en="Procedures" data-fa="رویه‌ها">Procedures</li>
+                    <li data-en="Work instructions" data-fa="دستورالعمل‌های کاری">Work instructions</li>
+                    <li data-en="Inspection records" data-fa="سوابق بازرسی">Inspection records</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ===== فوتر ===== (دقیقاً مثل ایندکس) -->
+<footer class="footer">
+    <div><i class="fas fa-envelope"></i> <a href="mailto:karatechelv@gmail.com">karatechelv@gmail.com</a></div>
+    <div><i class="fas fa-phone"></i> <a href="tel:+989120891544">+98 912 089 1544</a></div>
+    <div><i class="fab fa-linkedin"></i> <a href="#">/karatechelv</a></div>
+    <div><i class="fab fa-github"></i> <a href="#">/karatechelv</a></div>
+    <div>© 2026 KARATECH ELV</div>
+</footer>
+
+<!-- ===== اسکریپت‌ها ===== -->
+<!-- اسکریپت اصلی (ساعت، تاریخ، زبان، خروج) -->
+<script src="../../script.js"></script>
+
+<!-- اسکریپت آکاردئون -->
+<script>
+function toggleAccordion(header) {
+    const item = header.closest('.accordion-item');
+    const isOpen = item.classList.contains('open');
+    // بستن بقیه آیتم‌ها (اختیاری، برای باز شدن فقط یکی)
+    document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('open'));
+    if (!isOpen) {
+        item.classList.add('open');
+    }
+}
+</script>
+
+</body>
+</html>
