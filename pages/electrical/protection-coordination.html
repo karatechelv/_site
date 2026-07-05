@@ -1,163 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Protection Coordination</title>
+    <title>هماهنگی حفاظت</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
         .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        h1{color:#d4af37;margin-bottom:10px}
+        .sub{color:#8e95a5;margin-bottom:25px;font-size:1rem;line-height:1.8}
+        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;margin-bottom:12px;font-size:1.3rem}
+        .section p{color:#b0b8c5;line-height:1.8}
         .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:inline-block;margin-top:30px}
+        .back-link:hover{color:#fff}
+        .calc-box{background:#0d0e12;padding:20px;border-radius:12px;border:1px solid rgba(212,175,55,0.15);margin-top:15px}
+        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
+        .calc-box input{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
+        .calc-box input:focus{outline:1px solid #d4af37}
+        .calc-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
+        .btn-calc:hover{background:#d4af37;color:#111}
+        .result-box{background:#0d0e12;padding:15px;border-radius:12px;border-left:3px solid #d4af37;margin-top:15px}
+        .result-box span{color:#d4af37;font-weight:700}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px;margin-top:10px}
+        th,td{padding:10px 14px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        @media(max-width:600px){.calc-row{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
 <div class="container">
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
+    <h1>🛡️ هماهنگی حفاظت</h1>
+    <div class="sub">تنظیم رله‌ها، کلیدها و فیوزها برای حفاظت بهینه شبکه و تجهیزات.</div>
+
+    <div class="section">
+        <h2>📌 مفاهیم هماهنگی حفاظت</h2>
+        <ul>
+            <li><strong>انتخابی بودن (Selectivity)</strong> – فقط قسمتی از شبکه که خطا دارد جدا شود</li>
+            <li><strong>منحنی‌های TCC</strong> – Time-Current Characteristics</li>
+            <li><strong>تنظیم رله</strong> – جریان pick-up، ضریب زمانی (TMS)</li>
+            <li><strong>رله‌های عددی</strong> – قابلیت برنامه‌ریزی و ارتباطات</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📊 کلیدهای حفاظتی و کاربرد</h2>
+        <table>
+            <tr><th>نوع کلید</th><th>کاربرد</th></tr>
+            <tr><td>MCB (مینیاتوری)</td><td>حفاظت مدارهای نهایی</td></tr>
+            <tr><td>MCCB (قالبی)</td><td>حفاظت فیدرها و موتورها</td></tr>
+            <tr><td>ACB (هوایی)</td><td>حفاظت ورودی اصلی</td></tr>
+            <tr><td>رله عددی</td><td>حفاظت پیشرفته فشار متوسط و قوی</td></tr>
+        </table>
+    </div>
+
+    <div class="section calculator">
+        <h2>🧮 ماشین‌حساب تنظیم رله اضافه‌جریان</h2>
+        <div class="calc-box">
+            <div class="calc-row">
+                <div>
+                    <label>جریان بار (A)</label>
+                    <input type="number" id="loadCurrent" value="100">
+                </div>
+                <div>
+                    <label>نسبت CT</label>
+                    <input type="number" id="ctRatio" value="200/5" step="1">
+                </div>
+                <div>
+                    <label>ضریب pick-up</label>
+                    <input type="number" id="pickup" value="1.2" step="0.1">
+                </div>
+                <div>
+                    <label>زمان عملکرد (ثانیه)</label>
+                    <input type="number" id="time" value="0.5" step="0.1">
+                </div>
+            </div>
+            <button class="btn-calc" onclick="calculateProtection()">محاسبه</button>
+            <div class="result-box" id="result">
+                <p><span>جریان Pick-up (A):</span> <span id="pickupValue">--</span></p>
+                <p><span>مقدار تنظیم رله:</span> <span id="relaySetting">--</span></p>
+                <p><span>وضعیت:</span> <span id="statusValue">--</span></p>
+            </div>
         </div>
     </div>
 
-    <h1 id="title">🛡️ Protection Coordination</h1>
-    <div class="sub" id="desc">A comprehensive guide to protection coordination, including protective devices, relay settings, and time-current curves.</div>
-
-    <div class="section">
-        <h2 id="s1">What is Protection Coordination?</h2>
-        <p id="s1p">Protection coordination ensures that the correct protective devices operate to isolate faults without affecting the rest of the system. It is critical for system reliability and safety.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">Protective Devices</h2>
-        <ul id="list1">
-            <li>Circuit Breakers – LV, MV, and HV breakers</li>
-            <li>Fuses – Protection against overcurrent</li>
-            <li>Protective Relays – Overcurrent, earth fault, differential, distance</li>
-            <li>Motor Protection – Thermal overload, short-circuit</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">Time-Current Curves</h2>
-        <p id="s3p">Time-current curves show the relationship between the magnitude of the fault current and the operating time of protective devices. They are used to coordinate devices and ensure selective tripping.</p>
-        <ul id="list2">
-            <li>Inverse Time</li>
-            <li>Definite Time</li>
-            <li>Very Inverse</li>
-            <li>Extremely Inverse</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">Coordination Study Steps</h2>
-        <ul id="list3">
-            <li>Data Collection</li>
-            <li>System Modeling</li>
-            <li>Short-Circuit Analysis</li>
-            <li>Device Selection</li>
-            <li>Relay Settings</li>
-            <li>Coordination Verification</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
+    <a href="electrical-index.html" class="back-link">← بازگشت به مباحث برق</a>
 
 </div>
 
 <script>
-    const lang = {
-        en: {
-            title: '🛡️ Protection Coordination',
-            desc: 'A comprehensive guide to protection coordination, including protective devices, relay settings, and time-current curves.',
-            s1: 'What is Protection Coordination?',
-            s1p: 'Protection coordination ensures that the correct protective devices operate to isolate faults without affecting the rest of the system. It is critical for system reliability and safety.',
-            s2: 'Protective Devices',
-            list1: ['Circuit Breakers – LV, MV, and HV breakers', 'Fuses – Protection against overcurrent', 'Protective Relays – Overcurrent, earth fault, differential, distance', 'Motor Protection – Thermal overload, short-circuit'],
-            s3: 'Time-Current Curves',
-            s3p: 'Time-current curves show the relationship between the magnitude of the fault current and the operating time of protective devices. They are used to coordinate devices and ensure selective tripping.',
-            list2: ['Inverse Time', 'Definite Time', 'Very Inverse', 'Extremely Inverse'],
-            s4: 'Coordination Study Steps',
-            list3: ['Data Collection', 'System Modeling', 'Short-Circuit Analysis', 'Device Selection', 'Relay Settings', 'Coordination Verification'],
-            back: '← Back'
-        },
-        fa: {
-            title: '🛡️ هماهنگی حفاظت',
-            desc: 'راهنمای جامع هماهنگی حفاظت، شامل دستگاه‌های حفاظتی، تنظیمات رله و منحنی‌های زمان-جریان.',
-            s1: 'هماهنگی حفاظت چیست؟',
-            s1p: 'هماهنگی حفاظت تضمین می‌کند که دستگاه‌های حفاظتی صحیح برای جداسازی خطاها بدون تأثیر بر بقیه سیستم عمل می‌کنند. برای قابلیت اطمینان و ایمنی سیستم حیاتی است.',
-            s2: 'دستگاه‌های حفاظتی',
-            list1: ['کلیدهای مدار – کلیدهای LV، MV و HV', 'فیوزها – حفاظت در برابر اضافه جریان', 'رله‌های حفاظتی – اضافه جریان، خطای زمین، دیفرانسیل، فاصله', 'حفاظت موتور – اضافه بار حرارتی، اتصال کوتاه'],
-            s3: 'منحنی‌های زمان-جریان',
-            s3p: 'منحنی‌های زمان-جریان رابطه بین بزرگی جریان خطا و زمان عملکرد دستگاه‌های حفاظتی را نشان می‌دهند. آنها برای هماهنگی دستگاه‌ها و اطمینان از قطع انتخابی استفاده می‌شوند.',
-            list2: ['زمان معکوس', 'زمان معین', 'بسیار معکوس', 'فوق‌العاده معکوس'],
-            s4: 'مراحل مطالعه هماهنگی',
-            list3: ['جمع‌آوری داده', 'مدل‌سازی سیستم', 'تحلیل اتصال کوتاه', 'انتخاب دستگاه', 'تنظیمات رله', 'تأیید هماهنگی'],
-            back: '← بازگشت'
-        }
-    };
+function calculateProtection() {
+    const Iload = parseFloat(document.getElementById('loadCurrent').value);
+    const ct = parseFloat(document.getElementById('ctRatio').value);
+    const k = parseFloat(document.getElementById('pickup').value);
+    const t = parseFloat(document.getElementById('time').value);
 
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        const ul3 = document.getElementById('list3');
-        ul3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
+    if (isNaN(Iload) || isNaN(ct) || isNaN(k) || isNaN(t) || Iload<=0 || ct<=0 || k<=0 || t<=0) {
+        alert('لطفاً همه مقادیر را به‌درستی وارد کنید.');
+        return;
     }
 
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
+    const pickup = Iload * k;
+    const relaySetting = pickup / ct;
 
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+    let status = '✅ مناسب';
+    if (relaySetting > 1.0) status = '⚠️ تنظیم رله بالا است';
+    if (relaySetting < 0.5) status = '⚠️ تنظیم رله پایین است';
+
+    document.getElementById('pickupValue').textContent = pickup.toFixed(2);
+    document.getElementById('relaySetting').textContent = relaySetting.toFixed(3);
+    document.getElementById('statusValue').textContent = status;
+}
 </script>
 
 </body>
