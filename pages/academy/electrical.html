@@ -10,8 +10,6 @@
         .container{max-width:1000px;margin:0 auto}
         .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:12px}
         .brand{font-weight:700;font-size:1.5rem;color:#fff}.brand span{color:#d4af37}
-        .back-link{color:#d4af37;text-decoration:none;font-weight:600}
-        .back-link:hover{color:#fff}
         h1{color:#d4af37;margin-bottom:10px}
         .sub{color:#8e95a5;margin-bottom:25px}
         .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -20,6 +18,8 @@
         .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
         .card h3{color:#fff;margin-bottom:6px}
         .card p{color:#8e95a5;font-size:.9rem}
+        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:inline-block;margin-top:30px}
+        .back-link:hover{color:#fff}
         @media(max-width:768px){.grid{grid-template-columns:1fr}}
     </style>
 </head>
@@ -28,7 +28,6 @@
 
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
-        <a href="../../index.html" class="back-link" onclick="localStorage.setItem('dashboardActive', 'true')">← بازگشت به داشبورد</a>
     </div>
 
     <h1>⚡ مهندسی برق</h1>
@@ -41,6 +40,8 @@
             <p>مشاهده تمام مباحث مهندسی برق</p>
         </a>
     </div>
+
+    <a href="../../index.html" class="back-link" onclick="localStorage.setItem('dashboardActive', 'true')">← بازگشت به داشبورد</a>
 
 </div>
 </body>
