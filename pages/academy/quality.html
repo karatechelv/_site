@@ -1,149 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Quality Control</title>
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}
-        .brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}
-        .brand span{color:var(--accent)}
-        .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}
-        .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
-        .lang-btn:hover{background:var(--primary);color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        .page-container{max-width:1100px;margin:0 auto;padding:20px}
-        .page-header{background:#1e2128;padding:30px 40px;border-radius:20px;margin-bottom:30px;border-left:5px solid var(--accent)}
-        .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
-        .page-header h1 i{color:var(--accent)}
-        .page-header p{color:#b0b8c5;margin-top:10px;font-size:1.05rem;line-height:1.7}
-        .content-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:30px}
-        .content-card{background:#1e2128;padding:24px;border-radius:16px;border:1px solid rgba(212,175,55,0.06);transition:.3s}
-        .content-card:hover{background:#282d38;transform:translateY(-3px);border-color:rgba(212,175,55,0.2)}
-        .content-card h3{color:#d4af37;font-size:1.2rem;margin-bottom:10px;display:flex;align-items:center;gap:10px}
-        .content-card h3 i{font-size:1.1rem}
-        .content-card p{color:#b0b8c5;line-height:1.7;font-size:.95rem}
-        .content-card ul{list-style:none;padding:0;margin-top:10px}
-        .content-card ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px;font-size:.9rem}
-        .content-card ul li i{color:var(--accent);font-size:.7rem}
-        .back-link{margin-top:30px;text-align:center}
-        .back-link a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s}
-        .back-link a:hover{transform:translateX(-5px)}
-        .lang-persian{direction:rtl}
-        .lang-persian .page-header h1{justify-content:flex-end}
-        .lang-persian .content-card h3{justify-content:flex-end}
-        .lang-persian .content-card ul li{flex-direction:row-reverse}
-        .lang-persian .back-link a{flex-direction:row-reverse}
-        @media(max-width:768px){.page-header h1{font-size:1.8rem}.content-grid{grid-template-columns:1fr}}
-    </style>
-</head>
-<body>
-<header class="header">
-    <div class="brand">KARATECH <span>ELV</span></div>
-    <div class="lang-switch">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="fa">FA</button>
-    </div>
-</header>
-<div class="page-container">
-    <div class="page-header">
-        <h1><i class="fas fa-check-double"></i> <span data-en="Quality Control" data-fa="کنترل کیفیت">Quality Control</span></h1>
-        <p data-en="Inspection, testing, quality plans, ISO standards, and continuous improvement. Essential for ensuring product and process quality in engineering projects." 
-           data-fa="بازرسی، تست، برنامه‌های کیفیت، استانداردهای ISO و بهبود مستمر. برای تضمین کیفیت محصول و فرآیند در پروژه‌های مهندسی ضروری است.">
-           Inspection, testing, quality plans, ISO standards, and continuous improvement. Essential for ensuring product and process quality in engineering projects.</p>
-    </div>
-
-    <div class="content-grid">
-        <div class="content-card">
-            <h3><i class="fas fa-graduation-cap"></i> <span data-en="Overview" data-fa="مرور کلی">Overview</span></h3>
-            <p data-en="Quality control involves systematic inspection, testing, and documentation to ensure that engineering products and processes meet specified requirements and standards." 
-               data-fa="کنترل کیفیت شامل بازرسی سیستماتیک، تست و مستندسازی برای اطمینان از مطابقت محصولات و فرآیندهای مهندسی با الزامات و استانداردهای مشخص است.">
-               Quality control involves systematic inspection, testing, and documentation to ensure that engineering products and processes meet specified requirements and standards.</p>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-lightbulb"></i> <span data-en="Key Topics" data-fa="موضوعات کلیدی">Key Topics</span></h3>
-            <ul>
-                <li><i class="fas fa-circle"></i> <span data-en="Quality management systems (ISO 9001)" data-fa="سیستم‌های مدیریت کیفیت (ISO 9001)">Quality management systems (ISO 9001)</span></li>
-                <li><i class="fas fa-circle"></i> <span data-en="Inspection and test plans (ITP)" data-fa="برنامه‌های بازرسی و تست (ITP)">Inspection and test plans (ITP)</span></li>
-                <li><i class="fas fa-circle"></i> <span data-en="Non-destructive testing (NDT)" data-fa="تست‌های غیرمخرب (NDT)">Non-destructive testing (NDT)</span></li>
-                <li><i class="fas fa-circle"></i> <span data-en="Quality control documentation" data-fa="مستندات کنترل کیفیت">Quality control documentation</span></li>
-                <li><i class="fas fa-circle"></i> <span data-en="Continuous improvement (Kaizen)" data-fa="بهبود مستمر (کایزن)">Continuous improvement (Kaizen)</span></li>
-            </ul>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-tools"></i> <span data-en="Software" data-fa="نرم‌افزارها">Software</span></h3>
-            <ul>
-                <li><i class="fas fa-check"></i> SAP QM</li>
-                <li><i class="fas fa-check"></i> Minitab</li>
-                <li><i class="fas fa-check"></i> Statistical Analysis Tools</li>
-                <li><i class="fas fa-check"></i> Document Management Systems</li>
-            </ul>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-book"></i> <span data-en="Resources" data-fa="منابع">Resources</span></h3>
-            <ul>
-                <li><i class="fas fa-file-pdf"></i> <span data-en="ISO 9001 Standards" data-fa="استانداردهای ISO 9001">ISO 9001 Standards</span></li>
-                <li><i class="fas fa-file-pdf"></i> <span data-en="Quality Control Checklists" data-fa="چک‌لیست‌های کنترل کیفیت">Quality Control Checklists</span></li>
-                <li><i class="fas fa-video"></i> <span data-en="QC Training Course" data-fa="دوره آموزشی کنترل کیفیت">QC Training Course</span></li>
-            </ul>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-road"></i> <span data-en="Learning Path" data-fa="مسیر یادگیری">Learning Path</span></h3>
-            <ul>
-                <li><i class="fas fa-arrow-right"></i> <strong data-en="Foundation:" data-fa="مقدماتی:">Foundation:</strong> <span data-en="Basic quality concepts and tools" data-fa="مفاهیم و ابزارهای پایه کیفیت">Basic quality concepts and tools</span></li>
-                <li><i class="fas fa-arrow-right"></i> <strong data-en="Intermediate:" data-fa="متوسط:">Intermediate:</strong> <span data-en="Inspection planning and execution" data-fa="برنامه‌ریزی و اجرای بازرسی">Inspection planning and execution</span></li>
-                <li><i class="fas fa-arrow-right"></i> <strong data-en="Advanced:" data-fa="پیشرفته:">Advanced:</strong> <span data-en="Quality management and improvement" data-fa="مدیریت و بهبود کیفیت">Quality management and improvement</span></li>
-            </ul>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-play-circle"></i> <span data-en="Videos & Future" data-fa="ویدئوها و آینده">Videos & Future</span></h3>
-            <ul>
-                <li><i class="fas fa-video"></i> <span data-en="QC Inspection Tutorial" data-fa="آموزش بازرسی کیفیت">QC Inspection Tutorial</span></li>
-                <li><i class="fas fa-video"></i> <span data-en="NDT Methods Workshop" data-fa="کارگاه روش‌های تست غیرمخرب">NDT Methods Workshop</span></li>
-                <li><i class="fas fa-clock"></i> <span data-en="Future: AI in Quality Control" data-fa="آینده: هوش مصنوعی در کنترل کیفیت">Future: AI in Quality Control</span></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="back-link">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
-    </div>
-</div>
-<script>
-    (function() {
-        const langBtns = document.querySelectorAll('.lang-btn');
-        let currentLang = localStorage.getItem('karatech-lang') || 'en';
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-en]').forEach(el => {
-                const txt = el.dataset[lang];
-                if (txt) {
-                    const nodes = el.childNodes;
-                    for (let n of nodes) {
-                        if (n.nodeType === 3) {
-                            n.textContent = txt;
-                            break;
-                        }
-                    }
-                }
-            });
-            document.body.classList.toggle('lang-persian', lang === 'fa');
-            localStorage.setItem('karatech-lang', lang);
-            langBtns.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
+<!DOCTYPE HTML>
+<HTML LANG="EN">
+<HEAD>
+    <META CHARSET="UTF-8" />
+    <META NAME="VIEWPORT" CONTENT="WIDTH=DEVICE-WIDTH, INITIAL-SCALE=1.0"/>
+    <TITLE>KARATECH ELV · QUALITY CONTROL</TITLE>
+    <LINK REL="STYLESHEET" HREF="../../STYLE.CSS" />
+    <LINK REL="PRECONNECT" HREF="HTTPS://FONTS.GOOGLEAPIS.COM">
+    <LINK REL="PRECONNECT" HREF="HTTPS://FONTS.GSTATIC.COM" CROSSORIGIN>
+    <LINK HREF="HTTPS://FONTS.GOOGLEAPIS.COM/CSS2?FAMILY=INTER:OPSZ,WGHT@14..32,400;14..32,500;14..32,600;14..32,700&DISPLAY=SWAP" REL="STYLESHEET">
+    <LINK REL="STYLESHEET" HREF="HTTPS://CDNJS.CLOUDFLARE.COM/AJAX/LIBS/FONT-AWESOME/6.5.0/CSS/ALL.MIN.CSS">
+    <STYLE>
+        BODY.PAGE-QUALITY .DASHBOARD {
+            BACKGROUND: 
+                LINEAR-GRADIENT(RGBA(13,14,18,0.80), RGBA(13,14,18,0.88)),
+                URL('HTTPS://IMAGES.UNSPLASH.COM/PHOTO-1581092335872-4F5B7B8C8C9F?W=1600&Q=80');
+            BACKGROUND-SIZE: COVER;
+            BACKGROUND-POSITION: CENTER;
+            BACKGROUND-ATTACHMENT: FIXED;
         }
-        setLanguage(currentLang);
-        langBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                setLanguage(this.dataset.lang);
-            });
-        });
-    })();
-</script>
-</body>
-</html>
+        BODY.PAGE-QUALITY .CARD-ACADEMY {
+            BACKDROP-FILTER: BLUR(6PX);
+            BACKGROUND: RGBA(26, 29, 36, 0.85);
+            BORDER: 1PX SOLID RGBA(212, 175, 55, 0.08);
+        }
+        BODY.PAGE-QUALITY .CARD-ACADEMY:HOVER {
+            BACKGROUND: RGBA(37, 42, 52, 0.92);
+            BORDER-COLOR: VAR(--ACCENT);
+        }
+    </STYLE>
+</HEAD>
+<BODY CLASS="PAGE-QUALITY">
+    <H1 STYLE="TEXT-ALIGN:CENTER; MARGIN-TOP:50PX; FONT-SIZE:2REM; COLOR:VAR(--ACCENT);">
+        <I CLASS="FAS FA-CHECK-DOUBLE"></I> QUALITY CONTROL
+    </H1>
+    <P STYLE="TEXT-ALIGN:CENTER; COLOR:VAR(--MUTED); MARGIN-TOP:10PX;">
+        INSPECTION, TESTING, ISO STANDARDS, AND CONTINUOUS IMPROVEMENT.
+    </P>
+    <DIV STYLE="TEXT-ALIGN:CENTER; MARGIN-TOP:30PX;">
+        <A HREF="../../INDEX.HTML" STYLE="COLOR:VAR(--ACCENT); TEXT-DECORATION:NONE;">
+            <I CLASS="FAS FA-ARROW-LEFT"></I> BACK TO DASHBOARD
+        </A>
+    </DIV>
+</BODY>
+</HTML>
