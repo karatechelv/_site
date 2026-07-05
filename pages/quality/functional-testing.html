@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · تست عملکردی</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:12px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}.brand span{color:#d4af37}
+        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:flex;align-items:center;gap:8px}
+        .back-link:hover{color:#fff}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:15px;display:flex;align-items:center;gap:12px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+        .section p{color:#b0b8c5;line-height:1.8}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .table-wrap{overflow-x:auto;margin:15px 0}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px}
+        th,td{padding:10px 14px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        .note-box{background:#0d0e12;padding:15px;border-radius:12px;border-right:3px solid #d4af37;margin:15px 0}
+        .lang-switch{display:flex;gap:6px}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;gap:12px}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+            <a href="inspection-testing.html" class="back-link" id="backLink">← بازگشت به بازرسی و تست</a>
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="fa">FA</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+    </div>
+
+    <h1 id="pageTitle">🎯 تست عملکردی</h1>
+    <div class="sub" id="pageSub">بررسی عملکرد واقعی قطعه یا سیستم در شرایط عملیاتی مشابه با محیط واقعی برای اطمینان از عملکرد صحیح و مطابقت با مشخصات.</div>
+
+    <div class="section">
+        <h2 id="defTitle">📌 تعریف</h2>
+        <p id="defText">تست عملکردی (Functional Testing) فرآیندی است که در آن یک قطعه، مجموعه یا سیستم کامل تحت شرایط عملیاتی واقعی یا شبیه‌سازی‌شده قرار می‌گیرد تا عملکرد آن تأیید شود. این تست شامل بررسی تمامی ورودی‌ها، خروجی‌ها، حالت‌ها و سناریوهای ممکن است.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="stepsTitle">🛠️ مراحل تست عملکردی</h2>
+        <ul id="stepsList">
+            <li><strong>مرحله ۱:</strong> تهیه سناریوی تست بر اساس مشخصات فنی</li>
+            <li><strong>مرحله ۲:</strong> راه‌اندازی سیستم در شرایط مشابه واقعی</li>
+            <li><strong>مرحله ۳:</strong> اعمال ورودی‌ها و ثبت خروجی‌ها</li>
+            <li><strong>مرحله ۴:</strong> مقایسه نتایج با مقادیر مورد انتظار</li>
+            <li><strong>مرحله ۵:</strong> ثبت نتایج و تهیه گزارش</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="equipTitle">🔧 تجهیزات مورد نیاز</h2>
+        <ul id="equipList">
+            <li><strong>منبع تغذیه</strong> – برای شبیه‌سازی شرایط عملیاتی</li>
+            <li><strong>سیگنال‌ژنراتور</strong> – برای اعمال سیگنال‌های ورودی</li>
+            <li><strong>مولتی‌متر و اسیلوسکوپ</strong> – برای اندازه‌گیری و مشاهده سیگنال‌ها</li>
+            <li><strong>رایانه و نرم‌افزار</strong> – برای ثبت و تحلیل داده‌ها</li>
+            <li><strong>تجهیزات ایمنی</strong> – جهت تست‌های خطرناک</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="exampleTitle">📋 مثال: تست عملکردی پمپ</h2>
+        <p id="exampleText">یک پمپ سانتریفیوژ تحت تست عملکردی قرار می‌گیرد. در این تست، پمپ با دبی و فشارهای مختلف کار می‌کند و پارامترهایی مانند دبی، فشار، جریان الکتریکی و دمای موتور اندازه‌گیری می‌شود. نتایج با منحنی عملکرد پمپ مقایسه شده و گزارش نهایی تهیه می‌شود.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="stdTitle">📌 استانداردهای مرتبط</h2>
+        <ul id="stdList">
+            <li><strong>ISO 9001</strong> – کنترل کیفیت و مستندسازی تست‌ها</li>
+            <li><strong>API 610</strong> – پمپ‌های سانتریفیوژ</li>
+            <li><strong>IEC 60034</strong> – تست موتورهای الکتریکی</li>
+            <li><strong>ASME PTC 8.2</strong> – تست عملکردی پمپ‌ها</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="noteTitle">💡 نکات کلیدی</h2>
+        <div class="note-box" id="noteText">
+            ✔️ تمامی تست‌ها باید مطابق با سناریوی از پیش تعیین‌شده انجام شوند.<br>
+            ✔️ شرایط محیطی (دما، رطوبت، فشار) باید ثبت شوند.<br>
+            ✔️ نتایج باید با مشخصات فنی و استانداردها مقایسه شوند.<br>
+            ✔️ هرگونه انحراف باید مستند و تحلیل شود.<br>
+            ✔️ تست عملکردی باید توسط تیم مجرب انجام شود.
+        </div>
+    </div>
+
+</div>
+
+<script>
+(function() {
+    const langBtns = document.querySelectorAll('.lang-btn');
+    let currentLang = localStorage.getItem('karatech-lang') || 'fa';
+
+    const translations = {
+        fa: {
+            title: '🎯 تست عملکردی',
+            sub: 'بررسی عملکرد واقعی قطعه یا سیستم در شرایط عملیاتی مشابه با محیط واقعی برای اطمینان از عملکرد صحیح و مطابقت با مشخصات.',
+            defTitle: '📌 تعریف',
+            defText: 'تست عملکردی (Functional Testing) فرآیندی است که در آن یک قطعه، مجموعه یا سیستم کامل تحت شرایط عملیاتی واقعی یا شبیه‌سازی‌شده قرار می‌گیرد تا عملکرد آن تأیید شود. این تست شامل بررسی تمامی ورودی‌ها، خروجی‌ها، حالت‌ها و سناریوهای ممکن است.',
+            stepsTitle: '🛠️ مراحل تست عملکردی',
+            stepsList: ['مرحله ۱: تهیه سناریوی تست بر اساس مشخصات فنی','مرحله ۲: راه‌اندازی سیستم در شرایط مشابه واقعی','مرحله ۳: اعمال ورودی‌ها و ثبت خروجی‌ها','مرحله ۴: مقایسه نتایج با مقادیر مورد انتظار','مرحله ۵: ثبت نتایج و تهیه گزارش'],
+            equipTitle: '🔧 تجهیزات مورد نیاز',
+            equipList: ['منبع تغذیه – برای شبیه‌سازی شرایط عملیاتی','سیگنال‌ژنراتور – برای اعمال سیگنال‌های ورودی','مولتی‌متر و اسیلوسکوپ – برای اندازه‌گیری و مشاهده سیگنال‌ها','رایانه و نرم‌افزار – برای ثبت و تحلیل داده‌ها','تجهیزات ایمنی – جهت تست‌های خطرناک'],
+            exampleTitle: '📋 مثال: تست عملکردی پمپ',
+            exampleText: 'یک پمپ سانتریفیوژ تحت تست عملکردی قرار می‌گیرد. در این تست، پمپ با دبی و فشارهای مختلف کار می‌کند و پارامترهایی مانند دبی، فشار، جریان الکتریکی و دمای موتور اندازه‌گیری می‌شود. نتایج با منحنی عملکرد پمپ مقایسه شده و گزارش نهایی تهیه می‌شود.',
+            stdTitle: '📌 استانداردهای مرتبط',
+            stdList: ['ISO 9001 – کنترل کیفیت و مستندسازی تست‌ها','API 610 – پمپ‌های سانتریفیوژ','IEC 60034 – تست موتورهای الکتریکی','ASME PTC 8.2 – تست عملکردی پمپ‌ها'],
+            noteTitle: '💡 نکات کلیدی',
+            noteText: '✔️ تمامی تست‌ها باید مطابق با سناریوی از پیش تعیین‌شده انجام شوند.\n✔️ شرایط محیطی (دما، رطوبت، فشار) باید ثبت شوند.\n✔️ نتایج باید با مشخصات فنی و استانداردها مقایسه شوند.\n✔️ هرگونه انحراف باید مستند و تحلیل شود.\n✔️ تست عملکردی باید توسط تیم مجرب انجام شود.',
+            back: '← بازگشت به بازرسی و تست'
+        },
+        en: {
+            title: '🎯 Functional Testing',
+            sub: 'Checking the actual performance of a part or system under operating conditions similar to the real environment to ensure proper operation and compliance with specifications.',
+            defTitle: '📌 Definition',
+            defText: 'Functional Testing is a process in which a part, assembly or complete system is subjected to actual or simulated operating conditions to verify its performance. This test includes checking all inputs, outputs, states and possible scenarios.',
+            stepsTitle: '🛠️ Functional Testing Steps',
+            stepsList: ['Step 1: Prepare test scenario based on technical specifications','Step 2: Set up system in conditions similar to real operation','Step 3: Apply inputs and record outputs','Step 4: Compare results with expected values','Step 5: Record results and prepare report'],
+            equipTitle: '🔧 Required Equipment',
+            equipList: ['Power supply – To simulate operating conditions','Signal generator – To apply input signals','Multimeter and oscilloscope – To measure and view signals','Computer and software – To record and analyze data','Safety equipment – For hazardous tests'],
+            exampleTitle: '📋 Example: Pump Functional Test',
+            exampleText: 'A centrifugal pump undergoes functional testing. In this test, the pump operates at different flow rates and pressures, and parameters such as flow rate, pressure, electrical current and motor temperature are measured. Results are compared with the pump performance curve and a final report is prepared.',
+            stdTitle: '📌 Related Standards',
+            stdList: ['ISO 9001 – Quality control and test documentation','API 610 – Centrifugal pumps','IEC 60034 – Electric motor testing','ASME PTC 8.2 – Pump performance testing'],
+            noteTitle: '💡 Key Points',
+            noteText: '✔️ All tests must be performed according to a predefined scenario.\n✔️ Environmental conditions (temperature, humidity, pressure) must be recorded.\n✔️ Results must be compared with technical specifications and standards.\n✔️ Any deviations must be documented and analyzed.\n✔️ Functional testing must be performed by an experienced team.',
+            back: '← Back to Inspection & Testing'
+        }
+    };
+
+    function updateContent(lang) {
+        const t = translations[lang];
+        if (!t) return;
+
+        document.getElementById('pageTitle').textContent = t.title;
+        document.getElementById('pageSub').textContent = t.sub;
+        document.getElementById('defTitle').textContent = t.defTitle;
+        document.getElementById('defText').textContent = t.defText;
+        document.getElementById('stepsTitle').textContent = t.stepsTitle;
+        document.getElementById('equipTitle').textContent = t.equipTitle;
+        document.getElementById('exampleTitle').textContent = t.exampleTitle;
+        document.getElementById('exampleText').textContent = t.exampleText;
+        document.getElementById('stdTitle').textContent = t.stdTitle;
+        document.getElementById('noteTitle').textContent = t.noteTitle;
+        document.getElementById('backLink').textContent = t.back;
+
+        const stepsList = document.getElementById('stepsList');
+        stepsList.innerHTML = '';
+        t.stepsList.forEach(item => { const li = document.createElement('li'); li.innerHTML = item; stepsList.appendChild(li); });
+
+        const equipList = document.getElementById('equipList');
+        equipList.innerHTML = '';
+        t.equipList.forEach(item => { const li = document.createElement('li'); li.innerHTML = item; equipList.appendChild(li); });
+
+        const stdList = document.getElementById('stdList');
+        stdList.innerHTML = '';
+        t.stdList.forEach(item => { const li = document.createElement('li'); li.innerHTML = item; stdList.appendChild(li); });
+
+        document.getElementById('noteText').textContent = t.noteText;
+
+        document.body.classList.toggle('lang-persian', lang === 'fa');
+        localStorage.setItem('karatech-lang', lang);
+        langBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+    }
+
+    updateContent(currentLang);
+
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            updateContent(this.dataset.lang);
+        });
+    });
+})();
+</script>
+
+</body>
+</html>
