@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مباحث برق</title>
+    <title>مباحث مهندسی برق</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
         .container{max-width:800px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:12px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}.brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:inline-block;margin-top:30px}
+        .back-link:hover{color:#fff}
         h1{color:#d4af37;margin-bottom:10px}
         .sub{color:#8e95a5;margin-bottom:25px}
         .accordion-item{background:#1e2128;border-radius:12px;margin-bottom:12px;border:1px solid rgba(212,175,55,0.1);overflow:hidden}
@@ -21,127 +29,146 @@
         .accordion-body a{display:block;color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);text-decoration:none;transition:.2s}
         .accordion-body a:hover{color:#d4af37;padding-right:6px}
         .accordion-body a i{color:#d4af37;margin-left:10px}
-        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:inline-block;margin-top:30px}
-        .back-link:hover{color:#fff}
+        @media(max-width:600px){body{padding:20px}.accordion-header{font-size:.9rem;padding:14px 16px}}
     </style>
 </head>
 <body>
 <div class="container">
 
-    <h1>⚡ مباحث مهندسی برق</h1>
-    <div class="sub">یکی از مباحث زیر را انتخاب کنید:</div>
-
-    <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i>📘</i> مرور کلی</span>
-            <span class="arrow">▼</span>
-        </button>
-        <div class="accordion-body">
-            <a href="overview.html"><i>🔗</i> مشاهده مرور کلی</a>
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="fa">FA</button>
+            <button class="lang-btn" data-lang="en">EN</button>
         </div>
     </div>
 
+    <h1 id="pageTitle">⚡ مباحث مهندسی برق</h1>
+    <div class="sub" id="pageSub">یکی از مباحث زیر را انتخاب کنید:</div>
+
+    <!-- آیتم ۱ -->
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i>⚡</i> سیستم‌های قدرت</span>
+            <span><i>📘</i> <span data-en="Overview" data-fa="مرور کلی">مرور کلی</span></span>
             <span class="arrow">▼</span>
         </button>
         <div class="accordion-body">
-            <a href="power-systems.html"><i>🔗</i> مشاهده سیستم‌های قدرت</a>
+            <a href="overview.html"><i>🔗</i> <span data-en="View Overview" data-fa="مشاهده مرور کلی">مشاهده مرور کلی</span></a>
         </div>
     </div>
 
+    <!-- آیتم ۲ -->
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i>🛡️</i> هماهنگی حفاظت</span>
+            <span><i>⚡</i> <span data-en="Power Systems" data-fa="سیستم‌های قدرت">سیستم‌های قدرت</span></span>
             <span class="arrow">▼</span>
         </button>
         <div class="accordion-body">
-            <a href="protection-coordination.html"><i>🔗</i> مشاهده هماهنگی حفاظت</a>
+            <a href="power-systems.html"><i>🔗</i> <span data-en="View Power Systems" data-fa="مشاهده سیستم‌های قدرت">مشاهده سیستم‌های قدرت</span></a>
         </div>
     </div>
 
+    <!-- آیتم ۳ -->
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i>🌍</i> ارتینگ و زمین کردن</span>
+            <span><i>🛡️</i> <span data-en="Protection Coordination" data-fa="هماهنگی حفاظت">هماهنگی حفاظت</span></span>
             <span class="arrow">▼</span>
         </button>
         <div class="accordion-body">
-            <a href="earthing-grounding.html"><i>🔗</i> مشاهده ارتینگ</a>
+            <a href="protection-coordination.html"><i>🔗</i> <span data-en="View Protection Coordination" data-fa="مشاهده هماهنگی حفاظت">مشاهده هماهنگی حفاظت</span></a>
         </div>
     </div>
 
+    <!-- آیتم ۴ -->
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i>📦</i> طراحی تابلو</span>
+            <span><i>🌍</i> <span data-en="Earthing & Grounding" data-fa="ارتینگ و زمین کردن">ارتینگ و زمین کردن</span></span>
             <span class="arrow">▼</span>
         </button>
         <div class="accordion-body">
-            <a href="switchgear-design.html"><i>🔗</i> مشاهده طراحی تابلو</a>
+            <a href="earthing-grounding.html"><i>🔗</i> <span data-en="View Earthing" data-fa="مشاهده ارتینگ">مشاهده ارتینگ</span></a>
         </div>
     </div>
 
+    <!-- آیتم ۵ -->
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i>📏</i> سایزینگ کابل</span>
+            <span><i>📦</i> <span data-en="Switchgear Design" data-fa="طراحی تابلو">طراحی تابلو</span></span>
             <span class="arrow">▼</span>
         </button>
         <div class="accordion-body">
-            <a href="cable-sizing.html"><i>🔗</i> مشاهده سایزینگ کابل</a>
+            <a href="switchgear-design.html"><i>🔗</i> <span data-en="View Switchgear Design" data-fa="مشاهده طراحی تابلو">مشاهده طراحی تابلو</span></a>
         </div>
     </div>
 
+    <!-- آیتم ۶ -->
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i>💻</i> نرم‌افزارها</span>
+            <span><i>📏</i> <span data-en="Cable Sizing" data-fa="سایزینگ کابل">سایزینگ کابل</span></span>
             <span class="arrow">▼</span>
         </button>
         <div class="accordion-body">
-            <a href="software.html"><i>🔗</i> مشاهده نرم‌افزارها</a>
+            <a href="cable-sizing.html"><i>🔗</i> <span data-en="View Cable Sizing" data-fa="مشاهده سایزینگ کابل">مشاهده سایزینگ کابل</span></a>
         </div>
     </div>
 
+    <!-- آیتم ۷ -->
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i>📚</i> منابع</span>
+            <span><i>💻</i> <span data-en="Software" data-fa="نرم‌افزارها">نرم‌افزارها</span></span>
             <span class="arrow">▼</span>
         </button>
         <div class="accordion-body">
-            <a href="resources.html"><i>🔗</i> مشاهده منابع</a>
+            <a href="software.html"><i>🔗</i> <span data-en="View Software" data-fa="مشاهده نرم‌افزارها">مشاهده نرم‌افزارها</span></a>
         </div>
     </div>
 
+    <!-- آیتم ۸ -->
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i>🗺️</i> مسیر یادگیری</span>
+            <span><i>📚</i> <span data-en="Resources" data-fa="منابع">منابع</span></span>
             <span class="arrow">▼</span>
         </button>
         <div class="accordion-body">
-            <a href="learning-path.html"><i>🔗</i> مشاهده مسیر یادگیری</a>
+            <a href="resources.html"><i>🔗</i> <span data-en="View Resources" data-fa="مشاهده منابع">مشاهده منابع</span></a>
         </div>
     </div>
 
+    <!-- آیتم ۹ -->
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i>🎬</i> ویدئوها و آینده</span>
+            <span><i>🗺️</i> <span data-en="Learning Path" data-fa="مسیر یادگیری">مسیر یادگیری</span></span>
             <span class="arrow">▼</span>
         </button>
         <div class="accordion-body">
-            <a href="videos-future.html"><i>🔗</i> مشاهده ویدئوها و آینده</a>
+            <a href="learning-path.html"><i>🔗</i> <span data-en="View Learning Path" data-fa="مشاهده مسیر یادگیری">مشاهده مسیر یادگیری</span></a>
         </div>
     </div>
 
+    <!-- آیتم ۱۰ -->
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span><i>📝</i> مثال‌ها</span>
+            <span><i>🎬</i> <span data-en="Videos & Future" data-fa="ویدئوها و آینده">ویدئوها و آینده</span></span>
             <span class="arrow">▼</span>
         </button>
         <div class="accordion-body">
-            <a href="examples.html"><i>🔗</i> مشاهده مثال‌ها</a>
+            <a href="videos-future.html"><i>🔗</i> <span data-en="View Videos & Future" data-fa="مشاهده ویدئوها و آینده">مشاهده ویدئوها و آینده</span></a>
         </div>
     </div>
 
-    <a href="../academy/electrical.html" class="back-link">← بازگشت به مهندسی برق</a>
+    <!-- آیتم ۱۱ -->
+    <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i>📝</i> <span data-en="Examples" data-fa="مثال‌ها">مثال‌ها</span></span>
+            <span class="arrow">▼</span>
+        </button>
+        <div class="accordion-body">
+            <a href="examples.html"><i>🔗</i> <span data-en="View Examples" data-fa="مشاهده مثال‌ها">مشاهده مثال‌ها</span></a>
+        </div>
+    </div>
+
+    <!-- دکمه برگشت -->
+    <a href="../academy/electrical.html" class="back-link" id="backLink">← بازگشت به مهندسی برق</a>
 
 </div>
 
@@ -152,6 +179,58 @@ function toggleAccordion(btn) {
     document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
 }
+
+(function() {
+    const langBtns = document.querySelectorAll('.lang-btn');
+    let currentLang = localStorage.getItem('karatech-lang') || 'fa';
+
+    const translations = {
+        fa: {
+            title: '⚡ مباحث مهندسی برق',
+            sub: 'یکی از مباحث زیر را انتخاب کنید:',
+            back: '← بازگشت به مهندسی برق'
+        },
+        en: {
+            title: '⚡ Electrical Engineering Topics',
+            sub: 'Select one of the topics below:',
+            back: '← Back to Electrical Engineering'
+        }
+    };
+
+    function updateContent(lang) {
+        const t = translations[lang];
+        if (!t) return;
+
+        document.getElementById('pageTitle').textContent = t.title;
+        document.getElementById('pageSub').textContent = t.sub;
+        document.getElementById('backLink').textContent = t.back;
+
+        document.querySelectorAll('[data-en]').forEach(el => {
+            const txt = el.dataset[lang];
+            if (txt) {
+                const nodes = el.childNodes;
+                for (let n of nodes) {
+                    if (n.nodeType === 3) {
+                        n.textContent = txt;
+                        break;
+                    }
+                }
+            }
+        });
+
+        document.body.classList.toggle('lang-persian', lang === 'fa');
+        localStorage.setItem('karatech-lang', lang);
+        langBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+    }
+
+    updateContent(currentLang);
+
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            updateContent(this.dataset.lang);
+        });
+    });
+})();
 </script>
 
 </body>
