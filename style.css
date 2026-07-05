@@ -233,12 +233,19 @@ body {
 }
 .dashboard.active {
     display: block;
-    background: 
+    position: relative;
+    z-index: 0;
+}
+.dashboard.active::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
         linear-gradient(rgba(13, 14, 18, 0.75), rgba(13, 14, 18, 0.88)),
         url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&q=80');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
 }
 .splash.hidden {
     display: none;
@@ -780,6 +787,10 @@ body {
     }
     .contact-grid {
         grid-template-columns: 1fr 1fr;
+    }
+    .dashboard.active::before {
+        position: absolute;
+        background-attachment: scroll;
     }
 }
 
