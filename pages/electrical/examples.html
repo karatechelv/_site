@@ -1,85 +1,122 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مثال‌های مهندسی برق</title>
+    <title>Karatech ELV · Examples</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
         .container{max-width:1000px;margin:0 auto}
-        h1{color:#d4af37;margin-bottom:10px}
-        .sub{color:#8e95a5;margin-bottom:25px;font-size:1rem;line-height:1.8}
-        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;margin-bottom:12px;font-size:1.3rem}
-        .section p{color:#b0b8c5;line-height:1.8}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
         .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:inline-block;margin-top:30px}
-        .back-link:hover{color:#fff}
-        .example-box{background:#0d0e12;padding:20px;border-radius:12px;border-right:3px solid #d4af37;margin-top:15px}
-        .example-box h3{color:#d4af37;margin-bottom:10px}
-        .example-box p{color:#b0b8c5;line-height:1.8}
-        @media(max-width:600px){.calc-row{grid-template-columns:1fr}}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
 <div class="container">
 
-    <h1>📝 مثال‌های مهندسی برق</h1>
-    <div class="sub">پروژه‌ها و مثال‌های عملی برای درک بهتر مفاهیم مهندسی برق.</div>
-
-    <div class="section">
-        <h2>🔹 مثال ۱: طراحی تابلو فشار ضعیف</h2>
-        <div class="example-box">
-            <h3>📋 شرح پروژه</h3>
-            <p>طراحی یک تابلو برای تأمین تغذیه یک کارگاه صنعتی با ۱۰ دستگاه موتور سه‌فاز ۵ کیلوواتی. شامل انتخاب کلیدها، کنتاکتورها و رله‌ها با رعایت استانداردهای IEC 61439.</p>
-            <h3>🔧 مراحل انجام</h3>
-            <ul>
-                <li>محاسبه جریان کل بار</li>
-                <li>انتخاب کلید اصلی و کلیدهای انشعاب</li>
-                <li>انتخاب کنتاکتور و رله اضافه بار</li>
-                <li>چیدمان اجزاء در تابلو</li>
-                <li>تهیه شماتیک و نقشه چیدمان</li>
-            </ul>
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
         </div>
     </div>
 
+    <h1 id="title">📝 Practical Examples</h1>
+    <div class="sub" id="desc">Real-world electrical engineering examples and case studies.</div>
+
     <div class="section">
-        <h2>🔹 مثال ۲: محاسبه سایز کابل</h2>
-        <div class="example-box">
-            <h3>📋 شرح پروژه</h3>
-            <p>انتخاب سطح مقطع کابل برای یک موتور ۴۵ کیلووات با فاصله ۱۰۰ متر از تابلو، با در نظر گرفتن افت ولتاژ ۳٪ و دمای محیط ۳۵ درجه سانتی‌گراد.</p>
-            <h3>🔧 مراحل انجام</h3>
-            <ul>
-                <li>محاسبه جریان نامی موتور</li>
-                <li>انتخاب سطح مقطع اولیه از جداول</li>
-                <li>بررسی افت ولتاژ</li>
-                <li>بررسی دمایی و ضریب تصحیح</li>
-                <li>انتخاب نهایی کابل</li>
-            </ul>
-        </div>
+        <h2 id="s1">🔹 Example 1: Panel Design</h2>
+        <p id="s1p">Design a low-voltage switchgear panel for a workshop with 10 motors. Calculate total load, select main switch, and arrange components per IEC 61439.</p>
     </div>
 
     <div class="section">
-        <h2>🔹 مثال ۳: هماهنگی حفاظت</h2>
-        <div class="example-box">
-            <h3>📋 شرح پروژه</h3>
-            <p>تنظیم رله‌های حفاظتی برای یک فیدر فشار متوسط با استفاده از منحنی‌های زمان-جریان و رعایت استانداردهای IEC 60255.</p>
-            <h3>🔧 مراحل انجام</h3>
-            <ul>
-                <li>محاسبه جریان اتصال کوتاه</li>
-                <li>انتخاب رله مناسب</li>
-                <li>تنظیم جریان pick-up و TMS</li>
-                <li>بررسی هماهنگی با رله‌های پایین‌دست</li>
-                <li>تهیه منحنی TCC</li>
-            </ul>
-        </div>
+        <h2 id="s2">🔹 Example 2: Cable Sizing</h2>
+        <p id="s2p">Select cable size for a 45 kW motor located 100 m from the MCC. Consider voltage drop (3%) and ambient temperature (35°C).</p>
     </div>
 
-    <a href="electrical-index.html" class="back-link">← بازگشت به مباحث برق</a>
+    <div class="section">
+        <h2 id="s3">🔹 Example 3: Protection Coordination</h2>
+        <p id="s3p">Set overcurrent relay for a medium-voltage feeder using IEC 60255 curves. Calculate pickup current and time grading.</p>
+    </div>
+
+    <div class="back">
+        <a href="electrical-index.html" id="backlink">← Back</a>
+    </div>
 
 </div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📝 Practical Examples',
+            desc: 'Real-world electrical engineering examples and case studies.',
+            s1: '🔹 Example 1: Panel Design',
+            s1p: 'Design a low-voltage switchgear panel for a workshop with 10 motors. Calculate total load, select main switch, and arrange components per IEC 61439.',
+            s2: '🔹 Example 2: Cable Sizing',
+            s2p: 'Select cable size for a 45 kW motor located 100 m from the MCC. Consider voltage drop (3%) and ambient temperature (35°C).',
+            s3: '🔹 Example 3: Protection Coordination',
+            s3p: 'Set overcurrent relay for a medium-voltage feeder using IEC 60255 curves. Calculate pickup current and time grading.',
+            back: '← Back'
+        },
+        fa: {
+            title: '📝 مثال‌های عملی',
+            desc: 'مثال‌ها و مطالعات موردی واقعی مهندسی برق.',
+            s1: '🔹 مثال ۱: طراحی تابلو',
+            s1p: 'طراحی یک تابلو فشار ضعیف برای یک کارگاه با ۱۰ موتور. محاسبه کل بار، انتخاب کلید اصلی و چیدمان اجزاء بر اساس IEC 61439.',
+            s2: '🔹 مثال ۲: سایزینگ کابل',
+            s2p: 'انتخاب سایز کابل برای یک موتور ۴۵ کیلووات در فاصله ۱۰۰ متر از MCC. در نظر گرفتن افت ولتاژ (۳٪) و دمای محیط (۳۵ درجه سانتی‌گراد).',
+            s3: '🔹 مثال ۳: هماهنگی حفاظت',
+            s3p: 'تنظیم رله اضافه‌جریان برای یک فیدر فشار متوسط با استفاده از منحنی‌های IEC 60255. محاسبه جریان pick-up و زمان‌بندی.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s2p').textContent = t.s2p;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s3p').textContent = t.s3p;
+        document.getElementById('backlink').textContent = t.back;
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
 </body>
 </html>
