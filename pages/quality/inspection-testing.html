@@ -3,138 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · بازرسی و تست</title>
+    <title>بازرسی و تست</title>
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
         .container{max-width:900px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:12px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}.brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:flex;align-items:center;gap:8px}
-        .back-link:hover{color:#fff}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:15px;display:flex;align-items:center;gap:12px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:30px}
-        .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);transition:.3s;text-decoration:none;color:inherit;display:block}
-        .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
-        .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
-        .card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
-        .card p{color:#8e95a5;font-size:.85rem}
-        .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:8px}
-        @media(max-width:768px){.grid{grid-template-columns:1fr}}
+        .back-link{color:#d4af37;text-decoration:none}
+        h1{color:#d4af37}
+        .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+        .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #d4af37;text-decoration:none;color:inherit;display:block}
+        .card:hover{background:#282d38}
+        .card i{font-size:2rem;color:#d4af37}
     </style>
 </head>
 <body>
 <div class="container">
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-            <a href="../academy/quality.html" class="back-link">← بازگشت به کنترل کیفیت</a>
-            <div class="lang-switch">
-                <button class="lang-btn active" data-lang="fa">FA</button>
-                <button class="lang-btn" data-lang="en">EN</button>
-            </div>
-        </div>
-    </div>
+    <a href="../academy/quality.html" class="back-link">← بازگشت به کنترل کیفیت</a>
 
     <h1>🔍 بازرسی و تست</h1>
-    <div class="sub">انواع روش‌های بازرسی و تست در کنترل کیفیت را انتخاب کنید.</div>
+    <p style="color:#8e95a5;">انواع روش‌های بازرسی و تست در کنترل کیفیت را انتخاب کنید.</p>
 
     <div class="grid">
         <a href="visual-inspection.html" class="card">
             <i>🔍</i>
             <h3>بازرسی بصری</h3>
-            <p>بررسی عیوب سطحی با چشم یا ابزارهای ساده</p>
-            <span class="badge">مشاهده →</span>
+            <p style="color:#8e95a5;">بررسی عیوب سطحی با چشم یا ابزارهای ساده</p>
         </a>
         <a href="dimensional-measurement.html" class="card">
             <i>📏</i>
             <h3>اندازه‌گیری ابعادی</h3>
-            <p>با کولیس، میکرومتر و CMM</p>
-            <span class="badge">مشاهده →</span>
+            <p style="color:#8e95a5;">با کولیس، میکرومتر و CMM</p>
         </a>
         <a href="electrical-testing.html" class="card">
             <i>⚡</i>
             <h3>تست الکتریکی</h3>
-            <p>پیوستگی، مقاومت عایق، Hi-Pot</p>
-            <span class="badge">مشاهده →</span>
+            <p style="color:#8e95a5;">پیوستگی، مقاومت عایق، Hi-Pot</p>
         </a>
         <a href="functional-testing.html" class="card">
             <i>🎯</i>
             <h3>تست عملکردی</h3>
-            <p>بررسی عملکرد در شرایط واقعی</p>
-            <span class="badge">مشاهده →</span>
+            <p style="color:#8e95a5;">بررسی عملکرد در شرایط واقعی</p>
         </a>
     </div>
 
 </div>
-
-<script>
-(function() {
-    const langBtns = document.querySelectorAll('.lang-btn');
-    let currentLang = localStorage.getItem('karatech-lang') || 'fa';
-
-    const translations = {
-        fa: {
-            title: '🔍 بازرسی و تست',
-            sub: 'انواع روش‌های بازرسی و تست در کنترل کیفیت را انتخاب کنید.',
-            back: '← بازگشت به کنترل کیفیت',
-            cards: [
-                ['بازرسی بصری', 'بررسی عیوب سطحی با چشم یا ابزارهای ساده', 'مشاهده →'],
-                ['اندازه‌گیری ابعادی', 'با کولیس، میکرومتر و CMM', 'مشاهده →'],
-                ['تست الکتریکی', 'پیوستگی، مقاومت عایق، Hi-Pot', 'مشاهده →'],
-                ['تست عملکردی', 'بررسی عملکرد در شرایط واقعی', 'مشاهده →']
-            ]
-        },
-        en: {
-            title: '🔍 Inspection & Testing',
-            sub: 'Select the type of inspection and testing method in quality control.',
-            back: '← Back to Quality Control',
-            cards: [
-                ['Visual Inspection', 'Checking surface defects with naked eye or simple tools', 'View →'],
-                ['Dimensional Measurement', 'With calipers, micrometers and CMM', 'View →'],
-                ['Electrical Testing', 'Continuity, insulation resistance, Hi-Pot', 'View →'],
-                ['Functional Testing', 'Performance verification under real conditions', 'View →']
-            ]
-        }
-    };
-
-    function updateContent(lang) {
-        const t = translations[lang];
-        if (!t) return;
-
-        document.querySelector('h1').textContent = t.title;
-        document.querySelector('.sub').textContent = t.sub;
-        document.querySelector('.back-link').textContent = t.back;
-
-        const cards = document.querySelectorAll('.card');
-        t.cards.forEach((item, index) => {
-            if (cards[index]) {
-                cards[index].querySelector('h3').textContent = item[0];
-                cards[index].querySelector('p').textContent = item[1];
-                cards[index].querySelector('.badge').textContent = item[2];
-            }
-        });
-
-        document.body.classList.toggle('lang-persian', lang === 'fa');
-        localStorage.setItem('karatech-lang', lang);
-        langBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
-    }
-
-    updateContent(currentLang);
-
-    langBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            updateContent(this.dataset.lang);
-        });
-    });
-})();
-</script>
-
 </body>
 </html>
