@@ -34,7 +34,7 @@
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-            <a href="../academy/quality.html" class="back-link" id="backLink">← بازگشت به کنترل کیفیت</a>
+            <a href="../academy/quality.html" class="back-link">← بازگشت به کنترل کیفیت</a>
             <div class="lang-switch">
                 <button class="lang-btn active" data-lang="fa">FA</button>
                 <button class="lang-btn" data-lang="en">EN</button>
@@ -42,33 +42,33 @@
         </div>
     </div>
 
-    <h1 id="pageTitle">🔍 بازرسی و تست</h1>
-    <div class="sub" id="pageSub">انواع روش‌های بازرسی و تست در کنترل کیفیت را انتخاب کنید.</div>
+    <h1>🔍 بازرسی و تست</h1>
+    <div class="sub">انواع روش‌های بازرسی و تست در کنترل کیفیت را انتخاب کنید.</div>
 
     <div class="grid">
         <a href="visual-inspection.html" class="card">
             <i>🔍</i>
-            <h3 id="c1t">بازرسی بصری</h3>
-            <p id="c1p">بررسی عیوب سطحی با چشم یا ابزارهای ساده</p>
-            <span class="badge" id="c1b">مشاهده →</span>
+            <h3>بازرسی بصری</h3>
+            <p>بررسی عیوب سطحی با چشم یا ابزارهای ساده</p>
+            <span class="badge">مشاهده →</span>
         </a>
         <a href="dimensional-measurement.html" class="card">
             <i>📏</i>
-            <h3 id="c2t">اندازه‌گیری ابعادی</h3>
-            <p id="c2p">با کولیس، میکرومتر و CMM</p>
-            <span class="badge" id="c2b">مشاهده →</span>
+            <h3>اندازه‌گیری ابعادی</h3>
+            <p>با کولیس، میکرومتر و CMM</p>
+            <span class="badge">مشاهده →</span>
         </a>
         <a href="electrical-testing.html" class="card">
             <i>⚡</i>
-            <h3 id="c3t">تست الکتریکی</h3>
-            <p id="c3p">پیوستگی، مقاومت عایق، Hi-Pot</p>
-            <span class="badge" id="c3b">مشاهده →</span>
+            <h3>تست الکتریکی</h3>
+            <p>پیوستگی، مقاومت عایق، Hi-Pot</p>
+            <span class="badge">مشاهده →</span>
         </a>
         <a href="functional-testing.html" class="card">
             <i>🎯</i>
-            <h3 id="c4t">تست عملکردی</h3>
-            <p id="c4p">بررسی عملکرد در شرایط واقعی</p>
-            <span class="badge" id="c4b">مشاهده →</span>
+            <h3>تست عملکردی</h3>
+            <p>بررسی عملکرد در شرایط واقعی</p>
+            <span class="badge">مشاهده →</span>
         </a>
     </div>
 
@@ -108,20 +108,16 @@
         const t = translations[lang];
         if (!t) return;
 
-        document.getElementById('pageTitle').textContent = t.title;
-        document.getElementById('pageSub').textContent = t.sub;
-        document.getElementById('backLink').textContent = t.back;
+        document.querySelector('h1').textContent = t.title;
+        document.querySelector('.sub').textContent = t.sub;
+        document.querySelector('.back-link').textContent = t.back;
 
         const cards = document.querySelectorAll('.card');
-        const titles = ['c1t','c2t','c3t','c4t'];
-        const descs = ['c1p','c2p','c3p','c4p'];
-        const badges = ['c1b','c2b','c3b','c4b'];
-
         t.cards.forEach((item, index) => {
             if (cards[index]) {
-                document.getElementById(titles[index]).textContent = item[0];
-                document.getElementById(descs[index]).textContent = item[1];
-                document.getElementById(badges[index]).textContent = item[2];
+                cards[index].querySelector('h3').textContent = item[0];
+                cards[index].querySelector('p').textContent = item[1];
+                cards[index].querySelector('.badge').textContent = item[2];
             }
         });
 
