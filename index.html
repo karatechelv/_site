@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Karatech ELV · Engineering Ecosystem</title>
     
-    <!-- فونت و آیکون‌ها -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    <!-- استایل اصلی -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- ===== HEADER با ویجت ساعت/تقویم ===== -->
 <header class="header">
     <div class="brand">KARATECH <span>ELV</span></div>
+    
+    <!-- ویجت ساعت و تقویم -->
+    <div class="datetime-widget" id="datetimeWidget">
+        <div class="date-display" id="dateDisplay">۱۴۰۴/۰۱/۱۵</div>
+        <div class="time-display" id="timeDisplay">۱۴:۳۲:۴۵</div>
+    </div>
+
     <div style="display:flex; align-items:center; gap:16px;">
         <button class="exit-btn" onclick="goToSplash()">
             <i class="fas fa-sign-out-alt"></i> <span data-en="Exit" data-fa="خروج">Exit</span>
@@ -150,7 +154,6 @@
         <div class="contact-card"><i class="fab fa-github"></i><h4>GitHub</h4><p><a href="#">/karatechelv</a></p></div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
         <div><i class="fas fa-envelope"></i> <a href="mailto:karatechelv@gmail.com">karatechelv@gmail.com</a></div>
         <div><i class="fas fa-phone"></i> <a href="tel:+989120891544">+98 912 089 1544</a></div>
