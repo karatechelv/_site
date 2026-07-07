@@ -1,168 +1,156 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Automation Learning Path</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Automation Learning Path</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .path-flow{display:flex;flex-wrap:wrap;gap:8px;background:#0d0e12;padding:16px;border-radius:12px;margin:10px 0}
+ .path-step{background:#1e2128;padding:8px 16px;border-radius:30px;font-size:.85rem;border-left:3px solid #d4af37;color:#eef0f4}
+ .path-arrow{color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Automation Learning Path</h1>
+ <div class="sub" id="desc">A structured learning path from foundation to advanced topics in automation engineering.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="s1">Foundation Level</h2>
+  <ul id="list1">
+   <li>Introduction to Automation &amp; Control Systems</li>
+   <li>Basic Electricity &amp; Electronics</li>
+   <li>Sensors &amp; Actuators</li>
+   <li>Safety &amp; Standards Overview</li>
+  </ul>
+ </div>
 
-    <h1 id="title">🗺️ Automation Learning Path</h1>
-    <div class="sub" id="desc">A structured learning path to become a skilled automation engineer. From foundations to advanced topics.</div>
+ <div class="section">
+  <h2 id="s2">Intermediate Level</h2>
+  <ul id="list2">
+   <li>PLC Programming (Ladder, SCL, FBD)</li>
+   <li>HMI/SCADA Design</li>
+   <li>Industrial Networks (Profinet, Modbus)</li>
+   <li>PID Control &amp; Tuning</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s1">🔹 Foundation Level</h2>
-        <ul id="list1">
-            <li>Basic electricity and electronics</li>
-            <li>Introduction to PLC and control systems</li>
-            <li>Understanding sensors and actuators</li>
-            <li>Basic programming concepts</li>
-            <li>Safety fundamentals (LOTO, risk assessment)</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s3">Advanced Level</h2>
+  <ul id="list3">
+   <li>Motion Control &amp; Robotics</li>
+   <li>Safety Instrumented Systems (SIS)</li>
+   <li>Process Optimization &amp; Advanced Control</li>
+   <li>Cybersecurity for Industrial Systems</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s2">🔹 Intermediate Level</h2>
-        <ul id="list2">
-            <li>PLC programming (Ladder, FBD, ST)</li>
-            <li>HMI design and SCADA systems</li>
-            <li>Industrial networks (Profinet, Modbus)</li>
-            <li>PID control and tuning</li>
-            <li>Motion control and robotics basics</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s4">Suggested Path Flow</h2>
+  <div class="path-flow">
+   <span class="path-step">Foundation</span>
+   <span class="path-arrow">→</span>
+   <span class="path-step">PLC Programming</span>
+   <span class="path-arrow">→</span>
+   <span class="path-step">HMI/SCADA</span>
+   <span class="path-arrow">→</span>
+   <span class="path-step">Networks</span>
+   <span class="path-arrow">→</span>
+   <span class="path-step">PID Control</span>
+   <span class="path-arrow">→</span>
+   <span class="path-step">Motion/Robotics</span>
+   <span class="path-arrow">→</span>
+   <span class="path-step">Advanced</span>
+  </div>
+  <p id="s4p">Each step connects to previous, related, and next topics for fluid learning.</p>
+ </div>
 
-    <div class="section">
-        <h2 id="s3">🔹 Advanced Level</h2>
-        <ul id="list3">
-            <li>Multi-axis motion control and robotics</li>
-            <li>Advanced SCADA and IIoT</li>
-            <li>Functional safety (IEC 61508, ISO 13849)</li>
-            <li>MES and Industry 4.0</li>
-            <li>Project management and system integration</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Continuous Learning</h2>
-        <ul id="list4">
-            <li>Stay updated with new technologies (AI, digital twin)</li>
-            <li>Attend conferences (Hannover Messe, SPS)</li>
-            <li>Certifications (ISA, Siemens, Rockwell)</li>
-            <li>Online courses (Udemy, Coursera, PLC Academy)</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🗺️ Automation Learning Path',
-            desc: 'A structured learning path to become a skilled automation engineer. From foundations to advanced topics.',
-            s1: '🔹 Foundation Level',
-            list1: ['Basic electricity and electronics','Introduction to PLC and control systems','Understanding sensors and actuators','Basic programming concepts','Safety fundamentals (LOTO, risk assessment)'],
-            s2: '🔹 Intermediate Level',
-            list2: ['PLC programming (Ladder, FBD, ST)','HMI design and SCADA systems','Industrial networks (Profinet, Modbus)','PID control and tuning','Motion control and robotics basics'],
-            s3: '🔹 Advanced Level',
-            list3: ['Multi-axis motion control and robotics','Advanced SCADA and IIoT','Functional safety (IEC 61508, ISO 13849)','MES and Industry 4.0','Project management and system integration'],
-            s4: '🔹 Continuous Learning',
-            list4: ['Stay updated with new technologies (AI, digital twin)','Attend conferences (Hannover Messe, SPS)','Certifications (ISA, Siemens, Rockwell)','Online courses (Udemy, Coursera, PLC Academy)'],
-            back: '← Back'
-        },
-        fa: {
-            title: '🗺️ مسیر یادگیری اتوماسیون',
-            desc: 'یک مسیر یادگیری ساختاریافته برای تبدیل شدن به یک مهندس اتوماسیون ماهر. از مبانی تا موضوعات پیشرفته.',
-            s1: '🔹 سطح پایه',
-            list1: ['مبانی برق و الکترونیک','آشنایی با PLC و سیستم‌های کنترلی','درک سنسورها و عملگرها','مفاهیم پایه برنامه‌نویسی','مبانی ایمنی (LOTO، ارزیابی ریسک)'],
-            s2: '🔹 سطح متوسط',
-            list2: ['برنامه‌نویسی PLC (نردبانی، FBD، ST)','طراحی HMI و سیستم‌های SCADA','شبکه‌های صنعتی (Profinet، Modbus)','کنترل PID و تنظیم','کنترل حرکت و مبانی رباتیک'],
-            s3: '🔹 سطح پیشرفته',
-            list3: ['کنترل حرکت چندمحوره و رباتیک','SCADA پیشرفته و IIoT','ایمنی عملکردی (IEC 61508، ISO 13849)','MES و صنعت 4.0','مدیریت پروژه و یکپارچه‌سازی سیستم'],
-            s4: '🔹 یادگیری مستمر',
-            list4: ['به‌روز ماندن با فناوری‌های جدید (AI، دوقلوی دیجیتال)','شرکت در کنفرانس‌ها (Hannover Messe، SPS)','گواهینامه‌ها (ISA، زیمنس، راکول)','دوره‌های آنلاین (Udemy، Coursera، PLC Academy)'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        const ul3 = document.getElementById('list3');
-        ul3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
-
-        const ul4 = document.getElementById('list4');
-        ul4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Automation Learning Path',
+  desc: 'A structured learning path from foundation to advanced topics in automation engineering.',
+  s1: 'Foundation Level',
+  list1: ['Introduction to Automation & Control Systems','Basic Electricity & Electronics','Sensors & Actuators','Safety & Standards Overview'],
+  s2: 'Intermediate Level',
+  list2: ['PLC Programming (Ladder, SCL, FBD)','HMI/SCADA Design','Industrial Networks (Profinet, Modbus)','PID Control & Tuning'],
+  s3: 'Advanced Level',
+  list3: ['Motion Control & Robotics','Safety Instrumented Systems (SIS)','Process Optimization & Advanced Control','Cybersecurity for Industrial Systems'],
+  s4: 'Suggested Path Flow',
+  s4p: 'Each step connects to previous, related, and next topics for fluid learning.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مسیر یادگیری اتوماسیون',
+  desc: 'یک مسیر یادگیری ساختاریافته از سطح پایه تا مباحث پیشرفته در مهندسی اتوماسیون.',
+  s1: 'سطح پایه',
+  list1: ['مقدمه‌ای بر اتوماسیون و سیستم‌های کنترل','مبانی برق و الکترونیک','سنسورها و عملگرها','مروری بر ایمنی و استانداردها'],
+  s2: 'سطح متوسط',
+  list2: ['برنامه‌نویسی PLC (نردبانی، SCL، FBD)','طراحی HMI/SCADA','شبکه‌های صنعتی (Profinet، Modbus)','کنترل PID و تنظیم'],
+  s3: 'سطح پیشرفته',
+  list3: ['کنترل حرکت و رباتیک','سیستم‌های ایمنی ابزاری (SIS)','بهینه‌سازی فرآیند و کنترل پیشرفته','امنیت سایبری در سیستم‌های صنعتی'],
+  s4: 'مسیر پیشنهادی',
+  s4p: 'هر مرحله به مباحث قبلی، مرتبط و بعدی برای یادگیری سیال متصل است.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
