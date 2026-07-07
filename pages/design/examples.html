@@ -1,177 +1,159 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Design Examples</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Design Examples</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Design Examples</h1>
+ <div class="sub" id="desc">Practical projects, drawing examples, and real-world engineering design applications.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="s1">Electrical Schematics Examples</h2>
+  <ul id="list1">
+   <li>Single-Line Diagram for MCC Panel</li>
+   <li>Motor Control Circuit (DOL Starter)</li>
+   <li>PLC Power Distribution Schematic</li>
+   <li>Emergency Stop Circuit Design</li>
+  </ul>
+  <div class="code-box">
+# DOL Starter Circuit:
+# Power: Breaker → Contactor → Overload → Motor
+# Control: Start PB → Stop PB → Contactor Coil
+# Auxiliary: Contactor seal-in contact
+  </div>
+ </div>
 
-    <h1 id="title">📝 Design Examples</h1>
-    <div class="sub" id="desc">Practical projects and examples to apply engineering design knowledge. Includes complete descriptions and learning outcomes.</div>
+ <div class="section">
+  <h2 id="s2">Panel Layout Examples</h2>
+  <ul id="list2">
+   <li>PLC Panel Layout (S7-1500)</li>
+   <li>Motor Control Center (MCC) Layout</li>
+   <li>Distribution Panel Layout</li>
+   <li>Instrument Junction Box Layout</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s1">🔹 Example 1: Industrial Panel Design</h2>
-        <p id="s1p"><strong>Description:</strong> Design of a motor control panel for a 3-phase induction motor (45 kW, 400 V). Includes main circuit breaker, contactor, overload relay, PLC interface, and local controls.</p>
-        <ul id="list1">
-            <li>Motor: 45 kW, 400 V, 3-phase</li>
-            <li>Panel: IP54 floor-standing enclosure</li>
-            <li>Key skills: Schematic drawing, panel layout, component selection, protection coordination</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s3">Cable Routing Examples</h2>
+  <ul id="list3">
+   <li>Cable Tray Layout for Industrial Plant</li>
+   <li>Control Room to Field Cable Routing</li>
+   <li>Conduit Routing for Instruments</li>
+   <li>Cable Schedule for MCC to Motors</li>
+  </ul>
+  <div class="code-box">
+# Cable Schedule Example:
+# Tag: M-101 | From: MCC-01 | To: Motor-101
+# Cable: 4C x 16mm² | Route: Tray A → Conduit
+# Length: 25m | Termination: Both ends
+  </div>
+ </div>
 
-    <div class="section">
-        <h2 id="s2">🔹 Example 2: Cable Routing for Power and Control</h2>
-        <p id="s2p"><strong>Description:</strong> Routing of power cables (3x185 mm²) and control cables (24x1.5 mm²) in a chemical plant using cable trays and conduits. Includes segregation, bend radius, and earthing requirements.</p>
-        <ul id="list2">
-            <li>Power cable: 3x185 mm² XLPE</li>
-            <li>Control cable: 24x1.5 mm² multicore</li>
-            <li>Key skills: Cable sizing, tray design, segregation, installation standards</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s4">Real-World Projects</h2>
+  <ul id="list4">
+   <li>Water Treatment Plant Electrical Design</li>
+   <li>Conveyor System Control Panel Design</li>
+   <li>HVAC Control Panel Design</li>
+   <li>Pumping Station MCC Design</li>
+  </ul>
+  <p id="s4p">Each project includes complete schematics, panel layouts, cable schedules, and BOM documentation.</p>
+ </div>
 
-    <div class="section">
-        <h2 id="s3">🔹 Example 3: Earthing System Design</h2>
-        <p id="s3p"><strong>Description:</strong> Design of an earthing system for a substation using a ring earth electrode, earthing conductors, and measurement points. Includes calculation of earth resistance and step/touch voltage verification.</p>
-        <ul id="list3">
-            <li>Earth resistance target: < 1 Ω</li>
-            <li>Electrode: Copper-bonded rods</li>
-            <li>Key skills: Earth resistance calculation, IEEE 80, testing methods</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example 4: Lighting Design for Workshop</h2>
-        <p id="s4p"><strong>Description:</strong> Design of a lighting system for a 500 m² workshop with a target of 500 lux at workbenches. Includes luminaire selection, spacing, and uniformity checks.</p>
-        <ul id="list4">
-            <li>Area: 500 m² workshop</li>
-            <li>Target illuminance: 500 lux</li>
-            <li>Key skills: Illuminance calculation, Dialux, energy efficiency</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📝 Design Examples',
-            desc: 'Practical projects and examples to apply engineering design knowledge. Includes complete descriptions and learning outcomes.',
-            s1: '🔹 Example 1: Industrial Panel Design',
-            s1p: 'Design of a motor control panel for a 3-phase induction motor (45 kW, 400 V). Includes main circuit breaker, contactor, overload relay, PLC interface, and local controls.',
-            list1: ['Motor: 45 kW, 400 V, 3-phase','Panel: IP54 floor-standing enclosure','Key skills: Schematic drawing, panel layout, component selection, protection coordination'],
-            s2: '🔹 Example 2: Cable Routing for Power and Control',
-            s2p: 'Routing of power cables (3x185 mm²) and control cables (24x1.5 mm²) in a chemical plant using cable trays and conduits. Includes segregation, bend radius, and earthing requirements.',
-            list2: ['Power cable: 3x185 mm² XLPE','Control cable: 24x1.5 mm² multicore','Key skills: Cable sizing, tray design, segregation, installation standards'],
-            s3: '🔹 Example 3: Earthing System Design',
-            s3p: 'Design of an earthing system for a substation using a ring earth electrode, earthing conductors, and measurement points. Includes calculation of earth resistance and step/touch voltage verification.',
-            list3: ['Earth resistance target: < 1 Ω','Electrode: Copper-bonded rods','Key skills: Earth resistance calculation, IEEE 80, testing methods'],
-            s4: '🔹 Example 4: Lighting Design for Workshop',
-            s4p: 'Design of a lighting system for a 500 m² workshop with a target of 500 lux at workbenches. Includes luminaire selection, spacing, and uniformity checks.',
-            list4: ['Area: 500 m² workshop','Target illuminance: 500 lux','Key skills: Illuminance calculation, Dialux, energy efficiency'],
-            back: '← Back'
-        },
-        fa: {
-            title: '📝 مثال‌های طراحی مهندسی',
-            desc: 'پروژه‌ها و مثال‌های عملی برای به کارگیری دانش طراحی مهندسی. شامل توضیحات کامل و نتایج یادگیری.',
-            s1: '🔹 مثال ۱: طراحی پنل صنعتی',
-            s1p: 'طراحی پنل کنترل موتور برای یک موتور القایی سه‌فاز (۴۵ کیلووات، ۴۰۰ ولت). شامل کلید مدار اصلی، کنتاکتور، رله اضافه بار، رابط PLC و کنترل‌های محلی.',
-            list1: ['موتور: ۴۵ کیلووات، ۴۰۰ ولت، سه‌فاز','پنل: محفظه کف‌ایستا با IP54','مهارت‌های کلیدی: نقشه شماتیک، چیدمان پنل، انتخاب اجزاء، هماهنگی حفاظتی'],
-            s2: '🔹 مثال ۲: مسیریابی کابل قدرت و کنترل',
-            s2p: 'مسیریابی کابل‌های قدرت (۳×۱۸۵ میلی‌متر مربع) و کابل‌های کنترل (۲۴×۱.۵ میلی‌متر مربع) در یک کارخانه شیمیایی با استفاده از تری و کاندوئیت. شامل تفکیک، شعاع خمش و الزامات ارتینگ.',
-            list2: ['کابل قدرت: ۳×۱۸۵ میلی‌متر مربع XLPE','کابل کنترل: ۲۴×۱.۵ میلی‌متر مربع چندرشته','مهارت‌های کلیدی: سایزینگ کابل، طراحی تری، تفکیک، استانداردهای نصب'],
-            s3: '🔹 مثال ۳: طراحی سیستم ارتینگ',
-            s3p: 'طراحی سیستم ارتینگ برای یک پست برق با استفاده از الکترود حلقه‌ای، هادی‌های ارتینگ و نقاط اندازه‌گیری. شامل محاسبه مقاومت زمین و تأیید ولتاژ گام و تماس.',
-            list3: ['هدف مقاومت زمین: < ۱ اهم','الکترود: میله‌های با روکش مس','مهارت‌های کلیدی: محاسبه مقاومت زمین، IEEE 80، روش‌های تست'],
-            s4: '🔹 مثال ۴: طراحی روشنایی کارگاه',
-            s4p: 'طراحی سیستم روشنایی برای یک کارگاه ۵۰۰ متر مربعی با هدف ۵۰۰ لوکس روی میزهای کار. شامل انتخاب چراغ، فاصله‌گذاری و بررسی یکنواختی.',
-            list4: ['مساحت: کارگاه ۵۰۰ متر مربع','شدت روشنایی هدف: ۵۰۰ لوکس','مهارت‌های کلیدی: محاسبه شدت روشنایی، Dialux، بهره‌وری انرژی'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s2p').textContent = t.s2p;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        const ul3 = document.getElementById('list3');
-        ul3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
-
-        const ul4 = document.getElementById('list4');
-        ul4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Design Examples',
+  desc: 'Practical projects, drawing examples, and real-world engineering design applications.',
+  s1: 'Electrical Schematics Examples',
+  list1: ['Single-Line Diagram for MCC Panel','Motor Control Circuit (DOL Starter)','PLC Power Distribution Schematic','Emergency Stop Circuit Design'],
+  s2: 'Panel Layout Examples',
+  list2: ['PLC Panel Layout (S7-1500)','Motor Control Center (MCC) Layout','Distribution Panel Layout','Instrument Junction Box Layout'],
+  s3: 'Cable Routing Examples',
+  list3: ['Cable Tray Layout for Industrial Plant','Control Room to Field Cable Routing','Conduit Routing for Instruments','Cable Schedule for MCC to Motors'],
+  s4: 'Real-World Projects',
+  list4: ['Water Treatment Plant Electrical Design','Conveyor System Control Panel Design','HVAC Control Panel Design','Pumping Station MCC Design'],
+  s4p: 'Each project includes complete schematics, panel layouts, cable schedules, and BOM documentation.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مثال‌های طراحی مهندسی',
+  desc: 'پروژه‌های عملی، مثال‌های نقشه‌کشی و کاربردهای واقعی طراحی مهندسی.',
+  s1: 'مثال‌های شماتیک برق',
+  list1: ['نمودار تک‌خطی برای پنل MCC','مدار کنترل موتور (استارت DOL)','شماتیک توزیع برق PLC','طراحی مدار توقف اضطراری'],
+  s2: 'مثال‌های چیدمان پنل',
+  list2: ['چیدمان پنل PLC (S7-1500)','چیدمان مرکز کنترل موتور (MCC)','چیدمان پنل توزیع','چیدمان جعبه اتصال ابزار دقیق'],
+  s3: 'مثال‌های مسیردهی کابل',
+  list3: ['چیدمان سینی کابل برای کارخانه صنعتی','مسیردهی کابل از اتاق کنترل به میدان','مسیردهی لوله برای ابزار دقیق','برنامه کابل از MCC به موتورها'],
+  s4: 'پروژه‌های واقعی',
+  list4: ['طراحی برق تصفیه‌خانه آب','طراحی پنل کنترل سیستم نقاله','طراحی پنل کنترل HVAC','طراحی MCC ایستگاه پمپاژ'],
+  s4p: 'هر پروژه شامل شماتیک‌های کامل، چیدمان پنل، برنامه کابل و مستندات BOM است.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
