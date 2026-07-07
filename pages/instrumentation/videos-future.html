@@ -1,160 +1,141 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Instrumentation Videos & Future</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Instrumentation Videos & Future</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.7rem;padding:2px 12px;border-radius:20px;margin-left:8px}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Videos &amp; Future Technologies</h1>
+ <div class="sub" id="desc">Video tutorials, upcoming technologies, and future developments in instrumentation engineering.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="s1">Video Tutorials</h2>
+  <ul id="list1">
+   <li>How to Calibrate a Pressure Transmitter</li>
+   <li>Temperature Sensor Selection Guide</li>
+   <li>Control Valve Sizing Workshop</li>
+   <li>HART Communication Setup</li>
+   <li>Loop Diagram Reading &amp; Troubleshooting</li>
+  </ul>
+ </div>
 
-    <h1 id="title">🎬 Instrumentation Videos & Future</h1>
-    <div class="sub" id="desc">Curated video tutorials and insights into future trends and technologies in instrumentation engineering.</div>
+ <div class="section">
+  <h2 id="s2">Future Technologies <span class="badge">Coming Soon</span></h2>
+  <ul id="list2">
+   <li>Wireless Instrumentation (WirelessHART, ISA100)</li>
+   <li>IoT Sensors for Condition Monitoring</li>
+   <li>Digital Twins for Instrumentation Systems</li>
+   <li>AI-Based Calibration Optimization</li>
+   <li>Cloud-Based Instrument Management</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s1">🔹 Recommended Video Channels</h2>
-        <ul id="list1">
-            <li>Instrumentation & Control – Practical demonstrations</li>
-            <li>Emerson Automation Solutions – Training and webinars</li>
-            <li>Endress+Hauser – Product tutorials and applications</li>
-            <li>Rosemount – Transmitter configuration and troubleshooting</li>
-            <li>RealPars – Instrumentation basics and advanced topics</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s3">Upcoming Content <span class="badge">In Development</span></h2>
+  <ul id="list3">
+   <li>Advanced Analyzer Maintenance Techniques</li>
+   <li>Safety Instrumented Systems (SIS) Design</li>
+   <li>Functional Safety Engineering</li>
+   <li>Instrumentation Project Management</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s2">🔹 Popular Video Topics</h2>
-        <ul id="list2">
-            <li>Pressure transmitter calibration and configuration</li>
-            <li>Temperature sensor selection and wiring (RTD, Thermocouple)</li>
-            <li>Flow meter installation and commissioning</li>
-            <li>Control valve troubleshooting and maintenance</li>
-            <li>HART and Fieldbus communication basics</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s4">What's Next?</h2>
+  <p id="s4p">We are continuously developing new video content and exploring emerging technologies in instrumentation. All future lessons will connect to previous, related, and next topics for a complete learning experience.</p>
+ </div>
 
-    <div class="section">
-        <h2 id="s3">🔹 Future Trends in Instrumentation</h2>
-        <ul id="list3">
-            <li>Wireless instrumentation and IIoT – Remote monitoring</li>
-            <li>Smart sensors with predictive diagnostics</li>
-            <li>Digital twins for instrument optimization</li>
-            <li>AI/ML for predictive maintenance</li>
-            <li>Cybersecurity for connected instruments</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 What's Next in Instrumentation Engineering?</h2>
-        <p id="s4p">The future of instrumentation will be driven by connectivity, intelligence, and data analytics. Engineers will need skills in digital communications, network security, and data interpretation alongside traditional knowledge. Industry 4.0 and smart manufacturing will continue to transform the instrumentation landscape.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🎬 Instrumentation Videos & Future',
-            desc: 'Curated video tutorials and insights into future trends and technologies in instrumentation engineering.',
-            s1: '🔹 Recommended Video Channels',
-            list1: ['Instrumentation & Control – Practical demonstrations','Emerson Automation Solutions – Training and webinars','Endress+Hauser – Product tutorials and applications','Rosemount – Transmitter configuration and troubleshooting','RealPars – Instrumentation basics and advanced topics'],
-            s2: '🔹 Popular Video Topics',
-            list2: ['Pressure transmitter calibration and configuration','Temperature sensor selection and wiring (RTD, Thermocouple)','Flow meter installation and commissioning','Control valve troubleshooting and maintenance','HART and Fieldbus communication basics'],
-            s3: '🔹 Future Trends in Instrumentation',
-            list3: ['Wireless instrumentation and IIoT – Remote monitoring','Smart sensors with predictive diagnostics','Digital twins for instrument optimization','AI/ML for predictive maintenance','Cybersecurity for connected instruments'],
-            s4: '🔹 What\'s Next in Instrumentation Engineering?',
-            s4p: 'The future of instrumentation will be driven by connectivity, intelligence, and data analytics. Engineers will need skills in digital communications, network security, and data interpretation alongside traditional knowledge. Industry 4.0 and smart manufacturing will continue to transform the instrumentation landscape.',
-            back: '← Back'
-        },
-        fa: {
-            title: '🎬 ویدئوها و آینده ابزار دقیق',
-            desc: 'آموزش‌های ویدئویی منتخب و بینش‌هایی درباره روندها و فناوری‌های آینده در مهندسی ابزار دقیق.',
-            s1: '🔹 کانال‌های ویدئویی پیشنهادی',
-            list1: ['Instrumentation & Control – نمایش‌های عملی','Emerson Automation Solutions – آموزش و وبینارها','Endress+Hauser – آموزش محصولات و کاربردها','Rosemount – پیکربندی ترانسمیتر و عیب‌یابی','RealPars – مبانی ابزار دقیق و موضوعات پیشرفته'],
-            s2: '🔹 موضوعات محبوب ویدئویی',
-            list2: ['کالیبراسیون و پیکربندی ترانسمیتر فشار','انتخاب و سیم‌کشی سنسور دما (RTD، ترموکوپل)','نصب و راه‌اندازی فلومتر','عیب‌یابی و نگهداری شیر کنترلی','مبانی ارتباط HART و Fieldbus'],
-            s3: '🔹 روندهای آینده در ابزار دقیق',
-            list3: ['ابزار دقیق بی‌سیم و IIoT – نظارت از راه دور','سنسورهای هوشمند با تشخیص پیش‌بینی‌کننده','دوقلوی دیجیتال برای بهینه‌سازی ابزار','یادگیری ماشین/هوش مصنوعی برای نگهداری پیش‌بینی‌کننده','امنیت سایبری برای ابزارهای متصل'],
-            s4: '🔹 آینده مهندسی ابزار دقیق چیست؟',
-            s4p: 'آینده ابزار دقیق توسط اتصال‌پذیری، هوش و تحلیل داده هدایت خواهد شد. مهندسان به مهارت‌هایی در ارتباطات دیجیتال، امنیت شبکه و تفسیر داده در کنار دانش سنتی نیاز خواهند داشت. صنعت 4.0 و تولید هوشمند به تغییر چشم‌انداز ابزار دقیق ادامه خواهند داد.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        const ul3 = document.getElementById('list3');
-        ul3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Videos & Future Technologies',
+  desc: 'Video tutorials, upcoming technologies, and future developments in instrumentation engineering.',
+  s1: 'Video Tutorials',
+  list1: ['How to Calibrate a Pressure Transmitter','Temperature Sensor Selection Guide','Control Valve Sizing Workshop','HART Communication Setup','Loop Diagram Reading & Troubleshooting'],
+  s2: 'Future Technologies',
+  list2: ['Wireless Instrumentation (WirelessHART, ISA100)','IoT Sensors for Condition Monitoring','Digital Twins for Instrumentation Systems','AI-Based Calibration Optimization','Cloud-Based Instrument Management'],
+  s3: 'Upcoming Content',
+  list3: ['Advanced Analyzer Maintenance Techniques','Safety Instrumented Systems (SIS) Design','Functional Safety Engineering','Instrumentation Project Management'],
+  s4: "What's Next?",
+  s4p: 'We are continuously developing new video content and exploring emerging technologies in instrumentation. All future lessons will connect to previous, related, and next topics for a complete learning experience.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'ویدئوها و فناوری‌های آینده',
+  desc: 'آموزش‌های ویدئویی، فناوری‌های در حال ظهور و توسعه‌های آینده در مهندسی ابزار دقیق.',
+  s1: 'آموزش‌های ویدئویی',
+  list1: ['نحوه کالیبراسیون ترانسمیتر فشار','راهنمای انتخاب سنسور دما','کارگاه سایزینگ شیر کنترلی','راه‌اندازی ارتباط HART','خواندن و عیب‌یابی نمودار حلقه'],
+  s2: 'فناوری‌های آینده',
+  list2: ['ابزار دقیق بی‌سیم (WirelessHART، ISA100)','سنسورهای IoT برای پایش وضعیت','دوقلوی دیجیتال برای سیستم‌های ابزار دقیق','بهینه‌سازی کالیبراسیون با هوش مصنوعی','مدیریت ابزار دقیق مبتنی بر ابر'],
+  s3: 'محتوای در حال توسعه',
+  list3: ['تکنیک‌های پیشرفته نگهداری آنالایزر','طراحی سیستم‌های ابزاری ایمن (SIS)','مهندسی ایمنی عملکردی','مدیریت پروژه ابزار دقیق'],
+  s4: 'بعدی چیست؟',
+  s4p: 'ما به طور مداوم محتوای ویدئویی جدید تولید کرده و فناوری‌های در حال ظهور در ابزار دقیق را بررسی می‌کنیم. همه درس‌های آینده به مباحث قبلی، مرتبط و بعدی برای یک تجربه یادگیری کامل متصل خواهند شد.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
