@@ -1,139 +1,120 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Instrumentation Overview</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Instrumentation Overview</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">📘 Overview of Instrumentation Engineering</h1>
-    <div class="sub" id="desc">A comprehensive overview of instrumentation engineering, covering sensors, transmitters, analyzers, control valves, and measurement systems.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What is Instrumentation Engineering?</h2>
-        <p id="s1p">Instrumentation engineering is the branch of engineering that deals with measurement and control of process variables such as temperature, pressure, flow, level, and chemical composition. It is essential for automation and process control in industries like oil & gas, chemical, pharmaceutical, and power generation.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Key Areas</h2>
-        <ul id="list1">
-            <li>Sensors and Transmitters (temperature, pressure, flow, level)</li>
-            <li>Control Valves and Actuators</li>
-            <li>Analyzers (pH, conductivity, gas chromatography)</li>
-            <li>Calibration and Testing</li>
-            <li>P&ID and Loop Diagrams</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Key Standards</h2>
-        <ul id="list2">
-            <li>ISA 5.1 – Instrumentation Symbols and Identification</li>
-            <li>IEC 61511 – Functional Safety for Process Industry</li>
-            <li>API 551 – Process Measurement</li>
-            <li>ANSI/ISA 88 – Batch Control</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Overview of Instrumentation Engineering</h1>
+ <div class="sub" id="desc">A comprehensive overview of instrumentation engineering, covering sensors, transmitters, control valves, and measurement systems.</div>
+ <div class="section">
+  <h2 id="s1">What is Instrumentation Engineering?</h2>
+  <p id="s1p">Instrumentation engineering is the branch of engineering that deals with measurement and control of process variables such as pressure, temperature, flow, and level. It combines sensors, transmitters, controllers, and final control elements to maintain process parameters at desired values.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key Areas</h2>
+  <ul id="list1">
+   <li>Process Measurement – Pressure, Temperature, Flow, Level</li>
+   <li>Analytical Measurement – pH, Conductivity, Gas Analysis</li>
+   <li>Control Systems – PID, DCS, PLC-based Control</li>
+   <li>Final Control Elements – Control Valves, Actuators</li>
+   <li>Safety Systems – SIS, ESD, Fire &amp; Gas</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Key Standards</h2>
+  <ul id="list2">
+   <li>IEC 61508 – Functional Safety</li>
+   <li>IEC 61511 – Safety Instrumented Systems</li>
+   <li>ANSI/ISA 5.1 – Instrument Symbols</li>
+   <li>ASME MFC – Flow Measurement</li>
+  </ul>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📘 Overview of Instrumentation Engineering',
-            desc: 'A comprehensive overview of instrumentation engineering, covering sensors, transmitters, analyzers, control valves, and measurement systems.',
-            s1: '🔹 What is Instrumentation Engineering?',
-            s1p: 'Instrumentation engineering is the branch of engineering that deals with measurement and control of process variables such as temperature, pressure, flow, level, and chemical composition. It is essential for automation and process control in industries like oil & gas, chemical, pharmaceutical, and power generation.',
-            s2: '🔹 Key Areas',
-            list1: ['Sensors and Transmitters (temperature, pressure, flow, level)','Control Valves and Actuators','Analyzers (pH, conductivity, gas chromatography)','Calibration and Testing','P&ID and Loop Diagrams'],
-            s3: '🔹 Key Standards',
-            list2: ['ISA 5.1 – Instrumentation Symbols and Identification','IEC 61511 – Functional Safety for Process Industry','API 551 – Process Measurement','ANSI/ISA 88 – Batch Control'],
-            back: '← Back'
-        },
-        fa: {
-            title: '📘 مرور کلی مهندسی ابزار دقیق',
-            desc: 'مرور جامع مهندسی ابزار دقیق، شامل سنسورها، ترانسمیترها، آنالایزرها، شیرهای کنترلی و سیستم‌های اندازه‌گیری.',
-            s1: '🔹 مهندسی ابزار دقیق چیست؟',
-            s1p: 'مهندسی ابزار دقیق شاخه‌ای از مهندسی است که به اندازه‌گیری و کنترل متغیرهای فرآیندی مانند دما، فشار، جریان، سطح و ترکیب شیمیایی می‌پردازد. این رشته برای اتوماسیون و کنترل فرآیند در صنایعی مانند نفت و گاز، شیمیایی، دارویی و تولید برق ضروری است.',
-            s2: '🔹 حوزه‌های کلیدی',
-            list1: ['سنسورها و ترانسمیترها (دما، فشار، جریان، سطح)','شیرهای کنترلی و اکچویتورها','آنالایزرها (pH، رسانایی، کروماتوگرافی گازی)','کالیبراسیون و تست','نمودارهای P&ID و حلقه‌ها'],
-            s3: '🔹 استانداردهای کلیدی',
-            list2: ['ISA 5.1 – نمادها و شناسایی ابزار دقیق','IEC 61511 – ایمنی عملکردی برای صنایع فرآیندی','API 551 – اندازه‌گیری فرآیند','ANSI/ISA 88 – کنترل دسته‌ای'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Overview of Instrumentation Engineering',
+  desc: 'A comprehensive overview of instrumentation engineering, covering sensors, transmitters, control valves, and measurement systems.',
+  s1: 'What is Instrumentation Engineering?',
+  s1p: 'Instrumentation engineering is the branch of engineering that deals with measurement and control of process variables such as pressure, temperature, flow, and level. It combines sensors, transmitters, controllers, and final control elements to maintain process parameters at desired values.',
+  s2: 'Key Areas',
+  list1: ['Process Measurement – Pressure, Temperature, Flow, Level','Analytical Measurement – pH, Conductivity, Gas Analysis','Control Systems – PID, DCS, PLC-based Control','Final Control Elements – Control Valves, Actuators','Safety Systems – SIS, ESD, Fire & Gas'],
+  s3: 'Key Standards',
+  list2: ['IEC 61508 – Functional Safety','IEC 61511 – Safety Instrumented Systems','ANSI/ISA 5.1 – Instrument Symbols','ASME MFC – Flow Measurement'],
+  back: '← Back'
+ },
+ fa: {
+  title: 'مرور کلی مهندسی ابزار دقیق',
+  desc: 'مرور جامع مهندسی ابزار دقیق، شامل سنسورها، ترانسمیترها، شیرهای کنترلی و سیستم‌های اندازه‌گیری.',
+  s1: 'مهندسی ابزار دقیق چیست؟',
+  s1p: 'مهندسی ابزار دقیق شاخه‌ای از مهندسی است که به اندازه‌گیری و کنترل متغیرهای فرآیندی مانند فشار، دما، جریان و سطح می‌پردازد. این رشته سنسورها، ترانسمیترها، کنترل‌کننده‌ها و عناصر نهایی کنترل را برای حفظ پارامترهای فرآیند در مقادیر مطلوب ترکیب می‌کند.',
+  s2: 'حوزه‌های کلیدی',
+  list1: ['اندازه‌گیری فرآیند – فشار، دما، جریان، سطح','اندازه‌گیری تحلیلی – pH، رسانایی، آنالیز گاز','سیستم‌های کنترل – PID، DCS، کنترل مبتنی بر PLC','عناصر نهایی کنترل – شیرهای کنترلی، عملگرها','سیستم‌های ایمنی – SIS، ESD، آتش و گاز'],
+  s3: 'استانداردهای کلیدی',
+  list2: ['IEC 61508 – ایمنی عملکردی','IEC 61511 – سیستم‌های ابزاری ایمن','ANSI/ISA 5.1 – نمادهای ابزاری','ASME MFC – اندازه‌گیری جریان'],
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
