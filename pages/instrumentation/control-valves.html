@@ -1,155 +1,148 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Control Valves</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .table-wrap{overflow-x:auto;margin:10px 0}
-        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px}
-        th,td{padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
-        th{color:#d4af37;font-weight:600}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Control Valves</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">🔧 Control Valves</h1>
-    <div class="sub" id="desc">An overview of control valves, actuators, positioners, and their applications in industrial process control.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What are Control Valves?</h2>
-        <p id="s1p">Control valves are final control elements that regulate the flow of fluids in process systems. They modulate flow based on signals from a controller (PLC, DCS) to maintain process variables such as temperature, pressure, level, or flow at desired setpoints.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Key Components</h2>
-        <ul id="list1">
-            <li><b>Valve Body</b> – The main housing with flow passages (globe, ball, butterfly, etc.)</li>
-            <li><b>Actuator</b> – Provides the force to move the valve stem (pneumatic, electric, hydraulic)</li>
-            <li><b>Positioner</b> – Ensures the valve opens to the exact signal position</li>
-            <li><b>I/P Converter</b> – Converts 4-20 mA to pneumatic pressure</li>
-            <li><b>Limit Switches</b> – Provide open/closed status feedback</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Valve Types</h2>
-        <ul id="list2">
-            <li><b>Globe Valve</b> – For throttling control, high pressure drop</li>
-            <li><b>Ball Valve</b> – Quarter-turn, for on/off and throttling</li>
-            <li><b>Butterfly Valve</b> – Quarter-turn, for large pipes</li>
-            <li><b>Gate Valve</b> – On/off, low pressure drop</li>
-            <li><b>Control Valve (Sliding Stem)</b> – Precision control for critical loops</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: Globe Control Valve for Steam</h2>
-        <p id="s4p">A Fisher globe control valve with a pneumatic actuator and positioner is installed on a steam line to control temperature in a heat exchanger. The DCS sends a 4-20 mA signal to the I/P converter, which modulates the valve position to regulate steam flow and maintain the temperature at 150°C.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Control Valves</h1>
+ <div class="sub" id="desc">Control valves, actuators, positioners, and their applications in industrial process control.</div>
+ <div class="section">
+  <h2 id="s1">What are Control Valves?</h2>
+  <p id="s1p">Control valves are final control elements that regulate fluid flow by varying the size of the flow passage. They are operated by actuators that receive signals from controllers (PLC/DCS) to adjust valve position based on process requirements.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Types of Control Valves</h2>
+  <ul id="list1">
+   <li>Globe Valves – Most common, good throttling</li>
+   <li>Ball Valves – Quarter-turn, on/off or throttling</li>
+   <li>Butterfly Valves – Lightweight, large diameter</li>
+   <li>Gate Valves – On/off, not for throttling</li>
+   <li>Diaphragm Valves – For corrosive fluids</li>
+   <li>Pinch Valves – For slurries and abrasive fluids</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Actuators</h2>
+  <ul id="list2">
+   <li>Pneumatic Actuators – Most common (3-15 psi, 4-20mA)</li>
+   <li>Electric Actuators – High accuracy, no air supply needed</li>
+   <li>Hydraulic Actuators – High force, heavy-duty applications</li>
+   <li>Manual Actuators – Handwheel for backup</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Positioners</h2>
+  <ul id="list3">
+   <li>Pneumatic Positioners – Analog, simple</li>
+   <li>Electro-Pneumatic Positioners – Digital control</li>
+   <li>Smart Positioners – HART/Fieldbus, diagnostics</li>
+  </ul>
+  <p id="s4p">Positioners ensure accurate valve positioning by comparing the valve stem position with the control signal and making corrections.</p>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Control Valve Sizing</h2>
+  <p id="s5p">A control valve is sized using the Cv (flow coefficient) value. For a given flow rate and pressure drop, the required Cv is calculated. Example: For water flow of 100 GPM with 10 psi pressure drop, Cv = 100 / √10 ≈ 31.6.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🔧 Control Valves',
-            desc: 'An overview of control valves, actuators, positioners, and their applications in industrial process control.',
-            s1: '🔹 What are Control Valves?',
-            s1p: 'Control valves are final control elements that regulate the flow of fluids in process systems. They modulate flow based on signals from a controller (PLC, DCS) to maintain process variables such as temperature, pressure, level, or flow at desired setpoints.',
-            s2: '🔹 Key Components',
-            list1: ['Valve Body – The main housing with flow passages (globe, ball, butterfly, etc.)','Actuator – Provides the force to move the valve stem (pneumatic, electric, hydraulic)','Positioner – Ensures the valve opens to the exact signal position','I/P Converter – Converts 4-20 mA to pneumatic pressure','Limit Switches – Provide open/closed status feedback'],
-            s3: '🔹 Valve Types',
-            list2: ['Globe Valve – For throttling control, high pressure drop','Ball Valve – Quarter-turn, for on/off and throttling','Butterfly Valve – Quarter-turn, for large pipes','Gate Valve – On/off, low pressure drop','Control Valve (Sliding Stem) – Precision control for critical loops'],
-            s4: '🔹 Example: Globe Control Valve for Steam',
-            s4p: 'A Fisher globe control valve with a pneumatic actuator and positioner is installed on a steam line to control temperature in a heat exchanger. The DCS sends a 4-20 mA signal to the I/P converter, which modulates the valve position to regulate steam flow and maintain the temperature at 150°C.',
-            back: '← Back'
-        },
-        fa: {
-            title: '🔧 شیرهای کنترلی',
-            desc: 'مروری بر شیرهای کنترلی، اکچویتورها، پوزیشنرها و کاربردهای آنها در کنترل فرآیندهای صنعتی.',
-            s1: '🔹 شیرهای کنترلی چیستند؟',
-            s1p: 'شیرهای کنترلی عناصر نهایی کنترلی هستند که جریان سیالات را در سیستم‌های فرآیندی تنظیم می‌کنند. آنها جریان را بر اساس سیگنال‌های کنترل‌کننده (PLC، DCS) برای حفظ متغیرهای فرآیندی مانند دما، فشار، سطح یا جریان در نقاط تنظیم مطلوب، تعدیل می‌کنند.',
-            s2: '🔹 اجزای کلیدی',
-            list1: ['بدنه شیر – محفظه اصلی با مجاری جریان (کروی، توپی، پروانه‌ای و غیره)','اکچویتور – نیروی لازم برای حرکت ساقه شیر را فراهم می‌کند (پنوماتیک، الکتریکی، هیدرولیک)','پوزیشنر – اطمینان از باز شدن شیر در موقعیت دقیق سیگنال','مبدل I/P – تبدیل ۴-۲۰ میلی‌آمپر به فشار پنوماتیک','سوئیچ‌های حد – بازخورد وضعیت باز/بسته'],
-            s3: '🔹 انواع شیرها',
-            list2: ['شیر کروی – برای کنترل دریچه‌ای، افت فشار بالا','شیر توپی – گردش یک‌چهارم، برای قطع و وصل و دریچه‌ای','شیر پروانه‌ای – گردش یک‌چهارم، برای لوله‌های بزرگ','شیر کشویی – قطع و وصل، افت فشار کم','شیر کنترلی (ساقه لغزنده) – کنترل دقیق برای حلقه‌های حیاتی'],
-            s4: '🔹 مثال: شیر کنترلی کروی برای بخار',
-            s4p: 'یک شیر کنترلی کروی Fisher با اکچویتور پنوماتیک و پوزیشنر روی خط بخار برای کنترل دما در یک مبدل حرارتی نصب شده است. DCS سیگنال ۴-۲۰ میلی‌آمپر به مبدل I/P ارسال می‌کند که موقعیت شیر را برای تنظیم جریان بخار و حفظ دما در ۱۵۰ درجه سانتی‌گراد تعدیل می‌کند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Control Valves',
+  desc: 'Control valves, actuators, positioners, and their applications in industrial process control.',
+  s1: 'What are Control Valves?',
+  s1p: 'Control valves are final control elements that regulate fluid flow by varying the size of the flow passage. They are operated by actuators that receive signals from controllers (PLC/DCS) to adjust valve position based on process requirements.',
+  s2: 'Types of Control Valves',
+  list1: ['Globe Valves – Most common, good throttling','Ball Valves – Quarter-turn, on/off or throttling','Butterfly Valves – Lightweight, large diameter','Gate Valves – On/off, not for throttling','Diaphragm Valves – For corrosive fluids','Pinch Valves – For slurries and abrasive fluids'],
+  s3: 'Actuators',
+  list2: ['Pneumatic Actuators – Most common (3-15 psi, 4-20mA)','Electric Actuators – High accuracy, no air supply needed','Hydraulic Actuators – High force, heavy-duty applications','Manual Actuators – Handwheel for backup'],
+  s4: 'Positioners',
+  list3: ['Pneumatic Positioners – Analog, simple','Electro-Pneumatic Positioners – Digital control','Smart Positioners – HART/Fieldbus, diagnostics'],
+  s4p: 'Positioners ensure accurate valve positioning by comparing the valve stem position with the control signal and making corrections.',
+  s5: 'Example: Control Valve Sizing',
+  s5p: 'A control valve is sized using the Cv (flow coefficient) value. For a given flow rate and pressure drop, the required Cv is calculated. Example: For water flow of 100 GPM with 10 psi pressure drop, Cv = 100 / √10 ≈ 31.6.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'شیرهای کنترلی',
+  desc: 'شیرهای کنترلی، عملگرها، پوزیشنرها و کاربردهای آنها در کنترل فرآیندهای صنعتی.',
+  s1: 'شیرهای کنترلی چیستند؟',
+  s1p: 'شیرهای کنترلی عناصر نهایی کنترلی هستند که با تغییر اندازه مسیر جریان، جریان سیال را تنظیم می‌کنند. آنها توسط عملگرهایی که سیگنال‌هایی از کنترل‌کننده‌ها (PLC/DCS) دریافت می‌کنند، کار می‌کنند تا موقعیت شیر را بر اساس نیازهای فرآیند تنظیم کنند.',
+  s2: 'انواع شیرهای کنترلی',
+  list1: ['شیرهای کروی – رایج‌ترین، کنترل دریچه‌ای خوب','شیرهای توپی – چرخش 90 درجه، قطع/وصل یا کنترل دریچه‌ای','شیرهای پروانه‌ای – سبک، قطر بزرگ','شیرهای کشویی – قطع/وصل، مناسب برای کنترل دریچه‌ای نیست','شیرهای غشایی – برای سیالات خورنده','شیرهای منگنه‌ای – برای دوغاب و سیالات سایشی'],
+  s3: 'عملگرها',
+  list2: ['عملگرهای پنوماتیک – رایج‌ترین (3-15 psi، 4-20mA)','عملگرهای الکتریکی – دقت بالا، بدون نیاز به هوای فشرده','عملگرهای هیدرولیک – نیروی بالا، کاربردهای سنگین','عملگرهای دستی – چرخ دستی برای پشتیبان'],
+  s4: 'پوزیشنرها',
+  list3: ['پوزیشنرهای پنوماتیک – آنالوگ، ساده','پوزیشنرهای الکتروپنوماتیک – کنترل دیجیتال','پوزیشنرهای هوشمند – HART/Fieldbus، عیب‌یابی'],
+  s4p: 'پوزیشنرها با مقایسه موقعیت ساقه شیر با سیگنال کنترل و اعمال تصحیحات، موقعیت دقیق شیر را تضمین می‌کنند.',
+  s5: 'مثال: اندازه‌گیری شیر کنترلی',
+  s5p: 'اندازه شیر کنترلی با استفاده از مقدار Cv (ضریب جریان) محاسبه می‌شود. برای دبی و افت فشار مشخص، Cv مورد نیاز محاسبه می‌شود. مثال: برای جریان آب 100 گالن در دقیقه با افت فشار 10 psi، Cv = 100 / √10 ≈ 31.6.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
