@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Panel Layout</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Panel Layout Design</h1>
+ <div class="sub" id="desc">Designing electrical and control panels, component placement, enclosure selection, and busbar sizing.</div>
+ <div class="section">
+  <h2 id="s1">What is Panel Layout?</h2>
+  <p id="s1p">Panel layout is the physical arrangement of electrical and electronic components inside an enclosure. It includes placement of circuit breakers, contactors, PLCs, terminal blocks, power supplies, and wiring ducts. A good layout ensures safety, accessibility, and thermal management.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key Components</h2>
+  <ul id="list1">
+   <li>Main Circuit Breaker &amp; Distribution Busbars</li>
+   <li>PLC Rack &amp; I/O Modules</li>
+   <li>Power Supplies (24VDC, 48VDC)</li>
+   <li>Contactors, Relays, &amp; Overloads</li>
+   <li>Terminal Blocks &amp; Wiring Ducts</li>
+   <li>HMI/Operator Interface</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Design Considerations</h2>
+  <ul id="list2">
+   <li>Heat Dissipation – Ventilation and cooling</li>
+   <li>Clearance – Spacing for safety and maintenance</li>
+   <li>Cable Entry – Glands, cable trays, and routing</li>
+   <li>Short-Circuit Withstand – Busbar and component ratings</li>
+   <li>Environmental Protection – IP ratings, ingress protection</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: MCC Panel Layout</h2>
+  <p id="s4p">A Motor Control Center (MCC) panel typically includes a main incoming breaker, busbars, multiple motor starters (DOL, Star-Delta), PLC I/O modules, and a communication gateway. The layout is divided into sections for incoming power, distribution, and control.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
+</div>
+<script>
+const lang = {
+ en: {
+  title: 'Panel Layout Design',
+  desc: 'Designing electrical and control panels, component placement, enclosure selection, and busbar sizing.',
+  s1: 'What is Panel Layout?',
+  s1p: 'Panel layout is the physical arrangement of electrical and electronic components inside an enclosure. It includes placement of circuit breakers, contactors, PLCs, terminal blocks, power supplies, and wiring ducts. A good layout ensures safety, accessibility, and thermal management.',
+  s2: 'Key Components',
+  list1: ['Main Circuit Breaker & Distribution Busbars','PLC Rack & I/O Modules','Power Supplies (24VDC, 48VDC)','Contactors, Relays, & Overloads','Terminal Blocks & Wiring Ducts','HMI/Operator Interface'],
+  s3: 'Design Considerations',
+  list2: ['Heat Dissipation – Ventilation and cooling','Clearance – Spacing for safety and maintenance','Cable Entry – Glands, cable trays, and routing','Short-Circuit Withstand – Busbar and component ratings','Environmental Protection – IP ratings, ingress protection'],
+  s4: 'Example: MCC Panel Layout',
+  s4p: 'A Motor Control Center (MCC) panel typically includes a main incoming breaker, busbars, multiple motor starters (DOL, Star-Delta), PLC I/O modules, and a communication gateway. The layout is divided into sections for incoming power, distribution, and control.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'طراحی چیدمان پنل',
+  desc: 'طراحی پنل‌های الکتریکی و کنترلی، جایگذاری قطعات، انتخاب محفظه و سایزینگ شینه‌ها.',
+  s1: 'چیدمان پنل چیست؟',
+  s1p: 'چیدمان پنل، آرایش فیزیکی قطعات الکتریکی و الکترونیکی در داخل یک محفظه است. شامل قرار دادن کلیدهای مدار، کنتاکتورها، PLCها، بلوک‌های ترمینال، منابع تغذیه و کانال‌های سیم‌کشی است. یک چیدمان خوب ایمنی، دسترسی و مدیریت حرارتی را تضمین می‌کند.',
+  s2: 'قطعات کلیدی',
+  list1: ['کلید مدار اصلی و شینه‌های توزیع','رک PLC و ماژول‌های I/O','منابع تغذیه (24VDC، 48VDC)','کنتاکتورها، رله‌ها و اضافه‌بارها','بلوک‌های ترمینال و کانال‌های سیم‌کشی','رابط اپراتور HMI'],
+  s3: 'ملاحظات طراحی',
+  list2: ['انتشار حرارت – تهویه و خنک‌کننده','فاصله – فضای ایمنی و نگهداری','ورود کابل – گلندها، سینی کابل و مسیردهی','تحمل اتصال کوتاه – رتبه‌بندی شینه و قطعات','حفاظت محیطی – رتبه‌بندی IP، محافظت در برابر نفوذ'],
+  s4: 'مثال: چیدمان پنل MCC',
+  s4p: 'یک پنل مرکز کنترل موتور (MCC) معمولاً شامل یک کلید ورودی اصلی، شینه‌ها، چندین استارت موتور (DOL، ستاره-مثلث)، ماژول‌های I/O PLC و یک دروازه ارتباطی است. چیدمان به بخش‌هایی برای ورودی برق، توزیع و کنترل تقسیم می‌شود.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
+</body>
+</html>
