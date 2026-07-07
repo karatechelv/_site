@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Loop Diagrams</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Instrument Loop Diagrams</h1>
+ <div class="sub" id="desc">Instrument loop diagrams (Hook-up diagrams) for designing and troubleshooting instrument loops.</div>
+ <div class="section">
+  <h2 id="s1">What are Loop Diagrams?</h2>
+  <p id="s1p">Loop diagrams (also called Hook-up diagrams) are detailed drawings that show the complete wiring and tubing connections for an instrument loop. They include all field devices, junction boxes, cables, and terminations in the loop.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Loop Diagram Elements</h2>
+  <ul id="list1">
+   <li>Instrument Tag Number – Unique identifier (e.g., PT-101)</li>
+   <li>Field Device – Sensor, transmitter, or valve</li>
+   <li>Wiring Details – Cable type, size, color code</li>
+   <li>Tubing Details – Material, size, connection type</li>
+   <li>Junction Boxes and Terminals</li>
+   <li>DCS/PLC Input/Output Channels</li>
+   <li>Power Supply and Grounding</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Loop Types</h2>
+  <ul id="list2">
+   <li>Analog Input Loop – 4-20mA from transmitter to PLC/DCS</li>
+   <li>Analog Output Loop – 4-20mA from PLC/DCS to valve</li>
+   <li>Discrete Input Loop – Digital signal from switch/sensor</li>
+   <li>Discrete Output Loop – Digital output to relay/solenoid</li>
+   <li>HART Digital Loop – Digital communication over 4-20mA</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Loop Diagram Symbols</h2>
+  <ul id="list3">
+   <li>Instrument – Circle with tag number (ANSI/ISA 5.1)</li>
+   <li>Wiring – Solid line, dashed line for shielding</li>
+   <li>Tubing – Different line styles for different media</li>
+   <li>Terminals – Box with terminal numbers</li>
+   <li>Cable Tray – Represented with specific symbols</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Temperature Control Loop</h2>
+  <p id="s5p">A typical temperature control loop includes: Temperature sensor (RTD) → Temperature Transmitter → 4-20mA signal → PLC Analog Input → PID Control Algorithm → 4-20mA Output → Positioner → Control Valve → Process. Each element is documented in the loop diagram with full wiring details.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
+</div>
+<script>
+const lang = {
+ en: {
+  title: 'Instrument Loop Diagrams',
+  desc: 'Instrument loop diagrams (Hook-up diagrams) for designing and troubleshooting instrument loops.',
+  s1: 'What are Loop Diagrams?',
+  s1p: 'Loop diagrams (also called Hook-up diagrams) are detailed drawings that show the complete wiring and tubing connections for an instrument loop. They include all field devices, junction boxes, cables, and terminations in the loop.',
+  s2: 'Loop Diagram Elements',
+  list1: ['Instrument Tag Number – Unique identifier (e.g., PT-101)','Field Device – Sensor, transmitter, or valve','Wiring Details – Cable type, size, color code','Tubing Details – Material, size, connection type','Junction Boxes and Terminals','DCS/PLC Input/Output Channels','Power Supply and Grounding'],
+  s3: 'Loop Types',
+  list2: ['Analog Input Loop – 4-20mA from transmitter to PLC/DCS','Analog Output Loop – 4-20mA from PLC/DCS to valve','Discrete Input Loop – Digital signal from switch/sensor','Discrete Output Loop – Digital output to relay/solenoid','HART Digital Loop – Digital communication over 4-20mA'],
+  s4: 'Loop Diagram Symbols',
+  list3: ['Instrument – Circle with tag number (ANSI/ISA 5.1)','Wiring – Solid line, dashed line for shielding','Tubing – Different line styles for different media','Terminals – Box with terminal numbers','Cable Tray – Represented with specific symbols'],
+  s5: 'Example: Temperature Control Loop',
+  s5p: 'A typical temperature control loop includes: Temperature sensor (RTD) → Temperature Transmitter → 4-20mA signal → PLC Analog Input → PID Control Algorithm → 4-20mA Output → Positioner → Control Valve → Process. Each element is documented in the loop diagram with full wiring details.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'نمودارهای حلقه ابزاری',
+  desc: 'نمودارهای حلقه ابزاری (نمودارهای اتصال) برای طراحی و عیب‌یابی حلقه‌های ابزاری.',
+  s1: 'نمودارهای حلقه چیستند؟',
+  s1p: 'نمودارهای حلقه (همچنین به نام نمودارهای اتصال) نقشه‌های دقیقی هستند که اتصالات کامل سیم‌کشی و لوله‌کشی را برای یک حلقه ابزاری نشان می‌دهند. آنها شامل تمام دستگاه‌های میدان، جعبه‌های اتصال، کابل‌ها و پایانه‌های موجود در حلقه هستند.',
+  s2: 'عناصر نمودار حلقه',
+  list1: ['شماره تگ ابزار – شناسه منحصر‌به‌فرد (مثلاً PT-101)','دستگاه میدان – سنسور، ترانسمیتر یا شیر','جزئیات سیم‌کشی – نوع کابل، اندازه، کد رنگ','جزئیات لوله‌کشی – جنس، اندازه، نوع اتصال','جعبه‌های اتصال و پایانه‌ها','کانال‌های ورودی/خروجی DCS/PLC','منبع تغذیه و ارتینگ'],
+  s3: 'انواع حلقه',
+  list2: ['حلقه ورودی آنالوگ – 4-20mA از ترانسمیتر به PLC/DCS','حلقه خروجی آنالوگ – 4-20mA از PLC/DCS به شیر','حلقه ورودی گسسته – سیگنال دیجیتال از سوئیچ/سنسور','حلقه خروجی گسسته – خروجی دیجیتال به رله/سلونوئید','حلقه دیجیتال HART – ارتباط دیجیتال بر روی 4-20mA'],
+  s4: 'نمادهای نمودار حلقه',
+  list3: ['ابزار – دایره با شماره تگ (ANSI/ISA 5.1)','سیم‌کشی – خط پر، خط چین برای شیلد','لوله‌کشی – سبک‌های مختلف خط برای سیالات مختلف','پایانه‌ها – جعبه با شماره پایانه','سینی کابل – با نمادهای خاص نشان داده می‌شود'],
+  s5: 'مثال: حلقه کنترل دما',
+  s5p: 'یک حلقه کنترل دما معمولی شامل: سنسور دما (RTD) ← ترانسمیتر دما ← سیگنال 4-20mA ← ورودی آنالوگ PLC ← الگوریتم کنترل PID ← خروجی 4-20mA ← پوزیشنر ← شیر کنترلی ← فرآیند است. هر عنصر در نمودار حلقه با جزئیات کامل سیم‌کشی مستند شده است.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
+</body>
+</html>
