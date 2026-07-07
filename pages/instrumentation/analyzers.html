@@ -1,163 +1,147 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Analyzers</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .table-wrap{overflow-x:auto;margin:10px 0}
-        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px}
-        th,td{padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
-        th{color:#d4af37;font-weight:600}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Analyzers</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">🧪 Analyzers</h1>
-    <div class="sub" id="desc">Industrial analyzers for measuring pH, conductivity, dissolved oxygen, gas composition, and other chemical properties in process streams.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What are Analyzers?</h2>
-        <p id="s1p">Analyzers are instruments that measure chemical or physical properties of process fluids. They provide continuous or discrete measurements of parameters such as pH, conductivity, turbidity, gas concentration, and more. They are critical for quality control, safety, and regulatory compliance.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Common Analyzer Types</h2>
-        <ul id="list1">
-            <li><b>pH Analyzer</b> – Measures acidity/alkalinity using a glass electrode</li>
-            <li><b>Conductivity Analyzer</b> – Measures ionic content of water</li>
-            <li><b>Dissolved Oxygen (DO) Analyzer</b> – Measures oxygen in water (e.g., wastewater)</li>
-            <li><b>Gas Analyzer</b> – Measures O2, CO2, CO, NOx, etc. (e.g., infrared, paramagnetic)</li>
-            <li><b>Turbidity Analyzer</b> – Measures suspended particles in liquid</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Comparison Table</h2>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr><th id="th1">Parameter</th><th id="th2">Measured</th><th id="th3">Output</th><th id="th4">Application</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>pH</td><td>H+ concentration</td><td>4-20 mA</td><td>Chemical, water treatment</td></tr>
-                    <tr><td>Conductivity</td><td>Dissolved ions</td><td>4-20 mA</td><td>Pure water, boiler feed</td></tr>
-                    <tr><td>Dissolved Oxygen</td><td>O2 in water</td><td>4-20 mA</td><td>Wastewater, aquaculture</td></tr>
-                    <tr><td>Gas (O2)</td><td>Oxygen %</td><td>4-20 mA</td><td>Flue gas, safety</td></tr>
-                    <tr><td>Turbidity</td><td>Suspended solids</td><td>4-20 mA</td><td>Water quality</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: pH Analyzer in Chemical Plant</h2>
-        <p id="s4p">A pH analyzer with a glass electrode is installed in a chemical reactor to monitor pH during a neutralization reaction. The analyzer continuously transmits pH values to the DCS, which controls the addition of acid or base to maintain pH within the set range (6.8-7.2).</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Analyzers in Instrumentation</h1>
+ <div class="sub" id="desc">Process analyzers for measuring chemical and physical properties including pH, conductivity, oxygen, and gas composition.</div>
+ <div class="section">
+  <h2 id="s1">What are Process Analyzers?</h2>
+  <p id="s1p">Process analyzers are instruments that continuously measure the chemical or physical properties of a process stream. They provide real-time data for process control, quality assurance, and safety monitoring.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Types of Analyzers</h2>
+  <ul id="list1">
+   <li>pH Analyzers – Measure acidity/alkalinity</li>
+   <li>Conductivity Analyzers – Measure ion concentration</li>
+   <li>Oxygen Analyzers – Measure dissolved oxygen (DO) or gas O₂</li>
+   <li>Gas Analyzers – NDIR, paramagnetic, electrochemical</li>
+   <li>Colorimeters – Measure color intensity</li>
+   <li>Turbidity Analyzers – Measure suspended particles</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Gas Analysis Techniques</h2>
+  <ul id="list2">
+   <li>NDIR (Non-Dispersive Infrared) – CO₂, CO, CH₄</li>
+   <li>Paramagnetic – O₂ analysis</li>
+   <li>Electrochemical – Toxic gases (H₂S, CO, NO₂)</li>
+   <li>GC (Gas Chromatography) – Complex gas mixtures</li>
+   <li>Mass Spectrometry – High-precision analysis</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Liquid Analysis Parameters</h2>
+  <ul id="list3">
+   <li>pH – 0 to 14 scale, important in chemical processes</li>
+   <li>Conductivity – Indicates dissolved ions</li>
+   <li>Dissolved Oxygen – Critical in water treatment</li>
+   <li>ORP (Oxidation-Reduction Potential) – Disinfection control</li>
+   <li>Turbidity – Water clarity measurement</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: pH Control in a Chemical Reactor</h2>
+  <p id="s5p">A pH analyzer continuously measures the pH of the reactor contents. The signal is sent to a controller that adjusts the dosing pump for acid or base to maintain the setpoint (e.g., pH 7.0 ± 0.2). This ensures product quality and process stability.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🧪 Analyzers',
-            desc: 'Industrial analyzers for measuring pH, conductivity, dissolved oxygen, gas composition, and other chemical properties in process streams.',
-            s1: '🔹 What are Analyzers?',
-            s1p: 'Analyzers are instruments that measure chemical or physical properties of process fluids. They provide continuous or discrete measurements of parameters such as pH, conductivity, turbidity, gas concentration, and more. They are critical for quality control, safety, and regulatory compliance.',
-            s2: '🔹 Common Analyzer Types',
-            list1: ['pH Analyzer – Measures acidity/alkalinity using a glass electrode','Conductivity Analyzer – Measures ionic content of water','Dissolved Oxygen (DO) Analyzer – Measures oxygen in water (e.g., wastewater)','Gas Analyzer – Measures O2, CO2, CO, NOx, etc. (e.g., infrared, paramagnetic)','Turbidity Analyzer – Measures suspended particles in liquid'],
-            s3: '🔹 Comparison Table',
-            th1: 'Parameter', th2: 'Measured', th3: 'Output', th4: 'Application',
-            s4: '🔹 Example: pH Analyzer in Chemical Plant',
-            s4p: 'A pH analyzer with a glass electrode is installed in a chemical reactor to monitor pH during a neutralization reaction. The analyzer continuously transmits pH values to the DCS, which controls the addition of acid or base to maintain pH within the set range (6.8-7.2).',
-            back: '← Back'
-        },
-        fa: {
-            title: '🧪 آنالایزرها',
-            desc: 'آنالایزرهای صنعتی برای اندازه‌گیری pH، رسانایی، اکسیژن محلول، ترکیب گاز و سایر خواص شیمیایی در جریان‌های فرآیندی.',
-            s1: '🔹 آنالایزرها چیستند؟',
-            s1p: 'آنالایزرها ابزارهایی هستند که خواص شیمیایی یا فیزیکی سیالات فرآیندی را اندازه‌گیری می‌کنند. آنها اندازه‌گیری‌های پیوسته یا گسسته از پارامترهایی مانند pH، رسانایی، کدورت، غلظت گاز و موارد دیگر را ارائه می‌دهند. آنها برای کنترل کیفیت، ایمنی و انطباق با مقررات حیاتی هستند.',
-            s2: '🔹 انواع رایج آنالایزرها',
-            list1: ['آنالایزر pH – اندازه‌گیری اسیدی/قلیایی با استفاده از الکترود شیشه‌ای','آنالایزر رسانایی – اندازه‌گیری محتوای یونی آب','آنالایزر اکسیژن محلول (DO) – اندازه‌گیری اکسیژن در آب (مثلاً فاضلاب)','آنالایزر گاز – اندازه‌گیری O2، CO2، CO، NOx و غیره (مثلاً مادون قرمز، پارامغناطیسی)','آنالایزر کدورت – اندازه‌گیری ذرات معلق در مایع'],
-            s3: '🔹 جدول مقایسه',
-            th1: 'پارامتر', th2: 'مقدار اندازه‌گیری‌شده', th3: 'خروجی', th4: 'کاربرد',
-            s4: '🔹 مثال: آنالایزر pH در کارخانه شیمیایی',
-            s4p: 'یک آنالایزر pH با الکترود شیشه‌ای در یک راکتور شیمیایی برای نظارت بر pH در طی یک واکنش خنثی‌سازی نصب شده است. آنالایزر به طور مداوم مقادیر pH را به DCS ارسال می‌کند که افزودن اسید یا باز را برای حفظ pH در محدوده تنظیم شده (۶.۸-۷.۲) کنترل می‌کند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        document.getElementById('th1').textContent = t.th1;
-        document.getElementById('th2').textContent = t.th2;
-        document.getElementById('th3').textContent = t.th3;
-        document.getElementById('th4').textContent = t.th4;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Analyzers in Instrumentation',
+  desc: 'Process analyzers for measuring chemical and physical properties including pH, conductivity, oxygen, and gas composition.',
+  s1: 'What are Process Analyzers?',
+  s1p: 'Process analyzers are instruments that continuously measure the chemical or physical properties of a process stream. They provide real-time data for process control, quality assurance, and safety monitoring.',
+  s2: 'Types of Analyzers',
+  list1: ['pH Analyzers – Measure acidity/alkalinity','Conductivity Analyzers – Measure ion concentration','Oxygen Analyzers – Measure dissolved oxygen (DO) or gas O₂','Gas Analyzers – NDIR, paramagnetic, electrochemical','Colorimeters – Measure color intensity','Turbidity Analyzers – Measure suspended particles'],
+  s3: 'Gas Analysis Techniques',
+  list2: ['NDIR – CO₂, CO, CH₄','Paramagnetic – O₂ analysis','Electrochemical – Toxic gases (H₂S, CO, NO₂)','GC (Gas Chromatography) – Complex gas mixtures','Mass Spectrometry – High-precision analysis'],
+  s4: 'Liquid Analysis Parameters',
+  list3: ['pH – 0 to 14 scale, important in chemical processes','Conductivity – Indicates dissolved ions','Dissolved Oxygen – Critical in water treatment','ORP – Disinfection control','Turbidity – Water clarity measurement'],
+  s5: 'Example: pH Control in a Chemical Reactor',
+  s5p: 'A pH analyzer continuously measures the pH of the reactor contents. The signal is sent to a controller that adjusts the dosing pump for acid or base to maintain the setpoint (e.g., pH 7.0 ± 0.2). This ensures product quality and process stability.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'آنالایزرها در ابزار دقیق',
+  desc: 'آنالایزرهای فرآیندی برای اندازه‌گیری خواص شیمیایی و فیزیکی شامل pH، رسانایی، اکسیژن و ترکیب گاز.',
+  s1: 'آنالایزرهای فرآیندی چیستند؟',
+  s1p: 'آنالایزرهای فرآیندی ابزارهایی هستند که به طور مداوم خواص شیمیایی یا فیزیکی یک جریان فرآیندی را اندازه‌گیری می‌کنند. آنها داده‌های بلادرنگ برای کنترل فرآیند، تضمین کیفیت و نظارت بر ایمنی ارائه می‌دهند.',
+  s2: 'انواع آنالایزرها',
+  list1: ['آنالایزرهای pH – اندازه‌گیری اسیدیته/قلیاییت','آنالایزرهای رسانایی – اندازه‌گیری غلظت یون','آنالایزرهای اکسیژن – اندازه‌گیری اکسیژن محلول (DO) یا گاز O₂','آنالایزرهای گاز – NDIR، پارامغناطیسی، الکتروشیمیایی','کلریمترها – اندازه‌گیری شدت رنگ','آنالایزرهای کدورت – اندازه‌گیری ذرات معلق'],
+  s3: 'تکنیک‌های آنالیز گاز',
+  list2: ['NDIR – CO₂، CO، CH₄','پارامغناطیسی – آنالیز O₂','الکتروشیمیایی – گازهای سمی (H₂S، CO، NO₂)','GC (کروماتوگرافی گازی) – مخلوط‌های گازی پیچیده','طیف‌سنجی جرمی – آنالیز با دقت بالا'],
+  s4: 'پارامترهای آنالیز مایع',
+  list3: ['pH – مقیاس 0 تا 14، مهم در فرآیندهای شیمیایی','رسانایی – نشان‌دهنده یون‌های محلول','اکسیژن محلول – حیاتی در تصفیه آب','ORP – کنترل گندزدایی','کدورت – اندازه‌گیری شفافیت آب'],
+  s5: 'مثال: کنترل pH در راکتور شیمیایی',
+  s5p: 'یک آنالایزر pH به طور مداوم pH محتویات راکتور را اندازه‌گیری می‌کند. سیگنال به کنترل‌کننده‌ای ارسال می‌شود که پمپ دوزینگ اسید یا باز را برای حفظ نقطه تنظیم (مثلاً pH 7.0 ± 0.2) تنظیم می‌کند. این امر کیفیت محصول و پایداری فرآیند را تضمین می‌کند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
