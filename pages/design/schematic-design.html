@@ -1,149 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Schematic Design</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Electrical Schematics</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">📐 Schematic Design</h1>
-    <div class="sub" id="desc">Understanding and creating electrical schematic diagrams, including single-line, three-line, and wiring diagrams for industrial systems.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What is Schematic Design?</h2>
-        <p id="s1p">Schematic design is the process of creating symbolic representations of electrical circuits and systems. These diagrams use standardized symbols to show connections, components, and power distribution. They are essential for design, installation, troubleshooting, and maintenance of electrical systems.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Types of Schematics</h2>
-        <ul id="list1">
-            <li><b>Single-Line Diagram</b> – Simplified representation of power distribution, showing main components and connections in one line.</li>
-            <li><b>Three-Line Diagram</b> – Detailed representation showing all three phases of a power system with protective devices.</li>
-            <li><b>Wiring Diagram</b> – Shows actual wiring connections between components for installation.</li>
-            <li><b>Control Schematic</b> – Shows control logic, relays, contactors, and PLC I/O connections.</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Standard Symbols</h2>
-        <ul id="list2">
-            <li>IEC 60617 – Standard electrical symbols</li>
-            <li>ANSI Y32.2 – American standard symbols</li>
-            <li>ISA 5.1 – Instrumentation symbols</li>
-            <li>Common symbols: switches, relays, motors, transformers, circuit breakers</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: Motor Control Schematic</h2>
-        <p id="s4p">A motor control schematic includes a circuit breaker, contactor, overload relay, start/stop push buttons, and motor. The schematic shows the power circuit (supply to motor) and control circuit (push buttons and relay contacts) clearly using standard symbols.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Electrical Schematics</h1>
+ <div class="sub" id="desc">Creating and interpreting electrical schematics, one-line diagrams, three-line diagrams, and wiring diagrams.</div>
+ <div class="section">
+  <h2 id="s1">What are Electrical Schematics?</h2>
+  <p id="s1p">Electrical schematics are graphical representations of electrical circuits and systems. They use standardized symbols to show components, connections, and power flow. They are essential for design, installation, and troubleshooting.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Types of Schematics</h2>
+  <ul id="list1">
+   <li>One-Line Diagrams – Simplified power system representation</li>
+   <li>Three-Line Diagrams – Detailed power and control wiring</li>
+   <li>Wiring Diagrams – Physical connection details</li>
+   <li>Block Diagrams – System-level functional representation</li>
+   <li>Interconnection Diagrams – Equipment-to-equipment connections</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Common Symbols</h2>
+  <ul id="list2">
+   <li>Resistors, Capacitors, Inductors</li>
+   <li>Switches, Relays, Contactors</li>
+   <li>Motors, Generators, Transformers</li>
+   <li>Fuses, Circuit Breakers, Overloads</li>
+   <li>PLC I/O, Instruments, Sensors</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: Motor Control Schematic</h2>
+  <p id="s4p">A typical motor control schematic includes: Power supply → Circuit breaker → Contactor → Overload relay → Motor. Control circuit includes Start/Stop buttons, auxiliary contacts, and interlocking. This forms the basis of most industrial motor control designs.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📐 Schematic Design',
-            desc: 'Understanding and creating electrical schematic diagrams, including single-line, three-line, and wiring diagrams for industrial systems.',
-            s1: '🔹 What is Schematic Design?',
-            s1p: 'Schematic design is the process of creating symbolic representations of electrical circuits and systems. These diagrams use standardized symbols to show connections, components, and power distribution. They are essential for design, installation, troubleshooting, and maintenance of electrical systems.',
-            s2: '🔹 Types of Schematics',
-            list1: ['Single-Line Diagram – Simplified representation of power distribution, showing main components and connections in one line.','Three-Line Diagram – Detailed representation showing all three phases of a power system with protective devices.','Wiring Diagram – Shows actual wiring connections between components for installation.','Control Schematic – Shows control logic, relays, contactors, and PLC I/O connections.'],
-            s3: '🔹 Standard Symbols',
-            list2: ['IEC 60617 – Standard electrical symbols','ANSI Y32.2 – American standard symbols','ISA 5.1 – Instrumentation symbols','Common symbols: switches, relays, motors, transformers, circuit breakers'],
-            s4: '🔹 Example: Motor Control Schematic',
-            s4p: 'A motor control schematic includes a circuit breaker, contactor, overload relay, start/stop push buttons, and motor. The schematic shows the power circuit (supply to motor) and control circuit (push buttons and relay contacts) clearly using standard symbols.',
-            back: '← Back'
-        },
-        fa: {
-            title: '📐 طراحی شماتیک',
-            desc: 'درک و ایجاد نمودارهای شماتیک الکتریکی، شامل نمودارهای تک خطی، سه خطی و سیم‌کشی برای سیستم‌های صنعتی.',
-            s1: '🔹 طراحی شماتیک چیست؟',
-            s1p: 'طراحی شماتیک فرآیند ایجاد نمایش‌های نمادین از مدارها و سیستم‌های الکتریکی است. این نمودارها از نمادهای استاندارد برای نشان دادن اتصالات، اجزاء و توزیع برق استفاده می‌کنند. آنها برای طراحی، نصب، عیب‌یابی و نگهداری سیستم‌های الکتریکی ضروری هستند.',
-            s2: '🔹 انواع شماتیک‌ها',
-            list1: ['نمودار تک خطی – نمایش ساده‌شده توزیع برق، نشان دادن اجزای اصلی و اتصالات در یک خط.','نمودار سه خطی – نمایش دقیق نشان دادن هر سه فاز سیستم قدرت با تجهیزات حفاظتی.','نمودار سیم‌کشی – نشان دادن اتصالات سیم‌کشی واقعی بین اجزاء برای نصب.','شماتیک کنترل – نشان دادن منطق کنترل، رله‌ها، کنتاکتورها و اتصالات I/O PLC.'],
-            s3: '🔹 نمادهای استاندارد',
-            list2: ['IEC 60617 – نمادهای استاندارد الکتریکی','ANSI Y32.2 – نمادهای استاندارد آمریکایی','ISA 5.1 – نمادهای ابزار دقیق','نمادهای رایج: کلیدها، رله‌ها، موتورها، ترانسفورماتورها، کلیدهای مدار'],
-            s4: '🔹 مثال: شماتیک کنترل موتور',
-            s4p: 'یک شماتیک کنترل موتور شامل کلید مدار، کنتاکتور، رله اضافه بار، دکمه‌های استارت/توقف و موتور است. شماتیک مدار قدرت (تغذیه به موتور) و مدار کنترل (دکمه‌ها و تماس‌های رله) را با استفاده از نمادهای استاندارد به وضوح نشان می‌دهد.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Electrical Schematics',
+  desc: 'Creating and interpreting electrical schematics, one-line diagrams, three-line diagrams, and wiring diagrams.',
+  s1: 'What are Electrical Schematics?',
+  s1p: 'Electrical schematics are graphical representations of electrical circuits and systems. They use standardized symbols to show components, connections, and power flow. They are essential for design, installation, and troubleshooting.',
+  s2: 'Types of Schematics',
+  list1: ['One-Line Diagrams – Simplified power system representation','Three-Line Diagrams – Detailed power and control wiring','Wiring Diagrams – Physical connection details','Block Diagrams – System-level functional representation','Interconnection Diagrams – Equipment-to-equipment connections'],
+  s3: 'Common Symbols',
+  list2: ['Resistors, Capacitors, Inductors','Switches, Relays, Contactors','Motors, Generators, Transformers','Fuses, Circuit Breakers, Overloads','PLC I/O, Instruments, Sensors'],
+  s4: 'Example: Motor Control Schematic',
+  s4p: 'A typical motor control schematic includes: Power supply → Circuit breaker → Contactor → Overload relay → Motor. Control circuit includes Start/Stop buttons, auxiliary contacts, and interlocking. This forms the basis of most industrial motor control designs.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'شماتیک‌های الکتریکی',
+  desc: 'ایجاد و تفسیر شماتیک‌های الکتریکی، نمودارهای تک‌خطی، سه‌خطی و نمودارهای سیم‌کشی.',
+  s1: 'شماتیک‌های الکتریکی چیستند؟',
+  s1p: 'شماتیک‌های الکتریکی نمایش‌های گرافیکی مدارها و سیستم‌های الکتریکی هستند. آنها از نمادهای استاندارد برای نشان دادن قطعات، اتصالات و جریان برق استفاده می‌کنند. برای طراحی، نصب و عیب‌یابی ضروری هستند.',
+  s2: 'انواع شماتیک‌ها',
+  list1: ['نمودارهای تک‌خطی – نمایش ساده سیستم قدرت','نمودارهای سه‌خطی – سیم‌کشی دقیق قدرت و کنترل','نمودارهای سیم‌کشی – جزئیات اتصالات فیزیکی','نمودارهای بلوکی – نمایش عملکردی سطح سیستم','نمودارهای اتصال – اتصالات تجهیزات'],
+  s3: 'نمادهای رایج',
+  list2: ['مقاومت‌ها، خازن‌ها، سلف‌ها','سوئیچ‌ها، رله‌ها، کنتاکتورها','موتورها، ژنراتورها، ترانسفورماتورها','فیوزها، کلیدهای مدار، اضافه‌بارها','PLC I/O، ابزار دقیق، سنسورها'],
+  s4: 'مثال: شماتیک کنترل موتور',
+  s4p: 'یک شماتیک کنترل موتور معمولی شامل: منبع تغذیه → کلید مدار → کنتاکتور → رله اضافه‌بار → موتور است. مدار کنترل شامل دکمه‌های استارت/توقف، کنتاکت‌های کمکی و قفل‌های متقابل است. این اساس اکثر طرح‌های کنترل موتور صنعتی را تشکیل می‌دهد.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
