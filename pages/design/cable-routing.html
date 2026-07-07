@@ -23,6 +23,7 @@
  .section ul{list-style:none;padding:0}
  .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
  .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
  .back{text-align:center;margin-top:30px}
  .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
  .back a:hover{text-decoration:underline}
@@ -40,44 +41,48 @@
    <button class="lang-btn" data-lang="fa">FA</button>
   </div>
  </div>
- <h1 id="title">Cable Routing &amp; Sizing</h1>
- <div class="sub" id="desc">Designing cable routing systems, cable trays, conduits, and cable sizing for electrical systems.</div>
+ <h1 id="title">Cable Routing &amp; Management</h1>
+ <div class="sub" id="desc">Designing cable routing systems including cable trays, conduits, cable schedules, and terminations.</div>
  <div class="section">
   <h2 id="s1">What is Cable Routing?</h2>
-  <p id="s1p">Cable routing is the design of pathways for electrical cables from power sources to loads. It includes cable trays, conduits, ladder racks, and direct burial methods. Proper routing ensures safety, reduces electromagnetic interference, and simplifies maintenance.</p>
+  <p id="s1p">Cable routing is the process of planning and designing pathways for cables in an industrial or building environment. It involves selecting cable trays, conduits, raceways, and ensuring proper segregation of power, control, and communication cables.</p>
  </div>
  <div class="section">
-  <h2 id="s2">Cable Routing Methods</h2>
+  <h2 id="s2">Cable Routing Components</h2>
   <ul id="list1">
-   <li>Cable Trays – Perforated, solid-bottom, ladder-type</li>
-   <li>Conduits – PVC, metal (rigid/EMT), flexible</li>
-   <li>Trunking &amp; Ducts – For control panels and buildings</li>
-   <li>Direct Burial – Underground cables with protection</li>
-   <li>Overhead – Cable ladders and supports</li>
+   <li>Cable Trays – Ladder, perforated, or solid bottom</li>
+   <li>Conduits – Rigid, flexible, PVC, or metallic</li>
+   <li>Raceways – For indoor distribution</li>
+   <li>Cable Ladders – Heavy-duty cable support</li>
+   <li>Glands &amp; Cable Entries – For panels and enclosures</li>
+   <li>Cable Ties &amp; Supports – Securing and organizing</li>
   </ul>
  </div>
  <div class="section">
-  <h2 id="s3">Cable Sizing</h2>
+  <h2 id="s3">Cable Segregation</h2>
   <ul id="list2">
-   <li>Current Carrying Capacity – Based on ampacity tables</li>
-   <li>Voltage Drop – Must be within allowable limits</li>
-   <li>Short-Circuit Rating – Thermal and mechanical withstand</li>
-   <li>Derating Factors – Temperature, grouping, ambient conditions</li>
-  </ul>
-  <p id="s3p">Cable sizing follows IEC 60364 or NEC (NFPA 70) standards.</p>
- </div>
- <div class="section">
-  <h2 id="s4">Cable Tray Loading</h2>
-  <ul id="list3">
-   <li>Calculate total cable weight per meter</li>
-   <li>Select tray width and depth based on fill capacity</li>
-   <li>Consider spacing for heat dissipation</li>
-   <li>Apply safety factors for future expansion</li>
+   <li>Power Cables (High Voltage) – Must be segregated from low voltage</li>
+   <li>Control Cables (PLC, Instrument) – Avoid electrical noise</li>
+   <li>Communication Cables (Ethernet, Fiber) – Must be protected</li>
+   <li>Separation distance (minimum 300mm for power vs control)</li>
   </ul>
  </div>
  <div class="section">
-  <h2 id="s5">Example: Cable Schedule</h2>
-  <p id="s5p">A cable schedule is a document listing all cables used in a project. It includes cable number, type, size, length, source, destination, and remarks. This is essential for procurement and installation planning.</p>
+  <h2 id="s4">Cable Schedule Example</h2>
+  <div class="code-box">
+Cable Schedule:
+---------------------------------------------------------------------
+From       | To         | Cable Type   | Size    | Length | Route
+---------------------------------------------------------------------
+MCC-01     | Motor-101  | 4C x 16mm²   | 25m     | Tray A
+PLC-01     | Field-01   | 2C x 1.5mm²  | 50m     | Conduit
+Panel-01   | HMI-01     | Cat6         | 15m     | Tray B
+Transformer| MCC-01     | 4C x 95mm²   | 40m     | Ladder
+  </div>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Cable Routing Design</h2>
+  <p id="s5p">A cable routing design for a new industrial plant includes: Main cable ladder from substation to MCC, cable trays from MCC to field junction boxes, and flexible conduits from junction boxes to final equipment. Segregation is maintained with different trays for power and control cables.</p>
  </div>
  <div class="back">
   <a href="javascript:history.back()" id="backlink">← Back</a>
@@ -86,35 +91,31 @@
 <script>
 const lang = {
  en: {
-  title: 'Cable Routing & Sizing',
-  desc: 'Designing cable routing systems, cable trays, conduits, and cable sizing for electrical systems.',
+  title: 'Cable Routing & Management',
+  desc: 'Designing cable routing systems including cable trays, conduits, cable schedules, and terminations.',
   s1: 'What is Cable Routing?',
-  s1p: 'Cable routing is the design of pathways for electrical cables from power sources to loads. It includes cable trays, conduits, ladder racks, and direct burial methods. Proper routing ensures safety, reduces electromagnetic interference, and simplifies maintenance.',
-  s2: 'Cable Routing Methods',
-  list1: ['Cable Trays – Perforated, solid-bottom, ladder-type','Conduits – PVC, metal (rigid/EMT), flexible','Trunking & Ducts – For control panels and buildings','Direct Burial – Underground cables with protection','Overhead – Cable ladders and supports'],
-  s3: 'Cable Sizing',
-  list2: ['Current Carrying Capacity – Based on ampacity tables','Voltage Drop – Must be within allowable limits','Short-Circuit Rating – Thermal and mechanical withstand','Derating Factors – Temperature, grouping, ambient conditions'],
-  s3p: 'Cable sizing follows IEC 60364 or NEC (NFPA 70) standards.',
-  s4: 'Cable Tray Loading',
-  list3: ['Calculate total cable weight per meter','Select tray width and depth based on fill capacity','Consider spacing for heat dissipation','Apply safety factors for future expansion'],
-  s5: 'Example: Cable Schedule',
-  s5p: 'A cable schedule is a document listing all cables used in a project. It includes cable number, type, size, length, source, destination, and remarks. This is essential for procurement and installation planning.',
+  s1p: 'Cable routing is the process of planning and designing pathways for cables in an industrial or building environment. It involves selecting cable trays, conduits, raceways, and ensuring proper segregation of power, control, and communication cables.',
+  s2: 'Cable Routing Components',
+  list1: ['Cable Trays – Ladder, perforated, or solid bottom','Conduits – Rigid, flexible, PVC, or metallic','Raceways – For indoor distribution','Cable Ladders – Heavy-duty cable support','Glands & Cable Entries – For panels and enclosures','Cable Ties & Supports – Securing and organizing'],
+  s3: 'Cable Segregation',
+  list2: ['Power Cables (High Voltage) – Must be segregated from low voltage','Control Cables (PLC, Instrument) – Avoid electrical noise','Communication Cables (Ethernet, Fiber) – Must be protected','Separation distance (minimum 300mm for power vs control)'],
+  s4: 'Cable Schedule Example',
+  s5: 'Example: Cable Routing Design',
+  s5p: 'A cable routing design for a new industrial plant includes: Main cable ladder from substation to MCC, cable trays from MCC to field junction boxes, and flexible conduits from junction boxes to final equipment. Segregation is maintained with different trays for power and control cables.',
   back: '← Back'
  },
  fa: {
-  title: 'مسیردهی و سایزینگ کابل',
-  desc: 'طراحی سیستم‌های مسیردهی کابل، سینی کابل، لوله‌ها و سایزینگ کابل برای سیستم‌های الکتریکی.',
+  title: 'مسیردهی و مدیریت کابل',
+  desc: 'طراحی سیستم‌های مسیردهی کابل شامل سینی کابل، لوله‌ها، برنامه کابل و پایانه‌ها.',
   s1: 'مسیردهی کابل چیست؟',
-  s1p: 'مسیردهی کابل، طراحی مسیرهای عبور کابل‌های الکتریکی از منابع تغذیه به بارها است. شامل سینی‌های کابل، لوله‌ها، نردبان‌ها و روش‌های دفن مستقیم است. مسیردهی مناسب ایمنی را تضمین می‌کند، تداخل الکترومغناطیسی را کاهش می‌دهد و نگهداری را ساده می‌کند.',
-  s2: 'روش‌های مسیردهی کابل',
-  list1: ['سینی‌های کابل – سوراخ‌دار، کف‌صاف، نردبانی','لوله‌ها – PVC، فلزی (سخت/EMT)، انعطاف‌پذیر','شاه‌تیر و کانال‌ها – برای پنل‌های کنترل و ساختمان‌ها','دفن مستقیم – کابل‌های زیرزمینی با حفاظت','روکار – نردبان‌ها و تکیه‌گاه‌های کابل'],
-  s3: 'سایزینگ کابل',
-  list2: ['ظرفیت حمل جریان – بر اساس جداول آمپاسیته','افت ولتاژ – باید در محدوده مجاز باشد','رتبه‌بندی اتصال کوتاه – تحمل حرارتی و مکانیکی','ضرایب کاهش – دما، گروه‌بندی، شرایط محیطی'],
-  s3p: 'سایزینگ کابل بر اساس استانداردهای IEC 60364 یا NEC (NFPA 70) انجام می‌شود.',
-  s4: 'بارگذاری سینی کابل',
-  list3: ['محاسبه وزن کل کابل در هر متر','انتخاب عرض و عمق سینی بر اساس ظرفیت پر شدن','در نظر گرفتن فاصله برای اتلاف حرارت','اعمال ضرایب ایمنی برای توسعه آینده'],
-  s5: 'مثال: برنامه کابل',
-  s5p: 'برنامه کابل یک سند است که تمام کابل‌های استفاده شده در یک پروژه را لیست می‌کند. شامل شماره کابل، نوع، اندازه، طول، مبدأ، مقصد و توضیحات است. این برای تأمین و برنامه‌ریزی نصب ضروری است.',
+  s1p: 'مسیردهی کابل فرآیند برنامه‌ریزی و طراحی مسیرهای کابل در یک محیط صنعتی یا ساختمانی است. شامل انتخاب سینی‌های کابل، لوله‌ها، مجراها و اطمینان از جداسازی مناسب کابل‌های برق، کنترل و ارتباطات است.',
+  s2: 'اجزای مسیردهی کابل',
+  list1: ['سینی کابل – نردبانی، سوراخ‌دار یا کف‌جامد','لوله‌ها – سفت، منعطف، PVC یا فلزی','مجراها – برای توزیع داخلی','نردبان کابل – پشتیبانی سنگین کابل','گلندها و ورودی کابل – برای پنل‌ها و محفظه‌ها','بندها و تکیه‌گاه‌های کابل – محکم‌سازی و سازماندهی'],
+  s3: 'جداسازی کابل',
+  list2: ['کابل‌های برق (ولتاژ بالا) – باید از ولتاژ پایین جدا شوند','کابل‌های کنترل (PLC، ابزار دقیق) – جلوگیری از نویز الکتریکی','کابل‌های ارتباطی (اترنت، فیبر) – باید محافظت شوند','فاصله جداسازی (حداقل 300mm برای برق در مقابل کنترل)'],
+  s4: 'مثال برنامه کابل',
+  s5: 'مثال: طراحی مسیردهی کابل',
+  s5p: 'یک طراحی مسیردهی کابل برای یک کارخانه صنعتی جدید شامل: نردبان کابل اصلی از پست به MCC، سینی کابل از MCC به جعبه‌های اتصال میدان، و لوله‌های منعطف از جعبه‌های اتصال به تجهیزات نهایی است. جداسازی با سینی‌های مختلف برای کابل‌های برق و کنترل حفظ می‌شود.',
   back: '← بازگشت'
  }
 };
@@ -126,12 +127,11 @@ function setLang(l) {
  document.getElementById('s1p').textContent = t.s1p;
  document.getElementById('s2').textContent = t.s2;
  document.getElementById('s3').textContent = t.s3;
- document.getElementById('s3p').textContent = t.s3p;
  document.getElementById('s4').textContent = t.s4;
  document.getElementById('s5').textContent = t.s5;
  document.getElementById('s5p').textContent = t.s5p;
  document.getElementById('backlink').textContent = t.back;
- ['list1','list2','list3'].forEach(id => {
+ ['list1','list2'].forEach(id => {
   const ul = document.getElementById(id);
   ul.innerHTML = '';
   t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
