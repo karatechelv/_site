@@ -1,177 +1,155 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Automation Examples</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Automation Examples</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Automation Examples</h1>
+ <div class="sub" id="desc">Practical projects, code examples, and real-world automation applications.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="s1">PLC Programming Examples</h2>
+  <ul id="list1">
+   <li>Motor Start/Stop with Seal-in Circuit (Ladder)</li>
+   <li>Timer-Based Conveyor Control</li>
+   <li>Counter for Product Counting</li>
+   <li>Analog Input Processing (4-20mA)</li>
+   <li>PID Temperature Control</li>
+  </ul>
+  <div class="code-box">
+// Ladder Example: Motor Start/Stop
+// Start (I0.0) --| |-- Stop (I0.1) --|/|-- Motor (Q0.0) --( )
+// Motor (Q0.0) --| |-- (Seal-in)
+  </div>
+ </div>
 
-    <h1 id="title">📝 Automation Examples</h1>
-    <div class="sub" id="desc">Practical projects and examples to apply automation engineering knowledge. Includes complete descriptions and learning outcomes.</div>
+ <div class="section">
+  <h2 id="s2">HMI/SCADA Examples</h2>
+  <ul id="list2">
+   <li>Tank Level Monitoring Screen</li>
+   <li>Pump Control with Alarms</li>
+   <li>Trend Chart for Process Variables</li>
+   <li>User Login &amp; Security</li>
+   <li>Recipe Management System</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s1">🔹 Example 1: Conveyor Belt Control</h2>
-        <p id="s1p"><strong>Description:</strong> A PLC-based system controls a conveyor belt with start/stop, speed control, and product counting. Uses a VFD for speed regulation and proximity sensors for counting.</p>
-        <ul id="list1">
-            <li>PLC: Siemens S7-1200</li>
-            <li>Software: TIA Portal</li>
-            <li>Key skills: Ladder logic, VFD configuration, sensor integration</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s3">Industrial Network Examples</h2>
+  <ul id="list3">
+   <li>Profinet: PLC to Remote I/O Communication</li>
+   <li>Modbus RTU: Master-Slave Setup</li>
+   <li>Ethernet/IP: PLC to Drive Communication</li>
+   <li>OPC UA Server Configuration</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s2">🔹 Example 2: Temperature Control Loop</h2>
-        <p id="s2p"><strong>Description:</strong> A PID temperature controller maintains a chemical reactor at a setpoint. Uses a thermocouple, heater, and PID block in the PLC.</p>
-        <ul id="list2">
-            <li>PLC: Allen-Bradley CompactLogix</li>
-            <li>Software: Studio 5000</li>
-            <li>Key skills: PID tuning, analog I/O, HMI faceplate design</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s4">Real-World Projects</h2>
+  <ul id="list4">
+   <li>Automated Packaging Line</li>
+   <li>Water Treatment Plant SCADA</li>
+   <li>Conveyor Sorting System</li>
+   <li>Robotic Pick-and-Place Cell</li>
+   <li>Smart Building Automation</li>
+  </ul>
+  <p id="s4p">Each project includes full documentation, code, and simulation files.</p>
+ </div>
 
-    <div class="section">
-        <h2 id="s3">🔹 Example 3: Pick-and-Place Robot</h2>
-        <p id="s3p"><strong>Description:</strong> A SCARA robot picks parts from a conveyor and places them on a pallet. Motion control with servo drives and coordinated axes.</p>
-        <ul id="list3">
-            <li>Controller: Omron NJ</li>
-            <li>Software: Sysmac Studio</li>
-            <li>Key skills: Motion control, robotics, vision system integration</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example 4: Water Tank Level Control</h2>
-        <p id="s4p"><strong>Description:</strong> A SCADA system monitors and controls water levels in multiple tanks. Operators can start/stop pumps and view trends.</p>
-        <ul id="list4">
-            <li>SCADA: Ignition</li>
-            <li>PLC: Schneider M241</li>
-            <li>Key skills: SCADA design, Modbus communication, alarm management</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📝 Automation Examples',
-            desc: 'Practical projects and examples to apply automation engineering knowledge. Includes complete descriptions and learning outcomes.',
-            s1: '🔹 Example 1: Conveyor Belt Control',
-            s1p: 'A PLC-based system controls a conveyor belt with start/stop, speed control, and product counting. Uses a VFD for speed regulation and proximity sensors for counting.',
-            list1: ['PLC: Siemens S7-1200','Software: TIA Portal','Key skills: Ladder logic, VFD configuration, sensor integration'],
-            s2: '🔹 Example 2: Temperature Control Loop',
-            s2p: 'A PID temperature controller maintains a chemical reactor at a setpoint. Uses a thermocouple, heater, and PID block in the PLC.',
-            list2: ['PLC: Allen-Bradley CompactLogix','Software: Studio 5000','Key skills: PID tuning, analog I/O, HMI faceplate design'],
-            s3: '🔹 Example 3: Pick-and-Place Robot',
-            s3p: 'A SCARA robot picks parts from a conveyor and places them on a pallet. Motion control with servo drives and coordinated axes.',
-            list3: ['Controller: Omron NJ','Software: Sysmac Studio','Key skills: Motion control, robotics, vision system integration'],
-            s4: '🔹 Example 4: Water Tank Level Control',
-            s4p: 'A SCADA system monitors and controls water levels in multiple tanks. Operators can start/stop pumps and view trends.',
-            list4: ['SCADA: Ignition','PLC: Schneider M241','Key skills: SCADA design, Modbus communication, alarm management'],
-            back: '← Back'
-        },
-        fa: {
-            title: '📝 مثال‌های اتوماسیون',
-            desc: 'پروژه‌ها و مثال‌های عملی برای به کارگیری دانش مهندسی اتوماسیون. شامل توضیحات کامل و نتایج یادگیری.',
-            s1: '🔹 مثال ۱: کنترل نوار نقاله',
-            s1p: 'یک سیستم مبتنی بر PLC یک نوار نقاله را با شروع/توقف، کنترل سرعت و شمارش محصول کنترل می‌کند. از VFD برای تنظیم سرعت و سنسورهای مجاورتی برای شمارش استفاده می‌کند.',
-            list1: ['PLC: زیمنس S7-1200','نرم‌افزار: TIA Portal','مهارت‌های کلیدی: منطق نردبانی، پیکربندی VFD، یکپارچه‌سازی سنسور'],
-            s2: '🔹 مثال ۲: حلقه کنترل دما',
-            s2p: 'یک کنترل‌کننده PID دمای یک راکتور شیمیایی را در نقطه تنظیم حفظ می‌کند. از ترموکوپل، بخاری و بلوک PID در PLC استفاده می‌کند.',
-            list2: ['PLC: Allen-Bradley CompactLogix','نرم‌افزار: Studio 5000','مهارت‌های کلیدی: تنظیم PID، I/O آنالوگ، طراحی صفحه HMI'],
-            s3: '🔹 مثال ۳: ربات برداشت و قراردادن',
-            s3p: 'یک ربات SCARA قطعات را از یک نقاله برداشته و روی پالت قرار می‌دهد. کنترل حرکت با درایوهای سروو و محورهای هماهنگ.',
-            list3: ['کنترل‌کننده: Omron NJ','نرم‌افزار: Sysmac Studio','مهارت‌های کلیدی: کنترل حرکت، رباتیک، یکپارچه‌سازی سیستم بینایی'],
-            s4: '🔹 مثال ۴: کنترل سطح مخزن آب',
-            s4p: 'یک سیستم SCADA سطح آب را در چندین مخزن نظارت و کنترل می‌کند. اپراتورها می‌توانند پمپ‌ها را روشن/خاموش کرده و روندها را مشاهده کنند.',
-            list4: ['SCADA: Ignition','PLC: اشنایدر M241','مهارت‌های کلیدی: طراحی SCADA، ارتباط Modbus، مدیریت هشدار'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s2p').textContent = t.s2p;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        const ul3 = document.getElementById('list3');
-        ul3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
-
-        const ul4 = document.getElementById('list4');
-        ul4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Automation Examples',
+  desc: 'Practical projects, code examples, and real-world automation applications.',
+  s1: 'PLC Programming Examples',
+  list1: ['Motor Start/Stop with Seal-in Circuit (Ladder)','Timer-Based Conveyor Control','Counter for Product Counting','Analog Input Processing (4-20mA)','PID Temperature Control'],
+  s2: 'HMI/SCADA Examples',
+  list2: ['Tank Level Monitoring Screen','Pump Control with Alarms','Trend Chart for Process Variables','User Login & Security','Recipe Management System'],
+  s3: 'Industrial Network Examples',
+  list3: ['Profinet: PLC to Remote I/O Communication','Modbus RTU: Master-Slave Setup','Ethernet/IP: PLC to Drive Communication','OPC UA Server Configuration'],
+  s4: 'Real-World Projects',
+  list4: ['Automated Packaging Line','Water Treatment Plant SCADA','Conveyor Sorting System','Robotic Pick-and-Place Cell','Smart Building Automation'],
+  s4p: 'Each project includes full documentation, code, and simulation files.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مثال‌های اتوماسیون',
+  desc: 'پروژه‌های عملی، مثال‌های کد و کاربردهای واقعی اتوماسیون صنعتی.',
+  s1: 'مثال‌های برنامه‌نویسی PLC',
+  list1: ['راه‌اندازی/توقف موتور با مدار Seal-in (نردبانی)','کنترل نقاله با تایمر','شمارنده برای شمارش محصولات','پردازش ورودی آنالوگ (4-20mA)','کنترل دمای PID'],
+  s2: 'مثال‌های HMI/SCADA',
+  list2: ['صفحه مانیتورینگ سطح مخزن','کنترل پمپ با هشدارها','نمودار روند برای متغیرهای فرآیند','ورود کاربر و امنیت','سیستم مدیریت دستورالعمل'],
+  s3: 'مثال‌های شبکه صنعتی',
+  list3: ['Profinet: ارتباط PLC با I/O راه دور','Modbus RTU: راه‌اندازی مستر-اسلیو','Ethernet/IP: ارتباط PLC با درایو','پیکربندی سرور OPC UA'],
+  s4: 'پروژه‌های واقعی',
+  list4: ['خط بسته‌بندی خودکار','SCADA تصفیه‌خانه آب','سیستم مرتب‌سازی نقاله','سلول رباتیک برداشت و قراردادن','اتوماسیون هوشمند ساختمان'],
+  s4p: 'هر پروژه شامل مستندات کامل، کد و فایل‌های شبیه‌سازی است.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
