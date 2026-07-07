@@ -1,168 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Design Resources</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Design Resources</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">📚 Design Resources</h1>
-    <div class="sub" id="desc">Books, websites, standards, and educational materials for engineering design.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 Recommended Books</h2>
-        <ul id="list1">
-            <li>Electrical Installation Designs – Bill Atkinson</li>
-            <li>Handbook of Electrical Design – McGraw-Hill</li>
-            <li>Industrial Power Systems Design – Shoab Khan</li>
-            <li>Electrical Power Engineering – M.E. El-Hawary</li>
-            <li>Handbook of Electrical Engineering – Alan L. Sheldrake</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Useful Websites</h2>
-        <ul id="list2">
-            <li>IEC – International Electrotechnical Commission – iec.ch</li>
-            <li>IEEE – Institute of Electrical and Electronics Engineers – ieee.org</li>
-            <li>NFPA – National Fire Protection Association – nfpa.org</li>
-            <li>Electrical Engineering Portal – electrical-engineering-portal.com</li>
-            <li>Control Design – controldesign.com</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Key Standards</h2>
-        <ul id="list3">
-            <li>IEC 60364 – Electrical Installations</li>
-            <li>IEC 61439 – Low-voltage Switchgear</li>
-            <li>IEEE 80 – Earthing Design</li>
-            <li>NFPA 70 (NEC) – National Electrical Code</li>
-            <li>ISA 5.1 – Instrumentation Symbols</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Video Tutorials</h2>
-        <ul id="list4">
-            <li>Electrical Design Basics (YouTube) – Schematic to panel</li>
-            <li>AutoCAD Electrical Training – Full course</li>
-            <li>EPLAN P8 Tutorials – Engineering design</li>
-            <li>Lighting Design with Dialux – Practical examples</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Design Resources</h1>
+ <div class="sub" id="desc">Industrial catalogs, standards, manuals, and engineering documents for engineering design.</div>
+ <div class="section">
+  <h2 id="s1">Manufacturer Catalogs</h2>
+  <ul id="list1">
+   <li>EPLAN – Engineering design software catalogs</li>
+   <li>AutoCAD – CAD software resources</li>
+   <li>Siemens Industry – Components and systems</li>
+   <li>Rittal – Enclosures and panel components</li>
+   <li>Phoenix Contact – Terminal blocks and connectors</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s2">Standards</h2>
+  <ul id="list2">
+   <li>IEC 60204 – Electrical equipment of machines</li>
+   <li>IEC 61439 – Switchgear and controlgear assemblies</li>
+   <li>IEC 61082 – Preparation of documents for electrotechnology</li>
+   <li>ANSI/ISA 5.1 – Instrumentation symbols and diagrams</li>
+   <li>ISO 9001 – Quality management for design</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Manuals & Guides</h2>
+  <ul id="list3">
+   <li>Electrical Design Guide – Principles and practices</li>
+   <li>Panel Design Manual – Layout and assembly</li>
+   <li>Cable Sizing Guide – Selection and routing</li>
+   <li>CAD User Manuals – Software training guides</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Templates & Documents</h2>
+  <ul id="list4">
+   <li>BOM Templates – Excel and database formats</li>
+   <li>Instrument Datasheet Templates</li>
+   <li>Loop Diagram Templates</li>
+   <li>Specification Documents – Project and system specifications</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s5">Online Resources</h2>
+  <ul id="list5">
+   <li>EPLAN Forums – User community and support</li>
+   <li>AutoCAD Knowledge Base – Tutorials and help</li>
+   <li>Industrial Control Design Guides – General resources</li>
+   <li>YouTube Channels – Design software tutorials</li>
+  </ul>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📚 Design Resources',
-            desc: 'Books, websites, standards, and educational materials for engineering design.',
-            s1: '🔹 Recommended Books',
-            list1: ['Electrical Installation Designs – Bill Atkinson','Handbook of Electrical Design – McGraw-Hill','Industrial Power Systems Design – Shoab Khan','Electrical Power Engineering – M.E. El-Hawary','Handbook of Electrical Engineering – Alan L. Sheldrake'],
-            s2: '🔹 Useful Websites',
-            list2: ['IEC – International Electrotechnical Commission – iec.ch','IEEE – Institute of Electrical and Electronics Engineers – ieee.org','NFPA – National Fire Protection Association – nfpa.org','Electrical Engineering Portal – electrical-engineering-portal.com','Control Design – controldesign.com'],
-            s3: '🔹 Key Standards',
-            list3: ['IEC 60364 – Electrical Installations','IEC 61439 – Low-voltage Switchgear','IEEE 80 – Earthing Design','NFPA 70 (NEC) – National Electrical Code','ISA 5.1 – Instrumentation Symbols'],
-            s4: '🔹 Video Tutorials',
-            list4: ['Electrical Design Basics (YouTube) – Schematic to panel','AutoCAD Electrical Training – Full course','EPLAN P8 Tutorials – Engineering design','Lighting Design with Dialux – Practical examples'],
-            back: '← Back'
-        },
-        fa: {
-            title: '📚 منابع طراحی مهندسی',
-            desc: 'کتاب‌ها، وب‌سایت‌ها، استانداردها و مواد آموزشی برای طراحی مهندسی.',
-            s1: '🔹 کتاب‌های پیشنهادی',
-            list1: ['Electrical Installation Designs – Bill Atkinson','Handbook of Electrical Design – McGraw-Hill','Industrial Power Systems Design – Shoab Khan','Electrical Power Engineering – M.E. El-Hawary','Handbook of Electrical Engineering – Alan L. Sheldrake'],
-            s2: '🔹 وب‌سایت‌های مفید',
-            list2: ['IEC – کمیسیون بین‌المللی الکتروتکنیک – iec.ch','IEEE – مؤسسه مهندسان برق و الکترونیک – ieee.org','NFPA – انجمن ملی حفاظت در برابر آتش – nfpa.org','Electrical Engineering Portal – electrical-engineering-portal.com','Control Design – controldesign.com'],
-            s3: '🔹 استانداردهای کلیدی',
-            list3: ['IEC 60364 – تأسیسات الکتریکی','IEC 61439 – تابلوهای فشار ضعیف','IEEE 80 – طراحی ارتینگ','NFPA 70 (NEC) – کد ملی برق','ISA 5.1 – نمادهای ابزار دقیق'],
-            s4: '🔹 آموزش‌های ویدئویی',
-            list4: ['مبانی طراحی برق (یوتیوب) – شماتیک تا پنل','آموزش AutoCAD Electrical – دوره کامل','آموزش EPLAN P8 – طراحی مهندسی','طراحی روشنایی با Dialux – مثال‌های عملی'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        const ul3 = document.getElementById('list3');
-        ul3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
-
-        const ul4 = document.getElementById('list4');
-        ul4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Design Resources',
+  desc: 'Industrial catalogs, standards, manuals, and engineering documents for engineering design.',
+  s1: 'Manufacturer Catalogs',
+  list1: ['EPLAN – Engineering design software catalogs','AutoCAD – CAD software resources','Siemens Industry – Components and systems','Rittal – Enclosures and panel components','Phoenix Contact – Terminal blocks and connectors'],
+  s2: 'Standards',
+  list2: ['IEC 60204 – Electrical equipment of machines','IEC 61439 – Switchgear and controlgear assemblies','IEC 61082 – Preparation of documents for electrotechnology','ANSI/ISA 5.1 – Instrumentation symbols and diagrams','ISO 9001 – Quality management for design'],
+  s3: 'Manuals & Guides',
+  list3: ['Electrical Design Guide – Principles and practices','Panel Design Manual – Layout and assembly','Cable Sizing Guide – Selection and routing','CAD User Manuals – Software training guides'],
+  s4: 'Templates & Documents',
+  list4: ['BOM Templates – Excel and database formats','Instrument Datasheet Templates','Loop Diagram Templates','Specification Documents – Project and system specifications'],
+  s5: 'Online Resources',
+  list5: ['EPLAN Forums – User community and support','AutoCAD Knowledge Base – Tutorials and help','Industrial Control Design Guides – General resources','YouTube Channels – Design software tutorials'],
+  back: '← Back'
+ },
+ fa: {
+  title: 'منابع طراحی مهندسی',
+  desc: 'کاتالوگ‌های صنعتی، استانداردها، دفترچه‌های راهنما و اسناد مهندسی برای طراحی مهندسی.',
+  s1: 'کاتالوگ‌های تولیدکنندگان',
+  list1: ['EPLAN – کاتالوگ‌های نرم‌افزار طراحی مهندسی','AutoCAD – منابع نرم‌افزار CAD','زیمنس – قطعات و سیستم‌ها','Rittal – محفظه‌ها و قطعات پنل','Phoenix Contact – بلوک‌های ترمینال و کانکتورها'],
+  s2: 'استانداردها',
+  list2: ['IEC 60204 – تجهیزات الکتریکی ماشین‌آلات','IEC 61439 – تابلوهای برق','IEC 61082 – تهیه اسناد برای الکتروتکنولوژی','ANSI/ISA 5.1 – نمادها و نمودارهای ابزار دقیق','ISO 9001 – مدیریت کیفیت برای طراحی'],
+  s3: 'دفترچه‌های راهنما و راهنماها',
+  list3: ['راهنمای طراحی برق – اصول و روش‌ها','دفترچه طراحی پنل – چیدمان و مونتاژ','راهنمای سایزینگ کابل – انتخاب و مسیردهی','دفترچه‌های کاربری CAD – راهنماهای آموزش نرم‌افزار'],
+  s4: 'قالب‌ها و اسناد',
+  list4: ['قالب‌های BOM – فرمت‌های Excel و پایگاه داده','قالب‌های دیتاشیت ابزار دقیق','قالب‌های نمودار حلقه','اسناد مشخصات – مشخصات پروژه و سیستم'],
+  s5: 'منابع آنلاین',
+  list5: ['انجمن‌های EPLAN – جامعه کاربران و پشتیبانی','پایگاه دانش AutoCAD – آموزش‌ها و راهنما','راهنماهای طراحی کنترل صنعتی – منابع عمومی','کانال‌های YouTube – آموزش‌های نرم‌افزار طراحی'],
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4','list5'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
