@@ -1,177 +1,161 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Instrumentation Examples</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Instrumentation Examples</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Instrumentation Examples</h1>
+ <div class="sub" id="desc">Practical projects, calculation examples, and real-world instrumentation applications.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="s1">Pressure Measurement Examples</h2>
+  <ul id="list1">
+   <li>Pressure Transmitter Sizing (0-100 bar, 4-20mA)</li>
+   <li>Differential Pressure Flow Measurement (Orifice Plate)</li>
+   <li>Hydrostatic Tank Level Calculation</li>
+  </ul>
+  <div class="code-box">
+# Hydrostatic Level Calculation
+# P = ρ × g × h
+# For water (ρ=1000 kg/m³), h=5m:
+# P = 1000 × 9.81 × 5 = 49,050 Pa = 0.49 bar
+  </div>
+ </div>
 
-    <h1 id="title">📝 Instrumentation Examples</h1>
-    <div class="sub" id="desc">Practical projects and examples to apply instrumentation engineering knowledge. Includes complete descriptions and learning outcomes.</div>
+ <div class="section">
+  <h2 id="s2">Temperature Measurement Examples</h2>
+  <ul id="list2">
+   <li>RTD PT100 Resistance to Temperature Conversion</li>
+   <li>Thermocouple Cold Junction Compensation</li>
+   <li>Temperature Transmitter Configuration (4-20mA)</li>
+  </ul>
+  <div class="code-box">
+# PT100 Calculation (0°C = 100Ω, 100°C = 138.5Ω)
+# Linear Approximation: R = 100 + 0.385 × T
+# T = 25°C → R = 100 + 0.385 × 25 = 109.625Ω
+  </div>
+ </div>
 
-    <div class="section">
-        <h2 id="s1">🔹 Example 1: Pressure Transmitter Installation</h2>
-        <p id="s1p"><strong>Description:</strong> Installation of a Rosemount 3051 pressure transmitter on a pipeline for monitoring flow. Includes mounting, impulse line connection, and wiring to the DCS.</p>
-        <ul id="list1">
-            <li>Instrument: Rosemount 3051</li>
-            <li>Range: 0-100 bar</li>
-            <li>Key skills: Installation, tubing, wiring, loop checking</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s3">Control Valve Examples</h2>
+  <ul id="list3">
+   <li>Control Valve Cv Sizing for Liquid</li>
+   <li>Control Valve Cv Sizing for Gas</li>
+   <li>Valve Positioner Configuration</li>
+  </ul>
+  <div class="code-box">
+# Liquid Cv Calculation
+# Q = Cv × √(ΔP / SG)
+# Given: Q=100 GPM, ΔP=10 psi, SG=1.0
+# Cv = 100 / √(10/1.0) = 100 / 3.162 = 31.6
+  </div>
+ </div>
 
-    <div class="section">
-        <h2 id="s2">🔹 Example 2: Temperature Control Loop</h2>
-        <p id="s2p"><strong>Description:</strong> Design and implementation of a temperature control loop using a PT100 RTD, temperature transmitter, and PID controller in a PLC.</p>
-        <ul id="list2">
-            <li>Sensor: PT100 RTD</li>
-            <li>Controller: PID block in PLC</li>
-            <li>Key skills: Sensor selection, PID tuning, HMI design</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s4">Real-World Projects</h2>
+  <ul id="list4">
+   <li>Temperature Control System for Chemical Reactor</li>
+   <li>Pressure Monitoring System for Pipeline</li>
+   <li>Level Control System for Storage Tank</li>
+   <li>pH Control System for Wastewater Treatment</li>
+  </ul>
+  <p id="s4p">Each project includes complete documentation, instrument lists, loop diagrams, and calibration procedures.</p>
+ </div>
 
-    <div class="section">
-        <h2 id="s3">🔹 Example 3: Flow Meter Calibration</h2>
-        <p id="s3p"><strong>Description:</strong> Calibration of a magnetic flowmeter for a water distribution system. Includes zero and span adjustment using a reference meter.</p>
-        <ul id="list3">
-            <li>Instrument: Magnetic flowmeter</li>
-            <li>Range: 0-500 m³/h</li>
-            <li>Key skills: Calibration, documentation, traceability</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example 4: Level Control System</h2>
-        <p id="s4p"><strong>Description:</strong> Design of a level control system for a chemical storage tank using a radar level transmitter and a control valve.</p>
-        <ul id="list4">
-            <li>Instrument: Radar level transmitter</li>
-            <li>Final element: Globe control valve</li>
-            <li>Key skills: Instrument selection, loop design, troubleshooting</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📝 Instrumentation Examples',
-            desc: 'Practical projects and examples to apply instrumentation engineering knowledge. Includes complete descriptions and learning outcomes.',
-            s1: '🔹 Example 1: Pressure Transmitter Installation',
-            s1p: 'Installation of a Rosemount 3051 pressure transmitter on a pipeline for monitoring flow. Includes mounting, impulse line connection, and wiring to the DCS.',
-            list1: ['Instrument: Rosemount 3051','Range: 0-100 bar','Key skills: Installation, tubing, wiring, loop checking'],
-            s2: '🔹 Example 2: Temperature Control Loop',
-            s2p: 'Design and implementation of a temperature control loop using a PT100 RTD, temperature transmitter, and PID controller in a PLC.',
-            list2: ['Sensor: PT100 RTD','Controller: PID block in PLC','Key skills: Sensor selection, PID tuning, HMI design'],
-            s3: '🔹 Example 3: Flow Meter Calibration',
-            s3p: 'Calibration of a magnetic flowmeter for a water distribution system. Includes zero and span adjustment using a reference meter.',
-            list3: ['Instrument: Magnetic flowmeter','Range: 0-500 m³/h','Key skills: Calibration, documentation, traceability'],
-            s4: '🔹 Example 4: Level Control System',
-            s4p: 'Design of a level control system for a chemical storage tank using a radar level transmitter and a control valve.',
-            list4: ['Instrument: Radar level transmitter','Final element: Globe control valve','Key skills: Instrument selection, loop design, troubleshooting'],
-            back: '← Back'
-        },
-        fa: {
-            title: '📝 مثال‌های ابزار دقیق',
-            desc: 'پروژه‌ها و مثال‌های عملی برای به کارگیری دانش مهندسی ابزار دقیق. شامل توضیحات کامل و نتایج یادگیری.',
-            s1: '🔹 مثال ۱: نصب ترانسمیتر فشار',
-            s1p: 'نصب ترانسمیتر فشار Rosemount 3051 روی خط لوله برای نظارت بر جریان. شامل نصب، اتصال لوله ایمپالس و سیم‌کشی به DCS.',
-            list1: ['ابزار: Rosemount 3051','محدوده: ۰-۱۰۰ بار','مهارت‌های کلیدی: نصب، لوله‌کشی، سیم‌کشی، بررسی حلقه'],
-            s2: '🔹 مثال ۲: حلقه کنترل دما',
-            s2p: 'طراحی و پیاده‌سازی حلقه کنترل دما با استفاده از RTD PT100، ترانسمیتر دما و کنترل‌کننده PID در PLC.',
-            list2: ['سنسور: RTD PT100','کنترل‌کننده: بلوک PID در PLC','مهارت‌های کلیدی: انتخاب سنسور، تنظیم PID، طراحی HMI'],
-            s3: '🔹 مثال ۳: کالیبراسیون فلومتر',
-            s3p: 'کالیبراسیون فلومتر مغناطیسی برای یک سیستم توزیع آب. شامل تنظیم صفر و اسپن با استفاده از یک متر مرجع.',
-            list3: ['ابزار: فلومتر مغناطیسی','محدوده: ۰-۵۰۰ متر مکعب در ساعت','مهارت‌های کلیدی: کالیبراسیون، مستندسازی، قابلیت ردیابی'],
-            s4: '🔹 مثال ۴: سیستم کنترل سطح',
-            s4p: 'طراحی سیستم کنترل سطح برای یک مخزن ذخیره شیمیایی با استفاده از ترانسمیتر سطح راداری و شیر کنترلی.',
-            list4: ['ابزار: ترانسمیتر سطح راداری','عنصر نهایی: شیر کنترلی کروی','مهارت‌های کلیدی: انتخاب ابزار، طراحی حلقه، عیب‌یابی'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s2p').textContent = t.s2p;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        const ul3 = document.getElementById('list3');
-        ul3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
-
-        const ul4 = document.getElementById('list4');
-        ul4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Instrumentation Examples',
+  desc: 'Practical projects, calculation examples, and real-world instrumentation applications.',
+  s1: 'Pressure Measurement Examples',
+  list1: ['Pressure Transmitter Sizing (0-100 bar, 4-20mA)','Differential Pressure Flow Measurement (Orifice Plate)','Hydrostatic Tank Level Calculation'],
+  s2: 'Temperature Measurement Examples',
+  list2: ['RTD PT100 Resistance to Temperature Conversion','Thermocouple Cold Junction Compensation','Temperature Transmitter Configuration (4-20mA)'],
+  s3: 'Control Valve Examples',
+  list3: ['Control Valve Cv Sizing for Liquid','Control Valve Cv Sizing for Gas','Valve Positioner Configuration'],
+  s4: 'Real-World Projects',
+  list4: ['Temperature Control System for Chemical Reactor','Pressure Monitoring System for Pipeline','Level Control System for Storage Tank','pH Control System for Wastewater Treatment'],
+  s4p: 'Each project includes complete documentation, instrument lists, loop diagrams, and calibration procedures.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مثال‌های ابزار دقیق',
+  desc: 'پروژه‌های عملی، مثال‌های محاسباتی و کاربردهای واقعی ابزار دقیق.',
+  s1: 'مثال‌های اندازه‌گیری فشار',
+  list1: ['سایزینگ ترانسمیتر فشار (0-100 bar، 4-20mA)','اندازه‌گیری جریان با فشار تفاضلی (اوریفیس)','محاسبه سطح مخزن با روش هیدرواستاتیک'],
+  s2: 'مثال‌های اندازه‌گیری دما',
+  list2: ['تبدیل مقاومت RTD PT100 به دما','جبران اتصال سرد ترموکوپل','پیکربندی ترانسمیتر دما (4-20mA)'],
+  s3: 'مثال‌های شیر کنترلی',
+  list3: ['سایزینگ Cv شیر کنترلی برای مایع','سایزینگ Cv شیر کنترلی برای گاز','پیکربندی پوزیشنر شیر'],
+  s4: 'پروژه‌های واقعی',
+  list4: ['سیستم کنترل دما برای راکتور شیمیایی','سیستم پایش فشار برای خط لوله','سیستم کنترل سطح برای مخزن ذخیره','سیستم کنترل pH برای تصفیه فاضلاب'],
+  s4p: 'هر پروژه شامل مستندات کامل، لیست ابزار دقیق، نمودارهای حلقه و رویه‌های کالیبراسیون است.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
