@@ -1,161 +1,147 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Instrumentation Software</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .table-wrap{overflow-x:auto;margin:10px 0}
-        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px}
-        th,td{padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
-        th{color:#d4af37;font-weight:600}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Instrumentation Software</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">🛠️ Instrumentation Software</h1>
-    <div class="sub" id="desc">Essential software tools for instrumentation engineering, including calibration management, device configuration, data acquisition, and documentation.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 Calibration Software</h2>
-        <ul id="list1">
-            <li>Fluke Calibration – MET/CAL, 5500A/CAL</li>
-            <li>Beamex CMX – Calibration management system</li>
-            <li>Emerson AMS – Asset Management System</li>
-            <li>Honeywell Meridian – Calibration & maintenance</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Device Configuration Software</h2>
-        <ul id="list2">
-            <li>Emerson AMS Device Manager – Configure HART, Foundation Fieldbus</li>
-            <li>Rosemount 475 Field Communicator – HART & FF config</li>
-            <li>Endress+Hauser FieldCare – Device setup and diagnostics</li>
-            <li>Siemens PDM – Process Device Manager</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Engineering & Design Tools</h2>
-        <ul id="list3">
-            <li>AutoCAD Electrical – Electrical schematic design</li>
-            <li>EPLAN – Engineering design and documentation</li>
-            <li>SPI (SmartPlant Instrumentation) – Instrument database</li>
-            <li>AVEVA Instrumentation – Instrument engineering</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: Full Instrumentation Workflow</h2>
-        <p id="s4p">A typical instrumentation engineering project uses SPI for instrument indexing and loop diagrams, AutoCAD for wiring and P&ID, and AMS for smart device configuration and calibration management. All data is synchronized to ensure accuracy and traceability.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Instrumentation Software</h1>
+ <div class="sub" id="desc">Essential software tools for instrumentation engineering, including sizing, configuration, and documentation.</div>
+ <div class="section">
+  <h2 id="s1">Instrument Sizing Software</h2>
+  <ul id="list1">
+   <li>Flow Meter Sizing (Control Valve, Orifice Plate)</li>
+   <li>Pressure Relief Valve Sizing</li>
+   <li>Thermowell Sizing (Wake Frequency Calculation)</li>
+   <li>Control Valve Sizing (Cv Calculation)</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s2">Configuration & Calibration Software</h2>
+  <ul id="list2">
+   <li>HART Communicator Software (PACTware, FieldCare)</li>
+   <li>Transmitter Configuration (Rosemount, Siemens, Yokogawa)</li>
+   <li>Calibration Management Systems</li>
+   <li>Device Description (DD) Files for Smart Instruments</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Instrument Documentation</h2>
+  <ul id="list3">
+   <li>Instrument Index and Database (Excel, Access, SQL)</li>
+   <li>Loop Diagram Software (EPLAN, AutoCAD Electrical)</li>
+   <li>Instrument Datasheets (Templates)</li>
+   <li>P&amp;ID Software (AutoCAD Plant 3D, Aveva, SmartPlant)</li>
+   <li>Hook-up Drawings</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Analysis & Simulation Tools</h2>
+  <ul id="list4">
+   <li>Process Simulation (Aspen HYSYS, ChemCAD)</li>
+   <li>CFD for Flow Analysis</li>
+   <li>Stress Analysis for Thermowells and Piping</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Control Valve Sizing Software</h2>
+  <p id="s5p">Using a control valve sizing software, an engineer enters process data (flow rate, pressure drop, fluid properties) to calculate the required Cv, valve size, and noise level. Results are used for selection and procurement.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🛠️ Instrumentation Software',
-            desc: 'Essential software tools for instrumentation engineering, including calibration management, device configuration, data acquisition, and documentation.',
-            s1: '🔹 Calibration Software',
-            list1: ['Fluke Calibration – MET/CAL, 5500A/CAL','Beamex CMX – Calibration management system','Emerson AMS – Asset Management System','Honeywell Meridian – Calibration & maintenance'],
-            s2: '🔹 Device Configuration Software',
-            list2: ['Emerson AMS Device Manager – Configure HART, Foundation Fieldbus','Rosemount 475 Field Communicator – HART & FF config','Endress+Hauser FieldCare – Device setup and diagnostics','Siemens PDM – Process Device Manager'],
-            s3: '🔹 Engineering & Design Tools',
-            list3: ['AutoCAD Electrical – Electrical schematic design','EPLAN – Engineering design and documentation','SPI (SmartPlant Instrumentation) – Instrument database','AVEVA Instrumentation – Instrument engineering'],
-            s4: '🔹 Example: Full Instrumentation Workflow',
-            s4p: 'A typical instrumentation engineering project uses SPI for instrument indexing and loop diagrams, AutoCAD for wiring and P&ID, and AMS for smart device configuration and calibration management. All data is synchronized to ensure accuracy and traceability.',
-            back: '← Back'
-        },
-        fa: {
-            title: '🛠️ نرم‌افزارهای ابزار دقیق',
-            desc: 'ابزارهای نرم‌افزاری ضروری برای مهندسی ابزار دقیق، شامل مدیریت کالیبراسیون، پیکربندی دستگاه، جمع‌آوری داده و مستندسازی.',
-            s1: '🔹 نرم‌افزارهای کالیبراسیون',
-            list1: ['Fluke Calibration – MET/CAL، 5500A/CAL','Beamex CMX – سیستم مدیریت کالیبراسیون','Emerson AMS – سیستم مدیریت دارایی','Honeywell Meridian – کالیبراسیون و نگهداری'],
-            s2: '🔹 نرم‌افزارهای پیکربندی دستگاه',
-            list2: ['Emerson AMS Device Manager – پیکربندی HART، Foundation Fieldbus','Rosemount 475 Field Communicator – پیکربندی HART و FF','Endress+Hauser FieldCare – تنظیمات دستگاه و عیب‌یابی','Siemens PDM – مدیر دستگاه فرآیند'],
-            s3: '🔹 ابزارهای مهندسی و طراحی',
-            list3: ['AutoCAD Electrical – طراحی شماتیک برق','EPLAN – طراحی مهندسی و مستندسازی','SPI (SmartPlant Instrumentation) – پایگاه داده ابزار دقیق','AVEVA Instrumentation – مهندسی ابزار دقیق'],
-            s4: '🔹 مثال: گردش کار کامل ابزار دقیق',
-            s4p: 'یک پروژه معمولی مهندسی ابزار دقیق از SPI برای نمایه‌سازی ابزار و نمودارهای حلقه، AutoCAD برای سیم‌کشی و P&ID و AMS برای پیکربندی دستگاه‌های هوشمند و مدیریت کالیبراسیون استفاده می‌کند. همه داده‌ها برای اطمینان از دقت و قابلیت ردیابی همگام‌سازی می‌شوند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        const ul3 = document.getElementById('list3');
-        ul3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Instrumentation Software',
+  desc: 'Essential software tools for instrumentation engineering, including sizing, configuration, and documentation.',
+  s1: 'Instrument Sizing Software',
+  list1: ['Flow Meter Sizing (Control Valve, Orifice Plate)','Pressure Relief Valve Sizing','Thermowell Sizing (Wake Frequency Calculation)','Control Valve Sizing (Cv Calculation)'],
+  s2: 'Configuration & Calibration Software',
+  list2: ['HART Communicator Software (PACTware, FieldCare)','Transmitter Configuration (Rosemount, Siemens, Yokogawa)','Calibration Management Systems','Device Description (DD) Files for Smart Instruments'],
+  s3: 'Instrument Documentation',
+  list3: ['Instrument Index and Database (Excel, Access, SQL)','Loop Diagram Software (EPLAN, AutoCAD Electrical)','Instrument Datasheets (Templates)','P&ID Software (AutoCAD Plant 3D, Aveva, SmartPlant)','Hook-up Drawings'],
+  s4: 'Analysis & Simulation Tools',
+  list4: ['Process Simulation (Aspen HYSYS, ChemCAD)','CFD for Flow Analysis','Stress Analysis for Thermowells and Piping'],
+  s5: 'Example: Control Valve Sizing Software',
+  s5p: 'Using a control valve sizing software, an engineer enters process data (flow rate, pressure drop, fluid properties) to calculate the required Cv, valve size, and noise level. Results are used for selection and procurement.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'نرم‌افزارهای ابزار دقیق',
+  desc: 'ابزارهای نرم‌افزاری ضروری برای مهندسی ابزار دقیق، شامل سایزینگ، پیکربندی و مستندسازی.',
+  s1: 'نرم‌افزارهای سایزینگ ابزار دقیق',
+  list1: ['سایزینگ فلومتر (شیر کنترلی، اوریفیس)','سایزینگ شیر اطمینان','سایزینگ ترمول (محاسبه فرکانس گردابی)','سایزینگ شیر کنترلی (محاسبه Cv)'],
+  s2: 'نرم‌افزارهای پیکربندی و کالیبراسیون',
+  list2: ['نرم‌افزار ارتباطی HART (PACTware، FieldCare)','پیکربندی ترانسمیتر (Rosemount، Siemens، Yokogawa)','سیستم‌های مدیریت کالیبراسیون','فایل‌های توصیف دستگاه (DD) برای ابزارهای هوشمند'],
+  s3: 'مستندسازی ابزار دقیق',
+  list3: ['فهرست و پایگاه داده ابزار دقیق (Excel، Access، SQL)','نرم‌افزار نمودار حلقه (EPLAN، AutoCAD Electrical)','دیتاشیت‌های ابزار دقیق (قالب‌ها)','نرم‌افزار P&ID (AutoCAD Plant 3D، Aveva، SmartPlant)','نقشه‌های اتصال'],
+  s4: 'ابزارهای تحلیل و شبیه‌سازی',
+  list4: ['شبیه‌سازی فرآیند (Aspen HYSYS، ChemCAD)','CFD برای تحلیل جریان','تحلیل تنش برای ترمول‌ها و لوله‌کشی'],
+  s5: 'مثال: نرم‌افزار سایزینگ شیر کنترلی',
+  s5p: 'با استفاده از نرم‌افزار سایزینگ شیر کنترلی، مهندس داده‌های فرآیند (دبی، افت فشار، خواص سیال) را وارد کرده و Cv مورد نیاز، اندازه شیر و سطح نویز را محاسبه می‌کند. نتایج برای انتخاب و تأمین استفاده می‌شود.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
