@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Quality Control Overview</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Overview of Quality Control</h1>
+ <div class="sub" id="desc">A comprehensive overview of quality control engineering, covering inspection, testing, quality plans, and continuous improvement.</div>
+ <div class="section">
+  <h2 id="s1">What is Quality Control?</h2>
+  <p id="s1p">Quality Control (QC) is the process of ensuring that products and services meet specified quality requirements. It involves inspection, testing, and monitoring of processes to detect and correct defects, ensuring customer satisfaction and regulatory compliance.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key Quality Control Areas</h2>
+  <ul id="list1">
+   <li>Incoming Material Inspection – Raw materials and components</li>
+   <li>In-Process Inspection – During manufacturing/assembly</li>
+   <li>Final Inspection – Before delivery to customer</li>
+   <li>Non-Destructive Testing (NDT) – Ultrasonic, radiography, dye penetrant</li>
+   <li>Destructive Testing – Mechanical, electrical, environmental testing</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Quality Management Principles</h2>
+  <ul id="list2">
+   <li>Customer Focus – Meeting customer requirements</li>
+   <li>Leadership – Clear quality vision and direction</li>
+   <li>Engagement of People – Involving all employees</li>
+   <li>Process Approach – Managing activities as processes</li>
+   <li>Continual Improvement – Ongoing enhancement of performance</li>
+  </ul>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
+</div>
+<script>
+const lang = {
+ en: {
+  title: 'Overview of Quality Control',
+  desc: 'A comprehensive overview of quality control engineering, covering inspection, testing, quality plans, and continuous improvement.',
+  s1: 'What is Quality Control?',
+  s1p: 'Quality Control (QC) is the process of ensuring that products and services meet specified quality requirements. It involves inspection, testing, and monitoring of processes to detect and correct defects, ensuring customer satisfaction and regulatory compliance.',
+  s2: 'Key Quality Control Areas',
+  list1: ['Incoming Material Inspection – Raw materials and components','In-Process Inspection – During manufacturing/assembly','Final Inspection – Before delivery to customer','Non-Destructive Testing (NDT) – Ultrasonic, radiography, dye penetrant','Destructive Testing – Mechanical, electrical, environmental testing'],
+  s3: 'Quality Management Principles',
+  list2: ['Customer Focus – Meeting customer requirements','Leadership – Clear quality vision and direction','Engagement of People – Involving all employees','Process Approach – Managing activities as processes','Continual Improvement – Ongoing enhancement of performance'],
+  back: '← Back'
+ },
+ fa: {
+  title: 'مرور کلی کنترل کیفیت',
+  desc: 'مرور جامع مهندسی کنترل کیفیت، شامل بازرسی، تست، برنامه‌های کیفیت و بهبود مستمر.',
+  s1: 'کنترل کیفیت چیست؟',
+  s1p: 'کنترل کیفیت (QC) فرآیند اطمینان از مطابقت محصولات و خدمات با الزامات کیفیت مشخص شده است. شامل بازرسی، تست و نظارت بر فرآیندها برای شناسایی و اصلاح عیوب، تضمین رضایت مشتری و انطباق با مقررات است.',
+  s2: 'حوزه‌های کلیدی کنترل کیفیت',
+  list1: ['بازرسی مواد ورودی – مواد اولیه و قطعات','بازرسی در حین فرآیند – در حین تولید/مونتاژ','بازرسی نهایی – قبل از تحویل به مشتری','تست غیرمخرب (NDT) – فراصوت، رادیوگرافی، نفوذ رنگ','تست مخرب – تست‌های مکانیکی، الکتریکی، محیطی'],
+  s3: 'اصول مدیریت کیفیت',
+  list2: ['مشتری‌مداری – برآورده کردن نیازهای مشتری','رهبری – چشم‌انداز و جهت‌گیری کیفیت','مشارکت افراد – درگیر کردن همه کارکنان','رویکرد فرآیندی – مدیریت فعالیت‌ها به عنوان فرآیند','بهبود مستمر – افزایش مداوم عملکرد'],
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
+</body>
+</html>
