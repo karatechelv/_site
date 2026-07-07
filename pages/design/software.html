@@ -1,156 +1,148 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Design Software</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Design Software</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">🛠️ Engineering Design Software</h1>
-    <div class="sub" id="desc">Essential software tools for electrical and control system design, including schematic drawing, panel design, lighting calculation, and simulation.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 Electrical CAD Software</h2>
-        <ul id="list1">
-            <li><b>AutoCAD Electrical</b> – Industry-standard for electrical schematics, panel layouts, and cable diagrams.</li>
-            <li><b>EPLAN Electric P8</b> – Advanced engineering design with integrated project management.</li>
-            <li><b>SEE Electrical</b> – Powerful and intuitive electrical CAD for automation and control.</li>
-            <li><b>Elecdes Design Suite</b> – Comprehensive electrical design tools.</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Panel Design & Layout</h2>
-        <ul id="list2">
-            <li><b>EPLAN Pro Panel</b> – 3D panel design and cabinet layout.</li>
-            <li><b>AutoCAD Electrical</b> – Includes panel layout and component placement.</li>
-            <li><b>SolidWorks Electrical</b> – 3D electrical design and routing.</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Lighting & Power Calculation</h2>
-        <ul id="list3">
-            <li><b>Dialux</b> – Lighting design and calculation software.</li>
-            <li><b>Relux</b> – Indoor and outdoor lighting design.</li>
-            <li><b>ETAP</b> – Power system analysis and calculation.</li>
-            <li><b>SKM PowerTools</b> – Load flow, short circuit, and protection coordination.</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: Full Design Workflow</h2>
-        <p id="s4p">A typical design project starts with AutoCAD Electrical for schematic drawings, EPLAN Pro Panel for 3D panel layout, and ETAP for power system verification. All files are managed in a common project repository for collaboration and version control.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Engineering Design Software</h1>
+ <div class="sub" id="desc">Essential software tools for engineering design including CAD, schematics, panel design, and documentation.</div>
+ <div class="section">
+  <h2 id="s1">CAD Software</h2>
+  <ul id="list1">
+   <li>AutoCAD – General-purpose 2D/3D drafting</li>
+   <li>AutoCAD Electrical – Electrical schematics and panel design</li>
+   <li>EPLAN Electric P8 – Advanced electrical engineering design</li>
+   <li>SolidWorks – 3D mechanical design</li>
+   <li>Inventor – 3D product design</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s2">Panel Design Software</h2>
+  <ul id="list2">
+   <li>EPLAN Pro Panel – 3D panel layout and wiring</li>
+   <li>AutoCAD Electrical – Panel layout and terminal plans</li>
+   <li>SEE Electrical – Electrical design and documentation</li>
+   <li>WSCAD – Panel design and schematics</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Instrumentation & P&amp;ID Software</h2>
+  <ul id="list3">
+   <li>AutoCAD Plant 3D – P&amp;ID and plant design</li>
+   <li>Aveva / SmartPlant – P&amp;ID and instrument design</li>
+   <li>COMOS – Lifecycle engineering</li>
+   <li>Smart Instrumentation – Instrument management</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Documentation & Management Tools</h2>
+  <ul id="list4">
+   <li>Microsoft Excel – BOM, instrument index</li>
+   <li>Microsoft Access/SQL – Database management</li>
+   <li>SharePoint – Document management</li>
+   <li>Teamcenter – PLM (Product Lifecycle Management)</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Design Workflow with EPLAN</h2>
+  <p id="s5p">A typical engineering design workflow using EPLAN includes: Creating schematics → Generating panel layouts → Producing BOM → Exporting data for procurement → Creating terminal diagrams and cable schedules. All data is integrated in a single project database.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🛠️ Engineering Design Software',
-            desc: 'Essential software tools for electrical and control system design, including schematic drawing, panel design, lighting calculation, and simulation.',
-            s1: '🔹 Electrical CAD Software',
-            list1: ['AutoCAD Electrical – Industry-standard for electrical schematics, panel layouts, and cable diagrams.','EPLAN Electric P8 – Advanced engineering design with integrated project management.','SEE Electrical – Powerful and intuitive electrical CAD for automation and control.','Elecdes Design Suite – Comprehensive electrical design tools.'],
-            s2: '🔹 Panel Design & Layout',
-            list2: ['EPLAN Pro Panel – 3D panel design and cabinet layout.','AutoCAD Electrical – Includes panel layout and component placement.','SolidWorks Electrical – 3D electrical design and routing.'],
-            s3: '🔹 Lighting & Power Calculation',
-            list3: ['Dialux – Lighting design and calculation software.','Relux – Indoor and outdoor lighting design.','ETAP – Power system analysis and calculation.','SKM PowerTools – Load flow, short circuit, and protection coordination.'],
-            s4: '🔹 Example: Full Design Workflow',
-            s4p: 'A typical design project starts with AutoCAD Electrical for schematic drawings, EPLAN Pro Panel for 3D panel layout, and ETAP for power system verification. All files are managed in a common project repository for collaboration and version control.',
-            back: '← Back'
-        },
-        fa: {
-            title: '🛠️ نرم‌افزارهای طراحی مهندسی',
-            desc: 'ابزارهای نرم‌افزاری ضروری برای طراحی سیستم‌های الکتریکی و کنترلی، شامل ترسیم شماتیک، طراحی پنل، محاسبات روشنایی و شبیه‌سازی.',
-            s1: '🔹 نرم‌افزارهای CAD برق',
-            list1: ['AutoCAD Electrical – استاندارد صنعتی برای شماتیک برق، چیدمان پنل و نمودارهای کابل.','EPLAN Electric P8 – طراحی مهندسی پیشرفته با مدیریت پروژه یکپارچه.','SEE Electrical – CAD برق قدرتمند و شهودی برای اتوماسیون و کنترل.','Elecdes Design Suite – مجموعه ابزارهای جامع طراحی برق.'],
-            s2: '🔹 طراحی و چیدمان پنل',
-            list2: ['EPLAN Pro Panel – طراحی سه‌بعدی پنل و چیدمان کابینت.','AutoCAD Electrical – شامل چیدمان پنل و قرارگیری اجزاء.','SolidWorks Electrical – طراحی و مسیریابی سه‌بعدی برق.'],
-            s3: '🔹 محاسبات روشنایی و برق',
-            list3: ['Dialux – نرم‌افزار طراحی و محاسبه روشنایی.','Relux – طراحی روشنایی داخلی و خارجی.','ETAP – تحلیل و محاسبه سیستم قدرت.','SKM PowerTools – جریان بار، اتصال کوتاه و هماهنگی حفاظتی.'],
-            s4: '🔹 مثال: گردش کار کامل طراحی',
-            s4p: 'یک پروژه طراحی معمولی با AutoCAD Electrical برای نقشه‌های شماتیک، EPLAN Pro Panel برای چیدمان سه‌بعدی پنل و ETAP برای تأیید سیستم قدرت شروع می‌شود. همه فایل‌ها در یک مخزن پروژه مشترک برای همکاری و کنترل نسخه مدیریت می‌شوند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        const ul3 = document.getElementById('list3');
-        ul3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Engineering Design Software',
+  desc: 'Essential software tools for engineering design including CAD, schematics, panel design, and documentation.',
+  s1: 'CAD Software',
+  list1: ['AutoCAD – General-purpose 2D/3D drafting','AutoCAD Electrical – Electrical schematics and panel design','EPLAN Electric P8 – Advanced electrical engineering design','SolidWorks – 3D mechanical design','Inventor – 3D product design'],
+  s2: 'Panel Design Software',
+  list2: ['EPLAN Pro Panel – 3D panel layout and wiring','AutoCAD Electrical – Panel layout and terminal plans','SEE Electrical – Electrical design and documentation','WSCAD – Panel design and schematics'],
+  s3: 'Instrumentation & P&ID Software',
+  list3: ['AutoCAD Plant 3D – P&ID and plant design','Aveva / SmartPlant – P&ID and instrument design','COMOS – Lifecycle engineering','Smart Instrumentation – Instrument management'],
+  s4: 'Documentation & Management Tools',
+  list4: ['Microsoft Excel – BOM, instrument index','Microsoft Access/SQL – Database management','SharePoint – Document management','Teamcenter – PLM (Product Lifecycle Management)'],
+  s5: 'Example: Design Workflow with EPLAN',
+  s5p: 'A typical engineering design workflow using EPLAN includes: Creating schematics → Generating panel layouts → Producing BOM → Exporting data for procurement → Creating terminal diagrams and cable schedules. All data is integrated in a single project database.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'نرم‌افزارهای طراحی مهندسی',
+  desc: 'ابزارهای نرم‌افزاری ضروری برای طراحی مهندسی شامل CAD، شماتیک، طراحی پنل و مستندسازی.',
+  s1: 'نرم‌افزارهای CAD',
+  list1: ['AutoCAD – ترسیم 2D/3D عمومی','AutoCAD Electrical – شماتیک برق و طراحی پنل','EPLAN Electric P8 – طراحی پیشرفته مهندسی برق','SolidWorks – طراحی مکانیکی 3D','Inventor – طراحی محصول 3D'],
+  s2: 'نرم‌افزارهای طراحی پنل',
+  list2: ['EPLAN Pro Panel – چیدمان پنل 3D و سیم‌کشی','AutoCAD Electrical – چیدمان پنل و برنامه ترمینال','SEE Electrical – طراحی و مستندسازی برق','WSCAD – طراحی پنل و شماتیک'],
+  s3: 'نرم‌افزارهای ابزار دقیق و P&ID',
+  list3: ['AutoCAD Plant 3D – P&ID و طراحی کارخانه','Aveva / SmartPlant – P&ID و طراحی ابزار دقیق','COMOS – مهندسی چرخه عمر','Smart Instrumentation – مدیریت ابزار دقیق'],
+  s4: 'ابزارهای مستندسازی و مدیریت',
+  list4: ['Microsoft Excel – BOM، فهرست ابزار دقیق','Microsoft Access/SQL – مدیریت پایگاه داده','SharePoint – مدیریت اسناد','Teamcenter – مدیریت چرخه عمر محصول'],
+  s5: 'مثال: جریان کار طراحی با EPLAN',
+  s5p: 'یک جریان کار طراحی مهندسی معمولی با EPLAN شامل: ایجاد شماتیک → تولید چیدمان پنل → تولید BOM → خروجی داده برای تأمین → ایجاد نمودارهای ترمینال و برنامه کابل است. همه داده‌ها در یک پایگاه داده پروژه یکپارچه شده‌اند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
