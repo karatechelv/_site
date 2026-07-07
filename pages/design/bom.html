@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Bill of Materials</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Bill of Materials (BOM)</h1>
+ <div class="sub" id="desc">Creating and managing Bill of Materials for electrical and control system projects.</div>
+ <div class="section">
+  <h2 id="s1">What is a Bill of Materials?</h2>
+  <p id="s1p">A Bill of Materials (BOM) is a comprehensive list of all components, materials, and items required to manufacture, assemble, or construct a system. It includes part numbers, descriptions, quantities, and sourcing information.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">BOM Structure</h2>
+  <ul id="list1">
+   <li>Item Number – Unique identifier for each component</li>
+   <li>Description – Detailed component description</li>
+   <li>Quantity – Number required for the project</li>
+   <li>Manufacturer/Supplier – Source of the component</li>
+   <li>Part Number – Manufacturer's part number</li>
+   <li>Unit Price – Cost per unit (for estimating)</li>
+   <li>Total Price – Quantity × Unit Price</li>
+   <li>Lead Time – Delivery time for procurement</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Example BOM for a Control Panel</h2>
+  <div class="code-box">
+QTY | Item Description                    | Manufacturer | Part No.
+-----|-------------------------------------|--------------|-----------
+1    | Main Circuit Breaker 200A          | Siemens      | 3VA5120
+1    | PLC S7-1500 CPU                    | Siemens      | 6ES7515
+1    | Power Supply 24VDC 10A            | Siemens      | 6ES7505
+4    | Digital Input Module 16ch         | Siemens      | 6ES7521
+2    | Digital Output Module 16ch        | Siemens      | 6ES7522
+1    | HMI Panel 15"                     | Siemens      | 6AV2124
+1    | Enclosure 2000x1200x600           | Rittal       | TS8 8840
+20   | Terminal Blocks 2.5mm²            | Phoenix      | TB 2.5
+10   | Cable Duct 80x80mm                | Phoenix      | CD 80
+  </div>
+ </div>
+ <div class="section">
+  <h2 id="s4">BOM Management</h2>
+  <ul id="list2">
+   <li>Create BOM from engineering design data</li>
+   <li>Review for completeness and accuracy</li>
+   <li>Send to procurement department</li>
+   <li>Track and update as revisions occur</li>
+  </ul>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
+</div>
+<script>
+const lang = {
+ en: {
+  title: 'Bill of Materials (BOM)',
+  desc: 'Creating and managing Bill of Materials for electrical and control system projects.',
+  s1: 'What is a Bill of Materials?',
+  s1p: 'A Bill of Materials (BOM) is a comprehensive list of all components, materials, and items required to manufacture, assemble, or construct a system. It includes part numbers, descriptions, quantities, and sourcing information.',
+  s2: 'BOM Structure',
+  list1: ['Item Number – Unique identifier for each component','Description – Detailed component description','Quantity – Number required for the project','Manufacturer/Supplier – Source of the component','Part Number – Manufacturer\'s part number','Unit Price – Cost per unit (for estimating)','Total Price – Quantity × Unit Price','Lead Time – Delivery time for procurement'],
+  s3: 'Example BOM for a Control Panel',
+  s4: 'BOM Management',
+  list2: ['Create BOM from engineering design data','Review for completeness and accuracy','Send to procurement department','Track and update as revisions occur'],
+  back: '← Back'
+ },
+ fa: {
+  title: 'صورت‌حساب مواد (BOM)',
+  desc: 'ایجاد و مدیریت صورت‌حساب مواد برای پروژه‌های سیستم‌های الکتریکی و کنترلی.',
+  s1: 'صورت‌حساب مواد چیست؟',
+  s1p: 'صورت‌حساب مواد (BOM) یک لیست جامع از تمام قطعات، مواد و اقلام مورد نیاز برای ساخت، مونتاژ یا ساختن یک سیستم است. شامل شماره قطعه، توضیحات، مقادیر و اطلاعات تأمین است.',
+  s2: 'ساختار BOM',
+  list1: ['شماره قلم – شناسه منحصر‌به‌فرد برای هر قطعه','توضیحات – توضیحات دقیق قطعه','مقدار – تعداد مورد نیاز برای پروژه','تولیدکننده/تأمین‌کننده – منبع قطعه','شماره قطعه – شماره قطعه تولیدکننده','قیمت واحد – هزینه هر واحد (برای تخمین)','قیمت کل – مقدار × قیمت واحد','زمان تحویل – زمان تحویل برای تأمین'],
+  s3: 'مثال BOM برای پنل کنترل',
+  s4: 'مدیریت BOM',
+  list2: ['ایجاد BOM از داده‌های طراحی مهندسی','بررسی برای کامل بودن و دقت','ارسال به بخش تأمین','پیگیری و به‌روزرسانی با تغییرات'],
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
+</body>
+</html>
