@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Power Systems</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">⚡ Power Systems</h1>
+    <div class="sub" id="desc">Generation, transmission, distribution, and analysis of electrical power systems.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 Introduction</h2>
+        <p id="s1p">Power systems are networks of electrical components used to supply, transfer, and use electric power. They include generation plants, transmission lines, substations, and distribution networks.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Components</h2>
+        <ul id="list1">
+            <li>Generators – Convert mechanical energy to electrical</li>
+            <li>Transformers – Step up/down voltage</li>
+            <li>Transmission lines – High voltage power transfer</li>
+            <li>Distribution networks – Low voltage supply to consumers</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Analysis Methods</h2>
+        <ul id="list2">
+            <li>Load flow analysis</li>
+            <li>Short-circuit analysis</li>
+            <li>Stability studies</li>
+            <li>Protection coordination</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="electrical-index.html" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '⚡ Power Systems',
+            desc: 'Generation, transmission, distribution, and analysis of electrical power systems.',
+            s1: '🔹 Introduction',
+            s1p: 'Power systems are networks of electrical components used to supply, transfer, and use electric power. They include generation plants, transmission lines, substations, and distribution networks.',
+            s2: '🔹 Key Components',
+            list1: ['Generators – Convert mechanical energy to electrical','Transformers – Step up/down voltage','Transmission lines – High voltage power transfer','Distribution networks – Low voltage supply to consumers'],
+            s3: '🔹 Analysis Methods',
+            list2: ['Load flow analysis','Short-circuit analysis','Stability studies','Protection coordination'],
+            back: '← Back'
+        },
+        fa: {
+            title: '⚡ سیستم‌های قدرت',
+            desc: 'تولید، انتقال، توزیع و تحلیل سیستم‌های قدرت الکتریکی.',
+            s1: '🔹 مقدمه',
+            s1p: 'سیستم‌های قدرت شبکه‌هایی از اجزای الکتریکی هستند که برای تأمین، انتقال و استفاده از انرژی الکتریکی استفاده می‌شوند. شامل نیروگاه‌ها، خطوط انتقال، پست‌ها و شبکه‌های توزیع هستند.',
+            s2: '🔹 اجزای اصلی',
+            list1: ['ژنراتورها – تبدیل انرژی مکانیکی به الکتریکی','ترانسفورماتورها – افزایش/کاهش ولتاژ','خطوط انتقال – انتقال توان با ولتاژ بالا','شبکه‌های توزیع – تأمین ولتاژ پایین برای مصرف‌کنندگان'],
+            s3: '🔹 روش‌های تحلیل',
+            list2: ['تحلیل جریان بار','تحلیل اتصال کوتاه','مطالعات پایداری','هماهنگی حفاظت'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
