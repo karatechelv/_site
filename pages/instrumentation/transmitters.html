@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Transmitters</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Transmitters in Instrumentation</h1>
+ <div class="sub" id="desc">Industrial transmitters for converting sensor signals to standardized outputs (4-20mA, HART, Foundation Fieldbus).</div>
+ <div class="section">
+  <h2 id="s1">What are Transmitters?</h2>
+  <p id="s1p">Transmitters are devices that convert the signal from a sensor into a standardized output signal (typically 4-20mA, 0-10V, or digital protocols like HART, Foundation Fieldbus, or Profibus PA) for transmission to control systems.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Types of Transmitters</h2>
+  <ul id="list1">
+   <li>Temperature Transmitters – RTD, Thermocouple</li>
+   <li>Pressure Transmitters – Absolute, Gauge, Differential</li>
+   <li>Flow Transmitters – Magnetic, Coriolis, Ultrasonic</li>
+   <li>Level Transmitters – Radar, Ultrasonic, Hydrostatic</li>
+   <li>Analytical Transmitters – pH, Conductivity, Oxygen</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Communication Protocols</h2>
+  <ul id="list2">
+   <li>4-20mA (Analog) – Most common, simple and reliable</li>
+   <li>HART (Highway Addressable Remote Transducer) – Digital over 4-20mA</li>
+   <li>Foundation Fieldbus – Digital, two-way communication</li>
+   <li>Profibus PA – Process automation fieldbus</li>
+   <li>WirelessHART – Wireless communication</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: 4-20mA Loop Calculation</h2>
+  <div class="code-box">
+// Pressure Transmitter: 0-100 bar = 4-20mA
+// Formula: I_out = 4 + (PV / Range) * 16
+// For PV = 75 bar:
+I_out = 4 + (75/100) * 16 = 4 + 12 = 16 mA
+  </div>
+  <p id="s4p">A pressure transmitter with range 0-100 bar outputs 16 mA at 75 bar.</p>
+ </div>
+ <div class="section">
+  <h2 id="s5">Smart Transmitters</h2>
+  <p id="s5p">Modern smart transmitters include microprocessors for diagnostic functions, self-calibration, digital communication, and remote configuration. Examples: Rosemount 3051, Siemens SITRANS, Yokogawa EJA.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
+</div>
+<script>
+const lang = {
+ en: {
+  title: 'Transmitters in Instrumentation',
+  desc: 'Industrial transmitters for converting sensor signals to standardized outputs (4-20mA, HART, Foundation Fieldbus).',
+  s1: 'What are Transmitters?',
+  s1p: 'Transmitters are devices that convert the signal from a sensor into a standardized output signal (typically 4-20mA, 0-10V, or digital protocols like HART, Foundation Fieldbus, or Profibus PA) for transmission to control systems.',
+  s2: 'Types of Transmitters',
+  list1: ['Temperature Transmitters – RTD, Thermocouple','Pressure Transmitters – Absolute, Gauge, Differential','Flow Transmitters – Magnetic, Coriolis, Ultrasonic','Level Transmitters – Radar, Ultrasonic, Hydrostatic','Analytical Transmitters – pH, Conductivity, Oxygen'],
+  s3: 'Communication Protocols',
+  list2: ['4-20mA (Analog) – Most common, simple and reliable','HART – Digital over 4-20mA','Foundation Fieldbus – Digital, two-way communication','Profibus PA – Process automation fieldbus','WirelessHART – Wireless communication'],
+  s4: 'Example: 4-20mA Loop Calculation',
+  s4p: 'A pressure transmitter with range 0-100 bar outputs 16 mA at 75 bar.',
+  s5: 'Smart Transmitters',
+  s5p: 'Modern smart transmitters include microprocessors for diagnostic functions, self-calibration, digital communication, and remote configuration. Examples: Rosemount 3051, Siemens SITRANS, Yokogawa EJA.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'ترانسمیترها در ابزار دقیق',
+  desc: 'ترانسمیترهای صنعتی برای تبدیل سیگنال سنسورها به خروجی‌های استاندارد (4-20mA، HART، Foundation Fieldbus).',
+  s1: 'ترانسمیترها چیستند؟',
+  s1p: 'ترانسمیترها وسایلی هستند که سیگنال سنسور را به یک سیگنال خروجی استاندارد (معمولاً 4-20mA، 0-10V، یا پروتکل‌های دیجیتال مانند HART، Foundation Fieldbus، یا Profibus PA) برای ارسال به سیستم‌های کنترل تبدیل می‌کنند.',
+  s2: 'انواع ترانسمیترها',
+  list1: ['ترانسمیترهای دما – RTD، ترموکوپل','ترانسمیترهای فشار – مطلق، گیج، تفاضلی','ترانسمیترهای جریان – مغناطیسی، کوریولیس، اولتراسونیک','ترانسمیترهای سطح – راداری، اولتراسونیک، هیدرواستاتیک','ترانسمیترهای تحلیلی – pH، رسانایی، اکسیژن'],
+  s3: 'پروتکل‌های ارتباطی',
+  list2: ['4-20mA (آنالوگ) – رایج‌ترین، ساده و قابل اعتماد','HART – دیجیتال بر روی 4-20mA','Foundation Fieldbus – دیجیتال، ارتباط دوطرفه','Profibus PA – فیلدباس اتوماسیون فرآیند','WirelessHART – ارتباط بی‌سیم'],
+  s4: 'مثال: محاسبه حلقه 4-20mA',
+  s4p: 'یک ترانسمیتر فشار با محدوده 0-100 بار در فشار 75 بار، خروجی 16 میلی‌آمپر تولید می‌کند.',
+  s5: 'ترانسمیترهای هوشمند',
+  s5p: 'ترانسمیترهای هوشمند مدرن شامل میکروپروسسورهایی برای عملکردهای تشخیصی، خودکالیبراسیون، ارتباط دیجیتال و پیکربندی از راه دور هستند. مثال‌ها: Rosemount 3051، Siemens SITRANS، Yokogawa EJA.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
+</body>
+</html>
