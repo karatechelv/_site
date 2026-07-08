@@ -1,200 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · EasyBuilder</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · EasyBuilder</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">🖥️ EasyBuilder</h1>
-    <div class="sub" id="desc">EasyBuilder is the powerful and intuitive HMI development software for Weintek and compatible touch panels, widely used in industrial automation.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 Description</h2>
-        <p id="s1p">EasyBuilder is a comprehensive HMI (Human-Machine Interface) development software designed for Weintek HMIs and compatible panels. It provides a user-friendly drag-and-drop interface for creating graphical screens, controlling PLCs, and visualizing industrial processes. EasyBuilder supports a wide range of communication protocols, making it a versatile tool for automation projects.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Purpose</h2>
-        <p id="s2p">The purpose of EasyBuilder is to simplify HMI development and deployment. It enables engineers and technicians to create professional operator interfaces quickly, without the need for extensive programming skills. EasyBuilder supports multi-language projects, alarm management, data logging, and remote access, making it suitable for a wide variety of industrial applications.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Example</h2>
-        <p id="s3p">An automation engineer uses EasyBuilder to create an HMI for a water treatment plant. They design a screen showing tank levels, pump status, flow rates, and chemical dosing parameters. They configure alarms for high/low levels and equipment faults, and set up data logging for trend analysis. The project is deployed on a Weintek HMI panel connected to a PLC via Modbus.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Learning Path</h2>
-        <ul id="list1">
-            <li>Introduction to EasyBuilder interface and project setup</li>
-            <li>Creating graphical screens and using object library</li>
-            <li>PLC communication configuration (Modbus, Profinet, Ethernet/IP)</li>
-            <li>Alarm management and event logging</li>
-            <li>Data logging, trending, and report generation</li>
-            <li>Advanced features: macros, recipes, and remote access</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s5">🔹 Resources</h2>
-        <ul id="list2">
-            <li>Weintek Official Website and Documentation</li>
-            <li>EasyBuilder Pro Help and User Manual</li>
-            <li>YouTube tutorials and training videos</li>
-            <li>Online forums and community support</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s6">🔹 Software</h2>
-        <ul id="list3">
-            <li>EasyBuilder Pro (full version)</li>
-            <li>EasyAccess 2.0 (remote access and management)</li>
-            <li>Weintek HMI panels (MT, cMT series)</li>
-            <li>Integration with PLCs (Siemens, Rockwell, Mitsubishi, etc.)</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s7">🔹 Videos & Future Lessons</h2>
-        <ul id="list4">
-            <li>Getting Started with EasyBuilder</li>
-            <li>Creating Screens and Animations</li>
-            <li>PLC Communication and Alarm Management (Future)</li>
-            <li>Remote Access and IoT Integration (Future)</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">EasyBuilder</h1>
+ <div class="sub" id="desc">HMI design software for Weintek and compatible panels – intuitive and powerful.</div>
+ <div class="section">
+  <h2 id="s1">Overview</h2>
+  <p id="s1p">EasyBuilder Pro is the HMI design software for Weintek HMIs and compatible panels. It provides an intuitive drag-and-drop interface for creating operator interfaces, with support for various communication protocols and advanced features.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key Features</h2>
+  <ul id="list1">
+   <li>Drag-and-Drop Design – Easy and intuitive</li>
+   <li>Multi-Protocol Support – Modbus, Profinet, Ethernet/IP</li>
+   <li>Macros and Scripting – Advanced logic and automation</li>
+   <li>Remote Monitoring – Web server and VNC</li>
+   <li>Recipe Management – Data storage and recall</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Learning Path</h2>
+  <ul id="list2">
+   <li>EasyBuilder Basics – Installation and interface</li>
+   <li>Creating Screens – Objects and graphics</li>
+   <li>Tag Management – Connecting to PLC</li>
+   <li>Macros and Scripts – Advanced functionality</li>
+   <li>Remote Access – Web server and VNC setup</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: HMI for Pump Control</h2>
+  <p id="s4p">EasyBuilder Pro is used to create an HMI screen for pump control with start/stop buttons, status indicators, pressure gauges, and alarm logs. The HMI communicates with a PLC via Modbus RTU for real-time data exchange.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🖥️ EasyBuilder',
-            desc: 'EasyBuilder is the powerful and intuitive HMI development software for Weintek and compatible touch panels, widely used in industrial automation.',
-            s1: '🔹 Description',
-            s1p: 'EasyBuilder is a comprehensive HMI (Human-Machine Interface) development software designed for Weintek HMIs and compatible panels. It provides a user-friendly drag-and-drop interface for creating graphical screens, controlling PLCs, and visualizing industrial processes. EasyBuilder supports a wide range of communication protocols, making it a versatile tool for automation projects.',
-            s2: '🔹 Purpose',
-            s2p: 'The purpose of EasyBuilder is to simplify HMI development and deployment. It enables engineers and technicians to create professional operator interfaces quickly, without the need for extensive programming skills. EasyBuilder supports multi-language projects, alarm management, data logging, and remote access, making it suitable for a wide variety of industrial applications.',
-            s3: '🔹 Example',
-            s3p: 'An automation engineer uses EasyBuilder to create an HMI for a water treatment plant. They design a screen showing tank levels, pump status, flow rates, and chemical dosing parameters. They configure alarms for high/low levels and equipment faults, and set up data logging for trend analysis. The project is deployed on a Weintek HMI panel connected to a PLC via Modbus.',
-            s4: '🔹 Learning Path',
-            list1: ['Introduction to EasyBuilder interface and project setup','Creating graphical screens and using object library','PLC communication configuration (Modbus, Profinet, Ethernet/IP)','Alarm management and event logging','Data logging, trending, and report generation','Advanced features: macros, recipes, and remote access'],
-            s5: '🔹 Resources',
-            list2: ['Weintek Official Website and Documentation','EasyBuilder Pro Help and User Manual','YouTube tutorials and training videos','Online forums and community support'],
-            s6: '🔹 Software',
-            list3: ['EasyBuilder Pro (full version)','EasyAccess 2.0 (remote access and management)','Weintek HMI panels (MT, cMT series)','Integration with PLCs (Siemens, Rockwell, Mitsubishi, etc.)'],
-            s7: '🔹 Videos & Future Lessons',
-            list4: ['Getting Started with EasyBuilder','Creating Screens and Animations','PLC Communication and Alarm Management (Future)','Remote Access and IoT Integration (Future)'],
-            back: '← Back'
-        },
-        fa: {
-            title: '🖥️ EasyBuilder',
-            desc: 'EasyBuilder نرم‌افزار قدرتمند و شهودی توسعه HMI برای پنل‌های لمسی Weintek و سازگار است که به طور گسترده در اتوماسیون صنعتی استفاده می‌شود.',
-            s1: '🔹 توضیحات',
-            s1p: 'EasyBuilder یک نرم‌افزار جامع توسعه HMI است که برای HMIهای Weintek و پنل‌های سازگار طراحی شده است. یک رابط کشیدن و رها کردن کاربرپسند برای ایجاد صفحه‌های گرافیکی، کنترل PLCها و تصویرسازی فرآیندهای صنعتی فراهم می‌کند. EasyBuilder از طیف گسترده‌ای از پروتکل‌های ارتباطی پشتیبانی کرده و آن را به ابزاری همه‌کاره برای پروژه‌های اتوماسیون تبدیل می‌کند.',
-            s2: '🔹 هدف',
-            s2p: 'هدف EasyBuilder ساده‌سازی توسعه و استقرار HMI است. مهندسان و تکنسین‌ها را قادر می‌سازد تا بدون نیاز به مهارت‌های برنامه‌نویسی گسترده، رابط‌های اپراتور حرفه‌ای را به سرعت ایجاد کنند. EasyBuilder از پروژه‌های چندزبانه، مدیریت هشدار، ثبت داده و دسترسی از راه دور پشتیبانی کرده و آن را برای طیف گسترده‌ای از کاربردهای صنعتی مناسب می‌سازد.',
-            s3: '🔹 مثال',
-            s3p: 'یک مهندس اتوماسیون از EasyBuilder برای ایجاد یک HMI برای یک تصفیه‌خانه آب استفاده می‌کند. آنها یک صفحه نمایشگر سطح مخازن، وضعیت پمپ‌ها، دبی‌ها و پارامترهای دوز مواد شیمیایی طراحی می‌کنند. هشدارهایی برای سطوح بالا/پایین و خرابی تجهیزات پیکربندی کرده و ثبت داده را برای تحلیل روند راه‌اندازی می‌کنند. پروژه بر روی یک پنل HMI Weintek متصل به یک PLC از طریق Modbus مستقر می‌شود.',
-            s4: '🔹 مسیر یادگیری',
-            list1: ['آشنایی با رابط EasyBuilder و راه‌اندازی پروژه','ایجاد صفحه‌های گرافیکی و استفاده از کتابخانه اشیاء','پیکربندی ارتباط با PLC (Modbus، Profinet، Ethernet/IP)','مدیریت هشدار و ثبت رویداد','ثبت داده، روندیابی و تولید گزارش','ویژگی‌های پیشرفته: ماکروها، دستورالعمل‌ها و دسترسی از راه دور'],
-            s5: '🔹 منابع',
-            list2: ['وب‌سایت رسمی و مستندات Weintek','راهنما و دفترچه کاربر EasyBuilder Pro','آموزش‌های یوتیوب و فیلم‌های آموزشی','انجمن‌های آنلاین و پشتیبانی جامعه'],
-            s6: '🔹 نرم‌افزار',
-            list3: ['EasyBuilder Pro (نسخه کامل)','EasyAccess 2.0 (دسترسی و مدیریت از راه دور)','پنل‌های HMI Weintek (سری MT، cMT)','یکپارچه‌سازی با PLCها (زیمنس، راکول، میتسوبیشی و غیره)'],
-            s7: '🔹 ویدئوها و درس‌های آینده',
-            list4: ['شروع کار با EasyBuilder','ایجاد صفحه‌ها و انیمیشن‌ها','ارتباط با PLC و مدیریت هشدار (آینده)','دسترسی از راه دور و یکپارچه‌سازی IoT (آینده)'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s2p').textContent = t.s2p;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s5').textContent = t.s5;
-        document.getElementById('s6').textContent = t.s6;
-        document.getElementById('s7').textContent = t.s7;
-        document.getElementById('backlink').textContent = t.back;
-
-        const list1 = document.getElementById('list1');
-        list1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
-
-        const list2 = document.getElementById('list2');
-        list2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
-
-        const list3 = document.getElementById('list3');
-        list3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; list3.appendChild(li); });
-
-        const list4 = document.getElementById('list4');
-        list4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; list4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'EasyBuilder',
+  desc: 'HMI design software for Weintek and compatible panels – intuitive and powerful.',
+  s1: 'Overview',
+  s1p: 'EasyBuilder Pro is the HMI design software for Weintek HMIs and compatible panels. It provides an intuitive drag-and-drop interface for creating operator interfaces, with support for various communication protocols and advanced features.',
+  s2: 'Key Features',
+  list1: ['Drag-and-Drop Design – Easy and intuitive','Multi-Protocol Support – Modbus, Profinet, Ethernet/IP','Macros and Scripting – Advanced logic and automation','Remote Monitoring – Web server and VNC','Recipe Management – Data storage and recall'],
+  s3: 'Learning Path',
+  list2: ['EasyBuilder Basics – Installation and interface','Creating Screens – Objects and graphics','Tag Management – Connecting to PLC','Macros and Scripts – Advanced functionality','Remote Access – Web server and VNC setup'],
+  s4: 'Example: HMI for Pump Control',
+  s4p: 'EasyBuilder Pro is used to create an HMI screen for pump control with start/stop buttons, status indicators, pressure gauges, and alarm logs. The HMI communicates with a PLC via Modbus RTU for real-time data exchange.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'EasyBuilder',
+  desc: 'نرم‌افزار طراحی HMI برای پنل‌های Weintek و پنل‌های سازگار – بصری و قدرتمند.',
+  s1: 'مرور کلی',
+  s1p: 'EasyBuilder Pro نرم‌افزار طراحی HMI برای HMIهای Weintek و پنل‌های سازگار است. این نرم‌افزار یک رابط کشیدن و رها کردن بصری برای ایجاد رابط‌های اپراتوری با پشتیبانی از پروتکل‌های ارتباطی مختلف و ویژگی‌های پیشرفته فراهم می‌کند.',
+  s2: 'ویژگی‌های کلیدی',
+  list1: ['طراحی کشیدن و رها کردن – آسان و بصری','پشتیبانی از پروتکل‌های متعدد – Modbus، Profinet، Ethernet/IP','ماکروها و اسکریپت‌ها – منطق پیشرفته و اتوماسیون','نظارت از راه دور – وب سرور و VNC','مدیریت دستورالعمل – ذخیره و بازیابی داده'],
+  s3: 'مسیر یادگیری',
+  list2: ['مبانی EasyBuilder – نصب و رابط کاربری','ایجاد صفحه‌ها – اشیا و گرافیک','مدیریت تگ – اتصال به PLC','ماکروها و اسکریپت‌ها – عملکرد پیشرفته','دسترسی از راه دور – راه‌اندازی وب سرور و VNC'],
+  s4: 'مثال: HMI برای کنترل پمپ',
+  s4p: 'از EasyBuilder Pro برای ایجاد صفحه HMI برای کنترل پمپ با دکمه‌های شروع/توقف، نشانگرهای وضعیت، گیج‌های فشار و گزارش‌های هشدار استفاده می‌شود. HMI از طریق Modbus RTU با PLC برای تبادل داده بلادرنگ ارتباط برقرار می‌کند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
