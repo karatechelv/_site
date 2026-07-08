@@ -1,199 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Factory IO</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Factory IO</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">🎮 Factory IO</h1>
-    <div class="sub" id="desc">Factory IO is a 3D simulation software for PLC training and industrial automation, allowing programmers to test and visualize control logic in a virtual factory environment.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 Description</h2>
-        <p id="s1p">Factory IO is an interactive 3D simulation tool designed for PLC programmers, automation engineers, and students. It provides a virtual factory environment where users can build and simulate industrial systems, test PLC programs, and visualize the behavior of sensors, actuators, and conveyors. It supports communication with real PLCs via OPC, Modbus, and other protocols.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Purpose</h2>
-        <p id="s2p">The purpose of Factory IO is to bridge the gap between PLC programming and real-world automation. It allows engineers to test and debug their logic in a safe, virtual environment before deployment. It is also an excellent training tool for students and professionals to learn automation concepts without needing physical hardware.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Example</h2>
-        <p id="s3p">A PLC programmer uses Factory IO to simulate a sorting conveyor system. They build a 3D scene with a conveyor belt, sensors, and actuators. They connect the simulation to a real PLC via Modbus or OPC, write the control logic in the PLC, and watch the virtual system respond to inputs. The programmer can test different scenarios, identify bugs, and optimize performance before deploying to the actual plant.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Learning Path</h2>
-        <ul id="list1">
-            <li>Introduction to Factory IO interface and scene building</li>
-            <li>Creating 3D scenes with conveyors, sensors, and actuators</li>
-            <li>Connecting to PLCs (OPC, Modbus, Siemens, Allen-Bradley)</li>
-            <li>Writing and testing PLC logic using simulation</li>
-            <li>Advanced scenarios: sorters, pick-and-place, and process control</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s5">🔹 Resources</h2>
-        <ul id="list2">
-            <li>Factory IO Official Website and Documentation</li>
-            <li>Factory IO YouTube Channel (tutorials and examples)</li>
-            <li>Online courses (Udemy, PLC Academy)</li>
-            <li>Community forums and sample projects</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s6">🔹 Software</h2>
-        <ul id="list3">
-            <li>Factory IO (full version)</li>
-            <li>Factory IO Scene Editor</li>
-            <li>Integration with PLCs (Siemens, Rockwell, Schneider, etc.)</li>
-            <li>Communication protocols: OPC, Modbus, Profinet, Ethernet/IP</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s7">🔹 Videos & Future Lessons</h2>
-        <ul id="list4">
-            <li>Getting Started with Factory IO</li>
-            <li>Building 3D Scenes and Connecting to PLCs</li>
-            <li>Advanced Simulation and Troubleshooting (Future)</li>
-            <li>Virtual Commissioning and Industry 4.0 (Future)</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Factory IO</h1>
+ <div class="sub" id="desc">3D simulation software for PLC training and testing with virtual factories and industrial scenes.</div>
+ <div class="section">
+  <h2 id="s1">Overview</h2>
+  <p id="s1p">Factory IO is a 3D simulation software designed for PLC training and testing. It provides virtual industrial scenes with sensors, actuators, and conveyors that respond to PLC logic, making it ideal for learning and testing automation programs.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key Features</h2>
+  <ul id="list1">
+   <li>3D Virtual Scenes – Realistic industrial environments</li>
+   <li>PLC Connectivity – Siemens, Rockwell, Codesys</li>
+   <li>Built-in Scenes – Conveyor, sorting, pick-and-place</li>
+   <li>Customizable – Create your own scenes</li>
+   <li>Educational – Ideal for training and testing</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Learning Path</h2>
+  <ul id="list2">
+   <li>Factory IO Basics – Interface and setup</li>
+   <li>Connecting PLC – TIA Portal, RSLogix, Codesys</li>
+   <li>Built-in Scenes – Conveyor, sorting, robotic arm</li>
+   <li>Creating Custom Scenes – Design your own</li>
+   <li>Advanced – HMI integration and complex logic</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: Conveyor Sorting System</h2>
+  <p id="s4p">Factory IO simulates a conveyor sorting system with a PLC controlling the belt speed and sorting mechanisms. Students can write the PLC program and test it in the virtual environment before deploying to hardware.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🎮 Factory IO',
-            desc: 'Factory IO is a 3D simulation software for PLC training and industrial automation, allowing programmers to test and visualize control logic in a virtual factory environment.',
-            s1: '🔹 Description',
-            s1p: 'Factory IO is an interactive 3D simulation tool designed for PLC programmers, automation engineers, and students. It provides a virtual factory environment where users can build and simulate industrial systems, test PLC programs, and visualize the behavior of sensors, actuators, and conveyors. It supports communication with real PLCs via OPC, Modbus, and other protocols.',
-            s2: '🔹 Purpose',
-            s2p: 'The purpose of Factory IO is to bridge the gap between PLC programming and real-world automation. It allows engineers to test and debug their logic in a safe, virtual environment before deployment. It is also an excellent training tool for students and professionals to learn automation concepts without needing physical hardware.',
-            s3: '🔹 Example',
-            s3p: 'A PLC programmer uses Factory IO to simulate a sorting conveyor system. They build a 3D scene with a conveyor belt, sensors, and actuators. They connect the simulation to a real PLC via Modbus or OPC, write the control logic in the PLC, and watch the virtual system respond to inputs. The programmer can test different scenarios, identify bugs, and optimize performance before deploying to the actual plant.',
-            s4: '🔹 Learning Path',
-            list1: ['Introduction to Factory IO interface and scene building','Creating 3D scenes with conveyors, sensors, and actuators','Connecting to PLCs (OPC, Modbus, Siemens, Allen-Bradley)','Writing and testing PLC logic using simulation','Advanced scenarios: sorters, pick-and-place, and process control'],
-            s5: '🔹 Resources',
-            list2: ['Factory IO Official Website and Documentation','Factory IO YouTube Channel (tutorials and examples)','Online courses (Udemy, PLC Academy)','Community forums and sample projects'],
-            s6: '🔹 Software',
-            list3: ['Factory IO (full version)','Factory IO Scene Editor','Integration with PLCs (Siemens, Rockwell, Schneider, etc.)','Communication protocols: OPC, Modbus, Profinet, Ethernet/IP'],
-            s7: '🔹 Videos & Future Lessons',
-            list4: ['Getting Started with Factory IO','Building 3D Scenes and Connecting to PLCs','Advanced Simulation and Troubleshooting (Future)','Virtual Commissioning and Industry 4.0 (Future)'],
-            back: '← Back'
-        },
-        fa: {
-            title: '🎮 Factory IO',
-            desc: 'Factory IO یک نرم‌افزار شبیه‌سازی سه‌بعدی برای آموزش PLC و اتوماسیون صنعتی است که به برنامه‌نویسان امکان تست و تصویرسازی منطق کنترل را در یک محیط مجازی کارخانه می‌دهد.',
-            s1: '🔹 توضیحات',
-            s1p: 'Factory IO یک ابزار شبیه‌سازی سه‌بعدی تعاملی است که برای برنامه‌نویسان PLC، مهندسان اتوماسیون و دانشجویان طراحی شده است. یک محیط مجازی کارخانه فراهم می‌کند که کاربران می‌توانند سیستم‌های صنعتی را بسازند و شبیه‌سازی کنند، برنامه‌های PLC را تست کرده و رفتار سنسورها، عملگرها و نقاله‌ها را تصویرسازی کنند. از ارتباط با PLCهای واقعی از طریق OPC، Modbus و پروتکل‌های دیگر پشتیبانی می‌کند.',
-            s2: '🔹 هدف',
-            s2p: 'هدف Factory IO پر کردن شکاف بین برنامه‌نویسی PLC و اتوماسیون واقعی است. به مهندسان امکان می‌دهد تا منطق خود را در یک محیط مجازی ایمن قبل از استقرار تست و اشکال‌زدایی کنند. همچنین یک ابزار آموزشی عالی برای دانشجویان و حرفه‌ای‌ها برای یادگیری مفاهیم اتوماسیون بدون نیاز به سخت‌افزار فیزیکی است.',
-            s3: '🔹 مثال',
-            s3p: 'یک برنامه‌نویس PLC از Factory IO برای شبیه‌سازی یک سیستم نقاله مرتب‌کننده استفاده می‌کند. آنها یک صحنه سه‌بعدی با یک نوار نقاله، سنسورها و عملگرها می‌سازند. شبیه‌سازی را از طریق Modbus یا OPC به یک PLC واقعی متصل کرده، منطق کنترل را در PLC نوشته و پاسخ سیستم مجازی به ورودی‌ها را مشاهده می‌کنند. برنامه‌نویس می‌تواند سناریوهای مختلف را تست، اشکالات را شناسایی و عملکرد را قبل از استقرار در کارخانه واقعی بهینه‌سازی کند.',
-            s4: '🔹 مسیر یادگیری',
-            list1: ['آشنایی با رابط Factory IO و ساخت صحنه','ایجاد صحنه‌های سه‌بعدی با نقاله‌ها، سنسورها و عملگرها','اتصال به PLCها (OPC، Modbus، زیمنس، Allen-Bradley)','نوشتن و تست منطق PLC با استفاده از شبیه‌سازی','سناریوهای پیشرفته: مرتب‌کننده‌ها، برداشت و قراردادن و کنترل فرآیند'],
-            s5: '🔹 منابع',
-            list2: ['وب‌سایت رسمی و مستندات Factory IO','کانال یوتیوب Factory IO (آموزش‌ها و مثال‌ها)','دوره‌های آنلاین (Udemy، PLC Academy)','انجمن‌های جامعه و پروژه‌های نمونه'],
-            s6: '🔹 نرم‌افزار',
-            list3: ['Factory IO (نسخه کامل)','Factory IO Scene Editor','یکپارچه‌سازی با PLCها (زیمنس، راکول، اشنایدر و غیره)','پروتکل‌های ارتباطی: OPC، Modbus، Profinet، Ethernet/IP'],
-            s7: '🔹 ویدئوها و درس‌های آینده',
-            list4: ['شروع کار با Factory IO','ساخت صحنه‌های سه‌بعدی و اتصال به PLCها','شبیه‌سازی پیشرفته و عیب‌یابی (آینده)','راه‌اندازی مجازی و صنعت ۴.۰ (آینده)'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s2p').textContent = t.s2p;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s5').textContent = t.s5;
-        document.getElementById('s6').textContent = t.s6;
-        document.getElementById('s7').textContent = t.s7;
-        document.getElementById('backlink').textContent = t.back;
-
-        const list1 = document.getElementById('list1');
-        list1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
-
-        const list2 = document.getElementById('list2');
-        list2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
-
-        const list3 = document.getElementById('list3');
-        list3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; list3.appendChild(li); });
-
-        const list4 = document.getElementById('list4');
-        list4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; list4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Factory IO',
+  desc: '3D simulation software for PLC training and testing with virtual factories and industrial scenes.',
+  s1: 'Overview',
+  s1p: 'Factory IO is a 3D simulation software designed for PLC training and testing. It provides virtual industrial scenes with sensors, actuators, and conveyors that respond to PLC logic, making it ideal for learning and testing automation programs.',
+  s2: 'Key Features',
+  list1: ['3D Virtual Scenes – Realistic industrial environments','PLC Connectivity – Siemens, Rockwell, Codesys','Built-in Scenes – Conveyor, sorting, pick-and-place','Customizable – Create your own scenes','Educational – Ideal for training and testing'],
+  s3: 'Learning Path',
+  list2: ['Factory IO Basics – Interface and setup','Connecting PLC – TIA Portal, RSLogix, Codesys','Built-in Scenes – Conveyor, sorting, robotic arm','Creating Custom Scenes – Design your own','Advanced – HMI integration and complex logic'],
+  s4: 'Example: Conveyor Sorting System',
+  s4p: 'Factory IO simulates a conveyor sorting system with a PLC controlling the belt speed and sorting mechanisms. Students can write the PLC program and test it in the virtual environment before deploying to hardware.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'Factory IO',
+  desc: 'نرم‌افزار شبیه‌سازی سه‌بعدی برای آموزش و تست PLC با کارخانه‌های مجازی و صحنه‌های صنعتی.',
+  s1: 'مرور کلی',
+  s1p: 'Factory IO یک نرم‌افزار شبیه‌سازی سه‌بعدی است که برای آموزش و تست PLC طراحی شده است. این نرم‌افزار صحنه‌های صنعتی مجازی با سنسورها، عملگرها و نقاله‌هایی ارائه می‌دهد که به منطق PLC پاسخ می‌دهند و آن را برای یادگیری و تست برنامه‌های اتوماسیون ایده‌آل می‌کند.',
+  s2: 'ویژگی‌های کلیدی',
+  list1: ['صحنه‌های مجازی سه‌بعدی – محیط‌های صنعتی واقع‌گرایانه','اتصال PLC – زیمنس، راکول، Codesys','صحنه‌های داخلی – نقاله، مرتب‌سازی، برداشت و قراردادن','قابل سفارشی‌سازی – ایجاد صحنه‌های خود','آموزشی – ایده‌آل برای آموزش و تست'],
+  s3: 'مسیر یادگیری',
+  list2: ['مبانی Factory IO – رابط کاربری و راه‌اندازی','اتصال PLC – TIA Portal، RSLogix، Codesys','صحنه‌های داخلی – نقاله، مرتب‌سازی، بازوی رباتیک','ایجاد صحنه‌های سفارشی – طراحی خودتان','پیشرفته – یکپارچه‌سازی HMI و منطق پیچیده'],
+  s4: 'مثال: سیستم مرتب‌سازی نقاله',
+  s4p: 'Factory IO یک سیستم مرتب‌سازی نقاله را با PLC که سرعت نقاله و مکانیزم‌های مرتب‌سازی را کنترل می‌کند شبیه‌سازی می‌کند. دانشجویان می‌توانند برنامه PLC را بنویسند و قبل از استقرار روی سخت‌افزار، آن را در محیط مجازی تست کنند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
