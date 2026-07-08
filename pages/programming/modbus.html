@@ -1,120 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Modbus</title>
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#5b3b8c;--accent:#d4af37;--bg:#0d0e12;--card:#1e2128;--text:#eef0f4;--muted:#8e95a5;--radius:20px}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:rgba(13,14,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.12);position:sticky;top:0;z-index:50}
-        .brand{font-weight:700;font-size:1.4rem;color:#fff;letter-spacing:.5px}
-        .brand span{color:var(--accent)}
-        .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:30px;font-weight:600;font-size:.75rem;cursor:pointer;transition:.2s;text-transform:uppercase}
-        .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
-        .lang-btn:hover{background:var(--primary);color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        .page-container{max-width:1100px;margin:0 auto;padding:20px}
-        .page-header{background:#1e2128;padding:30px 40px;border-radius:20px;margin-bottom:30px;border-left:5px solid var(--accent)}
-        .page-header h1{color:#d4af37;font-size:2.5rem;display:flex;align-items:center;gap:15px}
-        .page-header h1 i{color:var(--accent)}
-        .page-header p{color:#b0b8c5;margin-top:10px;font-size:1.05rem;line-height:1.7}
-        .content-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:30px}
-        .content-card{background:#1e2128;padding:24px;border-radius:16px;border:1px solid rgba(212,175,55,0.06);transition:.3s}
-        .content-card:hover{background:#282d38;transform:translateY(-3px);border-color:rgba(212,175,55,0.2)}
-        .content-card h3{color:#d4af37;font-size:1.2rem;margin-bottom:10px;display:flex;align-items:center;gap:10px}
-        .content-card h3 i{font-size:1.1rem}
-        .content-card p{color:#b0b8c5;line-height:1.7;font-size:.95rem}
-        .content-card ul{list-style:none;padding:0;margin-top:10px}
-        .content-card ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px;font-size:.9rem}
-        .content-card ul li i{color:var(--accent);font-size:.7rem}
-        .back-link{margin-top:30px;text-align:center}
-        .back-link a{color:#d4af37;text-decoration:none;font-weight:600;font-size:1.05rem;display:inline-flex;align-items:center;gap:10px;transition:.3s}
-        .back-link a:hover{transform:translateX(-5px)}
-        .lang-persian{direction:rtl}
-        .lang-persian .page-header h1{justify-content:flex-end}
-        .lang-persian .content-card h3{justify-content:flex-end}
-        .lang-persian .content-card ul li{flex-direction:row-reverse}
-        .lang-persian .back-link a{flex-direction:row-reverse}
-        @media(max-width:768px){.page-header h1{font-size:1.8rem}.content-grid{grid-template-columns:1fr}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Modbus</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
-<header class="header">
-    <div class="brand">KARATECH <span>ELV</span></div>
-    <div class="lang-switch">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="fa">FA</button>
-    </div>
-</header>
-<div class="page-container">
-    <div class="page-header">
-        <h1><i class="fas fa-network-wired"></i> <span data-en="Modbus Communication" data-fa="ارتباطات Modbus">Modbus Communication</span></h1>
-        <p data-en="Modbus is a serial communication protocol widely used in industrial automation for connecting PLCs, sensors, and actuators." data-fa="Modbus یک پروتکل ارتباطی سریال است که به طور گسترده در اتوماسیون صنعتی برای اتصال PLCها، سنسورها و محرک‌ها استفاده می‌شود.">Modbus is a serial communication protocol widely used in industrial automation for connecting PLCs, sensors, and actuators.</p>
-    </div>
-    <div class="content-grid">
-        <div class="content-card">
-            <h3><i class="fas fa-info-circle"></i> <span data-en="Description" data-fa="توضیحات">Description</span></h3>
-            <p data-en="Modbus is a communication protocol developed by Modicon in 1979. It is used to connect industrial electronic devices and is one of the most widely used protocols in industrial automation." data-fa="Modbus یک پروتکل ارتباطی است که توسط Modicon در سال 1979 توسعه یافته است. برای اتصال دستگاه‌های الکترونیکی صنعتی استفاده می‌شود و یکی از پرکاربردترین پروتکل‌ها در اتوماسیون صنعتی است.">Modbus is a communication protocol developed by Modicon in 1979. It is used to connect industrial electronic devices and is one of the most widely used protocols in industrial automation.</p>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-lightbulb"></i> <span data-en="Example" data-fa="مثال">Example</span></h3>
-            <p data-en="Connecting a Modbus RTU temperature sensor to a PLC and reading data over RS-485 network." data-fa="اتصال یک سنسور دما Modbus RTU به PLC و خواندن داده‌ها از طریق شبکه RS-485.">Connecting a Modbus RTU temperature sensor to a PLC and reading data over RS-485 network.</p>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-road"></i> <span data-en="Learning Path" data-fa="مسیر یادگیری">Learning Path</span></h3>
-            <ul>
-                <li><i class="fas fa-arrow-right"></i> <strong data-en="Foundation:" data-fa="مقدماتی:">Foundation:</strong> <span data-en="Modbus RTU vs TCP/IP" data-fa="Modbus RTU در مقابل TCP/IP">Modbus RTU vs TCP/IP</span></li>
-                <li><i class="fas fa-arrow-right"></i> <strong data-en="Intermediate:" data-fa="متوسط:">Intermediate:</strong> <span data-en="Address mapping and data types" data-fa="نگاشت آدرس و انواع داده">Address mapping and data types</span></li>
-                <li><i class="fas fa-arrow-right"></i> <strong data-en="Advanced:" data-fa="پیشرفته:">Advanced:</strong> <span data-en="Troubleshooting and network optimization" data-fa="عیب‌یابی و بهینه‌سازی شبکه">Troubleshooting and network optimization</span></li>
-            </ul>
-        </div>
-        <div class="content-card">
-            <h3><i class="fas fa-video"></i> <span data-en="Resources" data-fa="منابع">Resources</span></h3>
-            <ul>
-                <li><i class="fas fa-file-pdf"></i> <span data-en="Modbus Protocol Guide" data-fa="راهنمای پروتکل Modbus">Modbus Protocol Guide</span></li>
-                <li><i class="fas fa-file-pdf"></i> <span data-en="Modbus Configuration Examples" data-fa="نمونه پیکربندی Modbus">Modbus Configuration Examples</span></li>
-                <li><i class="fas fa-video"></i> <span data-en="Modbus Training Course" data-fa="دوره آموزشی Modbus">Modbus Training Course</span></li>
-            </ul>
-        </div>
-    </div>
-    <div class="back-link">
-        <a href="../../index.html" onclick="localStorage.setItem('dashboardActive', 'true')"><i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span></a>
-    </div>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Modbus Protocol</h1>
+ <div class="sub" id="desc">Understanding Modbus RTU and Modbus TCP for industrial communication.</div>
+ <div class="section">
+  <h2 id="s1">What is Modbus?</h2>
+  <p id="s1p">Modbus is a widely used serial communication protocol developed by Modicon. It is an open protocol used for connecting industrial electronic devices, including PLCs, drives, and instruments. Modbus is simple, reliable, and supported by many devices.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Modbus Variants</h2>
+  <ul id="list1">
+   <li>Modbus RTU – Serial communication (RS-232, RS-485)</li>
+   <li>Modbus ASCII – Serial with ASCII encoding</li>
+   <li>Modbus TCP – Ethernet-based communication</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Modbus Addressing</h2>
+  <ul id="list2">
+   <li>Coils (Read/Write) – 0x (digital outputs)</li>
+   <li>Discrete Inputs – 1x (digital inputs)</li>
+   <li>Input Registers – 3x (analog inputs)</li>
+   <li>Holding Registers – 4x (analog outputs, parameters)</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: Reading Modbus Data</h2>
+  <div class="code-box">
+# Reading Holding Register (Address 40001)
+# PLC: Modbus Master
+# Device: VFD at Slave ID 1
+# Request: Read Holding Register (Function 03)
+# Address: 40001, Value: 1500 RPM
+  </div>
+  <p id="s4p">A PLC reads the speed value from a VFD using Modbus RTU. The PLC sends a request to the VFD (Slave ID 1) to read holding register 40001, which contains the current speed in RPM.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
 <script>
-    (function() {
-        const langBtns = document.querySelectorAll('.lang-btn');
-        let currentLang = localStorage.getItem('karatech-lang') || 'en';
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-en]').forEach(el => {
-                const txt = el.dataset[lang];
-                if (txt) {
-                    const nodes = el.childNodes;
-                    for (let n of nodes) {
-                        if (n.nodeType === 3) {
-                            n.textContent = txt;
-                            break;
-                        }
-                    }
-                }
-            });
-            document.body.classList.toggle('lang-persian', lang === 'fa');
-            localStorage.setItem('karatech-lang', lang);
-            langBtns.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
-        }
-        setLanguage(currentLang);
-        langBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                setLanguage(this.dataset.lang);
-            });
-        });
-    })();
+const lang = {
+ en: {
+  title: 'Modbus Protocol',
+  desc: 'Understanding Modbus RTU and Modbus TCP for industrial communication.',
+  s1: 'What is Modbus?',
+  s1p: 'Modbus is a widely used serial communication protocol developed by Modicon. It is an open protocol used for connecting industrial electronic devices, including PLCs, drives, and instruments. Modbus is simple, reliable, and supported by many devices.',
+  s2: 'Modbus Variants',
+  list1: ['Modbus RTU – Serial communication (RS-232, RS-485)','Modbus ASCII – Serial with ASCII encoding','Modbus TCP – Ethernet-based communication'],
+  s3: 'Modbus Addressing',
+  list2: ['Coils (Read/Write) – 0x (digital outputs)','Discrete Inputs – 1x (digital inputs)','Input Registers – 3x (analog inputs)','Holding Registers – 4x (analog outputs, parameters)'],
+  s4: 'Example: Reading Modbus Data',
+  s4p: 'A PLC reads the speed value from a VFD using Modbus RTU. The PLC sends a request to the VFD (Slave ID 1) to read holding register 40001, which contains the current speed in RPM.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'پروتکل Modbus',
+  desc: 'آشنایی با Modbus RTU و Modbus TCP برای ارتباطات صنعتی.',
+  s1: 'Modbus چیست؟',
+  s1p: 'Modbus یک پروتکل ارتباطی سریال پرکاربرد است که توسط Modicon توسعه یافته است. این یک پروتکل باز است که برای اتصال دستگاه‌های الکترونیکی صنعتی، از جمله PLCها، درایوها و ابزار دقیق استفاده می‌شود. Modbus ساده، قابل اعتماد و توسط بسیاری از دستگاه‌ها پشتیبانی می‌شود.',
+  s2: 'انواع Modbus',
+  list1: ['Modbus RTU – ارتباط سریال (RS-232، RS-485)','Modbus ASCII – سریال با کدگذاری ASCII','Modbus TCP – ارتباط مبتنی بر اترنت'],
+  s3: 'آدرس‌دهی Modbus',
+  list2: ['کویل‌ها (خواندن/نوشتن) – 0x (خروجی‌های دیجیتال)','ورودی‌های گسسته – 1x (ورودی‌های دیجیتال)','رجیسترهای ورودی – 3x (ورودی‌های آنالوگ)','رجیسترهای نگهدارنده – 4x (خروجی‌های آنالوگ، پارامترها)'],
+  s4: 'مثال: خواندن داده Modbus',
+  s4p: 'یک PLC مقدار سرعت را از یک VFD با استفاده از Modbus RTU می‌خواند. PLC یک درخواست به VFD (شناسه برده 1) برای خواندن رجیستر نگهدارنده 40001 که حاوی سرعت فعلی بر حسب RPM است ارسال می‌کند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
 </body>
 </html>
