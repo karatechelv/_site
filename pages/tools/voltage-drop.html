@@ -1,191 +1,112 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Voltage Drop Calculator</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:800px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .calc-box{background:#1e2128;padding:25px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);margin-bottom:20px}
-        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
-        .calc-box input, .calc-box select{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
-        .calc-box input:focus, .calc-box select:focus{outline:1px solid #d4af37}
-        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
-        .btn-calc:hover{background:#d4af37;color:#111}
-        .result{background:#0d0e12;padding:15px;border-radius:12px;border-left:4px solid #d4af37;margin-top:15px;font-size:1.1rem}
-        .result span{color:#d4af37;font-weight:700}
-        .note{color:#8e95a5;font-size:.85rem;margin-top:10px}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Voltage Drop Calculator</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:900px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+ .calc-grid label{color:#b0b8c5;font-size:.9rem;display:flex;flex-direction:column;gap:4px}
+ .calc-grid input,.calc-grid select{background:#0d0e12;border:1px solid #2a2f3a;color:#eef0f4;padding:8px 12px;border-radius:8px;font-size:.95rem;width:100%}
+ .calc-grid input:focus,.calc-grid select:focus{outline:1px solid #d4af37}
+ .result-box{background:#0d0e12;padding:16px;border-radius:12px;border-left:3px solid #d4af37;font-size:1.2rem;font-weight:600;color:#d4af37;margin-top:12px;text-align:center}
+ .calc-btn{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:30px;font-weight:600;cursor:pointer;transition:.2s;margin-top:10px}
+ .calc-btn:hover{background:#d4af37;color:#111}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}.calc-grid{grid-template-columns:1fr}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Voltage Drop Calculator</h1>
+ <div class="sub" id="desc">Calculate voltage drop in electrical cables based on current, length, and cable size.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="formula-title">Formula</h2>
+  <p id="formula-text"><strong>V<sub>drop</sub> = I × R × L × 2</strong> (for single-phase) or <strong>V<sub>drop</sub> = I × R × L × √3</strong> (for three-phase)</p>
+  <p>Where: I = Current (A), R = Resistance per meter (Ω/m), L = Cable length (m)</p>
+ </div>
 
-    <h1 id="title">⚡ Voltage Drop Calculator</h1>
-    <div class="sub" id="desc">Calculate voltage drop in AC/DC circuits based on cable length, current, and conductor material.</div>
+ <div class="section">
+  <h2 id="calc-title">Calculator</h2>
+  <div class="calc-grid">
+   <label>System Type <select id="system"><option value="single">Single Phase</option><option value="three">Three Phase</option></select></label>
+   <label>Current (A) <input type="number" id="current" value="50" step="0.1"></label>
+   <label>Cable Length (m) <input type="number" id="length" value="50" step="1"></label>
+   <label>Resistance (Ω/m) <input type="number" id="resistance" value="0.0015" step="0.0001"></label>
+  </div>
+  <button class="calc-btn" id="calcBtn" onclick="calculate()">Calculate</button>
+  <div class="result-box" id="result">Voltage Drop: 0.00 V</div>
+ </div>
 
-    <div class="calc-box">
-        <label id="lbl-current">Current (A)</label>
-        <input type="number" id="current" value="100" step="any">
-
-        <label id="lbl-length">Cable Length (m)</label>
-        <input type="number" id="length" value="50" step="any">
-
-        <label id="lbl-voltage">System Voltage (V)</label>
-        <input type="number" id="voltage" value="400" step="any">
-
-        <label id="lbl-material">Conductor Material</label>
-        <select id="material">
-            <option value="copper" data-en="Copper" data-fa="مس">Copper</option>
-            <option value="aluminum" data-en="Aluminum" data-fa="آلومینیوم">Aluminum</option>
-        </select>
-
-        <label id="lbl-phase">Phase</label>
-        <select id="phase">
-            <option value="single" data-en="Single-phase" data-fa="تک فاز">Single-phase</option>
-            <option value="three" data-en="Three-phase" data-fa="سه فاز">Three-phase</option>
-            <option value="dc" data-en="DC" data-fa="DC">DC</option>
-        </select>
-
-        <button class="btn-calc" id="calcBtn">Calculate</button>
-
-        <div class="result" id="result">
-            <span id="res-label">Voltage Drop:</span> <span id="vd-value">--</span> V (<span id="vd-percent">--</span>%)
-        </div>
-        <div class="note" id="note">Note: Resistivity assumed: Copper 0.0175 Ω·mm²/m, Aluminum 0.0283 Ω·mm²/m.</div>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const langData = {
-        en: {
-            title: '⚡ Voltage Drop Calculator',
-            desc: 'Calculate voltage drop in AC/DC circuits based on cable length, current, and conductor material.',
-            current: 'Current (A)',
-            length: 'Cable Length (m)',
-            voltage: 'System Voltage (V)',
-            material: 'Conductor Material',
-            phase: 'Phase',
-            calc: 'Calculate',
-            result: 'Voltage Drop:',
-            note: 'Note: Resistivity assumed: Copper 0.0175 Ω·mm²/m, Aluminum 0.0283 Ω·mm²/m.',
-            back: '← Back'
-        },
-        fa: {
-            title: '⚡ ماشین‌حساب افت ولتاژ',
-            desc: 'محاسبه افت ولتاژ در مدارهای AC/DC بر اساس طول کابل، جریان و جنس هادی.',
-            current: 'جریان (آمپر)',
-            length: 'طول کابل (متر)',
-            voltage: 'ولتاژ سیستم (ولت)',
-            material: 'جنس هادی',
-            phase: 'فاز',
-            calc: 'محاسبه',
-            result: 'افت ولتاژ:',
-            note: 'توجه: مقاومت ویژه: مس ۰.۰۱۷۵ Ω·mm²/m، آلومینیوم ۰.۰۲۸۳ Ω·mm²/m.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLanguage(lang) {
-        const t = langData[lang];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('lbl-current').textContent = t.current;
-        document.getElementById('lbl-length').textContent = t.length;
-        document.getElementById('lbl-voltage').textContent = t.voltage;
-        document.getElementById('lbl-material').textContent = t.material;
-        document.getElementById('lbl-phase').textContent = t.phase;
-        document.getElementById('calcBtn').textContent = t.calc;
-        document.getElementById('res-label').textContent = t.result;
-        document.getElementById('note').textContent = t.note;
-        document.getElementById('backlink').textContent = t.back;
-
-        // Update select options text
-        document.querySelectorAll('#material option, #phase option').forEach(opt => {
-            const text = opt.dataset[lang];
-            if (text) opt.textContent = text;
-        });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-        document.body.classList.toggle('lang-persian', lang === 'fa');
-        localStorage.setItem('karatech-lang', lang);
-    }
-
-    // Language switcher
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLanguage(this.dataset.lang); };
-    });
-
-    // Load saved language
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLanguage(savedLang);
-
-    // Calculator logic
-    function calculateVD() {
-        const current = parseFloat(document.getElementById('current').value);
-        const length = parseFloat(document.getElementById('length').value);
-        const voltage = parseFloat(document.getElementById('voltage').value);
-        const material = document.getElementById('material').value;
-        const phase = document.getElementById('phase').value;
-
-        if (isNaN(current) || isNaN(length) || isNaN(voltage) || current <= 0 || length <= 0 || voltage <= 0) {
-            document.getElementById('vd-value').textContent = 'Invalid input';
-            document.getElementById('vd-percent').textContent = '--';
-            return;
-        }
-
-        // Resistivity Ω·mm²/m
-        const rho = material === 'copper' ? 0.0175 : 0.0283;
-        // Assume a typical conductor cross-section area for calculation: we need to ask user for cable size?
-        // To simplify, we ask for cable size (mm²) as well. But we didn't include that. Let's add a new input dynamically? 
-        // The user requested a calculator; we can include a cable size input. But the user didn't specify. Let's add it now.
-        // But we already have the page; we can add an input for cable cross-section. However, to avoid breaking the current design, we can add it now in the code. Since we are building fresh, we can include it.
-        // I'll add a "Cable Cross-Section (mm²)" input to make it realistic.
-
-        // Actually, we didn't have that field; I'll add it here in the HTML via JavaScript? But better to modify the HTML directly. 
-        // Since I'm providing the code now, I'll include it in the HTML above. But the user already sees the code; I'll update the code to include a "Cable Cross-Section (mm²)" field before the calculate button.
-
-        // However, to avoid redoing the whole code, I'll add it in the text below, but in the actual file we need to include it. 
-        // I'll now present the final code with that additional field.
-    }
-
-    // I'll provide the updated full code with cable cross-section input.
-
-    // But the user just asked to proceed; we are sending one tool. Let's make sure it's complete.
-    // I'll rewrite the full code with the extra input and then the calculation.
-
-    // Since the message is long, I'll provide the final complete code for voltage-drop.html with all fields and a functional calculation.
+function calculate() {
+ const system = document.getElementById('system').value;
+ const I = parseFloat(document.getElementById('current').value) || 0;
+ const L = parseFloat(document.getElementById('length').value) || 0;
+ const R = parseFloat(document.getElementById('resistance').value) || 0;
+ let Vd = 0;
+ if (system === 'single') { Vd = I * R * L * 2; }
+ else { Vd = I * R * L * Math.sqrt(3); }
+ document.getElementById('result').textContent = 'Voltage Drop: ' + Vd.toFixed(2) + ' V';
+}
+const lang = {
+ en: {
+  title: 'Voltage Drop Calculator',
+  desc: 'Calculate voltage drop in electrical cables based on current, length, and cable size.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'ماشین‌حساب افت ولتاژ',
+  desc: 'محاسبه افت ولتاژ در کابل‌های الکتریکی بر اساس جریان، طول و سایز کابل.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('backlink').textContent = t.back;
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
