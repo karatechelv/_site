@@ -1,152 +1,132 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Engineering Design Phase</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Engineering Design</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">✏️ Engineering Design Phase</h1>
-    <div class="sub" id="desc">The engineering design phase translates process requirements into detailed technical specifications, drawings, and plans for construction and fabrication.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What is the Design Phase?</h2>
-        <p id="s1p">The design phase is where the process requirements and P&ID are converted into detailed engineering documents. This includes schematics, panel layouts, cable routing, earthing designs, load calculations, and equipment specifications. It bridges the gap between process design and physical construction.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Key Activities in the Design Phase</h2>
-        <ul id="list1">
-            <li><b>Electrical Schematics</b> – Single-line diagrams, wiring diagrams</li>
-            <li><b>Panel Design</b> – Layout, component selection, enclosure sizing</li>
-            <li><b>Cable Routing</b> – Cable trays, conduits, wireways</li>
-            <li><b>Earthing & Grounding</b> – Design for safety and protection</li>
-            <li><b>Load Calculation</b> – Power requirements and distribution</li>
-            <li><b>Instrumentation</b> – Loop diagrams, instrument schedules</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Design Deliverables</h2>
-        <ul id="list2">
-            <li>Detailed engineering drawings (CAD)</li>
-            <li>Equipment datasheets and specifications</li>
-            <li>Material take-off (MTO) and bill of materials (BOM)</li>
-            <li>Installation and testing procedures</li>
-            <li>Operation and maintenance manuals</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: Design of a Motor Control Center</h2>
-        <p id="s4p">An MCC (Motor Control Center) is designed for a new production line. The design includes incoming power distribution, feeder breakers, contactors, overload relays, and PLC interface. All components are selected based on motor ratings and environmental conditions. The design package includes schematics, panel layout, and cable schedules.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Engineering Design Phase</h1>
+ <div class="sub" id="desc">The design phase of the engineering workflow from concept to detailed engineering.</div>
+ <div class="section">
+  <h2 id="s1">What is Engineering Design?</h2>
+  <p id="s1p">Engineering design is the process of developing detailed technical specifications, drawings, and documentation based on the P&ID and project requirements. It translates process requirements into a complete design package for procurement, assembly, and installation.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Design Deliverables</h2>
+  <ul id="list1">
+   <li>Electrical Schematics – One-line, three-line diagrams</li>
+   <li>Panel Layouts – Component placement and wiring</li>
+   <li>Loop Diagrams – Instrument wiring details</li>
+   <li>Cable Schedules – Cable routing and sizing</li>
+   <li>Bill of Materials – Component list and specifications</li>
+   <li>Technical Specifications – Equipment and materials</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Design Process</h2>
+  <ul id="list2">
+   <li>Conceptual Design – Preliminary design and review</li>
+   <li>Detailed Engineering – Complete design package</li>
+   <li>Design Review – Client/team approval</li>
+   <li>Design Freeze – Final version for procurement</li>
+   <li>As-built Design – Final documentation after installation</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: Design Package for MCC Panel</h2>
+  <p id="s4p">An MCC panel design package includes: single-line diagram, panel layout, wiring diagrams, cable schedule, bill of materials, and technical specifications. All documents are reviewed and approved before procurement begins.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '✏️ Engineering Design Phase',
-            desc: 'The engineering design phase translates process requirements into detailed technical specifications, drawings, and plans for construction and fabrication.',
-            s1: '🔹 What is the Design Phase?',
-            s1p: 'The design phase is where the process requirements and P&ID are converted into detailed engineering documents. This includes schematics, panel layouts, cable routing, earthing designs, load calculations, and equipment specifications. It bridges the gap between process design and physical construction.',
-            s2: '🔹 Key Activities in the Design Phase',
-            list1: ['Electrical Schematics – Single-line diagrams, wiring diagrams','Panel Design – Layout, component selection, enclosure sizing','Cable Routing – Cable trays, conduits, wireways','Earthing & Grounding – Design for safety and protection','Load Calculation – Power requirements and distribution','Instrumentation – Loop diagrams, instrument schedules'],
-            s3: '🔹 Design Deliverables',
-            list2: ['Detailed engineering drawings (CAD)','Equipment datasheets and specifications','Material take-off (MTO) and bill of materials (BOM)','Installation and testing procedures','Operation and maintenance manuals'],
-            s4: '🔹 Example: Design of a Motor Control Center',
-            s4p: 'An MCC (Motor Control Center) is designed for a new production line. The design includes incoming power distribution, feeder breakers, contactors, overload relays, and PLC interface. All components are selected based on motor ratings and environmental conditions. The design package includes schematics, panel layout, and cable schedules.',
-            back: '← Back'
-        },
-        fa: {
-            title: '✏️ فاز طراحی مهندسی',
-            desc: 'فاز طراحی مهندسی، الزامات فرآیند را به مشخصات فنی دقیق، نقشه‌ها و برنامه‌های ساخت و نصب تبدیل می‌کند.',
-            s1: '🔹 فاز طراحی چیست؟',
-            s1p: 'در فاز طراحی، الزامات فرآیند و P&ID به اسناد مهندسی دقیق تبدیل می‌شوند. این شامل شماتیک‌ها، چیدمان پنل، مسیریابی کابل، طرح‌های ارتینگ، محاسبات بار و مشخصات تجهیزات است. این فاز شکاف بین طراحی فرآیند و ساخت فیزیکی را پر می‌کند.',
-            s2: '🔹 فعالیت‌های کلیدی در فاز طراحی',
-            list1: ['شماتیک برق – نمودارهای تک خطی، نمودارهای سیم‌کشی','طراحی پنل – چیدمان، انتخاب قطعات، سایزینگ محفظه','مسیریابی کابل – تری‌ها، کاندوئیت‌ها','ارتینگ – طراحی برای ایمنی و حفاظت','محاسبه بار – نیازهای برق و توزیع','ابزار دقیق – نمودارهای حلقه، جدول‌های ابزار'],
-            s3: '🔹 تحویل‌های فاز طراحی',
-            list2: ['نقشه‌های دقیق مهندسی (CAD)','برگه‌های داده و مشخصات تجهیزات','برآورد مواد (MTO) و لیست مواد (BOM)','رویه‌های نصب و تست','دفترچه‌های راهنما و نگهداری'],
-            s4: '🔹 مثال: طراحی مرکز کنترل موتور (MCC)',
-            s4p: 'یک MCC برای یک خط تولید جدید طراحی می‌شود. طراحی شامل توزیع برق ورودی، کلیدهای فیدر، کنتاکتورها، رله‌های اضافه بار و رابط PLC است. تمام اجزاء بر اساس رتبه‌بندی موتورها و شرایط محیطی انتخاب می‌شوند. بسته طراحی شامل شماتیک‌ها، چیدمان پنل و جدول‌های کابل است.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Engineering Design Phase',
+  desc: 'The design phase of the engineering workflow from concept to detailed engineering.',
+  s1: 'What is Engineering Design?',
+  s1p: 'Engineering design is the process of developing detailed technical specifications, drawings, and documentation based on the P&ID and project requirements. It translates process requirements into a complete design package for procurement, assembly, and installation.',
+  s2: 'Design Deliverables',
+  list1: ['Electrical Schematics – One-line, three-line diagrams','Panel Layouts – Component placement and wiring','Loop Diagrams – Instrument wiring details','Cable Schedules – Cable routing and sizing','Bill of Materials – Component list and specifications','Technical Specifications – Equipment and materials'],
+  s3: 'Design Process',
+  list2: ['Conceptual Design – Preliminary design and review','Detailed Engineering – Complete design package','Design Review – Client/team approval','Design Freeze – Final version for procurement','As-built Design – Final documentation after installation'],
+  s4: 'Example: Design Package for MCC Panel',
+  s4p: 'An MCC panel design package includes: single-line diagram, panel layout, wiring diagrams, cable schedule, bill of materials, and technical specifications. All documents are reviewed and approved before procurement begins.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مرحله طراحی مهندسی',
+  desc: 'مرحله طراحی جریان کار مهندسی از مفهوم تا مهندسی دقیق.',
+  s1: 'طراحی مهندسی چیست؟',
+  s1p: 'طراحی مهندسی فرآیند توسعه مشخصات فنی دقیق، نقشه‌ها و مستندات بر اساس P&ID و نیازمندی‌های پروژه است. این فرآیند نیازمندی‌های فرآیند را به یک بسته طراحی کامل برای تأمین، مونتاژ و نصب تبدیل می‌کند.',
+  s2: 'خروجی‌های طراحی',
+  list1: ['شماتیک‌های الکتریکی – نمودارهای تک‌خطی، سه‌خطی','چیدمان پنل – جایگذاری قطعات و سیم‌کشی','نمودارهای حلقه – جزئیات سیم‌کشی ابزار دقیق','برنامه کابل – مسیردهی و سایزینگ کابل','صورت‌حساب مواد – لیست قطعات و مشخصات','مشخصات فنی – تجهیزات و مواد'],
+  s3: 'فرآیند طراحی',
+  list2: ['طراحی مفهومی – طراحی اولیه و بررسی','مهندسی دقیق – بسته طراحی کامل','بررسی طراحی – تأیید کارفرما/تیم','تثبیت طراحی – نسخه نهایی برای تأمین','طراحی ساخته‌شده – مستندات نهایی پس از نصب'],
+  s4: 'مثال: بسته طراحی برای پنل MCC',
+  s4p: 'یک بسته طراحی پنل MCC شامل: نمودار تک‌خطی، چیدمان پنل، نمودارهای سیم‌کشی، برنامه کابل، صورت‌حساب مواد و مشخصات فنی است. همه اسناد قبل از شروع تأمین بررسی و تأیید می‌شوند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
