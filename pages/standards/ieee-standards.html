@@ -1,154 +1,133 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · IEEE Standards</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · IEEE Standards</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">📡 IEEE Standards</h1>
-    <div class="sub" id="desc">Overview of key Institute of Electrical and Electronics Engineers (IEEE) standards for power systems, electronics, communications, and safety.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What is IEEE?</h2>
-        <p id="s1p">The Institute of Electrical and Electronics Engineers (IEEE) is a professional association dedicated to advancing technology for the benefit of humanity. IEEE develops standards that define specifications, protocols, and practices for electrical, electronic, and computer systems. With over 1,300 active standards, IEEE is a leading authority in engineering, computing, and technology.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Key IEEE Standards</h2>
-        <ul id="list1">
-            <li><b>IEEE 80</b> – Guide for Safety in AC Substation Grounding</li>
-            <li><b>IEEE 1584</b> – Guide for Performing Arc-Flash Hazard Calculations</li>
-            <li><b>IEEE 519</b> – Recommended Practices and Requirements for Harmonic Control in Power Systems</li>
-            <li><b>IEEE 315</b> – Graphic Symbols for Electrical and Electronics Diagrams</li>
-            <li><b>IEEE 1459</b> – Definitions for the Measurement of Electric Power Quantities</li>
-            <li><b>IEEE C37</b> – Power Circuit Breakers, Switchgear, and Relays</li>
-            <li><b>IEEE 1588</b> – Precision Time Protocol (PTP) for Networked Measurement and Control Systems</li>
-            <li><b>IEEE 802.3</b> – Ethernet (CSMA/CD) Standard</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 IEEE Standards by Discipline</h2>
-        <ul id="list2">
-            <li><b>Power:</b> IEEE 80, IEEE 519, IEEE C37</li>
-            <li><b>Electronics:</b> IEEE 315, IEEE 1459</li>
-            <li><b>Communications:</b> IEEE 802.3, IEEE 1588</li>
-            <li><b>Safety:</b> IEEE 1584, IEEE 80</li>
-            <li><b>Computing:</b> IEEE 802.11 (Wi-Fi), IEEE 754 (Floating Point)</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: IEEE 1584 for Arc-Flash Safety</h2>
-        <p id="s4p">An electrical engineer uses IEEE 1584 to calculate arc-flash incident energy levels for a substation. The standard provides formulas for incident energy and boundary distances based on available fault current, clearing time, and working distance. The calculations determine the required Personal Protective Equipment (PPE) level for workers and help design safe working practices.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">IEEE Standards</h1>
+ <div class="sub" id="desc">Institute of Electrical and Electronics Engineers standards for power systems, communication, and electronics.</div>
+ <div class="section">
+  <h2 id="s1">What is IEEE?</h2>
+  <p id="s1p">The Institute of Electrical and Electronics Engineers (IEEE) is the world's largest technical professional organization dedicated to advancing technology. IEEE develops standards for electrical, electronic, and computer systems that are globally recognized.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key IEEE Standards</h2>
+  <ul id="list1">
+   <li>IEEE 80 – Earthing and Grounding</li>
+   <li>IEEE 141 – Electric Power Distribution</li>
+   <li>IEEE 242 – Protection and Coordination</li>
+   <li>IEEE 315 – Graphic Symbols for Electrical Diagrams</li>
+   <li>IEEE 519 – Harmonic Control in Power Systems</li>
+   <li>IEEE 1584 – Arc Flash Hazard Calculations</li>
+   <li>IEEE 802.3 – Ethernet Standard</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">IEEE Standards by Category</h2>
+  <ul id="list2">
+   <li><b>Power Systems:</b> IEEE 80, IEEE 141, IEEE 519</li>
+   <li><b>Protection &amp; Coordination:</b> IEEE 242, IEEE 1584</li>
+   <li><b>Communication:</b> IEEE 802.3 (Ethernet)</li>
+   <li><b>Symbols &amp; Documentation:</b> IEEE 315</li>
+   <li><b>Electronics &amp; Semiconductors:</b> IEEE 1241, IEEE 1451</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: IEEE 80 – Earthing</h2>
+  <p id="s4p">IEEE 80 provides guidelines for safe earthing and grounding systems in substations and industrial facilities. It covers step and touch voltage calculations, soil resistivity measurement, and grounding grid design to ensure personnel safety during fault conditions.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📡 IEEE Standards',
-            desc: 'Overview of key Institute of Electrical and Electronics Engineers (IEEE) standards for power systems, electronics, communications, and safety.',
-            s1: '🔹 What is IEEE?',
-            s1p: 'The Institute of Electrical and Electronics Engineers (IEEE) is a professional association dedicated to advancing technology for the benefit of humanity. IEEE develops standards that define specifications, protocols, and practices for electrical, electronic, and computer systems. With over 1,300 active standards, IEEE is a leading authority in engineering, computing, and technology.',
-            s2: '🔹 Key IEEE Standards',
-            list1: ['IEEE 80 – Guide for Safety in AC Substation Grounding','IEEE 1584 – Guide for Performing Arc-Flash Hazard Calculations','IEEE 519 – Recommended Practices and Requirements for Harmonic Control in Power Systems','IEEE 315 – Graphic Symbols for Electrical and Electronics Diagrams','IEEE 1459 – Definitions for the Measurement of Electric Power Quantities','IEEE C37 – Power Circuit Breakers, Switchgear, and Relays','IEEE 1588 – Precision Time Protocol (PTP) for Networked Measurement and Control Systems','IEEE 802.3 – Ethernet (CSMA/CD) Standard'],
-            s3: '🔹 IEEE Standards by Discipline',
-            list2: ['Power: IEEE 80, IEEE 519, IEEE C37','Electronics: IEEE 315, IEEE 1459','Communications: IEEE 802.3, IEEE 1588','Safety: IEEE 1584, IEEE 80','Computing: IEEE 802.11 (Wi-Fi), IEEE 754 (Floating Point)'],
-            s4: '🔹 Example: IEEE 1584 for Arc-Flash Safety',
-            s4p: 'An electrical engineer uses IEEE 1584 to calculate arc-flash incident energy levels for a substation. The standard provides formulas for incident energy and boundary distances based on available fault current, clearing time, and working distance. The calculations determine the required Personal Protective Equipment (PPE) level for workers and help design safe working practices.',
-            back: '← Back'
-        },
-        fa: {
-            title: '📡 استانداردهای IEEE',
-            desc: 'مروری بر استانداردهای کلیدی مؤسسه مهندسان برق و الکترونیک (IEEE) برای سیستم‌های قدرت، الکترونیک، مخابرات و ایمنی.',
-            s1: '🔹 IEEE چیست؟',
-            s1p: 'مؤسسه مهندسان برق و الکترونیک (IEEE) یک انجمن حرفه‌ای است که به پیشرفت فناوری برای منافع بشریت اختصاص دارد. IEEE استانداردهایی را تدوین می‌کند که مشخصات، پروتکل‌ها و روش‌ها را برای سیستم‌های الکتریکی، الکترونیکی و رایانه‌ای تعریف می‌کنند. با بیش از ۱۳۰۰ استاندارد فعال، IEEE یک مرجع پیشرو در مهندسی، محاسبات و فناوری است.',
-            s2: '🔹 استانداردهای کلیدی IEEE',
-            list1: ['IEEE 80 – راهنمای ایمنی در زمین کردن پست‌های AC','IEEE 1584 – راهنمای انجام محاسبات خطر قوس الکتریکی','IEEE 519 – روش‌ها و الزامات توصیه شده برای کنترل هارمونیک در سیستم‌های قدرت','IEEE 315 – نمادهای گرافیکی برای نمودارهای الکتریکی و الکترونیکی','IEEE 1459 – تعاریف برای اندازه‌گیری کمیت‌های توان الکتریکی','IEEE C37 – کلیدهای مدار قدرت، تابلوها و رله‌ها','IEEE 1588 – پروتکل زمان دقیق (PTP) برای سیستم‌های اندازه‌گیری و کنترل شبکه‌ای','IEEE 802.3 – استاندارد اترنت (CSMA/CD)'],
-            s3: '🔹 استانداردهای IEEE بر اساس رشته',
-            list2: ['قدرت: IEEE 80، IEEE 519، IEEE C37','الکترونیک: IEEE 315، IEEE 1459','مخابرات: IEEE 802.3، IEEE 1588','ایمنی: IEEE 1584، IEEE 80','محاسبات: IEEE 802.11 (Wi-Fi)، IEEE 754 (نقطه شناور)'],
-            s4: '🔹 مثال: IEEE 1584 برای ایمنی قوس الکتریکی',
-            s4p: 'یک مهندس برق از IEEE 1584 برای محاسبه سطوح انرژی قوس الکتریکی در یک پست برق استفاده می‌کند. این استاندارد فرمول‌هایی برای انرژی حادثه‌ای و فواصل مرزی بر اساس جریان خطای موجود، زمان قطع و فاصله کاری ارائه می‌دهد. محاسبات سطح تجهیزات حفاظت فردی (PPE) مورد نیاز برای کارگران را تعیین کرده و به طراحی روش‌های کاری ایمن کمک می‌کند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'IEEE Standards',
+  desc: 'Institute of Electrical and Electronics Engineers standards for power systems, communication, and electronics.',
+  s1: 'What is IEEE?',
+  s1p: 'The Institute of Electrical and Electronics Engineers (IEEE) is the world\'s largest technical professional organization dedicated to advancing technology. IEEE develops standards for electrical, electronic, and computer systems that are globally recognized.',
+  s2: 'Key IEEE Standards',
+  list1: ['IEEE 80 – Earthing and Grounding','IEEE 141 – Electric Power Distribution','IEEE 242 – Protection and Coordination','IEEE 315 – Graphic Symbols for Electrical Diagrams','IEEE 519 – Harmonic Control in Power Systems','IEEE 1584 – Arc Flash Hazard Calculations','IEEE 802.3 – Ethernet Standard'],
+  s3: 'IEEE Standards by Category',
+  list2: ['Power Systems: IEEE 80, IEEE 141, IEEE 519','Protection & Coordination: IEEE 242, IEEE 1584','Communication: IEEE 802.3 (Ethernet)','Symbols & Documentation: IEEE 315','Electronics & Semiconductors: IEEE 1241, IEEE 1451'],
+  s4: 'Example: IEEE 80 – Earthing',
+  s4p: 'IEEE 80 provides guidelines for safe earthing and grounding systems in substations and industrial facilities. It covers step and touch voltage calculations, soil resistivity measurement, and grounding grid design to ensure personnel safety during fault conditions.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'استانداردهای IEEE',
+  desc: 'استانداردهای مؤسسه مهندسان برق و الکترونیک برای سیستم‌های قدرت، ارتباطات و الکترونیک.',
+  s1: 'IEEE چیست؟',
+  s1p: 'مؤسسه مهندسان برق و الکترونیک (IEEE) بزرگترین سازمان حرفه‌ای فنی در جهان است که به پیشبرد فناوری اختصاص دارد. IEEE استانداردهایی را برای سیستم‌های الکتریکی، الکترونیکی و کامپیوتری تدوین می‌کند که در سطح جهانی شناخته شده‌اند.',
+  s2: 'استانداردهای کلیدی IEEE',
+  list1: ['IEEE 80 – ارتینگ و زمین‌کردن','IEEE 141 – توزیع برق','IEEE 242 – حفاظت و هماهنگی','IEEE 315 – نمادهای گرافیکی برای نمودارهای الکتریکی','IEEE 519 – کنترل هارمونیک در سیستم‌های قدرت','IEEE 1584 – محاسبات خطر قوس الکتریکی','IEEE 802.3 – استاندارد اترنت'],
+  s3: 'استانداردهای IEEE بر اساس دسته',
+  list2: ['سیستم‌های قدرت: IEEE 80، IEEE 141، IEEE 519','حفاظت و هماهنگی: IEEE 242، IEEE 1584','ارتباطات: IEEE 802.3 (اترنت)','نمادها و مستندات: IEEE 315','الکترونیک و نیمه‌رساناها: IEEE 1241، IEEE 1451'],
+  s4: 'مثال: IEEE 80 – ارتینگ',
+  s4p: 'IEEE 80 دستورالعمل‌هایی برای سیستم‌های ارتینگ و زمین‌کردن ایمن در پست‌ها و تأسیسات صنعتی ارائه می‌دهد. این استاندارد شامل محاسبات ولتاژ گام و تماس، اندازه‌گیری مقاومت خاک و طراحی شبکه زمین برای اطمینان از ایمنی پرسنل در شرایط خطا است.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
