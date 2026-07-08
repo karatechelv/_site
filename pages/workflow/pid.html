@@ -1,150 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · P&ID</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · P&amp;ID</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">📄 P&ID (Piping & Instrumentation Diagram)</h1>
-    <div class="sub" id="desc">P&ID is a detailed graphical representation of the process flow, equipment, piping, instrumentation, and control systems in an industrial plant.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What is a P&ID?</h2>
-        <p id="s1p">A Piping and Instrumentation Diagram (P&ID) is a schematic drawing that shows the relationships between piping, instrumentation, and control systems in a process plant. It is a fundamental engineering document used for design, construction, and operation of industrial facilities.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Key Elements of a P&ID</h2>
-        <ul id="list1">
-            <li><b>Piping</b> – Lines, fittings, valves, and flow directions</li>
-            <li><b>Instrumentation</b> – Sensors, transmitters, controllers, and indicators</li>
-            <li><b>Equipment</b> – Vessels, pumps, compressors, heat exchangers, and reactors</li>
-            <li><b>Control Systems</b> – Control loops, interlocks, and logic</li>
-            <li><b>Process Flow</b> – Material and energy flow through the system</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 P&ID Standards</h2>
-        <ul id="list2">
-            <li>ISA 5.1 – Instrumentation Symbols and Identification</li>
-            <li>ANSI/ISA 5.1 – Graphical symbols for instrumentation</li>
-            <li>ISO 10628 – Diagrams for chemical and petrochemical industry</li>
-            <li>IEC 60617 – Graphical symbols for electrical diagrams</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: P&ID for a Chemical Reactor</h2>
-        <p id="s4p">A P&ID for a chemical reactor shows the reactor vessel, feed lines, product outlet, cooling water system, temperature and pressure sensors, and control valves. The diagram includes flow indicators, temperature controllers, and safety interlocks. It serves as the basis for design, hazard analysis, and operating procedures.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">P&amp;ID (Piping &amp; Instrumentation Diagram)</h1>
+ <div class="sub" id="desc">Understanding and creating Piping and Instrumentation Diagrams for process systems.</div>
+ <div class="section">
+  <h2 id="s1">What is P&amp;ID?</h2>
+  <p id="s1p">A Piping and Instrumentation Diagram (P&ID) is a detailed graphical representation of a process system. It shows the interconnecting piping, equipment, instrumentation, and control devices used in a process plant. P&IDs are essential for design, operation, and maintenance.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">P&amp;ID Components</h2>
+  <ul id="list1">
+   <li>Piping – Process lines with sizes and materials</li>
+   <li>Equipment – Vessels, pumps, compressors, heat exchangers</li>
+   <li>Instrumentation – Sensors, transmitters, control valves</li>
+   <li>Control Systems – PLC/DCS connections</li>
+   <li>Tags and Labels – Unique identifiers</li>
+   <li>Flow Direction – Arrows and indications</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">P&amp;ID Standards</h2>
+  <ul id="list2">
+   <li>ANSI/ISA 5.1 – Instrument Symbols and Diagrams</li>
+   <li>ISO 10628 – Flow Diagrams for Process Plants</li>
+   <li>API RP 551 – Process Measurement Instrumentation</li>
+   <li>IEC 61082 – Preparation of Documents</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: Simple P&amp;ID</h2>
+  <p id="s4p">A simple P&ID for a tank level control system shows: feed line → storage tank → level transmitter (LT) → level controller (LC) → control valve → product line. The P&ID includes tag numbers, line sizes, and control loop information.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📄 P&ID (Piping & Instrumentation Diagram)',
-            desc: 'P&ID is a detailed graphical representation of the process flow, equipment, piping, instrumentation, and control systems in an industrial plant.',
-            s1: '🔹 What is a P&ID?',
-            s1p: 'A Piping and Instrumentation Diagram (P&ID) is a schematic drawing that shows the relationships between piping, instrumentation, and control systems in a process plant. It is a fundamental engineering document used for design, construction, and operation of industrial facilities.',
-            s2: '🔹 Key Elements of a P&ID',
-            list1: ['Piping – Lines, fittings, valves, and flow directions','Instrumentation – Sensors, transmitters, controllers, and indicators','Equipment – Vessels, pumps, compressors, heat exchangers, and reactors','Control Systems – Control loops, interlocks, and logic','Process Flow – Material and energy flow through the system'],
-            s3: '🔹 P&ID Standards',
-            list2: ['ISA 5.1 – Instrumentation Symbols and Identification','ANSI/ISA 5.1 – Graphical symbols for instrumentation','ISO 10628 – Diagrams for chemical and petrochemical industry','IEC 60617 – Graphical symbols for electrical diagrams'],
-            s4: '🔹 Example: P&ID for a Chemical Reactor',
-            s4p: 'A P&ID for a chemical reactor shows the reactor vessel, feed lines, product outlet, cooling water system, temperature and pressure sensors, and control valves. The diagram includes flow indicators, temperature controllers, and safety interlocks. It serves as the basis for design, hazard analysis, and operating procedures.',
-            back: '← Back'
-        },
-        fa: {
-            title: '📄 P&ID (نمودار لوله‌کشی و ابزار دقیق)',
-            desc: 'P&ID یک نمایش گرافیکی دقیق از جریان فرآیند، تجهیزات، لوله‌کشی، ابزار دقیق و سیستم‌های کنترل در یک کارخانه صنعتی است.',
-            s1: '🔹 P&ID چیست؟',
-            s1p: 'نمودار لوله‌کشی و ابزار دقیق (P&ID) یک نقشه شماتیک است که روابط بین لوله‌کشی، ابزار دقیق و سیستم‌های کنترل را در یک کارخانه فرآیندی نشان می‌دهد. این یک سند مهندسی اساسی است که برای طراحی، ساخت و بهره‌برداری از تأسیسات صنعتی استفاده می‌شود.',
-            s2: '🔹 عناصر کلیدی P&ID',
-            list1: ['لوله‌کشی – خطوط، اتصالات، شیرها و جهت جریان','ابزار دقیق – سنسورها، ترانسمیترها، کنترل‌کننده‌ها و نشانگرها','تجهیزات – مخازن، پمپ‌ها، کمپرسورها، مبدل‌های حرارتی و راکتورها','سیستم‌های کنترل – حلقه‌های کنترل، اینترلاک‌ها و منطق','جریان فرآیند – جریان مواد و انرژی از طریق سیستم'],
-            s3: '🔹 استانداردهای P&ID',
-            list2: ['ISA 5.1 – نمادها و شناسایی ابزار دقیق','ANSI/ISA 5.1 – نمادهای گرافیکی برای ابزار دقیق','ISO 10628 – نمودارهای صنایع شیمیایی و پتروشیمی','IEC 60617 – نمادهای گرافیکی برای نمودارهای الکتریکی'],
-            s4: '🔹 مثال: P&ID برای یک راکتور شیمیایی',
-            s4p: 'یک P&ID برای یک راکتور شیمیایی، مخزن راکتور، خطوط تغذیه، خروجی محصول، سیستم آب خنک‌کننده، سنسورهای دما و فشار و شیرهای کنترلی را نشان می‌دهد. این نمودار شامل نشانگرهای جریان، کنترل‌کننده‌های دما و اینترلاک‌های ایمنی است. این نمودار به عنوان مبنایی برای طراحی، تحلیل خطر و رویه‌های عملیاتی عمل می‌کند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'P&ID (Piping & Instrumentation Diagram)',
+  desc: 'Understanding and creating Piping and Instrumentation Diagrams for process systems.',
+  s1: 'What is P&ID?',
+  s1p: 'A Piping and Instrumentation Diagram (P&ID) is a detailed graphical representation of a process system. It shows the interconnecting piping, equipment, instrumentation, and control devices used in a process plant. P&IDs are essential for design, operation, and maintenance.',
+  s2: 'P&ID Components',
+  list1: ['Piping – Process lines with sizes and materials','Equipment – Vessels, pumps, compressors, heat exchangers','Instrumentation – Sensors, transmitters, control valves','Control Systems – PLC/DCS connections','Tags and Labels – Unique identifiers','Flow Direction – Arrows and indications'],
+  s3: 'P&ID Standards',
+  list2: ['ANSI/ISA 5.1 – Instrument Symbols and Diagrams','ISO 10628 – Flow Diagrams for Process Plants','API RP 551 – Process Measurement Instrumentation','IEC 61082 – Preparation of Documents'],
+  s4: 'Example: Simple P&ID',
+  s4p: 'A simple P&ID for a tank level control system shows: feed line → storage tank → level transmitter (LT) → level controller (LC) → control valve → product line. The P&ID includes tag numbers, line sizes, and control loop information.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'P&ID (نمودار لوله‌کشی و ابزار دقیق)',
+  desc: 'آشنایی و ایجاد نمودارهای لوله‌کشی و ابزار دقیق برای سیستم‌های فرآیندی.',
+  s1: 'P&ID چیست؟',
+  s1p: 'نمودار لوله‌کشی و ابزار دقیق (P&ID) یک نمایش گرافیکی دقیق از یک سیستم فرآیندی است. این نمودار لوله‌کشی، تجهیزات، ابزار دقیق و دستگاه‌های کنترلی مورد استفاده در یک کارخانه فرآیندی را نشان می‌دهد. P&ID برای طراحی، بهره‌برداری و نگهداری ضروری است.',
+  s2: 'اجزای P&ID',
+  list1: ['لوله‌کشی – خطوط فرآیند با اندازه و جنس','تجهیزات – مخازن، پمپ‌ها، کمپرسورها، مبدل‌های حرارتی','ابزار دقیق – سنسورها، ترانسمیترها، شیرهای کنترلی','سیستم‌های کنترل – اتصالات PLC/DCS','برچسب‌ها و تگ‌ها – شناسه‌های منحصر‌به‌فرد','جهت جریان – فلش‌ها و علائم'],
+  s3: 'استانداردهای P&ID',
+  list2: ['ANSI/ISA 5.1 – نمادها و نمودارهای ابزار دقیق','ISO 10628 – نمودارهای جریان برای کارخانه‌های فرآیندی','API RP 551 – اندازه‌گیری فرآیند','IEC 61082 – تهیه اسناد'],
+  s4: 'مثال: P&ID ساده',
+  s4p: 'یک P&ID ساده برای سیستم کنترل سطح مخزن نشان می‌دهد: خط خوراک → مخزن ذخیره → ترانسمیتر سطح (LT) → کنترل‌کننده سطح (LC) → شیر کنترلی → خط محصول. P&ID شامل شماره تگ‌ها، اندازه خطوط و اطلاعات حلقه کنترل است.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
