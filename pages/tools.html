@@ -1,141 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Engineering Tools</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1100px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1.05rem;margin-bottom:30px}
-        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-bottom:30px}
-        .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
-        .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
-        .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
-        .card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
-        .card p{color:#8e95a5;font-size:.85rem}
-        .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:8px}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Engineering Workflow</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1100px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1.05rem;line-height:1.8;margin-bottom:30px}
+ .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-bottom:30px}
+ .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+ .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
+ .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
+ .card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
+ .card p{color:#8e95a5;font-size:.85rem}
+ .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:8px}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="page-title">🔧 Engineering Tools</h1>
-    <div class="sub" id="page-sub">Essential engineering calculators and reference tools for electrical, instrumentation, and automation engineers.</div>
-
-    <div class="grid" id="cards-grid">
-        <a href="tools/voltage-drop.html" class="card"><i>⚡</i><h3>Voltage Drop</h3><p>Calculate voltage drop in cables</p><span class="badge">Open Tool →</span></a>
-        <a href="tools/power-factor.html" class="card"><i>📈</i><h3>Power Factor</h3><p>Calculate power factor and correction</p><span class="badge">Open Tool →</span></a>
-        <a href="tools/cable-size.html" class="card"><i>📏</i><h3>Cable Size</h3><p>Select appropriate cable size</p><span class="badge">Open Tool →</span></a>
-        <a href="tools/breaker-selection.html" class="card"><i>🛡️</i><h3>Breaker Selection</h3><p>Select circuit breaker type and rating</p><span class="badge">Open Tool →</span></a>
-        <a href="tools/motor-current.html" class="card"><i>🔄</i><h3>Motor Current</h3><p>Calculate motor full load current</p><span class="badge">Open Tool →</span></a>
-        <a href="tools/transformer.html" class="card"><i>⚡</i><h3>Transformer</h3><p>Transformer sizing and calculations</p><span class="badge">Open Tool →</span></a>
-        <a href="tools/awg-converter.html" class="card"><i>🔌</i><h3>AWG Converter</h3><p>Convert AWG to mm² and vice versa</p><span class="badge">Open Tool →</span></a>
-        <a href="tools/unit-converter.html" class="card"><i>🔄</i><h3>Unit Converter</h3><p>Convert engineering units</p><span class="badge">Open Tool →</span></a>
-        <a href="tools/ip-rating.html" class="card"><i>💧</i><h3>IP Rating</h3><p>IP rating reference table</p><span class="badge">Open Tool →</span></a>
-        <a href="tools/iec-tables.html" class="card"><i>📊</i><h3>IEC Tables</h3><p>Reference tables for cable, fuse, etc.</p><span class="badge">Open Tool →</span></a>
-        <a href="#" class="card" style="opacity:0.7;cursor:default;"><i>🔮</i><h3>Future Tools</h3><p>Coming soon...</p><span class="badge">In Development</span></a>
-    </div>
-
-    <div class="back">
-        <a href="../index.html" id="backlink" onclick="localStorage.setItem('dashboardActive', 'true')">← Back to Dashboard</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="page-title">Engineering Workflow</h1>
+ <div class="sub" id="page-sub">Complete engineering workflow from P&ID to Operation with visual process flow and best practices.</div>
+ <div class="grid" id="cards-grid">
+  <a href="workflow/overview.html" class="card"><i>📋</i><h3>Overview</h3><p>Complete overview</p><span class="badge">Learn More →</span></a>
+  <a href="workflow/pid.html" class="card"><i>📄</i><h3>P&amp;ID</h3><p>Piping &amp; instrumentation diagrams</p><span class="badge">Learn More →</span></a>
+  <a href="workflow/design.html" class="card"><i>✏️</i><h3>Design</h3><p>Engineering design phase</p><span class="badge">Learn More →</span></a>
+  <a href="workflow/panel.html" class="card"><i>📦</i><h3>Panel Design</h3><p>Panel layout &amp; wiring</p><span class="badge">Learn More →</span></a>
+  <a href="workflow/procurement.html" class="card"><i>🛒</i><h3>Procurement</h3><p>Material sourcing</p><span class="badge">Learn More →</span></a>
+  <a href="workflow/assembly.html" class="card"><i>🔧</i><h3>Assembly</h3><p>Panel assembly</p><span class="badge">Learn More →</span></a>
+  <a href="workflow/fat.html" class="card"><i>🧪</i><h3>FAT</h3><p>Factory acceptance test</p><span class="badge">Learn More →</span></a>
+  <a href="workflow/installation.html" class="card"><i>🔌</i><h3>Installation</h3><p>On-site installation</p><span class="badge">Learn More →</span></a>
+  <a href="workflow/loop-check.html" class="card"><i>🔄</i><h3>Loop Check</h3><p>Instrument loop check</p><span class="badge">Learn More →</span></a>
+  <a href="workflow/commissioning.html" class="card"><i>▶️</i><h3>Commissioning</h3><p>System startup</p><span class="badge">Learn More →</span></a>
+  <a href="workflow/sat.html" class="card"><i>✅</i><h3>SAT</h3><p>Site acceptance test</p><span class="badge">Learn More →</span></a>
+  <a href="workflow/documentation.html" class="card"><i>📁</i><h3>Documentation</h3><p>As-built docs</p><span class="badge">Learn More →</span></a>
+  <a href="workflow/operation.html" class="card"><i>⚙️</i><h3>Operation</h3><p>System operation</p><span class="badge">Learn More →</span></a>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🔧 Engineering Tools',
-            sub: 'Essential engineering calculators and reference tools for electrical, instrumentation, and automation engineers.',
-            cards: [
-                ['Voltage Drop', 'Calculate voltage drop in cables', 'Open Tool →'],
-                ['Power Factor', 'Calculate power factor and correction', 'Open Tool →'],
-                ['Cable Size', 'Select appropriate cable size', 'Open Tool →'],
-                ['Breaker Selection', 'Select circuit breaker type and rating', 'Open Tool →'],
-                ['Motor Current', 'Calculate motor full load current', 'Open Tool →'],
-                ['Transformer', 'Transformer sizing and calculations', 'Open Tool →'],
-                ['AWG Converter', 'Convert AWG to mm² and vice versa', 'Open Tool →'],
-                ['Unit Converter', 'Convert engineering units', 'Open Tool →'],
-                ['IP Rating', 'IP rating reference table', 'Open Tool →'],
-                ['IEC Tables', 'Reference tables for cable, fuse, etc.', 'Open Tool →'],
-                ['Future Tools', 'Coming soon...', 'In Development']
-            ],
-            back: '← Back to Dashboard'
-        },
-        fa: {
-            title: '🔧 ابزارهای مهندسی',
-            sub: 'ماشین‌حساب‌ها و ابزارهای مرجع ضروری برای مهندسان برق، ابزار دقیق و اتوماسیون.',
-            cards: [
-                ['افت ولتاژ', 'محاسبه افت ولتاژ در کابل‌ها', 'باز کردن ابزار →'],
-                ['ضریب توان', 'محاسبه ضریب توان و اصلاح', 'باز کردن ابزار →'],
-                ['سایز کابل', 'انتخاب سایز مناسب کابل', 'باز کردن ابزار →'],
-                ['انتخاب کلید', 'انتخاب نوع و رتبه کلید مدار', 'باز کردن ابزار →'],
-                ['جریان موتور', 'محاسبه جریان کامل بار موتور', 'باز کردن ابزار →'],
-                ['ترانسفورماتور', 'سایزینگ و محاسبات ترانسفورماتور', 'باز کردن ابزار →'],
-                ['مبدل AWG', 'تبدیل AWG به میلی‌متر مربع و برعکس', 'باز کردن ابزار →'],
-                ['مبدل واحد', 'تبدیل واحدهای مهندسی', 'باز کردن ابزار →'],
-                ['درجه IP', 'جدول مرجع درجه حفاظت IP', 'باز کردن ابزار →'],
-                ['جدول‌های IEC', 'جدول‌های مرجع کابل، فیوز و غیره', 'باز کردن ابزار →'],
-                ['ابزارهای آینده', 'به زودی...', 'در حال توسعه']
-            ],
-            back: '← بازگشت به داشبورد'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('page-title').textContent = t.title;
-        document.getElementById('page-sub').textContent = t.sub;
-        document.getElementById('backlink').textContent = t.back;
-
-        const grid = document.getElementById('cards-grid');
-        const cards = grid.querySelectorAll('.card');
-        t.cards.forEach((item, index) => {
-            if (cards[index]) {
-                cards[index].querySelector('h3').textContent = item[0];
-                cards[index].querySelector('p').textContent = item[1];
-                const badge = cards[index].querySelector('.badge');
-                if (badge) badge.textContent = item[2];
-            }
-        });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Engineering Workflow',
+  desc: 'Complete engineering workflow from P&ID to Operation with visual process flow and best practices.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'جریان کار مهندسی',
+  desc: 'جریان کار کامل مهندسی از P&ID تا بهره‌برداری با جریان فرآیند بصری و بهترین روش‌ها.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('page-title').textContent = t.title;
+ document.getElementById('page-sub').textContent = t.desc;
+ document.getElementById('backlink').textContent = t.back;
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
