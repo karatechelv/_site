@@ -1,199 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Codesys</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Codesys</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">💡 Codesys</h1>
-    <div class="sub" id="desc">Codesys is a powerful IEC 61131-3 compliant development environment for PLC programming, used across multiple hardware platforms and industries.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 Description</h2>
-        <p id="s1p">Codesys (Controller Development System) is a comprehensive software platform for industrial automation programming. It supports all IEC 61131-3 programming languages (Ladder, FBD, ST, IL, SFC) and is used for programming PLCs, PACs, and industrial controllers from various manufacturers. Codesys is known for its flexibility, scalability, and open architecture.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Purpose</h2>
-        <p id="s2p">The purpose of Codesys is to provide a unified development environment for industrial automation, enabling engineers to write, test, and commission control logic across different hardware platforms. It reduces development time, improves code reusability, and supports advanced features like visualization, motion control, and safety.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Example</h2>
-        <p id="s3p">An automation engineer uses Codesys to program a controller for a packaging machine. They create a project, write logic in Structured Text (ST) and Ladder, configure I/O and fieldbus communication (Profinet, EtherCAT), and test the program using the integrated simulation. After deployment, they use the built-in monitoring and debugging tools to optimize performance and troubleshoot.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Learning Path</h2>
-        <ul id="list1">
-            <li>Introduction to Codesys interface and project structure</li>
-            <li>PLC programming (Ladder, FBD, ST, IL, SFC)</li>
-            <li>Hardware configuration and fieldbus setup</li>
-            <li>Visualization and HMI design (Codesys WebVisu)</li>
-            <li>Motion control and safety applications</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s5">🔹 Resources</h2>
-        <ul id="list2">
-            <li>Codesys Official Website and Documentation</li>
-            <li>Codesys Online Help and Forums</li>
-            <li>YouTube tutorials and training courses</li>
-            <li>Community projects and sample code</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s6">🔹 Software</h2>
-        <ul id="list3">
-            <li>Codesys Development System (full version)</li>
-            <li>Codesys Runtime (for target devices)</li>
-            <li>Codesys Safety (functional safety)</li>
-            <li>Codesys WebVisu (web-based visualization)</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s7">🔹 Videos & Future Lessons</h2>
-        <ul id="list4">
-            <li>Getting Started with Codesys</li>
-            <li>Programming in Structured Text and Ladder</li>
-            <li>Visualization and WebVisu (Future)</li>
-            <li>Motion Control and Safety (Future)</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Codesys</h1>
+ <div class="sub" id="desc">Independent PLC programming platform supporting multiple brands and IEC 61131-3 languages.</div>
+ <div class="section">
+  <h2 id="s1">Overview</h2>
+  <p id="s1p">Codesys is a powerful, vendor-independent PLC programming platform that supports all IEC 61131-3 languages. It is widely used across many PLC brands including WAGO, Beckhoff, Schneider, and many others, offering flexibility and standardization.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key Features</h2>
+  <ul id="list1">
+   <li>IEC 61131-3 Languages – Ladder, ST, FBD, SFC, IL</li>
+   <li>Vendor-Independent – Supports many PLC brands</li>
+   <li>Visualization – Built-in HMI/SCADA</li>
+   <li>Simulation – Integrated PLC simulation</li>
+   <li>Fieldbus Support – Profinet, EtherCAT, CANopen</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Learning Path</h2>
+  <ul id="list2">
+   <li>Codesys Basics – Installation and environment</li>
+   <li>IEC Languages – Ladder, ST, FBD, SFC</li>
+   <li>Visualization – Creating HMI screens</li>
+   <li>Communication – Fieldbus configuration</li>
+   <li>Advanced – Motion control, OPC UA</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: Multi-Vendor PLC Project</h2>
+  <p id="s4p">Codesys enables a single project to be deployed across different PLC hardware brands. A program written in Codesys can run on WAGO, Beckhoff, Schneider, or any other Codesys-compatible PLC, providing flexibility in hardware selection.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '💡 Codesys',
-            desc: 'Codesys is a powerful IEC 61131-3 compliant development environment for PLC programming, used across multiple hardware platforms and industries.',
-            s1: '🔹 Description',
-            s1p: 'Codesys (Controller Development System) is a comprehensive software platform for industrial automation programming. It supports all IEC 61131-3 programming languages (Ladder, FBD, ST, IL, SFC) and is used for programming PLCs, PACs, and industrial controllers from various manufacturers. Codesys is known for its flexibility, scalability, and open architecture.',
-            s2: '🔹 Purpose',
-            s2p: 'The purpose of Codesys is to provide a unified development environment for industrial automation, enabling engineers to write, test, and commission control logic across different hardware platforms. It reduces development time, improves code reusability, and supports advanced features like visualization, motion control, and safety.',
-            s3: '🔹 Example',
-            s3p: 'An automation engineer uses Codesys to program a controller for a packaging machine. They create a project, write logic in Structured Text (ST) and Ladder, configure I/O and fieldbus communication (Profinet, EtherCAT), and test the program using the integrated simulation. After deployment, they use the built-in monitoring and debugging tools to optimize performance and troubleshoot.',
-            s4: '🔹 Learning Path',
-            list1: ['Introduction to Codesys interface and project structure','PLC programming (Ladder, FBD, ST, IL, SFC)','Hardware configuration and fieldbus setup','Visualization and HMI design (Codesys WebVisu)','Motion control and safety applications'],
-            s5: '🔹 Resources',
-            list2: ['Codesys Official Website and Documentation','Codesys Online Help and Forums','YouTube tutorials and training courses','Community projects and sample code'],
-            s6: '🔹 Software',
-            list3: ['Codesys Development System (full version)','Codesys Runtime (for target devices)','Codesys Safety (functional safety)','Codesys WebVisu (web-based visualization)'],
-            s7: '🔹 Videos & Future Lessons',
-            list4: ['Getting Started with Codesys','Programming in Structured Text and Ladder','Visualization and WebVisu (Future)','Motion Control and Safety (Future)'],
-            back: '← Back'
-        },
-        fa: {
-            title: '💡 Codesys',
-            desc: 'Codesys یک محیط توسعه قدرتمند مطابق با IEC 61131-3 برای برنامه‌نویسی PLC است که در پلتفرم‌های سخت‌افزاری و صنایع مختلف استفاده می‌شود.',
-            s1: '🔹 توضیحات',
-            s1p: 'Codesys یک پلتفرم نرم‌افزاری جامع برای برنامه‌نویسی اتوماسیون صنعتی است. از تمام زبان‌های برنامه‌نویسی IEC 61131-3 (نردبانی، FBD، ST، IL، SFC) پشتیبانی کرده و برای برنامه‌نویسی PLCها، PACها و کنترل‌کننده‌های صنعتی از تولیدکنندگان مختلف استفاده می‌شود. Codesys به دلیل انعطاف‌پذیری، مقیاس‌پذیری و معماری باز خود شناخته شده است.',
-            s2: '🔹 هدف',
-            s2p: 'هدف Codesys ارائه یک محیط توسعه یکپارچه برای اتوماسیون صنعتی است که مهندسان را قادر می‌سازد تا منطق کنترل را در پلتفرم‌های سخت‌افزاری مختلف بنویسند، تست کرده و راه‌اندازی کنند. زمان توسعه را کاهش، قابلیت استفاده مجدد کد را بهبود و از ویژگی‌های پیشرفته مانند تصویرسازی، کنترل حرکت و ایمنی پشتیبانی می‌کند.',
-            s3: '🔹 مثال',
-            s3p: 'یک مهندس اتوماسیون از Codesys برای برنامه‌نویسی یک کنترل‌کننده برای یک دستگاه بسته‌بندی استفاده می‌کند. آنها یک پروژه ایجاد، منطق را به زبان Structured Text (ST) و نردبانی نوشته، I/O و ارتباط فیلدباس (Profinet، EtherCAT) را پیکربندی کرده و برنامه را با استفاده از شبیه‌سازی یکپارچه تست می‌کنند. پس از استقرار، از ابزارهای نظارت و اشکال‌زدایی داخلی برای بهینه‌سازی عملکرد و عیب‌یابی استفاده می‌کنند.',
-            s4: '🔹 مسیر یادگیری',
-            list1: ['آشنایی با رابط Codesys و ساختار پروژه','برنامه‌نویسی PLC (نردبانی، FBD، ST، IL، SFC)','پیکربندی سخت‌افزار و راه‌اندازی فیلدباس','تصویرسازی و طراحی HMI (Codesys WebVisu)','کاربردهای کنترل حرکت و ایمنی'],
-            s5: '🔹 منابع',
-            list2: ['وب‌سایت رسمی و مستندات Codesys','راهنمای آنلاین و انجمن‌های Codesys','آموزش‌های یوتیوب و دوره‌های آموزشی','پروژه‌های جامعه و کدهای نمونه'],
-            s6: '🔹 نرم‌افزار',
-            list3: ['Codesys Development System (نسخه کامل)','Codesys Runtime (برای دستگاه‌های هدف)','Codesys Safety (ایمنی عملکردی)','Codesys WebVisu (تصویرسازی مبتنی بر وب)'],
-            s7: '🔹 ویدئوها و درس‌های آینده',
-            list4: ['شروع کار با Codesys','برنامه‌نویسی به زبان Structured Text و نردبانی','تصویرسازی و WebVisu (آینده)','کنترل حرکت و ایمنی (آینده)'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s2p').textContent = t.s2p;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s5').textContent = t.s5;
-        document.getElementById('s6').textContent = t.s6;
-        document.getElementById('s7').textContent = t.s7;
-        document.getElementById('backlink').textContent = t.back;
-
-        const list1 = document.getElementById('list1');
-        list1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
-
-        const list2 = document.getElementById('list2');
-        list2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
-
-        const list3 = document.getElementById('list3');
-        list3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; list3.appendChild(li); });
-
-        const list4 = document.getElementById('list4');
-        list4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; list4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Codesys',
+  desc: 'Independent PLC programming platform supporting multiple brands and IEC 61131-3 languages.',
+  s1: 'Overview',
+  s1p: 'Codesys is a powerful, vendor-independent PLC programming platform that supports all IEC 61131-3 languages. It is widely used across many PLC brands including WAGO, Beckhoff, Schneider, and many others, offering flexibility and standardization.',
+  s2: 'Key Features',
+  list1: ['IEC 61131-3 Languages – Ladder, ST, FBD, SFC, IL','Vendor-Independent – Supports many PLC brands','Visualization – Built-in HMI/SCADA','Simulation – Integrated PLC simulation','Fieldbus Support – Profinet, EtherCAT, CANopen'],
+  s3: 'Learning Path',
+  list2: ['Codesys Basics – Installation and environment','IEC Languages – Ladder, ST, FBD, SFC','Visualization – Creating HMI screens','Communication – Fieldbus configuration','Advanced – Motion control, OPC UA'],
+  s4: 'Example: Multi-Vendor PLC Project',
+  s4p: 'Codesys enables a single project to be deployed across different PLC hardware brands. A program written in Codesys can run on WAGO, Beckhoff, Schneider, or any other Codesys-compatible PLC, providing flexibility in hardware selection.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'Codesys',
+  desc: 'پلتفرم برنامه‌نویسی مستقل PLC با پشتیبانی از برندهای متعدد و زبان‌های IEC 61131-3.',
+  s1: 'مرور کلی',
+  s1p: 'Codesys یک پلتفرم قدرتمند برنامه‌نویسی PLC مستقل از فروشنده است که از تمام زبان‌های IEC 61131-3 پشتیبانی می‌کند. این نرم‌افزار در بسیاری از برندهای PLC از جمله WAGO، Beckhoff، Schneider و بسیاری دیگر استفاده می‌شود و انعطاف‌پذیری و استانداردسازی را ارائه می‌دهد.',
+  s2: 'ویژگی‌های کلیدی',
+  list1: ['زبان‌های IEC 61131-3 – نردبانی، ST، FBD، SFC، IL','مستقل از فروشنده – پشتیبانی از بسیاری از برندهای PLC','بصری‌سازی – HMI/SCADA داخلی','شبیه‌سازی – شبیه‌سازی PLC یکپارچه','پشتیبانی از فیلدباس – Profinet، EtherCAT، CANopen'],
+  s3: 'مسیر یادگیری',
+  list2: ['مبانی Codesys – نصب و محیط','زبان‌های IEC – نردبانی، ST، FBD، SFC','بصری‌سازی – ایجاد صفحه‌های HMI','ارتباطات – پیکربندی فیلدباس','پیشرفته – کنترل حرکت، OPC UA'],
+  s4: 'مثال: پروژه PLC چندبرندی',
+  s4p: 'Codesys امکان استقرار یک پروژه واحد را در برندهای مختلف سخت‌افزار PLC فراهم می‌کند. یک برنامه نوشته شده در Codesys می‌تواند روی WAGO، Beckhoff، Schneider یا هر PLC سازگار دیگر اجرا شود و انعطاف‌پذیری در انتخاب سخت‌افزار را فراهم می‌کند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
