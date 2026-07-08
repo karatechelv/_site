@@ -10,12 +10,10 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
  <style>
  *{margin:0;padding:0;box-sizing:border-box}
- :root{--primary:#5b3b8c;--primary-light:#7e5aa7;--accent:#d4af37;--accent-light:#e8c84c;--bg:#181a1f;--card-bg:#25282f;--text:#f0f2f5;--text-muted:#a0a6b3;--glass:rgba(37,40,47,0.7);--shadow:0 12px 30px rgba(0,0,0,0.6);--radius:24px;--transition:0.25s cubic-bezier(0.25,0.46,0.45,0.94)}
- body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;min-height:100vh;transition:background 0.2s}
+ :root{--primary:#5b3b8c;--primary-light:#7e5aa7;--accent:#d4af37;--accent-light:#e8c84c;--bg:#181a1f;--card-bg:#25282f;--text:#f0f2f5;--text-muted:#a0a6b3;--glass:rgba(37,40,47,0.7);--shadow:0 12px 30px rgba(0,0,0,0.6);--radius:24px}
+ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;min-height:100vh}
  a{color:var(--accent);text-decoration:none}
  i{margin-right:8px}
- .glass-card{background:var(--glass);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.04);border-radius:var(--radius);box-shadow:var(--shadow);transition:transform 0.2s,box-shadow 0.2s}
- .glass-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.7)}
  .header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:rgba(24,26,31,0.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.15);position:sticky;top:0;z-index:100}
  .brand{font-weight:700;font-size:1.5rem;letter-spacing:1px;color:#fff}
  .brand span{color:var(--accent)}
@@ -53,18 +51,14 @@
  .section-title{font-size:1.6rem;font-weight:600;margin:40px 0 16px;display:flex;align-items:center;gap:12px}
  .section-title i{color:var(--accent)}
  .coming{background:rgba(212,175,55,0.12);padding:4px 12px;border-radius:40px;font-size:0.7rem;font-weight:600;color:var(--accent);margin-left:12px}
- .flex-between{display:flex;justify-content:space-between;align-items:center}
- .lang-persian{direction:rtl;font-family:'Inter',sans-serif}
- .lang-persian .brand{font-family:'Inter',sans-serif}
- @media(max-width:768px){.header{padding:14px 20px;flex-wrap:wrap;gap:12px}
- .grid-4{grid-template-columns:1fr 1fr}
- .splash-logo{font-size:2.8rem}}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){.header{padding:14px 20px;flex-wrap:wrap;gap:12px}.grid-4{grid-template-columns:1fr 1fr}.splash-logo{font-size:2.8rem}}
  @media(max-width:480px){.grid-4{grid-template-columns:1fr}}
  </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="header">
  <div class="brand">KARATECH <span>ELV</span></div>
  <div class="lang-switch">
@@ -73,7 +67,6 @@
  </div>
 </header>
 
-<!-- SPLASH -->
 <section class="splash" id="splash">
  <div class="splash-icon"><i class="fas fa-microchip"></i></div>
  <div class="splash-logo">KARATECH ELV</div>
@@ -81,10 +74,8 @@
  <button class="splash-btn" id="enterBtn"><i class="fas fa-arrow-right"></i> <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span></button>
 </section>
 
-<!-- DASHBOARD -->
 <div class="dashboard" id="dashboard">
 
- <!-- ACADEMY CARDS -->
  <div class="grid-4" id="academyGrid">
   <div class="card-academy" onclick="location.href='pages/academy/electrical.html'"><i class="fas fa-bolt"></i><h3>Electrical</h3><p data-en="Power, distribution, protection" data-fa="برق، توزیع، حفاظت">Power, distribution, protection</p></div>
   <div class="card-academy" onclick="location.href='pages/academy/automation.html'"><i class="fas fa-robot"></i><h3>Automation</h3><p data-en="PLC, SCADA, control" data-fa="PLC، SCADA، کنترل">PLC, SCADA, control</p></div>
@@ -96,7 +87,6 @@
   <div class="card-academy" onclick="location.href='pages/academy/hse.html'"><i class="fas fa-hard-hat"></i><h3>HSE</h3><p data-en="Safety, environment, health" data-fa="ایمنی، محیط زیست، بهداشت">Safety, environment</p></div>
  </div>
 
- <!-- WORKFLOW -->
  <div class="section-title"><i class="fas fa-project-diagram"></i> <span data-en="Engineering Workflow" data-fa="جریان کار مهندسی">Engineering Workflow</span></div>
  <div class="workflow-container">
   <span class="wf-step"><i class="fas fa-file-pdf"></i> P&ID</span><span class="wf-arrow">→</span>
@@ -113,7 +103,6 @@
   <span class="wf-step"><i class="fas fa-cogs"></i> Operation</span>
  </div>
 
- <!-- TOOLS -->
  <div class="section-title"><i class="fas fa-calculator"></i> <span data-en="Engineering Tools" data-fa="ابزارهای مهندسی">Engineering Tools</span></div>
  <div class="tools-grid">
   <div class="tool-badge"><i class="fas fa-bolt"></i> Voltage Drop</div>
@@ -129,7 +118,6 @@
   <div class="tool-badge"><i class="fas fa-future"></i> <span class="coming">Coming</span></div>
  </div>
 
- <!-- SOFTWARE -->
  <div class="section-title"><i class="fas fa-laptop-code"></i> <span data-en="Engineering Software" data-fa="نرم‌افزارهای مهندسی">Engineering Software</span></div>
  <div class="soft-list">
   <span class="soft-item">AutoCAD</span><span class="soft-item">EPLAN</span><span class="soft-item">SEE Electrical</span>
@@ -138,7 +126,6 @@
   <span class="soft-item">EasyBuilder</span>
  </div>
 
- <!-- PROGRAMMING & RESOURCES -->
  <div style="display:flex; flex-wrap:wrap; gap:30px; margin:30px 0;">
   <div style="flex:1; min-width:200px;">
    <h3><i class="fas fa-code"></i> <span data-en="Programming" data-fa="برنامه‌نویسی">Programming</span></h3>
@@ -158,7 +145,6 @@
   </div>
  </div>
 
- <!-- VISION & FUTURE -->
  <div class="section-title"><i class="fas fa-eye"></i> <span data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</span></div>
  <div style="display:flex; flex-wrap:wrap; gap:12px; background:var(--card-bg); border-radius:var(--radius); padding:24px;">
   <span class="tool-badge" style="background:transparent; border:1px solid rgba(212,175,55,0.2);">Factory <span class="coming">In Dev</span></span>
@@ -170,7 +156,6 @@
   <span class="tool-badge" style="background:transparent; border:1px solid rgba(212,175,55,0.2);">Job Board <span class="coming">Soon</span></span>
  </div>
 
- <!-- FOOTER -->
  <footer class="footer">
   <div><i class="fas fa-envelope"></i> info@karatechelv.com</div>
   <div><i class="fas fa-phone"></i> +98 21 1234 5678</div>
@@ -188,13 +173,11 @@
  const dashboard = document.getElementById('dashboard');
  const enterBtn = document.getElementById('enterBtn');
 
- // ENTER SYSTEM
  enterBtn.addEventListener('click', function() {
   splash.classList.add('hidden');
   dashboard.classList.add('active');
  });
 
- // LANGUAGE SWITCH
  document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', function() {
    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
@@ -228,7 +211,6 @@
   if (btnSpan) { const txt = btnSpan.dataset[lang]; if (txt) btnSpan.textContent = txt; }
  }
 
- // INITIAL TRANSLATION
  translatePage('en');
 
 })();
