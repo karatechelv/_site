@@ -1,199 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · PCS7</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · PCS7</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">🏭 PCS7</h1>
-    <div class="sub" id="desc">PCS7 (Process Control System 7) is Siemens' Distributed Control System (DCS) for process automation in industries such as chemical, pharmaceutical, and oil & gas.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 Description</h2>
-        <p id="s1p">PCS7 is Siemens' advanced process control system that combines the flexibility of PLC-based automation with the robustness of DCS. It provides integrated control, monitoring, and safety for complex process plants. PCS7 includes engineering tools, operator stations, and field devices for seamless process management.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Purpose</h2>
-        <p id="s2p">The purpose of PCS7 is to provide a comprehensive, scalable, and reliable control solution for continuous and batch processes. It ensures high availability, safety integrity, and efficient operation. PCS7 integrates process control, safety, and asset management in a single platform.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Example</h2>
-        <p id="s3p">A process engineer uses PCS7 to control a chemical reactor. The system monitors temperature, pressure, and flow rates, and adjusts control valves and heaters to maintain the reaction within safe and optimal conditions. PCS7 includes safety interlocks and emergency shutdown functions for critical operations.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Learning Path</h2>
-        <ul id="list1">
-            <li>Introduction to PCS7 and DCS concepts</li>
-            <li>System architecture and hardware components</li>
-            <li>Engineering tools (CFC, SFC, SCL) for control logic</li>
-            <li>Operator station design and visualization</li>
-            <li>Safety and fault-tolerant systems (F-system)</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s5">🔹 Resources</h2>
-        <ul id="list2">
-            <li>Siemens Industry Online Support (PCS7 manuals, FAQs)</li>
-            <li>Official Siemens training (SITRAIN)</li>
-            <li>PCS7 Help and Documentation</li>
-            <li>YouTube tutorials and webinars</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s6">🔹 Software</h2>
-        <ul id="list3">
-            <li>PCS 7 Engineering Suite (CFC, SFC, SCL)</li>
-            <li>PCS 7 Operator Station (OS)</li>
-            <li>PCS 7 Safety (F-system)</li>
-            <li>Integration with SIMATIC PDM and asset management</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s7">🔹 Videos & Future Lessons</h2>
-        <ul id="list4">
-            <li>Getting Started with PCS7</li>
-            <li>Control Logic Design (CFC and SFC)</li>
-            <li>Operator Station and HMI Design (Future)</li>
-            <li>Safety and Fault-Tolerant Systems (Future)</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">PCS7</h1>
+ <div class="sub" id="desc">Siemens PCS7 – Process Control System for continuous and batch process automation.</div>
+ <div class="section">
+  <h2 id="s1">Overview</h2>
+  <p id="s1p">Siemens PCS7 (Process Control System 7) is a DCS (Distributed Control System) designed for process automation in industries like chemical, pharmaceutical, oil and gas, and food & beverage. It combines TIA Portal with process-specific engineering tools.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key Features</h2>
+  <ul id="list1">
+   <li>Distributed Architecture – Scalable and redundant</li>
+   <li>Integrated Engineering – TIA Portal based</li>
+   <li>Batch Processing – ISA 88 compliant</li>
+   <li>Safety Integration – SIL 3 certified</li>
+   <li>Asset Management – Plant maintenance and diagnostics</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Learning Path</h2>
+  <ul id="list2">
+   <li>PCS7 Architecture – System components</li>
+   <li>Engineering – CFC and SFC programming</li>
+   <li>HMI/OS – Operator stations and visualization</li>
+   <li>Batch – Batch control and recipes</li>
+   <li>Maintenance – Asset management and diagnostics</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: Chemical Plant DCS</h2>
+  <p id="s4p">PCS7 is used as the DCS for a chemical plant controlling reactors, distillation columns, and storage tanks. The system handles continuous and batch processes with integrated safety and advanced control.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🏭 PCS7',
-            desc: 'PCS7 (Process Control System 7) is Siemens\' Distributed Control System (DCS) for process automation in industries such as chemical, pharmaceutical, and oil & gas.',
-            s1: '🔹 Description',
-            s1p: 'PCS7 is Siemens\' advanced process control system that combines the flexibility of PLC-based automation with the robustness of DCS. It provides integrated control, monitoring, and safety for complex process plants. PCS7 includes engineering tools, operator stations, and field devices for seamless process management.',
-            s2: '🔹 Purpose',
-            s2p: 'The purpose of PCS7 is to provide a comprehensive, scalable, and reliable control solution for continuous and batch processes. It ensures high availability, safety integrity, and efficient operation. PCS7 integrates process control, safety, and asset management in a single platform.',
-            s3: '🔹 Example',
-            s3p: 'A process engineer uses PCS7 to control a chemical reactor. The system monitors temperature, pressure, and flow rates, and adjusts control valves and heaters to maintain the reaction within safe and optimal conditions. PCS7 includes safety interlocks and emergency shutdown functions for critical operations.',
-            s4: '🔹 Learning Path',
-            list1: ['Introduction to PCS7 and DCS concepts','System architecture and hardware components','Engineering tools (CFC, SFC, SCL) for control logic','Operator station design and visualization','Safety and fault-tolerant systems (F-system)'],
-            s5: '🔹 Resources',
-            list2: ['Siemens Industry Online Support (PCS7 manuals, FAQs)','Official Siemens training (SITRAIN)','PCS7 Help and Documentation','YouTube tutorials and webinars'],
-            s6: '🔹 Software',
-            list3: ['PCS 7 Engineering Suite (CFC, SFC, SCL)','PCS 7 Operator Station (OS)','PCS 7 Safety (F-system)','Integration with SIMATIC PDM and asset management'],
-            s7: '🔹 Videos & Future Lessons',
-            list4: ['Getting Started with PCS7','Control Logic Design (CFC and SFC)','Operator Station and HMI Design (Future)','Safety and Fault-Tolerant Systems (Future)'],
-            back: '← Back'
-        },
-        fa: {
-            title: '🏭 PCS7',
-            desc: 'PCS7 (سیستم کنترل فرآیند ۷) سیستم کنترل توزیع‌شده (DCS) زیمنس برای اتوماسیون فرآیند در صنایعی مانند شیمیایی، دارویی و نفت و گاز است.',
-            s1: '🔹 توضیحات',
-            s1p: 'PCS7 سیستم کنترل فرآیند پیشرفته زیمنس است که انعطاف‌پذیری اتوماسیون مبتنی بر PLC را با استحکام DCS ترکیب می‌کند. کنترل، نظارت و ایمنی یکپارچه را برای کارخانه‌های فرآیندی پیچیده فراهم می‌کند. PCS7 شامل ابزارهای مهندسی، ایستگاه‌های اپراتور و دستگاه‌های میدان برای مدیریت یکپارچه فرآیند است.',
-            s2: '🔹 هدف',
-            s2p: 'هدف PCS7 ارائه یک راه‌حل کنترل جامع، مقیاس‌پذیر و قابل اعتماد برای فرآیندهای پیوسته و دسته‌ای است. در دسترس‌پذیری بالا، یکپارچگی ایمنی و عملکرد کارآمد را تضمین می‌کند. PCS7 کنترل فرآیند، ایمنی و مدیریت دارایی را در یک پلتفرم واحد یکپارچه می‌کند.',
-            s3: '🔹 مثال',
-            s3p: 'یک مهندس فرآیند از PCS7 برای کنترل یک راکتور شیمیایی استفاده می‌کند. سیستم دما، فشار و دبی را نظارت کرده و شیرهای کنترلی و بخاری‌ها را برای حفظ واکنش در شرایط ایمن و بهینه تنظیم می‌کند. PCS7 شامل اینترلاک‌های ایمنی و عملکردهای خاموشی اضطراری برای عملیات حیاتی است.',
-            s4: '🔹 مسیر یادگیری',
-            list1: ['آشنایی با PCS7 و مفاهیم DCS','معماری سیستم و اجزای سخت‌افزاری','ابزارهای مهندسی (CFC، SFC، SCL) برای منطق کنترل','طراحی ایستگاه اپراتور و تصویرسازی','سیستم‌های ایمنی و تحمل‌پذیر در برابر خطا (F-system)'],
-            s5: '🔹 منابع',
-            list2: ['پشتیبانی آنلاین صنعت زیمنس (دفترچه‌های PCS7، سوالات متداول)','آموزش‌های رسمی زیمنس (SITRAIN)','راهنما و مستندات PCS7','آموزش‌های یوتیوب و وبینارها'],
-            s6: '🔹 نرم‌افزار',
-            list3: ['PCS 7 Engineering Suite (CFC، SFC، SCL)','PCS 7 Operator Station (OS)','PCS 7 Safety (F-system)','یکپارچه‌سازی با SIMATIC PDM و مدیریت دارایی'],
-            s7: '🔹 ویدئوها و درس‌های آینده',
-            list4: ['شروع کار با PCS7','طراحی منطق کنترل (CFC و SFC)','ایستگاه اپراتور و طراحی HMI (آینده)','سیستم‌های ایمنی و تحمل‌پذیر در برابر خطا (آینده)'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s2p').textContent = t.s2p;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s5').textContent = t.s5;
-        document.getElementById('s6').textContent = t.s6;
-        document.getElementById('s7').textContent = t.s7;
-        document.getElementById('backlink').textContent = t.back;
-
-        const list1 = document.getElementById('list1');
-        list1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
-
-        const list2 = document.getElementById('list2');
-        list2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
-
-        const list3 = document.getElementById('list3');
-        list3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; list3.appendChild(li); });
-
-        const list4 = document.getElementById('list4');
-        list4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; list4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'PCS7',
+  desc: 'Siemens PCS7 – Process Control System for continuous and batch process automation.',
+  s1: 'Overview',
+  s1p: 'Siemens PCS7 (Process Control System 7) is a DCS (Distributed Control System) designed for process automation in industries like chemical, pharmaceutical, oil and gas, and food & beverage. It combines TIA Portal with process-specific engineering tools.',
+  s2: 'Key Features',
+  list1: ['Distributed Architecture – Scalable and redundant','Integrated Engineering – TIA Portal based','Batch Processing – ISA 88 compliant','Safety Integration – SIL 3 certified','Asset Management – Plant maintenance and diagnostics'],
+  s3: 'Learning Path',
+  list2: ['PCS7 Architecture – System components','Engineering – CFC and SFC programming','HMI/OS – Operator stations and visualization','Batch – Batch control and recipes','Maintenance – Asset management and diagnostics'],
+  s4: 'Example: Chemical Plant DCS',
+  s4p: 'PCS7 is used as the DCS for a chemical plant controlling reactors, distillation columns, and storage tanks. The system handles continuous and batch processes with integrated safety and advanced control.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'PCS7',
+  desc: 'سیستم کنترل فرآیند زیمنس برای اتوماسیون فرآیندهای پیوسته و دسته‌ای.',
+  s1: 'مرور کلی',
+  s1p: 'Siemens PCS7 (سیستم کنترل فرآیند 7) یک DCS (سیستم کنترل توزیع‌شده) است که برای اتوماسیون فرآیند در صنایعی مانند شیمیایی، داروسازی، نفت و گاز و غذا و نوشیدنی طراحی شده است. این سیستم TIA Portal را با ابزارهای مهندسی خاص فرآیند ترکیب می‌کند.',
+  s2: 'ویژگی‌های کلیدی',
+  list1: ['معماری توزیع‌شده – مقیاس‌پذیر و افزونه','مهندسی یکپارچه – مبتنی بر TIA Portal','پردازش دسته‌ای – مطابق با ISA 88','یکپارچه‌سازی ایمنی – گواهی SIL 3','مدیریت دارایی – نگهداری کارخانه و عیب‌یابی'],
+  s3: 'مسیر یادگیری',
+  list2: ['معماری PCS7 – اجزای سیستم','مهندسی – برنامه‌نویسی CFC و SFC','HMI/OS – ایستگاه‌های اپراتور و بصری‌سازی','دسته‌ای – کنترل دسته‌ای و دستورالعمل‌ها','نگهداری – مدیریت دارایی و عیب‌یابی'],
+  s4: 'مثال: DCS کارخانه شیمیایی',
+  s4p: 'PCS7 به عنوان DCS برای یک کارخانه شیمیایی برای کنترل راکتورها، برج‌های تقطیر و مخازن ذخیره استفاده می‌شود. سیستم فرآیندهای پیوسته و دسته‌ای را با ایمنی یکپارچه و کنترل پیشرفته مدیریت می‌کند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
