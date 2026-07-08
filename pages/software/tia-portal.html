@@ -1,199 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · TIA Portal</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · TIA Portal</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">🎛️ TIA Portal</h1>
-    <div class="sub" id="desc">TIA Portal (Totally Integrated Automation Portal) is Siemens' engineering framework for automation and control, integrating PLC, HMI, and drive configuration.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 Description</h2>
-        <p id="s1p">TIA Portal is Siemens' integrated engineering platform for automation projects. It provides a unified environment for programming PLCs (SIMATIC S7-1200, S7-1500), designing HMIs (SIMATIC HMI), configuring drives (SINAMICS), and networking all components. It supports all IEC 61131-3 programming languages.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Purpose</h2>
-        <p id="s2p">The purpose of TIA Portal is to streamline the entire automation project lifecycle from hardware configuration and programming to commissioning and maintenance. It reduces engineering time, ensures consistency, and provides powerful diagnostic and simulation capabilities.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Example</h2>
-        <p id="s3p">An automation engineer uses TIA Portal to develop a control system for a packaging line. They configure a SIMATIC S7-1500 PLC, program the logic in Ladder and SCL, design an HMI screen for operator interface, and configure communication with drives and I/O devices. The integrated simulation allows testing before deployment.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Learning Path</h2>
-        <ul id="list1">
-            <li>Introduction to TIA Portal interface and project structure</li>
-            <li>Hardware configuration and network setup (Profinet)</li>
-            <li>PLC programming (Ladder, FBD, SCL, STL)</li>
-            <li>HMI design and visualization</li>
-            <li>Drive configuration (SINAMICS) and commissioning</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s5">🔹 Resources</h2>
-        <ul id="list2">
-            <li>Siemens Industry Online Support (manuals, FAQs)</li>
-            <li>TIA Portal Help and Documentation</li>
-            <li>Official Siemens training (SITRAIN)</li>
-            <li>YouTube tutorials (Siemens, RealPars, PLC Academy)</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s6">🔹 Software</h2>
-        <ul id="list3">
-            <li>TIA Portal (STEP 7 Professional + WinCC)</li>
-            <li>TIA Portal Safety (for safety applications)</li>
-            <li>TIA Portal Openness (API for automation)</li>
-            <li>PLCSIM (simulation) and SIMATIC SCADA</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s7">🔹 Videos & Future Lessons</h2>
-        <ul id="list4">
-            <li>Getting Started with TIA Portal</li>
-            <li>PLC Programming and Hardware Configuration</li>
-            <li>HMI Design and WinCC (Future)</li>
-            <li>Advanced Commissioning and Diagnostics</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">TIA Portal</h1>
+ <div class="sub" id="desc">Totally Integrated Automation Portal – Siemens' unified engineering platform for PLC, HMI, and drive systems.</div>
+ <div class="section">
+  <h2 id="s1">Overview</h2>
+  <p id="s1p">TIA Portal (Totally Integrated Automation Portal) is Siemens' flagship engineering software for automation. It provides a unified environment for programming PLCs (SIMATIC S7), configuring HMIs (SIMATIC HMI), and integrating drives and networks.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key Features</h2>
+  <ul id="list1">
+   <li>Unified Engineering – PLC, HMI, Drives in one environment</li>
+   <li>PLC Programming – Ladder, SCL, FBD, STL</li>
+   <li>HMI Configuration – WinCC integrated</li>
+   <li>Safety Integrated – Safety PLC programming</li>
+   <li>Simulation – PLCSIM for testing</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Learning Path</h2>
+  <ul id="list2">
+   <li>TIA Portal Basics – Installation and interface</li>
+   <li>PLC Programming – S7-1200/S7-1500</li>
+   <li>HMI Configuration – WinCC Basic/Comfort</li>
+   <li>Communication – Profinet, PROFIBUS</li>
+   <li>Advanced – Safety, Drives, and SCADA</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: S7-1500 Project</h2>
+  <p id="s4p">A typical TIA Portal project for S7-1500 includes: hardware configuration, PLC program in Ladder/SCL, HMI screens in WinCC, and communication setup with Profinet drives. All in one unified environment.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🎛️ TIA Portal',
-            desc: 'TIA Portal (Totally Integrated Automation Portal) is Siemens\' engineering framework for automation and control, integrating PLC, HMI, and drive configuration.',
-            s1: '🔹 Description',
-            s1p: 'TIA Portal is Siemens\' integrated engineering platform for automation projects. It provides a unified environment for programming PLCs (SIMATIC S7-1200, S7-1500), designing HMIs (SIMATIC HMI), configuring drives (SINAMICS), and networking all components. It supports all IEC 61131-3 programming languages.',
-            s2: '🔹 Purpose',
-            s2p: 'The purpose of TIA Portal is to streamline the entire automation project lifecycle from hardware configuration and programming to commissioning and maintenance. It reduces engineering time, ensures consistency, and provides powerful diagnostic and simulation capabilities.',
-            s3: '🔹 Example',
-            s3p: 'An automation engineer uses TIA Portal to develop a control system for a packaging line. They configure a SIMATIC S7-1500 PLC, program the logic in Ladder and SCL, design an HMI screen for operator interface, and configure communication with drives and I/O devices. The integrated simulation allows testing before deployment.',
-            s4: '🔹 Learning Path',
-            list1: ['Introduction to TIA Portal interface and project structure','Hardware configuration and network setup (Profinet)','PLC programming (Ladder, FBD, SCL, STL)','HMI design and visualization','Drive configuration (SINAMICS) and commissioning'],
-            s5: '🔹 Resources',
-            list2: ['Siemens Industry Online Support (manuals, FAQs)','TIA Portal Help and Documentation','Official Siemens training (SITRAIN)','YouTube tutorials (Siemens, RealPars, PLC Academy)'],
-            s6: '🔹 Software',
-            list3: ['TIA Portal (STEP 7 Professional + WinCC)','TIA Portal Safety (for safety applications)','TIA Portal Openness (API for automation)','PLCSIM (simulation) and SIMATIC SCADA'],
-            s7: '🔹 Videos & Future Lessons',
-            list4: ['Getting Started with TIA Portal','PLC Programming and Hardware Configuration','HMI Design and WinCC (Future)','Advanced Commissioning and Diagnostics'],
-            back: '← Back'
-        },
-        fa: {
-            title: '🎛️ TIA Portal',
-            desc: 'TIA Portal (پورتال یکپارچه اتوماسیون) چارچوب مهندسی زیمنس برای اتوماسیون و کنترل است که PLC، HMI و پیکربندی درایو را یکپارچه می‌کند.',
-            s1: '🔹 توضیحات',
-            s1p: 'TIA Portal پلتفرم مهندسی یکپارچه زیمنس برای پروژه‌های اتوماسیون است. یک محیط یکپارچه برای برنامه‌نویسی PLCها (SIMATIC S7-1200، S7-1500)، طراحی HMIها (SIMATIC HMI)، پیکربندی درایوها (SINAMICS) و شبکه‌سازی تمام اجزاء فراهم می‌کند. از تمام زبان‌های برنامه‌نویسی IEC 61131-3 پشتیبانی می‌کند.',
-            s2: '🔹 هدف',
-            s2p: 'هدف TIA Portal ساده‌سازی کل چرخه حیات پروژه اتوماسیون از پیکربندی سخت‌افزار و برنامه‌نویسی تا راه‌اندازی و نگهداری است. زمان مهندسی را کاهش، سازگاری را تضمین و قابلیت‌های قدرتمند عیب‌یابی و شبیه‌سازی را فراهم می‌کند.',
-            s3: '🔹 مثال',
-            s3p: 'یک مهندس اتوماسیون از TIA Portal برای توسعه سیستم کنترل یک خط بسته‌بندی استفاده می‌کند. آنها یک PLC SIMATIC S7-1500 پیکربندی، منطق را به زبان نردبانی و SCL برنامه‌نویسی، یک صفحه HMI برای رابط اپراتور طراحی و ارتباط با درایوها و دستگاه‌های I/O را پیکربندی می‌کنند. شبیه‌سازی یکپارچه امکان تست قبل از استقرار را فراهم می‌کند.',
-            s4: '🔹 مسیر یادگیری',
-            list1: ['آشنایی با رابط TIA Portal و ساختار پروژه','پیکربندی سخت‌افزار و راه‌اندازی شبکه (Profinet)','برنامه‌نویسی PLC (نردبانی، FBD، SCL، STL)','طراحی HMI و تصویرسازی','پیکربندی درایو (SINAMICS) و راه‌اندازی'],
-            s5: '🔹 منابع',
-            list2: ['پشتیبانی آنلاین صنعت زیمنس (دفترچه‌ها، سوالات متداول)','راهنما و مستندات TIA Portal','آموزش‌های رسمی زیمنس (SITRAIN)','آموزش‌های یوتیوب (زیمنس، RealPars، PLC Academy)'],
-            s6: '🔹 نرم‌افزار',
-            list3: ['TIA Portal (STEP 7 Professional + WinCC)','TIA Portal Safety (برای کاربردهای ایمنی)','TIA Portal Openness (API برای اتوماسیون)','PLCSIM (شبیه‌سازی) و SIMATIC SCADA'],
-            s7: '🔹 ویدئوها و درس‌های آینده',
-            list4: ['شروع کار با TIA Portal','برنامه‌نویسی PLC و پیکربندی سخت‌افزار','طراحی HMI و WinCC (آینده)','راه‌اندازی پیشرفته و عیب‌یابی'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s2p').textContent = t.s2p;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s5').textContent = t.s5;
-        document.getElementById('s6').textContent = t.s6;
-        document.getElementById('s7').textContent = t.s7;
-        document.getElementById('backlink').textContent = t.back;
-
-        const list1 = document.getElementById('list1');
-        list1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
-
-        const list2 = document.getElementById('list2');
-        list2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
-
-        const list3 = document.getElementById('list3');
-        list3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; list3.appendChild(li); });
-
-        const list4 = document.getElementById('list4');
-        list4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; list4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'TIA Portal',
+  desc: 'Totally Integrated Automation Portal – Siemens\' unified engineering platform for PLC, HMI, and drive systems.',
+  s1: 'Overview',
+  s1p: 'TIA Portal (Totally Integrated Automation Portal) is Siemens\' flagship engineering software for automation. It provides a unified environment for programming PLCs (SIMATIC S7), configuring HMIs (SIMATIC HMI), and integrating drives and networks.',
+  s2: 'Key Features',
+  list1: ['Unified Engineering – PLC, HMI, Drives in one environment','PLC Programming – Ladder, SCL, FBD, STL','HMI Configuration – WinCC integrated','Safety Integrated – Safety PLC programming','Simulation – PLCSIM for testing'],
+  s3: 'Learning Path',
+  list2: ['TIA Portal Basics – Installation and interface','PLC Programming – S7-1200/S7-1500','HMI Configuration – WinCC Basic/Comfort','Communication – Profinet, PROFIBUS','Advanced – Safety, Drives, and SCADA'],
+  s4: 'Example: S7-1500 Project',
+  s4p: 'A typical TIA Portal project for S7-1500 includes: hardware configuration, PLC program in Ladder/SCL, HMI screens in WinCC, and communication setup with Profinet drives. All in one unified environment.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'TIA Portal',
+  desc: 'پورتال اتوماسیون کاملاً یکپارچه – پلتفرم مهندسی یکپارچه زیمنس برای PLC، HMI و سیستم‌های درایو.',
+  s1: 'مرور کلی',
+  s1p: 'TIA Portal (پورتال اتوماسیون کاملاً یکپارچه) نرم‌افزار پرچمدار مهندسی زیمنس برای اتوماسیون است. این نرم‌افزار یک محیط یکپارچه برای برنامه‌نویسی PLCها (SIMATIC S7)، پیکربندی HMIها (SIMATIC HMI) و یکپارچه‌سازی درایوها و شبکه‌ها فراهم می‌کند.',
+  s2: 'ویژگی‌های کلیدی',
+  list1: ['مهندسی یکپارچه – PLC، HMI، درایوها در یک محیط','برنامه‌نویسی PLC – نردبانی، SCL، FBD، STL','پیکربندی HMI – WinCC یکپارچه','ایمنی یکپارچه – برنامه‌نویسی PLC ایمنی','شبیه‌سازی – PLCSIM برای تست'],
+  s3: 'مسیر یادگیری',
+  list2: ['مبانی TIA Portal – نصب و رابط کاربری','برنامه‌نویسی PLC – S7-1200/S7-1500','پیکربندی HMI – WinCC Basic/Comfort','ارتباطات – Profinet، PROFIBUS','پیشرفته – ایمنی، درایوها و SCADA'],
+  s4: 'مثال: پروژه S7-1500',
+  s4p: 'یک پروژه معمولی TIA Portal برای S7-1500 شامل: پیکربندی سخت‌افزار، برنامه PLC به زبان نردبانی/SCL، صفحه‌های HMI در WinCC و راه‌اندازی ارتباط با درایوهای Profinet است. همه در یک محیط یکپارچه.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
