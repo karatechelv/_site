@@ -1,153 +1,134 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · ISO Standards</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · ISO Standards</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">🏅 ISO Standards</h1>
-    <div class="sub" id="desc">Overview of key International Organization for Standardization (ISO) standards for quality management, environmental management, safety, and more.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What is ISO?</h2>
-        <p id="s1p">The International Organization for Standardization (ISO) is an independent, non-governmental international organization that develops and publishes standards for products, services, and systems. ISO standards ensure quality, safety, efficiency, and interoperability across industries worldwide. There are over 24,000 ISO standards covering almost every aspect of technology and business.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Key ISO Standards for Engineering</h2>
-        <ul id="list1">
-            <li><b>ISO 9001</b> – Quality Management Systems (QMS) – The most widely used quality standard</li>
-            <li><b>ISO 14001</b> – Environmental Management Systems (EMS)</li>
-            <li><b>ISO 45001</b> – Occupational Health and Safety Management Systems</li>
-            <li><b>ISO 50001</b> – Energy Management Systems</li>
-            <li><b>ISO 13849</b> – Safety of Machinery – Safety-related parts of control systems</li>
-            <li><b>ISO 12100</b> – Safety of Machinery – General principles for design – Risk assessment</li>
-            <li><b>ISO 10012</b> – Measurement management systems – Requirements for measurement processes</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 ISO Standards by Discipline</h2>
-        <ul id="list2">
-            <li><b>Quality:</b> ISO 9001, ISO 9000 (fundamentals), ISO 10006 (project quality)</li>
-            <li><b>Environment:</b> ISO 14001, ISO 14040 (life cycle assessment)</li>
-            <li><b>Safety:</b> ISO 45001, ISO 13849, ISO 12100</li>
-            <li><b>Energy:</b> ISO 50001, ISO 50002 (energy audits)</li>
-            <li><b>Risk:</b> ISO 31000 – Risk Management</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: ISO 9001 in a Design Firm</h2>
-        <p id="s4p">An engineering design firm implements ISO 9001 to standardize its design review process, document control, and customer feedback procedures. The firm achieves certification and gains a competitive advantage in bidding for projects that require ISO 9001 compliance. The QMS helps reduce errors and improve project delivery times.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">ISO Standards</h1>
+ <div class="sub" id="desc">International Organization for Standardization standards for quality, environment, safety, and management systems.</div>
+ <div class="section">
+  <h2 id="s1">What is ISO?</h2>
+  <p id="s1p">The International Organization for Standardization (ISO) is an independent, non-governmental international organization that develops and publishes standards for quality, safety, efficiency, and sustainability across various industries.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key ISO Standards</h2>
+  <ul id="list1">
+   <li>ISO 9001 – Quality Management Systems (QMS)</li>
+   <li>ISO 14001 – Environmental Management Systems</li>
+   <li>ISO 45001 – Occupational Health &amp; Safety</li>
+   <li>ISO 50001 – Energy Management</li>
+   <li>ISO 17025 – Testing and Calibration Laboratories</li>
+   <li>ISO 19011 – Auditing Management Systems</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">ISO Certification Process</h2>
+  <ul id="list2">
+   <li>Define Quality Policy &amp; Objectives</li>
+   <li>Document Procedures &amp; Work Instructions</li>
+   <li>Implement the System</li>
+   <li>Conduct Internal Audits</li>
+   <li>External Audit by Certification Body</li>
+   <li>Obtain Certification</li>
+   <li>Continuous Improvement &amp; Surveillance Audits</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: ISO 9001 in Engineering</h2>
+  <p id="s4p">An engineering company implementing ISO 9001 defines its quality policy, establishes documented procedures for design, procurement, manufacturing, and testing, conducts internal audits, and obtains certification to demonstrate commitment to quality and customer satisfaction.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🏅 ISO Standards',
-            desc: 'Overview of key International Organization for Standardization (ISO) standards for quality management, environmental management, safety, and more.',
-            s1: '🔹 What is ISO?',
-            s1p: 'The International Organization for Standardization (ISO) is an independent, non-governmental international organization that develops and publishes standards for products, services, and systems. ISO standards ensure quality, safety, efficiency, and interoperability across industries worldwide. There are over 24,000 ISO standards covering almost every aspect of technology and business.',
-            s2: '🔹 Key ISO Standards for Engineering',
-            list1: ['ISO 9001 – Quality Management Systems (QMS) – The most widely used quality standard','ISO 14001 – Environmental Management Systems (EMS)','ISO 45001 – Occupational Health and Safety Management Systems','ISO 50001 – Energy Management Systems','ISO 13849 – Safety of Machinery – Safety-related parts of control systems','ISO 12100 – Safety of Machinery – General principles for design – Risk assessment','ISO 10012 – Measurement management systems – Requirements for measurement processes'],
-            s3: '🔹 ISO Standards by Discipline',
-            list2: ['Quality: ISO 9001, ISO 9000 (fundamentals), ISO 10006 (project quality)','Environment: ISO 14001, ISO 14040 (life cycle assessment)','Safety: ISO 45001, ISO 13849, ISO 12100','Energy: ISO 50001, ISO 50002 (energy audits)','Risk: ISO 31000 – Risk Management'],
-            s4: '🔹 Example: ISO 9001 in a Design Firm',
-            s4p: 'An engineering design firm implements ISO 9001 to standardize its design review process, document control, and customer feedback procedures. The firm achieves certification and gains a competitive advantage in bidding for projects that require ISO 9001 compliance. The QMS helps reduce errors and improve project delivery times.',
-            back: '← Back'
-        },
-        fa: {
-            title: '🏅 استانداردهای ISO',
-            desc: 'مروری بر استانداردهای کلیدی سازمان بین‌المللی استانداردسازی (ISO) برای مدیریت کیفیت، مدیریت زیست‌محیطی، ایمنی و موارد دیگر.',
-            s1: '🔹 ISO چیست؟',
-            s1p: 'سازمان بین‌المللی استانداردسازی (ISO) یک سازمان بین‌المللی غیردولتی و مستقل است که استانداردهایی را برای محصولات، خدمات و سیستم‌ها تدوین و منتشر می‌کند. استانداردهای ISO کیفیت، ایمنی، کارایی و قابلیت هم‌کاری را در صنایع در سراسر جهان تضمین می‌کنند. بیش از ۲۴۰۰۰ استاندارد ISO وجود دارد که تقریباً تمام جنبه‌های فناوری و کسب‌وکار را پوشش می‌دهند.',
-            s2: '🔹 استانداردهای کلیدی ISO برای مهندسی',
-            list1: ['ISO 9001 – سیستم‌های مدیریت کیفیت (QMS) – پرکاربردترین استاندارد کیفیت','ISO 14001 – سیستم‌های مدیریت زیست‌محیطی (EMS)','ISO 45001 – سیستم‌های مدیریت بهداشت و ایمنی شغلی','ISO 50001 – سیستم‌های مدیریت انرژی','ISO 13849 – ایمنی ماشین‌آلات – بخش‌های مرتبط با ایمنی سیستم‌های کنترل','ISO 12100 – ایمنی ماشین‌آلات – اصول کلی برای طراحی – ارزیابی ریسک','ISO 10012 – سیستم‌های مدیریت اندازه‌گیری – الزامات برای فرآیندهای اندازه‌گیری'],
-            s3: '🔹 استانداردهای ISO بر اساس رشته',
-            list2: ['کیفیت: ISO 9001، ISO 9000 (مبانی)، ISO 10006 (کیفیت پروژه)','محیط زیست: ISO 14001، ISO 14040 (ارزیابی چرخه حیات)','ایمنی: ISO 45001، ISO 13849، ISO 12100','انرژی: ISO 50001، ISO 50002 (حسابرسی انرژی)','ریسک: ISO 31000 – مدیریت ریسک'],
-            s4: '🔹 مثال: ISO 9001 در یک شرکت طراحی',
-            s4p: 'یک شرکت طراحی مهندسی ISO 9001 را برای استانداردسازی فرآیند بازبینی طراحی، کنترل مستندات و رویه‌های بازخورد مشتری پیاده‌سازی می‌کند. این شرکت گواهینامه را دریافت کرده و در مناقصه پروژه‌هایی که نیاز به انطباق ISO 9001 دارند، مزیت رقابتی به دست می‌آورد. QMS به کاهش خطاها و بهبود زمان تحویل پروژه کمک می‌کند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'ISO Standards',
+  desc: 'International Organization for Standardization standards for quality, environment, safety, and management systems.',
+  s1: 'What is ISO?',
+  s1p: 'The International Organization for Standardization (ISO) is an independent, non-governmental international organization that develops and publishes standards for quality, safety, efficiency, and sustainability across various industries.',
+  s2: 'Key ISO Standards',
+  list1: ['ISO 9001 – Quality Management Systems (QMS)','ISO 14001 – Environmental Management Systems','ISO 45001 – Occupational Health & Safety','ISO 50001 – Energy Management','ISO 17025 – Testing and Calibration Laboratories','ISO 19011 – Auditing Management Systems'],
+  s3: 'ISO Certification Process',
+  list2: ['Define Quality Policy & Objectives','Document Procedures & Work Instructions','Implement the System','Conduct Internal Audits','External Audit by Certification Body','Obtain Certification','Continuous Improvement & Surveillance Audits'],
+  s4: 'Example: ISO 9001 in Engineering',
+  s4p: 'An engineering company implementing ISO 9001 defines its quality policy, establishes documented procedures for design, procurement, manufacturing, and testing, conducts internal audits, and obtains certification to demonstrate commitment to quality and customer satisfaction.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'استانداردهای ISO',
+  desc: 'استانداردهای سازمان بین‌المللی استانداردسازی برای کیفیت، محیط زیست، ایمنی و سیستم‌های مدیریت.',
+  s1: 'ISO چیست؟',
+  s1p: 'سازمان بین‌المللی استانداردسازی (ISO) یک سازمان بین‌المللی مستقل و غیردولتی است که استانداردهایی را برای کیفیت، ایمنی، کارایی و پایداری در صنایع مختلف تدوین و منتشر می‌کند.',
+  s2: 'استانداردهای کلیدی ISO',
+  list1: ['ISO 9001 – سیستم‌های مدیریت کیفیت','ISO 14001 – سیستم‌های مدیریت زیست‌محیطی','ISO 45001 – بهداشت و ایمنی شغلی','ISO 50001 – مدیریت انرژی','ISO 17025 – آزمایشگاه‌های تست و کالیبراسیون','ISO 19011 – ممیزی سیستم‌های مدیریت'],
+  s3: 'فرآیند صدور گواهینامه ISO',
+  list2: ['تعریف سیاست کیفیت و اهداف','مستندسازی رویه‌ها و دستورالعمل‌های کار','پیاده‌سازی سیستم','انجام ممیزی‌های داخلی','ممیزی خارجی توسط نهاد صدور گواهینامه','دریافت گواهینامه','بهبود مستمر و ممیزی‌های نظارتی'],
+  s4: 'مثال: ISO 9001 در مهندسی',
+  s4p: 'یک شرکت مهندسی که ISO 9001 را پیاده‌سازی می‌کند، سیاست کیفیت خود را تعریف کرده، رویه‌های مستند برای طراحی، تأمین، ساخت و تست ایجاد می‌کند، ممیزی‌های داخلی انجام می‌دهد و گواهینامه را برای نشان دادن تعهد به کیفیت و رضایت مشتری دریافت می‌کند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
