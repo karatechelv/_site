@@ -1,185 +1,160 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Training Videos</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Videos</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.7rem;padding:2px 12px;border-radius:20px;margin-left:8px}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Video Tutorials &amp; Demos</h1>
+ <div class="sub" id="desc">Educational videos, tutorials, and demonstrations for engineering and automation.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="s1">PLC Programming Videos</h2>
+  <ul id="list1">
+   <li>PLC Basics – Introduction to Ladder Logic</li>
+   <li>How to Program a Motor Start/Stop Circuit</li>
+   <li>Timer and Counter Instructions in PLC</li>
+   <li>Structured Text (ST) Programming for Beginners</li>
+   <li>PID Control with PLC – Tutorial</li>
+  </ul>
+ </div>
 
-    <h1 id="title">🎬 Training Videos</h1>
-    <div class="sub" id="desc">A curated collection of training and tutorial videos for electrical engineering, automation, instrumentation, and control systems.</div>
+ <div class="section">
+  <h2 id="s2">HMI &amp; SCADA Videos</h2>
+  <ul id="list2">
+   <li>HMI Design – Creating a Tank Level Monitor</li>
+   <li>SCADA System Overview – Architecture and Components</li>
+   <li>How to Configure Alarms in SCADA</li>
+   <li>Trend Charts and Data Logging – Tutorial</li>
+   <li>WinCC – Basic HMI Design</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s1">🔹 Why Video Training?</h2>
-        <p id="s1p">Video tutorials are one of the most effective ways to learn engineering concepts, software tools, and practical skills. They provide visual demonstrations, step-by-step instructions, and real-world examples that help bridge the gap between theory and practice. Whether you are a beginner or an experienced professional, video training can enhance your knowledge and keep you up-to-date with the latest technologies.</p>
-    </div>
+ <div class="section">
+  <h2 id="s3">Industrial Networks Videos</h2>
+  <ul id="list3">
+   <li>Modbus RTU – Configuration and Setup</li>
+   <li>Profinet – Setting Up IO Devices</li>
+   <li>Ethernet/IP – PLC to Drive Communication</li>
+   <li>Industrial Network Topologies – Overview</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s2">🔹 Recommended YouTube Channels</h2>
-        <ul id="list1">
-            <li><b>RealPars</b> – PLC programming, industrial automation, and instrumentation tutorials</li>
-            <li><b>PLC Academy</b> – Structured training for PLC and automation</li>
-            <li><b>Siemens Industry</b> – Official training for TIA Portal, WinCC, STEP7, and drives</li>
-            <li><b>Rockwell Automation</b> – Studio 5000, FactoryTalk View, and safety systems</li>
-            <li><b>Schneider Electric</b> – EcoStruxure, Modicon PLCs, and HMIs</li>
-            <li><b>Inductive Automation</b> – Ignition SCADA training and webinars</li>
-            <li><b>Codesys</b> – Official tutorials for IEC 61131-3 programming</li>
-            <li><b>Weintek HMI</b> – EasyBuilder Pro tutorials and tips</li>
-            <li><b>Instrumentation Tools</b> – Practical instrumentation, calibration, and control valve videos</li>
-            <li><b>EPLAN</b> – Electrical engineering design and documentation</li>
-            <li><b>AutoCAD Electrical</b> – Official tutorials and community content</li>
-            <li><b>Minitab</b> – Statistical analysis and SPC tutorials</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s4">Engineering Design Videos</h2>
+  <ul id="list4">
+   <li>Creating Electrical Schematics in AutoCAD Electrical</li>
+   <li>Panel Layout Design in EPLAN Pro Panel</li>
+   <li>Cable Sizing and Routing – Practical Guide</li>
+   <li>From P&amp;ID to Panel Design – Workflow</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s3">🔹 Popular Video Topics</h2>
-        <ul id="list2">
-            <li>PLC programming (Ladder, FBD, ST, SFC)</li>
-            <li>HMI design (EasyBuilder, WinCC, FactoryTalk View)</li>
-            <li>SCADA system configuration and deployment (WinCC, Ignition)</li>
-            <li>Industrial networking (Profinet, Modbus, Ethernet/IP, PROFIBUS)</li>
-            <li>VFD configuration and motor control</li>
-            <li>Analog signal scaling and process control</li>
-            <li>Industrial cybersecurity (IEC 62443)</li>
-            <li>Digital twin and virtual commissioning</li>
-            <li>Earthing and lightning protection</li>
-            <li>Lighting design and calculations (Dialux)</li>
-            <li>Quality control and Six Sigma</li>
-            <li>Project management and leadership</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s5">Future Video Content <span class="badge">In Development</span></h2>
+  <ul id="list5">
+   <li>Advanced PLC Programming – SCL, FBD</li>
+   <li>Digital Twin and Simulation Techniques</li>
+   <li>AI and Machine Learning in Automation</li>
+   <li>Safety Instrumented Systems (SIS) Design</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s4">🔹 How to Use Video Resources</h2>
-        <ul id="list3">
-            <li><b>For Beginners</b> – Start with introductory videos on basic concepts (PLC, HMI, SCADA)</li>
-            <li><b>For Intermediate Users</b> – Watch advanced tutorials on specific topics like analog scaling, PID tuning, or network configuration</li>
-            <li><b>For Professionals</b> – Explore webinars, case studies, and industry trends to stay updated</li>
-            <li><b>For Certification Prep</b> – Use videos as part of your study plan for Siemens, Rockwell, or ISA certifications</li>
-            <li><b>For Troubleshooting</b> – Watch practical troubleshooting videos to learn how to diagnose and fix common issues</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s5">🔹 Example: Learning PLC Programming with RealPars</h2>
-        <p id="s5p">A junior engineer wants to learn PLC programming. They subscribe to the RealPars YouTube channel and watch the "PLC Programming for Beginners" playlist. They learn about ladder logic, timers, counters, and analog scaling. After watching the videos, they practice on a PLC simulator to reinforce their understanding.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🎬 Training Videos',
-            desc: 'A curated collection of training and tutorial videos for electrical engineering, automation, instrumentation, and control systems.',
-            s1: '🔹 Why Video Training?',
-            s1p: 'Video tutorials are one of the most effective ways to learn engineering concepts, software tools, and practical skills. They provide visual demonstrations, step-by-step instructions, and real-world examples that help bridge the gap between theory and practice. Whether you are a beginner or an experienced professional, video training can enhance your knowledge and keep you up-to-date with the latest technologies.',
-            s2: '🔹 Recommended YouTube Channels',
-            list1: ['RealPars – PLC programming, industrial automation, and instrumentation tutorials','PLC Academy – Structured training for PLC and automation','Siemens Industry – Official training for TIA Portal, WinCC, STEP7, and drives','Rockwell Automation – Studio 5000, FactoryTalk View, and safety systems','Schneider Electric – EcoStruxure, Modicon PLCs, and HMIs','Inductive Automation – Ignition SCADA training and webinars','Codesys – Official tutorials for IEC 61131-3 programming','Weintek HMI – EasyBuilder Pro tutorials and tips','Instrumentation Tools – Practical instrumentation, calibration, and control valve videos','EPLAN – Electrical engineering design and documentation','AutoCAD Electrical – Official tutorials and community content','Minitab – Statistical analysis and SPC tutorials'],
-            s3: '🔹 Popular Video Topics',
-            list2: ['PLC programming (Ladder, FBD, ST, SFC)','HMI design (EasyBuilder, WinCC, FactoryTalk View)','SCADA system configuration and deployment (WinCC, Ignition)','Industrial networking (Profinet, Modbus, Ethernet/IP, PROFIBUS)','VFD configuration and motor control','Analog signal scaling and process control','Industrial cybersecurity (IEC 62443)','Digital twin and virtual commissioning','Earthing and lightning protection','Lighting design and calculations (Dialux)','Quality control and Six Sigma','Project management and leadership'],
-            s4: '🔹 How to Use Video Resources',
-            list3: ['For Beginners – Start with introductory videos on basic concepts (PLC, HMI, SCADA)','For Intermediate Users – Watch advanced tutorials on specific topics like analog scaling, PID tuning, or network configuration','For Professionals – Explore webinars, case studies, and industry trends to stay updated','For Certification Prep – Use videos as part of your study plan for Siemens, Rockwell, or ISA certifications','For Troubleshooting – Watch practical troubleshooting videos to learn how to diagnose and fix common issues'],
-            s5: '🔹 Example: Learning PLC Programming with RealPars',
-            s5p: 'A junior engineer wants to learn PLC programming. They subscribe to the RealPars YouTube channel and watch the "PLC Programming for Beginners" playlist. They learn about ladder logic, timers, counters, and analog scaling. After watching the videos, they practice on a PLC simulator to reinforce their understanding.',
-            back: '← Back'
-        },
-        fa: {
-            title: '🎬 آموزش‌های ویدئویی',
-            desc: 'مجموعه‌ای از آموزش‌ها و ویدئوهای آموزشی برای مهندسی برق، اتوماسیون، ابزار دقیق و سیستم‌های کنترل.',
-            s1: '🔹 چرا آموزش ویدئویی؟',
-            s1p: 'آموزش‌های ویدئویی یکی از مؤثرترین راه‌ها برای یادگیری مفاهیم مهندسی، ابزارهای نرم‌افزاری و مهارت‌های عملی هستند. آنها نمایش‌های بصری، دستورالعمل‌های گام‌به‌گام و مثال‌های واقعی ارائه می‌دهند که به پر کردن شکاف بین تئوری و عمل کمک می‌کند. چه مبتدی باشید و چه یک متخصص با تجربه، آموزش ویدئویی می‌تواند دانش شما را افزایش داده و شما را با آخرین فناوری‌ها به‌روز نگه دارد.',
-            s2: '🔹 کانال‌های یوتیوب پیشنهادی',
-            list1: ['RealPars – برنامه‌نویسی PLC، اتوماسیون صنعتی و آموزش ابزار دقیق','PLC Academy – آموزش ساختاریافته PLC و اتوماسیون','Siemens Industry – آموزش رسمی TIA Portal، WinCC، STEP7 و درایوها','Rockwell Automation – Studio 5000، FactoryTalk View و سیستم‌های ایمنی','Schneider Electric – EcoStruxure، PLCهای Modicon و HMI','Inductive Automation – آموزش SCADA Ignition و وبینارها','Codesys – آموزش رسمی برنامه‌نویسی IEC 61131-3','Weintek HMI – آموزش EasyBuilder Pro و نکات','Instrumentation Tools – ویدئوهای عملی ابزار دقیق، کالیبراسیون و شیرهای کنترلی','EPLAN – طراحی و مستندسازی مهندسی برق','AutoCAD Electrical – آموزش‌های رسمی و محتوای جامعه','Minitab – آموزش تحلیل آماری و SPC'],
-            s3: '🔹 موضوعات محبوب ویدئویی',
-            list2: ['برنامه‌نویسی PLC (نردبانی، FBD، ST، SFC)','طراحی HMI (EasyBuilder، WinCC، FactoryTalk View)','پیکربندی و استقرار سیستم SCADA (WinCC، Ignition)','شبکه‌های صنعتی (Profinet، Modbus، Ethernet/IP، PROFIBUS)','پیکربندی VFD و کنترل موتور','مقیاس‌سازی سیگنال آنالوگ و کنترل فرآیند','امنیت سایبری صنعتی (IEC 62443)','دوقلوی دیجیتال و راه‌اندازی مجازی','ارتینگ و حفاظت در برابر صاعقه','طراحی و محاسبات روشنایی (Dialux)','کنترل کیفیت و شش سیگما','مدیریت پروژه و رهبری'],
-            s4: '🔹 نحوه استفاده از منابع ویدئویی',
-            list3: ['برای مبتدیان – با ویدئوهای مقدماتی در مورد مفاهیم پایه (PLC، HMI، SCADA) شروع کنید','برای کاربران متوسط – آموزش‌های پیشرفته در مورد موضوعات خاص مانند مقیاس‌سازی آنالوگ، تنظیم PID یا پیکربندی شبکه را تماشا کنید','برای حرفه‌ای‌ها – وبینارها، مطالعات موردی و روندهای صنعت را برای به‌روز ماندن بررسی کنید','برای آمادگی گواهینامه – از ویدئوها به عنوان بخشی از برنامه مطالعه خود برای گواهینامه‌های زیمنس، راکول یا ISA استفاده کنید','برای عیب‌یابی – ویدئوهای عیب‌یابی عملی را برای یادگیری تشخیص و رفع مشکلات رایج تماشا کنید'],
-            s5: '🔹 مثال: یادگیری برنامه‌نویسی PLC با RealPars',
-            s5p: 'یک مهندس جوان می‌خواهد برنامه‌نویسی PLC را یاد بگیرد. آنها در کانال یوتیوب RealPars عضو شده و پلی‌لیست "برنامه‌نویسی PLC برای مبتدیان" را تماشا می‌کنند. آنها در مورد منطق نردبانی، تایمرها، کانترها و مقیاس‌سازی آنالوگ یاد می‌گیرند. پس از تماشای ویدئوها، روی یک شبیه‌ساز PLC تمرین می‌کنند تا درک خود را تقویت کنند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s5').textContent = t.s5;
-        document.getElementById('s5p').textContent = t.s5p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const list1 = document.getElementById('list1');
-        list1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
-
-        const list2 = document.getElementById('list2');
-        list2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
-
-        const list3 = document.getElementById('list3');
-        list3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; list3.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Video Tutorials & Demos',
+  desc: 'Educational videos, tutorials, and demonstrations for engineering and automation.',
+  s1: 'PLC Programming Videos',
+  list1: ['PLC Basics – Introduction to Ladder Logic','How to Program a Motor Start/Stop Circuit','Timer and Counter Instructions in PLC','Structured Text (ST) Programming for Beginners','PID Control with PLC – Tutorial'],
+  s2: 'HMI & SCADA Videos',
+  list2: ['HMI Design – Creating a Tank Level Monitor','SCADA System Overview – Architecture and Components','How to Configure Alarms in SCADA','Trend Charts and Data Logging – Tutorial','WinCC – Basic HMI Design'],
+  s3: 'Industrial Networks Videos',
+  list3: ['Modbus RTU – Configuration and Setup','Profinet – Setting Up IO Devices','Ethernet/IP – PLC to Drive Communication','Industrial Network Topologies – Overview'],
+  s4: 'Engineering Design Videos',
+  list4: ['Creating Electrical Schematics in AutoCAD Electrical','Panel Layout Design in EPLAN Pro Panel','Cable Sizing and Routing – Practical Guide','From P&ID to Panel Design – Workflow'],
+  s5: 'Future Video Content',
+  list5: ['Advanced PLC Programming – SCL, FBD','Digital Twin and Simulation Techniques','AI and Machine Learning in Automation','Safety Instrumented Systems (SIS) Design'],
+  back: '← Back'
+ },
+ fa: {
+  title: 'آموزش‌های ویدئویی و نمایش‌ها',
+  desc: 'ویدئوهای آموزشی، آموزش‌ها و نمایش‌ها برای مهندسی و اتوماسیون.',
+  s1: 'ویدئوهای برنامه‌نویسی PLC',
+  list1: ['مبانی PLC – مقدمه‌ای بر نردبانی','نحوه برنامه‌نویسی مدار راه‌اندازی/توقف موتور','دستورات تایمر و شمارنده در PLC','برنامه‌نویسی Structured Text (ST) برای مبتدیان','کنترل PID با PLC – آموزش'],
+  s2: 'ویدئوهای HMI و SCADA',
+  list2: ['طراحی HMI – ایجاد مانیتور سطح مخزن','مرور کلی سیستم SCADA – معماری و اجزا','نحوه پیکربندی هشدارها در SCADA','نمودارهای روند و ثبت داده – آموزش','WinCC – طراحی اولیه HMI'],
+  s3: 'ویدئوهای شبکه‌های صنعتی',
+  list3: ['Modbus RTU – پیکربندی و راه‌اندازی','Profinet – راه‌اندازی دستگاه‌های IO','Ethernet/IP – ارتباط PLC به درایو','توپولوژی‌های شبکه صنعتی – مرور کلی'],
+  s4: 'ویدئوهای طراحی مهندسی',
+  list4: ['ایجاد شماتیک برق در AutoCAD Electrical','طراحی چیدمان پنل در EPLAN Pro Panel','سایزینگ و مسیردهی کابل – راهنمای عملی','از P&ID تا طراحی پنل – جریان کار'],
+  s5: 'محتوای ویدئویی آینده',
+  list5: ['برنامه‌نویسی پیشرفته PLC – SCL، FBD','تکنیک‌های دوقلوی دیجیتال و شبیه‌سازی','هوش مصنوعی و یادگیری ماشین در اتوماسیون','طراحی سیستم‌های ابزاری ایمن (SIS)'],
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4','list5'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
