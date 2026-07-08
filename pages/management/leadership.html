@@ -1,152 +1,147 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Leadership</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Leadership</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">👔 Leadership</h1>
-    <div class="sub" id="desc">Principles, styles, and best practices for effective leadership in engineering and project management, including team building, communication, and decision-making.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What is Leadership in Engineering?</h2>
-        <p id="s1p">Leadership in engineering is the ability to inspire, motivate, and guide teams toward achieving project goals and organizational objectives. Effective leadership combines technical knowledge with interpersonal skills, emotional intelligence, and the ability to make sound decisions under pressure. It is critical for project success, team cohesion, and innovation.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Key Leadership Styles</h2>
-        <ul id="list1">
-            <li><b>Autocratic</b> – Decisive, top-down decision-making (useful in crises)</li>
-            <li><b>Democratic</b> – Inclusive, participative approach (builds consensus and engagement)</li>
-            <li><b>Laissez-Faire</b> – Hands-off, minimal supervision (empowers experienced teams)</li>
-            <li><b>Transformational</b> – Inspires and motivates teams to exceed expectations (drives innovation)</li>
-            <li><b>Servant Leadership</b> – Focuses on serving the team and enabling their success</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Essential Leadership Skills</h2>
-        <ul id="list2">
-            <li><b>Communication</b> – Clear, concise, and effective communication across all levels</li>
-            <li><b>Decision-Making</b> – Informed, timely, and transparent decisions</li>
-            <li><b>Conflict Resolution</b> – Managing and resolving disputes constructively</li>
-            <li><b>Emotional Intelligence</b> – Self-awareness, empathy, and relationship management</li>
-            <li><b>Strategic Thinking</b> – Long-term vision and planning</li>
-            <li><b>Adaptability</b> – Flexibility to adapt to changing circumstances</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: Leading a Multidisciplinary Engineering Team</h2>
-        <p id="s4p">A project manager leads a multidisciplinary team of electrical, mechanical, and civil engineers on a large infrastructure project. The leader uses a democratic style to involve team members in planning, communicates regularly with stakeholders, resolves conflicts between disciplines, and inspires the team to deliver high-quality results on schedule.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Leadership in Engineering</h1>
+ <div class="sub" id="desc">Leadership principles, team building, communication, and motivation for engineering managers.</div>
+ <div class="section">
+  <h2 id="s1">What is Engineering Leadership?</h2>
+  <p id="s1p">Engineering leadership is the ability to guide, inspire, and influence engineering teams to achieve organizational goals. It combines technical expertise with management skills to create a productive and motivated work environment.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key Leadership Traits</h2>
+  <ul id="list1">
+   <li>Vision – Clear direction and goals</li>
+   <li>Communication – Effective listening and speaking</li>
+   <li>Integrity – Honesty and ethical behavior</li>
+   <li>Decision-Making – Analytical and timely</li>
+   <li>Empathy – Understanding team members</li>
+   <li>Adaptability – Flexibility in changing situations</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Leadership Styles</h2>
+  <ul id="list2">
+   <li>Autocratic – Centralized decision-making</li>
+   <li>Democratic – Participative and inclusive</li>
+   <li>Laissez-Faire – Hands-off, empowering</li>
+   <li>Transformational – Inspiring and motivating</li>
+   <li>Servant Leadership – Focus on serving the team</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Team Building</h2>
+  <ul id="list3">
+   <li>Clear Roles &amp; Responsibilities – Define expectations</li>
+   <li>Open Communication – Regular meetings and feedback</li>
+   <li>Trust &amp; Respect – Create a positive culture</li>
+   <li>Recognition &amp; Rewards – Acknowledge contributions</li>
+   <li>Professional Development – Invest in growth</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Leading a Panel Project Team</h2>
+  <p id="s5p">A project leader manages a team of 5 engineers and 3 technicians for an MCC panel project. The leader sets clear milestones, holds weekly stand-up meetings, provides technical guidance, resolves conflicts, and recognizes team achievements. Effective leadership ensures the project is delivered on time and within budget.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '👔 Leadership',
-            desc: 'Principles, styles, and best practices for effective leadership in engineering and project management, including team building, communication, and decision-making.',
-            s1: '🔹 What is Leadership in Engineering?',
-            s1p: 'Leadership in engineering is the ability to inspire, motivate, and guide teams toward achieving project goals and organizational objectives. Effective leadership combines technical knowledge with interpersonal skills, emotional intelligence, and the ability to make sound decisions under pressure. It is critical for project success, team cohesion, and innovation.',
-            s2: '🔹 Key Leadership Styles',
-            list1: ['Autocratic – Decisive, top-down decision-making (useful in crises)','Democratic – Inclusive, participative approach (builds consensus and engagement)','Laissez-Faire – Hands-off, minimal supervision (empowers experienced teams)','Transformational – Inspires and motivates teams to exceed expectations (drives innovation)','Servant Leadership – Focuses on serving the team and enabling their success'],
-            s3: '🔹 Essential Leadership Skills',
-            list2: ['Communication – Clear, concise, and effective communication across all levels','Decision-Making – Informed, timely, and transparent decisions','Conflict Resolution – Managing and resolving disputes constructively','Emotional Intelligence – Self-awareness, empathy, and relationship management','Strategic Thinking – Long-term vision and planning','Adaptability – Flexibility to adapt to changing circumstances'],
-            s4: '🔹 Example: Leading a Multidisciplinary Engineering Team',
-            s4p: 'A project manager leads a multidisciplinary team of electrical, mechanical, and civil engineers on a large infrastructure project. The leader uses a democratic style to involve team members in planning, communicates regularly with stakeholders, resolves conflicts between disciplines, and inspires the team to deliver high-quality results on schedule.',
-            back: '← Back'
-        },
-        fa: {
-            title: '👔 رهبری',
-            desc: 'اصول، سبک‌ها و بهترین شیوه‌ها برای رهبری مؤثر در مهندسی و مدیریت پروژه، شامل ساخت تیم، ارتباطات و تصمیم‌گیری.',
-            s1: '🔹 رهبری در مهندسی چیست؟',
-            s1p: 'رهبری در مهندسی توانایی الهام‌بخشی، انگیزه‌دهی و هدایت تیم‌ها به سمت دستیابی به اهداف پروژه و اهداف سازمانی است. رهبری مؤثر دانش فنی را با مهارت‌های بین‌فردی، هوش هیجانی و توانایی تصمیم‌گیری صحیح تحت فشار ترکیب می‌کند. برای موفقیت پروژه، انسجام تیم و نوآوری حیاتی است.',
-            s2: '🔹 سبک‌های کلیدی رهبری',
-            list1: ['خودکامه – تصمیم‌گیری قاطع، از بالا به پایین (مفید در بحران‌ها)','دموکراتیک – رویکرد مشارکتی فراگیر (ایجاد اجماع و تعامل)','آزادانه – عدم دخالت، نظارت حداقل (توانمندسازی تیم‌های با تجربه)','تحول‌آفرین – الهام‌بخشی و انگیزه‌دهی به تیم‌ها برای فراتر از انتظارات (ایجاد نوآوری)','رهبری خدمتگزار – تمرکز بر خدمت به تیم و توانمندسازی آنها'],
-            s3: '🔹 مهارت‌های ضروری رهبری',
-            list2: ['ارتباطات – ارتباط روشن، مختصر و مؤثر در همه سطوح','تصمیم‌گیری – تصمیمات آگاهانه، به موقع و شفاف','حل تعارض – مدیریت و حل اختلافات به صورت سازنده','هوش هیجانی – خودآگاهی، همدلی و مدیریت روابط','تفکر استراتژیک – چشم‌انداز و برنامه‌ریزی بلندمدت','سازگاری – انعطاف‌پذیری برای تطبیق با شرایط متغیر'],
-            s4: '🔹 مثال: رهبری یک تیم مهندسی چندرشته‌ای',
-            s4p: 'یک مدیر پروژه تیم چندرشته‌ای از مهندسان برق، مکانیک و عمران را در یک پروژه زیرساختی بزرگ رهبری می‌کند. رهبر از سبک دموکراتیک برای مشارکت اعضای تیم در برنامه‌ریزی استفاده می‌کند، به طور منظم با ذی‌نفعان ارتباط برقرار می‌کند، تعارضات بین رشته‌ها را حل کرده و تیم را برای ارائه نتایج با کیفیت بالا در زمان برنامه‌ریزی شده الهام می‌بخشد.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Leadership in Engineering',
+  desc: 'Leadership principles, team building, communication, and motivation for engineering managers.',
+  s1: 'What is Engineering Leadership?',
+  s1p: 'Engineering leadership is the ability to guide, inspire, and influence engineering teams to achieve organizational goals. It combines technical expertise with management skills to create a productive and motivated work environment.',
+  s2: 'Key Leadership Traits',
+  list1: ['Vision – Clear direction and goals','Communication – Effective listening and speaking','Integrity – Honesty and ethical behavior','Decision-Making – Analytical and timely','Empathy – Understanding team members','Adaptability – Flexibility in changing situations'],
+  s3: 'Leadership Styles',
+  list2: ['Autocratic – Centralized decision-making','Democratic – Participative and inclusive','Laissez-Faire – Hands-off, empowering','Transformational – Inspiring and motivating','Servant Leadership – Focus on serving the team'],
+  s4: 'Team Building',
+  list3: ['Clear Roles & Responsibilities – Define expectations','Open Communication – Regular meetings and feedback','Trust & Respect – Create a positive culture','Recognition & Rewards – Acknowledge contributions','Professional Development – Invest in growth'],
+  s5: 'Example: Leading a Panel Project Team',
+  s5p: 'A project leader manages a team of 5 engineers and 3 technicians for an MCC panel project. The leader sets clear milestones, holds weekly stand-up meetings, provides technical guidance, resolves conflicts, and recognizes team achievements. Effective leadership ensures the project is delivered on time and within budget.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'رهبری در مهندسی',
+  desc: 'اصول رهبری، تیم‌سازی، ارتباطات و انگیزش برای مدیران مهندسی.',
+  s1: 'رهبری مهندسی چیست؟',
+  s1p: 'رهبری مهندسی توانایی هدایت، الهام‌بخشی و تأثیرگذاری بر تیم‌های مهندسی برای دستیابی به اهداف سازمانی است. این شامل ترکیب تخصص فنی با مهارت‌های مدیریتی برای ایجاد یک محیط کاری مولد و باانگیزه است.',
+  s2: 'ویژگی‌های کلیدی رهبری',
+  list1: ['چشم‌انداز – جهت‌گیری و اهداف روشن','ارتباطات – گوش دادن و صحبت کردن مؤثر','صداقت – رفتار صادقانه و اخلاقی','تصمیم‌گیری – تحلیلی و به‌موقع','همدلی – درک اعضای تیم','سازگاری – انعطاف‌پذیری در شرایط متغیر'],
+  s3: 'سبک‌های رهبری',
+  list2: ['خودکامه – تصمیم‌گیری متمرکز','دمکراتیک – مشارکتی و فراگیر','دست‌نگاه‌دار – تفویض اختیار، توانمندساز','تحول‌آفرین – الهام‌بخش و ایجاد انگیزه','خدمتگزار – تمرکز بر خدمت به تیم'],
+  s4: 'تیم‌سازی',
+  list3: ['نقش‌ها و مسئولیت‌های روشن – تعریف انتظارات','ارتباطات باز – جلسات منظم و بازخورد','اعتماد و احترام – ایجاد فرهنگ مثبت','تقدیر و پاداش – قدردانی از مشارکت‌ها','توسعه حرفه‌ای – سرمایه‌گذاری در رشد'],
+  s5: 'مثال: رهبری تیم پروژه پنل',
+  s5p: 'یک رهبر پروژه تیمی متشکل از 5 مهندس و 3 تکنسین را برای یک پروژه پنل MCC مدیریت می‌کند. رهبر نقاط عطف روشنی تعیین می‌کند، جلسات هفتگی برگزار می‌کند، راهنمایی فنی ارائه می‌دهد، تعارضات را حل می‌کند و دستاوردهای تیم را به رسمیت می‌شناسد. رهبری مؤثر تضمین می‌کند که پروژه به موقع و در بودجه تحویل داده شود.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
