@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Quality Control Software</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Quality Control Software</h1>
+ <div class="sub" id="desc">Essential software tools for quality control, including inspection management, test documentation, and reporting.</div>
+ <div class="section">
+  <h2 id="s1">Quality Management Systems (QMS)</h2>
+  <ul id="list1">
+   <li>ISO 9001 Management Software – Document control, audits</li>
+   <li>MasterControl – QMS platform</li>
+   <li>Intelex – Quality and compliance software</li>
+   <li>Qualio – Quality management for tech companies</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s2">Inspection & Test Software</h2>
+  <ul id="list2">
+   <li>Inspection Management Systems – ITP tracking</li>
+   <li>Non-Conformance Reporting (NCR) Software</li>
+   <li>Corrective Action Request (CAR) Systems</li>
+   <li>Test Data Management Software</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Statistical Process Control (SPC) Tools</h2>
+  <ul id="list3">
+   <li>Minitab – Statistical analysis and SPC</li>
+   <li>JMP – Data analysis and quality improvement</li>
+   <li>SPC Excel Add-ins – For process monitoring</li>
+   <li>Control Chart Software – Real-time process control</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Documentation & Reporting Tools</h2>
+  <ul id="list4">
+   <li>Microsoft Excel – Check sheets, reports, data analysis</li>
+   <li>Microsoft Word – Test procedures, quality plans</li>
+   <li>Adobe Acrobat – PDF documentation</li>
+   <li>SharePoint – Document management and collaboration</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Quality Control Software Suite</h2>
+  <p id="s5p">A typical quality control suite includes: QMS software for document control and audits, inspection management for ITP tracking, SPC tools for process monitoring, and reporting tools for generating quality reports and certifications.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
+</div>
+<script>
+const lang = {
+ en: {
+  title: 'Quality Control Software',
+  desc: 'Essential software tools for quality control, including inspection management, test documentation, and reporting.',
+  s1: 'Quality Management Systems (QMS)',
+  list1: ['ISO 9001 Management Software – Document control, audits','MasterControl – QMS platform','Intelex – Quality and compliance software','Qualio – Quality management for tech companies'],
+  s2: 'Inspection & Test Software',
+  list2: ['Inspection Management Systems – ITP tracking','Non-Conformance Reporting (NCR) Software','Corrective Action Request (CAR) Systems','Test Data Management Software'],
+  s3: 'Statistical Process Control (SPC) Tools',
+  list3: ['Minitab – Statistical analysis and SPC','JMP – Data analysis and quality improvement','SPC Excel Add-ins – For process monitoring','Control Chart Software – Real-time process control'],
+  s4: 'Documentation & Reporting Tools',
+  list4: ['Microsoft Excel – Check sheets, reports, data analysis','Microsoft Word – Test procedures, quality plans','Adobe Acrobat – PDF documentation','SharePoint – Document management and collaboration'],
+  s5: 'Example: Quality Control Software Suite',
+  s5p: 'A typical quality control suite includes: QMS software for document control and audits, inspection management for ITP tracking, SPC tools for process monitoring, and reporting tools for generating quality reports and certifications.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'نرم‌افزارهای کنترل کیفیت',
+  desc: 'ابزارهای نرم‌افزاری ضروری برای کنترل کیفیت، شامل مدیریت بازرسی، مستندات تست و گزارش‌دهی.',
+  s1: 'سیستم‌های مدیریت کیفیت (QMS)',
+  list1: ['نرم‌افزار مدیریت ISO 9001 – کنترل اسناد، ممیزی','MasterControl – پلتفرم QMS','Intelex – نرم‌افزار کیفیت و انطباق','Qualio – مدیریت کیفیت برای شرکت‌های فناوری'],
+  s2: 'نرم‌افزارهای بازرسی و تست',
+  list2: ['سیستم‌های مدیریت بازرسی – پیگیری ITP','نرم‌افزار گزارش عدم انطباق (NCR)','سیستم‌های درخواست اقدام اصلاحی (CAR)','نرم‌افزار مدیریت داده‌های تست'],
+  s3: 'ابزارهای کنترل فرآیند آماری (SPC)',
+  list3: ['Minitab – تحلیل آماری و SPC','JMP – تحلیل داده و بهبود کیفیت','افزونه‌های SPC برای Excel – برای نظارت بر فرآیند','نرم‌افزار نمودار کنترل – کنترل فرآیند بلادرنگ'],
+  s4: 'ابزارهای مستندسازی و گزارش‌دهی',
+  list4: ['Microsoft Excel – برگه‌های بازرسی، گزارش‌ها، تحلیل داده','Microsoft Word – رویه‌های تست، برنامه‌های کیفیت','Adobe Acrobat – مستندات PDF','SharePoint – مدیریت اسناد و همکاری'],
+  s5: 'مثال: مجموعه نرم‌افزاری کنترل کیفیت',
+  s5p: 'یک مجموعه کنترل کیفیت معمولی شامل: نرم‌افزار QMS برای کنترل اسناد و ممیزی، مدیریت بازرسی برای پیگیری ITP، ابزارهای SPC برای نظارت بر فرآیند، و ابزارهای گزارش‌دهی برای تولید گزارش‌های کیفیت و گواهینامه‌ها است.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
+</body>
+</html>
