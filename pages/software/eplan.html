@@ -1,199 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · EPLAN</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · EPLAN</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">⚡ EPLAN</h1>
-    <div class="sub" id="desc">EPLAN is a comprehensive engineering platform for electrical, automation, and control system design, documentation, and project management.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 Description</h2>
-        <p id="s1p">EPLAN is a leading software solution for engineering design and documentation. It provides a unified platform for electrical schematics, panel layout, cable routing, and automation design. EPLAN integrates with PLC, HMI, and SCADA systems, enabling seamless data exchange and project management.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Purpose</h2>
-        <p id="s2p">The purpose of EPLAN is to streamline the entire engineering process from design to manufacturing. It automates repetitive tasks, ensures consistency, and reduces errors. EPLAN supports multi-discipline engineering, including electrical, mechanical, and fluid power, facilitating collaboration across teams.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Example</h2>
-        <p id="s3p">An automation engineer uses EPLAN to design the electrical control system for a packaging machine. They create schematics, generate panel layouts, and produce wiring diagrams. The software automatically generates reports for procurement and installation. EPLAN data is used for PLC programming and HMI configuration, ensuring consistency across all disciplines.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Learning Path</h2>
-        <ul id="list1">
-            <li>Introduction to EPLAN interface and project structure</li>
-            <li>Creating electrical schematics and using macro libraries</li>
-            <li>Panel layout and 3D design (EPLAN Pro Panel)</li>
-            <li>Report generation (BOM, cable lists, terminal plans)</li>
-            <li>Data integration with PLC and HMI (EPLAN API)</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s5">🔹 Resources</h2>
-        <ul id="list2">
-            <li>EPLAN Help and Documentation</li>
-            <li>EPLAN Partner Network and Forums</li>
-            <li>YouTube tutorials and webinars</li>
-            <li>Certified training courses (EPLAN Learning)</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s6">🔹 Software</h2>
-        <ul id="list3">
-            <li>EPLAN Electric P8</li>
-            <li>EPLAN Pro Panel (3D panel design)</li>
-            <li>EPLAN API for custom automation</li>
-            <li>Integration with AutoCAD, SolidWorks, and PLM systems</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s7">🔹 Videos & Future Lessons</h2>
-        <ul id="list4">
-            <li>Getting Started with EPLAN Electric P8</li>
-            <li>Creating Schematics and Macros</li>
-            <li>3D Panel Design with EPLAN Pro Panel (Future)</li>
-            <li>Automation and Data Integration</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">EPLAN</h1>
+ <div class="sub" id="desc">Professional electrical engineering software for schematics, panel design, and documentation.</div>
+ <div class="section">
+  <h2 id="s1">Overview</h2>
+  <p id="s1p">EPLAN is a leading electrical engineering software for creating schematics, panel layouts, and complete project documentation. It is used in industrial automation, machine building, and process engineering.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key Features</h2>
+  <ul id="list1">
+   <li>Electrical Schematics – Detailed circuit design</li>
+   <li>EPLAN Pro Panel – 3D panel layout and wiring</li>
+   <li>Integrated Parts Database – BOM management</li>
+   <li>Automation – Macro technology</li>
+   <li>Project Management – Multi-user collaboration</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Learning Path</h2>
+  <ul id="list2">
+   <li>EPLAN Basics – Interface and project setup</li>
+   <li>Creating Schematics – Symbols and wiring</li>
+   <li>Panel Layout – Pro Panel 3D design</li>
+   <li>BOM and Reports – Parts management</li>
+   <li>Advanced – Macros and automation</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: MCC Panel Design</h2>
+  <p id="s4p">EPLAN is used to design an MCC panel: create schematics for motor starters, generate panel layout in 3D, produce wiring diagrams, and generate BOM. All data is linked for seamless updates.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '⚡ EPLAN',
-            desc: 'EPLAN is a comprehensive engineering platform for electrical, automation, and control system design, documentation, and project management.',
-            s1: '🔹 Description',
-            s1p: 'EPLAN is a leading software solution for engineering design and documentation. It provides a unified platform for electrical schematics, panel layout, cable routing, and automation design. EPLAN integrates with PLC, HMI, and SCADA systems, enabling seamless data exchange and project management.',
-            s2: '🔹 Purpose',
-            s2p: 'The purpose of EPLAN is to streamline the entire engineering process from design to manufacturing. It automates repetitive tasks, ensures consistency, and reduces errors. EPLAN supports multi-discipline engineering, including electrical, mechanical, and fluid power, facilitating collaboration across teams.',
-            s3: '🔹 Example',
-            s3p: 'An automation engineer uses EPLAN to design the electrical control system for a packaging machine. They create schematics, generate panel layouts, and produce wiring diagrams. The software automatically generates reports for procurement and installation. EPLAN data is used for PLC programming and HMI configuration, ensuring consistency across all disciplines.',
-            s4: '🔹 Learning Path',
-            list1: ['Introduction to EPLAN interface and project structure','Creating electrical schematics and using macro libraries','Panel layout and 3D design (EPLAN Pro Panel)','Report generation (BOM, cable lists, terminal plans)','Data integration with PLC and HMI (EPLAN API)'],
-            s5: '🔹 Resources',
-            list2: ['EPLAN Help and Documentation','EPLAN Partner Network and Forums','YouTube tutorials and webinars','Certified training courses (EPLAN Learning)'],
-            s6: '🔹 Software',
-            list3: ['EPLAN Electric P8','EPLAN Pro Panel (3D panel design)','EPLAN API for custom automation','Integration with AutoCAD, SolidWorks, and PLM systems'],
-            s7: '🔹 Videos & Future Lessons',
-            list4: ['Getting Started with EPLAN Electric P8','Creating Schematics and Macros','3D Panel Design with EPLAN Pro Panel (Future)','Automation and Data Integration'],
-            back: '← Back'
-        },
-        fa: {
-            title: '⚡ EPLAN',
-            desc: 'EPLAN یک پلتفرم جامع مهندسی برای طراحی، مستندسازی و مدیریت پروژه‌های الکتریکی، اتوماسیون و سیستم‌های کنترل است.',
-            s1: '🔹 توضیحات',
-            s1p: 'EPLAN یک راه‌حل نرم‌افزاری پیشرو برای طراحی و مستندسازی مهندسی است. این نرم‌افزار یک پلتفرم یکپارچه برای شماتیک‌های الکتریکی، چیدمان پنل، مسیریابی کابل و طراحی اتوماسیون فراهم می‌کند. EPLAN با سیستم‌های PLC، HMI و SCADA یکپارچه شده و تبادل داده و مدیریت پروژه را بدون درز امکان‌پذیر می‌سازد.',
-            s2: '🔹 هدف',
-            s2p: 'هدف EPLAN ساده‌سازی کل فرآیند مهندسی از طراحی تا تولید است. وظایف تکراری را خودکار کرده، سازگاری را تضمین کرده و خطاها را کاهش می‌دهد. EPLAN از مهندسی چندرشته‌ای، شامل برق، مکانیک و قدرت سیالات پشتیبانی می‌کند و همکاری بین تیم‌ها را تسهیل می‌کند.',
-            s3: '🔹 مثال',
-            s3p: 'یک مهندس اتوماسیون از EPLAN برای طراحی سیستم کنترل الکتریکی یک دستگاه بسته‌بندی استفاده می‌کند. آنها شماتیک‌ها را ایجاد، چیدمان پنل را تولید و نمودارهای سیم‌کشی را تهیه می‌کنند. نرم‌افزار به طور خودکار گزارش‌هایی برای تدارکات و نصب تولید می‌کند. داده‌های EPLAN برای برنامه‌نویسی PLC و پیکربندی HMI استفاده می‌شود و سازگاری را در تمام رشته‌ها تضمین می‌کند.',
-            s4: '🔹 مسیر یادگیری',
-            list1: ['آشنایی با رابط EPLAN و ساختار پروژه','ایجاد شماتیک‌های الکتریکی و استفاده از کتابخانه‌های ماکرو','چیدمان پنل و طراحی سه‌بعدی (EPLAN Pro Panel)','تولید گزارش‌ها (فهرست مواد، لیست کابل، طرح‌های ترمینال)','یکپارچه‌سازی داده با PLC و HMI (EPLAN API)'],
-            s5: '🔹 منابع',
-            list2: ['راهنما و مستندات EPLAN','شبکه و انجمن‌های همکاران EPLAN','آموزش‌های یوتیوب و وبینارها','دوره‌های آموزشی معتبر (EPLAN Learning)'],
-            s6: '🔹 نرم‌افزار',
-            list3: ['EPLAN Electric P8','EPLAN Pro Panel (طراحی سه‌بعدی پنل)','EPLAN API برای اتوماسیون سفارشی','یکپارچه‌سازی با AutoCAD، SolidWorks و سیستم‌های PLM'],
-            s7: '🔹 ویدئوها و درس‌های آینده',
-            list4: ['شروع کار با EPLAN Electric P8','ایجاد شماتیک‌ها و ماکروها','طراحی سه‌بعدی پنل با EPLAN Pro Panel (آینده)','اتوماسیون و یکپارچه‌سازی داده'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s2p').textContent = t.s2p;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s5').textContent = t.s5;
-        document.getElementById('s6').textContent = t.s6;
-        document.getElementById('s7').textContent = t.s7;
-        document.getElementById('backlink').textContent = t.back;
-
-        const list1 = document.getElementById('list1');
-        list1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
-
-        const list2 = document.getElementById('list2');
-        list2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
-
-        const list3 = document.getElementById('list3');
-        list3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; list3.appendChild(li); });
-
-        const list4 = document.getElementById('list4');
-        list4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; list4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'EPLAN',
+  desc: 'Professional electrical engineering software for schematics, panel design, and documentation.',
+  s1: 'Overview',
+  s1p: 'EPLAN is a leading electrical engineering software for creating schematics, panel layouts, and complete project documentation. It is used in industrial automation, machine building, and process engineering.',
+  s2: 'Key Features',
+  list1: ['Electrical Schematics – Detailed circuit design','EPLAN Pro Panel – 3D panel layout and wiring','Integrated Parts Database – BOM management','Automation – Macro technology','Project Management – Multi-user collaboration'],
+  s3: 'Learning Path',
+  list2: ['EPLAN Basics – Interface and project setup','Creating Schematics – Symbols and wiring','Panel Layout – Pro Panel 3D design','BOM and Reports – Parts management','Advanced – Macros and automation'],
+  s4: 'Example: MCC Panel Design',
+  s4p: 'EPLAN is used to design an MCC panel: create schematics for motor starters, generate panel layout in 3D, produce wiring diagrams, and generate BOM. All data is linked for seamless updates.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'EPLAN',
+  desc: 'نرم‌افزار حرفه‌ای مهندسی برق برای شماتیک، طراحی پنل و مستندات.',
+  s1: 'مرور کلی',
+  s1p: 'EPLAN یک نرم‌افزار پیشرو در مهندسی برق برای ایجاد شماتیک، چیدمان پنل و مستندات کامل پروژه است. در اتوماسیون صنعتی، ساخت ماشین‌آلات و مهندسی فرآیند استفاده می‌شود.',
+  s2: 'ویژگی‌های کلیدی',
+  list1: ['شماتیک برق – طراحی دقیق مدار','EPLAN Pro Panel – چیدمان پنل 3D و سیم‌کشی','پایگاه داده قطعات یکپارچه – مدیریت BOM','اتوماسیون – فناوری ماکرو','مدیریت پروژه – همکاری چند کاربره'],
+  s3: 'مسیر یادگیری',
+  list2: ['مبانی EPLAN – رابط کاربری و راه‌اندازی پروژه','ایجاد شماتیک – نمادها و سیم‌کشی','چیدمان پنل – طراحی Pro Panel 3D','BOM و گزارش‌ها – مدیریت قطعات','پیشرفته – ماکروها و اتوماسیون'],
+  s4: 'مثال: طراحی پنل MCC',
+  s4p: 'از EPLAN برای طراحی پنل MCC استفاده می‌شود: ایجاد شماتیک برای استارت موتورها، تولید چیدمان پنل در 3D، تولید نمودارهای سیم‌کشی و تولید BOM. همه داده‌ها برای به‌روزرسانی یکپارچه متصل هستند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
