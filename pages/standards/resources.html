@@ -1,172 +1,152 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Standards Resources</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Standards Resources</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">📚 Standards Resources</h1>
-    <div class="sub" id="desc">Books, websites, organizations, and educational materials for engineering standards and compliance.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 Recommended Books</h2>
-        <ul id="list1">
-            <li>Handbook of International Electrical Safety – IEC Standards</li>
-            <li>Understanding the National Electrical Code – NFPA</li>
-            <li>ISO 9001:2015 Quality Management System – David Hoyle</li>
-            <li>API Standards for Oil and Gas – Practical Guide</li>
-            <li>IEEE Standards in Power Engineering – John Wiley</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Useful Websites and Organizations</h2>
-        <ul id="list2">
-            <li>IEC – International Electrotechnical Commission – iec.ch</li>
-            <li>ISO – International Organization for Standardization – iso.org</li>
-            <li>IEEE – Institute of Electrical and Electronics Engineers – ieee.org</li>
-            <li>ANSI – American National Standards Institute – ansi.org</li>
-            <li>API – American Petroleum Institute – api.org</li>
-            <li>NFPA – National Fire Protection Association – nfpa.org</li>
-            <li>NEMA – National Electrical Manufacturers Association – nema.org</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Key Standards Publications</h2>
-        <ul id="list3">
-            <li>IEC 60364 – Electrical Installations (Low-voltage)</li>
-            <li>IEC 61439 – Low-voltage Switchgear</li>
-            <li>NFPA 70 (NEC) – National Electrical Code</li>
-            <li>ISO 9001 – Quality Management Systems</li>
-            <li>IEEE 80 – AC Substation Grounding</li>
-            <li>API 551 – Process Measurement</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Video Tutorials</h2>
-        <ul id="list4">
-            <li>Understanding IEC Standards (YouTube) – Introduction to international standards</li>
-            <li>NEC Code Training – National Electrical Code essentials</li>
-            <li>ISO 9001 Implementation – Step-by-step guide</li>
-            <li>API Standards for Oil and Gas – Key requirements and application</li>
-            <li>IEEE Standards Webinars – Latest updates and applications</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Standards Resources</h1>
+ <div class="sub" id="desc">Resources for engineering standards, including organizations, publications, and reference materials.</div>
+ <div class="section">
+  <h2 id="s1">Standards Organizations</h2>
+  <ul id="list1">
+   <li>IEC – International Electrotechnical Commission</li>
+   <li>ISO – International Organization for Standardization</li>
+   <li>IEEE – Institute of Electrical and Electronics Engineers</li>
+   <li>API – American Petroleum Institute</li>
+   <li>NFPA – National Fire Protection Association (NEC)</li>
+   <li>ANSI – American National Standards Institute</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key Publications</h2>
+  <ul id="list2">
+   <li>IEC Standards Catalog – Complete list of active standards</li>
+   <li>IEEE Standards Manual – Guide to standards development</li>
+   <li>API Standards Compendium – Oil &amp; gas standards</li>
+   <li>NFPA 70 Handbook – NEC with commentary</li>
+   <li>IEEE Std 80 – Earthing guide</li>
+   <li>IEC 61439 – Switchgear guide</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Online Resources</h2>
+  <ul id="list3">
+   <li>IEC Webstore – Access to digital standards</li>
+   <li>ANSI Webstore – American national standards</li>
+   <li>Techstreet – Industry standards database</li>
+   <li>NEMA – National Electrical Manufacturers Association</li>
+   <li>UL Standards – Underwriters Laboratories</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Training & Certification</h2>
+  <ul id="list4">
+   <li>IEC Training Courses – Standards interpretation</li>
+   <li>IEEE Professional Development – Standards education</li>
+   <li>ISO 9001 Internal Auditor Training</li>
+   <li>NEC Training and Seminars</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Using Standards Resources</h2>
+  <p id="s5p">An engineer designing an MCC panel references IEC 61439 for design requirements, IEEE 80 for earthing, IEC 60204 for machine safety, and NEC for installation. Standards resources are used for verification and compliance.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📚 Standards Resources',
-            desc: 'Books, websites, organizations, and educational materials for engineering standards and compliance.',
-            s1: '🔹 Recommended Books',
-            list1: ['Handbook of International Electrical Safety – IEC Standards','Understanding the National Electrical Code – NFPA','ISO 9001:2015 Quality Management System – David Hoyle','API Standards for Oil and Gas – Practical Guide','IEEE Standards in Power Engineering – John Wiley'],
-            s2: '🔹 Useful Websites and Organizations',
-            list2: ['IEC – International Electrotechnical Commission – iec.ch','ISO – International Organization for Standardization – iso.org','IEEE – Institute of Electrical and Electronics Engineers – ieee.org','ANSI – American National Standards Institute – ansi.org','API – American Petroleum Institute – api.org','NFPA – National Fire Protection Association – nfpa.org','NEMA – National Electrical Manufacturers Association – nema.org'],
-            s3: '🔹 Key Standards Publications',
-            list3: ['IEC 60364 – Electrical Installations (Low-voltage)','IEC 61439 – Low-voltage Switchgear','NFPA 70 (NEC) – National Electrical Code','ISO 9001 – Quality Management Systems','IEEE 80 – AC Substation Grounding','API 551 – Process Measurement'],
-            s4: '🔹 Video Tutorials',
-            list4: ['Understanding IEC Standards (YouTube) – Introduction to international standards','NEC Code Training – National Electrical Code essentials','ISO 9001 Implementation – Step-by-step guide','API Standards for Oil and Gas – Key requirements and application','IEEE Standards Webinars – Latest updates and applications'],
-            back: '← Back'
-        },
-        fa: {
-            title: '📚 منابع استانداردها',
-            desc: 'کتاب‌ها، وب‌سایت‌ها، سازمان‌ها و مواد آموزشی برای استانداردهای مهندسی و انطباق.',
-            s1: '🔹 کتاب‌های پیشنهادی',
-            list1: ['راهنمای ایمنی الکتریکی بین‌المللی – استانداردهای IEC','درک کد ملی برق – NFPA','سیستم مدیریت کیفیت ISO 9001:2015 – David Hoyle','استانداردهای API برای نفت و گاز – راهنمای عملی','استانداردهای IEEE در مهندسی قدرت – John Wiley'],
-            s2: '🔹 وب‌سایت‌ها و سازمان‌های مفید',
-            list2: ['IEC – کمیسیون بین‌المللی الکتروتکنیک – iec.ch','ISO – سازمان بین‌المللی استانداردسازی – iso.org','IEEE – مؤسسه مهندسان برق و الکترونیک – ieee.org','ANSI – مؤسسه ملی استانداردهای آمریکا – ansi.org','API – مؤسسه نفت آمریکا – api.org','NFPA – انجمن ملی حفاظت در برابر آتش – nfpa.org','NEMA – انجمن ملی تولیدکنندگان برق – nema.org'],
-            s3: '🔹 انتشارات کلیدی استانداردها',
-            list3: ['IEC 60364 – تأسیسات الکتریکی (فشار ضعیف)','IEC 61439 – تابلوهای فشار ضعیف','NFPA 70 (NEC) – کد ملی برق','ISO 9001 – سیستم‌های مدیریت کیفیت','IEEE 80 – زمین کردن پست‌های AC','API 551 – اندازه‌گیری فرآیند'],
-            s4: '🔹 آموزش‌های ویدئویی',
-            list4: ['آشنایی با استانداردهای IEC (یوتیوب) – معرفی استانداردهای بین‌المللی','آموزش کد NEC – اصول کد ملی برق','پیاده‌سازی ISO 9001 – راهنمای گام‌به‌گام','استانداردهای API برای نفت و گاز – الزامات کلیدی و کاربرد','وبینارهای استانداردهای IEEE – آخرین به‌روزرسانی‌ها و کاربردها'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        const ul3 = document.getElementById('list3');
-        ul3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
-
-        const ul4 = document.getElementById('list4');
-        ul4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Standards Resources',
+  desc: 'Resources for engineering standards, including organizations, publications, and reference materials.',
+  s1: 'Standards Organizations',
+  list1: ['IEC – International Electrotechnical Commission','ISO – International Organization for Standardization','IEEE – Institute of Electrical and Electronics Engineers','API – American Petroleum Institute','NFPA – National Fire Protection Association (NEC)','ANSI – American National Standards Institute'],
+  s2: 'Key Publications',
+  list2: ['IEC Standards Catalog – Complete list of active standards','IEEE Standards Manual – Guide to standards development','API Standards Compendium – Oil & gas standards','NFPA 70 Handbook – NEC with commentary','IEEE Std 80 – Earthing guide','IEC 61439 – Switchgear guide'],
+  s3: 'Online Resources',
+  list3: ['IEC Webstore – Access to digital standards','ANSI Webstore – American national standards','Techstreet – Industry standards database','NEMA – National Electrical Manufacturers Association','UL Standards – Underwriters Laboratories'],
+  s4: 'Training & Certification',
+  list4: ['IEC Training Courses – Standards interpretation','IEEE Professional Development – Standards education','ISO 9001 Internal Auditor Training','NEC Training and Seminars'],
+  s5: 'Example: Using Standards Resources',
+  s5p: 'An engineer designing an MCC panel references IEC 61439 for design requirements, IEEE 80 for earthing, IEC 60204 for machine safety, and NEC for installation. Standards resources are used for verification and compliance.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'منابع استانداردها',
+  desc: 'منابع برای استانداردهای مهندسی، شامل سازمان‌ها، انتشارات و مواد مرجع.',
+  s1: 'سازمان‌های استاندارد',
+  list1: ['IEC – کمیسیون بین‌المللی الکتروتکنیک','ISO – سازمان بین‌المللی استانداردسازی','IEEE – مؤسسه مهندسان برق و الکترونیک','API – مؤسسه نفت آمریکا','NFPA – انجمن ملی حفاظت از آتش (NEC)','ANSI – مؤسسه ملی استانداردهای آمریکا'],
+  s2: 'انتشارات کلیدی',
+  list2: ['کاتالوگ استانداردهای IEC – لیست کامل استانداردهای فعال','راهنمای استانداردهای IEEE – راهنمای توسعه استانداردها','مجموعه استانداردهای API – استانداردهای نفت و گاز','راهنمای NFPA 70 – NEC با تفسیر','IEEE Std 80 – راهنمای ارتینگ','IEC 61439 – راهنمای تابلوهای برق'],
+  s3: 'منابع آنلاین',
+  list3: ['فروشگاه اینترنتی IEC – دسترسی به استانداردهای دیجیتال','فروشگاه اینترنتی ANSI – استانداردهای ملی آمریکا','Techstreet – پایگاه داده استانداردهای صنعتی','NEMA – انجمن ملی تولیدکنندگان تجهیزات الکتریکی','استانداردهای UL – آزمایشگاه‌های بیمه‌گران'],
+  s4: 'آموزش و گواهینامه',
+  list4: ['دوره‌های آموزشی IEC – تفسیر استانداردها','توسعه حرفه‌ای IEEE – آموزش استانداردها','آموزش ممیز داخلی ISO 9001','آموزش و سمینارهای NEC'],
+  s5: 'مثال: استفاده از منابع استانداردها',
+  s5p: 'یک مهندس که یک پنل MCC را طراحی می‌کند، برای الزامات طراحی به IEC 61439، برای ارتینگ به IEEE 80، برای ایمنی ماشین‌آلات به IEC 60204 و برای نصب به NEC مراجعه می‌کند. منابع استاندارد برای تأیید و انطباق استفاده می‌شوند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
