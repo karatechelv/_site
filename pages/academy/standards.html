@@ -17,7 +17,7 @@
  .lang-switch{display:flex;gap:6px}
  h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
  .sub{color:#8e95a5;font-size:1.05rem;line-height:1.8;margin-bottom:30px}
- .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:30px}
+ .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-bottom:30px}
  .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
  .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
  .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
@@ -42,49 +42,7 @@
   </div>
  </div>
  <h1 id="page-title">Standards Engineering</h1>
- <div class="sub" id="page-sub">IEC, NEC, ISO, API, IEEE, and other international standards for electrical and automation engineering.</div>
+ <div class="sub" id="page-sub">IEC, NEC, ISO, API, IEEE, and international standards for engineering.</div>
  <div class="grid" id="cards-grid">
-  <a href="../standards/overview.html" class="card"><i>📋</i><h3>Overview</h3><p>Complete overview</p><span class="badge">Learn More →</span></a>
-  <a href="../standards/iec.html" class="card"><i>⚡</i><h3>IEC Standards</h3><p>International Electrotechnical</p><span class="badge">Learn More →</span></a>
-  <a href="../standards/nec.html" class="card"><i>🔌</i><h3>NEC</h3><p>National Electrical Code</p><span class="badge">Learn More →</span></a>
-  <a href="../standards/iso.html" class="card"><i>📏</i><h3>ISO Standards</h3><p>Quality &amp; management</p><span class="badge">Learn More →</span></a>
-  <a href="../standards/api.html" class="card"><i>🛢️</i><h3>API Standards</h3><p>Oil &amp; gas industry</p><span class="badge">Learn More →</span></a>
-  <a href="../standards/ieee.html" class="card"><i>💡</i><h3>IEEE Standards</h3><p>Electrical &amp; electronics</p><span class="badge">Learn More →</span></a>
-  <a href="../standards/software.html" class="card"><i>💻</i><h3>Software</h3><p>Essential tools</p><span class="badge">Learn More →</span></a>
-  <a href="../standards/resources.html" class="card"><i>📚</i><h3>Resources</h3><p>Standards, guides</p><span class="badge">Learn More →</span></a>
-  <a href="../standards/learning-path.html" class="card"><i>🎯</i><h3>Learning Path</h3><p>Foundation to advanced</p><span class="badge">Learn More →</span></a>
-  <a href="../standards/videos-future.html" class="card"><i>🎬</i><h3>Videos &amp; Future</h3><p>Tutorials &amp; future tech</p><span class="badge">Learn More →</span></a>
-  <a href="../standards/examples.html" class="card"><i>⚙️</i><h3>Examples</h3><p>Practical projects</p><span class="badge">Learn More →</span></a>
- </div>
- <div class="back">
-  <a href="javascript:history.back()" id="backlink">← Back</a>
- </div>
-</div>
-<script>
-const lang = {
- en: {
-  title: 'Standards Engineering',
-  desc: 'IEC, NEC, ISO, API, IEEE, and other international standards for electrical and automation engineering.',
-  back: '← Back'
- },
- fa: {
-  title: 'مهندسی استانداردها',
-  desc: 'IEC، NEC، ISO، API، IEEE و سایر استانداردهای بین‌المللی برای مهندسی برق و اتوماسیون.',
-  back: '← بازگشت'
- }
-};
-function setLang(l) {
- const t = lang[l]; if (!t) return;
- document.getElementById('page-title').textContent = t.title;
- document.getElementById('page-sub').textContent = t.desc;
- document.getElementById('backlink').textContent = t.back;
- document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
- document.body.classList.toggle('lang-persian', l === 'fa');
- localStorage.setItem('karatech-lang', l);
-}
-document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
-const savedLang = localStorage.getItem('karatech-lang') || 'en';
-setLang(savedLang);
-</script>
-</body>
-</html>
+  <a href="../standards/overview.html" class="card"><i>📋</i><h3>Overview</h3><p>Complete overview</p><span class="badge">Coming Soon</span></a>
+ 
