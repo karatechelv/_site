@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Quality Standards</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Quality Standards</h1>
+ <div class="sub" id="desc">International quality standards including ISO 9001, ISO 14001, and industry-specific quality requirements.</div>
+ <div class="section">
+  <h2 id="s1">What are Quality Standards?</h2>
+  <p id="s1p">Quality standards are documented guidelines, specifications, and requirements that ensure products, services, and processes meet consistent quality levels. They provide a framework for quality management and continuous improvement.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">ISO Quality Standards</h2>
+  <ul id="list1">
+   <li>ISO 9001 – Quality Management Systems (QMS)</li>
+   <li>ISO 14001 – Environmental Management Systems</li>
+   <li>ISO 45001 – Occupational Health &amp; Safety</li>
+   <li>ISO 50001 – Energy Management</li>
+   <li>ISO 17025 – Testing and Calibration Laboratories</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Industry-Specific Quality Standards</h2>
+  <ul id="list2">
+   <li>IATF 16949 – Automotive Quality Management</li>
+   <li>AS9100 – Aerospace Quality Management</li>
+   <li>API Q1 – Oil &amp; Gas Quality Management</li>
+   <li>ISO 13485 – Medical Device Quality Management</li>
+   <li>FSSC 22000 – Food Safety Management</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Quality Tools & Methods</h2>
+  <ul id="list3">
+   <li>PDCA Cycle – Plan-Do-Check-Act</li>
+   <li>8D Problem Solving – Eight Disciplines</li>
+   <li>Fishbone Diagram – Root cause analysis</li>
+   <li>Pareto Analysis – Prioritizing improvements</li>
+   <li>5 Whys – Finding root causes</li>
+   <li>FMEA – Failure Mode and Effects Analysis</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: ISO 9001 Implementation</h2>
+  <p id="s5p">Implementing ISO 9001 involves defining quality policy, documenting procedures, training employees, conducting internal audits, and continuous improvement. Certification is achieved through an external audit by an accredited body.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
+</div>
+<script>
+const lang = {
+ en: {
+  title: 'Quality Standards',
+  desc: 'International quality standards including ISO 9001, ISO 14001, and industry-specific quality requirements.',
+  s1: 'What are Quality Standards?',
+  s1p: 'Quality standards are documented guidelines, specifications, and requirements that ensure products, services, and processes meet consistent quality levels. They provide a framework for quality management and continuous improvement.',
+  s2: 'ISO Quality Standards',
+  list1: ['ISO 9001 – Quality Management Systems (QMS)','ISO 14001 – Environmental Management Systems','ISO 45001 – Occupational Health & Safety','ISO 50001 – Energy Management','ISO 17025 – Testing and Calibration Laboratories'],
+  s3: 'Industry-Specific Quality Standards',
+  list2: ['IATF 16949 – Automotive Quality Management','AS9100 – Aerospace Quality Management','API Q1 – Oil & Gas Quality Management','ISO 13485 – Medical Device Quality Management','FSSC 22000 – Food Safety Management'],
+  s4: 'Quality Tools & Methods',
+  list3: ['PDCA Cycle – Plan-Do-Check-Act','8D Problem Solving – Eight Disciplines','Fishbone Diagram – Root cause analysis','Pareto Analysis – Prioritizing improvements','5 Whys – Finding root causes','FMEA – Failure Mode and Effects Analysis'],
+  s5: 'Example: ISO 9001 Implementation',
+  s5p: 'Implementing ISO 9001 involves defining quality policy, documenting procedures, training employees, conducting internal audits, and continuous improvement. Certification is achieved through an external audit by an accredited body.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'استانداردهای کیفیت',
+  desc: 'استانداردهای کیفیت بین‌المللی شامل ISO 9001، ISO 14001 و الزامات کیفیت خاص صنعت.',
+  s1: 'استانداردهای کیفیت چیستند؟',
+  s1p: 'استانداردهای کیفیت، دستورالعمل‌ها، مشخصات و الزامات مستند شده‌ای هستند که تضمین می‌کنند محصولات، خدمات و فرآیندها سطوح کیفیت ثابتی را برآورده می‌کنند. آنها چارچوبی برای مدیریت کیفیت و بهبود مستمر فراهم می‌کنند.',
+  s2: 'استانداردهای کیفیت ISO',
+  list1: ['ISO 9001 – سیستم‌های مدیریت کیفیت','ISO 14001 – سیستم‌های مدیریت زیست‌محیطی','ISO 45001 – بهداشت و ایمنی شغلی','ISO 50001 – مدیریت انرژی','ISO 17025 – آزمایشگاه‌های تست و کالیبراسیون'],
+  s3: 'استانداردهای کیفیت خاص صنعت',
+  list2: ['IATF 16949 – مدیریت کیفیت خودرو','AS9100 – مدیریت کیفیت هوافضا','API Q1 – مدیریت کیفیت نفت و گاز','ISO 13485 – مدیریت کیفیت تجهیزات پزشکی','FSSC 22000 – مدیریت ایمنی مواد غذایی'],
+  s4: 'ابزارها و روش‌های کیفیت',
+  list3: ['چرخه PDCA – برنامه‌ریزی-انجام-بررسی-اقدام','حل مسئله 8D – هشت انضباط','نمودار استخوان ماهی – تحلیل ریشه‌ای','تحلیل پارتو – اولویت‌بندی بهبودها','5 چرا – یافتن علل ریشه‌ای','FMEA – تحلیل حالت و اثرات شکست'],
+  s5: 'مثال: پیاده‌سازی ISO 9001',
+  s5p: 'پیاده‌سازی ISO 9001 شامل تعریف خط‌مشی کیفیت، مستندسازی رویه‌ها، آموزش کارکنان، انجام ممیزی‌های داخلی و بهبود مستمر است. گواهینامه از طریق ممیزی خارجی توسط یک نهاد معتبر به دست می‌آید.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
+</body>
+</html>
