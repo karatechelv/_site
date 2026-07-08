@@ -1,199 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · AutoCAD Electrical</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · AutoCAD</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">📐 AutoCAD Electrical</h1>
-    <div class="sub" id="desc">AutoCAD Electrical is a specialized CAD software for electrical control system design, schematic creation, panel layout, and cable routing.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 Description</h2>
-        <p id="s1p">AutoCAD Electrical is a powerful software tool designed specifically for electrical engineers and designers. It provides a comprehensive set of tools for creating electrical schematics, wiring diagrams, panel layouts, and cable schedules. It includes a vast library of electrical symbols and automated features for reporting and documentation.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Purpose</h2>
-        <p id="s2p">The primary purpose of AutoCAD Electrical is to streamline the design and documentation of electrical control systems. It helps engineers create accurate schematics, generate reports (BOMs, wire lists), and produce panel layouts efficiently. It integrates with other engineering tools and supports collaboration across teams.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Example</h2>
-        <p id="s3p">An electrical engineer uses AutoCAD Electrical to design the control system for a conveyor line. They create schematics for motor control, sensor wiring, and PLC I/O connections. They also generate a panel layout showing the placement of circuit breakers, contactors, and terminal blocks. The software automatically generates a bill of materials and wire lists for procurement.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Learning Path</h2>
-        <ul id="list1">
-            <li>Introduction to AutoCAD Electrical interface and project setup</li>
-            <li>Creating electrical schematics and using libraries</li>
-            <li>Panel layout and component placement</li>
-            <li>Generating reports (BOM, wire lists, terminal plans)</li>
-            <li>Advanced features: PLC I/O, cable routing, and cross-referencing</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s5">🔹 Resources</h2>
-        <ul id="list2">
-            <li>AutoCAD Electrical Help and Documentation</li>
-            <li>Autodesk Knowledge Network (forums and articles)</li>
-            <li>YouTube tutorials from Autodesk and community</li>
-            <li>Online courses (Udemy, Coursera, LinkedIn Learning)</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s6">🔹 Software</h2>
-        <ul id="list3">
-            <li>AutoCAD Electrical (full version)</li>
-            <li>AutoCAD Electrical LISPs and add-ons</li>
-            <li>Integration with EPLAN and other engineering software</li>
-            <li>Autodesk Vault for project management</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s7">🔹 Videos & Future Lessons</h2>
-        <ul id="list4">
-            <li>Getting Started with AutoCAD Electrical</li>
-            <li>Creating Electrical Schematics (Step by Step)</li>
-            <li>Panel Layout and 3D Design (Future)</li>
-            <li>Advanced Reporting and Automation</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">AutoCAD</h1>
+ <div class="sub" id="desc">General-purpose CAD software for 2D drafting and 3D modeling in engineering.</div>
+ <div class="section">
+  <h2 id="s1">Overview</h2>
+  <p id="s1p">AutoCAD is a widely used computer-aided design (CAD) software for 2D drafting and 3D modeling. It is used across various engineering disciplines for creating technical drawings, schematics, and layouts.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key Features</h2>
+  <ul id="list1">
+   <li>2D Drafting – Precision drawing tools</li>
+   <li>3D Modeling – Solid, surface, and mesh modeling</li>
+   <li>AutoCAD Electrical – Electrical design specialized</li>
+   <li>AutoCAD Plant 3D – Plant design and P&amp;ID</li>
+   <li>Customization – LISP, VBA, .NET APIs</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Learning Path</h2>
+  <ul id="list2">
+   <li>AutoCAD Basics – Interface and commands</li>
+   <li>2D Drafting – Lines, shapes, annotations</li>
+   <li>AutoCAD Electrical – Schematics and panel layouts</li>
+   <li>AutoCAD Plant 3D – P&amp;ID and plant design</li>
+   <li>Advanced – 3D modeling and customization</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: Electrical Schematic</h2>
+  <p id="s4p">AutoCAD Electrical is used to create electrical schematics, panel layouts, and wiring diagrams. Symbols are standardized and project data is managed through the AutoCAD Electrical project manager.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📐 AutoCAD Electrical',
-            desc: 'AutoCAD Electrical is a specialized CAD software for electrical control system design, schematic creation, panel layout, and cable routing.',
-            s1: '🔹 Description',
-            s1p: 'AutoCAD Electrical is a powerful software tool designed specifically for electrical engineers and designers. It provides a comprehensive set of tools for creating electrical schematics, wiring diagrams, panel layouts, and cable schedules. It includes a vast library of electrical symbols and automated features for reporting and documentation.',
-            s2: '🔹 Purpose',
-            s2p: 'The primary purpose of AutoCAD Electrical is to streamline the design and documentation of electrical control systems. It helps engineers create accurate schematics, generate reports (BOMs, wire lists), and produce panel layouts efficiently. It integrates with other engineering tools and supports collaboration across teams.',
-            s3: '🔹 Example',
-            s3p: 'An electrical engineer uses AutoCAD Electrical to design the control system for a conveyor line. They create schematics for motor control, sensor wiring, and PLC I/O connections. They also generate a panel layout showing the placement of circuit breakers, contactors, and terminal blocks. The software automatically generates a bill of materials and wire lists for procurement.',
-            s4: '🔹 Learning Path',
-            list1: ['Introduction to AutoCAD Electrical interface and project setup','Creating electrical schematics and using libraries','Panel layout and component placement','Generating reports (BOM, wire lists, terminal plans)','Advanced features: PLC I/O, cable routing, and cross-referencing'],
-            s5: '🔹 Resources',
-            list2: ['AutoCAD Electrical Help and Documentation','Autodesk Knowledge Network (forums and articles)','YouTube tutorials from Autodesk and community','Online courses (Udemy, Coursera, LinkedIn Learning)'],
-            s6: '🔹 Software',
-            list3: ['AutoCAD Electrical (full version)','AutoCAD Electrical LISPs and add-ons','Integration with EPLAN and other engineering software','Autodesk Vault for project management'],
-            s7: '🔹 Videos & Future Lessons',
-            list4: ['Getting Started with AutoCAD Electrical','Creating Electrical Schematics (Step by Step)','Panel Layout and 3D Design (Future)','Advanced Reporting and Automation'],
-            back: '← Back'
-        },
-        fa: {
-            title: '📐 AutoCAD Electrical',
-            desc: 'AutoCAD Electrical یک نرم‌افزار تخصصی CAD برای طراحی سیستم‌های کنترل الکتریکی، ایجاد شماتیک، چیدمان پنل و مسیریابی کابل است.',
-            s1: '🔹 توضیحات',
-            s1p: 'AutoCAD Electrical یک ابزار نرم‌افزاری قدرتمند است که به طور خاص برای مهندسان برق و طراحان طراحی شده است. مجموعه‌ای جامع از ابزارها را برای ایجاد شماتیک‌های الکتریکی، نمودارهای سیم‌کشی، چیدمان پنل و جدول‌های کابل فراهم می‌کند. این نرم‌افزار شامل کتابخانه گسترده‌ای از نمادهای الکتریکی و ویژگی‌های خودکار برای گزارش‌دهی و مستندسازی است.',
-            s2: '🔹 هدف',
-            s2p: 'هدف اصلی AutoCAD Electrical ساده‌سازی طراحی و مستندسازی سیستم‌های کنترل الکتریکی است. به مهندسان کمک می‌کند تا شماتیک‌های دقیق ایجاد کنند، گزارش‌ها (فهرست مواد، لیست سیم‌ها) تولید کنند و چیدمان پنل را به طور کارآمد طراحی کنند. این نرم‌افزار با سایر ابزارهای مهندسی یکپارچه شده و از همکاری بین تیم‌ها پشتیبانی می‌کند.',
-            s3: '🔹 مثال',
-            s3p: 'یک مهندس برق از AutoCAD Electrical برای طراحی سیستم کنترل یک خط نقاله استفاده می‌کند. آنها شماتیک‌هایی برای کنترل موتور، سیم‌کشی سنسورها و اتصالات I/O PLC ایجاد می‌کنند. همچنین یک چیدمان پنل نشان‌دهنده محل قرارگیری کلیدهای مدار، کنتاکتورها و بلوک‌های ترمینال تولید می‌کنند. نرم‌افزار به طور خودکار فهرست مواد و لیست سیم‌ها را برای تدارکات تولید می‌کند.',
-            s4: '🔹 مسیر یادگیری',
-            list1: ['آشنایی با رابط AutoCAD Electrical و راه‌اندازی پروژه','ایجاد شماتیک‌های الکتریکی و استفاده از کتابخانه‌ها','چیدمان پنل و قرارگیری قطعات','تولید گزارش‌ها (فهرست مواد، لیست سیم‌ها، طرح‌های ترمینال)','ویژگی‌های پیشرفته: I/O PLC، مسیریابی کابل و مرجع‌دهی متقابل'],
-            s5: '🔹 منابع',
-            list2: ['راهنما و مستندات AutoCAD Electrical','شبکه دانش Autodesk (انجمن‌ها و مقالات)','آموزش‌های یوتیوب از Autodesk و انجمن','دوره‌های آنلاین (Udemy، Coursera، LinkedIn Learning)'],
-            s6: '🔹 نرم‌افزار',
-            list3: ['AutoCAD Electrical (نسخه کامل)','افزونه‌های LISP AutoCAD Electrical','یکپارچه‌سازی با EPLAN و سایر نرم‌افزارهای مهندسی','Autodesk Vault برای مدیریت پروژه'],
-            s7: '🔹 ویدئوها و درس‌های آینده',
-            list4: ['شروع کار با AutoCAD Electrical','ایجاد شماتیک‌های الکتریکی (گام‌به‌گام)','چیدمان پنل و طراحی سه‌بعدی (آینده)','گزارش‌دهی پیشرفته و اتوماسیون'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s2p').textContent = t.s2p;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s5').textContent = t.s5;
-        document.getElementById('s6').textContent = t.s6;
-        document.getElementById('s7').textContent = t.s7;
-        document.getElementById('backlink').textContent = t.back;
-
-        const list1 = document.getElementById('list1');
-        list1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
-
-        const list2 = document.getElementById('list2');
-        list2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
-
-        const list3 = document.getElementById('list3');
-        list3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; list3.appendChild(li); });
-
-        const list4 = document.getElementById('list4');
-        list4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; list4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'AutoCAD',
+  desc: 'General-purpose CAD software for 2D drafting and 3D modeling in engineering.',
+  s1: 'Overview',
+  s1p: 'AutoCAD is a widely used computer-aided design (CAD) software for 2D drafting and 3D modeling. It is used across various engineering disciplines for creating technical drawings, schematics, and layouts.',
+  s2: 'Key Features',
+  list1: ['2D Drafting – Precision drawing tools','3D Modeling – Solid, surface, and mesh modeling','AutoCAD Electrical – Electrical design specialized','AutoCAD Plant 3D – Plant design and P&ID','Customization – LISP, VBA, .NET APIs'],
+  s3: 'Learning Path',
+  list2: ['AutoCAD Basics – Interface and commands','2D Drafting – Lines, shapes, annotations','AutoCAD Electrical – Schematics and panel layouts','AutoCAD Plant 3D – P&ID and plant design','Advanced – 3D modeling and customization'],
+  s4: 'Example: Electrical Schematic',
+  s4p: 'AutoCAD Electrical is used to create electrical schematics, panel layouts, and wiring diagrams. Symbols are standardized and project data is managed through the AutoCAD Electrical project manager.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'AutoCAD',
+  desc: 'نرم‌افزار CAD همه‌منظوره برای ترسیم 2D و مدل‌سازی 3D در مهندسی.',
+  s1: 'مرور کلی',
+  s1p: 'AutoCAD یک نرم‌افزار پرکاربرد طراحی به کمک رایانه (CAD) برای ترسیم 2D و مدل‌سازی 3D است. این نرم‌افزار در رشته‌های مختلف مهندسی برای ایجاد نقشه‌های فنی، شماتیک‌ها و چیدمان‌ها استفاده می‌شود.',
+  s2: 'ویژگی‌های کلیدی',
+  list1: ['ترسیم 2D – ابزارهای دقیق ترسیم','مدل‌سازی 3D – مدل‌سازی جامد، سطحی و مش','AutoCAD Electrical – تخصصی طراحی برق','AutoCAD Plant 3D – طراحی کارخانه و P&ID','سفارشی‌سازی – APIهای LISP، VBA، .NET'],
+  s3: 'مسیر یادگیری',
+  list2: ['مبانی AutoCAD – رابط کاربری و دستورات','ترسیم 2D – خطوط، اشکال، توضیحات','AutoCAD Electrical – شماتیک‌ها و چیدمان پنل','AutoCAD Plant 3D – P&ID و طراحی کارخانه','پیشرفته – مدل‌سازی 3D و سفارشی‌سازی'],
+  s4: 'مثال: شماتیک الکتریکی',
+  s4p: 'از AutoCAD Electrical برای ایجاد شماتیک‌های الکتریکی، چیدمان پنل و نمودارهای سیم‌کشی استفاده می‌شود. نمادها استاندارد هستند و داده‌های پروژه از طریق مدیر پروژه AutoCAD Electrical مدیریت می‌شوند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
