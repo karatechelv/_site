@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Emergency Response</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Emergency Response</h1>
+ <div class="sub" id="desc">Emergency preparedness, response plans, and crisis management for engineering facilities.</div>
+ <div class="section">
+  <h2 id="s1">What is Emergency Response?</h2>
+  <p id="s1p">Emergency response involves preparing for, responding to, and recovering from emergency situations such as fires, chemical spills, medical emergencies, and natural disasters. It aims to protect life, property, and the environment.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Types of Emergencies</h2>
+  <ul id="list1">
+   <li>Fire – Electrical fires, chemical fires</li>
+   <li>Chemical Spills – Hazardous material release</li>
+   <li>Medical Emergencies – Injuries, heart attacks</li>
+   <li>Electrical Accidents – Shock, arc flash</li>
+   <li>Natural Disasters – Earthquakes, floods, storms</li>
+   <li>Security Incidents – Break-ins, threats</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Emergency Response Plan (ERP)</h2>
+  <ul id="list2">
+   <li>Emergency procedures – Step-by-step actions</li>
+   <li>Evacuation routes and assembly points</li>
+   <li>Emergency contacts and communication</li>
+   <li>First aid and medical response</li>
+   <li>Fire suppression and spill containment</li>
+   <li>Training and drills</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Emergency Response Example</h2>
+  <div class="code-box">
+# Fire Emergency Procedure
+# 1. Raise alarm (activate fire alarm)
+# 2. Call emergency services (119/911)
+# 3. Evacuate via nearest safe exit
+# 4. Assemble at designated point
+# 5. Do not use elevators
+# 6. Do not re-enter until authorized
+  </div>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Chemical Spill Response</h2>
+  <p id="s5p">A chemical spill response includes: evacuate area, alert others, isolate the spill using spill kit, neutralize if possible, contain and clean up using appropriate PPE, and dispose of waste according to regulations. Report the incident and review procedures.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
+</div>
+<script>
+const lang = {
+ en: {
+  title: 'Emergency Response',
+  desc: 'Emergency preparedness, response plans, and crisis management for engineering facilities.',
+  s1: 'What is Emergency Response?',
+  s1p: 'Emergency response involves preparing for, responding to, and recovering from emergency situations such as fires, chemical spills, medical emergencies, and natural disasters. It aims to protect life, property, and the environment.',
+  s2: 'Types of Emergencies',
+  list1: ['Fire – Electrical fires, chemical fires','Chemical Spills – Hazardous material release','Medical Emergencies – Injuries, heart attacks','Electrical Accidents – Shock, arc flash','Natural Disasters – Earthquakes, floods, storms','Security Incidents – Break-ins, threats'],
+  s3: 'Emergency Response Plan (ERP)',
+  list2: ['Emergency procedures – Step-by-step actions','Evacuation routes and assembly points','Emergency contacts and communication','First aid and medical response','Fire suppression and spill containment','Training and drills'],
+  s4: 'Emergency Response Example',
+  s5: 'Example: Chemical Spill Response',
+  s5p: 'A chemical spill response includes: evacuate area, alert others, isolate the spill using spill kit, neutralize if possible, contain and clean up using appropriate PPE, and dispose of waste according to regulations. Report the incident and review procedures.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'پاسخ به شرایط اضطراری',
+  desc: 'آمادگی اضطراری، برنامه‌های پاسخ و مدیریت بحران برای تأسیسات مهندسی.',
+  s1: 'پاسخ به شرایط اضطراری چیست؟',
+  s1p: 'پاسخ به شرایط اضطراری شامل آماده‌سازی، پاسخ‌دهی و بازیابی از موقعیت‌های اضطراری مانند آتش‌سوزی، نشت مواد شیمیایی، اورژانس‌های پزشکی و بلایای طبیعی است. هدف آن محافظت از زندگی، اموال و محیط زیست است.',
+  s2: 'انواع شرایط اضطراری',
+  list1: ['آتش – آتش‌سوزی الکتریکی، آتش‌سوزی شیمیایی','نشت شیمیایی – انتشار مواد خطرناک','اورژانس‌های پزشکی – صدمات، حملات قلبی','حوادث الکتریکی – شوک، قوس الکتریکی','بلایای طبیعی – زلزله، سیل، طوفان','حوادث امنیتی – نفوذ، تهدیدات'],
+  s3: 'برنامه پاسخ به شرایط اضطراری (ERP)',
+  list2: ['رویه‌های اضطراری – اقدامات گام‌به‌گام','مسیرهای تخلیه و نقاط تجمع','تماس‌ها و ارتباطات اضطراری','کمک‌های اولیه و پاسخ پزشکی','اخامه آتش و مهار نشت','آموزش و تمرین‌ها'],
+  s4: 'مثال پاسخ به شرایط اضطراری',
+  s5: 'مثال: پاسخ به نشت شیمیایی',
+  s5p: 'پاسخ به نشت شیمیایی شامل: تخلیه منطقه، هشدار به دیگران، جداسازی نشت با استفاده از کیت نشت، خنثی‌سازی در صورت امکان، مهار و پاکسازی با استفاده از PPE مناسب و دفع پسماند طبق مقررات است. حادثه را گزارش کرده و رویه‌ها را بررسی کنید.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
+</body>
+</html>
