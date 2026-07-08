@@ -18,7 +18,7 @@
  h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
  .sub{color:#8e95a5;font-size:1.05rem;line-height:1.8;margin-bottom:30px}
  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-bottom:30px}
- .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+ .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:default;text-decoration:none;color:inherit;display:block}
  .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
  .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
  .card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
@@ -44,18 +44,18 @@
  <h1 id="page-title">Electrical Engineering</h1>
  <div class="sub" id="page-sub">Power systems, protection, distribution, and electrical design engineering.</div>
  <div class="grid" id="cards-grid">
-  <a href="../electrical/overview.html" class="card"><i>📋</i><h3>Overview</h3><p>Complete overview</p><span class="badge">Coming Soon</span></a>
-  <a href="../electrical/voltage-drop.html" class="card"><i>⚡</i><h3>Voltage Drop</h3><p>Calculate voltage drop</p><span class="badge">Coming Soon</span></a>
-  <a href="../electrical/power-factor.html" class="card"><i>📈</i><h3>Power Factor</h3><p>Power factor correction</p><span class="badge">Coming Soon</span></a>
-  <a href="../electrical/transformer-sizing.html" class="card"><i>⚙️</i><h3>Transformer Sizing</h3><p>Transformer selection</p><span class="badge">Coming Soon</span></a>
-  <a href="../electrical/cable-sizing.html" class="card"><i>📏</i><h3>Cable Sizing</h3><p>Select cable size</p><span class="badge">Coming Soon</span></a>
-  <a href="../electrical/earthing-resistance.html" class="card"><i>🌍</i><h3>Earthing Resistance</h3><p>Earthing calculation</p><span class="badge">Coming Soon</span></a>
-  <a href="../electrical/key-topics.html" class="card"><i>📚</i><h3>Key Topics</h3><p>Essential concepts</p><span class="badge">Coming Soon</span></a>
-  <a href="../electrical/software.html" class="card"><i>💻</i><h3>Software</h3><p>Essential tools</p><span class="badge">Coming Soon</span></a>
-  <a href="../electrical/resources.html" class="card"><i>📚</i><h3>Resources</h3><p>Standards, guides</p><span class="badge">Coming Soon</span></a>
-  <a href="../electrical/learning-path.html" class="card"><i>🎯</i><h3>Learning Path</h3><p>Foundation to advanced</p><span class="badge">Coming Soon</span></a>
-  <a href="../electrical/videos-future.html" class="card"><i>🎬</i><h3>Videos &amp; Future</h3><p>Tutorials &amp; future tech</p><span class="badge">Coming Soon</span></a>
-  <a href="../electrical/examples.html" class="card"><i>⚙️</i><h3>Examples</h3><p>Practical projects</p><span class="badge">Coming Soon</span></a>
+  <div class="card"><i>📋</i><h3>Overview</h3><p>Complete overview</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>⚡</i><h3>Voltage Drop</h3><p>Calculate voltage drop</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>📈</i><h3>Power Factor</h3><p>Power factor correction</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>⚙️</i><h3>Transformer Sizing</h3><p>Transformer selection</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>📏</i><h3>Cable Sizing</h3><p>Select cable size</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>🌍</i><h3>Earthing Resistance</h3><p>Earthing calculation</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>📚</i><h3>Key Topics</h3><p>Essential concepts</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>💻</i><h3>Software</h3><p>Essential tools</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>📚</i><h3>Resources</h3><p>Standards, guides</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>🎯</i><h3>Learning Path</h3><p>Foundation to advanced</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>🎬</i><h3>Videos &amp; Future</h3><p>Tutorials &amp; future tech</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>⚙️</i><h3>Examples</h3><p>Practical projects</p><span class="badge">Coming Soon</span></div>
  </div>
  <div class="back">
   <a href="../index.html" id="backlink">← Back to Home</a>
@@ -74,36 +74,16 @@ const lang = {
   back: '← بازگشت به خانه'
  }
 };
-
 function setLang(l) {
- const t = lang[l];
- if (!t) return;
-
- // عنوان و توضیحات
+ const t = lang[l]; if (!t) return;
  document.getElementById('page-title').textContent = t.title;
  document.getElementById('page-sub').textContent = t.desc;
  document.getElementById('backlink').textContent = t.back;
-
- // دکمه‌های زبان
- document.querySelectorAll('.lang-btn').forEach(b => {
-  b.classList.toggle('active', b.dataset.lang === l);
- });
-
- // جهت صفحه
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
  document.body.classList.toggle('lang-persian', l === 'fa');
-
- // ذخیره در localStorage
  localStorage.setItem('karatech-lang', l);
 }
-
-// دکمه‌های زبان
-document.querySelectorAll('.lang-btn').forEach(btn => {
- btn.onclick = function() {
-  setLang(this.dataset.lang);
- };
-});
-
-// بارگذاری زبان ذخیره شده یا پیش‌فرض انگلیسی
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
 const savedLang = localStorage.getItem('karatech-lang') || 'en';
 setLang(savedLang);
 </script>
