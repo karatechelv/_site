@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · More Resources</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.7rem;padding:2px 12px;border-radius:20px;margin-left:8px}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">More Resources</h1>
+ <div class="sub" id="desc">Additional resources, references, and useful links for engineering professionals.</div>
+
+ <div class="section">
+  <h2 id="s1">Professional Organizations</h2>
+  <ul id="list1">
+   <li>ISA – International Society of Automation</li>
+   <li>IEEE – Institute of Electrical and Electronics Engineers</li>
+   <li>IEC – International Electrotechnical Commission</li>
+   <li>ISO – International Organization for Standardization</li>
+   <li>NFPA – National Fire Protection Association</li>
+   <li>ASME – American Society of Mechanical Engineers</li>
+  </ul>
+ </div>
+
+ <div class="section">
+  <h2 id="s2">Online Learning &amp; Reference</h2>
+  <ul id="list2">
+   <li>PLC Academy – PLC and automation training</li>
+   <li>RealPars – Industrial automation videos</li>
+   <li>Control Global – Industry news and articles</li>
+   <li>Instrumentation Tools – Technical guides</li>
+   <li>Khan Academy – Engineering basics</li>
+  </ul>
+ </div>
+
+ <div class="section">
+  <h2 id="s3">Useful Online Tools</h2>
+  <ul id="list3">
+   <li>Engineering Calculators – Voltage drop, cable sizing</li>
+   <li>Unit Converters – Length, mass, temperature, pressure</li>
+   <li>Circuit Simulators – Online circuit design</li>
+   <li>CAD Viewers – Free CAD file viewers</li>
+   <li>PDF Tools – Merge, split, compress</li>
+  </ul>
+ </div>
+
+ <div class="section">
+  <h2 id="s4">Future Resources <span class="badge">Coming Soon</span></h2>
+  <ul id="list4">
+   <li>Industry 4.0 and Digitalization Guides</li>
+   <li>AI/ML Applications in Engineering</li>
+   <li>Cybersecurity in Industrial Automation</li>
+   <li>Smart Factory Reference Architecture</li>
+   <li>Engineering Podcasts and Webinars</li>
+  </ul>
+ </div>
+
+ <div class="section">
+  <h2 id="s5">Example: Building Your Resource Library</h2>
+  <p id="s5p">A well-organized resource library includes standards documents, manufacturer catalogs, training materials, and reference guides. Regularly update your library with new content and emerging technologies to stay current in the field.</p>
+ </div>
+
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
+</div>
+<script>
+const lang = {
+ en: {
+  title: 'More Resources',
+  desc: 'Additional resources, references, and useful links for engineering professionals.',
+  s1: 'Professional Organizations',
+  list1: ['ISA – International Society of Automation','IEEE – Institute of Electrical and Electronics Engineers','IEC – International Electrotechnical Commission','ISO – International Organization for Standardization','NFPA – National Fire Protection Association','ASME – American Society of Mechanical Engineers'],
+  s2: 'Online Learning & Reference',
+  list2: ['PLC Academy – PLC and automation training','RealPars – Industrial automation videos','Control Global – Industry news and articles','Instrumentation Tools – Technical guides','Khan Academy – Engineering basics'],
+  s3: 'Useful Online Tools',
+  list3: ['Engineering Calculators – Voltage drop, cable sizing','Unit Converters – Length, mass, temperature, pressure','Circuit Simulators – Online circuit design','CAD Viewers – Free CAD file viewers','PDF Tools – Merge, split, compress'],
+  s4: 'Future Resources',
+  list4: ['Industry 4.0 and Digitalization Guides','AI/ML Applications in Engineering','Cybersecurity in Industrial Automation','Smart Factory Reference Architecture','Engineering Podcasts and Webinars'],
+  s5: 'Example: Building Your Resource Library',
+  s5p: 'A well-organized resource library includes standards documents, manufacturer catalogs, training materials, and reference guides. Regularly update your library with new content and emerging technologies to stay current in the field.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'منابع بیشتر',
+  desc: 'منابع اضافی، مراجع و لینک‌های مفید برای حرفه‌ای‌های مهندسی.',
+  s1: 'سازمان‌های حرفه‌ای',
+  list1: ['ISA – انجمن بین‌المللی اتوماسیون','IEEE – مؤسسه مهندسان برق و الکترونیک','IEC – کمیسیون بین‌المللی الکتروتکنیک','ISO – سازمان بین‌المللی استانداردسازی','NFPA – انجمن ملی حفاظت از آتش','ASME – انجمن مهندسان مکانیک آمریکا'],
+  s2: 'یادگیری آنلاین و مرجع',
+  list2: ['PLC Academy – آموزش PLC و اتوماسیون','RealPars – ویدئوهای اتوماسیون صنعتی','Control Global – اخبار و مقالات صنعت','Instrumentation Tools – راهنماهای فنی','Khan Academy – مبانی مهندسی'],
+  s3: 'ابزارهای آنلاین مفید',
+  list3: ['ماشین‌حساب‌های مهندسی – افت ولتاژ، سایز کابل','مبدل‌های واحد – طول، جرم، دما، فشار','شبیه‌سازهای مدار – طراحی مدار آنلاین','نمایشگرهای CAD – نمایشگر رایگان فایل CAD','ابزارهای PDF – ادغام، تقسیم، فشرده‌سازی'],
+  s4: 'منابع آینده',
+  list4: ['راهنماهای صنعت 4.0 و دیجیتالی‌سازی','کاربردهای هوش مصنوعی/یادگیری ماشین در مهندسی','امنیت سایبری در اتوماسیون صنعتی','معماری مرجع کارخانه هوشمند','پادکست‌ها و وبینارهای مهندسی'],
+  s5: 'مثال: ساختن کتابخانه منابع خود',
+  s5p: 'یک کتابخانه منابع منظم شامل اسناد استاندارد، کاتالوگ‌های تولیدکنندگان، مواد آموزشی و راهنماهای مرجع است. به‌طور منظم کتابخانه خود را با محتوای جدید و فناوری‌های در حال ظهور به‌روز کنید تا در این زمینه به‌روز بمانید.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
+</body>
+</html>
