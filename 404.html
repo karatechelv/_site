@@ -15,15 +15,40 @@
  p{color:#8e95a5;font-size:1.1rem;line-height:1.8;margin-bottom:30px}
  .btn{display:inline-block;background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:14px 40px;border-radius:60px;font-weight:600;text-decoration:none;transition:.3s}
  .btn:hover{background:#d4af37;color:#111}
+ .lang-persian{direction:rtl}
  </style>
 </head>
 <body>
-<div class="container">
+<div class="container" id="page">
  <div class="logo">KARATECH <span>ELV</span></div>
  <div class="code">404</div>
- <h1>Page Not Found</h1>
- <p>The page you are looking for does not exist or has been moved. Please return to the homepage.</p>
- <a href="/" class="btn">← Return to Home</a>
+ <h1 id="title">Page Not Found</h1>
+ <p id="desc">The page you are looking for does not exist or has been moved. Please return to the homepage.</p>
+ <a href="/" class="btn" id="backBtn">← Return to Home</a>
 </div>
+<script>
+const lang = {
+ en: {
+  title: 'Page Not Found',
+  desc: 'The page you are looking for does not exist or has been moved. Please return to the homepage.',
+  back: '← Return to Home'
+ },
+ fa: {
+  title: 'صفحه یافت نشد',
+  desc: 'صفحه‌ای که به دنبال آن هستید وجود ندارد یا جابه‌جا شده است. لطفاً به صفحه اصلی بازگردید.',
+  back: '← بازگشت به خانه'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('backBtn').textContent = t.back;
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
 </body>
 </html>
