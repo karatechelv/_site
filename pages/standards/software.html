@@ -1,159 +1,146 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Standards Software</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Standards Software</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">💻 Standards Software</h1>
-    <div class="sub" id="desc">Essential software tools for managing, searching, and applying engineering standards across multiple disciplines.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 Standards Management Software</h2>
-        <ul id="list1">
-            <li><b>IHS Markit Standards Store</b> – Comprehensive access to international standards (IEC, ISO, API, etc.)</li>
-            <li><b>Accuris (Techstreet)</b> – Standards management, subscription, and compliance tracking</li>
-            <li><b>BSOL</b> – British Standards Online – Access to British and international standards</li>
-            <li><b>NEMA Standards Store</b> – Standards for electrical equipment</li>
-            <li><b>ANSI Webstore</b> – Purchasing and accessing ANSI standards</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Standards Search & Reference Tools</h2>
-        <ul id="list2">
-            <li><b>IEC Webstore</b> – Search and purchase IEC standards</li>
-            <li><b>ISO Store</b> – Access ISO standards online</li>
-            <li><b>IEEE Xplore</b> – Access IEEE standards and publications</li>
-            <li><b>API Standards Store</b> – API standards for oil and gas</li>
-            <li><b>NFPA Catalog</b> – NEC and fire safety standards</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Compliance & Audit Software</h2>
-        <ul id="list3">
-            <li><b>ETQ Reliance</b> – Compliance management and standards tracking</li>
-            <li><b>Gensuite</b> – Regulatory compliance and audit management</li>
-            <li><b>MasterControl</b> – Document control and compliance with ISO 9001/ISO 13485</li>
-            <li><b>AssurX</b> – Quality and compliance management</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: Using IHS Markit for Standards Compliance</h2>
-        <p id="s4p">An electrical engineer uses IHS Markit to access the latest IEC standards for a new project. The platform provides real-time updates, allowing the team to ensure compliance with the latest revisions of IEC 60364 and IEC 61439. The project team also uses the platform to track future revisions and maintain documentation.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Standards Software</h1>
+ <div class="sub" id="desc">Software tools for managing, referencing, and applying engineering standards in projects.</div>
+ <div class="section">
+  <h2 id="s1">Standards Management Software</h2>
+  <ul id="list1">
+   <li>Compliance Manager – Track and manage compliance</li>
+   <li>Standards Manager – Document and version control</li>
+   <li>JIRA + Confluence – Compliance and traceability</li>
+   <li>PLM Systems – Integrate with standard management</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s2">Reference & Search Tools</h2>
+  <ul id="list2">
+   <li>IEC Webstore – Digital standards purchase</li>
+   <li>ANSI Webstore – Access to ANSI and ISO</li>
+   <li>Techstreet – Industry standards database</li>
+   <li>NEMA Standards – Electrical standards</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Design & Compliance Software</h2>
+  <ul id="list3">
+   <li>AutoCAD Electrical – Standards-based design</li>
+   <li>EPLAN – IEC/ISO compliant design tools</li>
+   <li>ETAP – Power system analysis &amp; compliance</li>
+   <li>SKM PowerTools – Protection and coordination</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Document Management</h2>
+  <ul id="list4">
+   <li>SharePoint – Standards document management</li>
+   <li>DocuSign – Electronic signatures for compliance</li>
+   <li>Documentum – Engineering document control</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Using Standards Software</h2>
+  <p id="s5p">A typical engineering project uses Standards Manager to track applicable standards (IEC, NEC, ISO), reference standards via Techstreet, use compliance checklists in JIRA, and generate compliance reports for final documentation.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '💻 Standards Software',
-            desc: 'Essential software tools for managing, searching, and applying engineering standards across multiple disciplines.',
-            s1: '🔹 Standards Management Software',
-            list1: ['IHS Markit Standards Store – Comprehensive access to international standards (IEC, ISO, API, etc.)','Accuris (Techstreet) – Standards management, subscription, and compliance tracking','BSOL – British Standards Online – Access to British and international standards','NEMA Standards Store – Standards for electrical equipment','ANSI Webstore – Purchasing and accessing ANSI standards'],
-            s2: '🔹 Standards Search & Reference Tools',
-            list2: ['IEC Webstore – Search and purchase IEC standards','ISO Store – Access ISO standards online','IEEE Xplore – Access IEEE standards and publications','API Standards Store – API standards for oil and gas','NFPA Catalog – NEC and fire safety standards'],
-            s3: '🔹 Compliance & Audit Software',
-            list3: ['ETQ Reliance – Compliance management and standards tracking','Gensuite – Regulatory compliance and audit management','MasterControl – Document control and compliance with ISO 9001/ISO 13485','AssurX – Quality and compliance management'],
-            s4: '🔹 Example: Using IHS Markit for Standards Compliance',
-            s4p: 'An electrical engineer uses IHS Markit to access the latest IEC standards for a new project. The platform provides real-time updates, allowing the team to ensure compliance with the latest revisions of IEC 60364 and IEC 61439. The project team also uses the platform to track future revisions and maintain documentation.',
-            back: '← Back'
-        },
-        fa: {
-            title: '💻 نرم‌افزارهای استانداردها',
-            desc: 'ابزارهای نرم‌افزاری ضروری برای مدیریت، جستجو و اعمال استانداردهای مهندسی در رشته‌های مختلف.',
-            s1: '🔹 نرم‌افزارهای مدیریت استاندارد',
-            list1: ['IHS Markit Standards Store – دسترسی جامع به استانداردهای بین‌المللی (IEC، ISO، API و غیره)','Accuris (Techstreet) – مدیریت استاندارد، اشتراک و پیگیری انطباق','BSOL – استانداردهای بریتانیا آنلاین – دسترسی به استانداردهای بریتانیا و بین‌المللی','NEMA Standards Store – استانداردهای تجهیزات الکتریکی','ANSI Webstore – خرید و دسترسی به استانداردهای ANSI'],
-            s2: '🔹 ابزارهای جستجو و مرجع استاندارد',
-            list2: ['IEC Webstore – جستجو و خرید استانداردهای IEC','ISO Store – دسترسی به استانداردهای ISO آنلاین','IEEE Xplore – دسترسی به استانداردها و نشریات IEEE','API Standards Store – استانداردهای API برای نفت و گاز','NFPA Catalog – استانداردهای NEC و ایمنی آتش'],
-            s3: '🔹 نرم‌افزارهای انطباق و حسابرسی',
-            list3: ['ETQ Reliance – مدیریت انطباق و پیگیری استانداردها','Gensuite – مدیریت انطباق مقررات و حسابرسی','MasterControl – کنترل مستندات و انطباق با ISO 9001/ISO 13485','AssurX – مدیریت کیفیت و انطباق'],
-            s4: '🔹 مثال: استفاده از IHS Markit برای انطباق با استانداردها',
-            s4p: 'یک مهندس برق از IHS Markit برای دسترسی به آخرین استانداردهای IEC برای یک پروژه جدید استفاده می‌کند. این پلتفرم به‌روزرسانی‌های زمان واقعی را ارائه می‌دهد و به تیم امکان می‌دهد از انطباق با آخرین بازنگری‌های IEC 60364 و IEC 61439 اطمینان حاصل کند. تیم پروژه همچنین از این پلتفرم برای پیگیری بازنگری‌های آینده و نگهداری مستندات استفاده می‌کند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        const ul3 = document.getElementById('list3');
-        ul3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Standards Software',
+  desc: 'Software tools for managing, referencing, and applying engineering standards in projects.',
+  s1: 'Standards Management Software',
+  list1: ['Compliance Manager – Track and manage compliance','Standards Manager – Document and version control','JIRA + Confluence – Compliance and traceability','PLM Systems – Integrate with standard management'],
+  s2: 'Reference & Search Tools',
+  list2: ['IEC Webstore – Digital standards purchase','ANSI Webstore – Access to ANSI and ISO','Techstreet – Industry standards database','NEMA Standards – Electrical standards'],
+  s3: 'Design & Compliance Software',
+  list3: ['AutoCAD Electrical – Standards-based design','EPLAN – IEC/ISO compliant design tools','ETAP – Power system analysis & compliance','SKM PowerTools – Protection and coordination'],
+  s4: 'Document Management',
+  list4: ['SharePoint – Standards document management','DocuSign – Electronic signatures for compliance','Documentum – Engineering document control'],
+  s5: 'Example: Using Standards Software',
+  s5p: 'A typical engineering project uses Standards Manager to track applicable standards (IEC, NEC, ISO), reference standards via Techstreet, use compliance checklists in JIRA, and generate compliance reports for final documentation.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'نرم‌افزارهای استانداردها',
+  desc: 'ابزارهای نرم‌افزاری برای مدیریت، مرجع و اعمال استانداردهای مهندسی در پروژه‌ها.',
+  s1: 'نرم‌افزارهای مدیریت استانداردها',
+  list1: ['مدیر انطباق – پیگیری و مدیریت انطباق','مدیر استانداردها – کنترل اسناد و نسخه‌ها','JIRA + Confluence – انطباق و قابلیت ردیابی','سیستم‌های PLM – یکپارچه‌سازی با مدیریت استاندارد'],
+  s2: 'ابزارهای مرجع و جستجو',
+  list2: ['فروشگاه اینترنتی IEC – خرید استانداردهای دیجیتال','فروشگاه اینترنتی ANSI – دسترسی به ANSI و ISO','Techstreet – پایگاه داده استانداردهای صنعتی','استانداردهای NEMA – استانداردهای برق'],
+  s3: 'نرم‌افزارهای طراحی و انطباق',
+  list3: ['AutoCAD Electrical – طراحی مبتنی بر استاندارد','EPLAN – ابزارهای طراحی منطبق با IEC/ISO','ETAP – تحلیل سیستم قدرت و انطباق','SKM PowerTools – حفاظت و هماهنگی'],
+  s4: 'مدیریت اسناد',
+  list4: ['SharePoint – مدیریت اسناد استاندارد','DocuSign – امضای الکترونیکی برای انطباق','Documentum – کنترل اسناد مهندسی'],
+  s5: 'مثال: استفاده از نرم‌افزارهای استاندارد',
+  s5p: 'یک پروژه مهندسی معمولی از مدیر استانداردها برای پیگیری استانداردهای قابل اجرا (IEC، NEC، ISO)، مرجع‌گیری استانداردها از طریق Techstreet، استفاده از چک‌لیست‌های انطباق در JIRA و تولید گزارش‌های انطباق برای مستندات نهایی استفاده می‌کند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
