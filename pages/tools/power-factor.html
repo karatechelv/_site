@@ -1,177 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Power Factor Calculator</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:800px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .calc-box{background:#1e2128;padding:25px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);margin-bottom:20px}
-        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
-        .calc-box input{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
-        .calc-box input:focus{outline:1px solid #d4af37}
-        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
-        .btn-calc:hover{background:#d4af37;color:#111}
-        .result{background:#0d0e12;padding:15px;border-radius:12px;border-left:4px solid #d4af37;margin-top:15px}
-        .result p{margin:6px 0}
-        .result span{color:#d4af37;font-weight:700}
-        .note{color:#8e95a5;font-size:.85rem;margin-top:10px}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Power Factor Calculator</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:900px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+ .calc-grid label{color:#b0b8c5;font-size:.9rem;display:flex;flex-direction:column;gap:4px}
+ .calc-grid input{background:#0d0e12;border:1px solid #2a2f3a;color:#eef0f4;padding:8px 12px;border-radius:8px;font-size:.95rem;width:100%}
+ .calc-grid input:focus{outline:1px solid #d4af37}
+ .result-box{background:#0d0e12;padding:16px;border-radius:12px;border-left:3px solid #d4af37;font-size:1.2rem;font-weight:600;color:#d4af37;margin-top:12px;text-align:center}
+ .calc-btn{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:30px;font-weight:600;cursor:pointer;transition:.2s;margin-top:10px}
+ .calc-btn:hover{background:#d4af37;color:#111}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}.calc-grid{grid-template-columns:1fr}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Power Factor Calculator</h1>
+ <div class="sub" id="desc">Calculate power factor, apparent power, reactive power, and required correction capacitor.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="formula-title">Formula</h2>
+  <p id="formula-text"><strong>PF = P / S</strong> where P = Real Power (kW), S = Apparent Power (kVA), Q = Reactive Power (kVAR)</p>
+  <p>Power Factor Correction: Q<sub>c</sub> = P × (tan(cos⁻¹(PF<sub>old</sub>)) - tan(cos⁻¹(PF<sub>new</sub>)))</p>
+ </div>
 
-    <h1 id="title">📈 Power Factor Calculator</h1>
-    <div class="sub" id="desc">Calculate power factor, apparent power, reactive power, and required capacitor bank for correction.</div>
+ <div class="section">
+  <h2 id="calc-title">Calculator</h2>
+  <div class="calc-grid">
+   <label>Real Power (kW) <input type="number" id="power" value="100" step="0.1"></label>
+   <label>Current PF <input type="number" id="pf-old" value="0.75" step="0.01"></label>
+   <label>Target PF <input type="number" id="pf-new" value="0.95" step="0.01"></label>
+  </div>
+  <button class="calc-btn" id="calcBtn" onclick="calculate()">Calculate</button>
+  <div class="result-box" id="result">Reactive Power Required: 0.00 kVAR</div>
+ </div>
 
-    <div class="calc-box">
-        <label id="lbl-voltage">Voltage (V)</label>
-        <input type="number" id="voltage" value="400" step="any">
-
-        <label id="lbl-current">Current (A)</label>
-        <input type="number" id="current" value="100" step="any">
-
-        <label id="lbl-power">Real Power (kW)</label>
-        <input type="number" id="power" value="50" step="any">
-
-        <label id="lbl-target">Target Power Factor (0-1)</label>
-        <input type="number" id="target" value="0.95" step="0.01" min="0" max="1">
-
-        <button class="btn-calc" id="calcBtn">Calculate</button>
-
-        <div class="result" id="result">
-            <p><span id="pf-label">Current Power Factor:</span> <span id="pf-value">--</span></p>
-            <p><span id="apparent-label">Apparent Power (kVA):</span> <span id="s-value">--</span></p>
-            <p><span id="reactive-label">Reactive Power (kVAR):</span> <span id="q-value">--</span></p>
-            <p><span id="cap-label">Required Capacitor (kVAR):</span> <span id="cap-value">--</span></p>
-        </div>
-        <div class="note" id="note">Power Factor = Real Power / Apparent Power. Capacitor bank size needed to reach target PF.</div>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const langData = {
-        en: {
-            title: '📈 Power Factor Calculator',
-            desc: 'Calculate power factor, apparent power, reactive power, and required capacitor bank for correction.',
-            voltage: 'Voltage (V)',
-            current: 'Current (A)',
-            power: 'Real Power (kW)',
-            target: 'Target Power Factor (0-1)',
-            calc: 'Calculate',
-            pf_label: 'Current Power Factor:',
-            apparent_label: 'Apparent Power (kVA):',
-            reactive_label: 'Reactive Power (kVAR):',
-            cap_label: 'Required Capacitor (kVAR):',
-            note: 'Power Factor = Real Power / Apparent Power. Capacitor bank size needed to reach target PF.',
-            back: '← Back'
-        },
-        fa: {
-            title: '📈 ماشین‌حساب ضریب توان',
-            desc: 'محاسبه ضریب توان، توان ظاهری، توان راکتیو و بانک خازنی مورد نیاز برای اصلاح.',
-            voltage: 'ولتاژ (ولت)',
-            current: 'جریان (آمپر)',
-            power: 'توان اکتیو (کیلووات)',
-            target: 'ضریب توان هدف (۰-۱)',
-            calc: 'محاسبه',
-            pf_label: 'ضریب توان فعلی:',
-            apparent_label: 'توان ظاهری (kVA):',
-            reactive_label: 'توان راکتیو (kVAR):',
-            cap_label: 'خازن مورد نیاز (kVAR):',
-            note: 'ضریب توان = توان اکتیو / توان ظاهری. اندازه بانک خازنی مورد نیاز برای رسیدن به ضریب توان هدف.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLanguage(lang) {
-        const t = langData[lang];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('lbl-voltage').textContent = t.voltage;
-        document.getElementById('lbl-current').textContent = t.current;
-        document.getElementById('lbl-power').textContent = t.power;
-        document.getElementById('lbl-target').textContent = t.target;
-        document.getElementById('calcBtn').textContent = t.calc;
-        document.getElementById('pf-label').textContent = t.pf_label;
-        document.getElementById('apparent-label').textContent = t.apparent_label;
-        document.getElementById('reactive-label').textContent = t.reactive_label;
-        document.getElementById('cap-label').textContent = t.cap_label;
-        document.getElementById('note').textContent = t.note;
-        document.getElementById('backlink').textContent = t.back;
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-        document.body.classList.toggle('lang-persian', lang === 'fa');
-        localStorage.setItem('karatech-lang', lang);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLanguage(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLanguage(savedLang);
-
-    function calculate() {
-        const V = parseFloat(document.getElementById('voltage').value);
-        const I = parseFloat(document.getElementById('current').value);
-        const P = parseFloat(document.getElementById('power').value);
-        const target = parseFloat(document.getElementById('target').value);
-
-        if ([V, I, P, target].some(isNaN) || V <= 0 || I <= 0 || P <= 0 || target <= 0 || target > 1) {
-            document.getElementById('pf-value').textContent = 'Invalid input';
-            document.getElementById('s-value').textContent = '--';
-            document.getElementById('q-value').textContent = '--';
-            document.getElementById('cap-value').textContent = '--';
-            return;
-        }
-
-        const S = (V * I) / 1000; // kVA
-        const PF = P / S;
-        const Q = Math.sqrt(S * S - P * P); // kVAR
-        const theta = Math.acos(PF);
-        const theta_target = Math.acos(target);
-        const Qc = P * (Math.tan(theta) - Math.tan(theta_target)); // kVAR
-
-        document.getElementById('pf-value').textContent = PF.toFixed(3);
-        document.getElementById('s-value').textContent = S.toFixed(2);
-        document.getElementById('q-value').textContent = Q.toFixed(2);
-        document.getElementById('cap-value').textContent = (Qc > 0 ? Qc.toFixed(2) : '0 (already above target)');
-    }
-
-    document.getElementById('calcBtn').onclick = calculate;
-    calculate();
+function calculate() {
+ const P = parseFloat(document.getElementById('power').value) || 0;
+ const pfOld = parseFloat(document.getElementById('pf-old').value) || 0.01;
+ const pfNew = parseFloat(document.getElementById('pf-new').value) || 0.01;
+ if (pfOld <= 0 || pfNew <= 0 || pfOld > 1 || pfNew > 1) {
+  document.getElementById('result').textContent = 'Please enter valid PF values (0-1)';
+  return;
+ }
+ const tanOld = Math.tan(Math.acos(pfOld));
+ const tanNew = Math.tan(Math.acos(pfNew));
+ const Qc = P * (tanOld - tanNew);
+ document.getElementById('result').textContent = 'Reactive Power Required: ' + Qc.toFixed(2) + ' kVAR';
+}
+const lang = {
+ en: {
+  title: 'Power Factor Calculator',
+  desc: 'Calculate power factor, apparent power, reactive power, and required correction capacitor.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'ماشین‌حساب ضریب توان',
+  desc: 'محاسبه ضریب توان، توان ظاهری، توان راکتیو و خازن مورد نیاز برای اصلاح.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('backlink').textContent = t.back;
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
