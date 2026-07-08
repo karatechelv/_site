@@ -1,192 +1,167 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Engineering Templates</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Templates</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Engineering Templates</h1>
+ <div class="sub" id="desc">Ready-to-use templates for engineering documents, reports, and checklists.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="s1">Project Management Templates</h2>
+  <ul id="list1">
+   <li>Project Charter Template</li>
+   <li>Project Schedule Template (Gantt Chart)</li>
+   <li>Work Breakdown Structure (WBS) Template</li>
+   <li>Risk Register Template</li>
+   <li>Project Status Report Template</li>
+  </ul>
+ </div>
 
-    <h1 id="title">📝 Engineering Templates</h1>
-    <div class="sub" id="desc">A collection of ready-to-use engineering document templates for design, project management, quality, and more.</div>
+ <div class="section">
+  <h2 id="s2">Quality Control Templates</h2>
+  <ul id="list2">
+   <li>Inspection &amp; Test Plan (ITP) Template</li>
+   <li>Non-Conformance Report (NCR) Template</li>
+   <li>Corrective Action Request (CAR) Template</li>
+   <li>Inspection Checklist Template</li>
+   <li>Test Report Template</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s1">🔹 What are Engineering Templates?</h2>
-        <p id="s1p">Engineering templates are pre-formatted documents that provide a standardized structure for creating engineering deliverables. They save time, ensure consistency, and help teams meet quality standards. Templates are available for design documentation, project management, quality control, testing, and reporting.</p>
-    </div>
+ <div class="section">
+  <h2 id="s3">Engineering Design Templates</h2>
+  <ul id="list3">
+   <li>Bill of Materials (BOM) Template</li>
+   <li>Instrument Datasheet Template</li>
+   <li>Cable Schedule Template</li>
+   <li>Loop Diagram Template</li>
+   <li>Panel Design Checklist</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s2">🔹 Types of Templates</h2>
-        <ul id="list1">
-            <li><b>Design Templates</b> – Schematic title blocks, panel layout templates, cable schedules, and P&ID symbols</li>
-            <li><b>Project Management Templates</b> – Project charters, WBS, Gantt charts, risk registers, and status reports</li>
-            <li><b>Quality Templates</b> – Inspection checklists, test reports, non-conformance reports, and calibration records</li>
-            <li><b>Testing Templates</b> – FAT and SAT test plans, loop check sheets, and commissioning checklists</li>
-            <li><b>Maintenance Templates</b> – Preventive maintenance checklists, work orders, and maintenance logs</li>
-            <li><b>Reporting Templates</b> – Technical reports, progress reports, and executive summaries</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s4">HSE Templates</h2>
+  <ul id="list4">
+   <li>Risk Assessment Template</li>
+   <li>Safety Inspection Checklist</li>
+   <li>Emergency Response Plan Template</li>
+   <li>Incident Report Form</li>
+   <li>PPE Assessment Form</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s3">🔹 Example Template: Motor Control Panel Checklist</h2>
-        <div class="table-wrap" style="overflow-x:auto;margin:10px 0;">
-            <table style="width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px;">
-                <thead>
-                    <tr>
-                        <th style="padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06);color:#d4af37;font-weight:600;">Item</th>
-                        <th style="padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06);color:#d4af37;font-weight:600;">Check</th>
-                        <th style="padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06);color:#d4af37;font-weight:600;">Comments</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);">Incoming circuit breaker rating</td><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);">☐</td><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);"></td></tr>
-                    <tr><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);">Contactor size and rating</td><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);">☐</td><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);"></td></tr>
-                    <tr><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);">Overload relay setting</td><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);">☐</td><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);"></td></tr>
-                    <tr><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);">Control voltage (24VDC/110VAC)</td><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);">☐</td><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);"></td></tr>
-                    <tr><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);">Wiring verification (vs. schematic)</td><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);">☐</td><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);"></td></tr>
-                    <tr><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);">Earthing and bonding</td><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);">☐</td><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);"></td></tr>
-                    <tr><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);">Functional test (start/stop)</td><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);">☐</td><td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);"></td></tr>
-                </tbody>
-            </table>
-        </div>
-        <p id="s3p">This checklist template can be used for inspecting and testing motor control panels before commissioning.</p>
-    </div>
+ <div class="section">
+  <h2 id="s5">Example: Using a Template</h2>
+  <div class="code-box">
+# BOM Template Structure
+# -----------------------------------------
+# Item | Description | Qty | Manufacturer | Part No.
+# -----------------------------------------
+# 1    | PLC S7-1500 | 1   | Siemens      | 6ES7515
+# 2    | Power Supply| 1   | Siemens      | 6ES7505
+# 3    | Terminal Block | 20 | Phoenix    | TB 2.5
+  </div>
+  <p id="s5p">Templates are ready-to-use documents that can be downloaded and customized for specific projects. They ensure consistency and save time in document creation.</p>
+ </div>
 
-    <div class="section">
-        <h2 id="s4">🔹 Where to Find Templates</h2>
-        <ul id="list2">
-            <li><b>Professional Organizations</b> – ISA, IEEE, PMI, ASQ provide template libraries</li>
-            <li><b>Software Platforms</b> – Microsoft Office templates, Google Docs templates, Smartsheet</li>
-            <li><b>Industry-Specific</b> – API, IEC, ISO standards often include template formats</li>
-            <li><b>Community Forums</b> – Engineering communities share templates</li>
-            <li><b>Custom Development</b> – Create templates tailored to your organization's needs</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s5">🔹 How to Use Templates Effectively</h2>
-        <ul id="list3">
-            <li><b>Customize</b> – Adapt templates to your specific project and company standards</li>
-            <li><b>Standardize</b> – Use consistent templates across projects to improve efficiency</li>
-            <li><b>Review</b> – Regularly review and update templates to reflect lessons learned</li>
-            <li><b>Collaborate</b> – Share templates with team members to ensure alignment</li>
-            <li><b>Version Control</b> – Maintain version history to track changes and improvements</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📝 Engineering Templates',
-            desc: 'A collection of ready-to-use engineering document templates for design, project management, quality, and more.',
-            s1: '🔹 What are Engineering Templates?',
-            s1p: 'Engineering templates are pre-formatted documents that provide a standardized structure for creating engineering deliverables. They save time, ensure consistency, and help teams meet quality standards. Templates are available for design documentation, project management, quality control, testing, and reporting.',
-            s2: '🔹 Types of Templates',
-            list1: ['Design Templates – Schematic title blocks, panel layout templates, cable schedules, and P&ID symbols','Project Management Templates – Project charters, WBS, Gantt charts, risk registers, and status reports','Quality Templates – Inspection checklists, test reports, non-conformance reports, and calibration records','Testing Templates – FAT and SAT test plans, loop check sheets, and commissioning checklists','Maintenance Templates – Preventive maintenance checklists, work orders, and maintenance logs','Reporting Templates – Technical reports, progress reports, and executive summaries'],
-            s3: '🔹 Example Template: Motor Control Panel Checklist',
-            s3p: 'This checklist template can be used for inspecting and testing motor control panels before commissioning.',
-            s4: '🔹 Where to Find Templates',
-            list2: ['Professional Organizations – ISA, IEEE, PMI, ASQ provide template libraries','Software Platforms – Microsoft Office templates, Google Docs templates, Smartsheet','Industry-Specific – API, IEC, ISO standards often include template formats','Community Forums – Engineering communities share templates','Custom Development – Create templates tailored to your organization\'s needs'],
-            s5: '🔹 How to Use Templates Effectively',
-            list3: ['Customize – Adapt templates to your specific project and company standards','Standardize – Use consistent templates across projects to improve efficiency','Review – Regularly review and update templates to reflect lessons learned','Collaborate – Share templates with team members to ensure alignment','Version Control – Maintain version history to track changes and improvements'],
-            back: '← Back'
-        },
-        fa: {
-            title: '📝 قالب‌های اسناد مهندسی',
-            desc: 'مجموعه‌ای از قالب‌های آماده اسناد مهندسی برای طراحی، مدیریت پروژه، کیفیت و موارد بیشتر.',
-            s1: '🔹 قالب‌های مهندسی چیستند؟',
-            s1p: 'قالب‌های مهندسی اسناد از پیش فرمت‌شده‌ای هستند که ساختاری استاندارد برای ایجاد تحویل‌های مهندسی ارائه می‌دهند. آنها در زمان صرفه‌جویی کرده، سازگاری را تضمین کرده و به تیم‌ها در برآورده کردن استانداردهای کیفیت کمک می‌کنند. قالب‌ها برای مستندات طراحی، مدیریت پروژه، کنترل کیفیت، تست و گزارش‌دهی در دسترس هستند.',
-            s2: '🔹 انواع قالب‌ها',
-            list1: ['قالب‌های طراحی – بلوک‌های عنوان شماتیک، قالب‌های چیدمان پنل، جدول‌های کابل و نمادهای P&ID','قالب‌های مدیریت پروژه – منشور پروژه، WBS، نمودارهای گانت، ثبت ریسک و گزارش‌های وضعیت','قالب‌های کیفیت – چک‌لیست‌های بازرسی، گزارش‌های تست، گزارش‌های عدم انطباق و سوابق کالیبراسیون','قالب‌های تست – برنامه‌های تست FAT و SAT، برگه‌های بررسی حلقه و چک‌لیست‌های راه‌اندازی','قالب‌های نگهداری – چک‌لیست‌های نگهداری پیشگیرانه، دستورالعمل‌های کاری و گزارش‌های نگهداری','قالب‌های گزارش‌دهی – گزارش‌های فنی، گزارش‌های پیشرفت و خلاصه‌های اجرایی'],
-            s3: '🔹 مثال قالب: چک‌لیست پنل کنترل موتور',
-            s3p: 'این قالب چک‌لیست را می‌توان برای بازرسی و تست پنل‌های کنترل موتور قبل از راه‌اندازی استفاده کرد.',
-            s4: '🔹 از کجا قالب پیدا کنیم',
-            list2: ['سازمان‌های حرفه‌ای – ISA، IEEE، PMI، ASQ کتابخانه‌های قالب ارائه می‌دهند','پلتفرم‌های نرم‌افزاری – قالب‌های Microsoft Office، قالب‌های Google Docs، Smartsheet','خاص صنعت – استانداردهای API، IEC، ISO اغلب شامل فرمت‌های قالب هستند','انجمن‌های جامعه – جوامع مهندسی قالب‌ها را به اشتراک می‌گذارند','توسعه سفارشی – ایجاد قالب‌های متناسب با نیازهای سازمان شما'],
-            s5: '🔹 نحوه استفاده مؤثر از قالب‌ها',
-            list3: ['سفارشی‌سازی – تطبیق قالب‌ها با پروژه خاص و استانداردهای شرکت شما','استانداردسازی – استفاده از قالب‌های سازگار در پروژه‌ها برای بهبود کارایی','بازبینی – بازبینی و به‌روزرسانی منظم قالب‌ها برای انعکاس درس‌های آموخته شده','همکاری – به اشتراک گذاری قالب‌ها با اعضای تیم برای اطمینان از هماهنگی','کنترل نسخه – نگهداری تاریخچه نسخه برای پیگیری تغییرات و بهبودها'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s5').textContent = t.s5;
-        document.getElementById('backlink').textContent = t.back;
-
-        const list1 = document.getElementById('list1');
-        list1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
-
-        const list2 = document.getElementById('list2');
-        list2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
-
-        const list3 = document.getElementById('list3');
-        list3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; list3.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Engineering Templates',
+  desc: 'Ready-to-use templates for engineering documents, reports, and checklists.',
+  s1: 'Project Management Templates',
+  list1: ['Project Charter Template','Project Schedule Template (Gantt Chart)','Work Breakdown Structure (WBS) Template','Risk Register Template','Project Status Report Template'],
+  s2: 'Quality Control Templates',
+  list2: ['Inspection & Test Plan (ITP) Template','Non-Conformance Report (NCR) Template','Corrective Action Request (CAR) Template','Inspection Checklist Template','Test Report Template'],
+  s3: 'Engineering Design Templates',
+  list3: ['Bill of Materials (BOM) Template','Instrument Datasheet Template','Cable Schedule Template','Loop Diagram Template','Panel Design Checklist'],
+  s4: 'HSE Templates',
+  list4: ['Risk Assessment Template','Safety Inspection Checklist','Emergency Response Plan Template','Incident Report Form','PPE Assessment Form'],
+  s5: 'Example: Using a Template',
+  s5p: 'Templates are ready-to-use documents that can be downloaded and customized for specific projects. They ensure consistency and save time in document creation.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'قالب‌های مهندسی',
+  desc: 'قالب‌های آماده برای اسناد مهندسی، گزارش‌ها و چک‌لیست‌ها.',
+  s1: 'قالب‌های مدیریت پروژه',
+  list1: ['قالب منشور پروژه','قالب برنامه زمان‌بندی پروژه (نمودار گانت)','قالب ساختار شکست کار (WBS)','قالب ثبت ریسک','قالب گزارش وضعیت پروژه'],
+  s2: 'قالب‌های کنترل کیفیت',
+  list2: ['قالب برنامه بازرسی و تست (ITP)','قالب گزارش عدم انطباق (NCR)','قالب درخواست اقدام اصلاحی (CAR)','قالب چک‌لیست بازرسی','قالب گزارش تست'],
+  s3: 'قالب‌های طراحی مهندسی',
+  list3: ['قالب صورت‌حساب مواد (BOM)','قالب دیتاشیت ابزار دقیق','قالب برنامه کابل','قالب نمودار حلقه','چک‌لیست طراحی پنل'],
+  s4: 'قالب‌های HSE',
+  list4: ['قالب ارزیابی ریسک','چک‌لیست بازرسی ایمنی','قالب برنامه پاسخ اضطراری','فرم گزارش حادثه','فرم ارزیابی PPE'],
+  s5: 'مثال: استفاده از یک قالب',
+  s5p: 'قالب‌ها اسناد آماده‌ای هستند که قابل دانلود و سفارشی‌سازی برای پروژه‌های خاص هستند. آنها ثبات را تضمین کرده و در ایجاد اسناد صرفه‌جویی می‌کنند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
