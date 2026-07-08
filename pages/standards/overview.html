@@ -1,141 +1,123 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Standards Overview</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Standards Overview</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">📘 Overview of Engineering Standards</h1>
-    <div class="sub" id="desc">A comprehensive overview of international and national engineering standards for electrical, instrumentation, automation, quality, and safety.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What are Engineering Standards?</h2>
-        <p id="s1p">Engineering standards are technical documents that establish specifications, procedures, and guidelines for products, systems, and processes. They ensure safety, quality, interoperability, and consistency across industries. Standards are developed by recognized organizations such as IEC, ISO, IEEE, ANSI, and API.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Major Standards Organizations</h2>
-        <ul id="list1">
-            <li><b>IEC</b> – International Electrotechnical Commission</li>
-            <li><b>ISO</b> – International Organization for Standardization</li>
-            <li><b>IEEE</b> – Institute of Electrical and Electronics Engineers</li>
-            <li><b>ANSI</b> – American National Standards Institute</li>
-            <li><b>API</b> – American Petroleum Institute</li>
-            <li><b>NFPA</b> – National Fire Protection Association (NEC)</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Key Standards by Discipline</h2>
-        <ul id="list2">
-            <li><b>Electrical:</b> IEC 60364, NEC, IEEE 80, IEC 61439</li>
-            <li><b>Instrumentation:</b> ISA 5.1, IEC 61511, API 551</li>
-            <li><b>Automation:</b> IEC 61131-3, IEC 61508, ISA 88</li>
-            <li><b>Quality:</b> ISO 9001, ISO 14001, ISO 45001</li>
-            <li><b>Safety:</b> IEC 61508, ISO 13849, NFPA 70E</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Overview of Engineering Standards</h1>
+ <div class="sub" id="desc">A comprehensive overview of engineering standards and codes used in electrical, automation, and industrial projects.</div>
+ <div class="section">
+  <h2 id="s1">What are Engineering Standards?</h2>
+  <p id="s1p">Engineering standards are documented technical specifications and guidelines that ensure consistency, safety, quality, and interoperability in products, processes, and systems. They are developed by recognized organizations and are often mandatory or recommended for compliance.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Major Standardization Organizations</h2>
+  <ul id="list1">
+   <li>IEC – International Electrotechnical Commission</li>
+   <li>ISO – International Organization for Standardization</li>
+   <li>IEEE – Institute of Electrical and Electronics Engineers</li>
+   <li>API – American Petroleum Institute</li>
+   <li>NFPA – National Fire Protection Association (NEC)</li>
+   <li>ANSI – American National Standards Institute</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Key Standards in Engineering</h2>
+  <ul id="list2">
+   <li>IEC 61439 – Switchgear and controlgear assemblies</li>
+   <li>IEC 60204 – Electrical equipment of machines</li>
+   <li>NEC NFPA 70 – National Electrical Code</li>
+   <li>ISO 9001 – Quality Management Systems</li>
+   <li>API RP 551 – Process Measurement Instrumentation</li>
+   <li>IEEE 80 – Earthing and grounding</li>
+  </ul>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📘 Overview of Engineering Standards',
-            desc: 'A comprehensive overview of international and national engineering standards for electrical, instrumentation, automation, quality, and safety.',
-            s1: '🔹 What are Engineering Standards?',
-            s1p: 'Engineering standards are technical documents that establish specifications, procedures, and guidelines for products, systems, and processes. They ensure safety, quality, interoperability, and consistency across industries. Standards are developed by recognized organizations such as IEC, ISO, IEEE, ANSI, and API.',
-            s2: '🔹 Major Standards Organizations',
-            list1: ['IEC – International Electrotechnical Commission','ISO – International Organization for Standardization','IEEE – Institute of Electrical and Electronics Engineers','ANSI – American National Standards Institute','API – American Petroleum Institute','NFPA – National Fire Protection Association (NEC)'],
-            s3: '🔹 Key Standards by Discipline',
-            list2: ['Electrical: IEC 60364, NEC, IEEE 80, IEC 61439','Instrumentation: ISA 5.1, IEC 61511, API 551','Automation: IEC 61131-3, IEC 61508, ISA 88','Quality: ISO 9001, ISO 14001, ISO 45001','Safety: IEC 61508, ISO 13849, NFPA 70E'],
-            back: '← Back'
-        },
-        fa: {
-            title: '📘 مرور کلی استانداردهای مهندسی',
-            desc: 'مرور جامع استانداردهای بین‌المللی و ملی مهندسی برای برق، ابزار دقیق، اتوماسیون، کیفیت و ایمنی.',
-            s1: '🔹 استانداردهای مهندسی چیستند؟',
-            s1p: 'استانداردهای مهندسی اسناد فنی هستند که مشخصات، رویه‌ها و دستورالعمل‌هایی را برای محصولات، سیستم‌ها و فرآیندها تعیین می‌کنند. آنها ایمنی، کیفیت، قابلیت هم‌کاری و سازگاری را در صنایع مختلف تضمین می‌کنند. استانداردها توسط سازمان‌های شناخته شده ای مانند IEC، ISO، IEEE، ANSI و API تدوین می‌شوند.',
-            s2: '🔹 سازمان‌های اصلی استانداردسازی',
-            list1: ['IEC – کمیسیون بین‌المللی الکتروتکنیک','ISO – سازمان بین‌المللی استانداردسازی','IEEE – مؤسسه مهندسان برق و الکترونیک','ANSI – مؤسسه ملی استانداردهای آمریکا','API – مؤسسه نفت آمریکا','NFPA – انجمن ملی حفاظت در برابر آتش (NEC)'],
-            s3: '🔹 استانداردهای کلیدی بر اساس رشته',
-            list2: ['برق: IEC 60364، NEC، IEEE 80، IEC 61439','ابزار دقیق: ISA 5.1، IEC 61511، API 551','اتوماسیون: IEC 61131-3، IEC 61508، ISA 88','کیفیت: ISO 9001، ISO 14001، ISO 45001','ایمنی: IEC 61508، ISO 13849، NFPA 70E'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Overview of Engineering Standards',
+  desc: 'A comprehensive overview of engineering standards and codes used in electrical, automation, and industrial projects.',
+  s1: 'What are Engineering Standards?',
+  s1p: 'Engineering standards are documented technical specifications and guidelines that ensure consistency, safety, quality, and interoperability in products, processes, and systems. They are developed by recognized organizations and are often mandatory or recommended for compliance.',
+  s2: 'Major Standardization Organizations',
+  list1: ['IEC – International Electrotechnical Commission','ISO – International Organization for Standardization','IEEE – Institute of Electrical and Electronics Engineers','API – American Petroleum Institute','NFPA – National Fire Protection Association (NEC)','ANSI – American National Standards Institute'],
+  s3: 'Key Standards in Engineering',
+  list2: ['IEC 61439 – Switchgear and controlgear assemblies','IEC 60204 – Electrical equipment of machines','NEC NFPA 70 – National Electrical Code','ISO 9001 – Quality Management Systems','API RP 551 – Process Measurement Instrumentation','IEEE 80 – Earthing and grounding'],
+  back: '← Back'
+ },
+ fa: {
+  title: 'مرور کلی استانداردهای مهندسی',
+  desc: 'مرور جامع استانداردها و کدهای مهندسی مورد استفاده در پروژه‌های برق، اتوماسیون و صنعتی.',
+  s1: 'استانداردهای مهندسی چیستند؟',
+  s1p: 'استانداردهای مهندسی مشخصات و دستورالعمل‌های فنی مستند شده‌ای هستند که تضمین‌کننده قوام، ایمنی، کیفیت و قابلیت هم‌کاری در محصولات، فرآیندها و سیستم‌ها هستند. آنها توسط سازمان‌های شناخته شده توسعه یافته و اغلب برای انطباق اجباری یا توصیه می‌شوند.',
+  s2: 'سازمان‌های اصلی استانداردسازی',
+  list1: ['IEC – کمیسیون بین‌المللی الکتروتکنیک','ISO – سازمان بین‌المللی استانداردسازی','IEEE – مؤسسه مهندسان برق و الکترونیک','API – مؤسسه نفت آمریکا','NFPA – انجمن ملی حفاظت از آتش (NEC)','ANSI – مؤسسه ملی استانداردهای آمریکا'],
+  s3: 'استانداردهای کلیدی در مهندسی',
+  list2: ['IEC 61439 – تابلوهای برق','IEC 60204 – تجهیزات الکتریکی ماشین‌آلات','NEC NFPA 70 – کد ملی برق','ISO 9001 – سیستم‌های مدیریت کیفیت','API RP 551 – اندازه‌گیری فرآیند','IEEE 80 – ارتینگ و زمین‌کردن'],
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
