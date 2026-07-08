@@ -1,171 +1,151 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · HSE Resources</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · HSE Resources</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">📚 HSE Resources</h1>
-    <div class="sub" id="desc">Books, websites, standards, and educational materials for health, safety, and environmental management.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 Recommended Books</h2>
-        <ul id="list1">
-            <li>Safety Management – John R. Grimaldi</li>
-            <li>Environmental Management: Principles and Practice – C. R. Boyce</li>
-            <li>Occupational Health and Safety – C. G. Brown</li>
-            <li>Risk Assessment and Management – David H. Johnson</li>
-            <li>Industrial Safety and Health Management – C. Ray Asfahl</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Useful Websites and Organizations</h2>
-        <ul id="list2">
-            <li>OSHA – Occupational Safety and Health Administration – osha.gov</li>
-            <li>WHO – World Health Organization – who.int</li>
-            <li>ISO – International Organization for Standardization – iso.org</li>
-            <li>NEBOSH – National Examination Board in Occupational Safety and Health – nebosh.org.uk</li>
-            <li>AIHA – American Industrial Hygiene Association – aiha.org</li>
-            <li>EPA – Environmental Protection Agency – epa.gov</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Key HSE Standards</h2>
-        <ul id="list3">
-            <li>ISO 45001 – Occupational Health and Safety Management Systems</li>
-            <li>ISO 14001 – Environmental Management Systems</li>
-            <li>ISO 31000 – Risk Management</li>
-            <li>IEC 61508 – Functional Safety</li>
-            <li>NFPA 70E – Electrical Safety in the Workplace</li>
-            <li>OHSAS 18001 – Occupational Health and Safety (replaced by ISO 45001)</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Video Tutorials</h2>
-        <ul id="list4">
-            <li>Safety Management Training – OSHA guidelines and implementation</li>
-            <li>Environmental Management Systems – ISO 14001 implementation</li>
-            <li>Risk Assessment and HAZOP – Practical techniques</li>
-            <li>Health and Wellness at Work – Stress management and wellbeing</li>
-            <li>Safety Culture – Building a proactive safety mindset</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">HSE Resources</h1>
+ <div class="sub" id="desc">Resources for health, safety, and environment including standards, guides, and reference materials.</div>
+ <div class="section">
+  <h2 id="s1">HSE Standards & Regulations</h2>
+  <ul id="list1">
+   <li>ISO 45001 – Occupational Health & Safety Management</li>
+   <li>ISO 14001 – Environmental Management Systems</li>
+   <li>OSHA Standards – Occupational Safety and Health</li>
+   <li>EPA Regulations – Environmental Protection Agency</li>
+   <li>NFPA 70E – Electrical Safety in the Workplace</li>
+   <li>ANSI Z10 – Occupational Health & Safety Management</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s2">Safety Data Sheets (SDS)</h2>
+  <ul id="list2">
+   <li>Chemical Safety Information – Hazards and handling</li>
+   <li>First Aid Measures – Emergency response</li>
+   <li>Storage and Disposal – Safe management</li>
+   <li>Compliance with REACH, GHS, etc.</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">HSE Templates & Tools</h2>
+  <ul id="list3">
+   <li>Risk Assessment Templates – Hazard identification</li>
+   <li>Incident Report Forms – Accident documentation</li>
+   <li>Safety Inspection Checklists – Workplace audits</li>
+   <li>Emergency Response Plan Templates</li>
+   <li>PPE Assessment Forms</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Training & Certification</h2>
+  <ul id="list4">
+   <li>OSHA 10-Hour and 30-Hour Training</li>
+   <li>ISO 45001 Lead Auditor Training</li>
+   <li>First Aid and CPR Certification</li>
+   <li>Fire Safety and Emergency Response Training</li>
+   <li>NEBOSH Diploma – Health and Safety</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: HSE Resource Library</h2>
+  <p id="s5p">A comprehensive HSE resource library includes standards, safety data sheets, risk assessment templates, incident report forms, and training materials. This library supports compliance, continuous improvement, and safety culture development.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📚 HSE Resources',
-            desc: 'Books, websites, standards, and educational materials for health, safety, and environmental management.',
-            s1: '🔹 Recommended Books',
-            list1: ['Safety Management – John R. Grimaldi','Environmental Management: Principles and Practice – C. R. Boyce','Occupational Health and Safety – C. G. Brown','Risk Assessment and Management – David H. Johnson','Industrial Safety and Health Management – C. Ray Asfahl'],
-            s2: '🔹 Useful Websites and Organizations',
-            list2: ['OSHA – Occupational Safety and Health Administration – osha.gov','WHO – World Health Organization – who.int','ISO – International Organization for Standardization – iso.org','NEBOSH – National Examination Board in Occupational Safety and Health – nebosh.org.uk','AIHA – American Industrial Hygiene Association – aiha.org','EPA – Environmental Protection Agency – epa.gov'],
-            s3: '🔹 Key HSE Standards',
-            list3: ['ISO 45001 – Occupational Health and Safety Management Systems','ISO 14001 – Environmental Management Systems','ISO 31000 – Risk Management','IEC 61508 – Functional Safety','NFPA 70E – Electrical Safety in the Workplace','OHSAS 18001 – Occupational Health and Safety (replaced by ISO 45001)'],
-            s4: '🔹 Video Tutorials',
-            list4: ['Safety Management Training – OSHA guidelines and implementation','Environmental Management Systems – ISO 14001 implementation','Risk Assessment and HAZOP – Practical techniques','Health and Wellness at Work – Stress management and wellbeing','Safety Culture – Building a proactive safety mindset'],
-            back: '← Back'
-        },
-        fa: {
-            title: '📚 منابع HSE',
-            desc: 'کتاب‌ها، وب‌سایت‌ها، استانداردها و مواد آموزشی برای مدیریت بهداشت، ایمنی و محیط زیست.',
-            s1: '🔹 کتاب‌های پیشنهادی',
-            list1: ['مدیریت ایمنی – جان آر. گریمالدی','مدیریت محیط زیست: اصول و عمل – سی. آر. بویس','بهداشت و ایمنی شغلی – سی. جی. براون','ارزیابی و مدیریت ریسک – دیوید اچ. جانسون','مدیریت ایمنی و بهداشت صنعتی – سی. ری آسفال'],
-            s2: '🔹 وب‌سایت‌ها و سازمان‌های مفید',
-            list2: ['OSHA – اداره ایمنی و بهداشت شغلی – osha.gov','WHO – سازمان بهداشت جهانی – who.int','ISO – سازمان بین‌المللی استانداردسازی – iso.org','NEBOSH – هیئت ملی امتحانات ایمنی و بهداشت شغلی – nebosh.org.uk','AIHA – انجمن بهداشت صنعتی آمریکا – aiha.org','EPA – آژانس حفاظت از محیط زیست – epa.gov'],
-            s3: '🔹 استانداردهای کلیدی HSE',
-            list3: ['ISO 45001 – سیستم‌های مدیریت بهداشت و ایمنی شغلی','ISO 14001 – سیستم‌های مدیریت زیست‌محیطی','ISO 31000 – مدیریت ریسک','IEC 61508 – ایمنی عملکردی','NFPA 70E – ایمنی برق در محیط کار','OHSAS 18001 – بهداشت و ایمنی شغلی (با ISO 45001 جایگزین شده)'],
-            s4: '🔹 آموزش‌های ویدئویی',
-            list4: ['آموزش مدیریت ایمنی – دستورالعمل‌های OSHA و پیاده‌سازی','سیستم‌های مدیریت محیط زیست – پیاده‌سازی ISO 14001','ارزیابی ریسک و HAZOP – تکنیک‌های عملی','بهداشت و تندرستی در کار – مدیریت استرس و تندرستی','فرهنگ ایمنی – ایجاد ذهنیت ایمنی پیش‌گیرانه'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        const ul3 = document.getElementById('list3');
-        ul3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
-
-        const ul4 = document.getElementById('list4');
-        ul4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'HSE Resources',
+  desc: 'Resources for health, safety, and environment including standards, guides, and reference materials.',
+  s1: 'HSE Standards & Regulations',
+  list1: ['ISO 45001 – Occupational Health & Safety Management','ISO 14001 – Environmental Management Systems','OSHA Standards – Occupational Safety and Health','EPA Regulations – Environmental Protection Agency','NFPA 70E – Electrical Safety in the Workplace','ANSI Z10 – Occupational Health & Safety Management'],
+  s2: 'Safety Data Sheets (SDS)',
+  list2: ['Chemical Safety Information – Hazards and handling','First Aid Measures – Emergency response','Storage and Disposal – Safe management','Compliance with REACH, GHS, etc.'],
+  s3: 'HSE Templates & Tools',
+  list3: ['Risk Assessment Templates – Hazard identification','Incident Report Forms – Accident documentation','Safety Inspection Checklists – Workplace audits','Emergency Response Plan Templates','PPE Assessment Forms'],
+  s4: 'Training & Certification',
+  list4: ['OSHA 10-Hour and 30-Hour Training','ISO 45001 Lead Auditor Training','First Aid and CPR Certification','Fire Safety and Emergency Response Training','NEBOSH Diploma – Health and Safety'],
+  s5: 'Example: HSE Resource Library',
+  s5p: 'A comprehensive HSE resource library includes standards, safety data sheets, risk assessment templates, incident report forms, and training materials. This library supports compliance, continuous improvement, and safety culture development.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'منابع HSE',
+  desc: 'منابع برای بهداشت، ایمنی و محیط زیست شامل استانداردها، راهنماها و مواد مرجع.',
+  s1: 'استانداردها و مقررات HSE',
+  list1: ['ISO 45001 – مدیریت بهداشت و ایمنی شغلی','ISO 14001 – سیستم‌های مدیریت زیست‌محیطی','استانداردهای OSHA – ایمنی و بهداشت شغلی','مقررات EPA – آژانس حفاظت از محیط زیست','NFPA 70E – ایمنی برق در محیط کار','ANSI Z10 – مدیریت بهداشت و ایمنی شغلی'],
+  s2: 'برگه‌های داده ایمنی (SDS)',
+  list2: ['اطلاعات ایمنی شیمیایی – خطرات و جابجایی','اقدامات کمک‌های اولیه – پاسخ اضطراری','ذخیره‌سازی و دفع – مدیریت ایمن','انطباق با REACH، GHS و غیره'],
+  s3: 'قالب‌ها و ابزارهای HSE',
+  list3: ['قالب‌های ارزیابی ریسک – شناسایی خطر','فرم‌های گزارش حادثه – مستندسازی حوادث','چک‌لیست‌های بازرسی ایمنی – ممیزی محیط کار','قالب‌های برنامه پاسخ اضطراری','فرم‌های ارزیابی PPE'],
+  s4: 'آموزش و گواهینامه',
+  list4: ['آموزش 10 و 30 ساعته OSHA','آموزش ممیز اصلی ISO 45001','گواهینامه کمک‌های اولیه و CPR','آموزش ایمنی آتش‌سوزی و پاسخ اضطراری','دیپلم NEBOSH – بهداشت و ایمنی'],
+  s5: 'مثال: کتابخانه منابع HSE',
+  s5p: 'یک کتابخانه جامع منابع HSE شامل استانداردها، برگه‌های داده ایمنی، قالب‌های ارزیابی ریسک، فرم‌های گزارش حادثه و مواد آموزشی است. این کتابخانه از انطباق، بهبود مستمر و توسعه فرهنگ ایمنی پشتیبانی می‌کند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
