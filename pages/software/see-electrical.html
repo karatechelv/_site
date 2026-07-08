@@ -1,199 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · SEE Electrical</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · SEE Electrical</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">🔌 SEE Electrical</h1>
-    <div class="sub" id="desc">SEE Electrical is a powerful and intuitive electrical CAD software designed for automation, control, and power distribution projects.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 Description</h2>
-        <p id="s1p">SEE Electrical is a professional electrical CAD solution that helps engineers and designers create electrical schematics, wiring diagrams, and panel layouts quickly and efficiently. It is known for its user-friendly interface, automation features, and integration with other engineering tools.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Purpose</h2>
-        <p id="s2p">The purpose of SEE Electrical is to streamline the design of electrical control systems, from schematic capture to manufacturing documentation. It reduces design time, improves accuracy, and ensures compliance with industry standards (IEC, NEC, etc.). It is widely used in automation, machinery, and building services.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Example</h2>
-        <p id="s3p">A control system designer uses SEE Electrical to develop the electrical design for an HVAC control panel. They create schematics for power distribution, motor control, and PLC I/O. The software automatically numbers wires, generates cross-references, and produces a complete bill of materials.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Learning Path</h2>
-        <ul id="list1">
-            <li>Introduction to SEE Electrical interface and project setup</li>
-            <li>Creating electrical schematics and using symbol libraries</li>
-            <li>Wiring diagrams and cable management</li>
-            <li>Panel design and component placement</li>
-            <li>Generating reports (BOM, wire lists, terminal diagrams)</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s5">🔹 Resources</h2>
-        <ul id="list2">
-            <li>SEE Electrical Help and Documentation</li>
-            <li>Official IGE+XAO training and webinars</li>
-            <li>YouTube tutorials and user forums</li>
-            <li>Online courses (Udemy, LinkedIn Learning)</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s6">🔹 Software</h2>
-        <ul id="list3">
-            <li>SEE Electrical (full version)</li>
-            <li>SEE Electrical 3D (for panel and cable routing)</li>
-            <li>SEE Electrical Expert (advanced features)</li>
-            <li>Integration with PLC and HMI design tools</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s7">🔹 Videos & Future Lessons</h2>
-        <ul id="list4">
-            <li>Getting Started with SEE Electrical</li>
-            <li>Creating Schematics and Wiring Diagrams</li>
-            <li>Panel Design and 3D Layout (Future)</li>
-            <li>Advanced Reporting and Automation</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">SEE Electrical</h1>
+ <div class="sub" id="desc">Electrical design software for schematics, wiring diagrams, and panel documentation.</div>
+ <div class="section">
+  <h2 id="s1">Overview</h2>
+  <p id="s1p">SEE Electrical is a powerful electrical design software used for creating schematics, wiring diagrams, and panel layouts. It is designed for electrical engineers and panel builders to streamline the design process.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key Features</h2>
+  <ul id="list1">
+   <li>Intuitive Interface – Easy to learn and use</li>
+   <li>Wiring Diagrams – Automatic wire numbering</li>
+   <li>Panel Layouts – Component placement</li>
+   <li>BOM Generation – Parts lists and reports</li>
+   <li>Automatic Project Management</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Learning Path</h2>
+  <ul id="list2">
+   <li>Introduction to SEE Electrical</li>
+   <li>Creating Schematics</li>
+   <li>Wiring Diagrams and Cross-References</li>
+   <li>Panel Design</li>
+   <li>Reports and Documentation</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: Panel Wiring Diagram</h2>
+  <p id="s4p">SEE Electrical is used to create a complete wiring diagram for a control panel, with automatic wire numbering, cross-references, and BOM output for procurement.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🔌 SEE Electrical',
-            desc: 'SEE Electrical is a powerful and intuitive electrical CAD software designed for automation, control, and power distribution projects.',
-            s1: '🔹 Description',
-            s1p: 'SEE Electrical is a professional electrical CAD solution that helps engineers and designers create electrical schematics, wiring diagrams, and panel layouts quickly and efficiently. It is known for its user-friendly interface, automation features, and integration with other engineering tools.',
-            s2: '🔹 Purpose',
-            s2p: 'The purpose of SEE Electrical is to streamline the design of electrical control systems, from schematic capture to manufacturing documentation. It reduces design time, improves accuracy, and ensures compliance with industry standards (IEC, NEC, etc.). It is widely used in automation, machinery, and building services.',
-            s3: '🔹 Example',
-            s3p: 'A control system designer uses SEE Electrical to develop the electrical design for an HVAC control panel. They create schematics for power distribution, motor control, and PLC I/O. The software automatically numbers wires, generates cross-references, and produces a complete bill of materials.',
-            s4: '🔹 Learning Path',
-            list1: ['Introduction to SEE Electrical interface and project setup','Creating electrical schematics and using symbol libraries','Wiring diagrams and cable management','Panel design and component placement','Generating reports (BOM, wire lists, terminal diagrams)'],
-            s5: '🔹 Resources',
-            list2: ['SEE Electrical Help and Documentation','Official IGE+XAO training and webinars','YouTube tutorials and user forums','Online courses (Udemy, LinkedIn Learning)'],
-            s6: '🔹 Software',
-            list3: ['SEE Electrical (full version)','SEE Electrical 3D (for panel and cable routing)','SEE Electrical Expert (advanced features)','Integration with PLC and HMI design tools'],
-            s7: '🔹 Videos & Future Lessons',
-            list4: ['Getting Started with SEE Electrical','Creating Schematics and Wiring Diagrams','Panel Design and 3D Layout (Future)','Advanced Reporting and Automation'],
-            back: '← Back'
-        },
-        fa: {
-            title: '🔌 SEE Electrical',
-            desc: 'SEE Electrical یک نرم‌افزار قدرتمند و شهودی CAD برق است که برای پروژه‌های اتوماسیون، کنترل و توزیع برق طراحی شده است.',
-            s1: '🔹 توضیحات',
-            s1p: 'SEE Electrical یک راه‌حل حرفه‌ای CAD برق است که به مهندسان و طراحان کمک می‌کند تا شماتیک‌های الکتریکی، نمودارهای سیم‌کشی و چیدمان پنل را به سرعت و کارآمد ایجاد کنند. این نرم‌افزار به دلیل رابط کاربری آسان، ویژگی‌های اتوماسیون و یکپارچه‌سازی با سایر ابزارهای مهندسی شناخته شده است.',
-            s2: '🔹 هدف',
-            s2p: 'هدف SEE Electrical ساده‌سازی طراحی سیستم‌های کنترل الکتریکی، از شماتیک تا مستندات تولید است. زمان طراحی را کاهش، دقت را بهبود و انطباق با استانداردهای صنعت (IEC، NEC و غیره) را تضمین می‌کند. این نرم‌افزار به طور گسترده در اتوماسیون، ماشین‌آلات و خدمات ساختمان استفاده می‌شود.',
-            s3: '🔹 مثال',
-            s3p: 'یک طراح سیستم کنترل از SEE Electrical برای توسعه طراحی الکتریکی یک پنل کنترل HVAC استفاده می‌کند. آنها شماتیک‌هایی برای توزیع برق، کنترل موتور و I/O PLC ایجاد می‌کنند. نرم‌افزار به طور خودکار سیم‌ها را شماره‌گذاری، مراجع متقابل تولید و یک فهرست کامل مواد را تهیه می‌کند.',
-            s4: '🔹 مسیر یادگیری',
-            list1: ['آشنایی با رابط SEE Electrical و راه‌اندازی پروژه','ایجاد شماتیک‌های الکتریکی و استفاده از کتابخانه‌های نماد','نمودارهای سیم‌کشی و مدیریت کابل','طراحی پنل و قرارگیری قطعات','تولید گزارش‌ها (فهرست مواد، لیست سیم‌ها، نمودارهای ترمینال)'],
-            s5: '🔹 منابع',
-            list2: ['راهنما و مستندات SEE Electrical','آموزش‌ها و وبینارهای رسمی IGE+XAO','آموزش‌های یوتیوب و انجمن‌های کاربران','دوره‌های آنلاین (Udemy، LinkedIn Learning)'],
-            s6: '🔹 نرم‌افزار',
-            list3: ['SEE Electrical (نسخه کامل)','SEE Electrical 3D (برای پنل و مسیریابی کابل)','SEE Electrical Expert (ویژگی‌های پیشرفته)','یکپارچه‌سازی با ابزارهای طراحی PLC و HMI'],
-            s7: '🔹 ویدئوها و درس‌های آینده',
-            list4: ['شروع کار با SEE Electrical','ایجاد شماتیک‌ها و نمودارهای سیم‌کشی','طراحی پنل و چیدمان سه‌بعدی (آینده)','گزارش‌دهی پیشرفته و اتوماسیون'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s2p').textContent = t.s2p;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s5').textContent = t.s5;
-        document.getElementById('s6').textContent = t.s6;
-        document.getElementById('s7').textContent = t.s7;
-        document.getElementById('backlink').textContent = t.back;
-
-        const list1 = document.getElementById('list1');
-        list1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
-
-        const list2 = document.getElementById('list2');
-        list2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
-
-        const list3 = document.getElementById('list3');
-        list3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; list3.appendChild(li); });
-
-        const list4 = document.getElementById('list4');
-        list4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; list4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'SEE Electrical',
+  desc: 'Electrical design software for schematics, wiring diagrams, and panel documentation.',
+  s1: 'Overview',
+  s1p: 'SEE Electrical is a powerful electrical design software used for creating schematics, wiring diagrams, and panel layouts. It is designed for electrical engineers and panel builders to streamline the design process.',
+  s2: 'Key Features',
+  list1: ['Intuitive Interface – Easy to learn and use','Wiring Diagrams – Automatic wire numbering','Panel Layouts – Component placement','BOM Generation – Parts lists and reports','Automatic Project Management'],
+  s3: 'Learning Path',
+  list2: ['Introduction to SEE Electrical','Creating Schematics','Wiring Diagrams and Cross-References','Panel Design','Reports and Documentation'],
+  s4: 'Example: Panel Wiring Diagram',
+  s4p: 'SEE Electrical is used to create a complete wiring diagram for a control panel, with automatic wire numbering, cross-references, and BOM output for procurement.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'SEE Electrical',
+  desc: 'نرم‌افزار طراحی برق برای شماتیک، نمودارهای سیم‌کشی و مستندات پنل.',
+  s1: 'مرور کلی',
+  s1p: 'SEE Electrical یک نرم‌افزار قدرتمند طراحی برق است که برای ایجاد شماتیک، نمودارهای سیم‌کشی و چیدمان پنل استفاده می‌شود. این نرم‌افزار برای مهندسان برق و سازندگان پنل برای ساده‌سازی فرآیند طراحی طراحی شده است.',
+  s2: 'ویژگی‌های کلیدی',
+  list1: ['رابط کاربری بصری – آسان برای یادگیری و استفاده','نمودارهای سیم‌کشی – شماره‌گذاری خودکار سیم','چیدمان پنل – جایگذاری قطعات','تولید BOM – لیست قطعات و گزارش‌ها','مدیریت پروژه خودکار'],
+  s3: 'مسیر یادگیری',
+  list2: ['مقدمه‌ای بر SEE Electrical','ایجاد شماتیک','نمودارهای سیم‌کشی و ارجاعات متقابل','طراحی پنل','گزارش‌ها و مستندات'],
+  s4: 'مثال: نمودار سیم‌کشی پنل',
+  s4p: 'از SEE Electrical برای ایجاد یک نمودار سیم‌کشی کامل برای پنل کنترل با شماره‌گذاری خودکار سیم، ارجاعات متقابل و خروجی BOM برای تأمین استفاده می‌شود.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
