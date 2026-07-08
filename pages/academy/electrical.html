@@ -1,148 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Electrical</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:sans-serif;padding:40px 20px}
-        .container{max-width:1100px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1.05rem;margin-bottom:30px}
-        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:30px}
-        .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
-        .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
-        .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
-        .card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
-        .card p{color:#8e95a5;font-size:.85rem}
-        .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:8px}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Electrical</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1100px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1.05rem;line-height:1.8;margin-bottom:30px}
+ .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-bottom:30px}
+ .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+ .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
+ .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
+ .card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
+ .card p{color:#8e95a5;font-size:.85rem}
+ .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:8px}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="page-title">⚡ Electrical Engineering</h1>
-    <div class="sub" id="page-sub">Power systems, protection coordination, load calculation. Essential for all industrial and commercial projects.</div>
-
-    <div class="grid" id="cards-grid">
-        <a href="../electrical/overview.html" class="card"><i>📘</i><h3>Overview</h3><p>Complete overview</p><span class="badge">Learn More →</span></a>
-        <a href="../electrical/voltage-drop.html" class="card"><i>⚡</i><h3>Voltage Drop</h3><p>Calculate drop in circuits</p><span class="badge">Calculator →</span></a>
-        <a href="../electrical/power-factor.html" class="card"><i>📊</i><h3>Power Factor</h3><p>Calculate power factor</p><span class="badge">Calculator →</span></a>
-        <a href="../electrical/transformer-sizing.html" class="card"><i>🔌</i><h3>Transformer Sizing</h3><p>Size transformers</p><span class="badge">Calculator →</span></a>
-        <a href="../electrical/cable-sizing.html" class="card"><i>📏</i><h3>Cable Sizing</h3><p>Select cable size</p><span class="badge">Calculator →</span></a>
-        <a href="../electrical/earthing-resistance.html" class="card"><i>🌍</i><h3>Earthing Resistance</h3><p>Calculate earth resistance</p><span class="badge">Calculator →</span></a>
-        <a href="../electrical/key-topics.html" class="card"><i>💡</i><h3>Key Topics</h3><p>Important topics</p><span class="badge">Learn More →</span></a>
-        <a href="../electrical/software.html" class="card"><i>🛠️</i><h3>Software</h3><p>Essential software</p><span class="badge">Learn More →</span></a>
-        <a href="../electrical/resources.html" class="card"><i>📚</i><h3>Resources</h3><p>Standards, handbooks</p><span class="badge">Learn More →</span></a>
-        <a href="../electrical/learning-path.html" class="card"><i>🗺️</i><h3>Learning Path</h3><p>Foundation to advanced</p><span class="badge">Learn More →</span></a>
-        <a href="../electrical/videos-future.html" class="card"><i>🎬</i><h3>Videos & Future</h3><p>Tutorials and future tech</p><span class="badge">Learn More →</span></a>
-        <a href="../electrical/power-system-analysis.html" class="card"><i>📈</i><h3>Power System Analysis</h3><p>Load flow, short-circuit</p><span class="badge">Learn More →</span></a>
-        <a href="../electrical/protection-coordination.html" class="card"><i>🛡️</i><h3>Protection Coordination</h3><p>Protective devices</p><span class="badge">Learn More →</span></a>
-    </div>
-
-    <div class="back">
-        <a href="../../index.html" id="backlink" onclick="localStorage.setItem('dashboardActive', 'true')">← Back to Dashboard</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="page-title">Electrical Engineering</h1>
+ <div class="sub" id="page-sub">Power systems, protection, distribution, and electrical design engineering.</div>
+ <div class="grid" id="cards-grid">
+  <a href="../electrical/overview.html" class="card"><i>📋</i><h3>Overview</h3><p>Complete overview</p><span class="badge">Coming Soon</span></a>
+  <a href="../electrical/voltage-drop.html" class="card"><i>⚡</i><h3>Voltage Drop</h3><p>Calculate voltage drop</p><span class="badge">Coming Soon</span></a>
+  <a href="../electrical/power-factor.html" class="card"><i>📈</i><h3>Power Factor</h3><p>Power factor correction</p><span class="badge">Coming Soon</span></a>
+  <a href="../electrical/transformer-sizing.html" class="card"><i>⚙️</i><h3>Transformer Sizing</h3><p>Transformer selection</p><span class="badge">Coming Soon</span></a>
+  <a href="../electrical/cable-sizing.html" class="card"><i>📏</i><h3>Cable Sizing</h3><p>Select cable size</p><span class="badge">Coming Soon</span></a>
+  <a href="../electrical/earthing-resistance.html" class="card"><i>🌍</i><h3>Earthing Resistance</h3><p>Earthing calculation</p><span class="badge">Coming Soon</span></a>
+  <a href="../electrical/key-topics.html" class="card"><i>📚</i><h3>Key Topics</h3><p>Essential concepts</p><span class="badge">Coming Soon</span></a>
+  <a href="../electrical/software.html" class="card"><i>💻</i><h3>Software</h3><p>Essential tools</p><span class="badge">Coming Soon</span></a>
+  <a href="../electrical/resources.html" class="card"><i>📚</i><h3>Resources</h3><p>Standards, guides</p><span class="badge">Coming Soon</span></a>
+  <a href="../electrical/learning-path.html" class="card"><i>🎯</i><h3>Learning Path</h3><p>Foundation to advanced</p><span class="badge">Coming Soon</span></a>
+  <a href="../electrical/videos-future.html" class="card"><i>🎬</i><h3>Videos &amp; Future</h3><p>Tutorials &amp; future tech</p><span class="badge">Coming Soon</span></a>
+  <a href="../electrical/examples.html" class="card"><i>⚙️</i><h3>Examples</h3><p>Practical projects</p><span class="badge">Coming Soon</span></a>
+ </div>
+ <div class="back">
+  <a href="../index.html" id="backlink">← Back to Home</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '⚡ Electrical Engineering',
-            sub: 'Power systems, protection coordination, load calculation. Essential for all industrial and commercial projects.',
-            cards: [
-                ['Overview', 'Complete overview', 'Learn More →'],
-                ['Voltage Drop', 'Calculate drop in circuits', 'Calculator →'],
-                ['Power Factor', 'Calculate power factor', 'Calculator →'],
-                ['Transformer Sizing', 'Size transformers', 'Calculator →'],
-                ['Cable Sizing', 'Select cable size', 'Calculator →'],
-                ['Earthing Resistance', 'Calculate earth resistance', 'Calculator →'],
-                ['Key Topics', 'Important topics', 'Learn More →'],
-                ['Software', 'Essential software', 'Learn More →'],
-                ['Resources', 'Standards, handbooks', 'Learn More →'],
-                ['Learning Path', 'Foundation to advanced', 'Learn More →'],
-                ['Videos & Future', 'Tutorials and future tech', 'Learn More →'],
-                ['Power System Analysis', 'Load flow, short-circuit', 'Learn More →'],
-                ['Protection Coordination', 'Protective devices', 'Learn More →']
-            ],
-            back: '← Back to Dashboard'
-        },
-        fa: {
-            title: '⚡ مهندسی برق',
-            sub: 'سیستم‌های قدرت، هماهنگی حفاظت، محاسبات بار. برای تمام پروژه‌های صنعتی و تجاری ضروری است.',
-            cards: [
-                ['مرور کلی', 'مرور کامل مهندسی برق', 'بیشتر بدانید →'],
-                ['افت ولتاژ', 'محاسبه افت ولتاژ در مدارها', 'ماشین حساب →'],
-                ['ضریب توان', 'محاسبه ضریب توان', 'ماشین حساب →'],
-                ['سایزینگ ترانس', 'سایزینگ ترانسفورماتور', 'ماشین حساب →'],
-                ['سایزینگ کابل', 'انتخاب سایز مناسب کابل', 'ماشین حساب →'],
-                ['مقاومت ارتینگ', 'محاسبه مقاومت زمین', 'ماشین حساب →'],
-                ['موضوعات کلیدی', 'موضوعات مهم در مهندسی برق', 'بیشتر بدانید →'],
-                ['نرم‌افزارها', 'نرم‌افزارهای ضروری', 'بیشتر بدانید →'],
-                ['منابع', 'استانداردها، کتابچه‌ها', 'بیشتر بدانید →'],
-                ['مسیر یادگیری', 'از مبتدی تا پیشرفته', 'بیشتر بدانید →'],
-                ['ویدئوها و آینده', 'آموزش‌ها و فناوری‌های آینده', 'بیشتر بدانید →'],
-                ['تحلیل سیستم‌های قدرت', 'جریان بار، اتصال کوتاه', 'بیشتر بدانید →'],
-                ['هماهنگی حفاظت', 'دستگاه‌های حفاظتی', 'بیشتر بدانید →']
-            ],
-            back: '← بازگشت به داشبورد'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('page-title').textContent = t.title;
-        document.getElementById('page-sub').textContent = t.sub;
-        document.getElementById('backlink').textContent = t.back;
-
-        const grid = document.getElementById('cards-grid');
-        const cards = grid.querySelectorAll('.card');
-        t.cards.forEach((item, index) => {
-            if (cards[index]) {
-                cards[index].querySelector('h3').textContent = item[0];
-                cards[index].querySelector('p').textContent = item[1];
-                cards[index].querySelector('.badge').textContent = item[2];
-            }
-        });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() {
-            setLang(this.dataset.lang);
-        };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Electrical Engineering',
+  desc: 'Power systems, protection, distribution, and electrical design engineering.',
+  back: '← Back to Home'
+ },
+ fa: {
+  title: 'مهندسی برق',
+  desc: 'سیستم‌های قدرت، حفاظت، توزیع و طراحی مهندسی برق.',
+  back: '← بازگشت به خانه'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('page-title').textContent = t.title;
+ document.getElementById('page-sub').textContent = t.desc;
+ document.getElementById('backlink').textContent = t.back;
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
