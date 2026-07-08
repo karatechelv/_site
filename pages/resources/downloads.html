@@ -1,166 +1,158 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Downloads</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Downloads</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Downloads</h1>
+ <div class="sub" id="desc">Software, files, and resources available for download.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="s1">Engineering Software</h2>
+  <ul id="list1">
+   <li>AutoCAD Electrical – Trial and free versions</li>
+   <li>EPLAN Electric P8 – Demo version</li>
+   <li>TIA Portal – Trial and download options</li>
+   <li>Codesys – Full development environment</li>
+   <li>Factory IO – Simulation software</li>
+   <li>EasyBuilder Pro – HMI design software</li>
+  </ul>
+ </div>
 
-    <h1 id="title">⬇️ Downloads</h1>
-    <div class="sub" id="desc">Free downloadable resources, software tools, trial versions, and useful files for electrical, automation, and instrumentation engineering.</div>
+ <div class="section">
+  <h2 id="s2">Document Templates</h2>
+  <ul id="list2">
+   <li>Project Charter Template – MS Word</li>
+   <li>Project Schedule Template – MS Excel</li>
+   <li>Bill of Materials Template – MS Excel</li>
+   <li>Risk Register Template – MS Excel</li>
+   <li>Inspection Checklist Template – MS Excel</li>
+   <li>Test Report Template – MS Word</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s1">🔹 What is Available for Download?</h2>
-        <p id="s1p">In this section, we provide a curated list of downloadable resources including free software, trial versions of engineering tools, calculation spreadsheets, configuration files, and reference documents. All resources are selected to help engineers and technicians in their daily work.</p>
-    </div>
+ <div class="section">
+  <h2 id="s3">Technical Documents</h2>
+  <ul id="list3">
+   <li>IEC Standards (Summaries) – PDF</li>
+   <li>NEC Handbook – Quick Reference</li>
+   <li>Panel Design Guide – PDF</li>
+   <li>Instrumentation Selection Guide – PDF</li>
+   <li>Motor Control Guide – PDF</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s2">🔹 Types of Downloads</h2>
-        <ul id="list1">
-            <li><b>Free Software</b> – Open-source or freeware tools for engineering calculations, CAD viewing, and simulation</li>
-            <li><b>Trial Versions</b> – Time-limited trials of professional engineering software (AutoCAD, EPLAN, TIA Portal, etc.)</li>
-            <li><b>Calculation Spreadsheets</b> – Excel-based calculators for voltage drop, cable sizing, power factor correction, etc.</li>
-            <li><b>Configuration Files</b> – Example parameter files for PLCs, HMIs, VFDs, and networks</li>
-            <li><b>Reference Documents</b> – PDFs, checklists, and templates for engineering projects</li>
-            <li><b>Libraries</b> – Symbol libraries for CAD and engineering software</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s4">Programming Examples</h2>
+  <ul id="list4">
+   <li>PLC Ladder Logic Examples – .zap file</li>
+   <li>Structured Text Code Examples – .txt</li>
+   <li>TIA Portal Sample Projects – .zap</li>
+   <li>Codesys Sample Projects – .project</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s3">🔹 Recommended Free Software</h2>
-        <ul id="list2">
-            <li><b>PLCSIM</b> – Siemens PLC simulation (free with TIA Portal trial)</li>
-            <li><b>Codesys</b> – Free development environment for IEC 61131-3 (limited runtime)</li>
-            <li><b>Factory IO</b> – Free trial version for 3D PLC simulation</li>
-            <li><b>AutoCAD Electrical</b> – Free trial (30 days) from Autodesk</li>
-            <li><b>EPLAN Electric P8</b> – Free trial (30 days) from EPLAN</li>
-            <li><b>Minitab</b> – Free trial for statistical analysis</li>
-            <li><b>Dialux</b> – Free lighting design software</li>
-            <li><b>Q-DAS</b> – Free trial for SPC and quality data management</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s5">Example: Downloading Resources</h2>
+  <p id="s5p">All downloadable resources are organized by category. Click on the link to access the file. Check the version and compatibility before downloading software. Some files may require registration with the manufacturer.</p>
+ </div>
 
-    <div class="section">
-        <h2 id="s4">🔹 Example: Downloading a Calculation Spreadsheet</h2>
-        <p id="s4p">An electrical engineer downloads a voltage drop calculator spreadsheet from the resources section. The spreadsheet allows them to quickly calculate voltage drop for different cable sizes, lengths, and load currents. They can use this tool for preliminary design and verify their manual calculations.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s5">🔹 Security and Licensing</h2>
-        <p id="s5p">Always ensure that you download software from official sources or trusted distributors. Check licensing terms before using any software in a commercial project. Trial versions are for evaluation purposes only. For production use, purchase the appropriate license.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '⬇️ Downloads',
-            desc: 'Free downloadable resources, software tools, trial versions, and useful files for electrical, automation, and instrumentation engineering.',
-            s1: '🔹 What is Available for Download?',
-            s1p: 'In this section, we provide a curated list of downloadable resources including free software, trial versions of engineering tools, calculation spreadsheets, configuration files, and reference documents. All resources are selected to help engineers and technicians in their daily work.',
-            s2: '🔹 Types of Downloads',
-            list1: ['Free Software – Open-source or freeware tools for engineering calculations, CAD viewing, and simulation','Trial Versions – Time-limited trials of professional engineering software (AutoCAD, EPLAN, TIA Portal, etc.)','Calculation Spreadsheets – Excel-based calculators for voltage drop, cable sizing, power factor correction, etc.','Configuration Files – Example parameter files for PLCs, HMIs, VFDs, and networks','Reference Documents – PDFs, checklists, and templates for engineering projects','Libraries – Symbol libraries for CAD and engineering software'],
-            s3: '🔹 Recommended Free Software',
-            list2: ['PLCSIM – Siemens PLC simulation (free with TIA Portal trial)','Codesys – Free development environment for IEC 61131-3 (limited runtime)','Factory IO – Free trial version for 3D PLC simulation','AutoCAD Electrical – Free trial (30 days) from Autodesk','EPLAN Electric P8 – Free trial (30 days) from EPLAN','Minitab – Free trial for statistical analysis','Dialux – Free lighting design software','Q-DAS – Free trial for SPC and quality data management'],
-            s4: '🔹 Example: Downloading a Calculation Spreadsheet',
-            s4p: 'An electrical engineer downloads a voltage drop calculator spreadsheet from the resources section. The spreadsheet allows them to quickly calculate voltage drop for different cable sizes, lengths, and load currents. They can use this tool for preliminary design and verify their manual calculations.',
-            s5: '🔹 Security and Licensing',
-            s5p: 'Always ensure that you download software from official sources or trusted distributors. Check licensing terms before using any software in a commercial project. Trial versions are for evaluation purposes only. For production use, purchase the appropriate license.',
-            back: '← Back'
-        },
-        fa: {
-            title: '⬇️ دانلودها',
-            desc: 'منابع قابل دانلود رایگان، ابزارهای نرم‌افزاری، نسخه‌های آزمایشی و فایل‌های مفید برای مهندسی برق، اتوماسیون و ابزار دقیق.',
-            s1: '🔹 چه چیزی برای دانلود موجود است؟',
-            s1p: 'در این بخش، مجموعه‌ای از منابع قابل دانلود شامل نرم‌افزارهای رایگان، نسخه‌های آزمایشی ابزارهای مهندسی، صفحه‌گسترده‌های محاسباتی، فایل‌های پیکربندی و اسناد مرجع ارائه می‌دهیم. همه منابع برای کمک به مهندسان و تکنسین‌ها در کار روزانه انتخاب شده‌اند.',
-            s2: '🔹 انواع دانلودها',
-            list1: ['نرم‌افزار رایگان – ابزارهای منبع‌باز یا رایگان برای محاسبات مهندسی، مشاهده CAD و شبیه‌سازی','نسخه‌های آزمایشی – نسخه‌های زمانی محدود نرم‌افزارهای حرفه‌ای (AutoCAD، EPLAN، TIA Portal و غیره)','صفحه‌گسترده‌های محاسباتی – ماشین‌حساب‌های مبتنی بر Excel برای افت ولتاژ، سایز کابل، اصلاح ضریب توان و غیره','فایل‌های پیکربندی – فایل‌های پارامتر نمونه برای PLC، HMI، VFD و شبکه‌ها','اسناد مرجع – PDFها، چک‌لیست‌ها و قالب‌ها برای پروژه‌های مهندسی','کتابخانه‌ها – کتابخانه‌های نماد برای نرم‌افزارهای CAD و مهندسی'],
-            s3: '🔹 نرم‌افزارهای رایگان توصیه شده',
-            list2: ['PLCSIM – شبیه‌سازی PLC زیمنس (رایگان با نسخه آزمایشی TIA Portal)','Codesys – محیط توسعه رایگان برای IEC 61131-3 (زمان اجرای محدود)','Factory IO – نسخه آزمایشی رایگان برای شبیه‌سازی سه‌بعدی PLC','AutoCAD Electrical – نسخه آزمایشی رایگان (۳۰ روز) از Autodesk','EPLAN Electric P8 – نسخه آزمایشی رایگان (۳۰ روز) از EPLAN','Minitab – نسخه آزمایشی رایگان برای تحلیل آماری','Dialux – نرم‌افزار رایگان طراحی روشنایی','Q-DAS – نسخه آزمایشی رایگان برای SPC و مدیریت داده کیفیت'],
-            s4: '🔹 مثال: دانلود یک صفحه‌گسترده محاسباتی',
-            s4p: 'یک مهندس برق یک صفحه‌گسترده ماشین‌حساب افت ولتاژ را از بخش منابع دانلود می‌کند. صفحه‌گسترده به آنها امکان می‌دهد تا افت ولتاژ را برای اندازه‌های مختلف کابل، طول‌ها و جریان‌های بار به سرعت محاسبه کنند. آنها می‌توانند از این ابزار برای طراحی مقدماتی استفاده کرده و محاسبات دستی خود را تأیید کنند.',
-            s5: '🔹 امنیت و مجوز',
-            s5p: 'همیشه اطمینان حاصل کنید که نرم‌افزار را از منابع رسمی یا توزیع‌کنندگان معتبر دانلود می‌کنید. قبل از استفاده از هر نرم‌افزار در یک پروژه تجاری، شرایط مجوز را بررسی کنید. نسخه‌های آزمایشی فقط برای اهداف ارزیابی هستند. برای استفاده تولیدی، مجوز مناسب را خریداری کنید.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('s5').textContent = t.s5;
-        document.getElementById('s5p').textContent = t.s5p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const list1 = document.getElementById('list1');
-        list1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
-
-        const list2 = document.getElementById('list2');
-        list2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Downloads',
+  desc: 'Software, files, and resources available for download.',
+  s1: 'Engineering Software',
+  list1: ['AutoCAD Electrical – Trial and free versions','EPLAN Electric P8 – Demo version','TIA Portal – Trial and download options','Codesys – Full development environment','Factory IO – Simulation software','EasyBuilder Pro – HMI design software'],
+  s2: 'Document Templates',
+  list2: ['Project Charter Template – MS Word','Project Schedule Template – MS Excel','Bill of Materials Template – MS Excel','Risk Register Template – MS Excel','Inspection Checklist Template – MS Excel','Test Report Template – MS Word'],
+  s3: 'Technical Documents',
+  list3: ['IEC Standards (Summaries) – PDF','NEC Handbook – Quick Reference','Panel Design Guide – PDF','Instrumentation Selection Guide – PDF','Motor Control Guide – PDF'],
+  s4: 'Programming Examples',
+  list4: ['PLC Ladder Logic Examples – .zap file','Structured Text Code Examples – .txt','TIA Portal Sample Projects – .zap','Codesys Sample Projects – .project'],
+  s5: 'Example: Downloading Resources',
+  s5p: 'All downloadable resources are organized by category. Click on the link to access the file. Check the version and compatibility before downloading software. Some files may require registration with the manufacturer.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'دانلودها',
+  desc: 'نرم‌افزارها، فایل‌ها و منابع قابل دانلود.',
+  s1: 'نرم‌افزارهای مهندسی',
+  list1: ['AutoCAD Electrical – نسخه آزمایشی و رایگان','EPLAN Electric P8 – نسخه دمو','TIA Portal – گزینه‌های آزمایشی و دانلود','Codesys – محیط توسعه کامل','Factory IO – نرم‌افزار شبیه‌سازی','EasyBuilder Pro – نرم‌افزار طراحی HMI'],
+  s2: 'قالب‌های اسناد',
+  list2: ['قالب منشور پروژه – MS Word','قالب برنامه زمان‌بندی پروژه – MS Excel','قالب صورت‌حساب مواد – MS Excel','قالب ثبت ریسک – MS Excel','قالب چک‌لیست بازرسی – MS Excel','قالب گزارش تست – MS Word'],
+  s3: 'اسناد فنی',
+  list3: ['استانداردهای IEC (خلاصه) – PDF','دفترچه NEC – مرجع سریع','راهنمای طراحی پنل – PDF','راهنمای انتخاب ابزار دقیق – PDF','راهنمای کنترل موتور – PDF'],
+  s4: 'مثال‌های برنامه‌نویسی',
+  list4: ['مثال‌های نردبانی PLC – فایل .zap','مثال‌های کد Structured Text – .txt','پروژه‌های نمونه TIA Portal – .zap','پروژه‌های نمونه Codesys – .project'],
+  s5: 'مثال: دانلود منابع',
+  s5p: 'تمام منابع قابل دانلود بر اساس دسته سازماندهی شده‌اند. روی لینک کلیک کنید تا به فایل دسترسی پیدا کنید. قبل از دانلود نرم‌افزار، نسخه و سازگاری را بررسی کنید. برخی فایل‌ها ممکن است نیاز به ثبت‌نام در تولیدکننده داشته باشند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
