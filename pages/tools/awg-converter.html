@@ -1,197 +1,122 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · AWG to mm² Converter</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:800px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .calc-box{background:#1e2128;padding:25px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);margin-bottom:20px}
-        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
-        .calc-box input{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
-        .calc-box input:focus{outline:1px solid #d4af37}
-        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
-        .btn-calc:hover{background:#d4af37;color:#111}
-        .btn-swap{background:transparent;border:1px solid #d4af37;color:#d4af37;padding:8px 20px;border-radius:40px;cursor:pointer;transition:.2s;font-weight:600;margin:10px 0}
-        .btn-swap:hover{background:#d4af37;color:#111}
-        .result{background:#0d0e12;padding:15px;border-radius:12px;border-left:4px solid #d4af37;margin-top:15px;font-size:1.1rem}
-        .result span{color:#d4af37;font-weight:700}
-        .note{color:#8e95a5;font-size:.85rem;margin-top:10px}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · AWG Converter</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:900px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+ .calc-grid label{color:#b0b8c5;font-size:.9rem;display:flex;flex-direction:column;gap:4px}
+ .calc-grid input,.calc-grid select{background:#0d0e12;border:1px solid #2a2f3a;color:#eef0f4;padding:8px 12px;border-radius:8px;font-size:.95rem;width:100%}
+ .calc-grid input:focus,.calc-grid select:focus{outline:1px solid #d4af37}
+ .result-box{background:#0d0e12;padding:16px;border-radius:12px;border-left:3px solid #d4af37;font-size:1.2rem;font-weight:600;color:#d4af37;margin-top:12px;text-align:center}
+ .calc-btn{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:30px;font-weight:600;cursor:pointer;transition:.2s;margin-top:10px}
+ .calc-btn:hover{background:#d4af37;color:#111}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}.calc-grid{grid-template-columns:1fr}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">AWG to mm² Converter</h1>
+ <div class="sub" id="desc">Convert AWG (American Wire Gauge) to mm² and vice versa.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="formula-title">Conversion Table (Approximate)</h2>
+  <ul id="table-list">
+   <li>AWG 18 → 0.82 mm²</li>
+   <li>AWG 16 → 1.31 mm²</li>
+   <li>AWG 14 → 2.08 mm²</li>
+   <li>AWG 12 → 3.31 mm²</li>
+   <li>AWG 10 → 5.26 mm²</li>
+   <li>AWG 8 → 8.37 mm²</li>
+   <li>AWG 6 → 13.3 mm²</li>
+   <li>AWG 4 → 21.2 mm²</li>
+   <li>AWG 2 → 33.6 mm²</li>
+   <li>AWG 1 → 42.4 mm²</li>
+   <li>AWG 1/0 → 53.5 mm²</li>
+   <li>AWG 2/0 → 67.4 mm²</li>
+   <li>AWG 3/0 → 85.0 mm²</li>
+   <li>AWG 4/0 → 107.2 mm²</li>
+  </ul>
+ </div>
 
-    <h1 id="title">🔌 AWG to mm² Converter</h1>
-    <div class="sub" id="desc">Convert American Wire Gauge (AWG) to metric cross-section (mm²) and vice versa.</div>
+ <div class="section">
+  <h2 id="calc-title">Converter</h2>
+  <div class="calc-grid">
+   <label>AWG Number <input type="number" id="awg" value="10" step="1" min="0" max="40"></label>
+  </div>
+  <button class="calc-btn" id="calcBtn" onclick="convert()">Convert to mm²</button>
+  <div class="result-box" id="result">mm²: 5.26 mm²</div>
+ </div>
 
-    <div class="calc-box">
-        <label id="lbl-input">Enter AWG or mm²</label>
-        <input type="number" id="input" value="10" step="any">
-
-        <div style="display:flex; gap:10px; align-items:center; justify-content:center; margin:10px 0;">
-            <button class="btn-swap" id="toAWG">Convert to AWG</button>
-            <span style="color:#8e95a5;">or</span>
-            <button class="btn-swap" id="toMM2">Convert to mm²</button>
-        </div>
-
-        <div class="result" id="result">
-            <span id="res-label">Result:</span> <span id="result-value">--</span>
-        </div>
-        <div class="note" id="note">Based on standard AWG to mm² conversion table.</div>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    // AWG to mm² lookup table (common values)
-    const awgTable = {
-        40: 0.00314, 39: 0.004, 38: 0.005, 37: 0.006, 36: 0.008,
-        35: 0.01, 34: 0.012, 33: 0.016, 32: 0.02, 31: 0.025,
-        30: 0.032, 29: 0.04, 28: 0.05, 27: 0.064, 26: 0.08,
-        25: 0.10, 24: 0.13, 23: 0.16, 22: 0.20, 21: 0.25,
-        20: 0.32, 19: 0.40, 18: 0.50, 17: 0.64, 16: 0.80,
-        15: 1.0, 14: 1.3, 13: 1.6, 12: 2.0, 11: 2.5,
-        10: 3.3, 9: 4.0, 8: 5.0, 7: 6.4, 6: 8.0,
-        5: 10.0, 4: 13.0, 3: 16.0, 2: 20.0, 1: 25.0,
-        0: 32.0, '00': 40.0, '000': 50.0, '0000': 64.0
-    };
-
-    const langData = {
-        en: {
-            title: '🔌 AWG to mm² Converter',
-            desc: 'Convert American Wire Gauge (AWG) to metric cross-section (mm²) and vice versa.',
-            input: 'Enter AWG or mm²',
-            toAWG: 'Convert to AWG',
-            toMM2: 'Convert to mm²',
-            res_label: 'Result:',
-            note: 'Based on standard AWG to mm² conversion table.',
-            back: '← Back'
-        },
-        fa: {
-            title: '🔌 مبدل AWG به میلی‌متر مربع',
-            desc: 'تبدیل AWG (سایز سیم آمریکایی) به سطح مقطع متریک (میلی‌متر مربع) و برعکس.',
-            input: 'مقدار AWG یا mm² را وارد کنید',
-            toAWG: 'تبدیل به AWG',
-            toMM2: 'تبدیل به mm²',
-            res_label: 'نتیجه:',
-            note: 'بر اساس جدول تبدیل استاندارد AWG به mm².',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLanguage(lang) {
-        const t = langData[lang];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('lbl-input').textContent = t.input;
-        document.getElementById('toAWG').textContent = t.toAWG;
-        document.getElementById('toMM2').textContent = t.toMM2;
-        document.getElementById('res-label').textContent = t.res_label;
-        document.getElementById('note').textContent = t.note;
-        document.getElementById('backlink').textContent = t.back;
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-        document.body.classList.toggle('lang-persian', lang === 'fa');
-        localStorage.setItem('karatech-lang', lang);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLanguage(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLanguage(savedLang);
-
-    // Helper function to find closest AWG
-    function findClosestAWG(value) {
-        let closest = null;
-        let minDiff = Infinity;
-        for (let [awg, mm2] of Object.entries(awgTable)) {
-            const diff = Math.abs(mm2 - value);
-            if (diff < minDiff) {
-                minDiff = diff;
-                closest = awg;
-            }
-        }
-        return closest;
-    }
-
-    function convertToAWG() {
-        const input = parseFloat(document.getElementById('input').value);
-        if (isNaN(input) || input <= 0) {
-            document.getElementById('result-value').textContent = 'Invalid input';
-            return;
-        }
-        // Find closest AWG
-        const awg = findClosestAWG(input);
-        if (awg !== null) {
-            document.getElementById('result-value').textContent = `${awg} AWG (≈ ${awgTable[awg]} mm²)`;
-        } else {
-            document.getElementById('result-value').textContent = 'Not found';
-        }
-    }
-
-    function convertToMM2() {
-        const input = parseFloat(document.getElementById('input').value);
-        if (isNaN(input) || input <= 0) {
-            document.getElementById('result-value').textContent = 'Invalid input';
-            return;
-        }
-        // Check if input is an AWG value (integer or string like '00')
-        const awgString = document.getElementById('input').value.trim();
-        // Try to match directly
-        if (awgTable[awgString] !== undefined) {
-            const mm2 = awgTable[awgString];
-            document.getElementById('result-value').textContent = `${mm2} mm²`;
-        } else {
-            // Try numeric AWG
-            const awgNum = parseInt(awgString);
-            if (!isNaN(awgNum) && awgTable[awgNum] !== undefined) {
-                const mm2 = awgTable[awgNum];
-                document.getElementById('result-value').textContent = `${mm2} mm²`;
-            } else {
-                document.getElementById('result-value').textContent = 'Invalid AWG value';
-            }
-        }
-    }
-
-    document.getElementById('toAWG').onclick = convertToAWG;
-    document.getElementById('toMM2').onclick = convertToMM2;
-
-    // Auto convert on load
-    convertToAWG();
+function convert() {
+ const awg = parseFloat(document.getElementById('awg').value);
+ if (isNaN(awg) || awg < 0) {
+  document.getElementById('result').textContent = 'Please enter a valid AWG number (0-40)';
+  return;
+ }
+ const mm2 = 0.012668 * Math.pow(92, (36 - awg) / 19);
+ document.getElementById('result').textContent = 'mm²: ' + mm2.toFixed(2) + ' mm²';
+}
+const lang = {
+ en: {
+  title: 'AWG to mm² Converter',
+  desc: 'Convert AWG (American Wire Gauge) to mm² and vice versa.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مبدل AWG به mm²',
+  desc: 'تبدیل AWG (سیم‌سنج آمریکایی) به mm² و بالعکس.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('backlink').textContent = t.back;
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
