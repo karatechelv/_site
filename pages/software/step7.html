@@ -1,199 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · STEP7</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · STEP7</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">⚙️ STEP7</h1>
-    <div class="sub" id="desc">STEP7 is Siemens' classic PLC programming software for SIMATIC S7-300, S7-400, and WinAC controllers, widely used in industrial automation.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 Description</h2>
-        <p id="s1p">STEP7 is the traditional engineering software for programming Siemens SIMATIC S7-300 and S7-400 PLCs. It provides a comprehensive environment for creating, testing, and commissioning automation projects. STEP7 supports all IEC 61131-3 programming languages and includes powerful diagnostic and debugging tools.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Purpose</h2>
-        <p id="s2p">The purpose of STEP7 is to enable engineers to develop control logic for Siemens PLCs in a structured and efficient manner. It is used for programming, hardware configuration, network setup, and commissioning of S7-300 and S7-400 systems. STEP7 is still widely used in legacy systems and is the foundation for TIA Portal.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Example</h2>
-        <p id="s3p">An automation engineer uses STEP7 to program an S7-300 PLC for a conveyor control system. They configure the hardware, write ladder logic for motor control, set up communication with remote I/O and drives, and test the program using the integrated simulation. After commissioning, they use the online monitoring features to troubleshoot and optimize the system.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Learning Path</h2>
-        <ul id="list1">
-            <li>Introduction to STEP7 interface and project structure</li>
-            <li>Hardware configuration and network setup (MPI, Profibus)</li>
-            <li>PLC programming (Ladder, FBD, STL, SCL)</li>
-            <li>Data blocks and organization blocks (OBs, DBs, FCs, FBs)</li>
-            <li>Commissioning, online monitoring, and diagnostics</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s5">🔹 Resources</h2>
-        <ul id="list2">
-            <li>Siemens Industry Online Support (STEP7 manuals, FAQs)</li>
-            <li>STEP7 Help and Documentation</li>
-            <li>Official Siemens training (SITRAIN)</li>
-            <li>YouTube tutorials and community forums</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s6">🔹 Software</h2>
-        <ul id="list3">
-            <li>STEP7 (classic, for S7-300/400)</li>
-            <li>STEP7 Professional (includes all languages)</li>
-            <li>PLCSIM (simulation software)</li>
-            <li>Integration with WinCC and other Siemens tools</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s7">🔹 Videos & Future Lessons</h2>
-        <ul id="list4">
-            <li>Getting Started with STEP7</li>
-            <li>Hardware Configuration and Network Setup</li>
-            <li>Programming Logic in Ladder and STL</li>
-            <li>Diagnostics and Troubleshooting (Future)</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">STEP7</h1>
+ <div class="sub" id="desc">Siemens STEP7 – Classic PLC programming software for SIMATIC S7-300/S7-400.</div>
+ <div class="section">
+  <h2 id="s1">Overview</h2>
+  <p id="s1p">STEP7 is Siemens' classic PLC programming software for SIMATIC S7-300, S7-400, and WinAC controllers. It provides a comprehensive environment for creating, testing, and commissioning PLC programs. STEP7 is still widely used in existing installations.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key Features</h2>
+  <ul id="list1">
+   <li>PLC Programming – Ladder, STL, FBD, SCL</li>
+   <li>Hardware Configuration – S7-300/S7-400 families</li>
+   <li>Simulation – PLCSIM integration</li>
+   <li>Diagnostics – Online monitoring and debugging</li>
+   <li>Profinet/PROFIBUS Support</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Learning Path</h2>
+  <ul id="list2">
+   <li>STEP7 Basics – Installation and project setup</li>
+   <li>Hardware Configuration – Modules and addresses</li>
+   <li>Programming – Ladder and STL</li>
+   <li>Communication – Profinet and PROFIBUS</li>
+   <li>Diagnostics – Troubleshooting and monitoring</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: S7-300 Project</h2>
+  <p id="s4p">A STEP7 project for S7-300 includes hardware configuration of a CPU 314, DI/DO/AI/AO modules, a ladder program for motor control, and PROFIBUS communication with drives and HMIs.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '⚙️ STEP7',
-            desc: 'STEP7 is Siemens\' classic PLC programming software for SIMATIC S7-300, S7-400, and WinAC controllers, widely used in industrial automation.',
-            s1: '🔹 Description',
-            s1p: 'STEP7 is the traditional engineering software for programming Siemens SIMATIC S7-300 and S7-400 PLCs. It provides a comprehensive environment for creating, testing, and commissioning automation projects. STEP7 supports all IEC 61131-3 programming languages and includes powerful diagnostic and debugging tools.',
-            s2: '🔹 Purpose',
-            s2p: 'The purpose of STEP7 is to enable engineers to develop control logic for Siemens PLCs in a structured and efficient manner. It is used for programming, hardware configuration, network setup, and commissioning of S7-300 and S7-400 systems. STEP7 is still widely used in legacy systems and is the foundation for TIA Portal.',
-            s3: '🔹 Example',
-            s3p: 'An automation engineer uses STEP7 to program an S7-300 PLC for a conveyor control system. They configure the hardware, write ladder logic for motor control, set up communication with remote I/O and drives, and test the program using the integrated simulation. After commissioning, they use the online monitoring features to troubleshoot and optimize the system.',
-            s4: '🔹 Learning Path',
-            list1: ['Introduction to STEP7 interface and project structure','Hardware configuration and network setup (MPI, Profibus)','PLC programming (Ladder, FBD, STL, SCL)','Data blocks and organization blocks (OBs, DBs, FCs, FBs)','Commissioning, online monitoring, and diagnostics'],
-            s5: '🔹 Resources',
-            list2: ['Siemens Industry Online Support (STEP7 manuals, FAQs)','STEP7 Help and Documentation','Official Siemens training (SITRAIN)','YouTube tutorials and community forums'],
-            s6: '🔹 Software',
-            list3: ['STEP7 (classic, for S7-300/400)','STEP7 Professional (includes all languages)','PLCSIM (simulation software)','Integration with WinCC and other Siemens tools'],
-            s7: '🔹 Videos & Future Lessons',
-            list4: ['Getting Started with STEP7','Hardware Configuration and Network Setup','Programming Logic in Ladder and STL','Diagnostics and Troubleshooting (Future)'],
-            back: '← Back'
-        },
-        fa: {
-            title: '⚙️ STEP7',
-            desc: 'STEP7 نرم‌افزار کلاسیک برنامه‌نویسی PLC زیمنس برای کنترل‌کننده‌های SIMATIC S7-300، S7-400 و WinAC است که به طور گسترده در اتوماسیون صنعتی استفاده می‌شود.',
-            s1: '🔹 توضیحات',
-            s1p: 'STEP7 نرم‌افزار مهندسی سنتی برای برنامه‌نویسی PLCهای SIMATIC S7-300 و S7-400 زیمنس است. یک محیط جامع برای ایجاد، تست و راه‌اندازی پروژه‌های اتوماسیون فراهم می‌کند. STEP7 از تمام زبان‌های برنامه‌نویسی IEC 61131-3 پشتیبانی کرده و شامل ابزارهای قدرتمند عیب‌یابی و اشکال‌زدایی است.',
-            s2: '🔹 هدف',
-            s2p: 'هدف STEP7 توانمندسازی مهندسان برای توسعه منطق کنترل برای PLCهای زیمنس به روشی ساختاریافته و کارآمد است. برای برنامه‌نویسی، پیکربندی سخت‌افزار، راه‌اندازی شبکه و راه‌اندازی سیستم‌های S7-300 و S7-400 استفاده می‌شود. STEP7 هنوز به طور گسترده در سیستم‌های قدیمی استفاده می‌شود و اساس TIA Portal است.',
-            s3: '🔹 مثال',
-            s3p: 'یک مهندس اتوماسیون از STEP7 برای برنامه‌نویسی یک PLC S7-300 برای یک سیستم کنترل نقاله استفاده می‌کند. آنها سخت‌افزار را پیکربندی، منطق نردبانی را برای کنترل موتور نوشته، ارتباط با I/O از راه دور و درایوها را راه‌اندازی کرده و برنامه را با استفاده از شبیه‌سازی یکپارچه تست می‌کنند. پس از راه‌اندازی، از ویژگی‌های نظارت آنلاین برای عیب‌یابی و بهینه‌سازی سیستم استفاده می‌کنند.',
-            s4: '🔹 مسیر یادگیری',
-            list1: ['آشنایی با رابط STEP7 و ساختار پروژه','پیکربندی سخت‌افزار و راه‌اندازی شبکه (MPI، Profibus)','برنامه‌نویسی PLC (نردبانی، FBD، STL، SCL)','بلوک‌های داده و بلوک‌های سازمانی (OB، DB، FC، FB)','راه‌اندازی، نظارت آنلاین و عیب‌یابی'],
-            s5: '🔹 منابع',
-            list2: ['پشتیبانی آنلاین صنعت زیمنس (دفترچه‌های STEP7، سوالات متداول)','راهنما و مستندات STEP7','آموزش‌های رسمی زیمنس (SITRAIN)','آموزش‌های یوتیوب و انجمن‌های جامعه'],
-            s6: '🔹 نرم‌افزار',
-            list3: ['STEP7 (کلاسیک، برای S7-300/400)','STEP7 Professional (شامل تمام زبان‌ها)','PLCSIM (نرم‌افزار شبیه‌سازی)','یکپارچه‌سازی با WinCC و سایر ابزارهای زیمنس'],
-            s7: '🔹 ویدئوها و درس‌های آینده',
-            list4: ['شروع کار با STEP7','پیکربندی سخت‌افزار و راه‌اندازی شبکه','برنامه‌نویسی منطق به زبان نردبانی و STL','عیب‌یابی و رفع اشکال (آینده)'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s2p').textContent = t.s2p;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s5').textContent = t.s5;
-        document.getElementById('s6').textContent = t.s6;
-        document.getElementById('s7').textContent = t.s7;
-        document.getElementById('backlink').textContent = t.back;
-
-        const list1 = document.getElementById('list1');
-        list1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
-
-        const list2 = document.getElementById('list2');
-        list2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
-
-        const list3 = document.getElementById('list3');
-        list3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; list3.appendChild(li); });
-
-        const list4 = document.getElementById('list4');
-        list4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; list4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'STEP7',
+  desc: 'Siemens STEP7 – Classic PLC programming software for SIMATIC S7-300/S7-400.',
+  s1: 'Overview',
+  s1p: 'STEP7 is Siemens\' classic PLC programming software for SIMATIC S7-300, S7-400, and WinAC controllers. It provides a comprehensive environment for creating, testing, and commissioning PLC programs. STEP7 is still widely used in existing installations.',
+  s2: 'Key Features',
+  list1: ['PLC Programming – Ladder, STL, FBD, SCL','Hardware Configuration – S7-300/S7-400 families','Simulation – PLCSIM integration','Diagnostics – Online monitoring and debugging','Profinet/PROFIBUS Support'],
+  s3: 'Learning Path',
+  list2: ['STEP7 Basics – Installation and project setup','Hardware Configuration – Modules and addresses','Programming – Ladder and STL','Communication – Profinet and PROFIBUS','Diagnostics – Troubleshooting and monitoring'],
+  s4: 'Example: S7-300 Project',
+  s4p: 'A STEP7 project for S7-300 includes hardware configuration of a CPU 314, DI/DO/AI/AO modules, a ladder program for motor control, and PROFIBUS communication with drives and HMIs.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'STEP7',
+  desc: 'نرم‌افزار کلاسیک برنامه‌نویسی PLC زیمنس برای SIMATIC S7-300/S7-400.',
+  s1: 'مرور کلی',
+  s1p: 'STEP7 نرم‌افزار کلاسیک برنامه‌نویسی PLC زیمنس برای کنترل‌کننده‌های SIMATIC S7-300، S7-400 و WinAC است. این نرم‌افزار یک محیط جامع برای ایجاد، تست و راه‌اندازی برنامه‌های PLC فراهم می‌کند. STEP7 هنوز در تاسیسات موجود به طور گسترده استفاده می‌شود.',
+  s2: 'ویژگی‌های کلیدی',
+  list1: ['برنامه‌نویسی PLC – نردبانی، STL، FBD، SCL','پیکربندی سخت‌افزار – خانواده‌های S7-300/S7-400','شبیه‌سازی – یکپارچه‌سازی PLCSIM','عیب‌یابی – نظارت و اشکال‌زدایی آنلاین','پشتیبانی از Profinet/PROFIBUS'],
+  s3: 'مسیر یادگیری',
+  list2: ['مبانی STEP7 – نصب و راه‌اندازی پروژه','پیکربندی سخت‌افزار – ماژول‌ها و آدرس‌ها','برنامه‌نویسی – نردبانی و STL','ارتباطات – Profinet و PROFIBUS','عیب‌یابی – عیب‌یابی و نظارت'],
+  s4: 'مثال: پروژه S7-300',
+  s4p: 'یک پروژه STEP7 برای S7-300 شامل پیکربندی سخت‌افزار CPU 314، ماژول‌های DI/DO/AI/AO، برنامه نردبانی برای کنترل موتور و ارتباط PROFIBUS با درایوها و HMIها است.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
