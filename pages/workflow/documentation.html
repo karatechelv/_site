@@ -1,152 +1,154 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Documentation</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Documentation</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">📝 Documentation</h1>
-    <div class="sub" id="desc">Documentation is the final phase of the engineering workflow where all project documents, as-built drawings, manuals, and records are compiled and handed over to the client for operations and maintenance.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What is Documentation?</h2>
-        <p id="s1p">Documentation is the process of compiling, organizing, and delivering all project-related documents to the client. It includes as-built drawings, operation and maintenance manuals, test reports, certificates, and other records necessary for the safe and efficient operation of the facility. Proper documentation ensures that the client has all the information needed to operate, maintain, and troubleshoot the system.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Key Documentation Deliverables</h2>
-        <ul id="list1">
-            <li><b>As-Built Drawings</b> – Updated drawings reflecting the actual installation</li>
-            <li><b>Operation and Maintenance Manuals</b> – Comprehensive guides for operators and maintenance personnel</li>
-            <li><b>Test Reports</b> – Records of all FAT, SAT, and commissioning tests</li>
-            <li><b>Equipment Datasheets</b> – Technical specifications of all installed equipment</li>
-            <li><b>Certificates</b> – Calibration certificates, material test certificates, and safety certificates</li>
-            <li><b>Warranty Documents</b> – Manufacturer warranties and service agreements</li>
-            <li><b>Spare Parts Lists</b> – Recommended spare parts for maintenance</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Documentation Standards</h2>
-        <ul id="list2">
-            <li>ISO 9001 – Quality Management Systems (document control)</li>
-            <li>ISO 10006 – Quality Management for Projects</li>
-            <li>IEC 61355 – Classification of Technical Documentation</li>
-            <li>API 551 – Documentation for Process Measurement</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: Documentation Handover for a Power Plant</h2>
-        <p id="s4p">A power plant project is completed and ready for handover. The documentation team compiles all as-built drawings (electrical, mechanical, civil), operation manuals (start-up, normal operation, shutdown, emergency procedures), maintenance manuals (preventive, corrective), test reports (FAT, SAT, commissioning), and certificates. All documents are organized in a digital document management system and physical binders. The client reviews and accepts the documentation package before final handover.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Documentation Phase</h1>
+ <div class="sub" id="desc">Compiling as-built drawings, operation manuals, and final project documentation.</div>
+ <div class="section">
+  <h2 id="s1">What is Documentation?</h2>
+  <p id="s1p">Documentation is the process of compiling all project records, including as-built drawings, operation manuals, test reports, and maintenance guides. It provides a complete record of the project for future reference, operation, and maintenance.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Documentation Deliverables</h2>
+  <ul id="list1">
+   <li>As-Built Drawings – Final updated schematics and layouts</li>
+   <li>Operation Manuals – Operating instructions and procedures</li>
+   <li>Maintenance Manuals – Service and maintenance guidelines</li>
+   <li>Test Reports – FAT, SAT, and commissioning results</li>
+   <li>Technical Specifications – Equipment and material specs</li>
+   <li>Certificates – Compliance and calibration certificates</li>
+   <li>Software and Backups – Programs and configurations</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Documentation Process</h2>
+  <ul id="list2">
+   <li>Collect all project data and records</li>
+   <li>Update drawings with as-built changes</li>
+   <li>Compile manuals and guides</li>
+   <li>Review for completeness and accuracy</li>
+   <li>Submit to client for final approval</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: Operation Manual Contents</h2>
+  <div class="code-box">
+# Operation Manual – MCC Panel
+# 1. System Description
+# 2. Safety Instructions
+# 3. Operating Procedures
+#    - Startup Procedure
+#    - Normal Operation
+#    - Shutdown Procedure
+# 4. Alarm and Interlock Descriptions
+# 5. Troubleshooting Guide
+# 6. Maintenance Schedule
+# 7. Spare Parts List
+# 8. Contact Information
+  </div>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: As-Built Documentation</h2>
+  <p id="s5p">As-built documentation for a panel project includes: final single-line diagram, updated panel layout showing any changes, cable schedule with actual routes, and all test reports. This documentation is essential for future maintenance and modifications.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📝 Documentation',
-            desc: 'Documentation is the final phase of the engineering workflow where all project documents, as-built drawings, manuals, and records are compiled and handed over to the client for operations and maintenance.',
-            s1: '🔹 What is Documentation?',
-            s1p: 'Documentation is the process of compiling, organizing, and delivering all project-related documents to the client. It includes as-built drawings, operation and maintenance manuals, test reports, certificates, and other records necessary for the safe and efficient operation of the facility. Proper documentation ensures that the client has all the information needed to operate, maintain, and troubleshoot the system.',
-            s2: '🔹 Key Documentation Deliverables',
-            list1: ['As-Built Drawings – Updated drawings reflecting the actual installation','Operation and Maintenance Manuals – Comprehensive guides for operators and maintenance personnel','Test Reports – Records of all FAT, SAT, and commissioning tests','Equipment Datasheets – Technical specifications of all installed equipment','Certificates – Calibration certificates, material test certificates, and safety certificates','Warranty Documents – Manufacturer warranties and service agreements','Spare Parts Lists – Recommended spare parts for maintenance'],
-            s3: '🔹 Documentation Standards',
-            list2: ['ISO 9001 – Quality Management Systems (document control)','ISO 10006 – Quality Management for Projects','IEC 61355 – Classification of Technical Documentation','API 551 – Documentation for Process Measurement'],
-            s4: '🔹 Example: Documentation Handover for a Power Plant',
-            s4p: 'A power plant project is completed and ready for handover. The documentation team compiles all as-built drawings (electrical, mechanical, civil), operation manuals (start-up, normal operation, shutdown, emergency procedures), maintenance manuals (preventive, corrective), test reports (FAT, SAT, commissioning), and certificates. All documents are organized in a digital document management system and physical binders. The client reviews and accepts the documentation package before final handover.',
-            back: '← Back'
-        },
-        fa: {
-            title: '📝 مستندسازی',
-            desc: 'مستندسازی فاز نهایی جریان کار مهندسی است که در آن تمام اسناد پروژه، نقشه‌های as-built، دفترچه‌ها و سوابق جمع‌آوری شده و برای بهره‌برداری و نگهداری به کارفرما تحویل داده می‌شوند.',
-            s1: '🔹 مستندسازی چیست؟',
-            s1p: 'مستندسازی فرآیند جمع‌آوری، سازماندهی و تحویل تمام اسناد مربوط به پروژه به کارفرما است. شامل نقشه‌های as-built، دفترچه‌های راهنما و نگهداری، گزارش‌های تست، گواهینامه‌ها و سایر سوابق لازم برای بهره‌برداری ایمن و کارآمد تأسیسات است. مستندسازی مناسب تضمین می‌کند که کارفرما تمام اطلاعات مورد نیاز برای بهره‌برداری، نگهداری و عیب‌یابی سیستم را در اختیار دارد.',
-            s2: '🔹 تحویل‌های کلیدی مستندسازی',
-            list1: ['نقشه‌های As-Built – نقشه‌های به‌روز شده منعکس‌کننده نصب واقعی','دفترچه‌های راهنما و نگهداری – راهنماهای جامع برای اپراتورها و پرسنل نگهداری','گزارش‌های تست – سوابق تمام تست‌های FAT، SAT و راه‌اندازی','برگه‌های داده تجهیزات – مشخصات فنی تمام تجهیزات نصب شده','گواهینامه‌ها – گواهینامه‌های کالیبراسیون، گواهینامه‌های تست مواد و گواهینامه‌های ایمنی','اسناد گارانتی – گارانتی‌های سازنده و توافقات خدمات','لیست قطعات یدکی – قطعات یدکی توصیه شده برای نگهداری'],
-            s3: '🔹 استانداردهای مستندسازی',
-            list2: ['ISO 9001 – سیستم‌های مدیریت کیفیت (کنترل مستندات)','ISO 10006 – مدیریت کیفیت برای پروژه‌ها','IEC 61355 – طبقه‌بندی مستندات فنی','API 551 – مستندسازی برای اندازه‌گیری فرآیند'],
-            s4: '🔹 مثال: تحویل مستندات برای یک نیروگاه',
-            s4p: 'یک پروژه نیروگاه تکمیل شده و آماده تحویل است. تیم مستندسازی تمام نقشه‌های as-built (برق، مکانیک، عمران)، دفترچه‌های راهنما (شروع به کار، عملکرد عادی، خاموشی، رویه‌های اضطراری)، دفترچه‌های نگهداری (پیشگیرانه، اصلاحی)، گزارش‌های تست (FAT، SAT، راه‌اندازی) و گواهینامه‌ها را جمع‌آوری می‌کند. تمام اسناد در یک سیستم مدیریت مستندات دیجیتال و پوشه‌های فیزیکی سازماندهی می‌شوند. کارفرما بسته مستندات را قبل از تحویل نهایی بررسی و تأیید می‌کند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Documentation Phase',
+  desc: 'Compiling as-built drawings, operation manuals, and final project documentation.',
+  s1: 'What is Documentation?',
+  s1p: 'Documentation is the process of compiling all project records, including as-built drawings, operation manuals, test reports, and maintenance guides. It provides a complete record of the project for future reference, operation, and maintenance.',
+  s2: 'Documentation Deliverables',
+  list1: ['As-Built Drawings – Final updated schematics and layouts','Operation Manuals – Operating instructions and procedures','Maintenance Manuals – Service and maintenance guidelines','Test Reports – FAT, SAT, and commissioning results','Technical Specifications – Equipment and material specs','Certificates – Compliance and calibration certificates','Software and Backups – Programs and configurations'],
+  s3: 'Documentation Process',
+  list2: ['Collect all project data and records','Update drawings with as-built changes','Compile manuals and guides','Review for completeness and accuracy','Submit to client for final approval'],
+  s4: 'Example: Operation Manual Contents',
+  s5: 'Example: As-Built Documentation',
+  s5p: 'As-built documentation for a panel project includes: final single-line diagram, updated panel layout showing any changes, cable schedule with actual routes, and all test reports. This documentation is essential for future maintenance and modifications.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مرحله مستندات',
+  desc: 'تدوین نقشه‌های ساخته‌شده، دفترچه‌های بهره‌برداری و مستندات نهایی پروژه.',
+  s1: 'مستندات چیست؟',
+  s1p: 'مستندات فرآیند گردآوری تمام سوابق پروژه، شامل نقشه‌های ساخته‌شده، دفترچه‌های بهره‌برداری، گزارش‌های تست و راهنماهای نگهداری است. این مستندات سوابق کاملی از پروژه برای مرجع آینده، بهره‌برداری و نگهداری فراهم می‌کند.',
+  s2: 'خروجی‌های مستندات',
+  list1: ['نقشه‌های ساخته‌شده – شماتیک‌ها و چیدمان‌های نهایی به‌روزرسانی شده','دفترچه‌های بهره‌برداری – دستورالعمل‌ها و رویه‌های عملیاتی','دفترچه‌های نگهداری – راهنماهای سرویس و نگهداری','گزارش‌های تست – نتایج FAT، SAT و راه‌اندازی','مشخصات فنی – مشخصات تجهیزات و مواد','گواهینامه‌ها – گواهینامه‌های انطباق و کالیبراسیون','نرم‌افزار و پشتیبان‌ها – برنامه‌ها و پیکربندی‌ها'],
+  s3: 'فرآیند مستندات',
+  list2: ['جمع‌آوری تمام داده‌ها و سوابق پروژه','به‌روزرسانی نقشه‌ها با تغییرات ساخته‌شده','تدوین دفترچه‌ها و راهنماها','بررسی برای کامل بودن و دقت','ارسال به کارفرما برای تأیید نهایی'],
+  s4: 'مثال: محتویات دفترچه بهره‌برداری',
+  s5: 'مثال: مستندات ساخته‌شده',
+  s5p: 'مستندات ساخته‌شده برای یک پروژه پنل شامل: نمودار تک‌خطی نهایی، چیدمان پنل به‌روزرسانی شده با تغییرات، برنامه کابل با مسیرهای واقعی و تمام گزارش‌های تست است. این مستندات برای نگهداری و تغییرات آینده ضروری است.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
