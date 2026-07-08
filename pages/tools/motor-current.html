@@ -1,187 +1,117 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Motor Current Calculator</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:800px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .calc-box{background:#1e2128;padding:25px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);margin-bottom:20px}
-        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
-        .calc-box input, .calc-box select{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
-        .calc-box input:focus, .calc-box select:focus{outline:1px solid #d4af37}
-        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
-        .btn-calc:hover{background:#d4af37;color:#111}
-        .result{background:#0d0e12;padding:15px;border-radius:12px;border-left:4px solid #d4af37;margin-top:15px;font-size:1.1rem}
-        .result span{color:#d4af37;font-weight:700}
-        .note{color:#8e95a5;font-size:.85rem;margin-top:10px}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Motor Current Calculator</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:900px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+ .calc-grid label{color:#b0b8c5;font-size:.9rem;display:flex;flex-direction:column;gap:4px}
+ .calc-grid input,.calc-grid select{background:#0d0e12;border:1px solid #2a2f3a;color:#eef0f4;padding:8px 12px;border-radius:8px;font-size:.95rem;width:100%}
+ .calc-grid input:focus,.calc-grid select:focus{outline:1px solid #d4af37}
+ .result-box{background:#0d0e12;padding:16px;border-radius:12px;border-left:3px solid #d4af37;font-size:1.2rem;font-weight:600;color:#d4af37;margin-top:12px;text-align:center}
+ .calc-btn{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:30px;font-weight:600;cursor:pointer;transition:.2s;margin-top:10px}
+ .calc-btn:hover{background:#d4af37;color:#111}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}.calc-grid{grid-template-columns:1fr}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Motor Current Calculator</h1>
+ <div class="sub" id="desc">Calculate the full-load current of a motor based on power, voltage, and efficiency.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="formula-title">Formula</h2>
+  <p id="formula-text"><strong>I = P / (V × PF × η × √3)</strong> (for three-phase) or <strong>I = P / (V × PF × η)</strong> (for single-phase)</p>
+  <p>Where: P = Power (kW), V = Voltage (V), PF = Power Factor, η = Efficiency</p>
+ </div>
 
-    <h1 id="title">🔄 Motor Current Calculator</h1>
-    <div class="sub" id="desc">Calculate full load current (FLC) for AC motors based on power, voltage, efficiency, and power factor.</div>
+ <div class="section">
+  <h2 id="calc-title">Calculator</h2>
+  <div class="calc-grid">
+   <label>Motor Power (kW) <input type="number" id="power" value="15" step="0.1"></label>
+   <label>Voltage (V) <input type="number" id="voltage" value="400" step="1"></label>
+   <label>Power Factor <input type="number" id="pf" value="0.85" step="0.01"></label>
+   <label>Efficiency (%) <input type="number" id="eff" value="90" step="1"></label>
+   <label>System <select id="system"><option value="three">Three Phase</option><option value="single">Single Phase</option></select></label>
+  </div>
+  <button class="calc-btn" id="calcBtn" onclick="calculate()">Calculate</button>
+  <div class="result-box" id="result">Motor Current: 0.00 A</div>
+ </div>
 
-    <div class="calc-box">
-        <label id="lbl-power">Motor Power (kW)</label>
-        <input type="number" id="power" value="15" step="any">
-
-        <label id="lbl-voltage">Voltage (V)</label>
-        <input type="number" id="voltage" value="400" step="any">
-
-        <label id="lbl-efficiency">Efficiency (%)</label>
-        <input type="number" id="efficiency" value="90" step="0.1">
-
-        <label id="lbl-pf">Power Factor</label>
-        <input type="number" id="pf" value="0.85" step="0.01" min="0" max="1">
-
-        <label id="lbl-phase">Phase</label>
-        <select id="phase">
-            <option value="single" data-en="Single-phase" data-fa="تک فاز">Single-phase</option>
-            <option value="three" data-en="Three-phase" data-fa="سه فاز" selected>Three-phase</option>
-            <option value="dc" data-en="DC" data-fa="DC">DC</option>
-        </select>
-
-        <button class="btn-calc" id="calcBtn">Calculate</button>
-
-        <div class="result" id="result">
-            <p><span id="flc-label">Full Load Current:</span> <span id="flc-value">--</span> A</p>
-            <p><span id="inrush-label">Estimated Inrush Current:</span> <span id="inrush-value">--</span> A (6-8x FLC)</p>
-        </div>
-        <div class="note" id="note">For three-phase: I = P / (√3 × V × η × PF). For single-phase: I = P / (V × η × PF). For DC: I = P / V.</div>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const langData = {
-        en: {
-            title: '🔄 Motor Current Calculator',
-            desc: 'Calculate full load current (FLC) for AC motors based on power, voltage, efficiency, and power factor.',
-            power: 'Motor Power (kW)',
-            voltage: 'Voltage (V)',
-            efficiency: 'Efficiency (%)',
-            pf: 'Power Factor',
-            phase: 'Phase',
-            calc: 'Calculate',
-            flc_label: 'Full Load Current:',
-            inrush_label: 'Estimated Inrush Current:',
-            note: 'For three-phase: I = P / (√3 × V × η × PF). For single-phase: I = P / (V × η × PF). For DC: I = P / V.',
-            back: '← Back'
-        },
-        fa: {
-            title: '🔄 ماشین‌حساب جریان موتور',
-            desc: 'محاسبه جریان کامل بار (FLC) برای موتورهای AC بر اساس توان، ولتاژ، بازده و ضریب توان.',
-            power: 'توان موتور (کیلووات)',
-            voltage: 'ولتاژ (ولت)',
-            efficiency: 'بازده (٪)',
-            pf: 'ضریب توان',
-            phase: 'فاز',
-            calc: 'محاسبه',
-            flc_label: 'جریان کامل بار:',
-            inrush_label: 'جریان هجومی تخمینی:',
-            note: 'برای سه فاز: I = P / (√3 × V × η × PF). برای تک فاز: I = P / (V × η × PF). برای DC: I = P / V.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLanguage(lang) {
-        const t = langData[lang];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('lbl-power').textContent = t.power;
-        document.getElementById('lbl-voltage').textContent = t.voltage;
-        document.getElementById('lbl-efficiency').textContent = t.efficiency;
-        document.getElementById('lbl-pf').textContent = t.pf;
-        document.getElementById('lbl-phase').textContent = t.phase;
-        document.getElementById('calcBtn').textContent = t.calc;
-        document.getElementById('flc-label').textContent = t.flc_label;
-        document.getElementById('inrush-label').textContent = t.inrush_label;
-        document.getElementById('note').textContent = t.note;
-        document.getElementById('backlink').textContent = t.back;
-
-        document.querySelectorAll('#phase option').forEach(opt => {
-            const text = opt.dataset[lang];
-            if (text) opt.textContent = text;
-        });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-        document.body.classList.toggle('lang-persian', lang === 'fa');
-        localStorage.setItem('karatech-lang', lang);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLanguage(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLanguage(savedLang);
-
-    function calculate() {
-        const P = parseFloat(document.getElementById('power').value);
-        const V = parseFloat(document.getElementById('voltage').value);
-        const eff = parseFloat(document.getElementById('efficiency').value) / 100;
-        const pf = parseFloat(document.getElementById('pf').value);
-        const phase = document.getElementById('phase').value;
-
-        if ([P, V, eff, pf].some(isNaN) || P <= 0 || V <= 0 || eff <= 0 || pf <= 0 || pf > 1) {
-            document.getElementById('flc-value').textContent = 'Invalid input';
-            document.getElementById('inrush-value').textContent = '--';
-            return;
-        }
-
-        let I;
-        if (phase === 'three') {
-            I = P / (Math.sqrt(3) * V * eff * pf);
-        } else if (phase === 'single') {
-            I = P / (V * eff * pf);
-        } else { // DC
-            I = P / V;
-        }
-
-        I = I * 1000; // convert from kA to A
-
-        const inrushMin = I * 6;
-        const inrushMax = I * 8;
-
-        document.getElementById('flc-value').textContent = I.toFixed(2);
-        document.getElementById('inrush-value').textContent = `${inrushMin.toFixed(0)} - ${inrushMax.toFixed(0)}`;
-    }
-
-    document.getElementById('calcBtn').onclick = calculate;
-    calculate();
+function calculate() {
+ const P = parseFloat(document.getElementById('power').value) || 0;
+ const V = parseFloat(document.getElementById('voltage').value) || 1;
+ const PF = parseFloat(document.getElementById('pf').value) || 0.01;
+ const eff = parseFloat(document.getElementById('eff').value) || 0.01;
+ const system = document.getElementById('system').value;
+ let I = 0;
+ if (system === 'three') {
+  I = (P * 1000) / (V * PF * (eff/100) * Math.sqrt(3));
+ } else {
+  I = (P * 1000) / (V * PF * (eff/100));
+ }
+ document.getElementById('result').textContent = 'Motor Current: ' + I.toFixed(1) + ' A';
+}
+const lang = {
+ en: {
+  title: 'Motor Current Calculator',
+  desc: 'Calculate the full-load current of a motor based on power, voltage, and efficiency.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'ماشین‌حساب جریان موتور',
+  desc: 'محاسبه جریان تمام‌بار موتور بر اساس توان، ولتاژ و راندمان.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('backlink').textContent = t.back;
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
