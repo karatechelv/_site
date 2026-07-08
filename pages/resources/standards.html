@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Standards Resources</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Standards Reference</h1>
+ <div class="sub" id="desc">Quick reference for key engineering standards: IEC, NEC, ISO, API, and IEEE.</div>
+
+ <div class="section">
+  <h2 id="s1">IEC Standards</h2>
+  <ul id="list1">
+   <li>IEC 61439 – Switchgear and controlgear assemblies</li>
+   <li>IEC 60204 – Electrical equipment of machines</li>
+   <li>IEC 60364 – Electrical installations of buildings</li>
+   <li>IEC 61508 – Functional safety of E/E/PE systems</li>
+   <li>IEC 61511 – Safety instrumented systems</li>
+   <li>IEC 61131-3 – PLC programming languages</li>
+   <li>IEC 61784 – Industrial communication networks</li>
+  </ul>
+ </div>
+
+ <div class="section">
+  <h2 id="s2">NEC Standards</h2>
+  <ul id="list2">
+   <li>NFPA 70 – National Electrical Code</li>
+   <li>NFPA 70E – Electrical Safety in the Workplace</li>
+   <li>NFPA 79 – Electrical Standard for Industrial Machinery</li>
+   <li>NFPA 110 – Standard for Emergency and Standby Power</li>
+  </ul>
+ </div>
+
+ <div class="section">
+  <h2 id="s3">ISO Standards</h2>
+  <ul id="list3">
+   <li>ISO 9001 – Quality Management Systems</li>
+   <li>ISO 14001 – Environmental Management Systems</li>
+   <li>ISO 45001 – Occupational Health &amp; Safety</li>
+   <li>ISO 50001 – Energy Management</li>
+   <li>ISO 17025 – Testing and Calibration Laboratories</li>
+   <li>ISO 21500 – Project Management Guidance</li>
+  </ul>
+ </div>
+
+ <div class="section">
+  <h2 id="s4">API &amp; IEEE Standards</h2>
+  <ul id="list4">
+   <li>API RP 551 – Process Measurement Instrumentation</li>
+   <li>API RP 554 – Process Instrumentation and Control</li>
+   <li>API Q1 – Quality Management for Oil &amp; Gas</li>
+   <li>IEEE 80 – Earthing and Grounding</li>
+   <li>IEEE 1584 – Arc Flash Hazard Calculations</li>
+   <li>IEEE 519 – Harmonic Control in Power Systems</li>
+  </ul>
+ </div>
+
+ <div class="section">
+  <h2 id="s5">Example: Applying Standards</h2>
+  <p id="s5p">When designing a control panel, refer to IEC 61439 for construction requirements, NEC NFPA 70 for installation, and IEEE 80 for grounding design. Compliance ensures safety, reliability, and regulatory acceptance.</p>
+ </div>
+
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
+</div>
+<script>
+const lang = {
+ en: {
+  title: 'Standards Reference',
+  desc: 'Quick reference for key engineering standards: IEC, NEC, ISO, API, and IEEE.',
+  s1: 'IEC Standards',
+  list1: ['IEC 61439 – Switchgear and controlgear assemblies','IEC 60204 – Electrical equipment of machines','IEC 60364 – Electrical installations of buildings','IEC 61508 – Functional safety of E/E/PE systems','IEC 61511 – Safety instrumented systems','IEC 61131-3 – PLC programming languages','IEC 61784 – Industrial communication networks'],
+  s2: 'NEC Standards',
+  list2: ['NFPA 70 – National Electrical Code','NFPA 70E – Electrical Safety in the Workplace','NFPA 79 – Electrical Standard for Industrial Machinery','NFPA 110 – Standard for Emergency and Standby Power'],
+  s3: 'ISO Standards',
+  list3: ['ISO 9001 – Quality Management Systems','ISO 14001 – Environmental Management Systems','ISO 45001 – Occupational Health & Safety','ISO 50001 – Energy Management','ISO 17025 – Testing and Calibration Laboratories','ISO 21500 – Project Management Guidance'],
+  s4: 'API & IEEE Standards',
+  list4: ['API RP 551 – Process Measurement Instrumentation','API RP 554 – Process Instrumentation and Control','API Q1 – Quality Management for Oil & Gas','IEEE 80 – Earthing and Grounding','IEEE 1584 – Arc Flash Hazard Calculations','IEEE 519 – Harmonic Control in Power Systems'],
+  s5: 'Example: Applying Standards',
+  s5p: 'When designing a control panel, refer to IEC 61439 for construction requirements, NEC NFPA 70 for installation, and IEEE 80 for grounding design. Compliance ensures safety, reliability, and regulatory acceptance.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مرجع استانداردها',
+  desc: 'مرجع سریع برای استانداردهای کلیدی مهندسی: IEC، NEC، ISO، API و IEEE.',
+  s1: 'استانداردهای IEC',
+  list1: ['IEC 61439 – تابلوهای برق','IEC 60204 – تجهیزات الکتریکی ماشین‌آلات','IEC 60364 – تأسیسات الکتریکی ساختمان‌ها','IEC 61508 – ایمنی عملکردی سیستم‌های E/E/PE','IEC 61511 – سیستم‌های ابزاری ایمن','IEC 61131-3 – زبان‌های برنامه‌نویسی PLC','IEC 61784 – شبکه‌های ارتباطی صنعتی'],
+  s2: 'استانداردهای NEC',
+  list2: ['NFPA 70 – کد ملی برق','NFPA 70E – ایمنی برق در محیط کار','NFPA 79 – استاندارد برق برای ماشین‌آلات صنعتی','NFPA 110 – استاندارد برق اضطراری و پشتیبان'],
+  s3: 'استانداردهای ISO',
+  list3: ['ISO 9001 – سیستم‌های مدیریت کیفیت','ISO 14001 – سیستم‌های مدیریت زیست‌محیطی','ISO 45001 – بهداشت و ایمنی شغلی','ISO 50001 – مدیریت انرژی','ISO 17025 – آزمایشگاه‌های تست و کالیبراسیون','ISO 21500 – راهنمایی مدیریت پروژه'],
+  s4: 'استانداردهای API و IEEE',
+  list4: ['API RP 551 – اندازه‌گیری فرآیند','API RP 554 – ابزار دقیق و کنترل فرآیند','API Q1 – مدیریت کیفیت برای نفت و گاز','IEEE 80 – ارتینگ و زمین‌کردن','IEEE 1584 – محاسبات خطر قوس الکتریکی','IEEE 519 – کنترل هارمونیک در سیستم‌های قدرت'],
+  s5: 'مثال: اعمال استانداردها',
+  s5p: 'هنگام طراحی پنل کنترل، برای الزامات ساخت به IEC 61439، برای نصب به NEC NFPA 70 و برای طراحی ارتینگ به IEEE 80 مراجعه کنید. انطباق، ایمنی، قابلیت اطمینان و پذیرش مقررات را تضمین می‌کند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
+</body>
+</html>
