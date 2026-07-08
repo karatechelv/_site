@@ -1,313 +1,142 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Unit Converter</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:800px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .calc-box{background:#1e2128;padding:25px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);margin-bottom:20px}
-        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
-        .calc-box select, .calc-box input{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
-        .calc-box select option{background:#0d0e12;color:#fff}
-        .calc-box input:focus, .calc-box select:focus{outline:1px solid #d4af37}
-        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
-        .btn-calc:hover{background:#d4af37;color:#111}
-        .result{background:#0d0e12;padding:15px;border-radius:12px;border-left:4px solid #d4af37;margin-top:15px;font-size:1.1rem}
-        .result span{color:#d4af37;font-weight:700}
-        .note{color:#8e95a5;font-size:.85rem;margin-top:10px}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Unit Converter</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:900px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .calc-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+ .calc-grid label{color:#b0b8c5;font-size:.9rem;display:flex;flex-direction:column;gap:4px}
+ .calc-grid input,.calc-grid select{background:#0d0e12;border:1px solid #2a2f3a;color:#eef0f4;padding:8px 12px;border-radius:8px;font-size:.95rem;width:100%}
+ .calc-grid input:focus,.calc-grid select:focus{outline:1px solid #d4af37}
+ .result-box{background:#0d0e12;padding:16px;border-radius:12px;border-left:3px solid #d4af37;font-size:1.2rem;font-weight:600;color:#d4af37;margin-top:12px;text-align:center}
+ .calc-btn{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:30px;font-weight:600;cursor:pointer;transition:.2s;margin-top:10px}
+ .calc-btn:hover{background:#d4af37;color:#111}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}.calc-grid{grid-template-columns:1fr}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Unit Converter</h1>
+ <div class="sub" id="desc">Convert engineering units: length, mass, temperature, pressure, and power.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="calc-title">Converter</h2>
+  <div class="calc-grid">
+   <label>Category <select id="category" onchange="updateUnits()">
+    <option value="length">Length</option>
+    <option value="mass">Mass</option>
+    <option value="temperature">Temperature</option>
+    <option value="pressure">Pressure</option>
+    <option value="power">Power</option>
+   </select></label>
+   <label>From <select id="fromUnit"></select></label>
+   <label>To <select id="toUnit"></select></label>
+   <label>Value <input type="number" id="value" value="1" step="0.001"></label>
+  </div>
+  <button class="calc-btn" id="calcBtn" onclick="convertUnit()">Convert</button>
+  <div class="result-box" id="result">Result: 0.00</div>
+ </div>
 
-    <h1 id="title">🔄 Unit Converter</h1>
-    <div class="sub" id="desc">Convert between common engineering units: length, area, volume, mass, pressure, temperature, and power.</div>
-
-    <div class="calc-box">
-        <label id="lbl-category">Category</label>
-        <select id="category">
-            <option value="length" data-en="Length" data-fa="طول">Length</option>
-            <option value="area" data-en="Area" data-fa="مساحت">Area</option>
-            <option value="volume" data-en="Volume" data-fa="حجم">Volume</option>
-            <option value="mass" data-en="Mass" data-fa="جرم">Mass</option>
-            <option value="pressure" data-en="Pressure" data-fa="فشار">Pressure</option>
-            <option value="temperature" data-en="Temperature" data-fa="دما">Temperature</option>
-            <option value="power" data-en="Power" data-fa="توان">Power</option>
-        </select>
-
-        <label id="lbl-from">From</label>
-        <select id="fromUnit"></select>
-
-        <label id="lbl-to">To</label>
-        <select id="toUnit"></select>
-
-        <label id="lbl-value">Value</label>
-        <input type="number" id="value" value="1" step="any">
-
-        <button class="btn-calc" id="calcBtn">Convert</button>
-
-        <div class="result" id="result">
-            <span id="res-label">Result:</span> <span id="result-value">--</span>
-        </div>
-        <div class="note" id="note">Select a category and enter a value.</div>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const unitData = {
-        length: {
-            units: {
-                'meter': { en: 'Meter', fa: 'متر', factor: 1 },
-                'kilometer': { en: 'Kilometer', fa: 'کیلومتر', factor: 1000 },
-                'centimeter': { en: 'Centimeter', fa: 'سانتی‌متر', factor: 0.01 },
-                'millimeter': { en: 'Millimeter', fa: 'میلی‌متر', factor: 0.001 },
-                'inch': { en: 'Inch', fa: 'اینچ', factor: 0.0254 },
-                'foot': { en: 'Foot', fa: 'فوت', factor: 0.3048 },
-                'yard': { en: 'Yard', fa: 'یارد', factor: 0.9144 },
-                'mile': { en: 'Mile', fa: 'مایل', factor: 1609.34 }
-            }
-        },
-        area: {
-            units: {
-                'sq_meter': { en: 'm²', fa: 'متر مربع', factor: 1 },
-                'sq_kilometer': { en: 'km²', fa: 'کیلومتر مربع', factor: 1e6 },
-                'sq_centimeter': { en: 'cm²', fa: 'سانتی‌متر مربع', factor: 1e-4 },
-                'sq_millimeter': { en: 'mm²', fa: 'میلی‌متر مربع', factor: 1e-6 },
-                'sq_inch': { en: 'in²', fa: 'اینچ مربع', factor: 0.00064516 },
-                'sq_foot': { en: 'ft²', fa: 'فوت مربع', factor: 0.092903 },
-                'sq_yard': { en: 'yd²', fa: 'یارد مربع', factor: 0.836127 },
-                'acre': { en: 'Acre', fa: 'ایکر', factor: 4046.86 },
-                'hectare': { en: 'Hectare', fa: 'هکتار', factor: 10000 }
-            }
-        },
-        volume: {
-            units: {
-                'cubic_meter': { en: 'm³', fa: 'متر مکعب', factor: 1 },
-                'liter': { en: 'Liter', fa: 'لیتر', factor: 0.001 },
-                'milliliter': { en: 'mL', fa: 'میلی‌لیتر', factor: 1e-6 },
-                'gallon_us': { en: 'US Gallon', fa: 'گالن آمریکایی', factor: 0.00378541 },
-                'gallon_uk': { en: 'UK Gallon', fa: 'گالن بریتانیایی', factor: 0.00454609 },
-                'cubic_foot': { en: 'ft³', fa: 'فوت مکعب', factor: 0.0283168 },
-                'cubic_inch': { en: 'in³', fa: 'اینچ مکعب', factor: 1.63871e-5 }
-            }
-        },
-        mass: {
-            units: {
-                'kilogram': { en: 'kg', fa: 'کیلوگرم', factor: 1 },
-                'gram': { en: 'g', fa: 'گرم', factor: 0.001 },
-                'tonne': { en: 'Tonne', fa: 'تن (متریک)', factor: 1000 },
-                'pound': { en: 'lb', fa: 'پوند', factor: 0.453592 },
-                'ounce': { en: 'oz', fa: 'اونس', factor: 0.0283495 }
-            }
-        },
-        pressure: {
-            units: {
-                'pascal': { en: 'Pa', fa: 'پاسکال', factor: 1 },
-                'kpa': { en: 'kPa', fa: 'کیلوپاسکال', factor: 1000 },
-                'bar': { en: 'bar', fa: 'بار', factor: 100000 },
-                'psi': { en: 'psi', fa: 'پوند بر اینچ مربع', factor: 6894.76 },
-                'atm': { en: 'Atm', fa: 'اتمسفر', factor: 101325 },
-                'mmhg': { en: 'mmHg', fa: 'میلی‌متر جیوه', factor: 133.322 }
-            }
-        },
-        temperature: {
-            units: {
-                'celsius': { en: '°C', fa: 'سلسیوس', factor: 1 },
-                'fahrenheit': { en: '°F', fa: 'فارنهایت', factor: 1 },
-                'kelvin': { en: 'K', fa: 'کلوین', factor: 1 }
-            }
-        },
-        power: {
-            units: {
-                'watt': { en: 'W', fa: 'وات', factor: 1 },
-                'kilowatt': { en: 'kW', fa: 'کیلووات', factor: 1000 },
-                'megawatt': { en: 'MW', fa: 'مگاوات', factor: 1e6 },
-                'horsepower_metric': { en: 'HP (metric)', fa: 'اسب‌بخار (متریک)', factor: 735.5 },
-                'horsepower_imperial': { en: 'HP (imperial)', fa: 'اسب‌بخار (بریتانیایی)', factor: 745.7 }
-            }
-        }
-    };
-
-    const langData = {
-        en: {
-            title: '🔄 Unit Converter',
-            desc: 'Convert between common engineering units: length, area, volume, mass, pressure, temperature, and power.',
-            category: 'Category',
-            from: 'From',
-            to: 'To',
-            value: 'Value',
-            calc: 'Convert',
-            res_label: 'Result:',
-            note: 'Select a category and enter a value.',
-            back: '← Back'
-        },
-        fa: {
-            title: '🔄 مبدل واحدها',
-            desc: 'تبدیل بین واحدهای مهندسی رایج: طول، مساحت، حجم، جرم، فشار، دما و توان.',
-            category: 'دسته‌بندی',
-            from: 'از',
-            to: 'به',
-            value: 'مقدار',
-            calc: 'تبدیل',
-            res_label: 'نتیجه:',
-            note: 'یک دسته‌بندی انتخاب کرده و مقدار را وارد کنید.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLanguage(lang) {
-        const t = langData[lang];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('lbl-category').textContent = t.category;
-        document.getElementById('lbl-from').textContent = t.from;
-        document.getElementById('lbl-to').textContent = t.to;
-        document.getElementById('lbl-value').textContent = t.value;
-        document.getElementById('calcBtn').textContent = t.calc;
-        document.getElementById('res-label').textContent = t.res_label;
-        document.getElementById('note').textContent = t.note;
-        document.getElementById('backlink').textContent = t.back;
-
-        document.querySelectorAll('#category option').forEach(opt => {
-            const text = opt.dataset[lang];
-            if (text) opt.textContent = text;
-        });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-        document.body.classList.toggle('lang-persian', lang === 'fa');
-        localStorage.setItem('karatech-lang', lang);
-        // Refresh unit lists to update language
-        populateUnits();
-        convert();
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLanguage(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLanguage(savedLang);
-
-    function populateUnits() {
-        const category = document.getElementById('category').value;
-        const units = unitData[category].units;
-        const fromSel = document.getElementById('fromUnit');
-        const toSel = document.getElementById('toUnit');
-        const lang = document.querySelector('.lang-btn.active')?.dataset.lang || 'en';
-
-        // Preserve selections if possible
-        const fromVal = fromSel.value;
-        const toVal = toSel.value;
-
-        fromSel.innerHTML = '';
-        toSel.innerHTML = '';
-
-        for (let key in units) {
-            const label = units[key][lang] || units[key].en;
-            const opt1 = document.createElement('option');
-            opt1.value = key;
-            opt1.textContent = label;
-            fromSel.appendChild(opt1);
-
-            const opt2 = document.createElement('option');
-            opt2.value = key;
-            opt2.textContent = label;
-            toSel.appendChild(opt2);
-        }
-
-        // Restore selections
-        if (fromSel.querySelector(`option[value="${fromVal}"]`)) fromSel.value = fromVal;
-        if (toSel.querySelector(`option[value="${toVal}"]`)) toSel.value = toVal;
-    }
-
-    function convert() {
-        const category = document.getElementById('category').value;
-        const fromKey = document.getElementById('fromUnit').value;
-        const toKey = document.getElementById('toUnit').value;
-        const val = parseFloat(document.getElementById('value').value);
-
-        if (isNaN(val)) {
-            document.getElementById('result-value').textContent = 'Invalid input';
-            return;
-        }
-
-        const units = unitData[category].units;
-        if (!units[fromKey] || !units[toKey]) {
-            document.getElementById('result-value').textContent = 'Error';
-            return;
-        }
-
-        let result;
-        if (category === 'temperature') {
-            // Special handling for temperature
-            const from = fromKey;
-            const to = toKey;
-            let kelvin;
-            if (from === 'celsius') kelvin = val + 273.15;
-            else if (from === 'fahrenheit') kelvin = (val - 32) * 5/9 + 273.15;
-            else if (from === 'kelvin') kelvin = val;
-            else { document.getElementById('result-value').textContent = 'Error'; return; }
-
-            if (to === 'celsius') result = kelvin - 273.15;
-            else if (to === 'fahrenheit') result = (kelvin - 273.15) * 9/5 + 32;
-            else if (to === 'kelvin') result = kelvin;
-            else { document.getElementById('result-value').textContent = 'Error'; return; }
-        } else {
-            // General conversion
-            const factorFrom = units[fromKey].factor;
-            const factorTo = units[toKey].factor;
-            const baseVal = val * factorFrom; // convert to base unit (e.g., meter)
-            result = baseVal / factorTo;
-        }
-
-        document.getElementById('result-value').textContent = result.toFixed(6);
-    }
-
-    document.getElementById('category').onchange = function() {
-        populateUnits();
-        convert();
-    };
-    document.getElementById('fromUnit').onchange = convert;
-    document.getElementById('toUnit').onchange = convert;
-    document.getElementById('calcBtn').onclick = convert;
-    document.getElementById('value').oninput = convert;
-
-    // Initialize
-    populateUnits();
-    convert();
+const units = {
+ length: { m:1, km:1000, cm:0.01, mm:0.001, ft:0.3048, in:0.0254, yd:0.9144, mi:1609.34 },
+ mass: { kg:1, g:0.001, mg:0.000001, lb:0.453592, oz:0.0283495, ton:1000 },
+ temperature: { C:1, F:1.8, K:1 },
+ pressure: { Pa:1, kPa:1000, MPa:1000000, bar:100000, psi:6894.76, atm:101325 },
+ power: { W:1, kW:1000, MW:1000000, HP:745.7 }
+};
+const unitLabels = {
+ length: ['m','km','cm','mm','ft','in','yd','mi'],
+ mass: ['kg','g','mg','lb','oz','ton'],
+ temperature: ['°C','°F','K'],
+ pressure: ['Pa','kPa','MPa','bar','psi','atm'],
+ power: ['W','kW','MW','HP']
+};
+function updateUnits() {
+ const cat = document.getElementById('category').value;
+ const from = document.getElementById('fromUnit');
+ const to = document.getElementById('toUnit');
+ const labels = unitLabels[cat];
+ from.innerHTML = labels.map(u => `<option value="${u}">${u}</option>`).join('');
+ to.innerHTML = labels.map(u => `<option value="${u}">${u}</option>`).join('');
+}
+function convertUnit() {
+ const cat = document.getElementById('category').value;
+ const from = document.getElementById('fromUnit').value;
+ const to = document.getElementById('toUnit').value;
+ const val = parseFloat(document.getElementById('value').value) || 0;
+ if (cat === 'temperature') {
+  let result = 0;
+  if (from === '°C' && to === '°F') result = val * 9/5 + 32;
+  else if (from === '°F' && to === '°C') result = (val - 32) * 5/9;
+  else if (from === '°C' && to === 'K') result = val + 273.15;
+  else if (from === 'K' && to === '°C') result = val - 273.15;
+  else if (from === '°F' && to === 'K') result = (val - 32) * 5/9 + 273.15;
+  else if (from === 'K' && to === '°F') result = (val - 273.15) * 9/5 + 32;
+  else result = val;
+  document.getElementById('result').textContent = 'Result: ' + result.toFixed(2) + ' ' + to;
+  return;
+ }
+ const factor = units[cat][to] / units[cat][from];
+ document.getElementById('result').textContent = 'Result: ' + (val * factor).toFixed(4) + ' ' + to;
+}
+updateUnits();
+const lang = {
+ en: {
+  title: 'Unit Converter',
+  desc: 'Convert engineering units: length, mass, temperature, pressure, and power.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مبدل واحدهای مهندسی',
+  desc: 'تبدیل واحدهای مهندسی: طول، جرم، دما، فشار و توان.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('backlink').textContent = t.back;
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
