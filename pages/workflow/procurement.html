@@ -1,152 +1,148 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Procurement</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Procurement</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">🛒 Procurement</h1>
-    <div class="sub" id="desc">Procurement is the process of sourcing, purchasing, and managing the delivery of materials, equipment, and services required for an engineering project.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What is Procurement?</h2>
-        <p id="s1p">Procurement is the acquisition of goods, services, and equipment needed for a project. It involves identifying suppliers, obtaining quotations, placing orders, and managing delivery and quality assurance. Effective procurement ensures that materials and equipment are available on time, within budget, and meet the required specifications.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Key Steps in Procurement</h2>
-        <ul id="list1">
-            <li><b>Specification Development</b> – Define technical requirements and quality standards</li>
-            <li><b>Supplier Selection</b> – Identify and evaluate potential suppliers</li>
-            <li><b>Request for Quotation (RFQ)</b> – Solicit bids from suppliers</li>
-            <li><b>Evaluation</b> – Compare offers based on price, quality, delivery, and reputation</li>
-            <li><b>Purchase Order</b> – Issue purchase orders with clear terms and conditions</li>
-            <li><b>Inspection & Quality Control</b> – Verify that materials meet specifications</li>
-            <li><b>Logistics & Delivery</b> – Manage transportation and storage</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Procurement Categories</h2>
-        <ul id="list2">
-            <li><b>Materials</b> – Cables, conduits, steel, insulation, consumables</li>
-            <li><b>Equipment</b> – Motors, switchgear, transformers, control panels, instruments</li>
-            <li><b>Services</b> – Engineering consulting, installation, testing, and commissioning</li>
-            <li><b>Software</b> – Engineering software, licenses, and support</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: Procurement for a Substation Project</h2>
-        <p id="s4p">A substation project requires procurement of a 132 kV transformer, switchgear, control panels, and cables. The procurement team issues RFQs to qualified suppliers, evaluates technical and commercial proposals, and awards contracts. The team conducts inspections (FAT) at the supplier's facility and manages logistics for delivery to the site.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Procurement Phase</h1>
+ <div class="sub" id="desc">Sourcing, purchasing, and managing materials and components for engineering projects.</div>
+ <div class="section">
+  <h2 id="s1">What is Procurement?</h2>
+  <p id="s1p">Procurement is the process of sourcing, purchasing, and managing materials, components, and services needed for a project. It involves supplier selection, purchase orders, delivery tracking, and quality inspection of received items.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Procurement Process</h2>
+  <ul id="list1">
+   <li>Supplier Selection – Identify and evaluate suppliers</li>
+   <li>Request for Quotation (RFQ) – Get competitive bids</li>
+   <li>Purchase Order – Formal order placement</li>
+   <li>Order Tracking – Monitor delivery status</li>
+   <li>Incoming Inspection – Quality check of materials</li>
+   <li>Inventory Management – Store and track items</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Procurement Documents</h2>
+  <ul id="list2">
+   <li>Purchase Order (PO) – Contract with supplier</li>
+   <li>Bill of Materials (BOM) – List of required items</li>
+   <li>Delivery Schedule – Timeline for deliveries</li>
+   <li>Inspection Reports – Quality verification</li>
+   <li>Supplier Approval List – Approved vendors</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: Procurement Plan for MCC Panel</h2>
+  <div class="code-box">
+# Procurement Plan - MCC Panel Project
+# Item                | Supplier    | Qty | Lead Time
+# PLC S7-1500         | Siemens     | 1   | 2 weeks
+# Circuit Breakers    | Schneider   | 10  | 1 week
+# Enclosure           | Rittal      | 1   | 3 weeks
+# Wiring & Terminal   | Phoenix     | set | 1 week
+# HMI Panel           | Siemens     | 1   | 2 weeks
+  </div>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Material Inspection</h2>
+  <p id="s5p">Incoming material inspection includes: verifying quantity against PO, checking for damage, verifying specifications (model numbers, ratings), and documenting results. Non-conforming items are returned or replaced.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🛒 Procurement',
-            desc: 'Procurement is the process of sourcing, purchasing, and managing the delivery of materials, equipment, and services required for an engineering project.',
-            s1: '🔹 What is Procurement?',
-            s1p: 'Procurement is the acquisition of goods, services, and equipment needed for a project. It involves identifying suppliers, obtaining quotations, placing orders, and managing delivery and quality assurance. Effective procurement ensures that materials and equipment are available on time, within budget, and meet the required specifications.',
-            s2: '🔹 Key Steps in Procurement',
-            list1: ['Specification Development – Define technical requirements and quality standards','Supplier Selection – Identify and evaluate potential suppliers','Request for Quotation (RFQ) – Solicit bids from suppliers','Evaluation – Compare offers based on price, quality, delivery, and reputation','Purchase Order – Issue purchase orders with clear terms and conditions','Inspection & Quality Control – Verify that materials meet specifications','Logistics & Delivery – Manage transportation and storage'],
-            s3: '🔹 Procurement Categories',
-            list2: ['Materials – Cables, conduits, steel, insulation, consumables','Equipment – Motors, switchgear, transformers, control panels, instruments','Services – Engineering consulting, installation, testing, and commissioning','Software – Engineering software, licenses, and support'],
-            s4: '🔹 Example: Procurement for a Substation Project',
-            s4p: 'A substation project requires procurement of a 132 kV transformer, switchgear, control panels, and cables. The procurement team issues RFQs to qualified suppliers, evaluates technical and commercial proposals, and awards contracts. The team conducts inspections (FAT) at the supplier\'s facility and manages logistics for delivery to the site.',
-            back: '← Back'
-        },
-        fa: {
-            title: '🛒 تدارکات',
-            desc: 'تدارکات فرآیند تأمین، خرید و مدیریت تحویل مواد، تجهیزات و خدمات مورد نیاز برای یک پروژه مهندسی است.',
-            s1: '🔹 تدارکات چیست؟',
-            s1p: 'تدارکات عبارت است از تأمین کالاها، خدمات و تجهیزات مورد نیاز برای یک پروژه. شامل شناسایی تأمین‌کنندگان، دریافت قیمت‌ها، ثبت سفارشات و مدیریت تحویل و تضمین کیفیت است. تدارکات مؤثر تضمین می‌کند که مواد و تجهیزات به موقع، در چارچوب بودجه و مطابق با مشخصات مورد نیاز در دسترس هستند.',
-            s2: '🔹 مراحل کلیدی در تدارکات',
-            list1: ['توسعه مشخصات – تعریف الزامات فنی و استانداردهای کیفیت','انتخاب تأمین‌کننده – شناسایی و ارزیابی تأمین‌کنندگان بالقوه','درخواست قیمت (RFQ) – دریافت پیشنهادات از تأمین‌کنندگان','ارزیابی – مقایسه پیشنهادات بر اساس قیمت، کیفیت، تحویل و شهرت','سفارش خرید – صدور سفارشات خرید با شرایط و ضوابط مشخص','بازرسی و کنترل کیفیت – تأیید مطابقت مواد با مشخصات','تدارکات و تحویل – مدیریت حمل و نقل و انبارداری'],
-            s3: '🔹 دسته‌بندی تدارکات',
-            list2: ['مواد – کابل‌ها، کاندوئیت‌ها، فولاد، عایق‌ها، مواد مصرفی','تجهیزات – موتورها، تابلوها، ترانسفورماتورها، پنل‌های کنترل، ابزار دقیق','خدمات – مشاوره مهندسی، نصب، تست و راه‌اندازی','نرم‌افزار – نرم‌افزارهای مهندسی، مجوزها و پشتیبانی'],
-            s4: '🔹 مثال: تدارکات برای یک پروژه پست برق',
-            s4p: 'یک پروژه پست برق نیاز به تأمین ترانسفورماتور ۱۳۲ کیلوولت، تابلوها، پنل‌های کنترل و کابل دارد. تیم تدارکات درخواست قیمت (RFQ) را برای تأمین‌کنندگان واجد شرایط ارسال، پیشنهادات فنی و تجاری را ارزیابی و قراردادها را اعطا می‌کند. تیم بازرسی‌هایی (FAT) را در محل تأمین‌کننده انجام داده و تدارکات را برای تحویل به سایت مدیریت می‌کند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Procurement Phase',
+  desc: 'Sourcing, purchasing, and managing materials and components for engineering projects.',
+  s1: 'What is Procurement?',
+  s1p: 'Procurement is the process of sourcing, purchasing, and managing materials, components, and services needed for a project. It involves supplier selection, purchase orders, delivery tracking, and quality inspection of received items.',
+  s2: 'Procurement Process',
+  list1: ['Supplier Selection – Identify and evaluate suppliers','Request for Quotation (RFQ) – Get competitive bids','Purchase Order – Formal order placement','Order Tracking – Monitor delivery status','Incoming Inspection – Quality check of materials','Inventory Management – Store and track items'],
+  s3: 'Procurement Documents',
+  list2: ['Purchase Order (PO) – Contract with supplier','Bill of Materials (BOM) – List of required items','Delivery Schedule – Timeline for deliveries','Inspection Reports – Quality verification','Supplier Approval List – Approved vendors'],
+  s4: 'Example: Procurement Plan for MCC Panel',
+  s5: 'Example: Material Inspection',
+  s5p: 'Incoming material inspection includes: verifying quantity against PO, checking for damage, verifying specifications (model numbers, ratings), and documenting results. Non-conforming items are returned or replaced.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مرحله تأمین',
+  desc: 'تأمین، خرید و مدیریت مواد و قطعات برای پروژه‌های مهندسی.',
+  s1: 'تأمین چیست؟',
+  s1p: 'تأمین فرآیند تأمین، خرید و مدیریت مواد، قطعات و خدمات مورد نیاز برای یک پروژه است. شامل انتخاب تأمین‌کننده، سفارشات خرید، پیگیری تحویل و بازرسی کیفی اقلام دریافتی است.',
+  s2: 'فرآیند تأمین',
+  list1: ['انتخاب تأمین‌کننده – شناسایی و ارزیابی تأمین‌کنندگان','درخواست قیمت (RFQ) – دریافت پیشنهادات رقابتی','سفارش خرید – ثبت سفارش رسمی','پیگیری سفارش – نظارت بر وضعیت تحویل','بازرسی ورودی – کنترل کیفی مواد','مدیریت موجودی – ذخیره و پیگیری اقلام'],
+  s3: 'مدارک تأمین',
+  list2: ['سفارش خرید (PO) – قرارداد با تأمین‌کننده','صورت‌حساب مواد (BOM) – لیست اقلام مورد نیاز','برنامه تحویل – جدول زمانی تحویل','گزارش‌های بازرسی – تأیید کیفیت','لیست تأمین‌کنندگان تأیید شده – فروشندگان معتبر'],
+  s4: 'مثال: برنامه تأمین برای پنل MCC',
+  s5: 'مثال: بازرسی مواد',
+  s5p: 'بازرسی مواد ورودی شامل: تأیید مقدار طبق PO، بررسی آسیب‌ها، تأیید مشخصات (شماره مدل، رتبه‌بندی) و مستندسازی نتایج است. اقلام غیرمنطبق بازگردانده یا جایگزین می‌شوند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
