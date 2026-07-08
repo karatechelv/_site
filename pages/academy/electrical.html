@@ -44,18 +44,18 @@
  <h1 id="page-title">Electrical Engineering</h1>
  <div class="sub" id="page-sub">Power systems, protection, distribution, and electrical design engineering.</div>
  <div class="grid" id="cards-grid">
-  <div class="card"><i>📋</i><h3>Overview</h3><p>Complete overview</p><span class="badge">Coming Soon</span></div>
-  <div class="card"><i>⚡</i><h3>Voltage Drop</h3><p>Calculate voltage drop</p><span class="badge">Coming Soon</span></div>
-  <div class="card"><i>📈</i><h3>Power Factor</h3><p>Power factor correction</p><span class="badge">Coming Soon</span></div>
-  <div class="card"><i>⚙️</i><h3>Transformer Sizing</h3><p>Transformer selection</p><span class="badge">Coming Soon</span></div>
-  <div class="card"><i>📏</i><h3>Cable Sizing</h3><p>Select cable size</p><span class="badge">Coming Soon</span></div>
-  <div class="card"><i>🌍</i><h3>Earthing Resistance</h3><p>Earthing calculation</p><span class="badge">Coming Soon</span></div>
-  <div class="card"><i>📚</i><h3>Key Topics</h3><p>Essential concepts</p><span class="badge">Coming Soon</span></div>
-  <div class="card"><i>💻</i><h3>Software</h3><p>Essential tools</p><span class="badge">Coming Soon</span></div>
-  <div class="card"><i>📚</i><h3>Resources</h3><p>Standards, guides</p><span class="badge">Coming Soon</span></div>
-  <div class="card"><i>🎯</i><h3>Learning Path</h3><p>Foundation to advanced</p><span class="badge">Coming Soon</span></div>
-  <div class="card"><i>🎬</i><h3>Videos &amp; Future</h3><p>Tutorials &amp; future tech</p><span class="badge">Coming Soon</span></div>
-  <div class="card"><i>⚙️</i><h3>Examples</h3><p>Practical projects</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>📋</i><h3>Overview</h3><p data-en="Complete overview" data-fa="مرور کلی کامل">Complete overview</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>⚡</i><h3>Voltage Drop</h3><p data-en="Calculate voltage drop" data-fa="محاسبه افت ولتاژ">Calculate voltage drop</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>📈</i><h3>Power Factor</h3><p data-en="Power factor correction" data-fa="اصلاح ضریب توان">Power factor correction</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>⚙️</i><h3>Transformer Sizing</h3><p data-en="Transformer selection" data-fa="انتخاب ترانسفورماتور">Transformer selection</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>📏</i><h3>Cable Sizing</h3><p data-en="Select cable size" data-fa="انتخاب سایز کابل">Select cable size</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>🌍</i><h3>Earthing Resistance</h3><p data-en="Earthing calculation" data-fa="محاسبه ارتینگ">Earthing calculation</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>📚</i><h3>Key Topics</h3><p data-en="Essential concepts" data-fa="مفاهیم ضروری">Essential concepts</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>💻</i><h3>Software</h3><p data-en="Essential tools" data-fa="ابزارهای ضروری">Essential tools</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>📚</i><h3>Resources</h3><p data-en="Standards, guides" data-fa="استانداردها، راهنماها">Standards, guides</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>🎯</i><h3>Learning Path</h3><p data-en="Foundation to advanced" data-fa="از پایه تا پیشرفته">Foundation to advanced</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>🎬</i><h3>Videos &amp; Future</h3><p data-en="Tutorials &amp; future tech" data-fa="آموزش‌ها و فناوری آینده">Tutorials &amp; future tech</p><span class="badge">Coming Soon</span></div>
+  <div class="card"><i>⚙️</i><h3>Examples</h3><p data-en="Practical projects" data-fa="پروژه‌های عملی">Practical projects</p><span class="badge">Coming Soon</span></div>
  </div>
  <div class="back">
   <a href="../index.html" id="backlink">← Back to Home</a>
@@ -66,12 +66,40 @@ const lang = {
  en: {
   title: 'Electrical Engineering',
   desc: 'Power systems, protection, distribution, and electrical design engineering.',
-  back: '← Back to Home'
+  back: '← Back to Home',
+  cards: {
+   overview: 'Complete overview',
+   voltage: 'Calculate voltage drop',
+   power: 'Power factor correction',
+   transformer: 'Transformer selection',
+   cable: 'Select cable size',
+   earthing: 'Earthing calculation',
+   topics: 'Essential concepts',
+   software: 'Essential tools',
+   resources: 'Standards, guides',
+   learning: 'Foundation to advanced',
+   videos: 'Tutorials & future tech',
+   examples: 'Practical projects'
+  }
  },
  fa: {
   title: 'مهندسی برق',
   desc: 'سیستم‌های قدرت، حفاظت، توزیع و طراحی مهندسی برق.',
-  back: '← بازگشت به خانه'
+  back: '← بازگشت به خانه',
+  cards: {
+   overview: 'مرور کلی کامل',
+   voltage: 'محاسبه افت ولتاژ',
+   power: 'اصلاح ضریب توان',
+   transformer: 'انتخاب ترانسفورماتور',
+   cable: 'انتخاب سایز کابل',
+   earthing: 'محاسبه ارتینگ',
+   topics: 'مفاهیم ضروری',
+   software: 'ابزارهای ضروری',
+   resources: 'استانداردها، راهنماها',
+   learning: 'از پایه تا پیشرفته',
+   videos: 'آموزش‌ها و فناوری آینده',
+   examples: 'پروژه‌های عملی'
+  }
  }
 };
 function setLang(l) {
@@ -79,6 +107,13 @@ function setLang(l) {
  document.getElementById('page-title').textContent = t.title;
  document.getElementById('page-sub').textContent = t.desc;
  document.getElementById('backlink').textContent = t.back;
+ const cardKeys = ['overview','voltage','power','transformer','cable','earthing','topics','software','resources','learning','videos','examples'];
+ const cardElements = document.querySelectorAll('.card p');
+ cardElements.forEach((el, index) => {
+  if (index < cardKeys.length) {
+   el.textContent = t.cards[cardKeys[index]];
+  }
+ });
  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
  document.body.classList.toggle('lang-persian', l === 'fa');
  localStorage.setItem('karatech-lang', l);
