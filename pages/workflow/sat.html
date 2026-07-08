@@ -1,151 +1,150 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Site Acceptance Test (SAT)</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · SAT</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">✅ Site Acceptance Test (SAT)</h1>
-    <div class="sub" id="desc">SAT is the final testing phase conducted on-site after installation to verify that the complete system operates correctly and meets all contractual and performance requirements.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What is SAT?</h2>
-        <p id="s1p">The Site Acceptance Test (SAT) is the final verification of the installed system on the project site. It confirms that the system functions as intended under actual operating conditions and meets all specified performance, safety, and reliability criteria. SAT is typically conducted by the contractor in the presence of the client and is a prerequisite for final acceptance and handover.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Key SAT Activities</h2>
-        <ul id="list1">
-            <li><b>Visual Inspection</b> – Verify that installation is complete and matches as-built drawings</li>
-            <li><b>Functional Testing</b> – Test all systems under normal and abnormal conditions</li>
-            <li><b>Performance Testing</b> – Demonstrate that capacity, efficiency, and output meet contractual requirements</li>
-            <li><b>Safety Testing</b> – Verify all safety systems, interlocks, and emergency procedures are effective</li>
-            <li><b>Integration Testing</b> – Confirm seamless integration of all subsystems</li>
-            <li><b>Documentation Review</b> – Ensure all manuals, as-built drawings, and test certificates are complete</li>
-            <li><b>Client Sign-off</b> – Formal acceptance and handover after successful completion of all tests</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 SAT vs. FAT</h2>
-        <ul id="list2">
-            <li><b>FAT</b> – Conducted at the supplier's facility before shipment. Focuses on verifying that equipment meets specifications in a controlled environment.</li>
-            <li><b>SAT</b> – Conducted on-site after installation. Focuses on verifying that the complete system operates correctly under actual site conditions (temperature, humidity, power quality, etc.).</li>
-            <li>SAT is more comprehensive and includes integration with existing systems, site-specific utilities, and operator training.</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: SAT for a Water Treatment Plant</h2>
-        <p id="s4p">A water treatment plant undergoes SAT after installation. The test includes running the plant at full capacity for 72 hours, measuring flow rates, chemical dosing accuracy, and effluent quality. All alarms and interlocks are tested, and the SCADA system is verified for proper data acquisition and control. After successful completion, the client signs the acceptance certificate, and the plant is handed over to operations.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Site Acceptance Test (SAT)</h1>
+ <div class="sub" id="desc">Final testing and verification at the customer's site before handover.</div>
+ <div class="section">
+  <h2 id="s1">What is SAT?</h2>
+  <p id="s1p">Site Acceptance Test (SAT) is the final testing phase conducted at the customer's site after installation and commissioning. It verifies that the system operates correctly under actual site conditions and meets all performance requirements.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">SAT Procedure</h2>
+  <ul id="list1">
+   <li>System Inspection – Check installation quality</li>
+   <li>Functional Testing – Test all functions with actual signals</li>
+   <li>Performance Testing – Verify under real load</li>
+   <li>Safety Testing – Check all safety systems</li>
+   <li>Communication Testing – Verify all network links</li>
+   <li>Documentation – Review all test records</li>
+   <li>Client Witness – Customer observation and sign-off</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">SAT vs FAT</h2>
+  <ul id="list2">
+   <li>FAT – At manufacturer's facility, simulated conditions</li>
+   <li>SAT – At customer's site, actual conditions</li>
+   <li>FAT – Before shipment, to ensure quality</li>
+   <li>SAT – After installation, for final acceptance</li>
+   <li>Both are required for project completion</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: SAT Checklist</h2>
+  <div class="code-box">
+# SAT Checklist for MCC Panel
+# 1. Panel installation inspected [  ]
+# 2. All motors start/stop tested [  ]
+# 3. SCADA communication verified [  ]
+# 4. Alarms and interlocks tested [  ]
+# 5. Performance test passed [  ]
+# 6. Documentation reviewed [  ]
+# 7. Client sign-off obtained [  ]
+  </div>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: MCC Panel SAT</h2>
+  <p id="s5p">The SAT for an MCC panel includes: starting and stopping all motors under load, verifying SCADA data matches field readings, testing all alarms and safety interlocks, and confirming system performance. The client signs off upon successful completion.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '✅ Site Acceptance Test (SAT)',
-            desc: 'SAT is the final testing phase conducted on-site after installation to verify that the complete system operates correctly and meets all contractual and performance requirements.',
-            s1: '🔹 What is SAT?',
-            s1p: 'The Site Acceptance Test (SAT) is the final verification of the installed system on the project site. It confirms that the system functions as intended under actual operating conditions and meets all specified performance, safety, and reliability criteria. SAT is typically conducted by the contractor in the presence of the client and is a prerequisite for final acceptance and handover.',
-            s2: '🔹 Key SAT Activities',
-            list1: ['Visual Inspection – Verify that installation is complete and matches as-built drawings','Functional Testing – Test all systems under normal and abnormal conditions','Performance Testing – Demonstrate that capacity, efficiency, and output meet contractual requirements','Safety Testing – Verify all safety systems, interlocks, and emergency procedures are effective','Integration Testing – Confirm seamless integration of all subsystems','Documentation Review – Ensure all manuals, as-built drawings, and test certificates are complete','Client Sign-off – Formal acceptance and handover after successful completion of all tests'],
-            s3: '🔹 SAT vs. FAT',
-            list2: ['FAT – Conducted at the supplier\'s facility before shipment. Focuses on verifying that equipment meets specifications in a controlled environment.','SAT – Conducted on-site after installation. Focuses on verifying that the complete system operates correctly under actual site conditions (temperature, humidity, power quality, etc.).','SAT is more comprehensive and includes integration with existing systems, site-specific utilities, and operator training.'],
-            s4: '🔹 Example: SAT for a Water Treatment Plant',
-            s4p: 'A water treatment plant undergoes SAT after installation. The test includes running the plant at full capacity for 72 hours, measuring flow rates, chemical dosing accuracy, and effluent quality. All alarms and interlocks are tested, and the SCADA system is verified for proper data acquisition and control. After successful completion, the client signs the acceptance certificate, and the plant is handed over to operations.',
-            back: '← Back'
-        },
-        fa: {
-            title: '✅ تست پذیرش سایت (SAT)',
-            desc: 'SAT آخرین فاز تست است که در محل پروژه پس از نصب انجام می‌شود تا تأیید کند سیستم کامل به درستی کار کرده و تمام الزامات قراردادی و عملکردی را برآورده می‌کند.',
-            s1: '🔹 SAT چیست؟',
-            s1p: 'تست پذیرش سایت (SAT) تأیید نهایی سیستم نصب شده در سایت پروژه است. تأیید می‌کند که سیستم در شرایط عملیاتی واقعی مطابق با هدف عمل کرده و تمام معیارهای عملکرد، ایمنی و قابلیت اطمینان مشخص شده را برآورده می‌کند. SAT معمولاً توسط پیمانکار در حضور کارفرما انجام می‌شود و پیش‌نیاز پذیرش نهایی و تحویل است.',
-            s2: '🔹 فعالیت‌های کلیدی SAT',
-            list1: ['بازرسی بصری – تأیید تکمیل نصب و مطابقت با نقشه‌های as-built','تست عملکردی – تست تمام سیستم‌ها در شرایط عادی و غیرعادی','تست عملکرد – اثبات اینکه ظرفیت، کارایی و خروجی الزامات قراردادی را برآورده می‌کند','تست ایمنی – تأیید عملکرد صحیح تمام سیستم‌های ایمنی، اینترلاک‌ها و رویه‌های اضطراری','تست یکپارچگی – تأیید یکپارچگی بدون مشکل تمام زیرسیستم‌ها','بررسی مستندات – اطمینان از کامل بودن تمام دفترچه‌ها، نقشه‌های as-built و گواهینامه‌های تست','تأیید کارفرما – پذیرش رسمی و تحویل پس از تکمیل موفقیت‌آمیز تمام تست‌ها'],
-            s3: '🔹 مقایسه SAT و FAT',
-            list2: ['FAT – در محل تأمین‌کننده قبل از حمل انجام می‌شود. بر تأیید مطابقت تجهیزات با مشخصات در محیط کنترل‌شده تمرکز دارد.','SAT – در محل پروژه پس از نصب انجام می‌شود. بر تأیید عملکرد صحیح سیستم کامل در شرایط واقعی سایت (دما، رطوبت، کیفیت برق و غیره) تمرکز دارد.','SAT جامع‌تر است و شامل یکپارچگی با سیستم‌های موجود، تأسیسات خاص سایت و آموزش اپراتورها می‌شود.'],
-            s4: '🔹 مثال: SAT برای یک تصفیه‌خانه آب',
-            s4p: 'یک تصفیه‌خانه آب پس از نصب تحت SAT قرار می‌گیرد. تست شامل اجرای تصفیه‌خانه با ظرفیت کامل به مدت ۷۲ ساعت، اندازه‌گیری دبی‌ها، دقت دوز مواد شیمیایی و کیفیت پساب است. تمام هشدارها و اینترلاک‌ها تست شده و سیستم SCADA برای جمع‌آوری و کنترل صحیح داده‌ها تأیید می‌شود. پس از تکمیل موفقیت‌آمیز، کارفرما گواهی پذیرش را امضا کرده و تصفیه‌خانه به واحد عملیات تحویل داده می‌شود.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Site Acceptance Test (SAT)',
+  desc: 'Final testing and verification at the customer\'s site before handover.',
+  s1: 'What is SAT?',
+  s1p: 'Site Acceptance Test (SAT) is the final testing phase conducted at the customer\'s site after installation and commissioning. It verifies that the system operates correctly under actual site conditions and meets all performance requirements.',
+  s2: 'SAT Procedure',
+  list1: ['System Inspection – Check installation quality','Functional Testing – Test all functions with actual signals','Performance Testing – Verify under real load','Safety Testing – Check all safety systems','Communication Testing – Verify all network links','Documentation – Review all test records','Client Witness – Customer observation and sign-off'],
+  s3: 'SAT vs FAT',
+  list2: ['FAT – At manufacturer\'s facility, simulated conditions','SAT – At customer\'s site, actual conditions','FAT – Before shipment, to ensure quality','SAT – After installation, for final acceptance','Both are required for project completion'],
+  s4: 'Example: SAT Checklist',
+  s5: 'Example: MCC Panel SAT',
+  s5p: 'The SAT for an MCC panel includes: starting and stopping all motors under load, verifying SCADA data matches field readings, testing all alarms and safety interlocks, and confirming system performance. The client signs off upon successful completion.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'تست پذیرش سایت (SAT)',
+  desc: 'تست و تأیید نهایی در محل مشتری قبل از تحویل.',
+  s1: 'SAT چیست؟',
+  s1p: 'تست پذیرش سایت (SAT) مرحله نهایی تست است که در محل مشتری پس از نصب و راه‌اندازی انجام می‌شود. این تست تأیید می‌کند که سیستم در شرایط واقعی سایت به درستی کار می‌کند و تمام نیازمندی‌های عملکرد را برآورده می‌کند.',
+  s2: 'رویه SAT',
+  list1: ['بازرسی سیستم – بررسی کیفیت نصب','تست عملکرد – تست تمام عملکردها با سیگنال‌های واقعی','تست عملکرد – تأیید تحت بار واقعی','تست ایمنی – بررسی تمام سیستم‌های ایمنی','تست ارتباطات – تأیید تمام اتصالات شبکه','مستندات – بررسی تمام سوابق تست','حضور کارفرما – مشاهده و تأیید مشتری'],
+  s3: 'SAT در مقابل FAT',
+  list2: ['FAT – در محل تولیدکننده، شرایط شبیه‌سازی شده','SAT – در محل مشتری، شرایط واقعی','FAT – قبل از ارسال، برای تضمین کیفیت','SAT – پس از نصب، برای پذیرش نهایی','هر دو برای تکمیل پروژه الزامی هستند'],
+  s4: 'مثال: چک‌لیست SAT',
+  s5: 'مثال: SAT برای پنل MCC',
+  s5p: 'SAT برای پنل MCC شامل: راه‌اندازی و توقف تمام موتورها تحت بار، تأیید داده‌های SCADA با خوانش‌های میدان، تست تمام هشدارها و قفل‌های ایمنی و تأیید عملکرد سیستم است. کارفرما پس از تکمیل موفقیت‌آمیز تأیید می‌کند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
