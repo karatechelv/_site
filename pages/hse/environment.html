@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Environment</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Environment Engineering</h1>
+ <div class="sub" id="desc">Environmental protection, waste management, pollution control, and sustainability in engineering.</div>
+ <div class="section">
+  <h2 id="s1">What is Environment Engineering?</h2>
+  <p id="s1p">Environmental engineering is the discipline that focuses on protecting human health and the environment. It involves managing pollution, waste, and resources to minimize negative impacts and promote sustainability.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Key Environmental Areas</h2>
+  <ul id="list1">
+   <li>Waste Management – Reduction, recycling, disposal</li>
+   <li>Pollution Control – Air, water, soil protection</li>
+   <li>Water Management – Treatment, conservation, reuse</li>
+   <li>Energy Efficiency – Reducing consumption and emissions</li>
+   <li>Environmental Compliance – Regulations and permits</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Environmental Impact Assessment (EIA)</h2>
+  <ul id="list2">
+   <li>Identify potential environmental impacts</li>
+   <li>Assess significance of impacts</li>
+   <li>Develop mitigation measures</li>
+   <li>Monitor and manage during project lifecycle</li>
+   <li>Report to regulatory authorities</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Sustainability in Engineering</h2>
+  <ul id="list3">
+   <li>Energy-Efficient Design – Reduce power consumption</li>
+   <li>Use of Renewable Energy – Solar, wind, hydro</li>
+   <li>Waste Reduction – Minimize waste generation</li>
+   <li>Material Selection – Eco-friendly materials</li>
+   <li>Environmental Management Systems (ISO 14001)</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Hazardous Waste Management</h2>
+  <p id="s5p">An electrical panel manufacturing facility generates hazardous waste (oils, solvents, batteries). A hazardous waste management plan includes: proper storage, labeling, handling procedures, disposal by approved contractors, and regular inspections to ensure compliance with environmental regulations.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
+</div>
+<script>
+const lang = {
+ en: {
+  title: 'Environment Engineering',
+  desc: 'Environmental protection, waste management, pollution control, and sustainability in engineering.',
+  s1: 'What is Environment Engineering?',
+  s1p: 'Environmental engineering is the discipline that focuses on protecting human health and the environment. It involves managing pollution, waste, and resources to minimize negative impacts and promote sustainability.',
+  s2: 'Key Environmental Areas',
+  list1: ['Waste Management – Reduction, recycling, disposal','Pollution Control – Air, water, soil protection','Water Management – Treatment, conservation, reuse','Energy Efficiency – Reducing consumption and emissions','Environmental Compliance – Regulations and permits'],
+  s3: 'Environmental Impact Assessment (EIA)',
+  list2: ['Identify potential environmental impacts','Assess significance of impacts','Develop mitigation measures','Monitor and manage during project lifecycle','Report to regulatory authorities'],
+  s4: 'Sustainability in Engineering',
+  list3: ['Energy-Efficient Design – Reduce power consumption','Use of Renewable Energy – Solar, wind, hydro','Waste Reduction – Minimize waste generation','Material Selection – Eco-friendly materials','Environmental Management Systems (ISO 14001)'],
+  s5: 'Example: Hazardous Waste Management',
+  s5p: 'An electrical panel manufacturing facility generates hazardous waste (oils, solvents, batteries). A hazardous waste management plan includes: proper storage, labeling, handling procedures, disposal by approved contractors, and regular inspections to ensure compliance with environmental regulations.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مهندسی محیط زیست',
+  desc: 'حفاظت از محیط زیست، مدیریت پسماند، کنترل آلودگی و پایداری در مهندسی.',
+  s1: 'مهندسی محیط زیست چیست؟',
+  s1p: 'مهندسی محیط زیست رشته‌ای است که بر حفاظت از سلامت انسان و محیط زیست متمرکز است. شامل مدیریت آلودگی، پسماند و منابع برای به حداقل رساندن تأثیرات منفی و ترویج پایداری است.',
+  s2: 'حوزه‌های کلیدی زیست‌محیطی',
+  list1: ['مدیریت پسماند – کاهش، بازیافت، دفع','کنترل آلودگی – حفاظت از هوا، آب، خاک','مدیریت آب – تصفیه، حفاظت، استفاده مجدد','بهره‌وری انرژی – کاهش مصرف و انتشار','انطباق زیست‌محیطی – مقررات و مجوزها'],
+  s3: 'ارزیابی تأثیرات زیست‌محیطی (EIA)',
+  list2: ['شناسایی تأثیرات زیست‌محیطی بالقوه','ارزیابی اهمیت تأثیرات','توسعه اقدامات کاهشی','نظارت و مدیریت در طول چرخه عمر پروژه','گزارش به مقامات نظارتی'],
+  s4: 'پایداری در مهندسی',
+  list3: ['طراحی کم‌مصرف – کاهش مصرف برق','استفاده از انرژی تجدیدپذیر – خورشیدی، بادی، آبی','کاهش پسماند – به حداقل رساندن تولید زباله','انتخاب مواد – مواد سازگار با محیط زیست','سیستم‌های مدیریت زیست‌محیطی (ISO 14001)'],
+  s5: 'مثال: مدیریت پسماند خطرناک',
+  s5p: 'یک تأسیسات تولید پنل الکتریکی پسماند خطرناک (روغن‌ها، حلال‌ها، باتری‌ها) تولید می‌کند. یک برنامه مدیریت پسماند خطرناک شامل: ذخیره‌سازی مناسب، برچسب‌گذاری، رویه‌های جابجایی، دفع توسط پیمانکاران تأیید شده و بازرسی‌های منظم برای اطمینان از انطباق با مقررات زیست‌محیطی است.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
+</body>
+</html>
