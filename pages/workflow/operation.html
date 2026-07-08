@@ -1,153 +1,147 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Operation</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Operation</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">⚙️ Operation</h1>
-    <div class="sub" id="desc">Operation is the final stage of the engineering workflow where the facility is handed over to the client and begins normal production or service, with ongoing monitoring and maintenance.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What is Operation?</h2>
-        <p id="s1p">Operation is the phase where the completed facility or system is put into normal service after successful commissioning and handover. It involves running the plant or system to produce the intended output (e.g., power, products, services) while maintaining safety, efficiency, and reliability. Operation includes monitoring, maintenance, troubleshooting, and continuous improvement to ensure optimal performance.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Key Operation Activities</h2>
-        <ul id="list1">
-            <li><b>Monitoring & Control</b> – Operating the system from the control room, monitoring process variables, and adjusting parameters as needed</li>
-            <li><b>Preventive Maintenance</b> – Regular inspections, servicing, and component replacements to prevent failures</li>
-            <li><b>Corrective Maintenance</b> – Repairing or replacing failed components to restore normal operation</li>
-            <li><b>Performance Optimization</b> – Continuously improving efficiency, output, and quality</li>
-            <li><b>Troubleshooting</b> – Diagnosing and resolving issues that arise during operation</li>
-            <li><b>Safety Management</b> – Enforcing safety procedures and responding to emergencies</li>
-            <li><b>Data Analysis</b> – Analyzing operational data to identify trends and opportunities for improvement</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Operation Documentation</h2>
-        <ul id="list2">
-            <li><b>Shift Logs</b> – Records of daily operations, events, and deviations</li>
-            <li><b>Maintenance Records</b> – History of maintenance activities and repairs</li>
-            <li><b>Operating Procedures</b> – Standard procedures for normal, abnormal, and emergency conditions</li>
-            <li><b>Performance Reports</b> – Reports on production, efficiency, and quality</li>
-            <li><b>Permits and Clearances</b> – Work permits for maintenance and modifications</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: Operation of a Manufacturing Plant</h2>
-        <p id="s4p">A manufacturing plant begins normal production after commissioning. The operations team monitors the production line from the control room, ensuring that throughput, quality, and safety targets are met. Maintenance teams perform weekly inspections, quarterly servicing, and handle breakdown repairs. Continuous improvement projects aim to reduce downtime, increase output, and lower energy consumption. The plant operates 24/7 with a three-shift system.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Operation Phase</h1>
+ <div class="sub" id="desc">System handover, operation, and ongoing maintenance after project completion.</div>
+ <div class="section">
+  <h2 id="s1">What is Operation?</h2>
+  <p id="s1p">Operation is the final phase of the engineering workflow where the system is handed over to the client and put into normal use. It includes training operators, providing ongoing support, and performing routine maintenance to ensure reliable operation.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Operation Activities</h2>
+  <ul id="list1">
+   <li>System Handover – Formal transfer to client</li>
+   <li>Operator Training – Training client personnel</li>
+   <li>Routine Operation – Running the system normally</li>
+   <li>Maintenance – Preventive and corrective</li>
+   <li>Performance Monitoring – Tracking system performance</li>
+   <li>Support – Technical support and troubleshooting</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Maintenance Types</h2>
+  <ul id="list2">
+   <li>Preventive Maintenance – Scheduled inspections and service</li>
+   <li>Corrective Maintenance – Fix issues as they occur</li>
+   <li>Predictive Maintenance – Monitoring for early warning</li>
+   <li>Reliability-Centered Maintenance – Focus on critical systems</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: Handover Checklist</h2>
+  <div class="code-box">
+# Handover Checklist
+# 1. All systems operational [  ]
+# 2. Operator training completed [  ]
+# 3. Operation manuals provided [  ]
+# 4. As-built drawings delivered [  ]
+# 5. Test reports submitted [  ]
+# 6. Spare parts list provided [  ]
+# 7. Client acceptance signed [  ]
+  </div>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Ongoing Maintenance Program</h2>
+  <p id="s5p">An ongoing maintenance program for an MCC panel includes: monthly visual inspections, quarterly thermal imaging of connections, annual calibration of protection devices, and immediate corrective action for any faults. A maintenance log is kept for all activities.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '⚙️ Operation',
-            desc: 'Operation is the final stage of the engineering workflow where the facility is handed over to the client and begins normal production or service, with ongoing monitoring and maintenance.',
-            s1: '🔹 What is Operation?',
-            s1p: 'Operation is the phase where the completed facility or system is put into normal service after successful commissioning and handover. It involves running the plant or system to produce the intended output (e.g., power, products, services) while maintaining safety, efficiency, and reliability. Operation includes monitoring, maintenance, troubleshooting, and continuous improvement to ensure optimal performance.',
-            s2: '🔹 Key Operation Activities',
-            list1: ['Monitoring & Control – Operating the system from the control room, monitoring process variables, and adjusting parameters as needed','Preventive Maintenance – Regular inspections, servicing, and component replacements to prevent failures','Corrective Maintenance – Repairing or replacing failed components to restore normal operation','Performance Optimization – Continuously improving efficiency, output, and quality','Troubleshooting – Diagnosing and resolving issues that arise during operation','Safety Management – Enforcing safety procedures and responding to emergencies','Data Analysis – Analyzing operational data to identify trends and opportunities for improvement'],
-            s3: '🔹 Operation Documentation',
-            list2: ['Shift Logs – Records of daily operations, events, and deviations','Maintenance Records – History of maintenance activities and repairs','Operating Procedures – Standard procedures for normal, abnormal, and emergency conditions','Performance Reports – Reports on production, efficiency, and quality','Permits and Clearances – Work permits for maintenance and modifications'],
-            s4: '🔹 Example: Operation of a Manufacturing Plant',
-            s4p: 'A manufacturing plant begins normal production after commissioning. The operations team monitors the production line from the control room, ensuring that throughput, quality, and safety targets are met. Maintenance teams perform weekly inspections, quarterly servicing, and handle breakdown repairs. Continuous improvement projects aim to reduce downtime, increase output, and lower energy consumption. The plant operates 24/7 with a three-shift system.',
-            back: '← Back'
-        },
-        fa: {
-            title: '⚙️ بهره‌برداری',
-            desc: 'بهره‌برداری مرحله نهایی جریان کار مهندسی است که در آن تأسیسات به کارفرما تحویل داده شده و تولید یا خدمات عادی با نظارت و نگهداری مداوم آغاز می‌شود.',
-            s1: '🔹 بهره‌برداری چیست؟',
-            s1p: 'بهره‌برداری فازی است که در آن تأسیسات یا سیستم تکمیل شده پس از راه‌اندازی موفق و تحویل، به سرویس عادی وارد می‌شود. شامل اجرای کارخانه یا سیستم برای تولید خروجی مورد نظر (مثلاً برق، محصولات، خدمات) با حفظ ایمنی، کارایی و قابلیت اطمینان است. بهره‌برداری شامل نظارت، نگهداری، عیب‌یابی و بهبود مستمر برای اطمینان از عملکرد مطلوب است.',
-            s2: '🔹 فعالیت‌های کلیدی بهره‌برداری',
-            list1: ['نظارت و کنترل – عملکرد سیستم از اتاق کنترل، نظارت بر متغیرهای فرآیند و تنظیم پارامترها در صورت نیاز','نگهداری پیشگیرانه – بازرسی‌های منظم، سرویس‌دهی و تعویض قطعات برای جلوگیری از خرابی','نگهداری اصلاحی – تعمیر یا تعویض قطعات خراب برای بازگشت به عملکرد عادی','بهینه‌سازی عملکرد – بهبود مستمر کارایی، خروجی و کیفیت','عیب‌یابی – تشخیص و حل مشکلاتی که در حین بهره‌برداری رخ می‌دهند','مدیریت ایمنی – اجرای رویه‌های ایمنی و واکنش به شرایط اضطراری','تحلیل داده – تحلیل داده‌های عملیاتی برای شناسایی روندها و فرصت‌های بهبود'],
-            s3: '🔹 مستندات بهره‌برداری',
-            list2: ['گزارش‌های شیفت – سوابق عملیات روزانه، رویدادها و انحرافات','سوابق نگهداری – تاریخچه فعالیت‌های نگهداری و تعمیرات','رویه‌های عملیاتی – رویه‌های استاندارد برای شرایط عادی، غیرعادی و اضطراری','گزارش‌های عملکرد – گزارش‌هایی درباره تولید، کارایی و کیفیت','مجوزها و ترخیص‌ها – مجوزهای کار برای نگهداری و اصلاحات'],
-            s4: '🔹 مثال: بهره‌برداری از یک کارخانه تولیدی',
-            s4p: 'یک کارخانه تولیدی پس از راه‌اندازی، تولید عادی را آغاز می‌کند. تیم عملیات خط تولید را از اتاق کنترل نظارت کرده و اطمینان حاصل می‌کند که اهداف تولید، کیفیت و ایمنی برآورده می‌شوند. تیم‌های نگهداری بازرسی‌های هفتگی، سرویس‌های فصلی و تعمیرات خرابی را انجام می‌دهند. پروژه‌های بهبود مستمر با هدف کاهش زمان توقف، افزایش خروجی و کاهش مصرف انرژی انجام می‌شوند. کارخانه ۲۴/۷ با سیستم سه‌شیفته کار می‌کند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Operation Phase',
+  desc: 'System handover, operation, and ongoing maintenance after project completion.',
+  s1: 'What is Operation?',
+  s1p: 'Operation is the final phase of the engineering workflow where the system is handed over to the client and put into normal use. It includes training operators, providing ongoing support, and performing routine maintenance to ensure reliable operation.',
+  s2: 'Operation Activities',
+  list1: ['System Handover – Formal transfer to client','Operator Training – Training client personnel','Routine Operation – Running the system normally','Maintenance – Preventive and corrective','Performance Monitoring – Tracking system performance','Support – Technical support and troubleshooting'],
+  s3: 'Maintenance Types',
+  list2: ['Preventive Maintenance – Scheduled inspections and service','Corrective Maintenance – Fix issues as they occur','Predictive Maintenance – Monitoring for early warning','Reliability-Centered Maintenance – Focus on critical systems'],
+  s4: 'Example: Handover Checklist',
+  s5: 'Example: Ongoing Maintenance Program',
+  s5p: 'An ongoing maintenance program for an MCC panel includes: monthly visual inspections, quarterly thermal imaging of connections, annual calibration of protection devices, and immediate corrective action for any faults. A maintenance log is kept for all activities.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مرحله بهره‌برداری',
+  desc: 'تحویل سیستم، بهره‌برداری و نگهداری مداوم پس از تکمیل پروژه.',
+  s1: 'بهره‌برداری چیست؟',
+  s1p: 'بهره‌برداری مرحله نهایی جریان کار مهندسی است که در آن سیستم به کارفرما تحویل داده شده و در استفاده عادی قرار می‌گیرد. شامل آموزش اپراتورها، ارائه پشتیبانی مداوم و انجام نگهداری منظم برای اطمینان از عملکرد قابل اعتماد است.',
+  s2: 'فعالیت‌های بهره‌برداری',
+  list1: ['تحویل سیستم – انتقال رسمی به کارفرما','آموزش اپراتور – آموزش پرسنل کارفرما','بهره‌برداری عادی – اجرای سیستم به طور معمول','نگهداری – پیشگیرانه و اصلاحی','نظارت بر عملکرد – پیگیری عملکرد سیستم','پشتیبانی – پشتیبانی فنی و عیب‌یابی'],
+  s3: 'انواع نگهداری',
+  list2: ['نگهداری پیشگیرانه – بازرسی‌ها و سرویس‌های برنامه‌ریزی شده','نگهداری اصلاحی – رفع مشکلات هنگام بروز','نگهداری پیش‌بینی‌کننده – نظارت برای هشدار زودهنگام','نگهداری مبتنی بر قابلیت اطمینان – تمرکز بر سیستم‌های حیاتی'],
+  s4: 'مثال: چک‌لیست تحویل',
+  s5: 'مثال: برنامه نگهداری مداوم',
+  s5p: 'یک برنامه نگهداری مداوم برای پنل MCC شامل: بازرسی‌های بصری ماهانه، تصویربرداری حرارتی فصلی از اتصالات، کالیبراسیون سالانه دستگاه‌های حفاظتی و اقدام اصلاحی فوری برای هرگونه خطا است. یک گزارش نگهداری برای تمام فعالیت‌ها نگهداری می‌شود.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
