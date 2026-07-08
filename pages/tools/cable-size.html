@@ -1,207 +1,138 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Cable Size Calculator</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:800px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .calc-box{background:#1e2128;padding:25px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);margin-bottom:20px}
-        .calc-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
-        .calc-box input, .calc-box select{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
-        .calc-box input:focus, .calc-box select:focus{outline:1px solid #d4af37}
-        .btn-calc{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:60px;font-weight:600;cursor:pointer;transition:.2s;margin-top:15px}
-        .btn-calc:hover{background:#d4af37;color:#111}
-        .result{background:#0d0e12;padding:15px;border-radius:12px;border-left:4px solid #d4af37;margin-top:15px;font-size:1.1rem}
-        .result span{color:#d4af37;font-weight:700}
-        .note{color:#8e95a5;font-size:.85rem;margin-top:10px}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Cable Size Calculator</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:900px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+ .calc-grid label{color:#b0b8c5;font-size:.9rem;display:flex;flex-direction:column;gap:4px}
+ .calc-grid input,.calc-grid select{background:#0d0e12;border:1px solid #2a2f3a;color:#eef0f4;padding:8px 12px;border-radius:8px;font-size:.95rem;width:100%}
+ .calc-grid input:focus,.calc-grid select:focus{outline:1px solid #d4af37}
+ .result-box{background:#0d0e12;padding:16px;border-radius:12px;border-left:3px solid #d4af37;font-size:1.2rem;font-weight:600;color:#d4af37;margin-top:12px;text-align:center}
+ .calc-btn{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:30px;font-weight:600;cursor:pointer;transition:.2s;margin-top:10px}
+ .calc-btn:hover{background:#d4af37;color:#111}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}.calc-grid{grid-template-columns:1fr}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Cable Size Calculator</h1>
+ <div class="sub" id="desc">Calculate the recommended cable size (mm²) based on current and system type.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="formula-title">Reference Table</h2>
+  <p id="formula-text">Typical cable sizing based on current capacity (copper cables, PVC insulation):</p>
+  <ul id="table-list">
+   <li>1.5 mm² – 10 A</li>
+   <li>2.5 mm² – 16 A</li>
+   <li>4 mm² – 25 A</li>
+   <li>6 mm² – 35 A</li>
+   <li>10 mm² – 50 A</li>
+   <li>16 mm² – 70 A</li>
+   <li>25 mm² – 95 A</li>
+   <li>35 mm² – 120 A</li>
+   <li>50 mm² – 150 A</li>
+   <li>70 mm² – 190 A</li>
+  </ul>
+ </div>
 
-    <h1 id="title">📏 Cable Size Calculator</h1>
-    <div class="sub" id="desc">Determine the minimum cable cross-section based on current, length, voltage drop limit, and conductor material.</div>
+ <div class="section">
+  <h2 id="calc-title">Calculator</h2>
+  <div class="calc-grid">
+   <label>Current (A) <input type="number" id="current" value="50" step="0.1"></label>
+   <label>System <select id="system"><option value="single">Single Phase</option><option value="three">Three Phase</option></select></label>
+  </div>
+  <button class="calc-btn" id="calcBtn" onclick="calculate()">Calculate</button>
+  <div class="result-box" id="result">Recommended Cable Size: 10 mm²</div>
+ </div>
 
-    <div class="calc-box">
-        <label id="lbl-current">Current (A)</label>
-        <input type="number" id="current" value="100" step="any">
-
-        <label id="lbl-length">Cable Length (m)</label>
-        <input type="number" id="length" value="50" step="any">
-
-        <label id="lbl-voltage">System Voltage (V)</label>
-        <input type="number" id="voltage" value="400" step="any">
-
-        <label id="lbl-drop">Max Voltage Drop (%)</label>
-        <input type="number" id="drop" value="3" step="0.1">
-
-        <label id="lbl-material">Conductor Material</label>
-        <select id="material">
-            <option value="copper" data-en="Copper" data-fa="مس">Copper</option>
-            <option value="aluminum" data-en="Aluminum" data-fa="آلومینیوم">Aluminum</option>
-        </select>
-
-        <label id="lbl-phase">Phase</label>
-        <select id="phase">
-            <option value="single" data-en="Single-phase" data-fa="تک فاز">Single-phase</option>
-            <option value="three" data-en="Three-phase" data-fa="سه فاز">Three-phase</option>
-            <option value="dc" data-en="DC" data-fa="DC">DC</option>
-        </select>
-
-        <button class="btn-calc" id="calcBtn">Calculate</button>
-
-        <div class="result" id="result">
-            <span id="res-label">Minimum Cable Size:</span> <span id="size-value">--</span> mm²
-            <br><span id="vd-info">Voltage Drop at this size: -- V (--%)</span>
-        </div>
-        <div class="note" id="note">Resistivity: Cu 0.0175 Ω·mm²/m, Al 0.0283 Ω·mm²/m. Standard cable sizes rounded up.</div>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const langData = {
-        en: {
-            title: '📏 Cable Size Calculator',
-            desc: 'Determine the minimum cable cross-section based on current, length, voltage drop limit, and conductor material.',
-            current: 'Current (A)',
-            length: 'Cable Length (m)',
-            voltage: 'System Voltage (V)',
-            drop: 'Max Voltage Drop (%)',
-            material: 'Conductor Material',
-            phase: 'Phase',
-            calc: 'Calculate',
-            res_label: 'Minimum Cable Size:',
-            note: 'Resistivity: Cu 0.0175 Ω·mm²/m, Al 0.0283 Ω·mm²/m. Standard cable sizes rounded up.',
-            back: '← Back'
-        },
-        fa: {
-            title: '📏 ماشین‌حساب سایز کابل',
-            desc: 'تعیین حداقل سطح مقطع کابل بر اساس جریان، طول، محدودیت افت ولتاژ و جنس هادی.',
-            current: 'جریان (آمپر)',
-            length: 'طول کابل (متر)',
-            voltage: 'ولتاژ سیستم (ولت)',
-            drop: 'حداکثر افت ولتاژ (٪)',
-            material: 'جنس هادی',
-            phase: 'فاز',
-            calc: 'محاسبه',
-            res_label: 'حداقل سایز کابل:',
-            note: 'مقاومت ویژه: مس ۰.۰۱۷۵ Ω·mm²/m، آلومینیوم ۰.۰۲۸۳ Ω·mm²/m. سایزهای استاندارد کابل گرد شده.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLanguage(lang) {
-        const t = langData[lang];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('lbl-current').textContent = t.current;
-        document.getElementById('lbl-length').textContent = t.length;
-        document.getElementById('lbl-voltage').textContent = t.voltage;
-        document.getElementById('lbl-drop').textContent = t.drop;
-        document.getElementById('lbl-material').textContent = t.material;
-        document.getElementById('lbl-phase').textContent = t.phase;
-        document.getElementById('calcBtn').textContent = t.calc;
-        document.getElementById('res-label').textContent = t.res_label;
-        document.getElementById('note').textContent = t.note;
-        document.getElementById('backlink').textContent = t.back;
-
-        document.querySelectorAll('#material option, #phase option').forEach(opt => {
-            const text = opt.dataset[lang];
-            if (text) opt.textContent = text;
-        });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-        document.body.classList.toggle('lang-persian', lang === 'fa');
-        localStorage.setItem('karatech-lang', lang);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLanguage(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLanguage(savedLang);
-
-    function calculate() {
-        const I = parseFloat(document.getElementById('current').value);
-        const L = parseFloat(document.getElementById('length').value);
-        const V = parseFloat(document.getElementById('voltage').value);
-        const maxDropPercent = parseFloat(document.getElementById('drop').value);
-        const mat = document.getElementById('material').value;
-        const phase = document.getElementById('phase').value;
-
-        if ([I, L, V, maxDropPercent].some(isNaN) || I <= 0 || L <= 0 || V <= 0 || maxDropPercent <= 0) {
-            document.getElementById('size-value').textContent = 'Invalid input';
-            document.getElementById('vd-info').textContent = '--';
-            return;
-        }
-
-        const rho = mat === 'copper' ? 0.0175 : 0.0283;
-        const maxDropV = V * (maxDropPercent / 100);
-
-        // For single-phase or DC: two conductors, drop = 2 * I * R
-        // For three-phase: drop = sqrt(3) * I * R
-        let factor;
-        if (phase === 'single' || phase === 'dc') {
-            factor = 2;
-        } else {
-            factor = Math.sqrt(3);
-        }
-
-        // Required resistance per conductor: R = maxDropV / (factor * I)
-        const R_max = maxDropV / (factor * I);
-        // A = rho * L / R
-        let A = rho * L / R_max;
-
-        // Round up to standard sizes (common IEC values)
-        const standardSizes = [1, 1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120, 150, 185, 240, 300, 400, 500, 630];
-        let selected = standardSizes.find(s => s >= A);
-        if (!selected) selected = standardSizes[standardSizes.length - 1];
-
-        // Calculate actual drop with selected size
-        const R_actual = rho * L / selected;
-        const dropV_actual = factor * I * R_actual;
-        const dropPercent_actual = (dropV_actual / V) * 100;
-
-        document.getElementById('size-value').textContent = selected;
-        document.getElementById('vd-info').textContent = `Voltage Drop at this size: ${dropV_actual.toFixed(2)} V (${dropPercent_actual.toFixed(2)}%)`;
-    }
-
-    document.getElementById('calcBtn').onclick = calculate;
-    calculate();
+function calculate() {
+ const I = parseFloat(document.getElementById('current').value) || 0;
+ const system = document.getElementById('system').value;
+ let recommended = '—';
+ const table = [
+  { size: 1.5, cap: 10 },
+  { size: 2.5, cap: 16 },
+  { size: 4, cap: 25 },
+  { size: 6, cap: 35 },
+  { size: 10, cap: 50 },
+  { size: 16, cap: 70 },
+  { size: 25, cap: 95 },
+  { size: 35, cap: 120 },
+  { size: 50, cap: 150 },
+  { size: 70, cap: 190 }
+ ];
+ let factor = system === 'single' ? 1 : 0.9;
+ let adjusted = I * factor;
+ for (let i = 0; i < table.length; i++) {
+  if (adjusted <= table[i].cap) {
+   recommended = table[i].size + ' mm²';
+   break;
+  }
+ }
+ if (recommended === '—') recommended = '> 70 mm² (consult table)';
+ document.getElementById('result').textContent = 'Recommended Cable Size: ' + recommended;
+}
+const lang = {
+ en: {
+  title: 'Cable Size Calculator',
+  desc: 'Calculate the recommended cable size (mm²) based on current and system type.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'ماشین‌حساب سایز کابل',
+  desc: 'محاسبه سایز کابل توصیه شده (mm²) بر اساس جریان و نوع سیستم.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('backlink').textContent = t.back;
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
