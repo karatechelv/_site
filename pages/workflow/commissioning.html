@@ -1,154 +1,150 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Commissioning</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Commissioning</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">▶️ Commissioning</h1>
-    <div class="sub" id="desc">Commissioning is the final phase of a project where the installed systems are tested, verified, and handed over to the client for operation after demonstrating that they meet all requirements.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What is Commissioning?</h2>
-        <p id="s1p">Commissioning is the systematic process of ensuring that all systems and components of a plant or facility are installed, tested, and operated according to the design intent and client requirements. It bridges the gap between construction and operation, verifying that everything works as intended and that operators are trained to run the facility safely and efficiently.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Key Commissioning Activities</h2>
-        <ul id="list1">
-            <li><b>Pre-commissioning</b> – Pre-checks, flushing, pressure testing, and cleaning before system startup</li>
-            <li><b>Start-up</b> – Energizing systems, checking rotation, and bringing online</li>
-            <li><b>Functional Testing</b> – Testing each system under normal and abnormal conditions</li>
-            <li><b>Performance Testing</b> – Verifying capacity, efficiency, and reliability against specifications</li>
-            <li><b>Safety Testing</b> – Testing safety systems, interlocks, and emergency shutdown systems</li>
-            <li><b>Training</b> – Training operators and maintenance personnel on system operation and troubleshooting</li>
-            <li><b>Handover</b> – Formal transfer of the system to the client with all documentation, certificates, and approvals</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Commissioning Documentation</h2>
-        <ul id="list2">
-            <li>Commissioning Plan – Detailed schedule, procedures, and responsibilities</li>
-            <li>Test Procedures – Step-by-step instructions for each test</li>
-            <li>Test Reports – Records of all test results and deviations</li>
-            <li>As-built Drawings – Updated drawings reflecting actual installation</li>
-            <li>Operation and Maintenance Manuals – Comprehensive guides for operators</li>
-            <li>Certificate of Acceptance – Formal handover document signed by client</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: Commissioning a Gas Turbine Power Plant</h2>
-        <p id="s4p">A gas turbine power plant is commissioned in three phases: (1) Pre-commissioning – flushing oil systems, pressure testing, and inspecting all components, (2) Start-up – first firing, synchronization with the grid, and load testing, (3) Performance testing – verifying output, heat rate, and emissions at full load. The commissioning team documents all results, trains the operations team, and handovers the plant to the client.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Commissioning Phase</h1>
+ <div class="sub" id="desc">System startup, functional testing, and verification of all systems.</div>
+ <div class="section">
+  <h2 id="s1">What is Commissioning?</h2>
+  <p id="s1p">Commissioning is the final testing phase where the system is started up, all functions are verified, and the system is confirmed to meet specifications. It includes powering up the system, running through all operating modes, and checking alarms and interlocks.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Commissioning Steps</h2>
+  <ul id="list1">
+   <li>System Power-Up – Energize in stages</li>
+   <li>Function Testing – Test all modes of operation</li>
+   <li>Alarm Testing – Verify alarm conditions</li>
+   <li>Interlock Testing – Check safety circuits</li>
+   <li>Communication Testing – Check all protocols</li>
+   <li>Performance Testing – Under load conditions</li>
+   <li>Documentation – Record all test results</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Commissioning Documentation</h2>
+  <ul id="list2">
+   <li>Commissioning Plan – Step-by-step procedure</li>
+   <li>Test Logs – Records of all tests</li>
+   <li>Issue Log – Any problems and resolutions</li>
+   <li>Sign-off Certificate – Client acceptance</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: Commissioning Checklist</h2>
+  <div class="code-box">
+# Commissioning Checklist
+# 1. System power-up successful [  ]
+# 2. HMI communication verified [  ]
+# 3. PLC communication verified [  ]
+# 4. Alarms tested [  ]
+# 5. Interlocks tested [  ]
+# 6. Motor control functions tested [  ]
+# 7. SCADA data confirmed [  ]
+# 8. Performance test passed [  ]
+# 9. Documentation complete [  ]
+  </div>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Panel Commissioning</h2>
+  <p id="s5p">Panel commissioning involves powering up the panel, checking all indicators and displays, testing each motor start/stop, verifying alarm and interlock functions, confirming communication with SCADA, and performing a performance test. Results are documented and submitted to the client.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '▶️ Commissioning',
-            desc: 'Commissioning is the final phase of a project where the installed systems are tested, verified, and handed over to the client for operation after demonstrating that they meet all requirements.',
-            s1: '🔹 What is Commissioning?',
-            s1p: 'Commissioning is the systematic process of ensuring that all systems and components of a plant or facility are installed, tested, and operated according to the design intent and client requirements. It bridges the gap between construction and operation, verifying that everything works as intended and that operators are trained to run the facility safely and efficiently.',
-            s2: '🔹 Key Commissioning Activities',
-            list1: ['Pre-commissioning – Pre-checks, flushing, pressure testing, and cleaning before system startup','Start-up – Energizing systems, checking rotation, and bringing online','Functional Testing – Testing each system under normal and abnormal conditions','Performance Testing – Verifying capacity, efficiency, and reliability against specifications','Safety Testing – Testing safety systems, interlocks, and emergency shutdown systems','Training – Training operators and maintenance personnel on system operation and troubleshooting','Handover – Formal transfer of the system to the client with all documentation, certificates, and approvals'],
-            s3: '🔹 Commissioning Documentation',
-            list2: ['Commissioning Plan – Detailed schedule, procedures, and responsibilities','Test Procedures – Step-by-step instructions for each test','Test Reports – Records of all test results and deviations','As-built Drawings – Updated drawings reflecting actual installation','Operation and Maintenance Manuals – Comprehensive guides for operators','Certificate of Acceptance – Formal handover document signed by client'],
-            s4: '🔹 Example: Commissioning a Gas Turbine Power Plant',
-            s4p: 'A gas turbine power plant is commissioned in three phases: (1) Pre-commissioning – flushing oil systems, pressure testing, and inspecting all components, (2) Start-up – first firing, synchronization with the grid, and load testing, (3) Performance testing – verifying output, heat rate, and emissions at full load. The commissioning team documents all results, trains the operations team, and handovers the plant to the client.',
-            back: '← Back'
-        },
-        fa: {
-            title: '▶️ راه‌اندازی',
-            desc: 'راه‌اندازی (کمیشنینگ) فاز نهایی یک پروژه است که در آن سیستم‌های نصب شده تست، تأیید و پس از اثبات مطابقت با تمام الزامات به کارفرما تحویل داده می‌شوند.',
-            s1: '🔹 راه‌اندازی چیست؟',
-            s1p: 'راه‌اندازی فرآیند سیستماتیک اطمینان از این است که تمام سیستم‌ها و اجزای یک کارخانه یا تأسیسات بر اساس هدف طراحی و الزامات کارفرما نصب، تست و راه‌اندازی می‌شوند. این فاز شکاف بین ساخت و بهره‌برداری را پر کرده و تأیید می‌کند که همه چیز مطابق با هدف کار می‌کند و اپراتورها برای اداره ایمن و کارآمد تأسیسات آموزش دیده‌اند.',
-            s2: '🔹 فعالیت‌های کلیدی راه‌اندازی',
-            list1: ['پیش‌راه‌اندازی – پیش‌بررسی‌ها، فلاشینگ، تست فشار و تمیزکاری قبل از راه‌اندازی سیستم','شروع به کار – برق‌دار کردن سیستم‌ها، بررسی جهت چرخش و آنلاین کردن','تست عملکردی – تست هر سیستم در شرایط عادی و غیرعادی','تست عملکرد – تأیید ظرفیت، کارایی و قابلیت اطمینان مطابق با مشخصات','تست ایمنی – تست سیستم‌های ایمنی، اینترلاک‌ها و سیستم‌های خاموشی اضطراری','آموزش – آموزش اپراتورها و پرسنل نگهداری در مورد عملکرد سیستم و عیب‌یابی','تحویل – انتقال رسمی سیستم به کارفرما با تمام مستندات، گواهینامه‌ها و تأییدیه‌ها'],
-            s3: '🔹 مستندات راه‌اندازی',
-            list2: ['برنامه راه‌اندازی – زمان‌بندی دقیق، رویه‌ها و مسئولیت‌ها','رویه‌های تست – دستورالعمل‌های گام‌به‌گام برای هر تست','گزارش‌های تست – سوابق تمام نتایج تست و انحرافات','نقشه‌های as-built – نقشه‌های به‌روز شده منعکس‌کننده نصب واقعی','دفترچه‌های راهنما و نگهداری – راهنماهای جامع برای اپراتورها','گواهی پذیرش – سند رسمی تحویل که توسط کارفرما امضا می‌شود'],
-            s4: '🔹 مثال: راه‌اندازی یک نیروگاه توربین گازی',
-            s4p: 'یک نیروگاه توربین گازی در سه فاز راه‌اندازی می‌شود: (۱) پیش‌راه‌اندازی – فلاشینگ سیستم‌های روغن، تست فشار و بازرسی تمام اجزاء، (۲) شروع به کار – اولین احتراق، همگام‌سازی با شبکه و تست بار، (۳) تست عملکرد – تأیید خروجی، نرخ حرارت و انتشار در بار کامل. تیم راه‌اندازی تمام نتایج را مستند، تیم عملیات را آموزش و نیروگاه را به کارفرما تحویل می‌دهد.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Commissioning Phase',
+  desc: 'System startup, functional testing, and verification of all systems.',
+  s1: 'What is Commissioning?',
+  s1p: 'Commissioning is the final testing phase where the system is started up, all functions are verified, and the system is confirmed to meet specifications. It includes powering up the system, running through all operating modes, and checking alarms and interlocks.',
+  s2: 'Commissioning Steps',
+  list1: ['System Power-Up – Energize in stages','Function Testing – Test all modes of operation','Alarm Testing – Verify alarm conditions','Interlock Testing – Check safety circuits','Communication Testing – Check all protocols','Performance Testing – Under load conditions','Documentation – Record all test results'],
+  s3: 'Commissioning Documentation',
+  list2: ['Commissioning Plan – Step-by-step procedure','Test Logs – Records of all tests','Issue Log – Any problems and resolutions','Sign-off Certificate – Client acceptance'],
+  s4: 'Example: Commissioning Checklist',
+  s5: 'Example: Panel Commissioning',
+  s5p: 'Panel commissioning involves powering up the panel, checking all indicators and displays, testing each motor start/stop, verifying alarm and interlock functions, confirming communication with SCADA, and performing a performance test. Results are documented and submitted to the client.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مرحله راه‌اندازی',
+  desc: 'شروع سیستم، تست عملکردی و تأیید تمام سیستم‌ها.',
+  s1: 'راه‌اندازی چیست؟',
+  s1p: 'راه‌اندازی مرحله نهایی تست است که در آن سیستم راه‌اندازی می‌شود، تمام عملکردها تأیید می‌شوند و سیستم مطابق با مشخصات تأیید می‌شود. شامل روشن کردن سیستم، اجرای تمام حالت‌های عملیاتی و بررسی هشدارها و قفل‌های متقابل است.',
+  s2: 'مراحل راه‌اندازی',
+  list1: ['برق‌گیری سیستم – برق‌گیری مرحله‌ای','تست عملکرد – تست تمام حالت‌های عملیات','تست هشدار – تأیید شرایط هشدار','تست قفل‌های متقابل – بررسی مدارهای ایمنی','تست ارتباطات – بررسی تمام پروتکل‌ها','تست عملکرد – تحت شرایط بار','مستندات – ثبت تمام نتایج تست'],
+  s3: 'مدارک راه‌اندازی',
+  list2: ['برنامه راه‌اندازی – رویه گام‌به‌گام','گزارش‌های تست – سوابق تمام تست‌ها','گزارش مشکلات – مشکلات و راه‌حل‌ها','گواهی تأیید – پذیرش کارفرما'],
+  s4: 'مثال: چک‌لیست راه‌اندازی',
+  s5: 'مثال: راه‌اندازی پنل',
+  s5p: 'راه‌اندازی پنل شامل برق‌گیری پنل، بررسی تمام نشانگرها و نمایشگرها، تست هر استارت/توقف موتور، تأیید عملکرد هشدارها و قفل‌های متقابل، تأیید ارتباط با SCADA و انجام تست عملکرد است. نتایج مستند شده و به کارفرما ارائه می‌شود.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
