@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Occupational Health</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Occupational Health</h1>
+ <div class="sub" id="desc">Workplace health, hygiene, ergonomics, and wellness in engineering environments.</div>
+ <div class="section">
+  <h2 id="s1">What is Occupational Health?</h2>
+  <p id="s1p">Occupational health is the branch of healthcare focused on the physical and mental well-being of workers. It involves preventing work-related injuries and illnesses, promoting health, and ensuring a safe and healthy work environment.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Health Hazards</h2>
+  <ul id="list1">
+   <li>Chemical Exposure – Gases, vapors, dusts, fumes</li>
+   <li>Biological Hazards – Bacteria, viruses, fungi</li>
+   <li>Physical Agents – Noise, heat, cold, vibration</li>
+   <li>Ergonomic Factors – Repetitive tasks, heavy lifting</li>
+   <li>Psychological Factors – Stress, burnout, bullying</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Occupational Health Programs</h2>
+  <ul id="list2">
+   <li>Medical Surveillance – Health monitoring and screening</li>
+   <li>Health Promotion – Wellness programs, fitness, nutrition</li>
+   <li>Stress Management – Counseling, mental health support</li>
+   <li>Ergonomic Assessments – Workstation optimization</li>
+   <li>Hearing Conservation – Noise monitoring and protection</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Ergonomics in Engineering</h2>
+  <ul id="list3">
+   <li>Workstation Setup – Proper chair height, monitor position</li>
+   <li>Manual Handling – Safe lifting techniques</li>
+   <li>Repetitive Strain Prevention – Regular breaks, stretching</li>
+   <li>Tool Design – Ergonomic tools reduce strain</li>
+  </ul>
+  <p id="s4p">Good ergonomics reduces injuries and improves productivity.</p>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Hearing Conservation Program</h2>
+  <p id="s5p">A hearing conservation program includes: noise monitoring to identify hazardous areas, providing hearing protection (earplugs or earmuffs), training on hearing protection, and regular audiometric testing to detect early hearing loss.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
+</div>
+<script>
+const lang = {
+ en: {
+  title: 'Occupational Health',
+  desc: 'Workplace health, hygiene, ergonomics, and wellness in engineering environments.',
+  s1: 'What is Occupational Health?',
+  s1p: 'Occupational health is the branch of healthcare focused on the physical and mental well-being of workers. It involves preventing work-related injuries and illnesses, promoting health, and ensuring a safe and healthy work environment.',
+  s2: 'Health Hazards',
+  list1: ['Chemical Exposure – Gases, vapors, dusts, fumes','Biological Hazards – Bacteria, viruses, fungi','Physical Agents – Noise, heat, cold, vibration','Ergonomic Factors – Repetitive tasks, heavy lifting','Psychological Factors – Stress, burnout, bullying'],
+  s3: 'Occupational Health Programs',
+  list2: ['Medical Surveillance – Health monitoring and screening','Health Promotion – Wellness programs, fitness, nutrition','Stress Management – Counseling, mental health support','Ergonomic Assessments – Workstation optimization','Hearing Conservation – Noise monitoring and protection'],
+  s4: 'Ergonomics in Engineering',
+  list3: ['Workstation Setup – Proper chair height, monitor position','Manual Handling – Safe lifting techniques','Repetitive Strain Prevention – Regular breaks, stretching','Tool Design – Ergonomic tools reduce strain'],
+  s4p: 'Good ergonomics reduces injuries and improves productivity.',
+  s5: 'Example: Hearing Conservation Program',
+  s5p: 'A hearing conservation program includes: noise monitoring to identify hazardous areas, providing hearing protection (earplugs or earmuffs), training on hearing protection, and regular audiometric testing to detect early hearing loss.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'بهداشت شغلی',
+  desc: 'بهداشت محیط کار، ارگونومی و تندرستی در محیط‌های مهندسی.',
+  s1: 'بهداشت شغلی چیست؟',
+  s1p: 'بهداشت شغلی شاخه‌ای از مراقبت‌های بهداشتی است که بر سلامت جسمی و روانی کارگران متمرکز است. شامل پیشگیری از صدمات و بیماری‌های مرتبط با کار، ارتقای سلامت و تضمین یک محیط کار ایمن و سالم است.',
+  s2: 'خطرات بهداشتی',
+  list1: ['مواجهه شیمیایی – گازها، بخارات، گرد و غبار، دود','خطرات بیولوژیکی – باکتری‌ها، ویروس‌ها، قارچ‌ها','عوامل فیزیکی – صدا، گرما، سرما، ارتعاش','عوامل ارگونومیک – وظایف تکراری، بلند کردن سنگین','عوامل روانشناختی – استرس، فرسودگی، قلدری'],
+  s3: 'برنامه‌های بهداشت شغلی',
+  list2: ['نظارت پزشکی – پایش و غربالگری سلامت','ارتقای سلامت – برنامه‌های تندرستی، تناسب اندام، تغذیه','مدیریت استرس – مشاوره، حمایت از سلامت روان','ارزیابی‌های ارگونومیک – بهینه‌سازی ایستگاه کار','حفاظت از شنوایی – پایش صدا و محافظت'],
+  s4: 'ارگونومی در مهندسی',
+  list3: ['تنظیم ایستگاه کار – ارتفاع مناسب صندلی، موقعیت مانیتور','جابجایی دستی – تکنیک‌های بلند کردن ایمن','پیشگیری از فشار تکراری – استراحت‌های منظم، کشش','طراحی ابزار – ابزارهای ارگونومیک کاهش فشار'],
+  s4p: 'ارگونومی خوب باعث کاهش صدمات و افزایش بهره‌وری می‌شود.',
+  s5: 'مثال: برنامه حفاظت از شنوایی',
+  s5p: 'یک برنامه حفاظت از شنوایی شامل: پایش صدا برای شناسایی مناطق پرخطر، ارائه محافظ شنوایی (گوش‌گیر یا گوشی)، آموزش در مورد محافظت از شنوایی و تست شنوایی منظم برای تشخیص زودهنگام کاهش شنوایی است.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
+</body>
+</html>
