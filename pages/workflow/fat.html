@@ -1,152 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Factory Acceptance Test</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · FAT</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">🧪 Factory Acceptance Test (FAT)</h1>
-    <div class="sub" id="desc">The Factory Acceptance Test (FAT) is a critical quality milestone performed at the supplier's facility to verify that equipment meets specifications before shipping to site.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What is FAT?</h2>
-        <p id="s1p">Factory Acceptance Testing (FAT) is the process of testing equipment and systems at the manufacturer's factory before they are shipped to the project site. It validates that the equipment performs according to specifications and meets all functional and performance requirements. FAT reduces the risk of failures during installation and commissioning.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Key FAT Activities</h2>
-        <ul id="list1">
-            <li><b>Visual Inspection</b> – Check for physical defects, labeling, and correct component installation</li>
-            <li><b>Functional Testing</b> – Test all control functions, interlocks, and sequences</li>
-            <li><b>Performance Testing</b> – Verify capacity, efficiency, and response times</li>
-            <li><b>Safety Testing</b> – Ensure all safety systems and interlocks operate correctly</li>
-            <li><b>Documentation Review</b> – Verify all manuals, drawings, and certificates are complete</li>
-            <li><b>Test Reports</b> – Document all test results and sign off</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 FAT Participants</h2>
-        <ul id="list2">
-            <li><b>Supplier</b> – Manufacturer or fabricator of the equipment</li>
-            <li><b>Client</b> – Owner or project representative</li>
-            <li><b>Engineering Team</b> – Design engineers who verify compliance with specifications</li>
-            <li><b>Quality Team</b> – QA/QC personnel ensuring quality standards are met</li>
-            <li><b>Third-Party Inspectors</b> – Independent inspection agencies (if required)</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: FAT for a Motor Control Center</h2>
-        <p id="s4p">A motor control center (MCC) is subjected to FAT at the supplier's workshop. The tests include verifying wiring against schematics, testing each starter for proper operation, checking interlock logic, and verifying communication to the SCADA system. A punch list is created for any deficiencies, which are corrected before shipment. The client signs off after all tests pass.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Factory Acceptance Test (FAT)</h1>
+ <div class="sub" id="desc">Testing and verifying the panel at the manufacturer's facility before shipment.</div>
+ <div class="section">
+  <h2 id="s1">What is FAT?</h2>
+  <p id="s1p">Factory Acceptance Test (FAT) is a comprehensive testing procedure conducted at the manufacturer's facility to verify that the panel meets all specifications and functions correctly before shipment. It ensures that the panel is ready for installation and reduces risks at site.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">FAT Procedure Steps</h2>
+  <ul id="list1">
+   <li>Visual Inspection – Panel construction and labeling</li>
+   <li>Continuity Testing – Wiring verification</li>
+   <li>Insulation Test – Megger test for insulation</li>
+   <li>Power Up – Supply voltage verification</li>
+   <li>Function Test – I/O and control logic testing</li>
+   <li>Communication Test – Networking verification</li>
+   <li>Safety Check – Grounding and protection</li>
+   <li>Documentation – Test results and sign-off</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">FAT Documentation</h2>
+  <ul id="list2">
+   <li>Test Procedure – Step-by-step test plan</li>
+   <li>Test Results – Pass/fail records</li>
+   <li>Non-Conformance Report – For any issues found</li>
+   <li>Sign-off Document – Client approval</li>
+   <li>As-built Drawings – Updated if changes were made</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: FAT Checklist</h2>
+  <div class="code-box">
+# FAT Checklist for Control Panel
+# 1. Visual inspection passed [  ]
+# 2. Continuity tests passed [  ]
+# 3. Insulation resistance > 1 MΩ [  ]
+# 4. Power-up test passed [  ]
+# 5. All I/O channels tested [  ]
+# 6. HMI communication verified [  ]
+# 7. Alarm functions tested [  ]
+# 8. Safety circuits tested [  ]
+# 9. Documentation complete [  ]
+  </div>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: FAT for MCC Panel</h2>
+  <p id="s5p">A FAT for an MCC panel tests all motor starters, verifies PLC logic, checks communication with SCADA, and simulates field signals. The client observes the test and signs off if all requirements are met. Any issues are documented and corrected before shipment.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🧪 Factory Acceptance Test (FAT)',
-            desc: 'The Factory Acceptance Test (FAT) is a critical quality milestone performed at the supplier\'s facility to verify that equipment meets specifications before shipping to site.',
-            s1: '🔹 What is FAT?',
-            s1p: 'Factory Acceptance Testing (FAT) is the process of testing equipment and systems at the manufacturer\'s factory before they are shipped to the project site. It validates that the equipment performs according to specifications and meets all functional and performance requirements. FAT reduces the risk of failures during installation and commissioning.',
-            s2: '🔹 Key FAT Activities',
-            list1: ['Visual Inspection – Check for physical defects, labeling, and correct component installation','Functional Testing – Test all control functions, interlocks, and sequences','Performance Testing – Verify capacity, efficiency, and response times','Safety Testing – Ensure all safety systems and interlocks operate correctly','Documentation Review – Verify all manuals, drawings, and certificates are complete','Test Reports – Document all test results and sign off'],
-            s3: '🔹 FAT Participants',
-            list2: ['Supplier – Manufacturer or fabricator of the equipment','Client – Owner or project representative','Engineering Team – Design engineers who verify compliance with specifications','Quality Team – QA/QC personnel ensuring quality standards are met','Third-Party Inspectors – Independent inspection agencies (if required)'],
-            s4: '🔹 Example: FAT for a Motor Control Center',
-            s4p: 'A motor control center (MCC) is subjected to FAT at the supplier\'s workshop. The tests include verifying wiring against schematics, testing each starter for proper operation, checking interlock logic, and verifying communication to the SCADA system. A punch list is created for any deficiencies, which are corrected before shipment. The client signs off after all tests pass.',
-            back: '← Back'
-        },
-        fa: {
-            title: '🧪 تست پذیرش کارخانه (FAT)',
-            desc: 'تست پذیرش کارخانه (FAT) یک نقطه عطف حیاتی کیفیت است که در محل تأمین‌کننده انجام می‌شود تا تأیید کند تجهیزات قبل از ارسال به سایت مطابق با مشخصات هستند.',
-            s1: '🔹 FAT چیست؟',
-            s1p: 'تست پذیرش کارخانه (FAT) فرآیند آزمایش تجهیزات و سیستم‌ها در کارخانه تولید کننده قبل از ارسال به سایت پروژه است. این تست تأیید می‌کند که تجهیزات مطابق با مشخصات عمل کرده و تمام الزامات عملکردی و کارایی را برآورده می‌کنند. FAT خطر خرابی در طول نصب و راه‌اندازی را کاهش می‌دهد.',
-            s2: '🔹 فعالیت‌های کلیدی FAT',
-            list1: ['بازرسی بصری – بررسی عیوب فیزیکی، برچسب‌گذاری و نصب صحیح قطعات','تست عملکردی – تست تمام عملکردهای کنترلی، اینترلاک‌ها و توالی‌ها','تست عملکرد – تأیید ظرفیت، کارایی و زمان پاسخ','تست ایمنی – اطمینان از عملکرد صحیح تمام سیستم‌های ایمنی و اینترلاک‌ها','بررسی مستندات – تأیید کامل بودن تمام دفترچه‌ها، نقشه‌ها و گواهینامه‌ها','گزارش‌های تست – مستندسازی تمام نتایج تست و تأیید نهایی'],
-            s3: '🔹 شرکت‌کنندگان در FAT',
-            list2: ['تأمین‌کننده – تولیدکننده یا سازنده تجهیزات','کارفرما – مالک یا نماینده پروژه','تیم مهندسی – مهندسان طراح که انطباق با مشخصات را تأیید می‌کنند','تیم کیفیت – پرسنل QA/QC که کیفیت را تضمین می‌کنند','بازرسان شخص ثالث – آژانس‌های بازرسی مستقل (در صورت نیاز)'],
-            s4: '🔹 مثال: FAT برای مرکز کنترل موتور',
-            s4p: 'یک مرکز کنترل موتور (MCC) در کارگاه تأمین‌کننده تحت FAT قرار می‌گیرد. تست‌ها شامل تأیید سیم‌کشی مطابق با شماتیک، تست هر استارت برای عملکرد صحیح، بررسی منطق اینترلاک و تأیید ارتباط با سیستم SCADA است. یک لیست اصلاحی برای هر گونه نقص ایجاد می‌شود که قبل از ارسال اصلاح می‌شوند. کارفرما پس از قبولی تمام تست‌ها تأیید نهایی را امضا می‌کند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Factory Acceptance Test (FAT)',
+  desc: 'Testing and verifying the panel at the manufacturer\'s facility before shipment.',
+  s1: 'What is FAT?',
+  s1p: 'Factory Acceptance Test (FAT) is a comprehensive testing procedure conducted at the manufacturer\'s facility to verify that the panel meets all specifications and functions correctly before shipment. It ensures that the panel is ready for installation and reduces risks at site.',
+  s2: 'FAT Procedure Steps',
+  list1: ['Visual Inspection – Panel construction and labeling','Continuity Testing – Wiring verification','Insulation Test – Megger test for insulation','Power Up – Supply voltage verification','Function Test – I/O and control logic testing','Communication Test – Networking verification','Safety Check – Grounding and protection','Documentation – Test results and sign-off'],
+  s3: 'FAT Documentation',
+  list2: ['Test Procedure – Step-by-step test plan','Test Results – Pass/fail records','Non-Conformance Report – For any issues found','Sign-off Document – Client approval','As-built Drawings – Updated if changes were made'],
+  s4: 'Example: FAT Checklist',
+  s5: 'Example: FAT for MCC Panel',
+  s5p: 'A FAT for an MCC panel tests all motor starters, verifies PLC logic, checks communication with SCADA, and simulates field signals. The client observes the test and signs off if all requirements are met. Any issues are documented and corrected before shipment.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'تست پذیرش کارخانه (FAT)',
+  desc: 'تست و تأیید پنل در محل تولیدکننده قبل از ارسال.',
+  s1: 'FAT چیست؟',
+  s1p: 'تست پذیرش کارخانه (FAT) یک رویه تست جامع است که در محل تولیدکننده برای تأیید اینکه پنل تمام مشخصات را برآورده کرده و به درستی کار می‌کند قبل از ارسال انجام می‌شود. این تضمین می‌کند که پنل برای نصب آماده است و ریسک‌ها را در سایت کاهش می‌دهد.',
+  s2: 'مراحل رویه FAT',
+  list1: ['بازرسی بصری – ساخت و برچسب‌گذاری پنل','تست پیوستگی – تأیید سیم‌کشی','تست عایق – تست مگر برای عایق','برق‌گیری – تأیید ولتاژ تغذیه','تست عملکرد – تست I/O و منطق کنترل','تست ارتباطات – تأیید شبکه','بررسی ایمنی – ارتینگ و حفاظت','مستندات – نتایج تست و تأیید'],
+  s3: 'مدارک FAT',
+  list2: ['رویه تست – برنامه تست گام‌به‌گام','نتایج تست – سوابق قبولی/رد','گزارش عدم انطباق – برای هرگونه مشکل یافت شده','سند تأیید – تأیید کارفرما','نقشه‌های ساخته‌شده – در صورت تغییرات به‌روزرسانی شده'],
+  s4: 'مثال: چک‌لیست FAT',
+  s5: 'مثال: FAT برای پنل MCC',
+  s5p: 'یک FAT برای پنل MCC تمام استارت موتورها را تست می‌کند، منطق PLC را تأیید می‌کند، ارتباط با SCADA را بررسی می‌کند و سیگنال‌های میدان را شبیه‌سازی می‌کند. کارفرما تست را مشاهده کرده و در صورت برآورده شدن تمام نیازمندی‌ها تأیید می‌کند. هرگونه مشکل مستند شده و قبل از ارسال اصلاح می‌شود.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
