@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Software Resources</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Software Resources</h1>
+ <div class="sub" id="desc">Additional resources, guides, and references for engineering software tools.</div>
+
+ <div class="section">
+  <h2 id="s1">Official Resources</h2>
+  <ul id="list1">
+   <li>Autodesk Knowledge Network – AutoCAD tutorials</li>
+   <li>EPLAN Community – User forums and support</li>
+   <li>Siemens Industry Online Support – TIA Portal, WinCC, STEP7</li>
+   <li>Codesys Store – Add-ons and libraries</li>
+   <li>Weintek Support – EasyBuilder guides</li>
+  </ul>
+ </div>
+
+ <div class="section">
+  <h2 id="s2">Learning Platforms</h2>
+  <ul id="list2">
+   <li>YouTube – Tutorials and training videos</li>
+   <li>Udemy – Structured online courses</li>
+   <li>LinkedIn Learning – Professional development</li>
+   <li>PLC Academy – Free and paid training</li>
+   <li>Factory IO Academy – Simulation training</li>
+  </ul>
+ </div>
+
+ <div class="section">
+  <h2 id="s3">Certifications</h2>
+  <ul id="list3">
+   <li>AutoCAD Certified User/Professional</li>
+   <li>EPLAN Certified Engineer</li>
+   <li>Siemens TIA Portal Certified</li>
+   <li>Codesys Certified Developer</li>
+   <li>ISA Certified Automation Professional (CAP)</li>
+  </ul>
+ </div>
+
+ <div class="section">
+  <h2 id="s4">Future Software <span style="color:#d4af37;font-size:.7rem;background:rgba(212,175,55,0.12);padding:2px 12px;border-radius:20px;margin-left:8px;">Coming Soon</span></h2>
+  <ul id="list4">
+   <li>Cloud-Based Engineering Platforms</li>
+   <li>AI-Assisted Programming</li>
+   <li>Digital Twin Software</li>
+   <li>IoT and Edge Computing Tools</li>
+   <li>AR/VR for Engineering</li>
+  </ul>
+ </div>
+
+ <div class="section">
+  <h2 id="s5">Example: Building a Software Stack</h2>
+  <p id="s5p">An automation engineer's typical software stack includes: AutoCAD Electrical for schematics, EPLAN for panel design, TIA Portal for PLC programming, WinCC for SCADA, and Factory IO for simulation. Each tool is selected based on project requirements and client preferences.</p>
+ </div>
+
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
+</div>
+<script>
+const lang = {
+ en: {
+  title: 'Software Resources',
+  desc: 'Additional resources, guides, and references for engineering software tools.',
+  s1: 'Official Resources',
+  list1: ['Autodesk Knowledge Network – AutoCAD tutorials','EPLAN Community – User forums and support','Siemens Industry Online Support – TIA Portal, WinCC, STEP7','Codesys Store – Add-ons and libraries','Weintek Support – EasyBuilder guides'],
+  s2: 'Learning Platforms',
+  list2: ['YouTube – Tutorials and training videos','Udemy – Structured online courses','LinkedIn Learning – Professional development','PLC Academy – Free and paid training','Factory IO Academy – Simulation training'],
+  s3: 'Certifications',
+  list3: ['AutoCAD Certified User/Professional','EPLAN Certified Engineer','Siemens TIA Portal Certified','Codesys Certified Developer','ISA Certified Automation Professional (CAP)'],
+  s4: 'Future Software',
+  list4: ['Cloud-Based Engineering Platforms','AI-Assisted Programming','Digital Twin Software','IoT and Edge Computing Tools','AR/VR for Engineering'],
+  s5: 'Example: Building a Software Stack',
+  s5p: 'An automation engineer\'s typical software stack includes: AutoCAD Electrical for schematics, EPLAN for panel design, TIA Portal for PLC programming, WinCC for SCADA, and Factory IO for simulation. Each tool is selected based on project requirements and client preferences.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'منابع نرم‌افزاری',
+  desc: 'منابع اضافی، راهنماها و مراجع برای ابزارهای نرم‌افزاری مهندسی.',
+  s1: 'منابع رسمی',
+  list1: ['شبکه دانش Autodesk – آموزش‌های AutoCAD','انجمن EPLAN – انجمن‌های کاربران و پشتیبانی','پشتیبانی آنلاین زیمنس – TIA Portal، WinCC، STEP7','فروشگاه Codesys – افزونه‌ها و کتابخانه‌ها','پشتیبانی Weintek – راهنماهای EasyBuilder'],
+  s2: 'پلتفرم‌های یادگیری',
+  list2: ['YouTube – آموزش‌ها و ویدئوهای آموزشی','Udemy – دوره‌های آنلاین ساختاریافته','LinkedIn Learning – توسعه حرفه‌ای','PLC Academy – آموزش رایگان و پولی','Factory IO Academy – آموزش شبیه‌سازی'],
+  s3: 'گواهینامه‌ها',
+  list3: ['گواهینامه AutoCAD کاربر/حرفه‌ای','مهندس گواهی‌شده EPLAN','گواهینامه TIA Portal زیمنس','توسعه‌دهنده گواهی‌شده Codesys','حرفه‌ای گواهی‌شده اتوماسیون ISA (CAP)'],
+  s4: 'نرم‌افزارهای آینده',
+  list4: ['پلتفرم‌های مهندسی مبتنی بر ابر','برنامه‌نویسی با کمک هوش مصنوعی','نرم‌افزار دوقلوی دیجیتال','ابزارهای IoT و محاسبات لبه','AR/VR برای مهندسی'],
+  s5: 'مثال: ساخت یک مجموعه نرم‌افزاری',
+  s5p: 'مجموعه نرم‌افزاری معمولی یک مهندس اتوماسیون شامل: AutoCAD Electrical برای شماتیک، EPLAN برای طراحی پنل، TIA Portal برای برنامه‌نویسی PLC، WinCC برای SCADA و Factory IO برای شبیه‌سازی است. هر ابزار بر اساس نیازهای پروژه و ترجیحات کارفرما انتخاب می‌شود.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
+</body>
+</html>
