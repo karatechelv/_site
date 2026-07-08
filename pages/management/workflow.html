@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Workflow Management</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .flow-container{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;background:#0d0e12;padding:20px;border-radius:12px;margin:12px 0;border:1px solid rgba(212,175,55,0.08)}
+ .flow-step{display:flex;align-items:center;gap:6px;background:#1e2128;padding:8px 16px;border-radius:30px;font-size:.85rem;font-weight:500;border:1px solid rgba(255,255,255,0.04)}
+ .flow-step i{color:#d4af37;font-size:.9rem}
+ .flow-arrow{color:#8e95a5;font-size:1.2rem;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Workflow Management</h1>
+ <div class="sub" id="desc">Designing, optimizing, and managing workflows in engineering projects for efficiency and quality.</div>
+ <div class="section">
+  <h2 id="s1">What is Workflow Management?</h2>
+  <p id="s1p">Workflow management is the coordination and optimization of tasks, activities, and processes to achieve efficient and effective project execution. It involves analyzing current workflows, identifying bottlenecks, and implementing improvements.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Workflow Design Principles</h2>
+  <ul id="list1">
+   <li>Simplicity – Minimize unnecessary steps</li>
+   <li>Standardization – Use consistent processes</li>
+   <li>Automation – Reduce manual tasks</li>
+   <li>Visibility – Clear task status and handoffs</li>
+   <li>Continuous Improvement – Regular review and optimization</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Engineering Workflow Example</h2>
+  <div class="flow-container">
+   <span class="flow-step"><i class="fas fa-file-pdf"></i> P&ID</span>
+   <span class="flow-arrow">→</span>
+   <span class="flow-step"><i class="fas fa-pencil-ruler"></i> Design</span>
+   <span class="flow-arrow">→</span>
+   <span class="flow-step"><i class="fas fa-layer-group"></i> Panel</span>
+   <span class="flow-arrow">→</span>
+   <span class="flow-step"><i class="fas fa-shopping-cart"></i> Procurement</span>
+   <span class="flow-arrow">→</span>
+   <span class="flow-step"><i class="fas fa-tools"></i> Assembly</span>
+   <span class="flow-arrow">→</span>
+   <span class="flow-step"><i class="fas fa-vial"></i> FAT</span>
+   <span class="flow-arrow">→</span>
+   <span class="flow-step"><i class="fas fa-plug"></i> Install</span>
+   <span class="flow-arrow">→</span>
+   <span class="flow-step"><i class="fas fa-play"></i> SAT</span>
+   <span class="flow-arrow">→</span>
+   <span class="flow-step"><i class="fas fa-file-alt"></i> Docs</span>
+  </div>
+ </div>
+ <div class="section">
+  <h2 id="s4">Workflow Optimization</h2>
+  <ul id="list2">
+   <li>Value Stream Mapping – Identify value-adding steps</li>
+   <li>Bottleneck Analysis – Identify constraints</li>
+   <li>Process Automation – Reduce manual work</li>
+   <li>Performance Metrics – Track efficiency</li>
+   <li>Standard Operating Procedures (SOPs) – Document processes</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Optimized Panel Assembly Workflow</h2>
+  <p id="s5p">A panel assembly workflow optimized through lean principles: simultaneous design and procurement, parallel assembly of sub-assemblies, automated testing, and continuous tracking. This reduces lead time from 6 weeks to 3 weeks.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
+</div>
+<script>
+const lang = {
+ en: {
+  title: 'Workflow Management',
+  desc: 'Designing, optimizing, and managing workflows in engineering projects for efficiency and quality.',
+  s1: 'What is Workflow Management?',
+  s1p: 'Workflow management is the coordination and optimization of tasks, activities, and processes to achieve efficient and effective project execution. It involves analyzing current workflows, identifying bottlenecks, and implementing improvements.',
+  s2: 'Workflow Design Principles',
+  list1: ['Simplicity – Minimize unnecessary steps','Standardization – Use consistent processes','Automation – Reduce manual tasks','Visibility – Clear task status and handoffs','Continuous Improvement – Regular review and optimization'],
+  s3: 'Engineering Workflow Example',
+  s4: 'Workflow Optimization',
+  list2: ['Value Stream Mapping – Identify value-adding steps','Bottleneck Analysis – Identify constraints','Process Automation – Reduce manual work','Performance Metrics – Track efficiency','Standard Operating Procedures (SOPs) – Document processes'],
+  s5: 'Example: Optimized Panel Assembly Workflow',
+  s5p: 'A panel assembly workflow optimized through lean principles: simultaneous design and procurement, parallel assembly of sub-assemblies, automated testing, and continuous tracking. This reduces lead time from 6 weeks to 3 weeks.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مدیریت جریان کار',
+  desc: 'طراحی، بهینه‌سازی و مدیریت جریان‌های کار در پروژه‌های مهندسی برای کارایی و کیفیت.',
+  s1: 'مدیریت جریان کار چیست؟',
+  s1p: 'مدیریت جریان کار، هماهنگی و بهینه‌سازی وظایف، فعالیت‌ها و فرآیندها برای دستیابی به اجرای کارآمد و مؤثر پروژه است. شامل تحلیل جریان‌های کاری فعلی، شناسایی گلوگاه‌ها و اجرای بهبودها است.',
+  s2: 'اصول طراحی جریان کار',
+  list1: ['سادگی – به حداقل رساندن مراحل غیرضروری','استانداردسازی – استفاده از فرآیندهای یکنواخت','اتوماسیون – کاهش کارهای دستی','دیدپذیری – وضعیت واضح وظایف','بهبود مستمر – بررسی و بهینه‌سازی منظم'],
+  s3: 'مثال جریان کار مهندسی',
+  s4: 'بهینه‌سازی جریان کار',
+  list2: ['نقشه‌برداری جریان ارزش – شناسایی مراحل ارزش‌افزا','تحلیل گلوگاه – شناسایی محدودیت‌ها','اتوماسیون فرآیند – کاهش کار دستی','معیارهای عملکرد – پیگیری کارایی','رویه‌های عملیاتی استاندارد (SOP) – مستندسازی فرآیندها'],
+  s5: 'مثال: جریان کار مونتاژ پنل بهینه‌شده',
+  s5p: 'یک جریان کار مونتاژ پنل بهینه‌شده با استفاده از اصول ناب: طراحی و تأمین همزمان، مونتاژ موازی زیرمجموعه‌ها، تست خودکار و پیگیری مستمر. این کار زمان تحویل را از 6 هفته به 3 هفته کاهش می‌دهد.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
+</body>
+</html>
