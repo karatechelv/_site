@@ -3,7 +3,7 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Karatech ELV · Engineering Workflow</title>
+ <title>Karatech ELV · Engineering Tools</title>
  <style>
  *{margin:0;padding:0;box-sizing:border-box}
  body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
@@ -17,7 +17,7 @@
  .lang-switch{display:flex;gap:6px}
  h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
  .sub{color:#8e95a5;font-size:1.05rem;line-height:1.8;margin-bottom:30px}
- .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-bottom:30px}
+ .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:30px}
  .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
  .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
  .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
@@ -41,38 +41,36 @@
    <button class="lang-btn" data-lang="fa">FA</button>
   </div>
  </div>
- <h1 id="page-title">Engineering Workflow</h1>
- <div class="sub" id="page-sub">Complete engineering workflow from P&ID to Operation with visual process flow and best practices.</div>
+ <h1 id="page-title">Engineering Tools</h1>
+ <div class="sub" id="page-sub">Calculators, converters, reference tables, and engineering utilities for electrical and automation engineering.</div>
  <div class="grid" id="cards-grid">
-  <a href="workflow/overview.html" class="card"><i>📋</i><h3>Overview</h3><p>Complete overview</p><span class="badge">Learn More →</span></a>
-  <a href="workflow/pid.html" class="card"><i>📄</i><h3>P&amp;ID</h3><p>Piping &amp; instrumentation diagrams</p><span class="badge">Learn More →</span></a>
-  <a href="workflow/design.html" class="card"><i>✏️</i><h3>Design</h3><p>Engineering design phase</p><span class="badge">Learn More →</span></a>
-  <a href="workflow/panel.html" class="card"><i>📦</i><h3>Panel Design</h3><p>Panel layout &amp; wiring</p><span class="badge">Learn More →</span></a>
-  <a href="workflow/procurement.html" class="card"><i>🛒</i><h3>Procurement</h3><p>Material sourcing</p><span class="badge">Learn More →</span></a>
-  <a href="workflow/assembly.html" class="card"><i>🔧</i><h3>Assembly</h3><p>Panel assembly</p><span class="badge">Learn More →</span></a>
-  <a href="workflow/fat.html" class="card"><i>🧪</i><h3>FAT</h3><p>Factory acceptance test</p><span class="badge">Learn More →</span></a>
-  <a href="workflow/installation.html" class="card"><i>🔌</i><h3>Installation</h3><p>On-site installation</p><span class="badge">Learn More →</span></a>
-  <a href="workflow/loop-check.html" class="card"><i>🔄</i><h3>Loop Check</h3><p>Instrument loop check</p><span class="badge">Learn More →</span></a>
-  <a href="workflow/commissioning.html" class="card"><i>▶️</i><h3>Commissioning</h3><p>System startup</p><span class="badge">Learn More →</span></a>
-  <a href="workflow/sat.html" class="card"><i>✅</i><h3>SAT</h3><p>Site acceptance test</p><span class="badge">Learn More →</span></a>
-  <a href="workflow/documentation.html" class="card"><i>📁</i><h3>Documentation</h3><p>As-built docs</p><span class="badge">Learn More →</span></a>
-  <a href="workflow/operation.html" class="card"><i>⚙️</i><h3>Operation</h3><p>System operation</p><span class="badge">Learn More →</span></a>
+  <a href="tools/voltage-drop.html" class="card"><i>⚡</i><h3>Voltage Drop</h3><p>Calculate voltage drop</p><span class="badge">Calculator</span></a>
+  <a href="tools/power-factor.html" class="card"><i>📈</i><h3>Power Factor</h3><p>Power factor correction</p><span class="badge">Calculator</span></a>
+  <a href="tools/cable-size.html" class="card"><i>📏</i><h3>Cable Size</h3><p>Select cable size</p><span class="badge">Calculator</span></a>
+  <a href="tools/breaker-selection.html" class="card"><i>🔌</i><h3>Breaker Selection</h3><p>Select circuit breaker</p><span class="badge">Calculator</span></a>
+  <a href="tools/motor-current.html" class="card"><i>🔄</i><h3>Motor Current</h3><p>Calculate motor current</p><span class="badge">Calculator</span></a>
+  <a href="tools/transformer-sizing.html" class="card"><i>⚙️</i><h3>Transformer</h3><p>Transformer sizing</p><span class="badge">Calculator</span></a>
+  <a href="tools/awg-converter.html" class="card"><i>📐</i><h3>AWG Converter</h3><p>AWG to mm²</p><span class="badge">Converter</span></a>
+  <a href="tools/unit-converter.html" class="card"><i>🔄</i><h3>Unit Converter</h3><p>Engineering units</p><span class="badge">Converter</span></a>
+  <a href="tools/ip-rating.html" class="card"><i>💧</i><h3>IP Rating</h3><p>Ingress protection</p><span class="badge">Reference</span></a>
+  <a href="tools/iec-tables.html" class="card"><i>📊</i><h3>IEC Tables</h3><p>Standard tables</p><span class="badge">Reference</span></a>
+  <a href="tools/resources.html" class="card"><i>📚</i><h3>Resources</h3><p>Tools &amp; guides</p><span class="badge">Resources</span></a>
  </div>
  <div class="back">
-  <a href="javascript:history.back()" id="backlink">← Back</a>
+  <a href="index.html" id="backlink">← Back to Home</a>
  </div>
 </div>
 <script>
 const lang = {
  en: {
-  title: 'Engineering Workflow',
-  desc: 'Complete engineering workflow from P&ID to Operation with visual process flow and best practices.',
-  back: '← Back'
+  title: 'Engineering Tools',
+  desc: 'Calculators, converters, reference tables, and engineering utilities for electrical and automation engineering.',
+  back: '← Back to Home'
  },
  fa: {
-  title: 'جریان کار مهندسی',
-  desc: 'جریان کار کامل مهندسی از P&ID تا بهره‌برداری با جریان فرآیند بصری و بهترین روش‌ها.',
-  back: '← بازگشت'
+  title: 'ابزارهای مهندسی',
+  desc: 'ماشین‌حساب‌ها، مبدل‌ها، جداول مرجع و ابزارهای مهندسی برای مهندسی برق و اتوماسیون.',
+  back: '← بازگشت به خانه'
  }
 };
 function setLang(l) {
