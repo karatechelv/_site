@@ -1,160 +1,141 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · HSE Videos & Future</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · HSE Videos & Future</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.7rem;padding:2px 12px;border-radius:20px;margin-left:8px}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Videos &amp; Future Technologies</h1>
+ <div class="sub" id="desc">Video tutorials, upcoming technologies, and future developments in HSE.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="s1">Video Tutorials</h2>
+  <ul id="list1">
+   <li>Introduction to HSE Management</li>
+   <li>How to Conduct a Risk Assessment</li>
+   <li>Lock Out Tag Out (LOTO) Procedure</li>
+   <li>Emergency Response and Evacuation</li>
+   <li>ISO 45001 Implementation</li>
+  </ul>
+ </div>
 
-    <h1 id="title">🎬 HSE Videos & Future</h1>
-    <div class="sub" id="desc">Curated video tutorials and insights into future trends and technologies in health, safety, and environmental management.</div>
+ <div class="section">
+  <h2 id="s2">Future Technologies <span class="badge">Coming Soon</span></h2>
+  <ul id="list2">
+   <li>AI-Powered Safety Monitoring Systems</li>
+   <li>IoT Sensors for Hazard Detection</li>
+   <li>Digital Twins for HSE Training</li>
+   <li>Wearable Safety Technology</li>
+   <li>Automated Incident Reporting Systems</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s1">🔹 Recommended Video Channels</h2>
-        <ul id="list1">
-            <li>OSHA – Safety training and compliance videos</li>
-            <li>ISO – Environmental management and sustainability webinars</li>
-            <li>NEBOSH – Health and safety training and case studies</li>
-            <li>SafetyCulture – Practical safety and inspection tips</li>
-            <li>Environmental Defense Fund – Environmental management and climate change</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s3">Upcoming Content <span class="badge">In Development</span></h2>
+  <ul id="list3">
+   <li>Advanced Risk Assessment Techniques</li>
+   <li>Environmental Sustainability in Engineering</li>
+   <li>Safety Culture and Leadership</li>
+   <li>HSE Auditing and Compliance</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s2">🔹 Popular Video Topics</h2>
-        <ul id="list2">
-            <li>Safety management and leadership (ISO 45001 implementation)</li>
-            <li>Environmental management and sustainability (ISO 14001)</li>
-            <li>Risk assessment techniques (HAZOP, FMEA, JSA)</li>
-            <li>Occupational health and wellbeing programs</li>
-            <li>Incident investigation and root cause analysis</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s4">What's Next?</h2>
+  <p id="s4p">We are continuously developing new video content and exploring emerging technologies in HSE. All future lessons will connect to previous, related, and next topics for a complete learning experience.</p>
+ </div>
 
-    <div class="section">
-        <h2 id="s3">🔹 Future Trends in HSE</h2>
-        <ul id="list3">
-            <li>AI and IoT for real-time safety monitoring (wearables, sensors)</li>
-            <li>Digital twins for safety simulation and risk analysis</li>
-            <li>Blockchain for compliance and supply chain transparency</li>
-            <li>Virtual reality (VR) for safety training and scenario simulation</li>
-            <li>Predictive analytics for incident prevention</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 What's Next in HSE?</h2>
-        <p id="s4p">The future of HSE will be driven by technology, data, and proactive risk management. Digital tools will enable real-time monitoring, predictive analytics, and immersive training. Organizations will focus on building a safety culture that is proactive rather than reactive. Sustainability and ESG (Environmental, Social, Governance) will become integral to HSE strategies, ensuring long-term business resilience and compliance.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🎬 HSE Videos & Future',
-            desc: 'Curated video tutorials and insights into future trends and technologies in health, safety, and environmental management.',
-            s1: '🔹 Recommended Video Channels',
-            list1: ['OSHA – Safety training and compliance videos','ISO – Environmental management and sustainability webinars','NEBOSH – Health and safety training and case studies','SafetyCulture – Practical safety and inspection tips','Environmental Defense Fund – Environmental management and climate change'],
-            s2: '🔹 Popular Video Topics',
-            list2: ['Safety management and leadership (ISO 45001 implementation)','Environmental management and sustainability (ISO 14001)','Risk assessment techniques (HAZOP, FMEA, JSA)','Occupational health and wellbeing programs','Incident investigation and root cause analysis'],
-            s3: '🔹 Future Trends in HSE',
-            list3: ['AI and IoT for real-time safety monitoring (wearables, sensors)','Digital twins for safety simulation and risk analysis','Blockchain for compliance and supply chain transparency','Virtual reality (VR) for safety training and scenario simulation','Predictive analytics for incident prevention'],
-            s4: '🔹 What\'s Next in HSE?',
-            s4p: 'The future of HSE will be driven by technology, data, and proactive risk management. Digital tools will enable real-time monitoring, predictive analytics, and immersive training. Organizations will focus on building a safety culture that is proactive rather than reactive. Sustainability and ESG (Environmental, Social, Governance) will become integral to HSE strategies, ensuring long-term business resilience and compliance.',
-            back: '← Back'
-        },
-        fa: {
-            title: '🎬 ویدئوها و آینده HSE',
-            desc: 'آموزش‌های ویدئویی منتخب و بینش‌هایی درباره روندها و فناوری‌های آینده در مدیریت بهداشت، ایمنی و محیط زیست.',
-            s1: '🔹 کانال‌های ویدئویی پیشنهادی',
-            list1: ['OSHA – آموزش ایمنی و ویدئوهای انطباق','ISO – مدیریت زیست‌محیطی و وبینارهای پایداری','NEBOSH – آموزش بهداشت و ایمنی و مطالعات موردی','SafetyCulture – نکات عملی ایمنی و بازرسی','Environmental Defense Fund – مدیریت محیط زیست و تغییرات آب و هوایی'],
-            s2: '🔹 موضوعات محبوب ویدئویی',
-            list2: ['مدیریت ایمنی و رهبری (پیاده‌سازی ISO 45001)','مدیریت محیط زیست و پایداری (ISO 14001)','تکنیک‌های ارزیابی ریسک (HAZOP، FMEA، JSA)','برنامه‌های بهداشت شغلی و تندرستی','بررسی حوادث و تحلیل ریشه‌ای'],
-            s3: '🔹 روندهای آینده در HSE',
-            list3: ['هوش مصنوعی و IoT برای نظارت بر ایمنی زمان واقعی (پوشیدنی‌ها، سنسورها)','دوقلوی دیجیتال برای شبیه‌سازی ایمنی و تحلیل ریسک','بلاکچین برای انطباق و شفافیت زنجیره تأمین','واقعیت مجازی (VR) برای آموزش ایمنی و شبیه‌سازی سناریو','تحلیل پیش‌بینی‌کننده برای پیشگیری از حوادث'],
-            s4: '🔹 آینده HSE چیست؟',
-            s4p: 'آینده HSE توسط فناوری، داده و مدیریت ریسک پیش‌گیرانه هدایت خواهد شد. ابزارهای دیجیتال نظارت زمان واقعی، تحلیل پیش‌بینی‌کننده و آموزش‌های همه‌جانبه را امکان‌پذیر می‌کنند. سازمان‌ها بر ایجاد فرهنگ ایمنی که پیش‌گیرانه باشد به جای واکنشی متمرکز خواهند شد. پایداری و ESG (محیط زیست، اجتماعی، حاکمیتی) بخشی جدایی‌ناپذیر از استراتژی‌های HSE خواهد شد و انعطاف‌پذیری و انطباق کسب‌وکار را در بلندمدت تضمین می‌کند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        const ul3 = document.getElementById('list3');
-        ul3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Videos & Future Technologies',
+  desc: 'Video tutorials, upcoming technologies, and future developments in HSE.',
+  s1: 'Video Tutorials',
+  list1: ['Introduction to HSE Management','How to Conduct a Risk Assessment','Lock Out Tag Out (LOTO) Procedure','Emergency Response and Evacuation','ISO 45001 Implementation'],
+  s2: 'Future Technologies',
+  list2: ['AI-Powered Safety Monitoring Systems','IoT Sensors for Hazard Detection','Digital Twins for HSE Training','Wearable Safety Technology','Automated Incident Reporting Systems'],
+  s3: 'Upcoming Content',
+  list3: ['Advanced Risk Assessment Techniques','Environmental Sustainability in Engineering','Safety Culture and Leadership','HSE Auditing and Compliance'],
+  s4: "What's Next?",
+  s4p: 'We are continuously developing new video content and exploring emerging technologies in HSE. All future lessons will connect to previous, related, and next topics for a complete learning experience.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'ویدئوها و فناوری‌های آینده',
+  desc: 'آموزش‌های ویدئویی، فناوری‌های در حال ظهور و توسعه‌های آینده در HSE.',
+  s1: 'آموزش‌های ویدئویی',
+  list1: ['مقدمه‌ای بر مدیریت HSE','نحوه انجام ارزیابی ریسک','رویه قفل و برچسب (LOTO)','پاسخ اضطراری و تخلیه','پیاده‌سازی ISO 45001'],
+  s2: 'فناوری‌های آینده',
+  list2: ['سیستم‌های پایش ایمنی مبتنی بر هوش مصنوعی','سنسورهای IoT برای تشخیص خطر','دوقلوی دیجیتال برای آموزش HSE','فناوری ایمنی پوشیدنی','سیستم‌های گزارش‌دهی خودکار حوادث'],
+  s3: 'محتوای در حال توسعه',
+  list3: ['تکنیک‌های پیشرفته ارزیابی ریسک','پایداری زیست‌محیطی در مهندسی','فرهنگ ایمنی و رهبری','ممیزی و انطباق HSE'],
+  s4: 'بعدی چیست؟',
+  s4p: 'ما به طور مداوم محتوای ویدئویی جدید تولید کرده و فناوری‌های در حال ظهور در HSE را بررسی می‌کنیم. همه درس‌های آینده به مباحث قبلی، مرتبط و بعدی برای یک تجربه یادگیری کامل متصل خواهند شد.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
