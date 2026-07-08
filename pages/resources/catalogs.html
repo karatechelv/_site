@@ -1,177 +1,158 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Industrial Catalogs</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Industrial Catalogs</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Industrial Catalogs</h1>
+ <div class="sub" id="desc">Manufacturer catalogs for electrical, automation, and instrumentation products.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="s1">Siemens Industry</h2>
+  <ul id="list1">
+   <li>PLC and Automation Systems – S7-1200, S7-1500</li>
+   <li>HMI and Operator Panels – SIMATIC HMI</li>
+   <li>Drives and Motors – SINAMICS, SIMOTICS</li>
+   <li>Process Instrumentation – SITRANS</li>
+   <li>Switchgear and Protection</li>
+  </ul>
+ </div>
 
-    <h1 id="title">📖 Industrial Catalogs</h1>
-    <div class="sub" id="desc">A curated collection of industrial product catalogs from leading manufacturers for electrical, automation, instrumentation, and control systems.</div>
+ <div class="section">
+  <h2 id="s2">Rockwell Automation</h2>
+  <ul id="list2">
+   <li>ControlLogix and CompactLogix PLCs</li>
+   <li>PowerFlex Drives</li>
+   <li>FactoryTalk HMI and SCADA</li>
+   <li>Industrial Networks – Ethernet/IP</li>
+   <li>Safety Systems</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s1">🔹 What are Industrial Catalogs?</h2>
-        <p id="s1p">Industrial catalogs are comprehensive documents published by manufacturers that list and describe their products, including specifications, technical data, application examples, and ordering information. They are essential resources for engineers, designers, and procurement professionals to select the right components for their projects.</p>
-    </div>
+ <div class="section">
+  <h2 id="s3">Schneider Electric</h2>
+  <ul id="list3">
+   <li>Modicon PLCs</li>
+   <li>Altivar Drives</li>
+   <li>Vijeo HMI</li>
+   <li>Switchgear and Distribution</li>
+   <li>EcoStruxure Solutions</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s2">🔹 Major Manufacturers</h2>
-        <ul id="list1">
-            <li><b>Siemens</b> – Automation, drives, switchgear, PLCs, SCADA</li>
-            <li><b>Allen-Bradley (Rockwell)</b> – PLCs, HMIs, drives, safety systems</li>
-            <li><b>Schneider Electric</b> – Switchgear, PLCs, HMIs, sensors</li>
-            <li><b>Mitsubishi Electric</b> – PLCs, HMIs, servos, drives</li>
-            <li><b>ABB</b> – Motors, drives, switchgear, robots</li>
-            <li><b>Emerson</b> – Instrumentation, control valves, analyzers</li>
-            <li><b>Endress+Hauser</b> – Instrumentation, sensors, transmitters</li>
-            <li><b>Rosemount</b> – Pressure, temperature, level, flow transmitters</li>
-            <li><b>Weintek</b> – HMIs, touch panels</li>
-            <li><b>Omron</b> – PLCs, sensors, relays, safety components</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s4">Other Manufacturers</h2>
+  <ul id="list4">
+   <li>Mitsubishi Electric – PLCs, Drives</li>
+   <li>Omron – PLCs, Sensors</li>
+   <li>ABB – Drives, Switchgear</li>
+   <li>Phoenix Contact – Terminal blocks, relays</li>
+   <li>Rittal – Enclosures and cabinets</li>
+   <li>Weintek – HMI panels</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s3">🔹 How to Use Catalogs</h2>
-        <ul id="list2">
-            <li><b>Product Selection</b> – Compare technical specifications to choose the best product</li>
-            <li><b>Application Guidance</b> – Understand where and how to use specific products</li>
-            <li><b>Technical Data</b> – Access dimensions, ratings, wiring diagrams, and performance curves</li>
-            <li><b>Ordering Information</b> – Find part numbers and ordering codes</li>
-            <li><b>Compatibility</b> – Check compatibility with other components and systems</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s5">How to Use Catalogs</h2>
+  <p id="s5p">Industrial catalogs provide technical specifications, selection guides, and ordering information. Use them for component selection, sourcing, and creating accurate BOMs for projects. Always check the latest version for updated products and specifications.</p>
+ </div>
 
-    <div class="section">
-        <h2 id="s4">🔹 Online Catalog Resources</h2>
-        <ul id="list3">
-            <li>Siemens Industry Online Mall – siemens.com</li>
-            <li>Rockwell Automation Product Catalog – rockwellautomation.com</li>
-            <li>Schneider Electric Product Selector – schneider-electric.com</li>
-            <li>ABB Product Guide – abb.com</li>
-            <li>Emerson Instrumentation Catalog – emerson.com</li>
-            <li>Endress+Hauser Product Finder – endress.com</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s5">🔹 Example: Finding the Right Motor Starter</h2>
-        <p id="s5p">An engineer uses a Siemens catalog to select a motor starter for a 45 kW induction motor. The catalog provides the technical data for different starter types, including direct-on-line, star-delta, and soft starters. After comparing features, the engineer selects a soft starter based on the motor's full-load current and starting torque requirements.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📖 Industrial Catalogs',
-            desc: 'A curated collection of industrial product catalogs from leading manufacturers for electrical, automation, instrumentation, and control systems.',
-            s1: '🔹 What are Industrial Catalogs?',
-            s1p: 'Industrial catalogs are comprehensive documents published by manufacturers that list and describe their products, including specifications, technical data, application examples, and ordering information. They are essential resources for engineers, designers, and procurement professionals to select the right components for their projects.',
-            s2: '🔹 Major Manufacturers',
-            list1: ['Siemens – Automation, drives, switchgear, PLCs, SCADA','Allen-Bradley (Rockwell) – PLCs, HMIs, drives, safety systems','Schneider Electric – Switchgear, PLCs, HMIs, sensors','Mitsubishi Electric – PLCs, HMIs, servos, drives','ABB – Motors, drives, switchgear, robots','Emerson – Instrumentation, control valves, analyzers','Endress+Hauser – Instrumentation, sensors, transmitters','Rosemount – Pressure, temperature, level, flow transmitters','Weintek – HMIs, touch panels','Omron – PLCs, sensors, relays, safety components'],
-            s3: '🔹 How to Use Catalogs',
-            list2: ['Product Selection – Compare technical specifications to choose the best product','Application Guidance – Understand where and how to use specific products','Technical Data – Access dimensions, ratings, wiring diagrams, and performance curves','Ordering Information – Find part numbers and ordering codes','Compatibility – Check compatibility with other components and systems'],
-            s4: '🔹 Online Catalog Resources',
-            list3: ['Siemens Industry Online Mall – siemens.com','Rockwell Automation Product Catalog – rockwellautomation.com','Schneider Electric Product Selector – schneider-electric.com','ABB Product Guide – abb.com','Emerson Instrumentation Catalog – emerson.com','Endress+Hauser Product Finder – endress.com'],
-            s5: '🔹 Example: Finding the Right Motor Starter',
-            s5p: 'An engineer uses a Siemens catalog to select a motor starter for a 45 kW induction motor. The catalog provides the technical data for different starter types, including direct-on-line, star-delta, and soft starters. After comparing features, the engineer selects a soft starter based on the motor\'s full-load current and starting torque requirements.',
-            back: '← Back'
-        },
-        fa: {
-            title: '📖 کاتالوگ‌های صنعتی',
-            desc: 'مجموعه‌ای از کاتالوگ‌های محصولات صنعتی از تولیدکنندگان برجسته برای سیستم‌های برق، اتوماسیون، ابزار دقیق و کنترل.',
-            s1: '🔹 کاتالوگ‌های صنعتی چیستند؟',
-            s1p: 'کاتالوگ‌های صنعتی اسناد جامعی هستند که توسط تولیدکنندگان منتشر می‌شوند و محصولات آنها را با مشخصات، داده‌های فنی، مثال‌های کاربردی و اطلاعات سفارش فهرست می‌کنند. آنها منابع ضروری برای مهندسان، طراحان و متخصصان تدارکات برای انتخاب قطعات مناسب برای پروژه‌های خود هستند.',
-            s2: '🔹 تولیدکنندگان اصلی',
-            list1: ['زیمنس – اتوماسیون، درایوها، تابلوها، PLC، SCADA','Allen-Bradley (راکول) – PLC، HMI، درایوها، سیستم‌های ایمنی','اشنایدر الکتریک – تابلوها، PLC، HMI، سنسورها','میتسوبیشی الکتریک – PLC، HMI، سروو، درایوها','ABB – موتورها، درایوها، تابلوها، ربات‌ها','امرسون – ابزار دقیق، شیرهای کنترلی، آنالایزرها','Endress+Hauser – ابزار دقیق، سنسورها، ترانسمیترها','Rosemount – ترانسمیترهای فشار، دما، سطح، جریان','وینتک – HMI، پنل‌های لمسی','Omron – PLC، سنسورها، رله‌ها، قطعات ایمنی'],
-            s3: '🔹 نحوه استفاده از کاتالوگ‌ها',
-            list2: ['انتخاب محصول – مقایسه مشخصات فنی برای انتخاب بهترین محصول','راهنمای کاربرد – درک محل و نحوه استفاده از محصولات خاص','داده‌های فنی – دسترسی به ابعاد، رتبه‌بندی‌ها، نمودارهای سیم‌کشی و منحنی‌های عملکرد','اطلاعات سفارش – یافتن شماره قطعات و کدهای سفارش','سازگاری – بررسی سازگاری با سایر قطعات و سیستم‌ها'],
-            s4: '🔹 منابع کاتالوگ آنلاین',
-            list3: ['Siemens Industry Online Mall – siemens.com','Rockwell Automation Product Catalog – rockwellautomation.com','Schneider Electric Product Selector – schneider-electric.com','ABB Product Guide – abb.com','Emerson Instrumentation Catalog – emerson.com','Endress+Hauser Product Finder – endress.com'],
-            s5: '🔹 مثال: پیدا کردن استارت موتور مناسب',
-            s5p: 'یک مهندس از کاتالوگ زیمنس برای انتخاب استارت موتور برای یک موتور القایی ۴۵ کیلووات استفاده می‌کند. کاتالوگ داده‌های فنی برای انواع مختلف استارت‌ها، از جمله مستقیم، ستاره-مثلث و استارت نرم را ارائه می‌دهد. پس از مقایسه ویژگی‌ها، مهندس یک استارت نرم را بر اساس جریان کامل بار موتور و الزامات گشتاور راه‌اندازی انتخاب می‌کند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s5').textContent = t.s5;
-        document.getElementById('s5p').textContent = t.s5p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const list1 = document.getElementById('list1');
-        list1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
-
-        const list2 = document.getElementById('list2');
-        list2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
-
-        const list3 = document.getElementById('list3');
-        list3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; list3.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Industrial Catalogs',
+  desc: 'Manufacturer catalogs for electrical, automation, and instrumentation products.',
+  s1: 'Siemens Industry',
+  list1: ['PLC and Automation Systems – S7-1200, S7-1500','HMI and Operator Panels – SIMATIC HMI','Drives and Motors – SINAMICS, SIMOTICS','Process Instrumentation – SITRANS','Switchgear and Protection'],
+  s2: 'Rockwell Automation',
+  list2: ['ControlLogix and CompactLogix PLCs','PowerFlex Drives','FactoryTalk HMI and SCADA','Industrial Networks – Ethernet/IP','Safety Systems'],
+  s3: 'Schneider Electric',
+  list3: ['Modicon PLCs','Altivar Drives','Vijeo HMI','Switchgear and Distribution','EcoStruxure Solutions'],
+  s4: 'Other Manufacturers',
+  list4: ['Mitsubishi Electric – PLCs, Drives','Omron – PLCs, Sensors','ABB – Drives, Switchgear','Phoenix Contact – Terminal blocks, relays','Rittal – Enclosures and cabinets','Weintek – HMI panels'],
+  s5: 'How to Use Catalogs',
+  s5p: 'Industrial catalogs provide technical specifications, selection guides, and ordering information. Use them for component selection, sourcing, and creating accurate BOMs for projects. Always check the latest version for updated products and specifications.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'کاتالوگ‌های صنعتی',
+  desc: 'کاتالوگ‌های تولیدکنندگان برای محصولات برق، اتوماسیون و ابزار دقیق.',
+  s1: 'زیمنس',
+  list1: ['PLC و سیستم‌های اتوماسیون – S7-1200، S7-1500','HMI و پنل‌های اپراتور – SIMATIC HMI','درایوها و موتورها – SINAMICS، SIMOTICS','ابزار دقیق فرآیند – SITRANS','تابلوهای برق و حفاظت'],
+  s2: 'راکول اتوماسیون',
+  list2: ['PLCهای ControlLogix و CompactLogix','درایوهای PowerFlex','HMI و SCADA FactoryTalk','شبکه‌های صنعتی – Ethernet/IP','سیستم‌های ایمنی'],
+  s3: 'اشنایدر الکتریک',
+  list3: ['PLCهای Modicon','درایوهای Altivar','HMI Vijeo','تابلوهای برق و توزیع','راه‌حل‌های EcoStruxure'],
+  s4: 'سایر تولیدکنندگان',
+  list4: ['میتسوبیشی الکتریک – PLCها، درایوها','Omron – PLCها، سنسورها','ABB – درایوها، تابلوهای برق','Phoenix Contact – بلوک‌های ترمینال، رله‌ها','Rittal – محفظه‌ها و کابینت‌ها','Weintek – پنل‌های HMI'],
+  s5: 'نحوه استفاده از کاتالوگ‌ها',
+  s5p: 'کاتالوگ‌های صنعتی مشخصات فنی، راهنماهای انتخاب و اطلاعات سفارش‌دهی را ارائه می‌دهند. از آنها برای انتخاب قطعات، تأمین و ایجاد BOMهای دقیق برای پروژه‌ها استفاده کنید. همیشه آخرین نسخه را برای محصولات و مشخصات به‌روز بررسی کنید.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
