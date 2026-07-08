@@ -1,160 +1,148 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Management Software</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Management Software</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">💻 Management Software</h1>
-    <div class="sub" id="desc">Essential software tools for engineering management, including project management, resource planning, cost estimation, and quality management.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 Project Management Software</h2>
-        <ul id="list1">
-            <li><b>Microsoft Project</b> – Industry-standard for scheduling, resource allocation, and progress tracking</li>
-            <li><b>Primavera P6</b> – Advanced project management for large-scale engineering and construction projects</li>
-            <li><b>Jira</b> – Agile project management for software and engineering teams</li>
-            <li><b>Asana</b> – Task management and collaboration for teams</li>
-            <li><b>Trello</b> – Visual task management using kanban boards</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Resource Planning & Cost Estimation</h2>
-        <ul id="list2">
-            <li><b>SAP ERP</b> – Enterprise resource planning (ERP) for large organizations</li>
-            <li><b>Oracle Primavera</b> – Resource planning and cost management for projects</li>
-            <li><b>CostX</b> – Cost estimating and quantity takeoff software</li>
-            <li><b>RSMeans</b> – Construction cost data and estimating software</li>
-            <li><b>Cleopatra Enterprise</b> – Total cost management for engineering projects</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Quality Management & Document Control</h2>
-        <ul id="list3">
-            <li><b>MasterControl</b> – Quality management system (QMS) for regulated industries</li>
-            <li><b>ETQ Reliance</b> – Enterprise quality and compliance management</li>
-            <li><b>Aconex</b> – Document management and collaboration for construction projects</li>
-            <li><b>Procore</b> – Construction management and quality control</li>
-            <li><b>SharePoint</b> – Document management and collaboration platform</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: Using Primavera P6 for a Mega Project</h2>
-        <p id="s4p">A project manager uses Primavera P6 to plan and schedule a $500 million infrastructure project. The software allows for resource leveling, critical path analysis, and risk simulation. The project team tracks progress, updates schedules, and generates reports for stakeholders using the platform.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Management Software</h1>
+ <div class="sub" id="desc">Software tools for project management, resource planning, collaboration, and reporting.</div>
+ <div class="section">
+  <h2 id="s1">Project Management Software</h2>
+  <ul id="list1">
+   <li>Microsoft Project – Detailed project scheduling</li>
+   <li>JIRA – Agile project management</li>
+   <li>Asana – Task and workflow management</li>
+   <li>Trello – Visual project tracking</li>
+   <li>Primavera P6 – Large project management</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s2">Collaboration & Communication</h2>
+  <ul id="list2">
+   <li>Microsoft Teams – Team communication and meetings</li>
+   <li>Slack – Real-time messaging and collaboration</li>
+   <li>SharePoint – Document management and sharing</li>
+   <li>Confluence – Knowledge management and documentation</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Resource & Financial Management</h2>
+  <ul id="list3">
+   <li>SAP – Enterprise resource planning (ERP)</li>
+   <li>Oracle Primavera – Resource management</li>
+   <li>QuickBooks – Accounting and budgeting</li>
+   <li>Power BI – Reporting and analytics</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Risk Management Tools</h2>
+  <ul id="list4">
+   <li>Risk Register Templates – Excel-based tracking</li>
+   <li>Risk Assessment Software – Risk analysis</li>
+   <li>FMEA Software – Failure mode analysis</li>
+   <li>Compliance Management – Standards tracking</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Integrated Management Suite</h2>
+  <p id="s5p">A typical engineering management suite includes: Microsoft Project for scheduling, JIRA for task tracking, SharePoint for document control, Power BI for dashboards, and Teams for communication. This integrated approach ensures seamless project execution.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '💻 Management Software',
-            desc: 'Essential software tools for engineering management, including project management, resource planning, cost estimation, and quality management.',
-            s1: '🔹 Project Management Software',
-            list1: ['Microsoft Project – Industry-standard for scheduling, resource allocation, and progress tracking','Primavera P6 – Advanced project management for large-scale engineering and construction projects','Jira – Agile project management for software and engineering teams','Asana – Task management and collaboration for teams','Trello – Visual task management using kanban boards'],
-            s2: '🔹 Resource Planning & Cost Estimation',
-            list2: ['SAP ERP – Enterprise resource planning (ERP) for large organizations','Oracle Primavera – Resource planning and cost management for projects','CostX – Cost estimating and quantity takeoff software','RSMeans – Construction cost data and estimating software','Cleopatra Enterprise – Total cost management for engineering projects'],
-            s3: '🔹 Quality Management & Document Control',
-            list3: ['MasterControl – Quality management system (QMS) for regulated industries','ETQ Reliance – Enterprise quality and compliance management','Aconex – Document management and collaboration for construction projects','Procore – Construction management and quality control','SharePoint – Document management and collaboration platform'],
-            s4: '🔹 Example: Using Primavera P6 for a Mega Project',
-            s4p: 'A project manager uses Primavera P6 to plan and schedule a $500 million infrastructure project. The software allows for resource leveling, critical path analysis, and risk simulation. The project team tracks progress, updates schedules, and generates reports for stakeholders using the platform.',
-            back: '← Back'
-        },
-        fa: {
-            title: '💻 نرم‌افزارهای مدیریت',
-            desc: 'ابزارهای نرم‌افزاری ضروری برای مدیریت مهندسی، شامل مدیریت پروژه، برنامه‌ریزی منابع، برآورد هزینه و مدیریت کیفیت.',
-            s1: '🔹 نرم‌افزارهای مدیریت پروژه',
-            list1: ['Microsoft Project – استاندارد صنعتی برای زمان‌بندی، تخصیص منابع و پیگیری پیشرفت','Primavera P6 – مدیریت پروژه پیشرفته برای پروژه‌های بزرگ مهندسی و ساخت','Jira – مدیریت پروژه چابک برای تیم‌های نرم‌افزار و مهندسی','Asana – مدیریت وظایف و همکاری برای تیم‌ها','Trello – مدیریت وظایف بصری با استفاده از تخته‌های کانبان'],
-            s2: '🔹 برنامه‌ریزی منابع و برآورد هزینه',
-            list2: ['SAP ERP – برنامه‌ریزی منابع سازمانی برای سازمان‌های بزرگ','Oracle Primavera – برنامه‌ریزی منابع و مدیریت هزینه برای پروژه‌ها','CostX – نرم‌افزار برآورد هزینه و مقدار برداری','RSMeans – داده‌های هزینه ساخت و نرم‌افزار برآورد','Cleopatra Enterprise – مدیریت هزینه کل برای پروژه‌های مهندسی'],
-            s3: '🔹 مدیریت کیفیت و کنترل مستندات',
-            list3: ['MasterControl – سیستم مدیریت کیفیت (QMS) برای صنایع تنظیم‌شده','ETQ Reliance – مدیریت کیفیت و انطباق سازمانی','Aconex – مدیریت مستندات و همکاری برای پروژه‌های ساخت','Procore – مدیریت ساخت و کنترل کیفیت','SharePoint – پلتفرم مدیریت مستندات و همکاری'],
-            s4: '🔹 مثال: استفاده از Primavera P6 برای یک پروژه بزرگ',
-            s4p: 'یک مدیر پروژه از Primavera P6 برای برنامه‌ریزی و زمان‌بندی یک پروژه زیرساختی ۵۰۰ میلیون دلاری استفاده می‌کند. این نرم‌افزار امکان هموارسازی منابع، تحلیل مسیر بحرانی و شبیه‌سازی ریسک را فراهم می‌کند. تیم پروژه پیشرفت را پیگیری، زمان‌بندی‌ها را به‌روز کرده و گزارش‌هایی را برای ذی‌نفعان با استفاده از این پلتفرم تولید می‌کند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        const ul3 = document.getElementById('list3');
-        ul3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Management Software',
+  desc: 'Software tools for project management, resource planning, collaboration, and reporting.',
+  s1: 'Project Management Software',
+  list1: ['Microsoft Project – Detailed project scheduling','JIRA – Agile project management','Asana – Task and workflow management','Trello – Visual project tracking','Primavera P6 – Large project management'],
+  s2: 'Collaboration & Communication',
+  list2: ['Microsoft Teams – Team communication and meetings','Slack – Real-time messaging and collaboration','SharePoint – Document management and sharing','Confluence – Knowledge management and documentation'],
+  s3: 'Resource & Financial Management',
+  list3: ['SAP – Enterprise resource planning (ERP)','Oracle Primavera – Resource management','QuickBooks – Accounting and budgeting','Power BI – Reporting and analytics'],
+  s4: 'Risk Management Tools',
+  list4: ['Risk Register Templates – Excel-based tracking','Risk Assessment Software – Risk analysis','FMEA Software – Failure mode analysis','Compliance Management – Standards tracking'],
+  s5: 'Example: Integrated Management Suite',
+  s5p: 'A typical engineering management suite includes: Microsoft Project for scheduling, JIRA for task tracking, SharePoint for document control, Power BI for dashboards, and Teams for communication. This integrated approach ensures seamless project execution.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'نرم‌افزارهای مدیریتی',
+  desc: 'ابزارهای نرم‌افزاری برای مدیریت پروژه، برنامه‌ریزی منابع، همکاری و گزارش‌دهی.',
+  s1: 'نرم‌افزارهای مدیریت پروژه',
+  list1: ['Microsoft Project – زمان‌بندی دقیق پروژه','JIRA – مدیریت پروژه چابک','Asana – مدیریت وظایف و جریان کار','Trello – پیگیری بصری پروژه','Primavera P6 – مدیریت پروژه‌های بزرگ'],
+  s2: 'همکاری و ارتباطات',
+  list2: ['Microsoft Teams – ارتباطات و جلسات تیمی','Slack – پیام‌رسانی و همکاری بلادرنگ','SharePoint – مدیریت و اشتراک‌گذاری اسناد','Confluence – مدیریت دانش و مستندات'],
+  s3: 'مدیریت منابع و مالی',
+  list3: ['SAP – برنامه‌ریزی منابع سازمانی (ERP)','Oracle Primavera – مدیریت منابع','QuickBooks – حسابداری و بودجه‌بندی','Power BI – گزارش‌دهی و تحلیل'],
+  s4: 'ابزارهای مدیریت ریسک',
+  list4: ['قالب‌های ثبت ریسک – پیگیری مبتنی بر Excel','نرم‌افزار ارزیابی ریسک – تحلیل ریسک','نرم‌افزار FMEA – تحلیل حالت شکست','مدیریت انطباق – پیگیری استانداردها'],
+  s5: 'مثال: مجموعه مدیریت یکپارچه',
+  s5p: 'یک مجموعه مدیریت مهندسی معمولی شامل: Microsoft Project برای زمان‌بندی، JIRA برای پیگیری وظایف، SharePoint برای کنترل اسناد، Power BI برای داشبوردها و Teams برای ارتباطات است. این رویکرد یکپارچه اجرای روان پروژه را تضمین می‌کند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
