@@ -1,152 +1,149 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Assembly</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Assembly</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">🔧 Assembly</h1>
-    <div class="sub" id="desc">Assembly involves the physical construction, wiring, and mounting of components into control panels, enclosures, and equipment racks based on engineering designs.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What is Assembly?</h2>
-        <p id="s1p">Assembly is the process of putting together the physical components of an electrical or control system according to the engineering design specifications. This includes mounting components (circuit breakers, relays, PLCs) onto back panels, running cables and wires between them, and performing initial checks. Proper assembly ensures that the panel functions reliably and safely.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Key Assembly Steps</h2>
-        <ul id="list1">
-            <li><b>Panel Preparation</b> – Cleaning and prepping the enclosure, installing back plates</li>
-            <li><b>Component Mounting</b> – Securing all components according to the layout drawing</li>
-            <li><b>Wiring and Cabling</b> – Routing and terminating wires as per schematics</li>
-            <li><b>Labeling</b> – Identifying all components and wires for easy maintenance</li>
-            <li><b>Inspection</b> – Checking for physical damage, proper clearances, and correct component selection</li>
-            <li><b>Quality Check</b> – Ensuring all connections are tightened and secure</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Best Practices</h2>
-        <ul id="list2">
-            <li>Follow the layout and schematic drawings exactly</li>
-            <li>Maintain adequate clearances for heat dissipation and electrical safety</li>
-            <li>Use color-coded wires and ferrules to facilitate troubleshooting</li>
-            <li>Ensure proper grounding of the panel and individual components</li>
-            <li>Document any deviations from the design for as-built records</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: Control Panel Assembly</h2>
-        <p id="s4p">An assembly team receives a panel layout and schematic for a PLC control panel. They mount the PLC rack, power supply, terminal blocks, and relays onto the back panel. They wire the 24V DC control circuits, run the 220V AC power lines, and label every terminal and wire. After completion, they perform a visual inspection before powering up for initial tests.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Assembly Phase</h1>
+ <div class="sub" id="desc">Panel assembly, wiring, and mechanical integration of components.</div>
+ <div class="section">
+  <h2 id="s1">What is Assembly?</h2>
+  <p id="s1p">Assembly is the process of physically constructing the panel by mounting components, wiring them according to schematics, and integrating mechanical and electrical systems. It transforms the design into a functional unit ready for testing.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Assembly Steps</h2>
+  <ul id="list1">
+   <li>Enclosure Preparation – Mounting plates, cutouts</li>
+   <li>Component Mounting – PLC, breakers, relays, terminal blocks</li>
+   <li>Wiring – Power, control, and communication wiring</li>
+   <li>Busbar Installation – Power distribution</li>
+   <li>Labeling – Component identification</li>
+   <li>Visual Inspection – Check before testing</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Assembly Quality Checks</h2>
+  <ul id="list2">
+   <li>Component Mounting – Securely fastened</li>
+   <li>Wiring – Correct connections and routing</li>
+   <li>Terminal Tightness – Proper torque</li>
+   <li>Labeling – Clear and correct</li>
+   <li>Safety – No exposed conductors</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: Assembly Checklist</h2>
+  <div class="code-box">
+# Panel Assembly Checklist
+# 1. Enclosure prepared and grounded [  ]
+# 2. PLC and I/O modules mounted [  ]
+# 3. Circuit breakers installed [  ]
+# 4. Wiring completed per schematics [  ]
+# 5. Wiring ducts closed and secure [  ]
+# 6. All labels applied [  ]
+# 7. Visual inspection complete [  ]
+  </div>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Assembly of MCC Panel</h2>
+  <p id="s5p">An MCC panel assembly involves mounting motor starters, PLC I/O modules, wiring power and control circuits, installing busbars, and labeling all components. The assembly is documented and inspected before moving to FAT stage.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🔧 Assembly',
-            desc: 'Assembly involves the physical construction, wiring, and mounting of components into control panels, enclosures, and equipment racks based on engineering designs.',
-            s1: '🔹 What is Assembly?',
-            s1p: 'Assembly is the process of putting together the physical components of an electrical or control system according to the engineering design specifications. This includes mounting components (circuit breakers, relays, PLCs) onto back panels, running cables and wires between them, and performing initial checks. Proper assembly ensures that the panel functions reliably and safely.',
-            s2: '🔹 Key Assembly Steps',
-            list1: ['Panel Preparation – Cleaning and prepping the enclosure, installing back plates','Component Mounting – Securing all components according to the layout drawing','Wiring and Cabling – Routing and terminating wires as per schematics','Labeling – Identifying all components and wires for easy maintenance','Inspection – Checking for physical damage, proper clearances, and correct component selection','Quality Check – Ensuring all connections are tightened and secure'],
-            s3: '🔹 Best Practices',
-            list2: ['Follow the layout and schematic drawings exactly','Maintain adequate clearances for heat dissipation and electrical safety','Use color-coded wires and ferrules to facilitate troubleshooting','Ensure proper grounding of the panel and individual components','Document any deviations from the design for as-built records'],
-            s4: '🔹 Example: Control Panel Assembly',
-            s4p: 'An assembly team receives a panel layout and schematic for a PLC control panel. They mount the PLC rack, power supply, terminal blocks, and relays onto the back panel. They wire the 24V DC control circuits, run the 220V AC power lines, and label every terminal and wire. After completion, they perform a visual inspection before powering up for initial tests.',
-            back: '← Back'
-        },
-        fa: {
-            title: '🔧 مونتاژ',
-            desc: 'مونتاژ شامل ساخت فیزیکی، سیم‌کشی و نصب قطعات در پنل‌های کنترل، محفظه‌ها و رک‌های تجهیزات بر اساس طرح‌های مهندسی است.',
-            s1: '🔹 مونتاژ چیست؟',
-            s1p: 'مونتاژ فرآیند کنار هم قرار دادن قطعات فیزیکی یک سیستم الکتریکی یا کنترلی بر اساس مشخصات طراحی مهندسی است. این شامل نصب قطعات (کلیدهای مدار، رله‌ها، PLC) بر روی پنل‌های پشتی، عبور کابل‌ها و سیم‌ها بین آنها و انجام بررسی‌های اولیه است. مونتاژ صحیح تضمین می‌کند که پنل به طور قابل اعتماد و ایمن کار می‌کند.',
-            s2: '🔹 مراحل کلیدی مونتاژ',
-            list1: ['آماده‌سازی پنل – تمیز کردن و آماده‌سازی محفظه، نصب صفحات پشتی','نصب قطعات – محکم کردن تمام قطعات مطابق با نقشه چیدمان','سیم‌کشی و کابل‌کشی – عبور و اتصال سیم‌ها مطابق با شماتیک','برچسب‌گذاری – شناسایی تمام قطعات و سیم‌ها برای نگهداری آسان','بازرسی – بررسی آسیب فیزیکی، فاصله‌های مناسب و انتخاب صحیح قطعات','بررسی کیفیت – اطمینان از محکم بودن تمام اتصالات'],
-            s3: '🔹 بهترین شیوه‌ها',
-            list2: ['دقیقاً مطابق با نقشه‌های چیدمان و شماتیک عمل کنید','فاصله‌های مناسب برای دفع حرارت و ایمنی الکتریکی را حفظ کنید','از سیم‌های کدگذاری شده با رنگ و کاور استفاده کنید تا عیب‌یابی آسان شود','از ارتینگ مناسب پنل و قطعات جداگانه اطمینان حاصل کنید','هرگونه انحراف از طراحی را برای سوابق built مستند کنید'],
-            s4: '🔹 مثال: مونتاژ پنل کنترل',
-            s4p: 'یک تیم مونتاژ یک چیدمان پنل و شماتیک برای یک پنل کنترل PLC دریافت می‌کنند. آنها رک PLC، منبع تغذیه، بلوک‌های ترمینال و رله‌ها را روی پنل پشتی نصب می‌کنند. مدارهای کنترل ۲۴ ولت DC را سیم‌کشی، خطوط برق ۲۲۰ ولت AC را عبور داده و هر ترمینال و سیمی را برچسب‌گذاری می‌کنند. پس از اتمام، قبل از روشن کردن برای تست‌های اولیه، یک بازرسی بصری انجام می‌دهند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Assembly Phase',
+  desc: 'Panel assembly, wiring, and mechanical integration of components.',
+  s1: 'What is Assembly?',
+  s1p: 'Assembly is the process of physically constructing the panel by mounting components, wiring them according to schematics, and integrating mechanical and electrical systems. It transforms the design into a functional unit ready for testing.',
+  s2: 'Assembly Steps',
+  list1: ['Enclosure Preparation – Mounting plates, cutouts','Component Mounting – PLC, breakers, relays, terminal blocks','Wiring – Power, control, and communication wiring','Busbar Installation – Power distribution','Labeling – Component identification','Visual Inspection – Check before testing'],
+  s3: 'Assembly Quality Checks',
+  list2: ['Component Mounting – Securely fastened','Wiring – Correct connections and routing','Terminal Tightness – Proper torque','Labeling – Clear and correct','Safety – No exposed conductors'],
+  s4: 'Example: Assembly Checklist',
+  s5: 'Example: Assembly of MCC Panel',
+  s5p: 'An MCC panel assembly involves mounting motor starters, PLC I/O modules, wiring power and control circuits, installing busbars, and labeling all components. The assembly is documented and inspected before moving to FAT stage.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مرحله مونتاژ',
+  desc: 'مونتاژ پنل، سیم‌کشی و یکپارچه‌سازی مکانیکی قطعات.',
+  s1: 'مونتاژ چیست؟',
+  s1p: 'مونتاژ فرآیند ساخت فیزیکی پنل با نصب قطعات، سیم‌کشی طبق شماتیک و یکپارچه‌سازی سیستم‌های مکانیکی و الکتریکی است. این فرآیند طراحی را به یک واحد عملکردی آماده برای تست تبدیل می‌کند.',
+  s2: 'مراحل مونتاژ',
+  list1: ['آماده‌سازی محفظه – صفحات نصب، برش‌ها','نصب قطعات – PLC، کلیدها، رله‌ها، بلوک‌های ترمینال','سیم‌کشی – سیم‌کشی برق، کنترل و ارتباطات','نصب شینه – توزیع برق','برچسب‌گذاری – شناسایی قطعات','بازرسی بصری – بررسی قبل از تست'],
+  s3: 'بررسی‌های کیفی مونتاژ',
+  list2: ['نصب قطعات – محکم بسته شده','سیم‌کشی – اتصالات و مسیردهی صحیح','سفتی ترمینال – گشتاور مناسب','برچسب‌گذاری – واضح و صحیح','ایمنی – بدون هادی در معرض دید'],
+  s4: 'مثال: چک‌لیست مونتاژ',
+  s5: 'مثال: مونتاژ پنل MCC',
+  s5p: 'مونتاژ پنل MCC شامل نصب استارت موتورها، ماژول‌های I/O PLC، سیم‌کشی مدارهای قدرت و کنترل، نصب شینه‌ها و برچسب‌گذاری تمام قطعات است. مونتاژ مستند شده و قبل از رفتن به مرحله FAT بازرسی می‌شود.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
