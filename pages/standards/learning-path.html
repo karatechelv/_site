@@ -1,168 +1,156 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Standards Learning Path</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Standards Learning Path</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .path-flow{display:flex;flex-wrap:wrap;gap:8px;background:#0d0e12;padding:16px;border-radius:12px;margin:10px 0}
+ .path-step{background:#1e2128;padding:8px 16px;border-radius:30px;font-size:.85rem;border-left:3px solid #d4af37;color:#eef0f4}
+ .path-arrow{color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Standards Learning Path</h1>
+ <div class="sub" id="desc">A structured learning path from foundation to advanced topics in engineering standards.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="s1">Foundation Level</h2>
+  <ul id="list1">
+   <li>Introduction to Engineering Standards</li>
+   <li>Overview of Standardization Organizations</li>
+   <li>Understanding Standards Terminology</li>
+   <li>Introduction to IEC, ISO, IEEE</li>
+  </ul>
+ </div>
 
-    <h1 id="title">🗺️ Standards Learning Path</h1>
-    <div class="sub" id="desc">A structured learning path to become proficient in engineering standards. From fundamentals to advanced application and compliance.</div>
+ <div class="section">
+  <h2 id="s2">Intermediate Level</h2>
+  <ul id="list2">
+   <li>IEC 61439 – Switchgear Standards</li>
+   <li>NEC (NFPA 70) – Electrical Code</li>
+   <li>ISO 9001 – Quality Management Systems</li>
+   <li>IEEE 80 – Earthing &amp; Grounding</li>
+   <li>API RP 551 – Process Instrumentation</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s1">🔹 Foundation Level</h2>
-        <ul id="list1">
-            <li>Understanding the purpose and importance of standards</li>
-            <li>Overview of major standards organizations (IEC, ISO, IEEE, ANSI, API)</li>
-            <li>Reading and interpreting standards documents</li>
-            <li>Basic electrical and instrumentation concepts (units, symbols)</li>
-            <li>Introduction to quality and safety standards (ISO 9001, IEC 61508)</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s3">Advanced Level</h2>
+  <ul id="list3">
+   <li>Functional Safety Standards (IEC 61508/61511)</li>
+   <li>ISO 14001 &amp; 45001 – Environment &amp; Safety</li>
+   <li>IEEE 1584 – Arc Flash Hazard Analysis</li>
+   <li>API Q1 – Quality Management for Oil &amp; Gas</li>
+   <li>Standards Auditing &amp; Compliance</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s2">🔹 Intermediate Level</h2>
-        <ul id="list2">
-            <li>Applying IEC standards in electrical design (IEC 60364, IEC 61439)</li>
-            <li>Understanding NEC requirements for installation and safety</li>
-            <li>Using ANSI/ISA standards for instrumentation (ISA 5.1, ISA 88)</li>
-            <li>API standards for oil and gas equipment and instrumentation</li>
-            <li>ISO 9001 quality management system implementation</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s4">Suggested Path Flow</h2>
+  <div class="path-flow">
+   <span class="path-step">Foundation</span>
+   <span class="path-arrow">→</span>
+   <span class="path-step">IEC Overview</span>
+   <span class="path-arrow">→</span>
+   <span class="path-step">NEC &amp; ISO 9001</span>
+   <span class="path-arrow">→</span>
+   <span class="path-step">IEEE 80 &amp; API RP 551</span>
+   <span class="path-arrow">→</span>
+   <span class="path-step">Functional Safety</span>
+   <span class="path-arrow">→</span>
+   <span class="path-step">Advanced Standards</span>
+  </div>
+  <p id="s4p">Each step connects to previous, related, and next topics for fluid learning.</p>
+ </div>
 
-    <div class="section">
-        <h2 id="s3">🔹 Advanced Level</h2>
-        <ul id="list3">
-            <li>Comprehensive standards compliance and auditing (ISO 9001, ISO 14001)</li>
-            <li>Functional safety standards (IEC 61508, IEC 61511) – SIL determination</li>
-            <li>Harmonic analysis and power quality standards (IEEE 519)</li>
-            <li>Arc-flash hazard calculations (IEEE 1584) and PPE selection</li>
-            <li>Standards for hazardous area classification (API RP 500, NEC Article 500)</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Continuous Learning</h2>
-        <ul id="list4">
-            <li>Stay updated with revisions and new standards (IEC, ISO, NEC cycles)</li>
-            <li>Attend standards training and certification programs</li>
-            <li>Participate in professional organizations (IEEE, ISA, ASQ, NFPA)</li>
-            <li>Contribute to standards development through committees and feedback</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🗺️ Standards Learning Path',
-            desc: 'A structured learning path to become proficient in engineering standards. From fundamentals to advanced application and compliance.',
-            s1: '🔹 Foundation Level',
-            list1: ['Understanding the purpose and importance of standards','Overview of major standards organizations (IEC, ISO, IEEE, ANSI, API)','Reading and interpreting standards documents','Basic electrical and instrumentation concepts (units, symbols)','Introduction to quality and safety standards (ISO 9001, IEC 61508)'],
-            s2: '🔹 Intermediate Level',
-            list2: ['Applying IEC standards in electrical design (IEC 60364, IEC 61439)','Understanding NEC requirements for installation and safety','Using ANSI/ISA standards for instrumentation (ISA 5.1, ISA 88)','API standards for oil and gas equipment and instrumentation','ISO 9001 quality management system implementation'],
-            s3: '🔹 Advanced Level',
-            list3: ['Comprehensive standards compliance and auditing (ISO 9001, ISO 14001)','Functional safety standards (IEC 61508, IEC 61511) – SIL determination','Harmonic analysis and power quality standards (IEEE 519)','Arc-flash hazard calculations (IEEE 1584) and PPE selection','Standards for hazardous area classification (API RP 500, NEC Article 500)'],
-            s4: '🔹 Continuous Learning',
-            list4: ['Stay updated with revisions and new standards (IEC, ISO, NEC cycles)','Attend standards training and certification programs','Participate in professional organizations (IEEE, ISA, ASQ, NFPA)','Contribute to standards development through committees and feedback'],
-            back: '← Back'
-        },
-        fa: {
-            title: '🗺️ مسیر یادگیری استانداردها',
-            desc: 'یک مسیر یادگیری ساختاریافته برای تسلط بر استانداردهای مهندسی. از مبانی تا کاربرد پیشرفته و انطباق.',
-            s1: '🔹 سطح پایه',
-            list1: ['درک هدف و اهمیت استانداردها','مرور سازمان‌های اصلی استانداردسازی (IEC، ISO، IEEE، ANSI، API)','خواندن و تفسیر اسناد استاندارد','مفاهیم پایه برق و ابزار دقیق (واحدها، نمادها)','آشنایی با استانداردهای کیفیت و ایمنی (ISO 9001، IEC 61508)'],
-            s2: '🔹 سطح متوسط',
-            list2: ['کاربرد استانداردهای IEC در طراحی برق (IEC 60364، IEC 61439)','درک الزامات NEC برای نصب و ایمنی','استفاده از استانداردهای ANSI/ISA برای ابزار دقیق (ISA 5.1، ISA 88)','استانداردهای API برای تجهیزات و ابزار دقیق نفت و گاز','پیاده‌سازی سیستم مدیریت کیفیت ISO 9001'],
-            s3: '🔹 سطح پیشرفته',
-            list3: ['انطباق و حسابرسی جامع استانداردها (ISO 9001، ISO 14001)','استانداردهای ایمنی عملکردی (IEC 61508، IEC 61511) – تعیین SIL','تحلیل هارمونیک و استانداردهای کیفیت توان (IEEE 519)','محاسبات خطر قوس الکتریکی (IEEE 1584) و انتخاب PPE','استانداردهای طبقه‌بندی مناطق خطرناک (API RP 500، مقاله ۵۰۰ NEC)'],
-            s4: '🔹 یادگیری مستمر',
-            list4: ['به‌روز ماندن با بازنگری‌ها و استانداردهای جدید (چرخه‌های IEC، ISO، NEC)','شرکت در برنامه‌های آموزش و گواهینامه استانداردها','عضویت در سازمان‌های حرفه‌ای (IEEE، ISA، ASQ، NFPA)','مشارکت در توسعه استانداردها از طریق کمیته‌ها و بازخورد'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        const ul3 = document.getElementById('list3');
-        ul3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
-
-        const ul4 = document.getElementById('list4');
-        ul4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Standards Learning Path',
+  desc: 'A structured learning path from foundation to advanced topics in engineering standards.',
+  s1: 'Foundation Level',
+  list1: ['Introduction to Engineering Standards','Overview of Standardization Organizations','Understanding Standards Terminology','Introduction to IEC, ISO, IEEE'],
+  s2: 'Intermediate Level',
+  list2: ['IEC 61439 – Switchgear Standards','NEC (NFPA 70) – Electrical Code','ISO 9001 – Quality Management Systems','IEEE 80 – Earthing & Grounding','API RP 551 – Process Instrumentation'],
+  s3: 'Advanced Level',
+  list3: ['Functional Safety Standards (IEC 61508/61511)','ISO 14001 & 45001 – Environment & Safety','IEEE 1584 – Arc Flash Hazard Analysis','API Q1 – Quality Management for Oil & Gas','Standards Auditing & Compliance'],
+  s4: 'Suggested Path Flow',
+  s4p: 'Each step connects to previous, related, and next topics for fluid learning.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مسیر یادگیری استانداردها',
+  desc: 'یک مسیر یادگیری ساختاریافته از سطح پایه تا مباحث پیشرفته در استانداردهای مهندسی.',
+  s1: 'سطح پایه',
+  list1: ['مقدمه‌ای بر استانداردهای مهندسی','مرور سازمان‌های استانداردسازی','آشنایی با اصطلاحات استانداردها','مقدمه‌ای بر IEC، ISO، IEEE'],
+  s2: 'سطح متوسط',
+  list2: ['IEC 61439 – استانداردهای تابلوهای برق','NEC (NFPA 70) – کد ملی برق','ISO 9001 – سیستم‌های مدیریت کیفیت','IEEE 80 – ارتینگ و زمین‌کردن','API RP 551 – ابزار دقیق فرآیند'],
+  s3: 'سطح پیشرفته',
+  list3: ['استانداردهای ایمنی عملکردی (IEC 61508/61511)','ISO 14001 و 45001 – محیط زیست و ایمنی','IEEE 1584 – تحلیل خطر قوس الکتریکی','API Q1 – مدیریت کیفیت برای نفت و گاز','ممیزی و انطباق استانداردها'],
+  s4: 'مسیر پیشنهادی',
+  s4p: 'هر مرحله به مباحث قبلی، مرتبط و بعدی برای یادگیری سیال متصل است.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
