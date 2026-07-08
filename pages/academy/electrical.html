@@ -74,16 +74,36 @@ const lang = {
   back: '← بازگشت به خانه'
  }
 };
+
 function setLang(l) {
- const t = lang[l]; if (!t) return;
+ const t = lang[l];
+ if (!t) return;
+
+ // عنوان و توضیحات
  document.getElementById('page-title').textContent = t.title;
  document.getElementById('page-sub').textContent = t.desc;
  document.getElementById('backlink').textContent = t.back;
- document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+
+ // دکمه‌های زبان
+ document.querySelectorAll('.lang-btn').forEach(b => {
+  b.classList.toggle('active', b.dataset.lang === l);
+ });
+
+ // جهت صفحه
  document.body.classList.toggle('lang-persian', l === 'fa');
+
+ // ذخیره در localStorage
  localStorage.setItem('karatech-lang', l);
 }
-document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+
+// دکمه‌های زبان
+document.querySelectorAll('.lang-btn').forEach(btn => {
+ btn.onclick = function() {
+  setLang(this.dataset.lang);
+ };
+});
+
+// بارگذاری زبان ذخیره شده یا پیش‌فرض انگلیسی
 const savedLang = localStorage.getItem('karatech-lang') || 'en';
 setLang(savedLang);
 </script>
