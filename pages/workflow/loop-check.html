@@ -1,152 +1,154 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Loop Check</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Loop Check</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
-
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
-
-    <h1 id="title">🔄 Loop Check</h1>
-    <div class="sub" id="desc">Loop check is the process of verifying that all instrumentation and control loops are correctly wired, calibrated, and functioning as per the design specifications before commissioning.</div>
-
-    <div class="section">
-        <h2 id="s1">🔹 What is a Loop Check?</h2>
-        <p id="s1p">A loop check is a systematic verification of each control loop from the field instrument (sensor/transmitter) through the control system (PLC/DCS) to the final control element (valve/drive). It ensures that signals are correctly transmitted, processed, and responded to. Loop checks are essential for identifying wiring errors, configuration mistakes, and calibration issues before system startup.</p>
-    </div>
-
-    <div class="section">
-        <h2 id="s2">🔹 Types of Loop Checks</h2>
-        <ul id="list1">
-            <li><b>Analog Loop Check</b> – Verification of 4-20 mA signals from transmitters to PLC/DCS and from controllers to final elements</li>
-            <li><b>Digital Loop Check</b> – Verification of discrete signals (on/off) from switches, alarms, and interlocks</li>
-            <li><b>Communication Loop Check</b> – Verification of digital communication protocols (HART, Profibus, Modbus, etc.)</li>
-            <li><b>Control Loop Check</b> – Verification of PID control response and setpoint tracking</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">🔹 Key Steps in Loop Checking</h2>
-        <ul id="list2">
-            <li><b>Preparation</b> – Gather loop drawings, instrument datasheets, and test equipment (multimeter, signal generator, calibrator)</li>
-            <li><b>Visual Inspection</b> – Check wiring, terminal connections, and labeling against drawings</li>
-            <li><b>Continuity Check</b> – Verify that wires are properly connected and no open/short circuits exist</li>
-            <li><b>Signal Injection</b> – Simulate a signal at the transmitter and verify the reading at the PLC/DCS and HMI</li>
-            <li><b>Response Check</b> – Verify that the final control element (valve/drive) responds correctly to the controller output</li>
-            <li><b>Alarm & Interlock Check</b> – Test alarms and safety interlocks under simulated conditions</li>
-            <li><b>Documentation</b> – Record all results and sign off on loop check sheets</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example: Loop Check for a Pressure Control Loop</h2>
-        <p id="s4p">A pressure control loop includes a pressure transmitter, a PLC with PID control, and a control valve. The loop check team injects a 4 mA signal (0% pressure) and verifies the reading on the PLC. They then inject 12 mA (50%) and 20 mA (100%) and verify the corresponding readings. They also verify that the control valve opens/closes correctly in response to the PLC output. Alarms and interlocks are tested by simulating high/low pressure conditions.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Loop Check Phase</h1>
+ <div class="sub" id="desc">Verifying instrument loops and control circuits after installation.</div>
+ <div class="section">
+  <h2 id="s1">What is Loop Check?</h2>
+  <p id="s1p">Loop check is the process of verifying each instrument loop from the field device to the control system. It ensures that sensors, transmitters, controllers, and actuators are correctly wired, configured, and communicating properly.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Loop Check Procedure</h2>
+  <ul id="list1">
+   <li>Identify Loop – Verify tag numbers and loop diagrams</li>
+   <li>Visual Inspection – Check wiring and terminations</li>
+   <li>Continuity Test – Verify signal path</li>
+   <li>Inject Signal – Simulate input from field device</li>
+   <li>Verify Indication – Check reading at PLC/DCS</li>
+   <li>Verify Output – Test actuator response</li>
+   <li>Document Results – Record loop check sheet</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Loop Types</h2>
+  <ul id="list2">
+   <li>Analog Input Loop – 4-20mA from transmitter to PLC/DCS</li>
+   <li>Analog Output Loop – 4-20mA from PLC/DCS to valve</li>
+   <li>Digital Input Loop – Switch/sensor to PLC/DCS</li>
+   <li>Digital Output Loop – PLC/DCS to relay/solenoid</li>
+   <li>Communication Loop – HART, Fieldbus, Profibus</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Example: Loop Check Sheet</h2>
+  <div class="code-box">
+# Loop Check Sheet
+# Loop Tag: LT-101 (Level Transmitter)
+# Field Device: Level Transmitter (4-20mA)
+# Control System: PLC S7-1500
+# Steps:
+# 1. Visual inspection passed [  ]
+# 2. Continuity test passed [  ]
+# 3. Inject 4mA → PLC reads 0% [  ]
+# 4. Inject 20mA → PLC reads 100% [  ]
+# 5. Inject 12mA → PLC reads 50% [  ]
+# 6. Communication verified [  ]
+# Result: PASSED [  ]
+  </div>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Instrument Loop Verification</h2>
+  <p id="s5p">An instrument loop verification for a pressure transmitter includes: applying pressure to the transmitter, reading the 4-20mA signal at the PLC, and verifying the displayed value matches the applied pressure. The loop check sheet is signed off by the engineer.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '🔄 Loop Check',
-            desc: 'Loop check is the process of verifying that all instrumentation and control loops are correctly wired, calibrated, and functioning as per the design specifications before commissioning.',
-            s1: '🔹 What is a Loop Check?',
-            s1p: 'A loop check is a systematic verification of each control loop from the field instrument (sensor/transmitter) through the control system (PLC/DCS) to the final control element (valve/drive). It ensures that signals are correctly transmitted, processed, and responded to. Loop checks are essential for identifying wiring errors, configuration mistakes, and calibration issues before system startup.',
-            s2: '🔹 Types of Loop Checks',
-            list1: ['Analog Loop Check – Verification of 4-20 mA signals from transmitters to PLC/DCS and from controllers to final elements','Digital Loop Check – Verification of discrete signals (on/off) from switches, alarms, and interlocks','Communication Loop Check – Verification of digital communication protocols (HART, Profibus, Modbus, etc.)','Control Loop Check – Verification of PID control response and setpoint tracking'],
-            s3: '🔹 Key Steps in Loop Checking',
-            list2: ['Preparation – Gather loop drawings, instrument datasheets, and test equipment (multimeter, signal generator, calibrator)','Visual Inspection – Check wiring, terminal connections, and labeling against drawings','Continuity Check – Verify that wires are properly connected and no open/short circuits exist','Signal Injection – Simulate a signal at the transmitter and verify the reading at the PLC/DCS and HMI','Response Check – Verify that the final control element (valve/drive) responds correctly to the controller output','Alarm & Interlock Check – Test alarms and safety interlocks under simulated conditions','Documentation – Record all results and sign off on loop check sheets'],
-            s4: '🔹 Example: Loop Check for a Pressure Control Loop',
-            s4p: 'A pressure control loop includes a pressure transmitter, a PLC with PID control, and a control valve. The loop check team injects a 4 mA signal (0% pressure) and verifies the reading on the PLC. They then inject 12 mA (50%) and 20 mA (100%) and verify the corresponding readings. They also verify that the control valve opens/closes correctly in response to the PLC output. Alarms and interlocks are tested by simulating high/low pressure conditions.',
-            back: '← Back'
-        },
-        fa: {
-            title: '🔄 بررسی حلقه',
-            desc: 'بررسی حلقه فرآیند تأیید این است که تمام حلقه‌های ابزار دقیق و کنترل به درستی سیم‌کشی، کالیبره شده و مطابق با مشخصات طراحی قبل از راه‌اندازی عمل می‌کنند.',
-            s1: '🔹 بررسی حلقه چیست؟',
-            s1p: 'بررسی حلقه یک تأیید سیستماتیک هر حلقه کنترل از ابزار میدان (سنسور/ترانسمیتر) از طریق سیستم کنترل (PLC/DCS) تا عنصر نهایی کنترل (شیر/درایو) است. اطمینان حاصل می‌کند که سیگنال‌ها به درستی ارسال، پردازش و پاسخ داده می‌شوند. بررسی حلقه برای شناسایی خطاهای سیم‌کشی، اشتباهات پیکربندی و مسائل کالیبراسیون قبل از راه‌اندازی سیستم ضروری است.',
-            s2: '🔹 انواع بررسی حلقه',
-            list1: ['بررسی حلقه آنالوگ – تأیید سیگنال‌های ۴-۲۰ میلی‌آمپر از ترانسمیترها به PLC/DCS و از کنترل‌کننده‌ها به عناصر نهایی','بررسی حلقه دیجیتال – تأیید سیگنال‌های گسسته (روشن/خاموش) از سوئیچ‌ها، هشدارها و اینترلاک‌ها','بررسی حلقه ارتباطی – تأیید پروتکل‌های ارتباطی دیجیتال (HART، Profibus، Modbus و غیره)','بررسی حلقه کنترل – تأیید پاسخ کنترل PID و پیگیری نقطه تنظیم'],
-            s3: '🔹 مراحل کلیدی در بررسی حلقه',
-            list2: ['آماده‌سازی – جمع‌آوری نقشه‌های حلقه، برگه‌های داده ابزار و تجهیزات تست (مولتی‌متر، مولد سیگنال، کالیبراتور)','بازرسی بصری – بررسی سیم‌کشی، اتصالات ترمینال و برچسب‌گذاری مطابق با نقشه‌ها','بررسی پیوستگی – تأیید اتصال صحیح سیم‌ها و عدم وجود مدار باز/اتصال کوتاه','تزریق سیگنال – شبیه‌سازی سیگنال در ترانسمیتر و تأیید خواندن در PLC/DCS و HMI','بررسی پاسخ – تأیید پاسخ صحیح عنصر نهایی کنترل (شیر/درایو) به خروجی کنترل‌کننده','بررسی هشدار و اینترلاک – تست هشدارها و اینترلاک‌های ایمنی در شرایط شبیه‌سازی شده','مستندسازی – ثبت تمام نتایج و تأیید نهایی برگه‌های بررسی حلقه'],
-            s4: '🔹 مثال: بررسی حلقه برای یک حلقه کنترل فشار',
-            s4p: 'یک حلقه کنترل فشار شامل یک ترانسمیتر فشار، یک PLC با کنترل PID و یک شیر کنترلی است. تیم بررسی حلقه یک سیگنال ۴ میلی‌آمپر (۰٪ فشار) تزریق کرده و خواندن را روی PLC تأیید می‌کند. سپس ۱۲ میلی‌آمپر (۵۰٪) و ۲۰ میلی‌آمپر (۱۰۰٪) تزریق کرده و خواندن‌های مربوطه را تأیید می‌کنند. همچنین تأیید می‌کنند که شیر کنترلی در پاسخ به خروجی PLC به درستی باز/بسته می‌شود. هشدارها و اینترلاک‌ها با شبیه‌سازی شرایط فشار بالا/پایین تست می‌شوند.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Loop Check Phase',
+  desc: 'Verifying instrument loops and control circuits after installation.',
+  s1: 'What is Loop Check?',
+  s1p: 'Loop check is the process of verifying each instrument loop from the field device to the control system. It ensures that sensors, transmitters, controllers, and actuators are correctly wired, configured, and communicating properly.',
+  s2: 'Loop Check Procedure',
+  list1: ['Identify Loop – Verify tag numbers and loop diagrams','Visual Inspection – Check wiring and terminations','Continuity Test – Verify signal path','Inject Signal – Simulate input from field device','Verify Indication – Check reading at PLC/DCS','Verify Output – Test actuator response','Document Results – Record loop check sheet'],
+  s3: 'Loop Types',
+  list2: ['Analog Input Loop – 4-20mA from transmitter to PLC/DCS','Analog Output Loop – 4-20mA from PLC/DCS to valve','Digital Input Loop – Switch/sensor to PLC/DCS','Digital Output Loop – PLC/DCS to relay/solenoid','Communication Loop – HART, Fieldbus, Profibus'],
+  s4: 'Example: Loop Check Sheet',
+  s5: 'Example: Instrument Loop Verification',
+  s5p: 'An instrument loop verification for a pressure transmitter includes: applying pressure to the transmitter, reading the 4-20mA signal at the PLC, and verifying the displayed value matches the applied pressure. The loop check sheet is signed off by the engineer.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مرحله چک حلقه',
+  desc: 'تأیید حلقه‌های ابزاری و مدارهای کنترل پس از نصب.',
+  s1: 'چک حلقه چیست؟',
+  s1p: 'چک حلقه فرآیند تأیید هر حلقه ابزاری از دستگاه میدان تا سیستم کنترل است. این تضمین می‌کند که سنسورها، ترانسمیترها، کنترل‌کننده‌ها و عملگرها به درستی سیم‌کشی، پیکربندی و ارتباط برقرار کرده‌اند.',
+  s2: 'رویه چک حلقه',
+  list1: ['شناسایی حلقه – تأیید شماره تگ و نمودارهای حلقه','بازرسی بصری – بررسی سیم‌کشی و اتصالات','تست پیوستگی – تأیید مسیر سیگنال','تزریق سیگنال – شبیه‌سازی ورودی از دستگاه میدان','تأیید نشان‌دهی – بررسی خوانش در PLC/DCS','تأیید خروجی – تست پاسخ عملگر','مستندسازی نتایج – ثبت برگه چک حلقه'],
+  s3: 'انواع حلقه',
+  list2: ['حلقه ورودی آنالوگ – 4-20mA از ترانسمیتر به PLC/DCS','حلقه خروجی آنالوگ – 4-20mA از PLC/DCS به شیر','حلقه ورودی دیجیتال – سوئیچ/سنسور به PLC/DCS','حلقه خروجی دیجیتال – PLC/DCS به رله/سلونوئید','حلقه ارتباطی – HART، Fieldbus، Profibus'],
+  s4: 'مثال: برگه چک حلقه',
+  s5: 'مثال: تأیید حلقه ابزاری',
+  s5p: 'تأیید حلقه ابزاری برای یک ترانسمیتر فشار شامل: اعمال فشار به ترانسمیتر، خواندن سیگنال 4-20mA در PLC و تأیید اینکه مقدار نمایش داده شده با فشار اعمال شده مطابقت دارد. برگه چک حلقه توسط مهندس تأیید می‌شود.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
