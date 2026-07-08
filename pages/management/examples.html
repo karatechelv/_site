@@ -1,177 +1,164 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Management Examples</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Management Examples</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Management Examples</h1>
+ <div class="sub" id="desc">Practical projects, management examples, and real-world applications of engineering management.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="s1">Project Planning Examples</h2>
+  <ul id="list1">
+   <li>Project Charter for MCC Panel Project</li>
+   <li>Gantt Chart for Control Panel Assembly</li>
+   <li>Work Breakdown Structure (WBS)</li>
+   <li>Resource Allocation Plan</li>
+  </ul>
+  <div class="code-box">
+# Project Charter - MCC Panel Project
+# Project Name: MCC Panel for Factory
+# Objectives: Design, build, test, deliver
+# Scope: MCC panel, 10 motor starters
+# Budget: $75,000
+# Timeline: 6 weeks
+# Sponsor: Factory Manager
+# PM: John Smith
+  </div>
+ </div>
 
-    <h1 id="title">📝 Management Examples</h1>
-    <div class="sub" id="desc">Practical projects and examples to apply engineering management knowledge. Includes complete descriptions and learning outcomes.</div>
+ <div class="section">
+  <h2 id="s2">Risk Management Examples</h2>
+  <ul id="list2">
+   <li>Risk Register for Engineering Project</li>
+   <li>Risk Matrix Assessment</li>
+   <li>Mitigation Plan for Supplier Delays</li>
+   <li>Contingency Planning</li>
+  </ul>
+  <div class="code-box">
+# Risk Register - MCC Panel Project
+# Risk ID | Risk Description | Likelihood | Impact | Mitigation
+# R1      | Supplier delay    | High      | High  | Order early, 2nd supplier
+# R2      | Design changes    | Medium    | Medium| Freeze design early
+# R3      | Assembly errors   | Medium    | Low   | Quality checks
+  </div>
+ </div>
 
-    <div class="section">
-        <h2 id="s1">🔹 Example 1: Project Plan for a Substation Upgrade</h2>
-        <p id="s1p"><strong>Description:</strong> Development of a comprehensive project plan for upgrading a 132 kV substation. Includes scope definition, WBS, schedule, resource allocation, and budget estimation.</p>
-        <ul id="list1">
-            <li>Scope: Replacement of switchgear and transformers</li>
-            <li>Duration: 18 months</li>
-            <li>Key skills: WBS, Gantt chart, resource planning, cost estimation</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s3">Workflow Examples</h2>
+  <ul id="list3">
+   <li>Process Flow for Panel Assembly</li>
+   <li>Value Stream Mapping for Engineering</li>
+   <li>SOP for Testing and Inspection</li>
+   <li>Handoff Procedures</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s2">🔹 Example 2: Risk Management for a Pipeline Project</h2>
-        <p id="s2p"><strong>Description:</strong> Identification and mitigation of risks for an oil pipeline project. Includes risk register, impact analysis, and mitigation strategies.</p>
-        <ul id="list2">
-            <li>Risks: Environmental, safety, schedule delays, cost overruns</li>
-            <li>Tools: Risk matrix, FMEA, Monte Carlo simulation</li>
-            <li>Key skills: Risk identification, quantitative analysis, mitigation planning</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s4">Real-World Projects</h2>
+  <ul id="list4">
+   <li>Management of MCC Panel Project</li>
+   <li>Process Plant Control System Project</li>
+   <li>Building Automation System Project</li>
+   <li>Factory Electrical Design Project</li>
+  </ul>
+  <p id="s4p">Each project includes project plans, schedules, risk registers, resource plans, and management documentation.</p>
+ </div>
 
-    <div class="section">
-        <h2 id="s3">🔹 Example 3: Quality Management Plan for a Manufacturing Facility</h2>
-        <p id="s3p"><strong>Description:</strong> Development of a quality management plan for a new manufacturing facility. Includes quality objectives, inspection and test plans (ITPs), and continuous improvement processes.</p>
-        <ul id="list3">
-            <li>Scope: Entire manufacturing process from raw materials to final product</li>
-            <li>Tools: ISO 9001 framework, PDCA, SPC</li>
-            <li>Key skills: Quality planning, inspection, corrective action, continuous improvement</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s4">🔹 Example 4: Resource Planning for a Construction Project</h2>
-        <p id="s4p"><strong>Description:</strong> Resource planning for a large construction project including labor, equipment, and materials. Includes resource leveling and forecasting.</p>
-        <ul id="list4">
-            <li>Scope: 500,000 sq. ft. commercial building</li>
-            <li>Resources: 200 workers, 15 cranes, 5,000 tons of steel</li>
-            <li>Key skills: Resource estimation, allocation, leveling, forecasting</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📝 Management Examples',
-            desc: 'Practical projects and examples to apply engineering management knowledge. Includes complete descriptions and learning outcomes.',
-            s1: '🔹 Example 1: Project Plan for a Substation Upgrade',
-            s1p: 'Development of a comprehensive project plan for upgrading a 132 kV substation. Includes scope definition, WBS, schedule, resource allocation, and budget estimation.',
-            list1: ['Scope: Replacement of switchgear and transformers','Duration: 18 months','Key skills: WBS, Gantt chart, resource planning, cost estimation'],
-            s2: '🔹 Example 2: Risk Management for a Pipeline Project',
-            s2p: 'Identification and mitigation of risks for an oil pipeline project. Includes risk register, impact analysis, and mitigation strategies.',
-            list2: ['Risks: Environmental, safety, schedule delays, cost overruns','Tools: Risk matrix, FMEA, Monte Carlo simulation','Key skills: Risk identification, quantitative analysis, mitigation planning'],
-            s3: '🔹 Example 3: Quality Management Plan for a Manufacturing Facility',
-            s3p: 'Development of a quality management plan for a new manufacturing facility. Includes quality objectives, inspection and test plans (ITPs), and continuous improvement processes.',
-            list3: ['Scope: Entire manufacturing process from raw materials to final product','Tools: ISO 9001 framework, PDCA, SPC','Key skills: Quality planning, inspection, corrective action, continuous improvement'],
-            s4: '🔹 Example 4: Resource Planning for a Construction Project',
-            s4p: 'Resource planning for a large construction project including labor, equipment, and materials. Includes resource leveling and forecasting.',
-            list4: ['Scope: 500,000 sq. ft. commercial building','Resources: 200 workers, 15 cranes, 5,000 tons of steel','Key skills: Resource estimation, allocation, leveling, forecasting'],
-            back: '← Back'
-        },
-        fa: {
-            title: '📝 مثال‌های مدیریت مهندسی',
-            desc: 'پروژه‌ها و مثال‌های عملی برای به کارگیری دانش مدیریت مهندسی. شامل توضیحات کامل و نتایج یادگیری.',
-            s1: '🔹 مثال ۱: برنامه پروژه برای ارتقاء پست برق',
-            s1p: 'توسعه یک برنامه پروژه جامع برای ارتقاء یک پست ۱۳۲ کیلوولت. شامل تعریف محدوده، WBS، زمان‌بندی، تخصیص منابع و برآورد بودجه.',
-            list1: ['محدوده: جایگزینی تابلوها و ترانسفورماتورها','مدت: ۱۸ ماه','مهارت‌های کلیدی: WBS، نمودار گانت، برنامه‌ریزی منابع، برآورد هزینه'],
-            s2: '🔹 مثال ۲: مدیریت ریسک برای یک پروژه خط لوله',
-            s2p: 'شناسایی و کاهش ریسک‌های یک پروژه خط لوله نفت. شامل ثبت ریسک، تحلیل تأثیر و راهبردهای کاهش.',
-            list2: ['ریسک‌ها: زیست‌محیطی، ایمنی، تأخیر در زمان‌بندی، افزایش هزینه','ابزارها: ماتریس ریسک، FMEA، شبیه‌سازی مونت کارلو','مهارت‌های کلیدی: شناسایی ریسک، تحلیل کمی، برنامه‌ریزی کاهش'],
-            s3: '🔹 مثال ۳: برنامه مدیریت کیفیت برای یک کارخانه تولیدی',
-            s3p: 'توسعه یک برنامه مدیریت کیفیت برای یک کارخانه تولیدی جدید. شامل اهداف کیفیت، برنامه‌های بازرسی و تست (ITP) و فرآیندهای بهبود مستمر.',
-            list3: ['محدوده: کل فرآیند تولید از مواد اولیه تا محصول نهایی','ابزارها: چارچوب ISO 9001، PDCA، SPC','مهارت‌های کلیدی: برنامه‌ریزی کیفیت، بازرسی، اقدام اصلاحی، بهبود مستمر'],
-            s4: '🔹 مثال ۴: برنامه‌ریزی منابع برای یک پروژه ساختمانی',
-            s4p: 'برنامه‌ریزی منابع برای یک پروژه ساختمانی بزرگ شامل نیروی کار، تجهیزات و مواد. شامل هموارسازی و پیش‌بینی منابع.',
-            list4: ['محدوده: ساختمان تجاری ۵۰۰,۰۰۰ فوت مربع','منابع: ۲۰۰ کارگر، ۱۵ جرثقیل، ۵,۰۰۰ تن فولاد','مهارت‌های کلیدی: تخمین منابع، تخصیص، هموارسازی، پیش‌بینی'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s2p').textContent = t.s2p;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s3p').textContent = t.s3p;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s4p').textContent = t.s4p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        const ul3 = document.getElementById('list3');
-        ul3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
-
-        const ul4 = document.getElementById('list4');
-        ul4.innerHTML = '';
-        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Management Examples',
+  desc: 'Practical projects, management examples, and real-world applications of engineering management.',
+  s1: 'Project Planning Examples',
+  list1: ['Project Charter for MCC Panel Project','Gantt Chart for Control Panel Assembly','Work Breakdown Structure (WBS)','Resource Allocation Plan'],
+  s2: 'Risk Management Examples',
+  list2: ['Risk Register for Engineering Project','Risk Matrix Assessment','Mitigation Plan for Supplier Delays','Contingency Planning'],
+  s3: 'Workflow Examples',
+  list3: ['Process Flow for Panel Assembly','Value Stream Mapping for Engineering','SOP for Testing and Inspection','Handoff Procedures'],
+  s4: 'Real-World Projects',
+  list4: ['Management of MCC Panel Project','Process Plant Control System Project','Building Automation System Project','Factory Electrical Design Project'],
+  s4p: 'Each project includes project plans, schedules, risk registers, resource plans, and management documentation.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مثال‌های مدیریتی',
+  desc: 'پروژه‌های عملی، مثال‌های مدیریتی و کاربردهای واقعی مدیریت مهندسی.',
+  s1: 'مثال‌های برنامه‌ریزی پروژه',
+  list1: ['منشور پروژه برای پروژه پنل MCC','نمودار گانت برای مونتاژ پنل کنترل','ساختار شکست کار (WBS)','برنامه تخصیص منابع'],
+  s2: 'مثال‌های مدیریت ریسک',
+  list2: ['ثبت ریسک برای پروژه مهندسی','ارزیابی ماتریس ریسک','برنامه کاهش ریسک برای تاخیر تأمین‌کننده','برنامه‌ریزی اضطراری'],
+  s3: 'مثال‌های جریان کار',
+  list3: ['جریان فرآیند برای مونتاژ پنل','نقشه‌برداری جریان ارزش برای مهندسی','رویه عملیاتی استاندارد برای تست و بازرسی','رویه‌های تحویل'],
+  s4: 'پروژه‌های واقعی',
+  list4: ['مدیریت پروژه پنل MCC','پروژه سیستم کنترل کارخانه فرآیندی','پروژه سیستم اتوماسیون ساختمان','پروژه طراحی برق کارخانه'],
+  s4p: 'هر پروژه شامل برنامه‌های پروژه، زمان‌بندی‌ها، ثبت ریسک، برنامه‌های منابع و مستندات مدیریتی است.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s4p').textContent = t.s4p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
