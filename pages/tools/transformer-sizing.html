@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Transformer Sizing</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:900px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+ .calc-grid label{color:#b0b8c5;font-size:.9rem;display:flex;flex-direction:column;gap:4px}
+ .calc-grid input,.calc-grid select{background:#0d0e12;border:1px solid #2a2f3a;color:#eef0f4;padding:8px 12px;border-radius:8px;font-size:.95rem;width:100%}
+ .calc-grid input:focus,.calc-grid select:focus{outline:1px solid #d4af37}
+ .result-box{background:#0d0e12;padding:16px;border-radius:12px;border-left:3px solid #d4af37;font-size:1.2rem;font-weight:600;color:#d4af37;margin-top:12px;text-align:center}
+ .calc-btn{background:#5b3b8c;border:1px solid #d4af37;color:#fff;padding:12px 30px;border-radius:30px;font-weight:600;cursor:pointer;transition:.2s;margin-top:10px}
+ .calc-btn:hover{background:#d4af37;color:#111}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}.calc-grid{grid-template-columns:1fr}}
+ </style>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Transformer Sizing Calculator</h1>
+ <div class="sub" id="desc">Calculate the required transformer kVA rating based on load and system type.</div>
+
+ <div class="section">
+  <h2 id="formula-title">Formula</h2>
+  <p id="formula-text"><strong>kVA = (V × I × √3) / 1000</strong> (three-phase) or <strong>kVA = (V × I) / 1000</strong> (single-phase)</p>
+  <p>Recommended transformer size = 125% of calculated load (for future expansion)</p>
+ </div>
+
+ <div class="section">
+  <h2 id="calc-title">Calculator</h2>
+  <div class="calc-grid">
+   <label>Voltage (V) <input type="number" id="voltage" value="400" step="1"></label>
+   <label>Load Current (A) <input type="number" id="current" value="100" step="0.1"></label>
+   <label>System <select id="system"><option value="three">Three Phase</option><option value="single">Single Phase</option></select></label>
+  </div>
+  <button class="calc-btn" id="calcBtn" onclick="calculate()">Calculate</button>
+  <div class="result-box" id="result">Transformer Rating: 0.0 kVA</div>
+ </div>
+
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
+</div>
+<script>
+function calculate() {
+ const V = parseFloat(document.getElementById('voltage').value) || 0;
+ const I = parseFloat(document.getElementById('current').value) || 0;
+ const system = document.getElementById('system').value;
+ let kVA = 0;
+ if (system === 'three') {
+  kVA = (V * I * Math.sqrt(3)) / 1000;
+ } else {
+  kVA = (V * I) / 1000;
+ }
+ let recommended = kVA * 1.25;
+ const stdSizes = [5,10,16,25,30,40,50,63,75,80,100,125,160,200,250,315,400,500,630,800,1000,1250,1600,2000,2500,3150];
+ let selected = stdSizes.find(s => s >= recommended);
+ if (!selected) selected = stdSizes[stdSizes.length-1];
+ document.getElementById('result').textContent = 'Transformer Rating: ' + kVA.toFixed(1) + ' kVA (Recommended: ' + selected + ' kVA)';
+}
+const lang = {
+ en: {
+  title: 'Transformer Sizing Calculator',
+  desc: 'Calculate the required transformer kVA rating based on load and system type.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'ماشین‌حساب سایز ترانسفورماتور',
+  desc: 'محاسبه رتبه‌بندی kVA ترانسفورماتور مورد نیاز بر اساس بار و نوع سیستم.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('backlink').textContent = t.back;
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
+</body>
+</html>
