@@ -1,307 +1,148 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · IEC Reference Tables</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1100px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-        .tab-btn{background:#1e2128;border:1px solid #333;color:#8e95a5;padding:10px 20px;border-radius:30px;cursor:pointer;transition:.2s;font-weight:600}
-        .tab-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .tab-btn:hover{background:#2f3340}
-        .table-wrap{overflow-x:auto;background:#1e2128;padding:20px;border-radius:16px;border:1px solid rgba(212,175,55,0.08)}
-        table{width:100%;border-collapse:collapse;font-size:.9rem}
-        th,td{padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
-        th{color:#d4af37;font-weight:600;background:#0d0e12}
-        .note{color:#8e95a5;font-size:.85rem;margin-top:15px}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · IEC Tables</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem}
+ th,td{border:1px solid #2a2f3a;padding:8px 12px;text-align:left;color:#b0b8c5}
+ th{background:#1e2128;color:#d4af37;font-weight:600}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}table{font-size:.7rem}th,td{padding:4px 6px}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">IEC Reference Tables</h1>
+ <div class="sub" id="desc">Standard IEC tables for cable current capacity, fuse ratings, and conductor sizing.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="s1">Cable Current Capacity (Copper, PVC)</h2>
+  <table>
+   <tr><th>Cable Size (mm²)</th><th>Current Capacity (A)</th><th>Application</th></tr>
+   <tr><td>1.5</td><td>10</td><td>Lighting, small loads</td></tr>
+   <tr><td>2.5</td><td>16</td><td>Power outlets, small motors</td></tr>
+   <tr><td>4</td><td>25</td><td>Medium loads</td></tr>
+   <tr><td>6</td><td>35</td><td>Heavy loads</td></tr>
+   <tr><td>10</td><td>50</td><td>Main distribution</td></tr>
+   <tr><td>16</td><td>70</td><td>Main distribution</td></tr>
+   <tr><td>25</td><td>95</td><td>Large motors, feeders</td></tr>
+   <tr><td>35</td><td>120</td><td>Large feeders</td></tr>
+   <tr><td>50</td><td>150</td><td>Main feeders</td></tr>
+   <tr><td>70</td><td>190</td><td>Main feeders</td></tr>
+  </table>
+ </div>
 
-    <h1 id="title">📊 IEC Reference Tables</h1>
-    <div class="sub" id="desc">Reference tables for cable current ratings, fuse ratings, circuit breaker ratings, and more based on IEC standards.</div>
+ <div class="section">
+  <h2 id="s2">Fuse &amp; Breaker Standard Sizes</h2>
+  <table>
+   <tr><th>Standard (A)</th><th>Application</th></tr>
+   <tr><td>6, 10, 13, 16, 20, 25, 32, 40, 50, 63, 80, 100, 125, 160, 200, 250, 315, 400, 500, 630, 800, 1000, 1250</td><td>MCB/MCCB/Fuse ratings</td></tr>
+  </table>
+ </div>
 
-    <div class="tabs">
-        <button class="tab-btn active" data-table="cable" id="tab-cable">Cable Ratings</button>
-        <button class="tab-btn" data-table="fuse" id="tab-fuse">Fuse Ratings</button>
-        <button class="tab-btn" data-table="breaker" id="tab-breaker">Breaker Ratings</button>
-    </div>
+ <div class="section">
+  <h2 id="s3">Transformer Standard Ratings</h2>
+  <table>
+   <tr><th>Rating (kVA)</th><th>Application</th></tr>
+   <tr><td>5, 10, 16, 25, 30, 40, 50, 63, 75, 80, 100, 125, 160, 200, 250, 315, 400, 500, 630, 800, 1000, 1250, 1600, 2000, 2500, 3150</td><td>Distribution transformers</td></tr>
+  </table>
+ </div>
 
-    <div class="table-wrap" id="table-container">
-        <!-- Content will be generated by JavaScript -->
-    </div>
+ <div class="section">
+  <h2 id="s4">Motor Full-Load Current (400V, 3-Phase)</h2>
+  <table>
+   <tr><th>Motor Power (kW)</th><th>Current (A)</th></tr>
+   <tr><td>1.1</td><td>2.5</td></tr>
+   <tr><td>2.2</td><td>4.7</td></tr>
+   <tr><td>3.0</td><td>6.3</td></tr>
+   <tr><td>4.0</td><td>8.2</td></tr>
+   <tr><td>5.5</td><td>11.0</td></tr>
+   <tr><td>7.5</td><td>14.8</td></tr>
+   <tr><td>11</td><td>21.0</td></tr>
+   <tr><td>15</td><td>28.0</td></tr>
+   <tr><td>18.5</td><td>34.0</td></tr>
+   <tr><td>22</td><td>40.0</td></tr>
+   <tr><td>30</td><td>54.0</td></tr>
+   <tr><td>37</td><td>66.0</td></tr>
+   <tr><td>45</td><td>80.0</td></tr>
+   <tr><td>55</td><td>97.0</td></tr>
+   <tr><td>75</td><td>130.0</td></tr>
+   <tr><td>90</td><td>155.0</td></tr>
+  </table>
+ </div>
 
-    <div class="note" id="footnote">Based on IEC 60364, IEC 60269, and IEC 60898. Values are approximate and for reference only.</div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const tableData = {
-        cable: {
-            en: {
-                headers: ['Cross-Section (mm²)', 'Current Rating (A) - Copper', 'Current Rating (A) - Aluminum'],
-                rows: [
-                    [1, 11, 8],
-                    [1.5, 14, 11],
-                    [2.5, 20, 15],
-                    [4, 26, 20],
-                    [6, 34, 26],
-                    [10, 46, 36],
-                    [16, 61, 47],
-                    [25, 80, 63],
-                    [35, 99, 78],
-                    [50, 120, 94],
-                    [70, 152, 119],
-                    [95, 184, 144],
-                    [120, 212, 166],
-                    [150, 245, 192],
-                    [185, 279, 218],
-                    [240, 329, 257],
-                    [300, 379, 296]
-                ]
-            },
-            fa: {
-                headers: ['سطح مقطع (mm²)', 'ظرفیت جریان (A) - مس', 'ظرفیت جریان (A) - آلومینیوم'],
-                rows: [
-                    [1, 11, 8],
-                    [1.5, 14, 11],
-                    [2.5, 20, 15],
-                    [4, 26, 20],
-                    [6, 34, 26],
-                    [10, 46, 36],
-                    [16, 61, 47],
-                    [25, 80, 63],
-                    [35, 99, 78],
-                    [50, 120, 94],
-                    [70, 152, 119],
-                    [95, 184, 144],
-                    [120, 212, 166],
-                    [150, 245, 192],
-                    [185, 279, 218],
-                    [240, 329, 257],
-                    [300, 379, 296]
-                ]
-            }
-        },
-        fuse: {
-            en: {
-                headers: ['Fuse Size (A)', 'gG/gL (General)', 'aM (Motor)'],
-                rows: [
-                    [2, 2, 2],
-                    [4, 4, 4],
-                    [6, 6, 6],
-                    [10, 10, 10],
-                    [16, 16, 16],
-                    [20, 20, 20],
-                    [25, 25, 25],
-                    [32, 32, 32],
-                    [40, 40, 40],
-                    [50, 50, 50],
-                    [63, 63, 63],
-                    [80, 80, 80],
-                    [100, 100, 100],
-                    [125, 125, 125],
-                    [160, 160, 160],
-                    [200, 200, 200],
-                    [250, 250, 250],
-                    [315, 315, 315],
-                    [400, 400, 400]
-                ]
-            },
-            fa: {
-                headers: ['سایز فیوز (A)', 'gG/gL (عمومی)', 'aM (موتور)'],
-                rows: [
-                    [2, 2, 2],
-                    [4, 4, 4],
-                    [6, 6, 6],
-                    [10, 10, 10],
-                    [16, 16, 16],
-                    [20, 20, 20],
-                    [25, 25, 25],
-                    [32, 32, 32],
-                    [40, 40, 40],
-                    [50, 50, 50],
-                    [63, 63, 63],
-                    [80, 80, 80],
-                    [100, 100, 100],
-                    [125, 125, 125],
-                    [160, 160, 160],
-                    [200, 200, 200],
-                    [250, 250, 250],
-                    [315, 315, 315],
-                    [400, 400, 400]
-                ]
-            }
-        },
-        breaker: {
-            en: {
-                headers: ['Current Rating (A)', 'Typical Use'],
-                rows: [
-                    [6, 'Lighting, general circuits'],
-                    [10, 'Lighting, general circuits'],
-                    [13, 'Lighting, general circuits'],
-                    [16, 'Lighting, general circuits'],
-                    [20, 'Power circuits, small motors'],
-                    [25, 'Power circuits, small motors'],
-                    [32, 'Power circuits, motors'],
-                    [40, 'Power circuits, motors'],
-                    [50, 'Power circuits, large loads'],
-                    [63, 'Power circuits, large loads'],
-                    [80, 'Sub-main distribution'],
-                    [100, 'Sub-main distribution'],
-                    [125, 'Main distribution'],
-                    [160, 'Main distribution'],
-                    [200, 'Main distribution'],
-                    [250, 'Main distribution'],
-                    [315, 'Main distribution'],
-                    [400, 'Main distribution'],
-                    [500, 'Main distribution'],
-                    [630, 'Main distribution']
-                ]
-            },
-            fa: {
-                headers: ['رتبه جریان (A)', 'کاربرد معمول'],
-                rows: [
-                    [6, 'روشنایی، مدارهای عمومی'],
-                    [10, 'روشنایی، مدارهای عمومی'],
-                    [13, 'روشنایی، مدارهای عمومی'],
-                    [16, 'روشنایی، مدارهای عمومی'],
-                    [20, 'مدارهای قدرت، موتورهای کوچک'],
-                    [25, 'مدارهای قدرت، موتورهای کوچک'],
-                    [32, 'مدارهای قدرت، موتورها'],
-                    [40, 'مدارهای قدرت، موتورها'],
-                    [50, 'مدارهای قدرت، بارهای بزرگ'],
-                    [63, 'مدارهای قدرت، بارهای بزرگ'],
-                    [80, 'توزیع اصلی فرعی'],
-                    [100, 'توزیع اصلی فرعی'],
-                    [125, 'توزیع اصلی'],
-                    [160, 'توزیع اصلی'],
-                    [200, 'توزیع اصلی'],
-                    [250, 'توزیع اصلی'],
-                    [315, 'توزیع اصلی'],
-                    [400, 'توزیع اصلی'],
-                    [500, 'توزیع اصلی'],
-                    [630, 'توزیع اصلی']
-                ]
-            }
-        }
-    };
-
-    const langData = {
-        en: {
-            title: '📊 IEC Reference Tables',
-            desc: 'Reference tables for cable current ratings, fuse ratings, circuit breaker ratings, and more based on IEC standards.',
-            footnote: 'Based on IEC 60364, IEC 60269, and IEC 60898. Values are approximate and for reference only.',
-            back: '← Back',
-            tabs: {
-                cable: 'Cable Ratings',
-                fuse: 'Fuse Ratings',
-                breaker: 'Breaker Ratings'
-            }
-        },
-        fa: {
-            title: '📊 جدول‌های مرجع IEC',
-            desc: 'جدول‌های مرجع برای ظرفیت جریان کابل، رتبه فیوز، رتبه کلید مدار و موارد دیگر بر اساس استانداردهای IEC.',
-            footnote: 'بر اساس IEC 60364، IEC 60269 و IEC 60898. مقادیر تقریبی بوده و فقط برای مرجع هستند.',
-            back: '← بازگشت',
-            tabs: {
-                cable: 'ظرفیت کابل',
-                fuse: 'رتبه فیوز',
-                breaker: 'رتبه کلید مدار'
-            }
-        }
-    };
-
-    function setLanguage(lang) {
-        const t = langData[lang];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('footnote').textContent = t.footnote;
-        document.getElementById('backlink').textContent = t.back;
-
-        // Update tab texts
-        document.getElementById('tab-cable').textContent = t.tabs.cable;
-        document.getElementById('tab-fuse').textContent = t.tabs.fuse;
-        document.getElementById('tab-breaker').textContent = t.tabs.breaker;
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-        document.body.classList.toggle('lang-persian', lang === 'fa');
-        localStorage.setItem('karatech-lang', lang);
-        // Refresh current table
-        const activeTab = document.querySelector('.tab-btn.active');
-        if (activeTab) showTable(activeTab.dataset.table);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLanguage(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLanguage(savedLang);
-
-    function showTable(tableName) {
-        const lang = document.querySelector('.lang-btn.active')?.dataset.lang || 'en';
-        const data = tableData[tableName];
-        if (!data) return;
-        const t = data[lang] || data.en;
-        const container = document.getElementById('table-container');
-
-        let html = '<table><thead><tr>';
-        t.headers.forEach(h => html += `<th>${h}</th>`);
-        html += '</tr></thead><tbody>';
-        t.rows.forEach(row => {
-            html += '<tr>';
-            row.forEach(cell => html += `<td>${cell}</td>`);
-            html += '</tr>';
-        });
-        html += '</tbody></table>';
-        container.innerHTML = html;
-    }
-
-    // Tab switching
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.onclick = function() {
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            showTable(this.dataset.table);
-        };
-    });
-
-    // Show initial table (cable)
-    showTable('cable');
+const lang = {
+ en: {
+  title: 'IEC Reference Tables',
+  desc: 'Standard IEC tables for cable current capacity, fuse ratings, and conductor sizing.',
+  s1: 'Cable Current Capacity (Copper, PVC)',
+  s2: 'Fuse & Breaker Standard Sizes',
+  s3: 'Transformer Standard Ratings',
+  s4: 'Motor Full-Load Current (400V, 3-Phase)',
+  back: '← Back'
+ },
+ fa: {
+  title: 'جداول مرجع IEC',
+  desc: 'جداول استاندارد IEC برای ظرفیت جریان کابل، رتبه‌بندی فیوز و سایزینگ هادی.',
+  s1: 'ظرفیت جریان کابل (مس، PVC)',
+  s2: 'اندازه‌های استاندارد فیوز و کلید مدار',
+  s3: 'رتبه‌بندی استاندارد ترانسفورماتور',
+  s4: 'جریان تمام‌بار موتور (400V، سه‌فاز)',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('backlink').textContent = t.back;
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
