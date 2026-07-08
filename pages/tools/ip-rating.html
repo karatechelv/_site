@@ -1,289 +1,173 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · IP Rating Guide</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:900px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .selector-box{background:#1e2128;padding:25px;border-radius:16px;border:1px solid rgba(212,175,55,0.08);margin-bottom:20px}
-        .selector-box label{display:block;color:#b0b8c5;margin:10px 0 4px;font-weight:600}
-        .selector-box select{width:100%;padding:10px;border-radius:8px;background:#0d0e12;border:1px solid #333;color:#fff;font-size:1rem}
-        .selector-box select:focus{outline:1px solid #d4af37}
-        .result-box{background:#0d0e12;padding:15px;border-radius:12px;border-left:4px solid #d4af37;margin-top:15px}
-        .result-box p{margin:6px 0}
-        .result-box span{color:#d4af37;font-weight:700}
-        .table-wrap{overflow-x:auto;margin-top:20px}
-        table{width:100%;border-collapse:collapse;background:#1e2128;border-radius:12px}
-        th,td{padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
-        th{color:#d4af37;font-weight:600}
-        .note{color:#8e95a5;font-size:.85rem;margin-top:10px}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · IP Rating</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:900px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+ .calc-grid label{color:#b0b8c5;font-size:.9rem;display:flex;flex-direction:column;gap:4px}
+ .calc-grid select{background:#0d0e12;border:1px solid #2a2f3a;color:#eef0f4;padding:8px 12px;border-radius:8px;font-size:.95rem;width:100%}
+ .result-box{background:#0d0e12;padding:16px;border-radius:12px;border-left:3px solid #d4af37;font-size:1.2rem;font-weight:600;color:#d4af37;margin-top:12px;text-align:center;min-height:80px}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}.calc-grid{grid-template-columns:1fr}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">IP Rating Reference</h1>
+ <div class="sub" id="desc">Ingress Protection (IP) ratings – solid particle and liquid protection levels.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="s1">What is IP Rating?</h2>
+  <p id="s1p">IP (Ingress Protection) ratings define the level of protection provided by an enclosure against solids and liquids. The first digit indicates protection against solids (0-6), the second digit indicates protection against liquids (0-8).</p>
+ </div>
 
-    <h1 id="title">💧 IP Rating Guide</h1>
-    <div class="sub" id="desc">Understand the IP (Ingress Protection) rating system. Select the first and second digit to see the meaning.</div>
+ <div class="section">
+  <h2 id="s2">Solid Protection (First Digit)</h2>
+  <ul id="list1">
+   <li>IP0X – No protection</li>
+   <li>IP1X – Objects > 50mm</li>
+   <li>IP2X – Objects > 12.5mm</li>
+   <li>IP3X – Objects > 2.5mm</li>
+   <li>IP4X – Objects > 1.0mm</li>
+   <li>IP5X – Dust protected (limited ingress)</li>
+   <li>IP6X – Dust tight</li>
+  </ul>
+ </div>
 
-    <div class="selector-box">
-        <label id="lbl-first">First Digit (Solid particle protection)</label>
-        <select id="firstDigit">
-            <option value="0" data-en="0 - No protection" data-fa="۰ - بدون حفاظت">0 - No protection</option>
-            <option value="1" data-en="1 - >50mm (hand)" data-fa="۱ - >۵۰ میلی‌متر (دست)">1 - >50mm (hand)</option>
-            <option value="2" data-en="2 - >12.5mm (finger)" data-fa="۲ - >۱۲.۵ میلی‌متر (انگشت)">2 - >12.5mm (finger)</option>
-            <option value="3" data-en="3 - >2.5mm (tools)" data-fa="۳ - >۲.۵ میلی‌متر (ابزار)">3 - >2.5mm (tools)</option>
-            <option value="4" data-en="4 - >1mm (wires)" data-fa="۴ - >۱ میلی‌متر (سیم)">4 - >1mm (wires)</option>
-            <option value="5" data-en="5 - Dust protected" data-fa="۵ - محافظت در برابر گرد و غبار">5 - Dust protected</option>
-            <option value="6" data-en="6 - Dust tight" data-fa="۶ - کاملاً ضد گرد و غبار">6 - Dust tight</option>
-        </select>
+ <div class="section">
+  <h2 id="s3">Liquid Protection (Second Digit)</h2>
+  <ul id="list2">
+   <li>IPX0 – No protection</li>
+   <li>IPX1 – Vertical dripping water</li>
+   <li>IPX2 – Dripping water at 15° tilt</li>
+   <li>IPX3 – Spraying water</li>
+   <li>IPX4 – Splashing water</li>
+   <li>IPX5 – Water jets</li>
+   <li>IPX6 – Powerful water jets</li>
+   <li>IPX7 – Temporary immersion</li>
+   <li>IPX8 – Continuous immersion</li>
+  </ul>
+ </div>
 
-        <label id="lbl-second">Second Digit (Liquid protection)</label>
-        <select id="secondDigit">
-            <option value="0" data-en="0 - No protection" data-fa="۰ - بدون حفاظت">0 - No protection</option>
-            <option value="1" data-en="1 - Vertically dripping" data-fa="۱ - چکه عمودی">1 - Vertically dripping</option>
-            <option value="2" data-en="2 - Dripping (15° tilt)" data-fa="۲ - چکه (شیب ۱۵ درجه)">2 - Dripping (15° tilt)</option>
-            <option value="3" data-en="3 - Spraying water" data-fa="۳ - پاشش آب">3 - Spraying water</option>
-            <option value="4" data-en="4 - Splashing water" data-fa="۴ - پاشیدن آب">4 - Splashing water</option>
-            <option value="5" data-en="5 - Water jets" data-fa="۵ - جت آب">5 - Water jets</option>
-            <option value="6" data-en="6 - Powerful water jets" data-fa="۶ - جت آب قوی">6 - Powerful water jets</option>
-            <option value="7" data-en="7 - Temporary immersion" data-fa="۷ - غوطه‌وری موقت">7 - Temporary immersion</option>
-            <option value="8" data-en="8 - Continuous immersion" data-fa="۸ - غوطه‌وری مداوم">8 - Continuous immersion</option>
-        </select>
+ <div class="section">
+  <h2 id="calc-title">IP Rating Lookup</h2>
+  <div class="calc-grid">
+   <label>Solid Protection <select id="solid">
+    <option value="0">0 – No protection</option>
+    <option value="1">1 – Objects > 50mm</option>
+    <option value="2">2 – Objects > 12.5mm</option>
+    <option value="3">3 – Objects > 2.5mm</option>
+    <option value="4">4 – Objects > 1.0mm</option>
+    <option value="5">5 – Dust protected</option>
+    <option value="6" selected>6 – Dust tight</option>
+   </select></label>
+   <label>Liquid Protection <select id="liquid">
+    <option value="0">0 – No protection</option>
+    <option value="1">1 – Vertical dripping</option>
+    <option value="2">2 – Dripping at 15° tilt</option>
+    <option value="3">3 – Spraying water</option>
+    <option value="4" selected>4 – Splashing water</option>
+    <option value="5">5 – Water jets</option>
+    <option value="6">6 – Powerful jets</option>
+    <option value="7">7 – Temporary immersion</option>
+    <option value="8">8 – Continuous immersion</option>
+   </select></label>
+  </div>
+  <button class="calc-btn" id="calcBtn" onclick="lookupIP()">Lookup</button>
+  <div class="result-box" id="result">IP66: Dust tight, protected against powerful water jets</div>
+ </div>
 
-        <div class="result-box" id="result">
-            <p><span id="ip-label">IP Rating:</span> <span id="ip-value">IP--</span></p>
-            <p><span id="meaning-label">Meaning:</span> <span id="meaning-value">Select digits</span></p>
-        </div>
-        <div class="note" id="note">Based on IEC 60529 standard.</div>
-    </div>
-
-    <div class="table-wrap">
-        <table>
-            <thead>
-                <tr>
-                    <th id="th1">First Digit</th>
-                    <th id="th2">Protection Level</th>
-                    <th id="th3">Second Digit</th>
-                    <th id="th4">Protection Level</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>0</td><td data-en="No protection" data-fa="بدون حفاظت">No protection</td><td>0</td><td data-en="No protection" data-fa="بدون حفاظت">No protection</td></tr>
-                <tr><td>1</td><td data-en=">50mm (hands)" data-fa=">۵۰ میلی‌متر (دست)">>50mm (hands)</td><td>1</td><td data-en="Vertically dripping" data-fa="چکه عمودی">Vertically dripping</td></tr>
-                <tr><td>2</td><td data-en=">12.5mm (fingers)" data-fa=">۱۲.۵ میلی‌متر (انگشت)">>12.5mm (fingers)</td><td>2</td><td data-en="Dripping (15° tilt)" data-fa="چکه (شیب ۱۵ درجه)">Dripping (15° tilt)</td></tr>
-                <tr><td>3</td><td data-en=">2.5mm (tools)" data-fa=">۲.۵ میلی‌متر (ابزار)">>2.5mm (tools)</td><td>3</td><td data-en="Spraying water" data-fa="پاشش آب">Spraying water</td></tr>
-                <tr><td>4</td><td data-en=">1mm (wires)" data-fa=">۱ میلی‌متر (سیم)">>1mm (wires)</td><td>4</td><td data-en="Splashing water" data-fa="پاشیدن آب">Splashing water</td></tr>
-                <tr><td>5</td><td data-en="Dust protected" data-fa="محافظت در برابر گرد و غبار">Dust protected</td><td>5</td><td data-en="Water jets" data-fa="جت آب">Water jets</td></tr>
-                <tr><td>6</td><td data-en="Dust tight" data-fa="کاملاً ضد گرد و غبار">Dust tight</td><td>6</td><td data-en="Powerful water jets" data-fa="جت آب قوی">Powerful water jets</td></tr>
-                <tr><td></td><td></td><td>7</td><td data-en="Temporary immersion" data-fa="غوطه‌وری موقت">Temporary immersion</td></tr>
-                <tr><td></td><td></td><td>8</td><td data-en="Continuous immersion" data-fa="غوطه‌وری مداوم">Continuous immersion</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const langData = {
-        en: {
-            title: '💧 IP Rating Guide',
-            desc: 'Understand the IP (Ingress Protection) rating system. Select the first and second digit to see the meaning.',
-            first: 'First Digit (Solid particle protection)',
-            second: 'Second Digit (Liquid protection)',
-            ip_label: 'IP Rating:',
-            meaning_label: 'Meaning:',
-            note: 'Based on IEC 60529 standard.',
-            back: '← Back',
-            th1: 'First Digit',
-            th2: 'Protection Level',
-            th3: 'Second Digit',
-            th4: 'Protection Level'
-        },
-        fa: {
-            title: '💧 راهنمای درجه حفاظت IP',
-            desc: 'درک سیستم درجه‌بندی IP (محافظت در برابر نفوذ). رقم اول و دوم را انتخاب کنید تا معنی آن را ببینید.',
-            first: 'رقم اول (محافظت در برابر ذرات جامد)',
-            second: 'رقم دوم (محافظت در برابر مایعات)',
-            ip_label: 'درجه IP:',
-            meaning_label: 'معنی:',
-            note: 'بر اساس استاندارد IEC 60529.',
-            back: '← بازگشت',
-            th1: 'رقم اول',
-            th2: 'سطح حفاظت',
-            th3: 'رقم دوم',
-            th4: 'سطح حفاظت'
-        }
-    };
-
-    // Meaning texts for each digit combination
-    const meanings = {
-        en: {
-            '0_0': 'No protection against solids or liquids.',
-            '1_0': 'Protection against large objects (hand) but no liquid protection.',
-            '2_0': 'Protection against fingers but no liquid protection.',
-            '3_0': 'Protection against tools but no liquid protection.',
-            '4_0': 'Protection against wires but no liquid protection.',
-            '5_0': 'Dust protected but no liquid protection.',
-            '6_0': 'Dust tight but no liquid protection.',
-            '0_1': 'No solid protection, but protected against vertically dripping water.',
-            '1_1': 'Large object protection and vertical dripping water.',
-            '2_1': 'Finger protection and vertical dripping water.',
-            '3_1': 'Tool protection and vertical dripping water.',
-            '4_1': 'Wire protection and vertical dripping water.',
-            '5_1': 'Dust protected and vertical dripping water.',
-            '6_1': 'Dust tight and vertical dripping water.',
-            '0_2': 'No solid protection, protected against dripping water at 15° tilt.',
-            // ... and so on. But we'll generate dynamically.
-        },
-        fa: {
-            // Similar in Farsi
-        }
-    };
-
-    function setLanguage(lang) {
-        const t = langData[lang];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('lbl-first').textContent = t.first;
-        document.getElementById('lbl-second').textContent = t.second;
-        document.getElementById('ip-label').textContent = t.ip_label;
-        document.getElementById('meaning-label').textContent = t.meaning_label;
-        document.getElementById('note').textContent = t.note;
-        document.getElementById('backlink').textContent = t.back;
-        document.getElementById('th1').textContent = t.th1;
-        document.getElementById('th2').textContent = t.th2;
-        document.getElementById('th3').textContent = t.th3;
-        document.getElementById('th4').textContent = t.th4;
-
-        // Update select options
-        document.querySelectorAll('#firstDigit option, #secondDigit option').forEach(opt => {
-            const text = opt.dataset[lang];
-            if (text) opt.textContent = text;
-        });
-
-        // Update table rows
-        document.querySelectorAll('table tbody tr').forEach(row => {
-            const cells = row.querySelectorAll('td');
-            if (cells.length >= 2) {
-                const enText = cells[1].dataset.en;
-                const faText = cells[1].dataset.fa;
-                if (lang === 'fa' && faText) cells[1].textContent = faText;
-                else if (lang === 'en' && enText) cells[1].textContent = enText;
-            }
-            if (cells.length >= 4) {
-                const enText = cells[3].dataset.en;
-                const faText = cells[3].dataset.fa;
-                if (lang === 'fa' && faText) cells[3].textContent = faText;
-                else if (lang === 'en' && enText) cells[3].textContent = enText;
-            }
-        });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-        document.body.classList.toggle('lang-persian', lang === 'fa');
-        localStorage.setItem('karatech-lang', lang);
-        updateMeaning();
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLanguage(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLanguage(savedLang);
-
-    function updateMeaning() {
-        const first = document.getElementById('firstDigit').value;
-        const second = document.getElementById('secondDigit').value;
-        const lang = document.querySelector('.lang-btn.active')?.dataset.lang || 'en';
-
-        document.getElementById('ip-value').textContent = `IP${first}${second}`;
-
-        // Build meaning dynamically based on digits
-        let meaning = '';
-        if (lang === 'en') {
-            const firstMeanings = {
-                '0': 'No protection against solid objects.',
-                '1': 'Protected against objects >50mm (e.g., hands).',
-                '2': 'Protected against objects >12.5mm (e.g., fingers).',
-                '3': 'Protected against objects >2.5mm (e.g., tools).',
-                '4': 'Protected against objects >1mm (e.g., wires).',
-                '5': 'Dust protected (limited ingress allowed, no harmful deposits).',
-                '6': 'Dust tight (no ingress of dust).'
-            };
-            const secondMeanings = {
-                '0': 'No protection against water.',
-                '1': 'Protected against vertically falling water drops.',
-                '2': 'Protected against water drops at 15° tilt.',
-                '3': 'Protected against spraying water.',
-                '4': 'Protected against splashing water.',
-                '5': 'Protected against water jets.',
-                '6': 'Protected against powerful water jets.',
-                '7': 'Protected against temporary immersion (up to 1m).',
-                '8': 'Protected against continuous immersion (specified depth).'
-            };
-            meaning = `${firstMeanings[first] || ''} ${secondMeanings[second] || ''}`;
-        } else {
-            const firstMeanings = {
-                '0': 'بدون حفاظت در برابر اجسام جامد.',
-                '1': 'محافظت در برابر اجسام >۵۰ میلی‌متر (مثلاً دست).',
-                '2': 'محافظت در برابر اجسام >۱۲.۵ میلی‌متر (مثلاً انگشت).',
-                '3': 'محافظت در برابر اجسام >۲.۵ میلی‌متر (مثلاً ابزار).',
-                '4': 'محافظت در برابر اجسام >۱ میلی‌متر (مثلاً سیم).',
-                '5': 'محافظت در برابر گرد و غبار (ورود محدود مجاز، بدون رسوب مضر).',
-                '6': 'کاملاً ضد گرد و غبار (بدون نفوذ گرد و غبار).'
-            };
-            const secondMeanings = {
-                '0': 'بدون حفاظت در برابر آب.',
-                '1': 'محافظت در برابر قطرات عمودی آب.',
-                '2': 'محافظت در برابر قطرات آب در شیب ۱۵ درجه.',
-                '3': 'محافظت در برابر پاشش آب.',
-                '4': 'محافظت در برابر پاشیدن آب.',
-                '5': 'محافظت در برابر جت آب.',
-                '6': 'محافظت در برابر جت آب قوی.',
-                '7': 'محافظت در برابر غوطه‌وری موقت (تا ۱ متر).',
-                '8': 'محافظت در برابر غوطه‌وری مداوم (عمق مشخص).'
-            };
-            meaning = `${firstMeanings[first] || ''} ${secondMeanings[second] || ''}`;
-        }
-
-        document.getElementById('meaning-value').textContent = meaning;
-    }
-
-    document.getElementById('firstDigit').onchange = updateMeaning;
-    document.getElementById('secondDigit').onchange = updateMeaning;
-    updateMeaning();
+const solidDesc = ['No protection','Objects > 50mm','Objects > 12.5mm','Objects > 2.5mm','Objects > 1.0mm','Dust protected (limited ingress)','Dust tight'];
+const liquidDesc = ['No protection','Vertical dripping water','Dripping water at 15° tilt','Spraying water','Splashing water','Water jets','Powerful water jets','Temporary immersion','Continuous immersion'];
+function lookupIP() {
+ const s = parseInt(document.getElementById('solid').value);
+ const l = parseInt(document.getElementById('liquid').value);
+ const ip = 'IP' + s + l;
+ const desc = solidDesc[s] + ', ' + liquidDesc[l];
+ document.getElementById('result').textContent = ip + ': ' + desc;
+}
+lookupIP();
+const lang = {
+ en: {
+  title: 'IP Rating Reference',
+  desc: 'Ingress Protection (IP) ratings – solid particle and liquid protection levels.',
+  s1: 'What is IP Rating?',
+  s1p: 'IP (Ingress Protection) ratings define the level of protection provided by an enclosure against solids and liquids. The first digit indicates protection against solids (0-6), the second digit indicates protection against liquids (0-8).',
+  s2: 'Solid Protection (First Digit)',
+  list1: ['IP0X – No protection','IP1X – Objects > 50mm','IP2X – Objects > 12.5mm','IP3X – Objects > 2.5mm','IP4X – Objects > 1.0mm','IP5X – Dust protected (limited ingress)','IP6X – Dust tight'],
+  s3: 'Liquid Protection (Second Digit)',
+  list2: ['IPX0 – No protection','IPX1 – Vertical dripping water','IPX2 – Dripping water at 15° tilt','IPX3 – Spraying water','IPX4 – Splashing water','IPX5 – Water jets','IPX6 – Powerful water jets','IPX7 – Temporary immersion','IPX8 – Continuous immersion'],
+  back: '← Back'
+ },
+ fa: {
+  title: 'مرجع IP Rating',
+  desc: 'رتبه‌بندی حفاظت در برابر نفوذ (IP) – سطوح حفاظت در برابر ذرات جامد و مایعات.',
+  s1: 'IP Rating چیست؟',
+  s1p: 'رتبه‌بندی IP (حفاظت در برابر نفوذ) سطح حفاظت ارائه شده توسط یک محفظه در برابر ذرات جامد و مایعات را تعریف می‌کند. رقم اول نشان‌دهنده حفاظت در برابر ذرات جامد (0-6) و رقم دوم نشان‌دهنده حفاظت در برابر مایعات (0-8) است.',
+  s2: 'حفاظت در برابر ذرات جامد (رقم اول)',
+  list1: ['IP0X – بدون حفاظت','IP1X – اشیا > 50mm','IP2X – اشیا > 12.5mm','IP3X – اشیا > 2.5mm','IP4X – اشیا > 1.0mm','IP5X – محافظت در برابر گرد و غبار','IP6X – کاملاً در برابر گرد و غبار'],
+  s3: 'حفاظت در برابر مایعات (رقم دوم)',
+  list2: ['IPX0 – بدون حفاظت','IPX1 – چکه عمودی آب','IPX2 – چکه آب با زاویه 15 درجه','IPX3 – پاشش آب','IPX4 – پاشش آب از همه جهت','IPX5 – جت آب','IPX6 – جت آب قوی','IPX7 – غوطه‌وری موقت','IPX8 – غوطه‌وری مداوم'],
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
