@@ -1,175 +1,157 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Engineering Manuals</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Manuals</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
 </head>
 <body>
 <div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Manuals &amp; Guides</h1>
+ <div class="sub" id="desc">Operation, maintenance, and engineering manuals for industrial systems.</div>
 
-    <div class="header">
-        <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
-        </div>
-    </div>
+ <div class="section">
+  <h2 id="s1">Operation Manuals</h2>
+  <ul id="list1">
+   <li>PLC Operation and Programming Manuals</li>
+   <li>HMI Operation and Configuration Guides</li>
+   <li>VFD Operation and Setup Manuals</li>
+   <li>Control Panel Operation Guides</li>
+   <li>SCADA System Operation Manuals</li>
+  </ul>
+ </div>
 
-    <h1 id="title">📘 Engineering Manuals</h1>
-    <div class="sub" id="desc">A comprehensive collection of operation, maintenance, installation, and troubleshooting manuals for industrial equipment and systems.</div>
+ <div class="section">
+  <h2 id="s2">Maintenance Manuals</h2>
+  <ul id="list2">
+   <li>Preventive Maintenance Schedules</li>
+   <li>Diagnostic and Troubleshooting Guides</li>
+   <li>Calibration and Testing Procedures</li>
+   <li>Component Replacement Guides</li>
+   <li>Spare Parts and Ordering Information</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s1">🔹 What are Engineering Manuals?</h2>
-        <p id="s1p">Engineering manuals are technical documents that provide detailed information on the installation, operation, maintenance, and troubleshooting of equipment and systems. They are essential for engineers, technicians, and operators to ensure safe and efficient operation. Manuals typically include diagrams, schematics, step-by-step procedures, and safety guidelines.</p>
-    </div>
+ <div class="section">
+  <h2 id="s3">Engineering Guides</h2>
+  <ul id="list3">
+   <li>Electrical Design and Wiring Guides</li>
+   <li>Panel Assembly and Wiring Standards</li>
+   <li>Instrumentation Selection and Installation</li>
+   <li>Cable Sizing and Routing Guides</li>
+   <li>Safety and Compliance Manuals</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s2">🔹 Types of Manuals</h2>
-        <ul id="list1">
-            <li><b>Operation Manuals</b> – Describe how to start, operate, and shut down equipment safely</li>
-            <li><b>Maintenance Manuals</b> – Provide preventive and corrective maintenance procedures, schedules, and spare parts lists</li>
-            <li><b>Installation Manuals</b> – Guide the installation, commissioning, and testing of equipment</li>
-            <li><b>Troubleshooting Manuals</b> – Help identify and resolve common faults and errors</li>
-            <li><b>Safety Manuals</b> – Outline safety procedures, hazards, and emergency response</li>
-            <li><b>Technical Reference Manuals</b> – Provide detailed technical data, specifications, and theory of operation</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s4">Key Manuals by Manufacturer</h2>
+  <ul id="list4">
+   <li>Siemens – TIA Portal Programming Manual</li>
+   <li>Rockwell – RSLogix/Studio 5000 Manuals</li>
+   <li>Schneider – Modicon Programming Guide</li>
+   <li>Codesys – Development Environment Guide</li>
+   <li>Endress+Hauser – Instrumentation Manuals</li>
+  </ul>
+ </div>
 
-    <div class="section">
-        <h2 id="s3">🔹 Manual Standards</h2>
-        <ul id="list2">
-            <li>IEC 82079 – Preparation of instructions for use</li>
-            <li>ISO 20607 – Safety of machinery – Instruction handbook</li>
-            <li>ANSI Z535.6 – Product safety information in product manuals</li>
-            <li>API 551 – Manuals for process measurement</li>
-            <li>MIL-STD-40051 – Technical manuals for military equipment</li>
-        </ul>
-    </div>
+ <div class="section">
+  <h2 id="s5">Example: Using a Manual</h2>
+  <p id="s5p">When commissioning a new VFD, the operation manual provides step-by-step installation instructions, parameter settings, and safety warnings. The maintenance manual includes fault codes and troubleshooting procedures for quick problem resolution.</p>
+ </div>
 
-    <div class="section">
-        <h2 id="s4">🔹 Online Manual Resources</h2>
-        <ul id="list3">
-            <li>Siemens Technical Documentation – siemens.com</li>
-            <li>Rockwell Automation Literature Library – rockwellautomation.com</li>
-            <li>Schneider Electric Documentation – schneider-electric.com</li>
-            <li>ABB Library – abb.com</li>
-            <li>Emerson Manuals – emerson.com</li>
-            <li>Endress+Hauser Documentation – endress.com</li>
-            <li>Weintek Manuals – weintek.com</li>
-            <li>Omron Manuals – omron.com</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s5">🔹 Example: Using a Maintenance Manual</h2>
-        <p id="s5p">A maintenance engineer uses a manual for a 150 kW motor to perform a quarterly inspection. The manual provides a checklist for checking bearings, winding insulation, cooling fans, and lubrication. It also includes torque specifications for bolts and recommended intervals for replacement of components. Following the manual ensures the motor operates reliably and reduces downtime.</p>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
 </div>
-
 <script>
-    const lang = {
-        en: {
-            title: '📘 Engineering Manuals',
-            desc: 'A comprehensive collection of operation, maintenance, installation, and troubleshooting manuals for industrial equipment and systems.',
-            s1: '🔹 What are Engineering Manuals?',
-            s1p: 'Engineering manuals are technical documents that provide detailed information on the installation, operation, maintenance, and troubleshooting of equipment and systems. They are essential for engineers, technicians, and operators to ensure safe and efficient operation. Manuals typically include diagrams, schematics, step-by-step procedures, and safety guidelines.',
-            s2: '🔹 Types of Manuals',
-            list1: ['Operation Manuals – Describe how to start, operate, and shut down equipment safely','Maintenance Manuals – Provide preventive and corrective maintenance procedures, schedules, and spare parts lists','Installation Manuals – Guide the installation, commissioning, and testing of equipment','Troubleshooting Manuals – Help identify and resolve common faults and errors','Safety Manuals – Outline safety procedures, hazards, and emergency response','Technical Reference Manuals – Provide detailed technical data, specifications, and theory of operation'],
-            s3: '🔹 Manual Standards',
-            list2: ['IEC 82079 – Preparation of instructions for use','ISO 20607 – Safety of machinery – Instruction handbook','ANSI Z535.6 – Product safety information in product manuals','API 551 – Manuals for process measurement','MIL-STD-40051 – Technical manuals for military equipment'],
-            s4: '🔹 Online Manual Resources',
-            list3: ['Siemens Technical Documentation – siemens.com','Rockwell Automation Literature Library – rockwellautomation.com','Schneider Electric Documentation – schneider-electric.com','ABB Library – abb.com','Emerson Manuals – emerson.com','Endress+Hauser Documentation – endress.com','Weintek Manuals – weintek.com','Omron Manuals – omron.com'],
-            s5: '🔹 Example: Using a Maintenance Manual',
-            s5p: 'A maintenance engineer uses a manual for a 150 kW motor to perform a quarterly inspection. The manual provides a checklist for checking bearings, winding insulation, cooling fans, and lubrication. It also includes torque specifications for bolts and recommended intervals for replacement of components. Following the manual ensures the motor operates reliably and reduces downtime.',
-            back: '← Back'
-        },
-        fa: {
-            title: '📘 دفترچه‌های راهنمای مهندسی',
-            desc: 'مجموعه‌ای جامع از دفترچه‌های راهنمای عملکرد، نگهداری، نصب و عیب‌یابی برای تجهیزات و سیستم‌های صنعتی.',
-            s1: '🔹 دفترچه‌های راهنمای مهندسی چیستند؟',
-            s1p: 'دفترچه‌های راهنمای مهندسی اسناد فنی هستند که اطلاعات دقیقی در مورد نصب، عملکرد، نگهداری و عیب‌یابی تجهیزات و سیستم‌ها ارائه می‌دهند. آنها برای مهندسان، تکنسین‌ها و اپراتورها برای اطمینان از عملکرد ایمن و کارآمد ضروری هستند. دفترچه‌ها معمولاً شامل نمودارها، شماتیک‌ها، رویه‌های گام‌به‌گام و دستورالعمل‌های ایمنی هستند.',
-            s2: '🔹 انواع دفترچه‌ها',
-            list1: ['دفترچه‌های عملکرد – نحوه راه‌اندازی، کار و خاموش کردن ایمن تجهیزات را شرح می‌دهند','دفترچه‌های نگهداری – رویه‌های نگهداری پیشگیرانه و اصلاحی، برنامه‌ها و لیست قطعات یدکی ارائه می‌دهند','دفترچه‌های نصب – راهنمای نصب، راه‌اندازی و تست تجهیزات','دفترچه‌های عیب‌یابی – به شناسایی و رفع خطاها و مشکلات رایج کمک می‌کنند','دفترچه‌های ایمنی – رویه‌های ایمنی، خطرات و واکنش اضطراری را تشریح می‌کنند','دفترچه‌های مرجع فنی – داده‌های فنی دقیق، مشخصات و تئوری عملکرد ارائه می‌دهند'],
-            s3: '🔹 استانداردهای دفترچه‌ها',
-            list2: ['IEC 82079 – تهیه دستورالعمل‌های استفاده','ISO 20607 – ایمنی ماشین‌آلات – کتابچه راهنما','ANSI Z535.6 – اطلاعات ایمنی محصول در دفترچه‌های محصول','API 551 – دفترچه‌های اندازه‌گیری فرآیند','MIL-STD-40051 – دفترچه‌های فنی برای تجهیزات نظامی'],
-            s4: '🔹 منابع دفترچه‌های آنلاین',
-            list3: ['مستندات فنی زیمنس – siemens.com','کتابخانه ادبیات راکول اتوماسیون – rockwellautomation.com','مستندات اشنایدر الکتریک – schneider-electric.com','کتابخانه ABB – abb.com','دفترچه‌های امرسون – emerson.com','مستندات Endress+Hauser – endress.com','دفترچه‌های وینتک – weintek.com','دفترچه‌های Omron – omron.com'],
-            s5: '🔹 مثال: استفاده از دفترچه نگهداری',
-            s5p: 'یک مهندس نگهداری از دفترچه راهنمای یک موتور ۱۵۰ کیلووات برای انجام بازرسی فصلی استفاده می‌کند. دفترچه یک چک‌لیست برای بررسی بلبرینگ‌ها، عایق سیم‌پیچ، فن‌های خنک‌کننده و روغن‌کاری ارائه می‌دهد. همچنین شامل مشخصات گشتاور برای پیچ‌ها و فواصل توصیه شده برای تعویض قطعات است. پیروی از دفترچه اطمینان می‌دهد که موتور به طور قابل اعتماد کار کرده و زمان توقف را کاهش می‌دهد.',
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('s4').textContent = t.s4;
-        document.getElementById('s5').textContent = t.s5;
-        document.getElementById('s5p').textContent = t.s5p;
-        document.getElementById('backlink').textContent = t.back;
-
-        const list1 = document.getElementById('list1');
-        list1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; list1.appendChild(li); });
-
-        const list2 = document.getElementById('list2');
-        list2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; list2.appendChild(li); });
-
-        const list3 = document.getElementById('list3');
-        list3.innerHTML = '';
-        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; list3.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+const lang = {
+ en: {
+  title: 'Manuals & Guides',
+  desc: 'Operation, maintenance, and engineering manuals for industrial systems.',
+  s1: 'Operation Manuals',
+  list1: ['PLC Operation and Programming Manuals','HMI Operation and Configuration Guides','VFD Operation and Setup Manuals','Control Panel Operation Guides','SCADA System Operation Manuals'],
+  s2: 'Maintenance Manuals',
+  list2: ['Preventive Maintenance Schedules','Diagnostic and Troubleshooting Guides','Calibration and Testing Procedures','Component Replacement Guides','Spare Parts and Ordering Information'],
+  s3: 'Engineering Guides',
+  list3: ['Electrical Design and Wiring Guides','Panel Assembly and Wiring Standards','Instrumentation Selection and Installation','Cable Sizing and Routing Guides','Safety and Compliance Manuals'],
+  s4: 'Key Manuals by Manufacturer',
+  list4: ['Siemens – TIA Portal Programming Manual','Rockwell – RSLogix/Studio 5000 Manuals','Schneider – Modicon Programming Guide','Codesys – Development Environment Guide','Endress+Hauser – Instrumentation Manuals'],
+  s5: 'Example: Using a Manual',
+  s5p: 'When commissioning a new VFD, the operation manual provides step-by-step installation instructions, parameter settings, and safety warnings. The maintenance manual includes fault codes and troubleshooting procedures for quick problem resolution.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'دفترچه‌های راهنما',
+  desc: 'دفترچه‌های بهره‌برداری، نگهداری و مهندسی برای سیستم‌های صنعتی.',
+  s1: 'دفترچه‌های بهره‌برداری',
+  list1: ['دفترچه‌های بهره‌برداری و برنامه‌نویسی PLC','راهنماهای بهره‌برداری و پیکربندی HMI','دفترچه‌های بهره‌برداری و راه‌اندازی VFD','راهنماهای بهره‌برداری پنل کنترل','دفترچه‌های بهره‌برداری سیستم SCADA'],
+  s2: 'دفترچه‌های نگهداری',
+  list2: ['برنامه‌های نگهداری پیشگیرانه','راهنماهای تشخیص و عیب‌یابی','رویه‌های کالیبراسیون و تست','راهنماهای تعویض قطعات','اطلاعات قطعات یدکی و سفارش‌دهی'],
+  s3: 'راهنماهای مهندسی',
+  list3: ['راهنماهای طراحی و سیم‌کشی برق','استانداردهای مونتاژ و سیم‌کشی پنل','انتخاب و نصب ابزار دقیق','راهنماهای سایزینگ و مسیردهی کابل','دفترچه‌های ایمنی و انطباق'],
+  s4: 'دفترچه‌های کلیدی بر اساس تولیدکننده',
+  list4: ['زیمنس – دفترچه برنامه‌نویسی TIA Portal','راکول – دفترچه‌های RSLogix/Studio 5000','اشنایدر – راهنمای برنامه‌نویسی Modicon','Codesys – راهنمای محیط توسعه','Endress+Hauser – دفترچه‌های ابزار دقیق'],
+  s5: 'مثال: استفاده از یک دفترچه راهنما',
+  s5p: 'هنگام راه‌اندازی یک VFD جدید، دفترچه راهنمای بهره‌برداری دستورالعمل‌های گام‌به‌گام نصب، تنظیمات پارامترها و هشدارهای ایمنی را ارائه می‌دهد. دفترچه نگهداری شامل کدهای خطا و رویه‌های عیب‌یابی برای حل سریع مشکلات است.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2','list3','list4'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
 </script>
-
 </body>
 </html>
