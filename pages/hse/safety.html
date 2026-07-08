@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Karatech ELV · Safety</title>
+ <style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+ .container{max-width:1000px;margin:0 auto}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+ .brand{font-weight:700;font-size:1.5rem;color:#fff}
+ .brand span{color:#d4af37}
+ .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+ .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+ .lang-btn:hover{background:#5b3b8c;color:#fff}
+ .lang-switch{display:flex;gap:6px}
+ h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+ .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+ .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+ .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+ .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+ .section ul{list-style:none;padding:0}
+ .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+ .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+ .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
+ .back{text-align:center;margin-top:30px}
+ .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+ .back a:hover{text-decoration:underline}
+ .lang-persian{direction:rtl}
+ .lang-persian .header{flex-direction:row-reverse}
+ @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+ </style>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+  <div class="brand">KARATECH <span>ELV</span></div>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
+ </div>
+ <h1 id="title">Safety Engineering</h1>
+ <div class="sub" id="desc">Hazard identification, risk assessment, safety controls, and workplace safety management.</div>
+ <div class="section">
+  <h2 id="s1">What is Safety Engineering?</h2>
+  <p id="s1p">Safety engineering is the discipline that deals with the protection of people, property, and the environment from hazards. It involves identifying potential hazards, assessing risks, and implementing controls to prevent accidents and injuries.</p>
+ </div>
+ <div class="section">
+  <h2 id="s2">Hazard Types</h2>
+  <ul id="list1">
+   <li>Physical Hazards – Noise, vibration, temperature extremes</li>
+   <li>Chemical Hazards – Toxic, flammable, corrosive substances</li>
+   <li>Electrical Hazards – Shock, arc flash, fire</li>
+   <li>Mechanical Hazards – Moving parts, crushing, shearing</li>
+   <li>Ergonomic Hazards – Repetitive strain, lifting, posture</li>
+   <li>Psychosocial Hazards – Stress, fatigue, work overload</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s3">Safety Controls Hierarchy</h2>
+  <ul id="list2">
+   <li>Elimination – Remove the hazard entirely</li>
+   <li>Substitution – Replace with safer alternative</li>
+   <li>Engineering Controls – Guarding, ventilation, isolation</li>
+   <li>Administrative Controls – Procedures, training, signage</li>
+   <li>Personal Protective Equipment (PPE) – Hard hats, gloves, glasses</li>
+  </ul>
+ </div>
+ <div class="section">
+  <h2 id="s4">Lock Out Tag Out (LOTO) Procedure</h2>
+  <div class="code-box">
+# LOTO Procedure for Electrical Panel
+# 1. Identify all energy sources
+# 2. Notify affected personnel
+# 3. Shut down equipment
+# 4. Isolate energy sources
+# 5. Apply lock and tag
+# 6. Verify isolation (try/test)
+# 7. Perform work
+# 8. Remove lock and tag
+# 9. Re-energize and notify
+  </div>
+ </div>
+ <div class="section">
+  <h2 id="s5">Example: Arc Flash Safety</h2>
+  <p id="s5p">Arc flash is a dangerous electrical hazard. Safety measures include proper PPE (arc-rated clothing, face shield), maintaining safe distances, using insulated tools, and following NFPA 70E guidelines. An arc flash risk assessment determines the incident energy level.</p>
+ </div>
+ <div class="back">
+  <a href="javascript:history.back()" id="backlink">← Back</a>
+ </div>
+</div>
+<script>
+const lang = {
+ en: {
+  title: 'Safety Engineering',
+  desc: 'Hazard identification, risk assessment, safety controls, and workplace safety management.',
+  s1: 'What is Safety Engineering?',
+  s1p: 'Safety engineering is the discipline that deals with the protection of people, property, and the environment from hazards. It involves identifying potential hazards, assessing risks, and implementing controls to prevent accidents and injuries.',
+  s2: 'Hazard Types',
+  list1: ['Physical Hazards – Noise, vibration, temperature extremes','Chemical Hazards – Toxic, flammable, corrosive substances','Electrical Hazards – Shock, arc flash, fire','Mechanical Hazards – Moving parts, crushing, shearing','Ergonomic Hazards – Repetitive strain, lifting, posture','Psychosocial Hazards – Stress, fatigue, work overload'],
+  s3: 'Safety Controls Hierarchy',
+  list2: ['Elimination – Remove the hazard entirely','Substitution – Replace with safer alternative','Engineering Controls – Guarding, ventilation, isolation','Administrative Controls – Procedures, training, signage','Personal Protective Equipment (PPE) – Hard hats, gloves, glasses'],
+  s4: 'Lock Out Tag Out (LOTO) Procedure',
+  s5: 'Example: Arc Flash Safety',
+  s5p: 'Arc flash is a dangerous electrical hazard. Safety measures include proper PPE (arc-rated clothing, face shield), maintaining safe distances, using insulated tools, and following NFPA 70E guidelines. An arc flash risk assessment determines the incident energy level.',
+  back: '← Back'
+ },
+ fa: {
+  title: 'مهندسی ایمنی',
+  desc: 'شناسایی خطرات، ارزیابی ریسک، کنترل‌های ایمنی و مدیریت ایمنی محیط کار.',
+  s1: 'مهندسی ایمنی چیست؟',
+  s1p: 'مهندسی ایمنی رشته‌ای است که به حفاظت از افراد، اموال و محیط زیست در برابر خطرات می‌پردازد. این شامل شناسایی خطرات احتمالی، ارزیابی ریسک‌ها و اجرای کنترل‌ها برای جلوگیری از حوادث و صدمات است.',
+  s2: 'انواع خطرات',
+  list1: ['خطرات فیزیکی – صدا، ارتعاش، دماهای شدید','خطرات شیمیایی – مواد سمی، قابل اشتعال، خورنده','خطرات الکتریکی – شوک، قوس الکتریکی، آتش','خطرات مکانیکی – قطعات متحرک، خرد شدن، برش','خطرات ارگونومیک – فشار تکراری، بلند کردن، وضعیت بدن','خطرات روانی-اجتماعی – استرس، خستگی، حجم کار'],
+  s3: 'سلسله‌مراتب کنترل‌های ایمنی',
+  list2: ['حذف – حذف کامل خطر','جایگزینی – جایگزینی با گزینه ایمن‌تر','کنترل‌های مهندسی – محافظ، تهویه، جداسازی','کنترل‌های اداری – رویه‌ها، آموزش، علائم','تجهیزات حفاظت فردی (PPE) – کلاه ایمنی، دستکش، عینک'],
+  s4: 'رویه قفل و برچسب (LOTO)',
+  s5: 'مثال: ایمنی قوس الکتریکی',
+  s5p: 'قوس الکتریکی یک خطر الکتریکی خطرناک است. اقدامات ایمنی شامل PPE مناسب (لباس مقاوم در برابر قوس، محافظ صورت)، حفظ فواصل ایمن، استفاده از ابزارهای عایق‌شده و پیروی از دستورالعمل‌های NFPA 70E است. ارزیابی ریسک قوس الکتریکی سطح انرژی حادثه را تعیین می‌کند.',
+  back: '← بازگشت'
+ }
+};
+function setLang(l) {
+ const t = lang[l]; if (!t) return;
+ document.getElementById('title').textContent = t.title;
+ document.getElementById('desc').textContent = t.desc;
+ document.getElementById('s1').textContent = t.s1;
+ document.getElementById('s1p').textContent = t.s1p;
+ document.getElementById('s2').textContent = t.s2;
+ document.getElementById('s3').textContent = t.s3;
+ document.getElementById('s4').textContent = t.s4;
+ document.getElementById('s5').textContent = t.s5;
+ document.getElementById('s5p').textContent = t.s5p;
+ document.getElementById('backlink').textContent = t.back;
+ ['list1','list2'].forEach(id => {
+  const ul = document.getElementById(id);
+  ul.innerHTML = '';
+  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+ });
+ document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+ document.body.classList.toggle('lang-persian', l === 'fa');
+ localStorage.setItem('karatech-lang', l);
+}
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+const savedLang = localStorage.getItem('karatech-lang') || 'en';
+setLang(savedLang);
+</script>
+</body>
+</html>
