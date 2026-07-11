@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../../style.css">
     <style>
-        /* استایل‌های اختصاصی کیفیت */
-        .quality-container {
+        .page-container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 24px 32px 50px;
@@ -35,22 +34,22 @@
             border-color: var(--accent);
             color: #fff;
         }
-        .quality-header {
+        .page-header {
             display: flex;
             align-items: center;
             gap: 14px;
             margin-bottom: 8px;
         }
-        .quality-header h1 {
+        .page-header h1 {
             font-size: 2.5rem;
             font-weight: 700;
             color: #fff;
         }
-        .quality-header i {
+        .page-header i {
             color: var(--accent);
             font-size: 2.2rem;
         }
-        .quality-subtitle {
+        .page-subtitle {
             color: var(--muted);
             font-size: 1.1rem;
             margin-bottom: 30px;
@@ -142,17 +141,17 @@
             padding-top: 10px;
         }
         @media (max-width: 768px) {
-            .quality-container { padding: 16px; }
-            .quality-header h1 { font-size: 1.8rem; }
+            .page-container { padding: 16px; }
+            .page-header h1 { font-size: 1.8rem; }
             .accordion-block-header { padding: 14px 16px; }
             .accordion-block-body { padding: 0 16px; }
             .accordion-block.open .accordion-block-body { padding: 0 16px 16px 16px; }
         }
         @media (max-width: 480px) {
-            .quality-header h1 { font-size: 1.4rem; }
-            .quality-subtitle { font-size: 0.9rem; }
+            .page-header h1 { font-size: 1.4rem; }
+            .page-subtitle { font-size: 0.9rem; }
         }
-        .lang-persian .quality-subtitle {
+        .lang-persian .page-subtitle {
             border-left: none;
             border-right: 4px solid var(--accent);
             padding-left: 0;
@@ -184,21 +183,20 @@
     </div>
 </header>
 
-<div class="quality-container">
+<div class="page-container">
     <a href="../../index.html" class="back-link" onclick="localStorage.setItem('dashboardActive', 'true')">
         <i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span>
     </a>
 
-    <div class="quality-header">
+    <div class="page-header">
         <i class="fas fa-check-double"></i>
         <h1 data-en="Quality Control" data-fa="کنترل کیفیت">Quality Control</h1>
     </div>
-    <div class="quality-subtitle" data-en="Inspection, testing, ISO standards, and continuous improvement for engineering excellence." data-fa="بازرسی، تست، استانداردهای ISO و بهبود مستمر برای تعالی مهندسی.">
+    <div class="page-subtitle" data-en="Inspection, testing, ISO standards, and continuous improvement for engineering excellence." data-fa="بازرسی، تست، استانداردهای ISO و بهبود مستمر برای تعالی مهندسی.">
         Inspection, testing, ISO standards, and continuous improvement for engineering excellence.
     </div>
 
     <div class="accordion-wrapper">
-        <!-- آکاردئون ۱ -->
         <div class="accordion-block">
             <div class="accordion-block-header" onclick="toggleBlock(this)">
                 <span class="icon"><i class="fas fa-clipboard-list"></i></span>
@@ -218,7 +216,6 @@
             </div>
         </div>
 
-        <!-- آکاردئون ۲ -->
         <div class="accordion-block">
             <div class="accordion-block-header" onclick="toggleBlock(this)">
                 <span class="icon"><i class="fas fa-certificate"></i></span>
@@ -237,7 +234,6 @@
             </div>
         </div>
 
-        <!-- آکاردئون ۳ -->
         <div class="accordion-block">
             <div class="accordion-block-header" onclick="toggleBlock(this)">
                 <span class="icon"><i class="fas fa-tools"></i></span>
@@ -257,7 +253,6 @@
             </div>
         </div>
 
-        <!-- آکاردئون ۴ -->
         <div class="accordion-block">
             <div class="accordion-block-header" onclick="toggleBlock(this)">
                 <span class="icon"><i class="fas fa-flag-checkered"></i></span>
