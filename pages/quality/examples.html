@@ -23,7 +23,6 @@
         .section ul{list-style:none;padding:0}
         .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:14px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;overflow-x:auto;white-space:pre-wrap}
         .back{text-align:center;margin-top:30px}
         .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
@@ -34,6 +33,7 @@
 </head>
 <body>
 <div class="container">
+
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
         <div class="lang-switch">
@@ -41,127 +41,137 @@
             <button class="lang-btn" data-lang="fa">FA</button>
         </div>
     </div>
+
     <h1 id="title">📝 Quality Control Examples</h1>
-    <div class="sub" id="desc">Practical projects, inspection examples, and real-world quality control applications.</div>
+    <div class="sub" id="desc">Practical projects and examples to apply quality control knowledge. Includes complete descriptions and learning outcomes.</div>
 
     <div class="section">
-        <h2 id="s1">Inspection Examples</h2>
+        <h2 id="s1">🔹 Example 1: SPC Implementation</h2>
+        <p id="s1p"><strong>Description:</strong> Implementation of Statistical Process Control (SPC) on a production line to monitor product weight. Includes control chart creation, capability analysis, and corrective actions.</p>
         <ul id="list1">
-            <li>Visual Inspection Checklist for Control Panel</li>
-            <li>Dimensional Inspection of Mechanical Parts</li>
-            <li>Ultrasonic Testing (UT) of Weld Joints</li>
-            <li>Insulation Resistance Test for Cables</li>
+            <li>Process: Filling machine for 1kg bags</li>
+            <li>Tools: X-bar and R charts, Minitab</li>
+            <li>Key skills: Data collection, control limits, process capability (Cp, Cpk)</li>
         </ul>
-        <div class="code-box">
-# Visual Inspection Checklist
-# 1. Panel surface – No scratches or damage
-# 2. Component labels – Correct and legible
-# 3. Wire termination – Tight and correct
-# 4. Wiring duct – No sharp edges
-# 5. Earth connection – Properly connected
-        </div>
     </div>
 
     <div class="section">
-        <h2 id="s2">Testing Examples</h2>
+        <h2 id="s2">🔹 Example 2: ISO 9001 Internal Audit</h2>
+        <p id="s2p"><strong>Description:</strong> Conduct an internal audit of the Quality Management System (QMS) to prepare for ISO 9001 recertification. Includes audit planning, execution, reporting, and corrective actions.</p>
         <ul id="list2">
-            <li>FAT Procedure for PLC Panel</li>
-            <li>SAT Procedure for MCC Panel</li>
-            <li>Commissioning Check List for Control System</li>
-            <li>Loop Check Procedure for Instrumentation</li>
+            <li>Scope: Full QMS covering all departments</li>
+            <li>Audit team: Internal auditors, lead auditor</li>
+            <li>Key skills: Audit planning, interviewing, non-conformity reporting</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2 id="s3">Quality Tools Examples</h2>
+        <h2 id="s3">🔹 Example 3: Six Sigma Project</h2>
+        <p id="s3p"><strong>Description:</strong> A Six Sigma project using the DMAIC methodology to reduce defects in a PCB assembly process. Includes definition, measurement, analysis, improvement, and control phases.</p>
         <ul id="list3">
-            <li>Pareto Analysis – Defect frequency analysis</li>
-            <li>Fishbone Diagram – Root cause analysis</li>
-            <li>8D Problem Solving Report</li>
-            <li>FMEA for Control Panel Assembly</li>
+            <li>Problem: 5% defect rate in PCB soldering</li>
+            <li>Tools: DMAIC, Pareto, Fishbone, control charts</li>
+            <li>Key skills: Root cause analysis, improvement implementation, sustainability</li>
         </ul>
-        <div class="code-box">
-# 8D Problem Solving Report
-# D0: Emergency Response
-# D1: Team Formation
-# D2: Problem Description
-# D3: Interim Containment Action
-# D4: Root Cause Analysis
-# D5: Permanent Corrective Actions
-# D6: Implement Corrective Actions
-# D7: Prevent Recurrence
-# D8: Team Recognition
-        </div>
     </div>
 
     <div class="section">
-        <h2 id="s4">Real-World Projects</h2>
+        <h2 id="s4">🔹 Example 4: Quality Audit of Supplier</h2>
+        <p id="s4p"><strong>Description:</strong> Perform a quality audit of a critical supplier for a manufacturing company. Includes reviewing their QMS, inspection records, and corrective action history.</p>
         <ul id="list4">
-            <li>Quality Plan for Control Panel Manufacturing</li>
-            <li>Inspection &amp; Test Plan for MCC Panel</li>
-            <li>Quality Audit for Electrical Panel Supplier</li>
-            <li>Continuous Improvement Project for Wiring Process</li>
+            <li>Supplier: Component manufacturer</li>
+            <li>Audit criteria: ISO 9001 compliance, quality records</li>
+            <li>Key skills: Supplier audit, risk assessment, improvement planning</li>
         </ul>
-        <p id="s4p">Each project includes quality documentation, inspection reports, test procedures, and continuous improvement records.</p>
     </div>
 
     <div class="back">
-        <a href="/pages/academy/quality.html" id="backlink">← Back to Quality Control</a>
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
+
 </div>
+
 <script>
     const lang = {
         en: {
             title: '📝 Quality Control Examples',
-            desc: 'Practical projects, inspection examples, and real-world quality control applications.',
-            s1: 'Inspection Examples',
-            list1: ['Visual Inspection Checklist for Control Panel','Dimensional Inspection of Mechanical Parts','Ultrasonic Testing (UT) of Weld Joints','Insulation Resistance Test for Cables'],
-            s2: 'Testing Examples',
-            list2: ['FAT Procedure for PLC Panel','SAT Procedure for MCC Panel','Commissioning Check List for Control System','Loop Check Procedure for Instrumentation'],
-            s3: 'Quality Tools Examples',
-            list3: ['Pareto Analysis – Defect frequency analysis','Fishbone Diagram – Root cause analysis','8D Problem Solving Report','FMEA for Control Panel Assembly'],
-            s4: 'Real-World Projects',
-            list4: ['Quality Plan for Control Panel Manufacturing','Inspection & Test Plan for MCC Panel','Quality Audit for Electrical Panel Supplier','Continuous Improvement Project for Wiring Process'],
-            s4p: 'Each project includes quality documentation, inspection reports, test procedures, and continuous improvement records.',
-            back: '← Back to Quality Control'
+            desc: 'Practical projects and examples to apply quality control knowledge. Includes complete descriptions and learning outcomes.',
+            s1: '🔹 Example 1: SPC Implementation',
+            s1p: 'Implementation of Statistical Process Control (SPC) on a production line to monitor product weight. Includes control chart creation, capability analysis, and corrective actions.',
+            list1: ['Process: Filling machine for 1kg bags','Tools: X-bar and R charts, Minitab','Key skills: Data collection, control limits, process capability (Cp, Cpk)'],
+            s2: '🔹 Example 2: ISO 9001 Internal Audit',
+            s2p: 'Conduct an internal audit of the Quality Management System (QMS) to prepare for ISO 9001 recertification. Includes audit planning, execution, reporting, and corrective actions.',
+            list2: ['Scope: Full QMS covering all departments','Audit team: Internal auditors, lead auditor','Key skills: Audit planning, interviewing, non-conformity reporting'],
+            s3: '🔹 Example 3: Six Sigma Project',
+            s3p: 'A Six Sigma project using the DMAIC methodology to reduce defects in a PCB assembly process. Includes definition, measurement, analysis, improvement, and control phases.',
+            list3: ['Problem: 5% defect rate in PCB soldering','Tools: DMAIC, Pareto, Fishbone, control charts','Key skills: Root cause analysis, improvement implementation, sustainability'],
+            s4: '🔹 Example 4: Quality Audit of Supplier',
+            s4p: 'Perform a quality audit of a critical supplier for a manufacturing company. Includes reviewing their QMS, inspection records, and corrective action history.',
+            list4: ['Supplier: Component manufacturer','Audit criteria: ISO 9001 compliance, quality records','Key skills: Supplier audit, risk assessment, improvement planning'],
+            back: '← Back'
         },
         fa: {
             title: '📝 مثال‌های کنترل کیفیت',
-            desc: 'پروژه‌های عملی، مثال‌های بازرسی و کاربردهای واقعی کنترل کیفیت.',
-            s1: 'مثال‌های بازرسی',
-            list1: ['چک‌لیست بازرسی بصری برای پنل کنترل','بازرسی ابعادی قطعات مکانیکی','تست فراصوت (UT) اتصالات جوش','تست مقاومت عایقی کابل‌ها'],
-            s2: 'مثال‌های تست',
-            list2: ['رویه FAT برای پنل PLC','رویه SAT برای پنل MCC','چک‌لیست راه‌اندازی برای سیستم کنترل','رویه چک حلقه برای ابزار دقیق'],
-            s3: 'مثال‌های ابزارهای کیفیت',
-            list3: ['تحلیل پارتو – تحلیل فراوانی عیوب','نمودار استخوان ماهی – تحلیل ریشه‌ای','گزارش حل مسئله 8D','FMEA برای مونتاژ پنل کنترل'],
-            s4: 'پروژه‌های واقعی',
-            list4: ['برنامه کیفیت برای ساخت پنل کنترل','برنامه بازرسی و تست برای پنل MCC','ممیزی کیفیت برای تأمین‌کننده پنل برق','پروژه بهبود مستمر برای فرآیند سیم‌کشی'],
-            s4p: 'هر پروژه شامل مستندات کیفیت، گزارش‌های بازرسی، رویه‌های تست و سوابق بهبود مستمر است.',
-            back: '← بازگشت به کنترل کیفیت'
+            desc: 'پروژه‌ها و مثال‌های عملی برای به کارگیری دانش کنترل کیفیت. شامل توضیحات کامل و نتایج یادگیری.',
+            s1: '🔹 مثال ۱: پیاده‌سازی SPC',
+            s1p: 'پیاده‌سازی کنترل آماری فرآیند (SPC) بر روی یک خط تولید برای نظارت بر وزن محصول. شامل ایجاد نمودار کنترل، تحلیل قابلیت و اقدامات اصلاحی.',
+            list1: ['فرآیند: دستگاه پرکن برای کیسه‌های ۱ کیلوگرمی','ابزارها: نمودارهای X-bar و R، Minitab','مهارت‌های کلیدی: جمع‌آوری داده، حدود کنترل، قابلیت فرآیند (Cp، Cpk)'],
+            s2: '🔹 مثال ۲: حسابرسی داخلی ISO 9001',
+            s2p: 'انجام حسابرسی داخلی سیستم مدیریت کیفیت (QMS) برای آماده‌سازی برای گواهینامه مجدد ISO 9001. شامل برنامه‌ریزی حسابرسی، اجرا، گزارش‌دهی و اقدامات اصلاحی.',
+            list2: ['محدوده: QMS کامل شامل همه بخش‌ها','تیم حسابرسی: حسابرسان داخلی، حسابرس ارشد','مهارت‌های کلیدی: برنامه‌ریزی حسابرسی، مصاحبه، گزارش عدم انطباق'],
+            s3: '🔹 مثال ۳: پروژه شش سیگما',
+            s3p: 'یک پروژه شش سیگما با استفاده از روش‌شناسی DMAIC برای کاهش عیوب در فرآیند مونتاژ PCB. شامل مراحل تعریف، اندازه‌گیری، تحلیل، بهبود و کنترل.',
+            list3: ['مشکل: نرخ عیب ۵٪ در لحیم‌کاری PCB','ابزارها: DMAIC، پارتو، استخوان ماهی، نمودارهای کنترل','مهارت‌های کلیدی: تحلیل ریشه‌ای، پیاده‌سازی بهبود، پایداری'],
+            s4: '🔹 مثال ۴: حسابرسی کیفیت تأمین‌کننده',
+            s4p: 'انجام حسابرسی کیفیت از یک تأمین‌کننده حیاتی برای یک شرکت تولیدی. شامل بررسی QMS، سوابق بازرسی و تاریخچه اقدامات اصلاحی آنها.',
+            list4: ['تأمین‌کننده: تولیدکننده قطعات','معیارهای حسابرسی: انطباق ISO 9001، سوابق کیفیت','مهارت‌های کلیدی: حسابرسی تأمین‌کننده، ارزیابی ریسک، برنامه‌ریزی بهبود'],
+            back: '← بازگشت'
         }
     };
+
     function setLang(l) {
-        const t = lang[l]; if (!t) return;
+        const t = lang[l];
+        if (!t) return;
         document.getElementById('title').textContent = t.title;
         document.getElementById('desc').textContent = t.desc;
         document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
         document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s2p').textContent = t.s2p;
         document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s3p').textContent = t.s3p;
         document.getElementById('s4').textContent = t.s4;
         document.getElementById('s4p').textContent = t.s4p;
         document.getElementById('backlink').textContent = t.back;
-        ['list1','list2','list3','list4'].forEach(id => {
-            const ul = document.getElementById(id);
-            ul.innerHTML = '';
-            t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
-        });
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        const ul3 = document.getElementById('list3');
+        ul3.innerHTML = '';
+        t.list3.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul3.appendChild(li); });
+
+        const ul4 = document.getElementById('list4');
+        ul4.innerHTML = '';
+        t.list4.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul4.appendChild(li); });
+
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
         document.body.classList.toggle('lang-persian', l === 'fa');
         localStorage.setItem('karatech-lang', l);
     }
-    document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
     const savedLang = localStorage.getItem('karatech-lang') || 'en';
     setLang(savedLang);
 </script>
+
 </body>
 </html>
