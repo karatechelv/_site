@@ -59,7 +59,7 @@
   <a href="../electrical/examples.html" class="card"><i class="fas fa-cogs"></i><h3>Examples</h3><p>Practical projects</p><span class="badge">Learn More</span></a>
  </div>
  <div class="back">
-  <a href="../index.html" id="backlink">← Back to Home</a>
+  <a href="../../index.html" id="backlink">← Back to Home</a>
  </div>
 </div>
 <script>
@@ -120,7 +120,6 @@ function setLang(lang) {
   b.classList.toggle('active', b.dataset.lang === lang);
  });
  document.body.classList.toggle('lang-persian', lang === 'fa');
- sessionStorage.setItem('karatech-lang', lang);
 }
 
 document.querySelectorAll('.lang-btn').forEach(function(btn) {
@@ -129,8 +128,7 @@ document.querySelectorAll('.lang-btn').forEach(function(btn) {
  };
 });
 
-var saved = sessionStorage.getItem('karatech-lang') || 'en';
-setLang(saved);
+setLang('en');
 </script>
 </body>
 </html>
