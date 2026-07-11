@@ -28,6 +28,7 @@
             border-radius: 30px;
             border: 1px solid rgba(212, 175, 55, 0.1);
             transition: 0.2s;
+            cursor: pointer;
         }
         .back-link:hover {
             background: var(--primary);
@@ -114,7 +115,7 @@
             line-height: 1.8;
         }
         .accordion-block.open .accordion-block-body {
-            max-height: 600px;
+            max-height: 800px;
             padding: 0 24px 20px 24px;
         }
         .accordion-block-body ul {
@@ -197,6 +198,8 @@
     </div>
 
     <div class="accordion-wrapper">
+
+        <!-- 1. بازرسی و تست -->
         <div class="accordion-block">
             <div class="accordion-block-header" onclick="toggleBlock(this)">
                 <span class="icon"><i class="fas fa-clipboard-list"></i></span>
@@ -209,6 +212,8 @@
                     <li data-en="Dimensional measurement" data-fa="اندازه‌گیری ابعادی">Dimensional measurement</li>
                     <li data-en="Electrical testing" data-fa="تست الکتریکی">Electrical testing</li>
                     <li data-en="Functional testing" data-fa="تست عملکردی">Functional testing</li>
+                    <li data-en="Pressure testing" data-fa="تست فشار">Pressure testing</li>
+                    <li data-en="Leak testing" data-fa="تست نشتی">Leak testing</li>
                 </ul>
                 <div class="desc" data-en="All testing procedures follow IEC and ISO standards." data-fa="تمامی روش‌های تست مطابق با استانداردهای IEC و ISO است.">
                     All testing procedures follow IEC and ISO standards.
@@ -216,6 +221,7 @@
             </div>
         </div>
 
+        <!-- 2. استانداردها و گواهینامه‌ها -->
         <div class="accordion-block">
             <div class="accordion-block-header" onclick="toggleBlock(this)">
                 <span class="icon"><i class="fas fa-certificate"></i></span>
@@ -227,6 +233,8 @@
                     <li data-en="ISO 9001:2015 - Quality Management" data-fa="ISO 9001:2015 - مدیریت کیفیت">ISO 9001:2015 - Quality Management</li>
                     <li data-en="ISO 14001 - Environmental Management" data-fa="ISO 14001 - مدیریت محیط زیست">ISO 14001 - Environmental Management</li>
                     <li data-en="ISO 45001 - Occupational Health &amp; Safety" data-fa="ISO 45001 - بهداشت و ایمنی شغلی">ISO 45001 - Occupational Health &amp; Safety</li>
+                    <li data-en="IEC 61508 - Functional Safety" data-fa="IEC 61508 - ایمنی عملکردی">IEC 61508 - Functional Safety</li>
+                    <li data-en="ATEX / IECEx - Hazardous Areas" data-fa="ATEX / IECEx - مناطق خطرناک">ATEX / IECEx - Hazardous Areas</li>
                 </ul>
                 <div class="desc" data-en="Certification process includes documentation, audit, and continuous compliance." data-fa="فرآیند صدور گواهینامه شامل مستندسازی، بازرسی و انطباق مستمر است.">
                     Certification process includes documentation, audit, and continuous compliance.
@@ -234,6 +242,7 @@
             </div>
         </div>
 
+        <!-- 3. ابزارهای کنترل کیفیت -->
         <div class="accordion-block">
             <div class="accordion-block-header" onclick="toggleBlock(this)">
                 <span class="icon"><i class="fas fa-tools"></i></span>
@@ -243,9 +252,12 @@
             <div class="accordion-block-body">
                 <ul>
                     <li data-en="Pareto Chart" data-fa="نمودار پارتو">Pareto Chart</li>
-                    <li data-en="Fishbone (Ishikawa) Diagram" data-fa="نمودار استخوان ماهی">Fishbone (Ishikawa) Diagram</li>
+                    <li data-en="Fishbone (Ishikawa) Diagram" data-fa="نمودار استخوان ماهی (ایشیکاوا)">Fishbone (Ishikawa) Diagram</li>
                     <li data-en="Check Sheets" data-fa="برگه‌های بررسی">Check Sheets</li>
-                    <li data-en="Control Charts (SPC)" data-fa="نمودارهای کنترل">Control Charts (SPC)</li>
+                    <li data-en="Histograms" data-fa="هیستوگرام‌ها">Histograms</li>
+                    <li data-en="Control Charts (SPC)" data-fa="نمودارهای کنترل (SPC)">Control Charts (SPC)</li>
+                    <li data-en="Scatter Diagrams" data-fa="نمودارهای پراکندگی">Scatter Diagrams</li>
+                    <li data-en="Flowcharts" data-fa="نمودارهای جریان">Flowcharts</li>
                 </ul>
                 <div class="desc" data-en="These 7 basic tools are the foundation of quality improvement." data-fa="این ۷ ابزار پایه‌ای، اساس بهبود کیفیت هستند.">
                     These 7 basic tools are the foundation of quality improvement.
@@ -253,6 +265,7 @@
             </div>
         </div>
 
+        <!-- 4. روش‌های بهبود -->
         <div class="accordion-block">
             <div class="accordion-block-header" onclick="toggleBlock(this)">
                 <span class="icon"><i class="fas fa-flag-checkered"></i></span>
@@ -264,12 +277,103 @@
                     <li data-en="Six Sigma (DMAIC)" data-fa="سیگما شش (DMAIC)">Six Sigma (DMAIC)</li>
                     <li data-en="Lean Manufacturing" data-fa="تولید ناب">Lean Manufacturing</li>
                     <li data-en="Kaizen (Continuous Improvement)" data-fa="کایزن (بهبود مستمر)">Kaizen (Continuous Improvement)</li>
+                    <li data-en="5S - Workplace Organization" data-fa="۵S - سازماندهی محیط کار">5S - Workplace Organization</li>
+                    <li data-en="PDCA Cycle" data-fa="چرخه PDCA">PDCA Cycle</li>
+                    <li data-en="TPM - Total Productive Maintenance" data-fa="TPM - نگهداری و تعمیرات بهره‌ور">TPM - Total Productive Maintenance</li>
                 </ul>
                 <div class="desc" data-en="These methodologies help reduce waste, defects, and increase efficiency." data-fa="این روش‌ها به کاهش ضایعات، عیوب و افزایش بهره‌وری کمک می‌کنند.">
                     These methodologies help reduce waste, defects, and increase efficiency.
                 </div>
             </div>
         </div>
+
+        <!-- 5. تست‌های غیرمخرب (NDT) -->
+        <div class="accordion-block">
+            <div class="accordion-block-header" onclick="toggleBlock(this)">
+                <span class="icon"><i class="fas fa-microscope"></i></span>
+                <span class="title" data-en="Non-Destructive Testing (NDT)" data-fa="تست‌های غیرمخرب (NDT)">Non-Destructive Testing (NDT)</span>
+                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="accordion-block-body">
+                <ul>
+                    <li data-en="Ultrasonic Testing (UT)" data-fa="تست فراصوتی (UT)">Ultrasonic Testing (UT)</li>
+                    <li data-en="Radiographic Testing (RT - X-ray)" data-fa="تست رادیوگرافی (RT - اشعه ایکس)">Radiographic Testing (RT - X-ray)</li>
+                    <li data-en="Dye Penetrant Testing (PT)" data-fa="تست نفوذ رنگ (PT)">Dye Penetrant Testing (PT)</li>
+                    <li data-en="Magnetic Particle Testing (MT)" data-fa="تست ذرات مغناطیسی (MT)">Magnetic Particle Testing (MT)</li>
+                    <li data-en="Eddy Current Testing (ET)" data-fa="تست جریان گردابی (ET)">Eddy Current Testing (ET)</li>
+                    <li data-en="Visual Testing (VT)" data-fa="تست چشمی (VT)">Visual Testing (VT)</li>
+                </ul>
+                <div class="desc" data-en="NDT methods are used to detect defects without damaging the component." data-fa="روش‌های NDT برای شناسایی عیوب بدون آسیب رساندن به قطعه استفاده می‌شوند.">
+                    NDT methods are used to detect defects without damaging the component.
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. مستندسازی و بازرسی -->
+        <div class="accordion-block">
+            <div class="accordion-block-header" onclick="toggleBlock(this)">
+                <span class="icon"><i class="fas fa-file-signature"></i></span>
+                <span class="title" data-en="Documentation &amp; Audits" data-fa="مستندسازی و بازرسی">Documentation &amp; Audits</span>
+                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="accordion-block-body">
+                <ul>
+                    <li data-en="Quality Manuals" data-fa="دفترچه‌های کیفیت">Quality Manuals</li>
+                    <li data-en="Standard Operating Procedures (SOP)" data-fa="رویه‌های عملیاتی استاندارد (SOP)">Standard Operating Procedures (SOP)</li>
+                    <li data-en="Work Instructions" data-fa="دستورالعمل‌های کاری">Work Instructions</li>
+                    <li data-en="Inspection &amp; Test Records" data-fa="سوابق بازرسی و تست">Inspection &amp; Test Records</li>
+                    <li data-en="Internal Audits" data-fa="بازرسی داخلی">Internal Audits</li>
+                    <li data-en="External Audits (Third Party)" data-fa="بازرسی خارجی (شخص ثالث)">External Audits (Third Party)</li>
+                    <li data-en="Corrective &amp; Preventive Actions (CAPA)" data-fa="اقدامات اصلاحی و پیشگیرانه (CAPA)">Corrective &amp; Preventive Actions (CAPA)</li>
+                </ul>
+                <div class="desc" data-en="Proper documentation ensures traceability and compliance with standards." data-fa="مستندسازی مناسب، قابلیت ردیابی و انطباق با استانداردها را تضمین می‌کند.">
+                    Proper documentation ensures traceability and compliance with standards.
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. کنترل کیفیت آماری (SQC) -->
+        <div class="accordion-block">
+            <div class="accordion-block-header" onclick="toggleBlock(this)">
+                <span class="icon"><i class="fas fa-chart-bar"></i></span>
+                <span class="title" data-en="Statistical Quality Control (SQC)" data-fa="کنترل کیفیت آماری (SQC)">Statistical Quality Control (SQC)</span>
+                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="accordion-block-body">
+                <ul>
+                    <li data-en="Acceptance Sampling" data-fa="نمونه‌برداری پذیرش">Acceptance Sampling</li>
+                    <li data-en="Process Capability Analysis (Cp, Cpk)" data-fa="تحلیل توانایی فرآیند (Cp, Cpk)">Process Capability Analysis (Cp, Cpk)</li>
+                    <li data-en="Control Charts (X-bar, R, P, NP)" data-fa="نمودارهای کنترل (X-bar, R, P, NP)">Control Charts (X-bar, R, P, NP)</li>
+                    <li data-en="ANOVA - Analysis of Variance" data-fa="ANOVA - تحلیل واریانس">ANOVA - Analysis of Variance</li>
+                    <li data-en="Regression Analysis" data-fa="تحلیل رگرسیون">Regression Analysis</li>
+                </ul>
+                <div class="desc" data-en="SQC uses statistical methods to monitor and control quality." data-fa="کنترل کیفیت آماری از روش‌های آماری برای نظارت و کنترل کیفیت استفاده می‌کند.">
+                    SQC uses statistical methods to monitor and control quality.
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. کیفیت در تامین‌کننده -->
+        <div class="accordion-block">
+            <div class="accordion-block-header" onclick="toggleBlock(this)">
+                <span class="icon"><i class="fas fa-handshake"></i></span>
+                <span class="title" data-en="Supplier Quality Management" data-fa="مدیریت کیفیت تامین‌کننده">Supplier Quality Management</span>
+                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="accordion-block-body">
+                <ul>
+                    <li data-en="Supplier Audits" data-fa="بازرسی تامین‌کنندگان">Supplier Audits</li>
+                    <li data-en="Supplier Evaluation &amp; Selection" data-fa="ارزیابی و انتخاب تامین‌کننده">Supplier Evaluation &amp; Selection</li>
+                    <li data-en="Incoming Material Inspection" data-fa="بازرسی مواد ورودی">Incoming Material Inspection</li>
+                    <li data-en="Supplier Performance Monitoring" data-fa="نظارت بر عملکرد تامین‌کننده">Supplier Performance Monitoring</li>
+                    <li data-en="Supplier Development" data-fa="توسعه تامین‌کننده">Supplier Development</li>
+                </ul>
+                <div class="desc" data-en="Supplier quality management ensures raw materials and components meet standards." data-fa="مدیریت کیفیت تامین‌کننده تضمین می‌کند مواد اولیه و قطعات مطابق با استانداردها باشند.">
+                    Supplier quality management ensures raw materials and components meet standards.
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
