@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · 7 QC Tools</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">🛠️ 7 QC Tools</h1>
+    <div class="sub" id="desc">The seven basic quality control tools for problem solving and process improvement.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What are the 7 QC Tools?</h2>
+        <p id="s1p">The 7 QC tools are a set of graphical and statistical techniques used for quality control and problem solving. They were developed by Kaoru Ishikawa and are widely used in manufacturing and service industries to identify, analyze, and resolve quality issues.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 The 7 Tools</h2>
+        <ul id="list1">
+            <li>Cause and Effect Diagram (Fishbone/Ishikawa) – Root cause analysis</li>
+            <li>Check Sheet – Data collection and tallying</li>
+            <li>Control Chart – Monitoring process stability</li>
+            <li>Histogram – Frequency distribution</li>
+            <li>Pareto Chart – Prioritizing problems (80/20 rule)</li>
+            <li>Scatter Diagram – Correlation analysis</li>
+            <li>Stratification – Separating data into groups</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Applications</h2>
+        <ul id="list2">
+            <li>Identifying root causes of defects</li>
+            <li>Monitoring process performance</li>
+            <li>Prioritizing improvement efforts</li>
+            <li>Analyzing data and trends</li>
+            <li>Problem solving and decision making</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '🛠️ 7 QC Tools',
+            desc: 'The seven basic quality control tools for problem solving and process improvement.',
+            s1: '🔹 What are the 7 QC Tools?',
+            s1p: 'The 7 QC tools are a set of graphical and statistical techniques used for quality control and problem solving. They were developed by Kaoru Ishikawa and are widely used in manufacturing and service industries to identify, analyze, and resolve quality issues.',
+            s2: '🔹 The 7 Tools',
+            list1: ['Cause and Effect Diagram (Fishbone/Ishikawa) – Root cause analysis','Check Sheet – Data collection and tallying','Control Chart – Monitoring process stability','Histogram – Frequency distribution','Pareto Chart – Prioritizing problems (80/20 rule)','Scatter Diagram – Correlation analysis','Stratification – Separating data into groups'],
+            s3: '🔹 Applications',
+            list2: ['Identifying root causes of defects','Monitoring process performance','Prioritizing improvement efforts','Analyzing data and trends','Problem solving and decision making'],
+            back: '← Back'
+        },
+        fa: {
+            title: '🛠️ ۷ ابزار کیفیت',
+            desc: 'هفت ابزار پایه کنترل کیفیت برای حل مسئله و بهبود فرآیند.',
+            s1: '🔹 ۷ ابزار کیفیت چیستند؟',
+            s1p: '۷ ابزار کیفیت مجموعه‌ای از تکنیک‌های گرافیکی و آماری هستند که برای کنترل کیفیت و حل مسئله استفاده می‌شوند. این ابزارها توسط کائورو ایشیکاوا توسعه داده شده‌اند و به طور گسترده در صنایع تولیدی و خدماتی برای شناسایی، تحلیل و حل مسائل کیفیت استفاده می‌شوند.',
+            s2: '🔹 ۷ ابزار',
+            list1: ['نمودار علت و معلول (استخوان ماهی/ایشیکاوا) – تحلیل ریشه‌ای','برگه بازرسی – جمع‌آوری و شمارش داده','نمودار کنترل – نظارت بر پایداری فرآیند','هیستوگرام – توزیع فراوانی','نمودار پارتو – اولویت‌بندی مشکلات (قانون 80/20)','نمودار پراکندگی – تحلیل همبستگی','طبقه‌بندی – جداسازی داده‌ها به گروه‌ها'],
+            s3: '🔹 کاربردها',
+            list2: ['شناسایی علل ریشه‌ای عیوب','نظارت بر عملکرد فرآیند','اولویت‌بندی تلاش‌های بهبود','تحلیل داده‌ها و روندها','حل مسئله و تصمیم‌گیری'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
