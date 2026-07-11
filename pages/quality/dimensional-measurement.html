@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Dimensional Measurement</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px;margin-top:10px}
+        th,td{padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+        th{color:#d4af37;font-weight:600}
+        .note-box{background:#0d0e12;padding:15px;border-radius:12px;border-left:3px solid #d4af37;margin-top:10px;color:#b0b8c5;line-height:1.8}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        .lang-persian th,.lang-persian td{text-align:right}
+        .lang-persian .note-box{border-left:none;border-right:3px solid #d4af37}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📏 Dimensional Measurement</h1>
+    <div class="sub" id="desc">Precise measurement of part dimensions using various tools to ensure compliance with drawings and technical specifications.</div>
+
+    <div class="section">
+        <h2 id="s1">📌 Definition</h2>
+        <p id="s1p">Dimensional measurement is the process of determining the physical dimensions of a part such as length, width, height, diameter, angles, and tolerances using precision tools. These measurements are performed to ensure the part conforms to the drawing and technical specifications.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🛠️ Measurement Tools</h2>
+        <ul id="list1">
+            <li><strong>Caliper</strong> – Measures length, inner and outer diameter with 0.01–0.05 mm accuracy</li>
+            <li><strong>Micrometer</strong> – Precision measurement with 0.001 mm accuracy</li>
+            <li><strong>Go/No-Go Gauges</strong> – Quick tolerance checking</li>
+            <li><strong>CMM</strong> – High-accuracy 3D measurement</li>
+            <li><strong>Profilometer</strong> – Surface roughness measurement</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">📊 Tool Comparison</h2>
+        <table>
+            <tr><th id="t1">Tool</th><th id="t2">Accuracy</th><th id="t3">Application</th></tr>
+            <tr><td id="r1a">Caliper</td><td id="r1b">0.01–0.05 mm</td><td id="r1c">General measurement</td></tr>
+            <tr><td id="r2a">Micrometer</td><td id="r2b">0.001 mm</td><td id="r2c">Precision measurement</td></tr>
+            <tr><td id="r3a">Go/No-Go Gauge</td><td id="r3b">Specified tolerance</td><td id="r3c">Quick inspection</td></tr>
+            <tr><td id="r4a">CMM</td><td id="r4b">0.001 mm</td><td id="r4c">3D measurement</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">📌 Related Standards</h2>
+        <ul id="list2">
+            <li><strong>ISO 9001</strong> – Measurement process control</li>
+            <li><strong>ISO 10012</strong> – Measurement management systems</li>
+            <li><strong>ASME Y14.5</strong> – Geometric dimensioning and tolerancing</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s5">💡 Key Tips</h2>
+        <div class="note-box" id="note">
+            ✔️ All measurement tools must be periodically calibrated.<br>
+            ✔️ Ambient temperature should be controlled (typically 20°C).<br>
+            ✔️ Parts must be clean and free of dust before measurement.<br>
+            ✔️ Measurement results should be documented and compared with drawing tolerances.
+        </div>
+    </div>
+
+    <div class="back">
+        <a href="../academy/quality.html" id="backlink">← Back to Quality Control</a>
+    </div>
+
+</div>
+
+<script>
+    const lang = {
+        en: {
+            title: '📏 Dimensional Measurement',
+            desc: 'Precise measurement of part dimensions using various tools to ensure compliance with drawings and technical specifications.',
+            s1: '📌 Definition',
+            s1p: 'Dimensional measurement is the process of determining the physical dimensions of a part such as length, width, height, diameter, angles, and tolerances using precision tools. These measurements are performed to ensure the part conforms to the drawing and technical specifications.',
+            s2: '🛠️ Measurement Tools',
+            list1: ['Caliper – Measures length, inner and outer diameter with 0.01–0.05 mm accuracy','Micrometer – Precision measurement with 0.001 mm accuracy','Go/No-Go Gauges – Quick tolerance checking','CMM – High-accuracy 3D measurement','Profilometer – Surface roughness measurement'],
+            s3: '📊 Tool Comparison',
+            t1: 'Tool',
+            t2: 'Accuracy',
+            t3: 'Application',
+            r1a: 'Caliper',
+            r1b: '0.01–0.05 mm',
+            r1c: 'General measurement',
+            r2a: 'Micrometer',
+            r2b: '0.001 mm',
+            r2c: 'Precision measurement',
+            r3a: 'Go/No-Go Gauge',
+            r3b: 'Specified tolerance',
+            r3c: 'Quick inspection',
+            r4a: 'CMM',
+            r4b: '0.001 mm',
+            r4c: '3D measurement',
+            s4: '📌 Related Standards',
+            list2: ['ISO 9001 – Measurement process control','ISO 10012 – Measurement management systems','ASME Y14.5 – Geometric dimensioning and tolerancing'],
+            s5: '💡 Key Tips',
+            note: '✔️ All measurement tools must be periodically calibrated.\n✔️ Ambient temperature should be controlled (typically 20°C).\n✔️ Parts must be clean and free of dust before measurement.\n✔️ Measurement results should be documented and compared with drawing tolerances.',
+            back: '← Back to Quality Control'
+        },
+        fa: {
+            title: '📏 اندازه‌گیری ابعادی',
+            desc: 'اندازه‌گیری دقیق ابعاد قطعات با استفاده از ابزارهای مختلف برای اطمینان از تطابق با نقشه و مشخصات فنی.',
+            s1: '📌 تعریف',
+            s1p: 'اندازه‌گیری ابعادی فرآیند تعیین ابعاد فیزیکی یک قطعه مانند طول، عرض، ارتفاع، قطر، زاویه و تلرانس‌ها با استفاده از ابزارهای دقیق است. این اندازه‌گیری‌ها برای اطمینان از انطباق قطعه با نقشه و مشخصات فنی انجام می‌شود.',
+            s2: '🛠️ ابزارهای اندازه‌گیری',
+            list1: ['کولیس – اندازه‌گیری طول، قطر داخلی و خارجی با دقت ۰.۰۱–۰.۰۵ میلی‌متر','میکرومتر – اندازه‌گیری دقیق با دقت ۰.۰۰۱ میلی‌متر','گیج‌های حدی – بررسی سریع تلرانس‌ها','دستگاه CMM – اندازه‌گیری سه‌بعدی با دقت بالا','پروفایلومتر – اندازه‌گیری زبری سطح'],
+            s3: '📊 مقایسه ابزارها',
+            t1: 'ابزار',
+            t2: 'دقت',
+            t3: 'کاربرد',
+            r1a: 'کولیس',
+            r1b: '۰.۰۱–۰.۰۵ mm',
+            r1c: 'اندازه‌گیری عمومی',
+            r2a: 'میکرومتر',
+            r2b: '۰.۰۰۱ mm',
+            r2c: 'اندازه‌گیری دقیق',
+            r3a: 'گیج حدی',
+            r3b: 'تلرانس مشخص',
+            r3c: 'بازرسی سریع',
+            r4a: 'CMM',
+            r4b: '۰.۰۰۱ mm',
+            r4c: 'اندازه‌گیری سه‌بعدی',
+            s4: '📌 استانداردهای مرتبط',
+            list2: ['ISO 9001 – کنترل فرآیند اندازه‌گیری','ISO 10012 – مدیریت سیستم‌های اندازه‌گیری','ASME Y14.5 – تلرانس‌گذاری ابعادی'],
+            s5: '💡 نکات کلیدی',
+            note: '✔️ کلیه ابزارهای اندازه‌گیری باید به‌طور دوره‌ای کالیبره شوند.\n✔️ دمای محیط اندازه‌گیری باید کنترل شود (معمولاً ۲۰ درجه سانتی‌گراد).\n✔️ قبل از اندازه‌گیری، قطعه باید تمیز و عاری از گرد و غبار باشد.\n✔️ نتایج اندازه‌گیری باید مستند شده و با تلرانس‌های نقشه مقایسه شود.',
+            back: '← بازگشت به کنترل کیفیت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s5').textContent = t.s5;
+        document.getElementById('backlink').textContent = t.back;
+
+        // Table headers
+        document.getElementById('t1').textContent = t.t1;
+        document.getElementById('t2').textContent = t.t2;
+        document.getElementById('t3').textContent = t.t3;
+        document.getElementById('r1a').textContent = t.r1a;
+        document.getElementById('r1b').textContent = t.r1b;
+        document.getElementById('r1c').textContent = t.r1c;
+        document.getElementById('r2a').textContent = t.r2a;
+        document.getElementById('r2b').textContent = t.r2b;
+        document.getElementById('r2c').textContent = t.r2c;
+        document.getElementById('r3a').textContent = t.r3a;
+        document.getElementById('r3b').textContent = t.r3b;
+        document.getElementById('r3c').textContent = t.r3c;
+        document.getElementById('r4a').textContent = t.r4a;
+        document.getElementById('r4b').textContent = t.r4b;
+        document.getElementById('r4c').textContent = t.r4c;
+
+        // Lists
+        document.getElementById('list1').innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.innerHTML = item; document.getElementById('list1').appendChild(li); });
+
+        document.getElementById('list2').innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.innerHTML = item; document.getElementById('list2').appendChild(li); });
+
+        document.getElementById('note').innerHTML = t.note.replace(/\n/g, '<br>');
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
+</body>
+</html>
