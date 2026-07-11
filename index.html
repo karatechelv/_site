@@ -23,12 +23,13 @@
  .lang-btn:hover{background:var(--primary-light);color:#fff}
  .splash{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh;text-align:center;padding:20px;background:radial-gradient(circle at 20% 30%,#2f1f4a,#0e0f13 80%);position:relative;overflow:hidden}
  .splash::before{content:'';position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M20 20 L80 20 L80 80 L20 80 Z" stroke="%235b3b8c" stroke-width="0.4" fill="none" opacity="0.2"/><circle cx="50" cy="50" r="15" stroke="%23d4af37" stroke-width="0.3" fill="none" opacity="0.2"/></svg>');background-size:80px 80px;opacity:0.3}
- .splash-logo{font-size:4.5rem;font-weight:700;letter-spacing:4px;background:linear-gradient(135deg,#fff 0%,var(--accent) 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;z-index:2;text-shadow:0 0 40px rgba(212,175,55,0.2)}
- .splash-sub{color:var(--text-muted);font-size:1.2rem;margin:12px 0 30px;letter-spacing:2px;font-weight:300}
- .splash-credit{color:#8e95a5;font-size:0.85rem;opacity:0.7;letter-spacing:0.5px;margin-top:30px}
+ .splash-logo-img{max-width:280px;width:100%;margin-bottom:10px;position:relative;z-index:2}
+ .splash-logo-img img{width:100%;height:auto;display:block}
+ .splash-sub{color:var(--text-muted);font-size:1.2rem;margin:12px 0 30px;letter-spacing:2px;font-weight:300;position:relative;z-index:2}
+ .splash-credit{color:#8e95a5;font-size:0.85rem;opacity:0.7;letter-spacing:0.5px;margin-top:30px;position:relative;z-index:2}
  .splash-btn{background:var(--primary);border:1px solid var(--accent);color:#fff;padding:16px 48px;border-radius:60px;font-weight:600;font-size:1.1rem;letter-spacing:1px;cursor:pointer;transition:0.25s;box-shadow:0 0 20px rgba(91,59,140,0.4);backdrop-filter:blur(4px);position:relative;z-index:2}
  .splash-btn:hover{background:var(--accent);color:#111;box-shadow:0 0 40px rgba(212,175,55,0.3);transform:scale(1.02)}
- .splash-icon{font-size:4rem;color:var(--accent);opacity:0.3;margin-bottom:10px}
+ .splash-icon{font-size:4rem;color:var(--accent);opacity:0.3;margin-bottom:10px;display:none}
  .dashboard{display:none;padding:30px 40px 60px;max-width:1440px;margin:0 auto}
  .dashboard.active{display:block}
  .splash.hidden{display:none}
@@ -59,8 +60,8 @@
  .coming{background:rgba(212,175,55,0.12);padding:4px 12px;border-radius:40px;font-size:0.7rem;font-weight:600;color:var(--accent);margin-left:12px}
  .lang-persian{direction:rtl}
  .lang-persian .header{flex-direction:row-reverse}
- @media(max-width:768px){.header{padding:14px 20px;flex-wrap:wrap;gap:12px}.grid-4{grid-template-columns:1fr 1fr}.splash-logo{font-size:2.8rem}}
- @media(max-width:480px){.grid-4{grid-template-columns:1fr}}
+ @media(max-width:768px){.header{padding:14px 20px;flex-wrap:wrap;gap:12px}.grid-4{grid-template-columns:1fr 1fr}.splash-logo-img{max-width:200px}}
+ @media(max-width:480px){.grid-4{grid-template-columns:1fr}.splash-logo-img{max-width:160px}}
  </style>
 </head>
 <body>
@@ -75,8 +76,9 @@
 
 <!-- SPLASH -->
 <section class="splash" id="splash">
- <div class="splash-icon"><i class="fas fa-microchip"></i></div>
- <div class="splash-logo">KARATECH ELV</div>
+ <div class="splash-logo-img">
+  <img src="assets/images/karatechelv.png" alt="Karatech ELV Logo">
+ </div>
  <div class="splash-sub" data-en="Engineering · Automation · Intelligence" data-fa="مهندسی · اتوماسیون · هوش">Engineering · Automation · Intelligence</div>
  <button class="splash-btn" id="enterBtn"><i class="fas fa-arrow-right"></i> <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span></button>
  <div class="splash-credit" data-en="Designed by Mohsen Keramati Layegh" data-fa="طراحی شده توسط محسن کرامتی لایق">Designed by Mohsen Keramati Layegh</div>
