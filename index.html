@@ -67,6 +67,7 @@
  </div>
 </header>
 
+<!-- SPLASH -->
 <section class="splash" id="splash">
  <div class="splash-icon"><i class="fas fa-microchip"></i></div>
  <div class="splash-logo">KARATECH ELV</div>
@@ -74,8 +75,17 @@
  <button class="splash-btn" id="enterBtn"><i class="fas fa-arrow-right"></i> <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span></button>
 </section>
 
+<!-- DASHBOARD -->
 <div class="dashboard" id="dashboard">
+ 
+ <!-- EXIT BUTTON -->
+ <div style="display:flex; justify-content:flex-end; margin-bottom:20px;">
+  <button id="exitBtn" style="background:transparent; border:1px solid rgba(255,255,255,0.1); color:#8e95a5; padding:8px 20px; border-radius:30px; cursor:pointer; font-size:0.85rem; transition:0.2s;">
+   <i class="fas fa-sign-out-alt"></i> <span data-en="Exit" data-fa="خروج">Exit</span>
+  </button>
+ </div>
 
+ <!-- ACADEMY CARDS -->
  <div class="grid-4" id="academyGrid">
   <div class="card-academy" onclick="location.href='pages/academy/electrical.html'"><i class="fas fa-bolt"></i><h3>Electrical</h3><p data-en="Power, distribution, protection" data-fa="برق، توزیع، حفاظت">Power, distribution, protection</p></div>
   <div class="card-academy" onclick="location.href='pages/academy/automation.html'"><i class="fas fa-robot"></i><h3>Automation</h3><p data-en="PLC, SCADA, control" data-fa="PLC، SCADA، کنترل">PLC, SCADA, control</p></div>
@@ -87,8 +97,9 @@
   <div class="card-academy" onclick="location.href='pages/academy/hse.html'"><i class="fas fa-hard-hat"></i><h3>HSE</h3><p data-en="Safety, environment, health" data-fa="ایمنی، محیط زیست، بهداشت">Safety, environment</p></div>
  </div>
 
+ <!-- WORKFLOW (لینک‌دار) -->
  <div class="section-title"><i class="fas fa-project-diagram"></i> <span data-en="Engineering Workflow" data-fa="جریان کار مهندسی">Engineering Workflow</span></div>
- <div class="workflow-container">
+ <div class="workflow-container" style="cursor:pointer;" onclick="location.href='workflow.html'">
   <span class="wf-step"><i class="fas fa-file-pdf"></i> P&ID</span><span class="wf-arrow">→</span>
   <span class="wf-step"><i class="fas fa-pencil-ruler"></i> Design</span><span class="wf-arrow">→</span>
   <span class="wf-step"><i class="fas fa-layer-group"></i> Panel</span><span class="wf-arrow">→</span>
@@ -103,8 +114,9 @@
   <span class="wf-step"><i class="fas fa-cogs"></i> Operation</span>
  </div>
 
+ <!-- TOOLS (لینک‌دار) -->
  <div class="section-title"><i class="fas fa-calculator"></i> <span data-en="Engineering Tools" data-fa="ابزارهای مهندسی">Engineering Tools</span></div>
- <div class="tools-grid">
+ <div class="tools-grid" style="cursor:pointer;" onclick="location.href='tools.html'">
   <div class="tool-badge"><i class="fas fa-bolt"></i> Voltage Drop</div>
   <div class="tool-badge"><i class="fas fa-chart-line"></i> Power Factor</div>
   <div class="tool-badge"><i class="fas fa-ruler"></i> Cable Size</div>
@@ -118,6 +130,7 @@
   <div class="tool-badge"><i class="fas fa-future"></i> <span class="coming">Coming</span></div>
  </div>
 
+ <!-- SOFTWARE -->
  <div class="section-title"><i class="fas fa-laptop-code"></i> <span data-en="Engineering Software" data-fa="نرم‌افزارهای مهندسی">Engineering Software</span></div>
  <div class="soft-list">
   <span class="soft-item">AutoCAD</span><span class="soft-item">EPLAN</span><span class="soft-item">SEE Electrical</span>
@@ -126,6 +139,7 @@
   <span class="soft-item">EasyBuilder</span>
  </div>
 
+ <!-- PROGRAMMING & RESOURCES -->
  <div style="display:flex; flex-wrap:wrap; gap:30px; margin:30px 0;">
   <div style="flex:1; min-width:200px;">
    <h3><i class="fas fa-code"></i> <span data-en="Programming" data-fa="برنامه‌نویسی">Programming</span></h3>
@@ -145,6 +159,7 @@
   </div>
  </div>
 
+ <!-- VISION & FUTURE -->
  <div class="section-title"><i class="fas fa-eye"></i> <span data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</span></div>
  <div style="display:flex; flex-wrap:wrap; gap:12px; background:var(--card-bg); border-radius:var(--radius); padding:24px;">
   <span class="tool-badge" style="background:transparent; border:1px solid rgba(212,175,55,0.2);">Factory <span class="coming">In Dev</span></span>
@@ -156,6 +171,7 @@
   <span class="tool-badge" style="background:transparent; border:1px solid rgba(212,175,55,0.2);">Job Board <span class="coming">Soon</span></span>
  </div>
 
+ <!-- FOOTER -->
  <footer class="footer">
   <div><i class="fas fa-envelope"></i> info@karatechelv.com</div>
   <div><i class="fas fa-phone"></i> +98 21 1234 5678</div>
@@ -168,36 +184,35 @@
 
 <script>
 (function() {
- let currentLang = 'en';
  const splash = document.getElementById('splash');
  const dashboard = document.getElementById('dashboard');
  const enterBtn = document.getElementById('enterBtn');
+ const exitBtn = document.getElementById('exitBtn');
 
- // Check sessionStorage for login status
- if (sessionStorage.getItem('karatech-logged-in') === 'true') {
-  splash.classList.add('hidden');
-  dashboard.classList.add('active');
- }
-
+ // ورود
  enterBtn.addEventListener('click', function() {
   splash.classList.add('hidden');
   dashboard.classList.add('active');
-  sessionStorage.setItem('karatech-logged-in', 'true');
  });
 
- // Language switch
+ // خروج (برگشت به Splash)
+ exitBtn.addEventListener('click', function() {
+  dashboard.classList.remove('active');
+  splash.classList.remove('hidden');
+ });
+
+ // زبان
  document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', function() {
    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
    this.classList.add('active');
-   currentLang = this.dataset.lang;
-   translatePage(currentLang);
-   if (currentLang === 'fa') {
+   const lang = this.dataset.lang;
+   translatePage(lang);
+   if (lang === 'fa') {
     document.body.classList.add('lang-persian');
    } else {
     document.body.classList.remove('lang-persian');
    }
-   sessionStorage.setItem('karatech-lang', currentLang);
   });
  });
 
@@ -218,17 +233,11 @@
   if (sub) { const txt = sub.dataset[lang]; if (txt) sub.textContent = txt; }
   const btnSpan = document.querySelector('.splash-btn span');
   if (btnSpan) { const txt = btnSpan.dataset[lang]; if (txt) btnSpan.textContent = txt; }
+  const exitSpan = document.querySelector('#exitBtn span');
+  if (exitSpan) { const txt = exitSpan.dataset[lang]; if (txt) exitSpan.textContent = txt; }
  }
 
- // Restore language
- const savedLang = sessionStorage.getItem('karatech-lang') || 'en';
- document.querySelectorAll('.lang-btn').forEach(b => {
-  b.classList.toggle('active', b.dataset.lang === savedLang);
- });
- translatePage(savedLang);
- if (savedLang === 'fa') {
-  document.body.classList.add('lang-persian');
- }
+ translatePage('en');
 
 })();
 </script>
