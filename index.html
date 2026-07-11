@@ -14,13 +14,19 @@
  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;min-height:100vh}
  a{color:var(--accent);text-decoration:none}
  i{margin-right:8px}
- .header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:rgba(24,26,31,0.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.15);position:sticky;top:0;z-index:100}
+ .header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:rgba(24,26,31,0.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,0.15);position:sticky;top:0;z-index:100;flex-wrap:wrap;gap:10px}
  .brand{font-weight:700;font-size:1.5rem;letter-spacing:1px;color:#fff}
  .brand span{color:var(--accent)}
+ .datetime-widget{display:flex;align-items:center;gap:12px;color:var(--text-muted);font-size:0.85rem}
+ .datetime-widget .date-display{color:#fff;font-weight:500}
+ .datetime-widget .time-display{color:var(--accent);font-weight:600;font-family:monospace}
+ .header-right{display:flex;align-items:center;gap:16px}
  .lang-switch{display:flex;gap:8px}
  .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.1);color:var(--text-muted);padding:6px 16px;border-radius:40px;font-weight:600;font-size:0.8rem;cursor:pointer;transition:0.2s;text-transform:uppercase}
  .lang-btn.active{background:var(--primary);border-color:var(--accent);color:#fff}
  .lang-btn:hover{background:var(--primary-light);color:#fff}
+ .exit-btn{background:transparent;border:1px solid rgba(255,255,255,0.1);color:#8e95a5;padding:6px 16px;border-radius:40px;cursor:pointer;font-size:0.8rem;transition:0.2s;display:inline-flex;align-items:center;gap:6px}
+ .exit-btn:hover{background:rgba(255,255,255,0.05);color:#fff}
  .splash{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh;text-align:center;padding:20px;background:radial-gradient(circle at 20% 30%,#2f1f4a,#0e0f13 80%);position:relative;overflow:hidden}
  .splash::before{content:'';position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M20 20 L80 20 L80 80 L20 80 Z" stroke="%235b3b8c" stroke-width="0.4" fill="none" opacity="0.2"/><circle cx="50" cy="50" r="15" stroke="%23d4af37" stroke-width="0.3" fill="none" opacity="0.2"/></svg>');background-size:80px 80px;opacity:0.3}
  .splash-logo-img{max-width:280px;width:100%;margin-bottom:10px;position:relative;z-index:2}
@@ -29,7 +35,7 @@
  .splash-credit{color:#8e95a5;font-size:0.85rem;opacity:0.7;letter-spacing:0.5px;margin-top:30px;position:relative;z-index:2}
  .splash-btn{background:var(--primary);border:1px solid var(--accent);color:#fff;padding:16px 48px;border-radius:60px;font-weight:600;font-size:1.1rem;letter-spacing:1px;cursor:pointer;transition:0.25s;box-shadow:0 0 20px rgba(91,59,140,0.4);backdrop-filter:blur(4px);position:relative;z-index:2}
  .splash-btn:hover{background:var(--accent);color:#111;box-shadow:0 0 40px rgba(212,175,55,0.3);transform:scale(1.02)}
- .splash-icon{font-size:4rem;color:var(--accent);opacity:0.3;margin-bottom:10px;display:none}
+ .splash-icon{display:none}
  .dashboard{display:none;padding:30px 40px 60px;max-width:1440px;margin:0 auto}
  .dashboard.active{display:block}
  .splash.hidden{display:none}
@@ -39,9 +45,6 @@
  .card-academy i{font-size:2rem;color:var(--accent);margin-bottom:10px;display:inline-block}
  .card-academy h3{font-weight:600;font-size:1.2rem;margin-bottom:6px}
  .card-academy p{color:var(--text-muted);font-size:0.9rem}
- .exit-btn{background:transparent;border:1px solid rgba(255,255,255,0.1);color:#8e95a5;padding:8px 20px;border-radius:30px;cursor:pointer;font-size:0.85rem;transition:0.2s;display:inline-flex;align-items:center;gap:8px;margin-bottom:20px}
- .exit-btn:hover{background:rgba(255,255,255,0.05);color:#fff}
- .exit-wrap{display:flex;justify-content:flex-end}
  .workflow-container{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;background:var(--card-bg);padding:30px 24px;border-radius:var(--radius);margin:30px 0;border:1px solid rgba(212,175,55,0.08);cursor:pointer;transition:0.2s}
  .workflow-container:hover{background:#2f3340}
  .wf-step{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.03);padding:8px 16px;border-radius:40px;font-size:0.8rem;font-weight:500;border:1px solid rgba(255,255,255,0.04)}
@@ -60,7 +63,8 @@
  .coming{background:rgba(212,175,55,0.12);padding:4px 12px;border-radius:40px;font-size:0.7rem;font-weight:600;color:var(--accent);margin-left:12px}
  .lang-persian{direction:rtl}
  .lang-persian .header{flex-direction:row-reverse}
- @media(max-width:768px){.header{padding:14px 20px;flex-wrap:wrap;gap:12px}.grid-4{grid-template-columns:1fr 1fr}.splash-logo-img{max-width:200px}}
+ .lang-persian .datetime-widget{direction:ltr}
+ @media(max-width:768px){.header{padding:14px 20px;flex-direction:column;align-items:stretch}.grid-4{grid-template-columns:1fr 1fr}.splash-logo-img{max-width:200px}.header-right{justify-content:space-between;width:100%}}
  @media(max-width:480px){.grid-4{grid-template-columns:1fr}.splash-logo-img{max-width:160px}}
  </style>
 </head>
@@ -68,9 +72,18 @@
 
 <header class="header">
  <div class="brand">KARATECH <span>ELV</span></div>
- <div class="lang-switch">
-  <button class="lang-btn active" data-lang="en">EN</button>
-  <button class="lang-btn" data-lang="fa">FA</button>
+
+ <div class="datetime-widget" id="datetimeWidget">
+  <div class="date-display" id="dateDisplay"></div>
+  <div class="time-display" id="timeDisplay"></div>
+ </div>
+
+ <div class="header-right">
+  <button class="exit-btn" id="exitBtn"><i class="fas fa-sign-out-alt"></i> <span data-en="Exit" data-fa="خروج">Exit</span></button>
+  <div class="lang-switch">
+   <button class="lang-btn active" data-lang="en">EN</button>
+   <button class="lang-btn" data-lang="fa">FA</button>
+  </div>
  </div>
 </header>
 
@@ -86,10 +99,6 @@
 
 <!-- DASHBOARD -->
 <div class="dashboard" id="dashboard">
-
- <div class="exit-wrap">
-  <button class="exit-btn" id="exitBtn"><i class="fas fa-sign-out-alt"></i> <span data-en="Exit" data-fa="خروج">Exit</span></button>
- </div>
 
  <div class="grid-4" id="academyGrid">
   <div class="card-academy" onclick="location.href='pages/academy/electrical.html'"><i class="fas fa-bolt"></i><h3>Electrical</h3><p data-en="Power, distribution, protection" data-fa="برق، توزیع، حفاظت">Power, distribution, protection</p></div>
@@ -183,24 +192,37 @@
 
 <script>
 (function() {
+ // ---- ساعت و تقویم ----
+ function updateDateTime() {
+  const now = new Date();
+  const dateEl = document.getElementById('dateDisplay');
+  const timeEl = document.getElementById('timeDisplay');
+  if (dateEl) {
+   const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+   dateEl.textContent = now.toLocaleDateString('fa-IR', options);
+  }
+  if (timeEl) {
+   timeEl.textContent = now.toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  }
+ }
+ updateDateTime();
+ setInterval(updateDateTime, 1000);
+
  const splash = document.getElementById('splash');
  const dashboard = document.getElementById('dashboard');
  const enterBtn = document.getElementById('enterBtn');
  const exitBtn = document.getElementById('exitBtn');
 
- // ورود
  enterBtn.addEventListener('click', function() {
   splash.classList.add('hidden');
   dashboard.classList.add('active');
  });
 
- // خروج
  exitBtn.addEventListener('click', function() {
   dashboard.classList.remove('active');
   splash.classList.remove('hidden');
  });
 
- // زبان
  document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', function() {
    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
