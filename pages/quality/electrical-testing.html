@@ -1,83 +1,139 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تست الکتریکی</title>
+    <title>Karatech ELV · Electrical Testing</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
         .container{max-width:1000px;margin:0 auto}
-        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:inline-block;margin-top:20px}
-        .back-link:hover{color:#fff}
-        h1{color:#d4af37;margin-bottom:10px}
-        .sub{color:#8e95a5;margin-bottom:25px;font-size:1rem;line-height:1.8}
-        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;margin-bottom:12px;font-size:1.3rem}
-        .section p{color:#b0b8c5;line-height:1.8}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
         .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        table{width:100%;border-collapse:collapse;background:#0d0e12;border-radius:8px;margin-top:10px}
-        th,td{padding:10px 14px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.06)}
-        th{color:#d4af37;font-weight:600}
-        .note-box{background:#0d0e12;padding:15px;border-radius:12px;border-right:3px solid #d4af37;margin-top:10px;color:#b0b8c5;line-height:1.8}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
 <div class="container">
 
-    <h1>⚡ تست الکتریکی</h1>
-    <div class="sub">انجام تست‌های الکتریکی شامل تست پیوستگی، مقاومت عایق، تست ولتاژ بالا (Hi-Pot) و سایر تست‌های مربوط به تجهیزات الکتریکی.</div>
-
-    <div class="section">
-        <h2>📌 تعریف</h2>
-        <p>تست الکتریکی شامل مجموعه‌ای از آزمایش‌ها بر روی تجهیزات الکتریکی برای اطمینان از عملکرد صحیح، ایمنی و انطباق با استانداردها است. این تست‌ها شامل اندازه‌گیری مقاومت، ولتاژ، جریان، عایق‌بندی و سایر پارامترهای الکتریکی می‌شود.</p>
-    </div>
-
-    <div class="section">
-        <h2>🔬 انواع تست الکتریکی</h2>
-        <ul>
-            <li><strong>تست پیوستگی (Continuity Test)</strong> – بررسی اتصال صحیح مدار و عدم وجود قطعی</li>
-            <li><strong>تست مقاومت عایق (Insulation Resistance Test)</strong> – اندازه‌گیری مقاومت عایق با مگااهم‌متر</li>
-            <li><strong>تست ولتاژ بالا (Hi-Pot Test)</strong> – اعمال ولتاژ بالا برای بررسی عایق‌بندی</li>
-            <li><strong>تست زمین (Grounding Test)</strong> – اندازه‌گیری مقاومت ارت</li>
-            <li><strong>تست عملکرد (Functional Test)</strong> – بررسی عملکرد مدار تحت بار</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>📊 مقادیر استاندارد</h2>
-        <table>
-            <tr><th>تست</th><th>مقدار مجاز</th><th>ابزار</th></tr>
-            <tr><td>مقاومت عایق</td><td>&gt; 1 MΩ</td><td>مگااهم‌متر</td></tr>
-            <tr><td>مقاومت ارت</td><td>&lt; 10 Ω</td><td>ارت‌متر</td></tr>
-            <tr><td>ولتاژ Hi-Pot</td><td>2×Vnom + 1000V</td><td>Hi-Pot Tester</td></tr>
-        </table>
-    </div>
-
-    <div class="section">
-        <h2>📌 استانداردهای مرتبط</h2>
-        <ul>
-            <li><strong>IEC 60364</strong> – تأسیسات الکتریکی</li>
-            <li><strong>IEC 61557</strong> – تجهیزات تست الکتریکی</li>
-            <li><strong>IEEE 1584</strong> – ایمنی قوس الکتریکی</li>
-            <li><strong>NFPA 70E</strong> – ایمنی برق در محل کار</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>💡 نکات ایمنی</h2>
-        <div class="note-box">
-            ✔️ قبل از انجام تست، تجهیزات را از برق جدا کنید.<br>
-            ✔️ از تجهیزات حفاظت فردی (PPE) مناسب استفاده کنید.<br>
-            ✔️ برای تست‌های ولتاژ بالا، منطقه ایمن تعیین کنید.<br>
-            ✔️ تمامی تست‌ها باید توسط پرسنل آموزش‌دیده انجام شود.
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
         </div>
     </div>
 
-    <a href="inspection-testing.html" class="back-link">← بازگشت به بازرسی و تست</a>
+    <h1 id="title">⚡ Electrical Testing</h1>
+    <div class="sub" id="desc">Performing electrical tests including continuity, insulation resistance, Hi-Pot testing, and other electrical equipment tests.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Electrical Testing?</h2>
+        <p id="s1p">Electrical testing includes a series of tests on electrical equipment to ensure proper operation, safety, and compliance with standards. These tests include measurement of resistance, voltage, current, insulation, and other electrical parameters.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Types of Electrical Tests</h2>
+        <ul id="list1">
+            <li>Continuity Test – Checking proper circuit connection and no open circuits</li>
+            <li>Insulation Resistance Test – Measuring insulation resistance with a megger</li>
+            <li>Hi-Pot Test – Applying high voltage to check insulation</li>
+            <li>Grounding Test – Measuring earth resistance</li>
+            <li>Functional Test – Checking circuit operation under load</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Related Standards</h2>
+        <ul id="list2">
+            <li>IEC 60364 – Electrical Installations</li>
+            <li>IEC 61557 – Electrical Testing Equipment</li>
+            <li>IEEE 1584 – Arc Flash Safety</li>
+            <li>NFPA 70E – Electrical Safety in the Workplace</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
 
 </div>
+
+<script>
+    const lang = {
+        en: {
+            title: '⚡ Electrical Testing',
+            desc: 'Performing electrical tests including continuity, insulation resistance, Hi-Pot testing, and other electrical equipment tests.',
+            s1: '🔹 What is Electrical Testing?',
+            s1p: 'Electrical testing includes a series of tests on electrical equipment to ensure proper operation, safety, and compliance with standards. These tests include measurement of resistance, voltage, current, insulation, and other electrical parameters.',
+            s2: '🔹 Types of Electrical Tests',
+            list1: ['Continuity Test – Checking proper circuit connection and no open circuits','Insulation Resistance Test – Measuring insulation resistance with a megger','Hi-Pot Test – Applying high voltage to check insulation','Grounding Test – Measuring earth resistance','Functional Test – Checking circuit operation under load'],
+            s3: '🔹 Related Standards',
+            list2: ['IEC 60364 – Electrical Installations','IEC 61557 – Electrical Testing Equipment','IEEE 1584 – Arc Flash Safety','NFPA 70E – Electrical Safety in the Workplace'],
+            back: '← Back'
+        },
+        fa: {
+            title: '⚡ تست الکتریکی',
+            desc: 'انجام تست‌های الکتریکی شامل تست پیوستگی، مقاومت عایق، تست ولتاژ بالا و سایر تست‌های مربوط به تجهیزات الکتریکی.',
+            s1: '🔹 تست الکتریکی چیست؟',
+            s1p: 'تست الکتریکی شامل مجموعه‌ای از آزمایش‌ها بر روی تجهیزات الکتریکی برای اطمینان از عملکرد صحیح، ایمنی و انطباق با استانداردها است. این تست‌ها شامل اندازه‌گیری مقاومت، ولتاژ، جریان، عایق‌بندی و سایر پارامترهای الکتریکی می‌شود.',
+            s2: '🔹 انواع تست الکتریکی',
+            list1: ['تست پیوستگی – بررسی اتصال صحیح مدار و عدم وجود قطعی','تست مقاومت عایق – اندازه‌گیری مقاومت عایق با مگااهم‌متر','تست ولتاژ بالا (Hi-Pot) – اعمال ولتاژ بالا برای بررسی عایق‌بندی','تست زمین – اندازه‌گیری مقاومت ارت','تست عملکرد – بررسی عملکرد مدار تحت بار'],
+            s3: '🔹 استانداردهای مرتبط',
+            list2: ['IEC 60364 – تأسیسات الکتریکی','IEC 61557 – تجهیزات تست الکتریکی','IEEE 1584 – ایمنی قوس الکتریکی','NFPA 70E – ایمنی برق در محل کار'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
 </body>
 </html>
