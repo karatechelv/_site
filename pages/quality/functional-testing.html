@@ -1,80 +1,140 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تست عملکردی</title>
+    <title>Karatech ELV · Functional Testing</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma;padding:40px}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
         .container{max-width:1000px;margin:0 auto}
-        .back-link{color:#d4af37;text-decoration:none;font-weight:600;display:inline-block;margin-top:20px}
-        .back-link:hover{color:#fff}
-        h1{color:#d4af37;margin-bottom:10px}
-        .sub{color:#8e95a5;margin-bottom:25px;font-size:1rem;line-height:1.8}
-        .section{background:#1e2128;padding:25px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;margin-bottom:12px;font-size:1.3rem}
-        .section p{color:#b0b8c5;line-height:1.8}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
         .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .note-box{background:#0d0e12;padding:15px;border-radius:12px;border-right:3px solid #d4af37;margin-top:10px;color:#b0b8c5;line-height:1.8}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
 <div class="container">
 
-    <h1>🎯 تست عملکردی</h1>
-    <div class="sub">بررسی عملکرد واقعی قطعه یا سیستم در شرایط عملیاتی مشابه با محیط واقعی برای اطمینان از عملکرد صحیح و مطابقت با مشخصات.</div>
-
-    <div class="section">
-        <h2>📌 تعریف</h2>
-        <p>تست عملکردی فرآیندی است که در آن یک قطعه، مجموعه یا سیستم کامل تحت شرایط عملیاتی واقعی یا شبیه‌سازی‌شده قرار می‌گیرد تا عملکرد آن تأیید شود. این تست شامل بررسی تمامی ورودی‌ها، خروجی‌ها، حالت‌ها و سناریوهای ممکن است.</p>
-    </div>
-
-    <div class="section">
-        <h2>🛠️ مراحل تست عملکردی</h2>
-        <ul>
-            <li><strong>مرحله ۱:</strong> تهیه سناریوی تست بر اساس مشخصات فنی</li>
-            <li><strong>مرحله ۲:</strong> راه‌اندازی سیستم در شرایط مشابه واقعی</li>
-            <li><strong>مرحله ۳:</strong> اعمال ورودی‌ها و ثبت خروجی‌ها</li>
-            <li><strong>مرحله ۴:</strong> مقایسه نتایج با مقادیر مورد انتظار</li>
-            <li><strong>مرحله ۵:</strong> ثبت نتایج و تهیه گزارش</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>🔧 تجهیزات مورد نیاز</h2>
-        <ul>
-            <li><strong>منبع تغذیه</strong> – برای شبیه‌سازی شرایط عملیاتی</li>
-            <li><strong>سیگنال‌ژنراتور</strong> – برای اعمال سیگنال‌های ورودی</li>
-            <li><strong>مولتی‌متر و اسیلوسکوپ</strong> – برای اندازه‌گیری و مشاهده سیگنال‌ها</li>
-            <li><strong>رایانه و نرم‌افزار</strong> – برای ثبت و تحلیل داده‌ها</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>📌 استانداردهای مرتبط</h2>
-        <ul>
-            <li><strong>ISO 9001</strong> – کنترل کیفیت و مستندسازی تست‌ها</li>
-            <li><strong>API 610</strong> – پمپ‌های سانتریفیوژ</li>
-            <li><strong>IEC 60034</strong> – تست موتورهای الکتریکی</li>
-            <li><strong>ASME PTC 8.2</strong> – تست عملکردی پمپ‌ها</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>💡 نکات کلیدی</h2>
-        <div class="note-box">
-            ✔️ تمامی تست‌ها باید مطابق با سناریوی از پیش تعیین‌شده انجام شوند.<br>
-            ✔️ شرایط محیطی (دما، رطوبت، فشار) باید ثبت شوند.<br>
-            ✔️ نتایج باید با مشخصات فنی و استانداردها مقایسه شوند.<br>
-            ✔️ هرگونه انحراف باید مستند و تحلیل شود.
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
         </div>
     </div>
 
-    <a href="inspection-testing.html" class="back-link">← بازگشت به بازرسی و تست</a>
+    <h1 id="title">✅ Functional Testing</h1>
+    <div class="sub" id="desc">Verifying system functionality, performance, and behavior under normal and abnormal operating conditions.</div>
+
+    <div class="section">
+        <h2 id="s1">🔹 What is Functional Testing?</h2>
+        <p id="s1p">Functional testing is the process of verifying that a system or component performs its intended functions correctly under specified conditions. It involves testing all features, inputs, outputs, and responses to ensure they meet requirements.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Types of Functional Tests</h2>
+        <ul id="list1">
+            <li>Unit Testing – Testing individual components</li>
+            <li>Integration Testing – Testing combined components</li>
+            <li>System Testing – Testing the complete system</li>
+            <li>Regression Testing – Testing after changes</li>
+            <li>User Acceptance Testing (UAT) – Testing by end users</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Functional Testing Process</h2>
+        <ul id="list2">
+            <li>Test Planning – Define scope and test cases</li>
+            <li>Test Execution – Run tests and record results</li>
+            <li>Defect Reporting – Log and track issues</li>
+            <li>Retesting – Verify fixes</li>
+            <li>Sign-off – Final approval</li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
 
 </div>
+
+<script>
+    const lang = {
+        en: {
+            title: '✅ Functional Testing',
+            desc: 'Verifying system functionality, performance, and behavior under normal and abnormal operating conditions.',
+            s1: '🔹 What is Functional Testing?',
+            s1p: 'Functional testing is the process of verifying that a system or component performs its intended functions correctly under specified conditions. It involves testing all features, inputs, outputs, and responses to ensure they meet requirements.',
+            s2: '🔹 Types of Functional Tests',
+            list1: ['Unit Testing – Testing individual components','Integration Testing – Testing combined components','System Testing – Testing the complete system','Regression Testing – Testing after changes','User Acceptance Testing (UAT) – Testing by end users'],
+            s3: '🔹 Functional Testing Process',
+            list2: ['Test Planning – Define scope and test cases','Test Execution – Run tests and record results','Defect Reporting – Log and track issues','Retesting – Verify fixes','Sign-off – Final approval'],
+            back: '← Back'
+        },
+        fa: {
+            title: '✅ تست عملکردی',
+            desc: 'تأیید عملکرد سیستم، رفتار و کارایی در شرایط عملیاتی عادی و غیرعادی.',
+            s1: '🔹 تست عملکردی چیست؟',
+            s1p: 'تست عملکردی فرآیند تأیید این است که یک سیستم یا قطعه وظایف خود را به درستی تحت شرایط مشخص انجام می‌دهد. این شامل تست تمام ویژگی‌ها، ورودی‌ها، خروجی‌ها و پاسخ‌ها برای اطمینان از برآورده شدن نیازمندی‌ها است.',
+            s2: '🔹 انواع تست عملکردی',
+            list1: ['تست واحد – تست اجزای جداگانه','تست یکپارچه‌سازی – تست اجزای ترکیبی','تست سیستم – تست سیستم کامل','تست رگرسیون – تست پس از تغییرات','تست پذیرش کاربر – تست توسط کاربران نهایی'],
+            s3: '🔹 فرآیند تست عملکردی',
+            list2: ['برنامه‌ریزی تست – تعریف محدوده و موارد تست','اجرای تست – اجرای تست و ثبت نتایج','گزارش عیوب – ثبت و پیگیری مشکلات','تست مجدد – تأیید رفع مشکلات','تأیید نهایی'],
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('backlink').textContent = t.back;
+
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
+</script>
+
 </body>
 </html>
