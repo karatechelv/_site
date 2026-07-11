@@ -31,17 +31,22 @@
  .dashboard{display:none;padding:30px 40px 60px;max-width:1440px;margin:0 auto}
  .dashboard.active{display:block}
  .splash.hidden{display:none}
+ .exit-btn{background:transparent;border:1px solid rgba(255,255,255,0.1);color:#8e95a5;padding:8px 20px;border-radius:30px;cursor:pointer;font-size:0.85rem;transition:0.2s;display:inline-flex;align-items:center;gap:8px;margin-bottom:20px}
+ .exit-btn:hover{background:rgba(255,255,255,0.05);color:#fff}
+ .exit-wrap{display:flex;justify-content:flex-end}
  .grid-4{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px;margin:30px 0 40px}
  .card-academy{background:var(--card-bg);border-radius:var(--radius);padding:24px 18px;border-left:4px solid var(--accent);transition:0.2s;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3)}
  .card-academy:hover{background:#2f3340;transform:translateY(-3px)}
  .card-academy i{font-size:2rem;color:var(--accent);margin-bottom:10px;display:inline-block}
  .card-academy h3{font-weight:600;font-size:1.2rem;margin-bottom:6px}
  .card-academy p{color:var(--text-muted);font-size:0.9rem}
- .workflow-container{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;background:var(--card-bg);padding:30px 24px;border-radius:var(--radius);margin:30px 0;border:1px solid rgba(212,175,55,0.08)}
+ .workflow-container{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;background:var(--card-bg);padding:30px 24px;border-radius:var(--radius);margin:30px 0;border:1px solid rgba(212,175,55,0.08);cursor:pointer;transition:0.2s}
+ .workflow-container:hover{background:#2f3340}
  .wf-step{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.03);padding:8px 16px;border-radius:40px;font-size:0.8rem;font-weight:500;border:1px solid rgba(255,255,255,0.04)}
  .wf-step i{color:var(--accent);font-size:0.9rem}
  .wf-arrow{color:var(--text-muted);font-size:1.2rem}
- .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;margin:20px 0}
+ .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;margin:20px 0;cursor:pointer;transition:0.2s}
+ .tools-grid:hover .tool-badge{background:#2f3340}
  .tool-badge{background:var(--card-bg);padding:14px 10px;border-radius:40px;text-align:center;font-size:0.85rem;border:1px solid rgba(255,255,255,0.03);transition:0.2s}
  .tool-badge i{color:var(--accent)}
  .soft-list{display:flex;flex-wrap:wrap;gap:12px;margin:15px 0}
@@ -76,6 +81,10 @@
 
 <div class="dashboard" id="dashboard">
 
+ <div class="exit-wrap">
+  <button class="exit-btn" id="exitBtn"><i class="fas fa-sign-out-alt"></i> <span data-en="Exit" data-fa="خروج">Exit</span></button>
+ </div>
+
  <div class="grid-4" id="academyGrid">
   <div class="card-academy" onclick="location.href='pages/academy/electrical.html'"><i class="fas fa-bolt"></i><h3>Electrical</h3><p data-en="Power, distribution, protection" data-fa="برق، توزیع، حفاظت">Power, distribution, protection</p></div>
   <div class="card-academy" onclick="location.href='pages/academy/automation.html'"><i class="fas fa-robot"></i><h3>Automation</h3><p data-en="PLC, SCADA, control" data-fa="PLC، SCADA، کنترل">PLC, SCADA, control</p></div>
@@ -88,7 +97,7 @@
  </div>
 
  <div class="section-title"><i class="fas fa-project-diagram"></i> <span data-en="Engineering Workflow" data-fa="جریان کار مهندسی">Engineering Workflow</span></div>
- <div class="workflow-container">
+ <div class="workflow-container" onclick="location.href='workflow.html'">
   <span class="wf-step"><i class="fas fa-file-pdf"></i> P&ID</span><span class="wf-arrow">→</span>
   <span class="wf-step"><i class="fas fa-pencil-ruler"></i> Design</span><span class="wf-arrow">→</span>
   <span class="wf-step"><i class="fas fa-layer-group"></i> Panel</span><span class="wf-arrow">→</span>
@@ -104,7 +113,7 @@
  </div>
 
  <div class="section-title"><i class="fas fa-calculator"></i> <span data-en="Engineering Tools" data-fa="ابزارهای مهندسی">Engineering Tools</span></div>
- <div class="tools-grid">
+ <div class="tools-grid" onclick="location.href='tools.html'">
   <div class="tool-badge"><i class="fas fa-bolt"></i> Voltage Drop</div>
   <div class="tool-badge"><i class="fas fa-chart-line"></i> Power Factor</div>
   <div class="tool-badge"><i class="fas fa-ruler"></i> Cable Size</div>
@@ -171,23 +180,21 @@
  const splash = document.getElementById('splash');
  const dashboard = document.getElementById('dashboard');
  const enterBtn = document.getElementById('enterBtn');
+ const exitBtn = document.getElementById('exitBtn');
 
- // اگر پارامتر ?dashboard در URL بود، مستقیم داشبورد رو نشون بده
- if (window.location.search.includes('dashboard')) {
-  splash.classList.add('hidden');
-  dashboard.classList.add('active');
- }
-
+ // ورود
  enterBtn.addEventListener('click', function() {
   splash.classList.add('hidden');
   dashboard.classList.add('active');
-  // آدرس رو تغییر بده تا پارامتر dashboard داشته باشه
-  if (window.history && window.history.pushState) {
-   window.history.pushState({}, '', '?dashboard');
-  }
  });
 
- // Language switch
+ // خروج
+ exitBtn.addEventListener('click', function() {
+  dashboard.classList.remove('active');
+  splash.classList.remove('hidden');
+ });
+
+ // زبان
  document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', function() {
    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
@@ -219,9 +226,10 @@
   if (sub) { const txt = sub.dataset[lang]; if (txt) sub.textContent = txt; }
   const btnSpan = document.querySelector('.splash-btn span');
   if (btnSpan) { const txt = btnSpan.dataset[lang]; if (txt) btnSpan.textContent = txt; }
+  const exitSpan = document.querySelector('#exitBtn span');
+  if (exitSpan) { const txt = exitSpan.dataset[lang]; if (txt) exitSpan.textContent = txt; }
  }
 
- // زبان پیش‌فرض انگلیسی
  translatePage('en');
 
 })();
