@@ -18,8 +18,8 @@
  .brand{font-weight:700;font-size:1.5rem;letter-spacing:1px;color:#fff}
  .brand span{color:var(--accent)}
  .datetime-widget{display:flex;align-items:center;gap:12px;color:var(--text-muted);font-size:0.85rem}
- .datetime-widget .date-display{color:#fff;font-weight:500}
- .datetime-widget .time-display{color:var(--accent);font-weight:600;font-family:monospace}
+ .datetime-widget .date-display{color:#fff;font-weight:500;min-width:120px}
+ .datetime-widget .time-display{color:var(--accent);font-weight:600;font-family:monospace;font-size:1rem}
  .header-right{display:flex;align-items:center;gap:16px}
  .lang-switch{display:flex;gap:8px}
  .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.1);color:var(--text-muted);padding:6px 16px;border-radius:40px;font-weight:600;font-size:0.8rem;cursor:pointer;transition:0.2s;text-transform:uppercase}
@@ -192,22 +192,48 @@
 
 <script>
 (function() {
- // ---- ساعت و تقویم ----
- function updateDateTime() {
+ // ===== ساعت و تقویم جلالی =====
+ let currentLang = 'en';
+
+ function formatDate(lang) {
   const now = new Date();
-  const dateEl = document.getElementById('dateDisplay');
-  const timeEl = document.getElementById('timeDisplay');
-  if (dateEl) {
-   const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-   dateEl.textContent = now.toLocaleDateString('fa-IR', options);
-  }
-  if (timeEl) {
-   timeEl.textContent = now.toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  if (lang === 'fa') {
+   return now.toLocaleDateString('fa-IR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+   });
+  } else {
+   return now.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+   });
   }
  }
- updateDateTime();
- setInterval(updateDateTime, 1000);
 
+ function formatTime() {
+  const now = new Date();
+  return now.toLocaleTimeString('fa-IR', {
+   hour: '2-digit',
+   minute: '2-digit',
+   second: '2-digit'
+  });
+ }
+
+ function updateDateTime(lang) {
+  const dateEl = document.getElementById('dateDisplay');
+  const timeEl = document.getElementById('timeDisplay');
+  if (dateEl) dateEl.textContent = formatDate(lang || currentLang);
+  if (timeEl) timeEl.textContent = formatTime();
+ }
+
+ // به‌روزرسانی هر ثانیه
+ setInterval(function() {
+  updateDateTime(currentLang);
+ }, 1000);
+
+ // ===== ورود/خروج =====
  const splash = document.getElementById('splash');
  const dashboard = document.getElementById('dashboard');
  const enterBtn = document.getElementById('enterBtn');
@@ -223,12 +249,15 @@
   splash.classList.remove('hidden');
  });
 
+ // ===== زبان =====
  document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', function() {
    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
    this.classList.add('active');
    const lang = this.dataset.lang;
+   currentLang = lang;
    translatePage(lang);
+   updateDateTime(lang);
    if (lang === 'fa') {
     document.body.classList.add('lang-persian');
    } else {
@@ -260,7 +289,17 @@
   if (exitSpan) { const txt = exitSpan.dataset[lang]; if (txt) exitSpan.textContent = txt; }
  }
 
- translatePage('en');
+ // مقدار اولیه
+ const savedLang = localStorage.getItem('karatech-lang') || 'en';
+ currentLang = savedLang;
+ document.querySelectorAll('.lang-btn').forEach(b => {
+  b.classList.toggle('active', b.dataset.lang === savedLang);
+ });
+ translatePage(savedLang);
+ updateDateTime(savedLang);
+ if (savedLang === 'fa') {
+  document.body.classList.add('lang-persian');
+ }
 
 })();
 </script>
