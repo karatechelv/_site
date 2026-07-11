@@ -1,442 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Karatech ELV · Instrumentation Engineering</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Instrumentation</title>
     <style>
-        .page-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 24px 32px 50px;
-        }
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 20px;
-            padding: 8px 16px;
-            background: var(--card);
-            border-radius: 30px;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            transition: 0.2s;
-            cursor: pointer;
-        }
-        .back-link:hover {
-            background: var(--primary);
-            border-color: var(--accent);
-            color: #fff;
-        }
-        .page-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 8px;
-        }
-        .page-header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #fff;
-        }
-        .page-header i {
-            color: var(--accent);
-            font-size: 2.2rem;
-        }
-        .page-subtitle {
-            color: var(--muted);
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            border-left: 4px solid var(--accent);
-            padding-left: 16px;
-        }
-        .accordion-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        .accordion-block {
-            background: var(--card);
-            border-radius: var(--radius);
-            border: 1px solid rgba(212, 175, 55, 0.06);
-            overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-        }
-        .accordion-block:hover {
-            border-color: var(--accent);
-        }
-        .accordion-block-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 18px 24px;
-            cursor: pointer;
-            user-select: none;
-            transition: 0.2s;
-            background: rgba(255, 255, 255, 0.02);
-        }
-        .accordion-block-header:hover {
-            background: rgba(255, 255, 255, 0.05);
-        }
-        .accordion-block-header .icon {
-            font-size: 1.5rem;
-            color: var(--accent);
-            width: 36px;
-            text-align: center;
-        }
-        .accordion-block-header .title {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: #fff;
-            flex: 1;
-        }
-        .accordion-block-header .arrow {
-            color: var(--accent);
-            transition: transform 0.3s;
-            font-size: 1.1rem;
-        }
-        .accordion-block.open .accordion-block-header .arrow {
-            transform: rotate(180deg);
-        }
-        .accordion-block-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.3s ease;
-            padding: 0 24px;
-            color: var(--muted);
-            line-height: 1.8;
-        }
-        .accordion-block.open .accordion-block-body {
-            max-height: 800px;
-            padding: 0 24px 20px 24px;
-        }
-        .accordion-block-body ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .accordion-block-body ul li {
-            padding: 4px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .accordion-block-body ul li::before {
-            content: "▸";
-            color: var(--accent);
-            font-weight: 700;
-        }
-        .accordion-block-body .desc {
-            margin-top: 8px;
-            font-size: 0.95rem;
-            color: var(--muted);
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            padding-top: 10px;
-        }
-        @media (max-width: 768px) {
-            .page-container { padding: 16px; }
-            .page-header h1 { font-size: 1.8rem; }
-            .accordion-block-header { padding: 14px 16px; }
-            .accordion-block-body { padding: 0 16px; }
-            .accordion-block.open .accordion-block-body { padding: 0 16px 16px 16px; }
-        }
-        @media (max-width: 480px) {
-            .page-header h1 { font-size: 1.4rem; }
-            .page-subtitle { font-size: 0.9rem; }
-        }
-        .lang-persian .page-subtitle {
-            border-left: none;
-            border-right: 4px solid var(--accent);
-            padding-left: 0;
-            padding-right: 16px;
-        }
-        .lang-persian .accordion-block-header .icon {
-            margin-right: 0;
-            margin-left: 4px;
-        }
-        .lang-persian .back-link i {
-            transform: scaleX(-1);
-        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1100px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1.05rem;margin-bottom:30px}
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-bottom:30px}
+        .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+        .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
+        .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
+        .card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
+        .card p{color:#8e95a5;font-size:.85rem}
+        .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:8px}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
     </style>
 </head>
 <body>
+<div class="container">
 
-<header class="header">
-    <div class="brand">KARATECH <span>ELV</span></div>
-    <div class="datetime-widget">
-        <div class="date-display" id="dateDisplay">۱۴۰۴/۰۱/۱۵</div>
-        <div class="time-display" id="timeDisplay">۰۰:۰۰:۰۰</div>
-    </div>
-    <div class="header-actions">
-        <button class="exit-btn" onclick="goToSplash()"><i class="fas fa-sign-out-alt"></i> <span data-en="Exit" data-fa="خروج">Exit</span></button>
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
         <div class="lang-switch">
             <button class="lang-btn active" data-lang="en">EN</button>
             <button class="lang-btn" data-lang="fa">FA</button>
         </div>
     </div>
-</header>
 
-<div class="page-container">
-    <a href="../../index.html" class="back-link" onclick="localStorage.setItem('dashboardActive', 'true')">
-        <i class="fas fa-arrow-left"></i> <span data-en="Back to Dashboard" data-fa="بازگشت به داشبورد">Back to Dashboard</span>
-    </a>
+    <h1 id="page-title">📡 Instrumentation Engineering</h1>
+    <div class="sub" id="page-sub">Sensors, transmitters, analyzers, control valves, and measurement systems for industrial process control.</div>
 
-    <div class="page-header">
-        <i class="fas fa-tachometer-alt"></i>
-        <h1 data-en="Instrumentation Engineering" data-fa="مهندسی ابزار دقیق">Instrumentation Engineering</h1>
+    <div class="grid" id="cards-grid">
+        <a href="../instrumentation/overview.html" class="card"><i>📘</i><h3>Overview</h3><p>Complete overview</p><span class="badge">Learn More →</span></a>
+        <a href="../instrumentation/sensors-transmitters.html" class="card"><i>📟</i><h3>Sensors & Transmitters</h3><p>Types and applications</p><span class="badge">Learn More →</span></a>
+        <a href="../instrumentation/temperature-measurement.html" class="card"><i>🌡️</i><h3>Temperature Measurement</h3><p>RTD, Thermocouple</p><span class="badge">Learn More →</span></a>
+        <a href="../instrumentation/pressure-measurement.html" class="card"><i>📊</i><h3>Pressure Measurement</h3><p>Transmitters & gauges</p><span class="badge">Learn More →</span></a>
+        <a href="../instrumentation/flow-measurement.html" class="card"><i>💧</i><h3>Flow Measurement</h3><p>Orifice, magnetic, Coriolis</p><span class="badge">Learn More →</span></a>
+        <a href="../instrumentation/level-measurement.html" class="card"><i>📏</i><h3>Level Measurement</h3><p>Radar, ultrasonic, capacitance</p><span class="badge">Learn More →</span></a>
+        <a href="../instrumentation/control-valves.html" class="card"><i>🔧</i><h3>Control Valves</h3><p>Actuators, positioners</p><span class="badge">Learn More →</span></a>
+        <a href="../instrumentation/analyzers.html" class="card"><i>🧪</i><h3>Analyzers</h3><p>pH, conductivity, gas</p><span class="badge">Learn More →</span></a>
+        <a href="../instrumentation/calibration.html" class="card"><i>⚖️</i><h3>Calibration</h3><p>Procedures & standards</p><span class="badge">Learn More →</span></a>
+        <a href="../instrumentation/software.html" class="card"><i>🛠️</i><h3>Software</h3><p>Essential tools</p><span class="badge">Learn More →</span></a>
+        <a href="../instrumentation/resources.html" class="card"><i>📚</i><h3>Resources</h3><p>Standards, guides</p><span class="badge">Learn More →</span></a>
+        <a href="../instrumentation/learning-path.html" class="card"><i>🗺️</i><h3>Learning Path</h3><p>Foundation to advanced</p><span class="badge">Learn More →</span></a>
+        <a href="../instrumentation/videos-future.html" class="card"><i>🎬</i><h3>Videos & Future</h3><p>Tutorials & future tech</p><span class="badge">Learn More →</span></a>
+        <a href="../instrumentation/examples.html" class="card"><i>📝</i><h3>Examples</h3><p>Practical projects</p><span class="badge">Learn More →</span></a>
     </div>
-    <div class="page-subtitle" data-en="Measurement, sensors, transmitters, control valves, and process instrumentation for industrial applications." data-fa="اندازه‌گیری، سنسورها، ترانسمیترها، شیرهای کنترلی و ابزار دقیق فرآیند برای کاربردهای صنعتی.">
-        Measurement, sensors, transmitters, control valves, and process instrumentation for industrial applications.
+
+    <div class="back">
+        <a href="../../index.html" id="backlink" onclick="localStorage.setItem('dashboardActive', 'true')">← Back to Dashboard</a>
     </div>
 
-    <div class="accordion-wrapper">
-
-        <!-- 1. Pressure Measurement -->
-        <div class="accordion-block">
-            <div class="accordion-block-header" onclick="toggleBlock(this)">
-                <span class="icon"><i class="fas fa-weight-hanging"></i></span>
-                <span class="title" data-en="Pressure Measurement" data-fa="اندازه‌گیری فشار">Pressure Measurement</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-block-body">
-                <ul>
-                    <li data-en="Pressure Transmitters (Differential, Gauge, Absolute)" data-fa="ترانسمیترهای فشار (دیفرانسیل، گیج، مطلق)">Pressure Transmitters (Differential, Gauge, Absolute)</li>
-                    <li data-en="Manometers" data-fa="مانومترها">Manometers</li>
-                    <li data-en="Bourdon Tubes" data-fa="لوله‌های بوردون">Bourdon Tubes</li>
-                    <li data-en="Diaphragm and Bellows" data-fa="دیافراگم و دمنده‌ها">Diaphragm and Bellows</li>
-                    <li data-en="Piezoelectric Sensors" data-fa="سنسورهای پیزوالکتریک">Piezoelectric Sensors</li>
-                    <li data-en="Calibration Methods" data-fa="روش‌های کالیبراسیون">Calibration Methods</li>
-                </ul>
-                <div class="desc" data-en="Pressure measurement is fundamental in process control and safety." data-fa="اندازه‌گیری فشار در کنترل فرآیند و ایمنی اساسی است.">
-                    Pressure measurement is fundamental in process control and safety.
-                </div>
-            </div>
-        </div>
-
-        <!-- 2. Temperature Measurement -->
-        <div class="accordion-block">
-            <div class="accordion-block-header" onclick="toggleBlock(this)">
-                <span class="icon"><i class="fas fa-thermometer-half"></i></span>
-                <span class="title" data-en="Temperature Measurement" data-fa="اندازه‌گیری دما">Temperature Measurement</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-block-body">
-                <ul>
-                    <li data-en="RTD - Resistance Temperature Detectors (PT100, PT1000)" data-fa="RTD - آشکارسازهای دمای مقاومتی (PT100، PT1000)">RTD - Resistance Temperature Detectors (PT100, PT1000)</li>
-                    <li data-en="Thermocouples (Types K, J, T, S, R)" data-fa="ترموکوپل‌ها (انواع K، J، T، S، R)">Thermocouples (Types K, J, T, S, R)</li>
-                    <li data-en="Thermistors (NTC, PTC)" data-fa="ترمیستورها (NTC، PTC)">Thermistors (NTC, PTC)</li>
-                    <li data-en="Infrared (IR) Pyrometers" data-fa="پیرومترهای مادون قرمز (IR)">Infrared (IR) Pyrometers</li>
-                    <li data-en="Temperature Transmitters" data-fa="ترانسمیترهای دما">Temperature Transmitters</li>
-                    <li data-en="Thermowells &amp; Protection Tubes" data-fa="ترموول و لوله‌های محافظ">Thermowells &amp; Protection Tubes</li>
-                </ul>
-                <div class="desc" data-en="Temperature measurement is critical for process control and quality." data-fa="اندازه‌گیری دما برای کنترل فرآیند و کیفیت حیاتی است.">
-                    Temperature measurement is critical for process control and quality.
-                </div>
-            </div>
-        </div>
-
-        <!-- 3. Level Measurement -->
-        <div class="accordion-block">
-            <div class="accordion-block-header" onclick="toggleBlock(this)">
-                <span class="icon"><i class="fas fa-water"></i></span>
-                <span class="title" data-en="Level Measurement" data-fa="اندازه‌گیری سطح">Level Measurement</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-block-body">
-                <ul>
-                    <li data-en="Ultrasonic Level Transmitters" data-fa="ترانسمیترهای سطح اولتراسونیک">Ultrasonic Level Transmitters</li>
-                    <li data-en="Radar Level Transmitters (FMCW, Pulse)" data-fa="ترانسمیترهای سطح راداری (FMCW، پالس)">Radar Level Transmitters (FMCW, Pulse)</li>
-                    <li data-en="Capacitance Level Sensors" data-fa="سنسورهای سطح خازنی">Capacitance Level Sensors</li>
-                    <li data-en="Hydrostatic Level Measurement" data-fa="اندازه‌گیری سطح هیدرواستاتیک">Hydrostatic Level Measurement</li>
-                    <li data-en="Float &amp; Displacer Level Switches" data-fa="سوئیچ‌های سطح شناور و جابه‌جاکننده">Float &amp; Displacer Level Switches</li>
-                    <li data-en="Magnetic Level Indicators" data-fa="نشانگرهای سطح مغناطیسی">Magnetic Level Indicators</li>
-                </ul>
-                <div class="desc" data-en="Level measurement ensures proper inventory and process safety." data-fa="اندازه‌گیری سطح، موجودی مناسب و ایمنی فرآیند را تضمین می‌کند.">
-                    Level measurement ensures proper inventory and process safety.
-                </div>
-            </div>
-        </div>
-
-        <!-- 4. Flow Measurement -->
-        <div class="accordion-block">
-            <div class="accordion-block-header" onclick="toggleBlock(this)">
-                <span class="icon"><i class="fas fa-tint"></i></span>
-                <span class="title" data-en="Flow Measurement" data-fa="اندازه‌گیری جریان">Flow Measurement</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-block-body">
-                <ul>
-                    <li data-en="Magnetic Flowmeters (Magmeters)" data-fa="فلومترهای مغناطیسی (مگ‌متر)">Magnetic Flowmeters (Magmeters)</li>
-                    <li data-en="Ultrasonic Flowmeters (Doppler, Transit-Time)" data-fa="فلومترهای اولتراسونیک (داپلر، زمان عبور)">Ultrasonic Flowmeters (Doppler, Transit-Time)</li>
-                    <li data-en="Coriolis Mass Flowmeters" data-fa="فلومترهای جرمی کوریولیس">Coriolis Mass Flowmeters</li>
-                    <li data-en="Vortex Flowmeters" data-fa="فلومترهای ورتکس">Vortex Flowmeters</li>
-                    <li data-en="Differential Pressure Flowmeters (Orifice, Venturi)" data-fa="فلومترهای فشار تفاضلی (اریفیس، ونتوری)">Differential Pressure Flowmeters (Orifice, Venturi)</li>
-                    <li data-en="Thermal Mass Flowmeters" data-fa="فلومترهای جرمی حرارتی">Thermal Mass Flowmeters</li>
-                </ul>
-                <div class="desc" data-en="Flow measurement is essential for process efficiency and custody transfer." data-fa="اندازه‌گیری جریان برای کارایی فرآیند و انتقال مالکیت ضروری است.">
-                    Flow measurement is essential for process efficiency and custody transfer.
-                </div>
-            </div>
-        </div>
-
-        <!-- 5. Analytical Instrumentation -->
-        <div class="accordion-block">
-            <div class="accordion-block-header" onclick="toggleBlock(this)">
-                <span class="icon"><i class="fas fa-flask"></i></span>
-                <span class="title" data-en="Analytical Instrumentation" data-fa="ابزار دقیق تحلیلی">Analytical Instrumentation</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-block-body">
-                <ul>
-                    <li data-en="pH Measurement &amp; Analyzers" data-fa="اندازه‌گیری pH و آنالیزورها">pH Measurement &amp; Analyzers</li>
-                    <li data-en="Conductivity Measurement" data-fa="اندازه‌گیری رسانایی">Conductivity Measurement</li>
-                    <li data-en="Dissolved Oxygen (DO) Analyzers" data-fa="آنالیزورهای اکسیژن محلول (DO)">Dissolved Oxygen (DO) Analyzers</li>
-                    <li data-en="Turbidity Meters" data-fa="کدورت‌سنج‌ها">Turbidity Meters</li>
-                    <li data-en="Gas Chromatographs (GC)" data-fa="کروماتوگراف‌های گازی (GC)">Gas Chromatographs (GC)</li>
-                    <li data-en="Infrared (IR) Gas Analyzers" data-fa="آنالیزورهای گاز مادون قرمز (IR)">Infrared (IR) Gas Analyzers</li>
-                </ul>
-                <div class="desc" data-en="Analytical instrumentation monitors chemical composition and quality." data-fa="ابزار دقیق تحلیلی ترکیب شیمیایی و کیفیت را نظارت می‌کند.">
-                    Analytical instrumentation monitors chemical composition and quality.
-                </div>
-            </div>
-        </div>
-
-        <!-- 6. Control Valves & Actuators -->
-        <div class="accordion-block">
-            <div class="accordion-block-header" onclick="toggleBlock(this)">
-                <span class="icon"><i class="fas fa-tools"></i></span>
-                <span class="title" data-en="Control Valves &amp; Actuators" data-fa="شیرهای کنترلی و اکچویتورها">Control Valves &amp; Actuators</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-block-body">
-                <ul>
-                    <li data-en="Globe Valves" data-fa="شیرهای کروی">Globe Valves</li>
-                    <li data-en="Ball Valves" data-fa="شیرهای توپی">Ball Valves</li>
-                    <li data-en="Butterfly Valves" data-fa="شیرهای پروانه‌ای">Butterfly Valves</li>
-                    <li data-en="Pneumatic Actuators" data-fa="اکچویتورهای پنوماتیک">Pneumatic Actuators</li>
-                    <li data-en="Electric Actuators" data-fa="اکچویتورهای الکتریکی">Electric Actuators</li>
-                    <li data-en="Hydraulic Actuators" data-fa="اکچویتورهای هیدرولیک">Hydraulic Actuators</li>
-                    <li data-en="Valve Positioners (Pneumatic, Smart)" data-fa="پوزیشنرهای شیر (پنوماتیک، هوشمند)">Valve Positioners (Pneumatic, Smart)</li>
-                </ul>
-                <div class="desc" data-en="Control valves are the final control elements in process automation." data-fa="شیرهای کنترلی عناصر نهایی کنترل در اتوماسیون فرآیند هستند.">
-                    Control valves are the final control elements in process automation.
-                </div>
-            </div>
-        </div>
-
-        <!-- 7. Signal Conditioning & I/O -->
-        <div class="accordion-block">
-            <div class="accordion-block-header" onclick="toggleBlock(this)">
-                <span class="icon"><i class="fas fa-signal"></i></span>
-                <span class="title" data-en="Signal Conditioning &amp; I/O" data-fa="شرطی‌سازی سیگنال و I/O">Signal Conditioning &amp; I/O</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-block-body">
-                <ul>
-                    <li data-en="Analog Signals (4-20 mA, 0-10V)" data-fa="سیگنال‌های آنالوگ (4-20 mA، 0-10V)">Analog Signals (4-20 mA, 0-10V)</li>
-                    <li data-en="Digital Signals (Dry Contacts, 24V DC)" data-fa="سیگنال‌های دیجیتال (کنتاکت خشک، 24V DC)">Digital Signals (Dry Contacts, 24V DC)</li>
-                    <li data-en="Isolators &amp; Converters" data-fa="ایزولاتورها و مبدل‌ها">Isolators &amp; Converters</li>
-                    <li data-en="Transmitters vs. Smart Transmitters" data-fa="ترانسمیترها در مقابل ترانسمیترهای هوشمند">Transmitters vs. Smart Transmitters</li>
-                    <li data-en="I/O Modules (AI, AO, DI, DO)" data-fa="ماژول‌های I/O (AI، AO، DI، DO)">I/O Modules (AI, AO, DI, DO)</li>
-                    <li data-en="HART &amp; Fieldbus Communication" data-fa="ارتباطات HART و Fieldbus">HART &amp; Fieldbus Communication</li>
-                </ul>
-                <div class="desc" data-en="Signal conditioning ensures accurate and reliable data transmission." data-fa="شرطی‌سازی سیگنال، انتقال دقیق و قابل اعتماد داده را تضمین می‌کند.">
-                    Signal conditioning ensures accurate and reliable data transmission.
-                </div>
-            </div>
-        </div>
-
-        <!-- 8. Calibration & Testing -->
-        <div class="accordion-block">
-            <div class="accordion-block-header" onclick="toggleBlock(this)">
-                <span class="icon"><i class="fas fa-check-double"></i></span>
-                <span class="title" data-en="Calibration &amp; Testing" data-fa="کالیبراسیون و تست">Calibration &amp; Testing</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-block-body">
-                <ul>
-                    <li data-en="Calibration Standards &amp; Traceability" data-fa="استانداردهای کالیبراسیون و ردیابی">Calibration Standards &amp; Traceability</li>
-                    <li data-en="Calibration Procedures &amp; Documentation" data-fa="رویه‌های کالیبراسیون و مستندسازی">Calibration Procedures &amp; Documentation</li>
-                    <li data-en="Calibration vs. Validation" data-fa="کالیبراسیون در مقابل اعتبارسنجی">Calibration vs. Validation</li>
-                    <li data-en="Loop Testing" data-fa="تست لوپ">Loop Testing</li>
-                    <li data-en="Functional Testing of Instruments" data-fa="تست عملکردی ابزارها">Functional Testing of Instruments</li>
-                    <li data-en="Calibration Software &amp; Management" data-fa="نرم‌افزار و مدیریت کالیبراسیون">Calibration Software &amp; Management</li>
-                </ul>
-                <div class="desc" data-en="Regular calibration ensures instrument accuracy and reliability." data-fa="کالیبراسیون منظم، دقت و قابلیت اطمینان ابزار را تضمین می‌کند.">
-                    Regular calibration ensures instrument accuracy and reliability.
-                </div>
-            </div>
-        </div>
-
-        <!-- 9. Process Safety Instruments -->
-        <div class="accordion-block">
-            <div class="accordion-block-header" onclick="toggleBlock(this)">
-                <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
-                <span class="title" data-en="Process Safety Instruments" data-fa="ابزارهای ایمنی فرآیند">Process Safety Instruments</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-block-body">
-                <ul>
-                    <li data-en="Pressure Safety Valves (PSV)" data-fa="شیرهای ایمنی فشار (PSV)">Pressure Safety Valves (PSV)</li>
-                    <li data-en="Rupture Discs" data-fa="دیسک‌های شکننده">Rupture Discs</li>
-                    <li data-en="Safety Relays &amp; Interlocks" data-fa="رله‌های ایمنی و اینترلاک‌ها">Safety Relays &amp; Interlocks</li>
-                    <li data-en="Fire &amp; Gas Detectors" data-fa="آشکارسازهای آتش و گاز">Fire &amp; Gas Detectors</li>
-                    <li data-en="Emergency Shutdown (ESD) Instruments" data-fa="ابزارهای توقف اضطراری (ESD)">Emergency Shutdown (ESD) Instruments</li>
-                    <li data-en="High Integrity Pressure Protection Systems (HIPPS)" data-fa="سیستم‌های حفاظت فشار با یکپارچگی بالا (HIPPS)">High Integrity Pressure Protection Systems (HIPPS)</li>
-                </ul>
-                <div class="desc" data-en="Safety instruments protect personnel, equipment, and the environment." data-fa="ابزارهای ایمنی از پرسنل، تجهیزات و محیط زیست محافظت می‌کنند.">
-                    Safety instruments protect personnel, equipment, and the environment.
-                </div>
-            </div>
-        </div>
-
-        <!-- 10. Instrumentation Documentation -->
-        <div class="accordion-block">
-            <div class="accordion-block-header" onclick="toggleBlock(this)">
-                <span class="icon"><i class="fas fa-file-alt"></i></span>
-                <span class="title" data-en="Instrumentation Documentation" data-fa="مستندسازی ابزار دقیق">Instrumentation Documentation</span>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="accordion-block-body">
-                <ul>
-                    <li data-en="P&amp;ID - Piping &amp; Instrumentation Diagrams" data-fa="P&amp;ID - نمودارهای لوله‌کشی و ابزار دقیق">P&amp;ID - Piping &amp; Instrumentation Diagrams</li>
-                    <li data-en="Instrument Index &amp; Data Sheets" data-fa="فهرست ابزارها و برگه‌های داده">Instrument Index &amp; Data Sheets</li>
-                    <li data-en="Loop Diagrams" data-fa="نمودارهای لوپ">Loop Diagrams</li>
-                    <li data-en="Hook-Up Drawings" data-fa="نقشه‌های اتصال">Hook-Up Drawings</li>
-                    <li data-en="Instrument Specifications" data-fa="مشخصات ابزار">Instrument Specifications</li>
-                    <li data-en="Maintenance &amp; Calibration Records" data-fa="سوابق نگهداری و کالیبراسیون">Maintenance &amp; Calibration Records</li>
-                </ul>
-                <div class="desc" data-en="Proper documentation ensures clear communication and system integrity." data-fa="مستندسازی مناسب، ارتباط شفاف و یکپارچگی سیستم را تضمین می‌کند.">
-                    Proper documentation ensures clear communication and system integrity.
-                </div>
-            </div>
-        </div>
-
-    </div>
 </div>
 
-<footer class="footer">
-    <div><i class="fas fa-envelope"></i> <a href="mailto:karatechelv@gmail.com">karatechelv@gmail.com</a></div>
-    <div><i class="fas fa-phone"></i> <a href="tel:+989120891544">+98 912 089 1544</a></div>
-    <div><i class="fab fa-linkedin"></i> <a href="#">/karatechelv</a></div>
-    <div><i class="fab fa-github"></i> <a href="#">/karatechelv</a></div>
-    <div>© 2026 KARATECH ELV</div>
-</footer>
-
-<script src="../../script.js"></script>
 <script>
-function toggleBlock(header) {
-    const block = header.closest('.accordion-block');
-    block.classList.toggle('open');
-}
+    const lang = {
+        en: {
+            title: '📡 Instrumentation Engineering',
+            sub: 'Sensors, transmitters, analyzers, control valves, and measurement systems for industrial process control.',
+            cards: [
+                ['Overview', 'Complete overview', 'Learn More →'],
+                ['Sensors & Transmitters', 'Types and applications', 'Learn More →'],
+                ['Temperature Measurement', 'RTD, Thermocouple', 'Learn More →'],
+                ['Pressure Measurement', 'Transmitters & gauges', 'Learn More →'],
+                ['Flow Measurement', 'Orifice, magnetic, Coriolis', 'Learn More →'],
+                ['Level Measurement', 'Radar, ultrasonic, capacitance', 'Learn More →'],
+                ['Control Valves', 'Actuators, positioners', 'Learn More →'],
+                ['Analyzers', 'pH, conductivity, gas', 'Learn More →'],
+                ['Calibration', 'Procedures & standards', 'Learn More →'],
+                ['Software', 'Essential tools', 'Learn More →'],
+                ['Resources', 'Standards, guides', 'Learn More →'],
+                ['Learning Path', 'Foundation to advanced', 'Learn More →'],
+                ['Videos & Future', 'Tutorials & future tech', 'Learn More →'],
+                ['Examples', 'Practical projects', 'Learn More →']
+            ],
+            back: '← Back to Dashboard'
+        },
+        fa: {
+            title: '📡 مهندسی ابزار دقیق',
+            sub: 'سنسورها، ترانسمیترها، آنالایزرها، شیرهای کنترلی و سیستم‌های اندازه‌گیری برای کنترل فرآیندهای صنعتی.',
+            cards: [
+                ['مرور کلی', 'مرور کامل مهندسی ابزار دقیق', 'بیشتر بدانید →'],
+                ['سنسورها و ترانسمیترها', 'انواع و کاربردها', 'بیشتر بدانید →'],
+                ['اندازه‌گیری دما', 'RTD، ترموکوپل', 'بیشتر بدانید →'],
+                ['اندازه‌گیری فشار', 'ترانسمیترها و گیج‌ها', 'بیشتر بدانید →'],
+                ['اندازه‌گیری جریان', 'اوریفیس، مغناطیسی، کوریولیس', 'بیشتر بدانید →'],
+                ['اندازه‌گیری سطح', 'راداری، اولتراسونیک، خازنی', 'بیشتر بدانید →'],
+                ['شیرهای کنترلی', 'اکچویتورها، پوزیشنرها', 'بیشتر بدانید →'],
+                ['آنالایزرها', 'pH، رسانایی، گاز', 'بیشتر بدانید →'],
+                ['کالیبراسیون', 'روش‌ها و استانداردها', 'بیشتر بدانید →'],
+                ['نرم‌افزارها', 'ابزارهای ضروری', 'بیشتر بدانید →'],
+                ['منابع', 'استانداردها، راهنماها', 'بیشتر بدانید →'],
+                ['مسیر یادگیری', 'از مبتدی تا پیشرفته', 'بیشتر بدانید →'],
+                ['ویدئوها و آینده', 'آموزش‌ها و فناوری‌های آینده', 'بیشتر بدانید →'],
+                ['مثال‌ها', 'پروژه‌های عملی', 'بیشتر بدانید →']
+            ],
+            back: '← بازگشت به داشبورد'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('page-title').textContent = t.title;
+        document.getElementById('page-sub').textContent = t.sub;
+        document.getElementById('backlink').textContent = t.back;
+
+        const grid = document.getElementById('cards-grid');
+        const cards = grid.querySelectorAll('.card');
+        t.cards.forEach((item, index) => {
+            if (cards[index]) {
+                cards[index].querySelector('h3').textContent = item[0];
+                cards[index].querySelector('p').textContent = item[1];
+                cards[index].querySelector('.badge').textContent = item[2];
+            }
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
 </script>
+
 </body>
 </html>
