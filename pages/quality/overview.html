@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Quality Control</title>
+    <title>Karatech ELV · Quality Control Overview</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1100px;margin:0 auto}
+        .container{max-width:1000px;margin:0 auto}
         .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
         .brand{font-weight:700;font-size:1.5rem;color:#fff}
         .brand span{color:#d4af37}
@@ -15,15 +15,14 @@
         .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
         .lang-btn:hover{background:#5b3b8c;color:#fff}
         .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1.05rem;margin-bottom:30px}
-        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-bottom:30px}
-        .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
-        .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
-        .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
-        .card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
-        .card p{color:#8e95a5;font-size:.85rem}
-        .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:8px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
         .back{text-align:center;margin-top:30px}
         .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
@@ -43,28 +42,39 @@
         </div>
     </div>
 
-    <h1 id="page-title">✅ Quality Control</h1>
-    <div class="sub" id="page-sub">Inspection, testing, ISO standards, SPC, Six Sigma, quality audits, NDT, and continuous improvement for engineering excellence.</div>
+    <h1 id="title">📘 Overview of Quality Control</h1>
+    <div class="sub" id="desc">A comprehensive overview of quality control principles, systems, tools, and standards for engineering and manufacturing.</div>
 
-    <div class="grid" id="cards-grid">
-        <a href="/pages/quality-control/overview.html" class="card"><i>📘</i><h3>Overview</h3><p>Complete overview</p><span class="badge">Learn More →</span></a>
-        <a href="/pages/quality-control/inspection-testing.html" class="card"><i>🔍</i><h3>Inspection & Testing</h3><p>Methods and procedures</p><span class="badge">Learn More →</span></a>
-        <a href="/pages/quality-control/spc.html" class="card"><i>📊</i><h3>SPC</h3><p>Statistical Process Control</p><span class="badge">Learn More →</span></a>
-        <a href="/pages/quality-control/iso-9001.html" class="card"><i>🏅</i><h3>ISO 9001</h3><p>Quality management standard</p><span class="badge">Learn More →</span></a>
-        <a href="/pages/quality-control/7qc-tools.html" class="card"><i>🛠️</i><h3>7 QC Tools</h3><p>Pareto, Fishbone, etc.</p><span class="badge">Learn More →</span></a>
-        <a href="/pages/quality-control/six-sigma.html" class="card"><i>⚙️</i><h3>Six Sigma</h3><p>DMAIC, process improvement</p><span class="badge">Learn More →</span></a>
-        <a href="/pages/quality-control/quality-audits.html" class="card"><i>📋</i><h3>Quality Audits</h3><p>Internal & external audits</p><span class="badge">Learn More →</span></a>
-        <a href="/pages/quality-control/ndt.html" class="card"><i>🔬</i><h3>NDT</h3><p>Non-Destructive Testing</p><span class="badge">Learn More →</span></a>
-        <a href="/pages/quality-control/documentation.html" class="card"><i>📄</i><h3>Documentation</h3><p>Manuals, records, certificates</p><span class="badge">Learn More →</span></a>
-        <a href="/pages/quality-control/software.html" class="card"><i>💻</i><h3>Software</h3><p>Essential tools</p><span class="badge">Learn More →</span></a>
-        <a href="/pages/quality-control/resources.html" class="card"><i>📚</i><h3>Resources</h3><p>Standards, guides</p><span class="badge">Learn More →</span></a>
-        <a href="/pages/quality-control/learning-path.html" class="card"><i>🗺️</i><h3>Learning Path</h3><p>Foundation to advanced</p><span class="badge">Learn More →</span></a>
-        <a href="/pages/quality-control/videos-future.html" class="card"><i>🎬</i><h3>Videos & Future</h3><p>Tutorials & future tech</p><span class="badge">Learn More →</span></a>
-        <a href="/pages/quality-control/examples.html" class="card"><i>📝</i><h3>Examples</h3><p>Practical projects</p><span class="badge">Learn More →</span></a>
+    <div class="section">
+        <h2 id="s1">🔹 What is Quality Control?</h2>
+        <p id="s1p">Quality control (QC) is a process by which entities review the quality of all factors involved in production. It involves inspection, testing, and corrective actions to ensure that products and services meet specified requirements. QC is essential for customer satisfaction, regulatory compliance, and continuous improvement.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Key Areas of Quality Control</h2>
+        <ul id="list1">
+            <li>Quality Management Systems (QMS) – ISO 9001</li>
+            <li>Inspection and Testing – Incoming, in-process, final</li>
+            <li>Statistical Process Control (SPC) – Monitoring process stability</li>
+            <li>Quality Audits – Internal and external assessments</li>
+            <li>Continuous Improvement – Six Sigma, Lean</li>
+            <li>Quality Tools – 7 QC tools (Pareto, Fishbone, etc.)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Key Quality Standards</h2>
+        <ul id="list2">
+            <li>ISO 9001 – Quality Management Systems</li>
+            <li>ISO 14001 – Environmental Management</li>
+            <li>ISO 45001 – Occupational Health and Safety</li>
+            <li>IEC 61508 – Functional Safety</li>
+            <li>API Q1 – Quality Management for Oil and Gas</li>
+        </ul>
     </div>
 
     <div class="back">
-        <a href="../../index.html" id="backlink" onclick="localStorage.setItem('dashboardActive', 'true')">← Back to Dashboard</a>
+        <a href="../academy/quality.html" id="backlink">← Back to Quality Control</a>
     </div>
 
 </div>
@@ -72,65 +82,47 @@
 <script>
     const lang = {
         en: {
-            title: '✅ Quality Control',
-            sub: 'Inspection, testing, ISO standards, SPC, Six Sigma, quality audits, NDT, and continuous improvement for engineering excellence.',
-            cards: [
-                ['Overview', 'Complete overview', 'Learn More →'],
-                ['Inspection & Testing', 'Methods and procedures', 'Learn More →'],
-                ['SPC', 'Statistical Process Control', 'Learn More →'],
-                ['ISO 9001', 'Quality management standard', 'Learn More →'],
-                ['7 QC Tools', 'Pareto, Fishbone, etc.', 'Learn More →'],
-                ['Six Sigma', 'DMAIC, process improvement', 'Learn More →'],
-                ['Quality Audits', 'Internal & external audits', 'Learn More →'],
-                ['NDT', 'Non-Destructive Testing', 'Learn More →'],
-                ['Documentation', 'Manuals, records, certificates', 'Learn More →'],
-                ['Software', 'Essential tools', 'Learn More →'],
-                ['Resources', 'Standards, guides', 'Learn More →'],
-                ['Learning Path', 'Foundation to advanced', 'Learn More →'],
-                ['Videos & Future', 'Tutorials & future tech', 'Learn More →'],
-                ['Examples', 'Practical projects', 'Learn More →']
-            ],
-            back: '← Back to Dashboard'
+            title: '📘 Overview of Quality Control',
+            desc: 'A comprehensive overview of quality control principles, systems, tools, and standards for engineering and manufacturing.',
+            s1: '🔹 What is Quality Control?',
+            s1p: 'Quality control (QC) is a process by which entities review the quality of all factors involved in production. It involves inspection, testing, and corrective actions to ensure that products and services meet specified requirements. QC is essential for customer satisfaction, regulatory compliance, and continuous improvement.',
+            s2: '🔹 Key Areas of Quality Control',
+            list1: ['Quality Management Systems (QMS) – ISO 9001','Inspection and Testing – Incoming, in-process, final','Statistical Process Control (SPC) – Monitoring process stability','Quality Audits – Internal and external assessments','Continuous Improvement – Six Sigma, Lean','Quality Tools – 7 QC tools (Pareto, Fishbone, etc.)'],
+            s3: '🔹 Key Quality Standards',
+            list2: ['ISO 9001 – Quality Management Systems','ISO 14001 – Environmental Management','ISO 45001 – Occupational Health and Safety','IEC 61508 – Functional Safety','API Q1 – Quality Management for Oil and Gas'],
+            back: '← Back to Quality Control'
         },
         fa: {
-            title: '✅ کنترل کیفیت',
-            sub: 'بازرسی، تست، استانداردهای ISO، SPC، شش سیگما، حسابرسی کیفیت، تست غیرمخرب و بهبود مستمر برای تعالی مهندسی.',
-            cards: [
-                ['مرور کلی', 'مرور کامل کنترل کیفیت', 'بیشتر بدانید →'],
-                ['بازرسی و تست', 'روش‌ها و رویه‌ها', 'بیشتر بدانید →'],
-                ['کنترل آماری فرآیند', 'SPC', 'بیشتر بدانید →'],
-                ['استاندارد ISO 9001', 'مدیریت کیفیت', 'بیشتر بدانید →'],
-                ['۷ ابزار کیفیت', 'پارتو، استخوان ماهی و غیره', 'بیشتر بدانید →'],
-                ['شش سیگما', 'DMAIC، بهبود فرآیند', 'بیشتر بدانید →'],
-                ['حسابرسی کیفیت', 'حسابرسی داخلی و خارجی', 'بیشتر بدانید →'],
-                ['تست غیرمخرب (NDT)', 'روش‌های غیرمخرب', 'بیشتر بدانید →'],
-                ['مستندات کیفیت', 'دفترچه‌ها، سوابق، گواهینامه‌ها', 'بیشتر بدانید →'],
-                ['نرم‌افزارها', 'ابزارهای ضروری', 'بیشتر بدانید →'],
-                ['منابع', 'استانداردها، راهنماها', 'بیشتر بدانید →'],
-                ['مسیر یادگیری', 'از مبتدی تا پیشرفته', 'بیشتر بدانید →'],
-                ['ویدئوها و آینده', 'آموزش‌ها و فناوری‌های آینده', 'بیشتر بدانید →'],
-                ['مثال‌ها', 'پروژه‌های عملی', 'بیشتر بدانید →']
-            ],
-            back: '← بازگشت به داشبورد'
+            title: '📘 مرور کلی کنترل کیفیت',
+            desc: 'مرور جامع اصول، سیستم‌ها، ابزارها و استانداردهای کنترل کیفیت برای مهندسی و تولید.',
+            s1: '🔹 کنترل کیفیت چیست؟',
+            s1p: 'کنترل کیفیت فرآیندی است که توسط آن سازمان‌ها کیفیت همه عوامل درگیر در تولید را بررسی می‌کنند. این شامل بازرسی، تست و اقدامات اصلاحی برای اطمینان از مطابقت محصولات و خدمات با الزامات مشخص است. کنترل کیفیت برای رضایت مشتری، انطباق با مقررات و بهبود مستمر ضروری است.',
+            s2: '🔹 حوزه‌های کلیدی کنترل کیفیت',
+            list1: ['سیستم‌های مدیریت کیفیت (QMS) – ISO 9001','بازرسی و تست – ورودی، در حین فرآیند، نهایی','کنترل آماری فرآیند (SPC) – نظارت بر پایداری فرآیند','حسابرسی کیفیت – ارزیابی‌های داخلی و خارجی','بهبود مستمر – شش سیگما، ناب','ابزارهای کیفیت – ۷ ابزار کیفیت (پارتو، استخوان ماهی و غیره)'],
+            s3: '🔹 استانداردهای کلیدی کیفیت',
+            list2: ['ISO 9001 – سیستم‌های مدیریت کیفیت','ISO 14001 – مدیریت زیست‌محیطی','ISO 45001 – بهداشت و ایمنی شغلی','IEC 61508 – ایمنی عملکردی','API Q1 – مدیریت کیفیت برای نفت و گاز'],
+            back: '← بازگشت به کنترل کیفیت'
         }
     };
 
     function setLang(l) {
         const t = lang[l];
         if (!t) return;
-        document.getElementById('page-title').textContent = t.title;
-        document.getElementById('page-sub').textContent = t.sub;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
         document.getElementById('backlink').textContent = t.back;
 
-        const grid = document.getElementById('cards-grid');
-        const cards = grid.querySelectorAll('.card');
-        t.cards.forEach((item, index) => {
-            if (cards[index]) {
-                cards[index].querySelector('h3').textContent = item[0];
-                cards[index].querySelector('p').textContent = item[1];
-                cards[index].querySelector('.badge').textContent = item[2];
-            }
-        });
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
 
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
         document.body.classList.toggle('lang-persian', l === 'fa');
