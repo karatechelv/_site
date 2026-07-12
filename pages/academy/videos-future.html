@@ -55,12 +55,11 @@
 </div>
 
 <script>
-    // ===== لیست ۳۲ ویدئو با اسم VID_1.MP4 تا VID_32.MP4 =====
     const videoList = [];
     for (let i = 1; i <= 32; i++) {
         videoList.push({
             id: i,
-            file: `VID_${i}.MP4`,          // اسم فایل ویدئو
+            file: `VID_${i}.MP4`,      // حتماً با اسم واقعی فایل‌ها هماهنگ کن
             titleEn: `Video ${i}`,
             titleFa: `ویدئو ${i}`,
             descEn: `Tutorial video ${i}`,
@@ -68,7 +67,6 @@
         });
     }
 
-    // ===== زبان =====
     let currentLang = localStorage.getItem('karatech-lang') || 'en';
 
     function renderVideos(lang) {
@@ -81,9 +79,17 @@
             const video = document.createElement('video');
             video.controls = true;
             const source = document.createElement('source');
-            source.src = `assets/videos/${v.file}`;
+            const videoPath = `assets/videos/${v.file}`;
+            source.src = videoPath;
             source.type = 'video/mp4';
             video.appendChild(source);
+            
+            // پیام خطا اگر ویدئو لود نشد
+            video.onerror = function() {
+                console.error('ویدئو لود نشد:', videoPath);
+                this.innerHTML = `<p style="color:red;padding:10px;">⚠️ ویدئو پیدا نشد: ${v.file}</p>`;
+            };
+            
             video.innerHTML = 'Your browser does not support the video tag.';
 
             const info = document.createElement('div');
@@ -110,7 +116,6 @@
         document.body.classList.toggle('lang-persian', l === 'fa');
         localStorage.setItem('karatech-lang', l);
         
-        // ترجمه عنوان و توضیحات
         const titles = {
             en: { title: '🎬 Videos & Future Technologies', desc: 'Video tutorials, upcoming technologies, and future developments in automation engineering.', back: '← Back' },
             fa: { title: '🎬 ویدئوها و فناوری‌های آینده', desc: 'آموزش‌های ویدئویی، فناوری‌های در حال ظهور و توسعه‌های آینده در مهندسی اتوماسیون.', back: '← بازگشت' }
@@ -124,7 +129,6 @@
         btn.onclick = function() { setLang(this.dataset.lang); };
     });
 
-    // مقدار اولیه
     const savedLang = localStorage.getItem('karatech-lang') || 'en';
     setLang(savedLang);
 </script>
