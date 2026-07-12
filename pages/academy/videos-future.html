@@ -20,7 +20,7 @@
         .video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-bottom:30px}
         .video-card{background:#1e2128;border-radius:16px;overflow:hidden;border:1px solid rgba(212,175,55,0.08);transition:.3s}
         .video-card:hover{transform:translateY(-4px);border-color:#d4af37}
-        .video-card video{width:100%;height:auto;display:block;max-height:200px;object-fit:cover}
+        .video-card video{width:100%;height:auto;display:block;max-height:200px;object-fit:cover;background:#000}
         .video-info{padding:12px 16px}
         .video-info h3{color:#fff;font-size:0.95rem;margin-bottom:4px}
         .video-info p{color:#8e95a5;font-size:.8rem}
@@ -59,7 +59,7 @@
     for (let i = 1; i <= 32; i++) {
         videoList.push({
             id: i,
-            file: `VID_${i}.MP4`,      // حتماً با اسم واقعی فایل‌ها هماهنگ کن
+            file: `VID_${i}.MP4`,
             titleEn: `Video ${i}`,
             titleFa: `ویدئو ${i}`,
             descEn: `Tutorial video ${i}`,
@@ -78,17 +78,17 @@
 
             const video = document.createElement('video');
             video.controls = true;
+            video.style.width = '100%';
+            video.style.height = 'auto';
+            video.style.maxHeight = '200px';
+            video.style.objectFit = 'cover';
+            video.style.background = '#000';
+            
             const source = document.createElement('source');
             const videoPath = `assets/videos/${v.file}`;
             source.src = videoPath;
             source.type = 'video/mp4';
             video.appendChild(source);
-            
-            // پیام خطا اگر ویدئو لود نشد
-            video.onerror = function() {
-                console.error('ویدئو لود نشد:', videoPath);
-                this.innerHTML = `<p style="color:red;padding:10px;">⚠️ ویدئو پیدا نشد: ${v.file}</p>`;
-            };
             
             video.innerHTML = 'Your browser does not support the video tag.';
 
