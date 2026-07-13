@@ -84,7 +84,8 @@
             video.style.background = '#000';
             
             const source = document.createElement('source');
-            const videoPath = `videos/${v.file}`;
+            // ✅ مسیر درست (همون جایی که ویدئوها هستن)
+            const videoPath = `_site/videos/${v.file}`;
             source.src = videoPath;
             source.type = 'video/mp4';
             video.appendChild(source);
