@@ -148,9 +148,21 @@ body {
     margin: 0 auto;
     min-height: 100vh;
     background-image: url('assets/images/Karatechelvback.png');
-    background-size: cover;
+    background-size: 100% 100%;           /* عکس کاملاً نمایش داده بشه */
     background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
+    position: relative;
+    z-index: 0;
+}
+
+/* لایه تیره برای خوانایی بهتر (اختیاری) */
+.dashboard::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);   /* شفافیت رو کم یا زیاد کن (0 تا 1) */
+    z-index: -1;
 }
 .dashboard.active {
     display: block;
