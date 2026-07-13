@@ -55,18 +55,17 @@
 </div>
 
 <script>
-    // ===== لیست ویدئوها (فقط ۱ ویدئو برای تست) =====
-    const videoList = [
-        {
-            id: 1,
-            file: 'VID_1.mp4',   // ← اسم فایل رو اینجا عوض کن
-            titleEn: 'Video 1',
-            titleFa: 'ویدئو ۱',
-            descEn: 'Tutorial video 1',
-            descFa: 'ویدئو آموزشی ۱'
-        }
-        // بقیه ویدئوها رو به همین شکل اضافه کن
-    ];
+    const videoList = [];
+    for (let i = 1; i <= 32; i++) {
+        videoList.push({
+            id: i,
+            file: `VID_${i}.mp4`,
+            titleEn: `Video ${i}`,
+            titleFa: `ویدئو ${i}`,
+            descEn: `Tutorial video ${i}`,
+            descFa: `ویدئو آموزشی ${i}`
+        });
+    }
 
     let currentLang = localStorage.getItem('karatech-lang') || 'en';
 
