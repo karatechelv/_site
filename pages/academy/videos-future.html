@@ -55,7 +55,6 @@
 </div>
 
 <script>
-    // ===== فقط یک ویدئو برای تست =====
     const videoList = [
         {
             id: 1,
@@ -85,7 +84,7 @@
             video.style.background = '#000';
             
             const source = document.createElement('source');
-            const videoPath = `_site/videos/${v.file}`;  // ← مسیر اصلاح شد
+            const videoPath = `_site/videos/${v.file}`;
             source.src = videoPath;
             source.type = 'video/mp4';
             video.appendChild(source);
