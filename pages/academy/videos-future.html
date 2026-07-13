@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Videos & Future</title>
+    <title>Karatech ELV · Videos</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
@@ -43,8 +43,8 @@
         </div>
     </div>
 
-    <h1 id="title">🎬 Videos &amp; Future Technologies</h1>
-    <div class="sub" id="desc">Video tutorials, upcoming technologies, and future developments in automation engineering.</div>
+    <h1 id="title">🎬 Videos</h1>
+    <div class="sub" id="desc">Video tutorials for automation engineering.</div>
 
     <div class="video-grid" id="videoGrid"></div>
 
@@ -55,17 +55,17 @@
 </div>
 
 <script>
-    const videoList = [];
-    for (let i = 1; i <= 32; i++) {
-        videoList.push({
-            id: i,
-            file: `VID_${i}.mp4`,
-            titleEn: `Video ${i}`,
-            titleFa: `ویدئو ${i}`,
-            descEn: `Tutorial video ${i}`,
-            descFa: `ویدئو آموزشی ${i}`
-        });
-    }
+    // ===== فقط یک ویدئو برای تست =====
+    const videoList = [
+        {
+            id: 1,
+            file: 'VID_1.mp4',
+            titleEn: 'Video 1',
+            titleFa: 'ویدئو ۱',
+            descEn: 'Tutorial video 1',
+            descFa: 'ویدئو آموزشی ۱'
+        }
+    ];
 
     let currentLang = localStorage.getItem('karatech-lang') || 'en';
 
@@ -85,7 +85,7 @@
             video.style.background = '#000';
             
             const source = document.createElement('source');
-            const videoPath = `videos/${v.file}`;
+            const videoPath = `_site/videos/${v.file}`;  // ← مسیر اصلاح شد
             source.src = videoPath;
             source.type = 'video/mp4';
             video.appendChild(source);
@@ -117,8 +117,8 @@
         localStorage.setItem('karatech-lang', l);
         
         const titles = {
-            en: { title: '🎬 Videos & Future Technologies', desc: 'Video tutorials, upcoming technologies, and future developments in automation engineering.', back: '← Back' },
-            fa: { title: '🎬 ویدئوها و فناوری‌های آینده', desc: 'آموزش‌های ویدئویی، فناوری‌های در حال ظهور و توسعه‌های آینده در مهندسی اتوماسیون.', back: '← بازگشت' }
+            en: { title: '🎬 Videos', desc: 'Video tutorials for automation engineering.', back: '← Back' },
+            fa: { title: '🎬 ویدئوها', desc: 'آموزش‌های ویدئویی برای مهندسی اتوماسیون.', back: '← بازگشت' }
         };
         document.getElementById('title').textContent = titles[l].title;
         document.getElementById('desc').textContent = titles[l].desc;
