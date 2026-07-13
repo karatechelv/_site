@@ -35,15 +35,33 @@
 </header>
 
 <!-- ===== SPLASH ===== -->
-<section class="splash" id="splash">
-    <div class="splash-logo-img">
-        <img src="assets/images/karatechelv.png" alt="Karatech ELV Logo">
+<section class="splash" id="splash" style="
+    background-image: url('_site/assets/images/wallpaper.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+">
+    <!-- لایه تیره برای خوانایی بهتر -->
+    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); z-index: 0;"></div>
+    
+    <!-- محتوا -->
+    <div style="position: relative; z-index: 1;">
+        <div class="splash-logo-img">
+            <img src="assets/images/karatechelv.png" alt="Karatech ELV Logo">
+        </div>
+        <div class="splash-sub" data-en="Engineering · Automation · Intelligence" data-fa="مهندسی · اتوماسیون · هوش">
+            Engineering · Automation · Intelligence
+        </div>
+        <button class="splash-btn" id="enterBtn">
+            <i class="fas fa-arrow-right"></i> 
+            <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span>
+        </button>
+        <div class="splash-credit" data-en="Designed by Mohsen Keramati Layegh" data-fa="طراحی شده توسط محسن کرامتی لایق">
+            Designed by Mohsen Keramati Layegh
+        </div>
     </div>
-    <div class="splash-sub" data-en="Engineering · Automation · Intelligence" data-fa="مهندسی · اتوماسیون · هوش">Engineering · Automation · Intelligence</div>
-    <button class="splash-btn" id="enterBtn"><i class="fas fa-arrow-right"></i> <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span></button>
-    <div class="splash-credit" data-en="Designed by Mohsen Keramati Layegh" data-fa="طراحی شده توسط محسن کرامتی لایق">Designed by Mohsen Keramati Layegh</div>
 </section>
-
 <!-- ===== DASHBOARD ===== -->
 <div class="dashboard" id="dashboard">
 
