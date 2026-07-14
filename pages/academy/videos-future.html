@@ -61,45 +61,45 @@
 
     let currentLang = localStorage.getItem('karatech-lang') || 'en';
 
-    function renderVideos(lang) {
-        const grid = document.getElementById('videoGrid');
-        grid.innerHTML = '';
-        videoList.forEach(v => {
-            const card = document.createElement('div');
-            card.className = 'video-card';
+  function renderVideos(lang) {
+    const grid = document.getElementById('videoGrid');
+    grid.innerHTML = '';
+    videoList.forEach(v => {
+        const card = document.createElement('div');
+        card.className = 'video-card';
 
-            const video = document.createElement('video');
-            video.controls = true;
-            video.style.width = '100%';
-            video.style.height = 'auto';
-            video.style.maxHeight = '200px';
-            video.style.objectFit = 'cover';
-            video.style.background = '#000';
-            
-            const source = document.createElement('source');
-            source.src = `videos/${v.file}`;
-            source.type = 'video/mp4';
-            video.appendChild(source);
-            
-            video.innerHTML = 'Your browser does not support the video tag.';
+        const video = document.createElement('video');
+        video.controls = true;
+        video.style.width = '100%';
+        video.style.height = 'auto';
+        video.style.maxHeight = '200px';
+        video.style.objectFit = 'cover';
+        video.style.background = '#000';
 
-            const info = document.createElement('div');
-            info.className = 'video-info';
+        const source = document.createElement('source');
+        const videoPath = `_site/assets/videos/${v.file}`;
+        source.src = videoPath;
+        source.type = 'video/mp4';
+        video.appendChild(source);
 
-            const title = document.createElement('h3');
-            title.textContent = lang === 'fa' ? v.titleFa : v.titleEn;
+        video.innerHTML = 'Your browser does not support the video tag.';
 
-            const desc = document.createElement('p');
-            desc.textContent = lang === 'fa' ? v.descFa : v.descEn;
+        const info = document.createElement('div');
+        info.className = 'video-info';
 
-            info.appendChild(title);
-            info.appendChild(desc);
-            card.appendChild(video);
-            card.appendChild(info);
-            grid.appendChild(card);
-        });
-    }
+        const title = document.createElement('h3');
+        title.textContent = lang === 'fa' ? v.titleFa : v.titleEn;
 
+        const desc = document.createElement('p');
+        desc.textContent = lang === 'fa' ? v.descFa : v.descEn;
+
+        info.appendChild(title);
+        info.appendChild(desc);
+        card.appendChild(video);
+        card.appendChild(info);
+        grid.appendChild(card);
+    });
+}
     function setLang(l) {
         currentLang = l;
         renderVideos(l);
