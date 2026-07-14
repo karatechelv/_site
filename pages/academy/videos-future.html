@@ -56,57 +56,58 @@
 
 <script>
     const videoList = [
-        { id: 1, file: 'VID_1.mp4', titleEn: 'Video 1', titleFa: 'ویدئو ۱', descEn: 'Tutorial video 1', descFa: 'ویدئو آموزشی ۱' }
+        { id: 1, file: 'vid_10.mp4', titleEn: 'Video 1', titleFa: 'ویدئو ۱', descEn: 'Tutorial video 1', descFa: 'ویدئو آموزشی ۱' }
     ];
 
     let currentLang = localStorage.getItem('karatech-lang') || 'en';
 
-  function renderVideos(lang) {
-    const grid = document.getElementById('videoGrid');
-    grid.innerHTML = '';
-    videoList.forEach(v => {
-        const card = document.createElement('div');
-        card.className = 'video-card';
+    function renderVideos(lang) {
+        const grid = document.getElementById('videoGrid');
+        grid.innerHTML = '';
+        videoList.forEach(v => {
+            const card = document.createElement('div');
+            card.className = 'video-card';
 
-        const video = document.createElement('video');
-        video.controls = true;
-        video.style.width = '100%';
-        video.style.height = 'auto';
-        video.style.maxHeight = '200px';
-        video.style.objectFit = 'cover';
-        video.style.background = '#000';
+            const video = document.createElement('video');
+            video.controls = true;
+            video.style.width = '100%';
+            video.style.height = 'auto';
+            video.style.maxHeight = '200px';
+            video.style.objectFit = 'cover';
+            video.style.background = '#000';
 
-        const source = document.createElement('source');
-        const videoPath = `_site/videos/${v.file}`;
-        source.src = videoPath;
-        source.type = 'video/mp4';
-        video.appendChild(source);
+            const source = document.createElement('source');
+            const videoPath = `pages/academy/videos/${v.file}`;
+            source.src = videoPath;
+            source.type = 'video/mp4';
+            video.appendChild(source);
 
-        video.innerHTML = 'Your browser does not support the video tag.';
+            video.innerHTML = 'Your browser does not support the video tag.';
 
-        const info = document.createElement('div');
-        info.className = 'video-info';
+            const info = document.createElement('div');
+            info.className = 'video-info';
 
-        const title = document.createElement('h3');
-        title.textContent = lang === 'fa' ? v.titleFa : v.titleEn;
+            const title = document.createElement('h3');
+            title.textContent = lang === 'fa' ? v.titleFa : v.titleEn;
 
-        const desc = document.createElement('p');
-        desc.textContent = lang === 'fa' ? v.descFa : v.descEn;
+            const desc = document.createElement('p');
+            desc.textContent = lang === 'fa' ? v.descFa : v.descEn;
 
-        info.appendChild(title);
-        info.appendChild(desc);
-        card.appendChild(video);
-        card.appendChild(info);
-        grid.appendChild(card);
-    });
-}
+            info.appendChild(title);
+            info.appendChild(desc);
+            card.appendChild(video);
+            card.appendChild(info);
+            grid.appendChild(card);
+        });
+    }
+
     function setLang(l) {
         currentLang = l;
         renderVideos(l);
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
         document.body.classList.toggle('lang-persian', l === 'fa');
         localStorage.setItem('karatech-lang', l);
-        
+
         const titles = {
             en: { title: '🎬 Videos', desc: 'Video tutorials for automation engineering.', back: '← Back' },
             fa: { title: '🎬 ویدئوها', desc: 'آموزش‌های ویدئویی برای مهندسی اتوماسیون.', back: '← بازگشت' }
