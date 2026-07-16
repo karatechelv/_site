@@ -23,14 +23,6 @@
         .section ul{list-style:none;padding:0}
         .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
-        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
-        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
-        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
-        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
-        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
-        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
-        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
         .back{text-align:center;margin-top:30px}
         .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
@@ -51,43 +43,29 @@
     </div>
 
     <h1 id="title">📏 Cable Sizing</h1>
-    <div class="sub" id="desc">Calculate minimum cable cross-section based on current, length, voltage drop, and conductor material.</div>
+    <div class="sub" id="desc">Selecting the correct cable size based on current, voltage drop, and installation conditions.</div>
 
     <div class="section">
-        <h2 id="s1">What is Cable Sizing?</h2>
-        <p id="s1p">Cable sizing is the selection of appropriate conductor cross-section to carry the required current without exceeding allowable temperature rise or voltage drop limits.</p>
+        <h2 id="s1">Why Cable Sizing Matters</h2>
+        <p id="s1p">Proper cable sizing ensures safety, minimizes voltage drop, prevents overheating, and reduces energy losses in electrical systems.</p>
     </div>
 
     <div class="section">
-        <h2 id="s2">🧮 Cable Sizing Calculator</h2>
-        <div class="calc-box">
-            <label id="l1">Current (A)</label>
-            <input type="number" id="cs-current" value="50">
-            <label id="l2">Cable Length (m)</label>
-            <input type="number" id="cs-length" value="100">
-            <label id="l3">Max Voltage Drop (%)</label>
-            <input type="number" id="cs-drop" value="3" step="0.1">
-            <label id="l4">Material</label>
-            <select id="cs-mat" style="width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem">
-                <option value="0.0178">Copper</option>
-                <option value="0.0283">Aluminum</option>
-            </select>
-            <button class="calc-btn" onclick="calcCable()" id="btn-calc">Calculate</button>
-            <div class="result-box" id="cs-result">
-                <span id="r1">Min Size: 25 mm²</span><br>
-                <span style="font-size:0.9rem;color:#8e95a5;" id="r2">Voltage Drop: 2.6%</span>
-            </div>
-        </div>
-        <div class="code-box">A = (2 × ρ × L × I) / (V × drop%)</div>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">Key Factors</h2>
+        <h2 id="s2">Key Factors</h2>
         <ul id="list1">
-            <li>Current carrying capacity</li>
+            <li>Current carrying capacity (ampacity)</li>
             <li>Voltage drop limits</li>
-            <li>Ambient temperature correction</li>
-            <li>Installation method (in air, buried, in conduit)</li>
+            <li>Installation method and ambient temperature</li>
+            <li>Short-circuit withstand rating</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">Standards</h2>
+        <ul id="list2">
+            <li>IEC 60364-5-52 – Cable sizing</li>
+            <li>NEC Article 310</li>
+            <li>BS 7671</li>
         </ul>
     </div>
 
@@ -101,30 +79,24 @@
     const lang = {
         en: {
             title: '📏 Cable Sizing',
-            desc: 'Calculate minimum cable cross-section based on current, length, voltage drop, and conductor material.',
-            s1: 'What is Cable Sizing?',
-            s1p: 'Cable sizing is the selection of appropriate conductor cross-section to carry the required current without exceeding allowable temperature rise or voltage drop limits.',
-            s2: '🧮 Cable Sizing Calculator',
-            l1: 'Current (A)', l2: 'Cable Length (m)', l3: 'Max Voltage Drop (%)', l4: 'Material',
-            btn: 'Calculate',
-            r1: 'Min Size: 25 mm²',
-            r2: 'Voltage Drop: 2.6%',
-            s3: 'Key Factors',
-            list1: ['Current carrying capacity','Voltage drop limits','Ambient temperature correction','Installation method (in air, buried, in conduit)'],
+            desc: 'Selecting the correct cable size based on current, voltage drop, and installation conditions.',
+            s1: 'Why Cable Sizing Matters',
+            s1p: 'Proper cable sizing ensures safety, minimizes voltage drop, prevents overheating, and reduces energy losses in electrical systems.',
+            s2: 'Key Factors',
+            list1: ['Current carrying capacity (ampacity)','Voltage drop limits','Installation method and ambient temperature','Short-circuit withstand rating'],
+            s3: 'Standards',
+            list2: ['IEC 60364-5-52 – Cable sizing','NEC Article 310','BS 7671'],
             back: '← Back'
         },
         fa: {
             title: '📏 سایزینگ کابل',
-            desc: 'محاسبه حداقل سطح مقطع کابل بر اساس جریان، طول، افت ولتاژ و جنس هادی.',
-            s1: 'سایزینگ کابل چیست؟',
-            s1p: 'سایزینگ کابل انتخاب سطح مقطع مناسب هادی برای حمل جریان مورد نیاز بدون تجاوز از محدودیت‌های افزایش دما یا افت ولتاژ مجاز است.',
-            s2: '🧮 ماشین حساب سایزینگ کابل',
-            l1: 'جریان (A)', l2: 'طول کابل (m)', l3: 'حداکثر افت ولتاژ (%)', l4: 'جنس هادی',
-            btn: 'محاسبه',
-            r1: 'حداقل سایز: 25 mm²',
-            r2: 'افت ولتاژ: 2.6%',
-            s3: 'عوامل کلیدی',
-            list1: ['ظرفیت حمل جریان','محدودیت‌های افت ولتاژ','تصحیح دمای محیط','روش نصب (در هوا، مدفون، داخل لوله)'],
+            desc: 'انتخاب سایز صحیح کابل بر اساس جریان، افت ولتاژ و شرایط نصب.',
+            s1: 'چرا سایزینگ کابل مهم است',
+            s1p: 'سایزینگ صحیح کابل ایمنی را تضمین می‌کند، افت ولتاژ را به حداقل می‌رساند، از گرم شدن بیش از حد جلوگیری می‌کند و تلفات انرژی را در سیستم‌های الکتریکی کاهش می‌دهد.',
+            s2: 'عوامل کلیدی',
+            list1: ['ظرفیت حمل جریان (آمپاسیته)','محدودیت‌های افت ولتاژ','روش نصب و دمای محیط','مقاومت در برابر اتصال کوتاه'],
+            s3: 'استانداردها',
+            list2: ['IEC 60364-5-52 – سایزینگ کابل','NEC Article 310','BS 7671'],
             back: '← بازگشت'
         }
     };
@@ -137,51 +109,28 @@
         document.getElementById('s1').textContent = t.s1;
         document.getElementById('s1p').textContent = t.s1p;
         document.getElementById('s2').textContent = t.s2;
-        document.getElementById('l1').textContent = t.l1;
-        document.getElementById('l2').textContent = t.l2;
-        document.getElementById('l3').textContent = t.l3;
-        document.getElementById('l4').textContent = t.l4;
-        document.getElementById('btn-calc').textContent = t.btn;
-        document.getElementById('r1').textContent = t.r1;
-        document.getElementById('r2').textContent = t.r2;
         document.getElementById('s3').textContent = t.s3;
         document.getElementById('backlink').textContent = t.back;
 
-        const ul = document.getElementById('list1');
-        ul.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+        const ul1 = document.getElementById('list1');
+        ul1.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
+
+        const ul2 = document.getElementById('list2');
+        ul2.innerHTML = '';
+        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
 
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
         document.body.classList.toggle('lang-persian', l === 'fa');
         localStorage.setItem('karatech-lang', l);
     }
 
-    function calcCable() {
-        var I = parseFloat(document.getElementById('cs-current').value);
-        var L = parseFloat(document.getElementById('cs-length').value);
-        var drop = parseFloat(document.getElementById('cs-drop').value);
-        var rho = parseFloat(document.getElementById('cs-mat').value);
-        var V = 400;
-        if (isNaN(I) || isNaN(L) || isNaN(drop) || isNaN(rho)) { return; }
-        var maxVd = V * drop / 100;
-        var A = (2 * rho * L * I) / maxVd;
-        var stdSizes = [1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120, 150, 185, 240];
-        var selected = stdSizes.find(s => s >= A) || 240;
-        var actualVd = (2 * rho * L * I) / selected;
-        var actualPercent = (actualVd / V) * 100;
-        var lang = document.querySelector('.lang-btn.active').dataset.lang;
-        document.getElementById('cs-result').innerHTML =
-            '<span id="r1">' + (lang === 'fa' ? 'حداقل سایز: ' + selected + ' mm²' : 'Min Size: ' + selected + ' mm²') + '</span><br>' +
-            '<span style="font-size:0.9rem;color:#8e95a5;" id="r2">' + (lang === 'fa' ? 'افت ولتاژ: ' + actualPercent.toFixed(1) + '%' : 'Voltage Drop: ' + actualPercent.toFixed(1) + '%') + '</span>';
-    }
-
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); calcCable(); };
+        btn.onclick = function() { setLang(this.dataset.lang); };
     });
 
     const savedLang = localStorage.getItem('karatech-lang') || 'en';
     setLang(savedLang);
-    calcCable();
 </script>
 
 </body>
