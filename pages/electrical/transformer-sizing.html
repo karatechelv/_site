@@ -20,17 +20,6 @@
         .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
         .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
         .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
-        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
-        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
-        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
-        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
-        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
-        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
-        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
         .back{text-align:center;margin-top:30px}
         .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
@@ -50,44 +39,26 @@
         </div>
     </div>
 
-    <h1 id="title">⚡ Transformer Sizing</h1>
-    <div class="sub" id="desc">Calculate transformer kVA rating, primary and secondary currents for 3-phase and single-phase systems.</div>
+    <h1 id="title">🔌 Transformer Sizing</h1>
+    <div class="sub" id="desc">How to properly size transformers for electrical systems based on load and application.</div>
 
     <div class="section">
-        <h2 id="s1">What is Transformer Sizing?</h2>
-        <p id="s1p">Transformer sizing is the process of selecting a transformer with adequate kVA rating to supply the connected load. It involves calculating load current, considering future expansion, and selecting standard ratings.</p>
+        <h2 id="s1">Transformer Basics</h2>
+        <p id="s1p">Transformers are essential components in power systems, used to step up or step down voltage levels. Proper sizing ensures efficient and reliable operation.</p>
     </div>
 
     <div class="section">
-        <h2 id="s2">🧮 Transformer Sizing Calculator</h2>
-        <div class="calc-box">
-            <label id="l1">Load (kVA)</label>
-            <input type="number" id="tx-kva" value="100">
-            <label id="l2">Primary Voltage (V)</label>
-            <input type="number" id="tx-v1" value="11000">
-            <label id="l3">Secondary Voltage (V)</label>
-            <input type="number" id="tx-v2" value="400">
-            <button class="calc-btn" onclick="calcTransformer()" id="btn-calc">Calculate</button>
-            <div class="result-box" id="tx-result">
-                <span id="r1">Primary: 5.2 A</span><br>
-                <span style="font-size:0.9rem;color:#8e95a5;" id="r2">Secondary: 144.3 A</span>
-            </div>
-        </div>
-        <div class="code-box">I = S / (√3 × V) &nbsp; for 3-phase</div>
+        <h2 id="s2">Sizing Criteria</h2>
+        <p id="s2p">Transformer sizing depends on load type, power factor, voltage levels, and future expansion. Key parameters include kVA rating, impedance, and cooling method.</p>
     </div>
 
     <div class="section">
-        <h2 id="s3">Key Factors</h2>
-        <ul id="list1">
-            <li>Load type (continuous, intermittent)</li>
-            <li>Future expansion (20-30% margin)</li>
-            <li>Ambient temperature and altitude</li>
-            <li>Standard kVA ratings (100, 200, 315, 500, etc.)</li>
-        </ul>
+        <h2 id="s3">Common Standards</h2>
+        <p id="s3p">IEC 60076 and IEEE C57.12 are common standards for transformer design, testing, and application.</p>
     </div>
 
     <div class="back">
-        <a href="electrical-index.html" id="backlink">← Back</a>
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
 
 </div>
@@ -95,31 +66,25 @@
 <script>
     const lang = {
         en: {
-            title: '⚡ Transformer Sizing',
-            desc: 'Calculate transformer kVA rating, primary and secondary currents for 3-phase and single-phase systems.',
-            s1: 'What is Transformer Sizing?',
-            s1p: 'Transformer sizing is the process of selecting a transformer with adequate kVA rating to supply the connected load. It involves calculating load current, considering future expansion, and selecting standard ratings.',
-            s2: '🧮 Transformer Sizing Calculator',
-            l1: 'Load (kVA)', l2: 'Primary Voltage (V)', l3: 'Secondary Voltage (V)',
-            btn: 'Calculate',
-            r1: 'Primary: 5.2 A',
-            r2: 'Secondary: 144.3 A',
-            s3: 'Key Factors',
-            list1: ['Load type (continuous, intermittent)','Future expansion (20-30% margin)','Ambient temperature and altitude','Standard kVA ratings (100, 200, 315, 500, etc.)'],
+            title: '🔌 Transformer Sizing',
+            desc: 'How to properly size transformers for electrical systems based on load and application.',
+            s1: 'Transformer Basics',
+            s1p: 'Transformers are essential components in power systems, used to step up or step down voltage levels. Proper sizing ensures efficient and reliable operation.',
+            s2: 'Sizing Criteria',
+            s2p: 'Transformer sizing depends on load type, power factor, voltage levels, and future expansion. Key parameters include kVA rating, impedance, and cooling method.',
+            s3: 'Common Standards',
+            s3p: 'IEC 60076 and IEEE C57.12 are common standards for transformer design, testing, and application.',
             back: '← Back'
         },
         fa: {
-            title: '⚡ سایزینگ ترانسفورماتور',
-            desc: 'محاسبه رتبه ترانسفورماتور بر حسب kVA، جریان اولیه و ثانویه برای سیستم‌های سه‌فاز و تک‌فاز.',
-            s1: 'سایزینگ ترانسفورماتور چیست؟',
-            s1p: 'سایزینگ ترانسفورماتور فرآیند انتخاب ترانسفورماتوری با رتبه kVA مناسب برای تأمین بار متصل است. شامل محاسبه جریان بار، در نظر گرفتن توسعه آینده و انتخاب رتبه‌های استاندارد است.',
-            s2: '🧮 ماشین حساب سایزینگ ترانسفورماتور',
-            l1: 'بار (kVA)', l2: 'ولتاژ اولیه (V)', l3: 'ولتاژ ثانویه (V)',
-            btn: 'محاسبه',
-            r1: 'اولیه: 5.2 آمپر',
-            r2: 'ثانویه: 144.3 آمپر',
-            s3: 'عوامل کلیدی',
-            list1: ['نوع بار (پیوسته، متناوب)','توسعه آینده (حاشیه ۲۰-۳۰٪)','دمای محیط و ارتفاع','رتبه‌های استاندارد kVA (۱۰۰، ۲۰۰، ۳۱۵، ۵۰۰ و غیره)'],
+            title: '🔌 سایزینگ ترانسفورماتور',
+            desc: 'روش صحیح سایزینگ ترانسفورماتور برای سیستم‌های الکتریکی بر اساس بار و کاربرد.',
+            s1: 'مبانی ترانسفورماتور',
+            s1p: 'ترانسفورماتورها اجزای ضروری در سیستم‌های قدرت هستند که برای افزایش یا کاهش ولتاژ استفاده می‌شوند. سایزینگ صحیح عملکرد کارآمد و قابل اعتماد را تضمین می‌کند.',
+            s2: 'معیارهای سایزینگ',
+            s2p: 'سایزینگ ترانسفورماتور به نوع بار، ضریب توان، سطوح ولتاژ و توسعه آینده بستگی دارد. پارامترهای کلیدی شامل رتبه kVA، امپدانس و روش خنک‌کنندگی است.',
+            s3: 'استانداردهای رایج',
+            s3p: 'IEC 60076 و IEEE C57.12 استانداردهای رایج برای طراحی، تست و کاربرد ترانسفورماتور هستند.',
             back: '← بازگشت'
         }
     };
@@ -132,44 +97,22 @@
         document.getElementById('s1').textContent = t.s1;
         document.getElementById('s1p').textContent = t.s1p;
         document.getElementById('s2').textContent = t.s2;
-        document.getElementById('l1').textContent = t.l1;
-        document.getElementById('l2').textContent = t.l2;
-        document.getElementById('l3').textContent = t.l3;
-        document.getElementById('btn-calc').textContent = t.btn;
-        document.getElementById('r1').textContent = t.r1;
-        document.getElementById('r2').textContent = t.r2;
+        document.getElementById('s2p').textContent = t.s2p;
         document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s3p').textContent = t.s3p;
         document.getElementById('backlink').textContent = t.back;
-
-        const ul = document.getElementById('list1');
-        ul.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
 
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
         document.body.classList.toggle('lang-persian', l === 'fa');
         localStorage.setItem('karatech-lang', l);
     }
 
-    function calcTransformer() {
-        var S = parseFloat(document.getElementById('tx-kva').value);
-        var V1 = parseFloat(document.getElementById('tx-v1').value);
-        var V2 = parseFloat(document.getElementById('tx-v2').value);
-        if (isNaN(S) || isNaN(V1) || isNaN(V2)) { return; }
-        var I1 = (S * 1000) / (Math.sqrt(3) * V1);
-        var I2 = (S * 1000) / (Math.sqrt(3) * V2);
-        var lang = document.querySelector('.lang-btn.active').dataset.lang;
-        document.getElementById('tx-result').innerHTML =
-            '<span id="r1">' + (lang === 'fa' ? 'اولیه: ' + I1.toFixed(2) + ' A' : 'Primary: ' + I1.toFixed(2) + ' A') + '</span><br>' +
-            '<span style="font-size:0.9rem;color:#8e95a5;" id="r2">' + (lang === 'fa' ? 'ثانویه: ' + I2.toFixed(2) + ' A' : 'Secondary: ' + I2.toFixed(2) + ' A') + '</span>';
-    }
-
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); calcTransformer(); };
+        btn.onclick = function() { setLang(this.dataset.lang); };
     });
 
     const savedLang = localStorage.getItem('karatech-lang') || 'en';
     setLang(savedLang);
-    calcTransformer();
 </script>
 
 </body>
