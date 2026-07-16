@@ -23,12 +23,25 @@
         .section ul{list-style:none;padding:0}
         .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
+        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
+        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
+        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
+        .calc-box select{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
+        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
+        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
+        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
+        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
         .back{text-align:center;margin-top:30px}
         .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
         .lang-persian{direction:rtl}
         .lang-persian .header{flex-direction:row-reverse}
         @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+        table{width:100%;border-collapse:collapse;margin:10px 0;color:#b0b8c5}
+        table th{background:#2a2f3a;color:#d4af37;padding:10px;text-align:left}
+        table td{padding:10px;border-bottom:1px solid #1e2128}
+        table tr:hover{background:#1a1d24}
     </style>
 </head>
 <body>
@@ -51,21 +64,59 @@
     </div>
 
     <div class="section">
-        <h2 id="s2">Key Factors</h2>
+        <h2 id="s2">🧮 Cable Sizing Calculator</h2>
+        <div class="calc-box">
+            <label id="l1">Current (A)</label>
+            <input type="number" id="cable-current" value="50">
+            <label id="l2">Cable Length (m)</label>
+            <input type="number" id="cable-length" value="50">
+            <label id="l3">Installation Method</label>
+            <select id="cable-install">
+                <option value="clipped">Clipped direct</option>
+                <option value="tray">Cable tray</option>
+                <option value="conduit">In conduit</option>
+                <option value="underground">Underground</option>
+            </select>
+            <label id="l4">Ambient Temperature (°C)</label>
+            <input type="number" id="cable-temp" value="30">
+            <button class="calc-btn" onclick="calcCableSize()" id="btn-calc">Calculate</button>
+            <div class="result-box" id="cable-result">
+                <span id="r1">Recommended Cable Size: 16 mm²</span><br>
+                <span style="font-size:0.9rem;color:#8e95a5;" id="r2">Voltage Drop: 2.1%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">📊 Cable Size Reference Table</h2>
+        <table>
+            <thead>
+                <tr><th id="t1">Cross Section (mm²)</th><th id="t2">Ampacity (A)</th><th id="t3">Voltage Drop (V/A/km)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1.5</td><td>16</td><td>29</td></tr>
+                <tr><td>2.5</td><td>22</td><td>18</td></tr>
+                <tr><td>4</td><td>30</td><td>11</td></tr>
+                <tr><td>6</td><td>38</td><td>7.3</td></tr>
+                <tr><td>10</td><td>52</td><td>4.4</td></tr>
+                <tr><td>16</td><td>70</td><td>2.8</td></tr>
+                <tr><td>25</td><td>92</td><td>1.75</td></tr>
+                <tr><td>35</td><td>115</td><td>1.25</td></tr>
+                <tr><td>50</td><td>140</td><td>0.87</td></tr>
+                <tr><td>70</td><td>180</td><td>0.63</td></tr>
+                <tr><td>95</td><td>220</td><td>0.46</td></tr>
+                <tr><td>120</td><td>255</td><td>0.36</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">Key Factors</h2>
         <ul id="list1">
             <li>Current carrying capacity (ampacity)</li>
             <li>Voltage drop limits</li>
             <li>Installation method and ambient temperature</li>
             <li>Short-circuit withstand rating</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2 id="s3">Standards</h2>
-        <ul id="list2">
-            <li>IEC 60364-5-52 – Cable sizing</li>
-            <li>NEC Article 310</li>
-            <li>BS 7671</li>
         </ul>
     </div>
 
@@ -82,10 +133,15 @@
             desc: 'Selecting the correct cable size based on current, voltage drop, and installation conditions.',
             s1: 'Why Cable Sizing Matters',
             s1p: 'Proper cable sizing ensures safety, minimizes voltage drop, prevents overheating, and reduces energy losses in electrical systems.',
-            s2: 'Key Factors',
+            s2: '🧮 Cable Sizing Calculator',
+            l1: 'Current (A)', l2: 'Cable Length (m)', l3: 'Installation Method', l4: 'Ambient Temperature (°C)',
+            btn: 'Calculate',
+            r1: 'Recommended Cable Size: 16 mm²',
+            r2: 'Voltage Drop: 2.1%',
+            s3: '📊 Cable Size Reference Table',
+            t1: 'Cross Section (mm²)', t2: 'Ampacity (A)', t3: 'Voltage Drop (V/A/km)',
+            s4: 'Key Factors',
             list1: ['Current carrying capacity (ampacity)','Voltage drop limits','Installation method and ambient temperature','Short-circuit withstand rating'],
-            s3: 'Standards',
-            list2: ['IEC 60364-5-52 – Cable sizing','NEC Article 310','BS 7671'],
             back: '← Back'
         },
         fa: {
@@ -93,10 +149,15 @@
             desc: 'انتخاب سایز صحیح کابل بر اساس جریان، افت ولتاژ و شرایط نصب.',
             s1: 'چرا سایزینگ کابل مهم است',
             s1p: 'سایزینگ صحیح کابل ایمنی را تضمین می‌کند، افت ولتاژ را به حداقل می‌رساند، از گرم شدن بیش از حد جلوگیری می‌کند و تلفات انرژی را در سیستم‌های الکتریکی کاهش می‌دهد.',
-            s2: 'عوامل کلیدی',
+            s2: '🧮 ماشین حساب سایزینگ کابل',
+            l1: 'جریان (آمپر)', l2: 'طول کابل (متر)', l3: 'روش نصب', l4: 'دمای محیط (°C)',
+            btn: 'محاسبه',
+            r1: 'سایز کابل پیشنهادی: 16 mm²',
+            r2: 'افت ولتاژ: 2.1%',
+            s3: '📊 جدول مرجع سایز کابل',
+            t1: 'سطح مقطع (mm²)', t2: 'آمپاسیته (A)', t3: 'افت ولتاژ (V/A/km)',
+            s4: 'عوامل کلیدی',
             list1: ['ظرفیت حمل جریان (آمپاسیته)','محدودیت‌های افت ولتاژ','روش نصب و دمای محیط','مقاومت در برابر اتصال کوتاه'],
-            s3: 'استانداردها',
-            list2: ['IEC 60364-5-52 – سایزینگ کابل','NEC Article 310','BS 7671'],
             back: '← بازگشت'
         }
     };
@@ -109,28 +170,58 @@
         document.getElementById('s1').textContent = t.s1;
         document.getElementById('s1p').textContent = t.s1p;
         document.getElementById('s2').textContent = t.s2;
+        document.getElementById('l1').textContent = t.l1;
+        document.getElementById('l2').textContent = t.l2;
+        document.getElementById('l3').textContent = t.l3;
+        document.getElementById('l4').textContent = t.l4;
+        document.getElementById('btn-calc').textContent = t.btn;
+        document.getElementById('r1').textContent = t.r1;
+        document.getElementById('r2').textContent = t.r2;
         document.getElementById('s3').textContent = t.s3;
+        document.getElementById('t1').textContent = t.t1;
+        document.getElementById('t2').textContent = t.t2;
+        document.getElementById('t3').textContent = t.t3;
+        document.getElementById('s4').textContent = t.s4;
         document.getElementById('backlink').textContent = t.back;
 
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
+        const ul = document.getElementById('list1');
+        ul.innerHTML = '';
+        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
 
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
         document.body.classList.toggle('lang-persian', l === 'fa');
         localStorage.setItem('karatech-lang', l);
     }
 
+    function calcCableSize() {
+        var I = parseFloat(document.getElementById('cable-current').value);
+        var L = parseFloat(document.getElementById('cable-length').value);
+        var T = parseFloat(document.getElementById('cable-temp').value);
+        // جدول سایز کابل
+        var sizes = [1.5,2.5,4,6,10,16,25,35,50,70,95,120];
+        var ampacity = [16,22,30,38,52,70,92,115,140,180,220,255];
+        var vd = [29,18,11,7.3,4.4,2.8,1.75,1.25,0.87,0.63,0.46,0.36];
+        var selected = 0;
+        for (var i = 0; i < ampacity.length; i++) {
+            if (ampacity[i] >= I) { selected = i; break; }
+        }
+        var vdResult = (vd[selected] * L * I) / 1000;
+        var vdPercent = (vdResult / 230) * 100;
+        document.getElementById('cable-result').innerHTML = 
+            '<span id="r1">' + (document.querySelector('.lang-btn.active').dataset.lang === 'fa' ? 'سایز کابل پیشنهادی: ' + sizes[selected] + ' mm²' : 'Recommended Cable Size: ' + sizes[selected] + ' mm²') + '</span><br>' +
+            '<span style="font-size:0.9rem;color:#8e95a5;" id="r2">' + (document.querySelector('.lang-btn.active').dataset.lang === 'fa' ? 'افت ولتاژ: ' + vdPercent.toFixed(2) + '%' : 'Voltage Drop: ' + vdPercent.toFixed(2) + '%') + '</span>';
+    }
+
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
+        btn.onclick = function() { 
+            setLang(this.dataset.lang); 
+            calcCableSize();
+        };
     });
 
     const savedLang = localStorage.getItem('karatech-lang') || 'en';
     setLang(savedLang);
+    calcCableSize();
 </script>
 
 </body>
