@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Earthing & Grounding</title>
+    <title>Karatech ELV · Earthing</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
@@ -26,6 +26,7 @@
         .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
         .calc-box{background:#0d0e12;padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
         .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
+        .calc-box select{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
         .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
         .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
         .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
@@ -37,6 +38,10 @@
         .lang-persian{direction:rtl}
         .lang-persian .header{flex-direction:row-reverse}
         @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+        table{width:100%;border-collapse:collapse;margin:10px 0;color:#b0b8c5}
+        table th{background:#2a2f3a;color:#d4af37;padding:10px;text-align:left}
+        table td{padding:10px;border-bottom:1px solid #1e2128}
+        table tr:hover{background:#1a1d24}
     </style>
 </head>
 <body>
@@ -50,46 +55,84 @@
         </div>
     </div>
 
-    <h1 id="title">🌍 Earthing & Grounding</h1>
-    <div class="sub" id="desc">Calculate earth resistance, electrode sizing, and design safe earthing systems for electrical installations.</div>
+    <h1 id="title">🌍 Earthing / Grounding</h1>
+    <div class="sub" id="desc">Complete guide to earthing systems, resistance calculation, and reference tables.</div>
 
     <div class="section">
         <h2 id="s1">What is Earthing?</h2>
-        <p id="s1p">Earthing connects electrical systems to the earth to protect people and equipment from electric shock, overvoltages, and lightning strikes. It provides a low-resistance path for fault currents.</p>
+        <p id="s1p">Earthing (grounding) is the process of connecting electrical equipment to the earth to ensure safety, protect against electric shock, and provide a reference point for electrical systems.</p>
     </div>
 
     <div class="section">
         <h2 id="s2">🧮 Earthing Resistance Calculator</h2>
         <div class="calc-box">
             <label id="l1">Soil Resistivity (Ω·m)</label>
-            <input type="number" id="eg-rho" value="100">
-            <label id="l2">Rod Length (m)</label>
-            <input type="number" id="eg-length" value="3">
-            <label id="l3">Rod Diameter (mm)</label>
-            <input type="number" id="eg-diam" value="16">
-            <label id="l4">Number of Rods</label>
-            <input type="number" id="eg-n" value="1">
+            <input type="number" id="earthing-rho" value="100">
+            <label id="l2">Electrode Length (m)</label>
+            <input type="number" id="earthing-length" value="3">
+            <label id="l3">Electrode Diameter (mm)</label>
+            <input type="number" id="earthing-diameter" value="16">
+            <label id="l4">Electrode Type</label>
+            <select id="earthing-type">
+                <option value="rod">Rod</option>
+                <option value="plate">Plate</option>
+                <option value="strip">Strip</option>
+            </select>
             <button class="calc-btn" onclick="calcEarthing()" id="btn-calc">Calculate</button>
-            <div class="result-box" id="eg-result">
-                <span id="r1">Resistance: 25.0 Ω</span><br>
-                <span style="font-size:0.9rem;color:#8e95a5;" id="r2">Status: Needs improvement</span>
+            <div class="result-box" id="earthing-result">
+                <span id="r1">Earthing Resistance: 8.5 Ω</span><br>
+                <span style="font-size:0.9rem;color:#8e95a5;" id="r2">Status: Acceptable (≤ 10 Ω)</span>
             </div>
         </div>
-        <div class="code-box">R = (ρ / 2πL) × ln(4L/d)</div>
+        <div class="code-box">R = (ρ / 2πL) × ln(4L/d) &nbsp; (Rod electrode formula)</div>
     </div>
 
     <div class="section">
-        <h2 id="s3">Key Factors</h2>
+        <h2 id="s3">📊 Soil Resistivity Reference Table</h2>
+        <table>
+            <thead>
+                <tr><th id="t1">Soil Type</th><th id="t2">Resistivity (Ω·m)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Wet organic soil</td><td>10 - 50</td></tr>
+                <tr><td>Moist clay</td><td>30 - 100</td></tr>
+                <tr><td>Dry clay</td><td>50 - 200</td></tr>
+                <tr><td>Moist sandy clay</td><td>100 - 400</td></tr>
+                <tr><td>Dry sandy clay</td><td>200 - 800</td></tr>
+                <tr><td>Gravel</td><td>300 - 1000</td></tr>
+                <tr><td>Rock</td><td>1000 - 10000</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">📊 Earthing Electrode Resistance Table</h2>
+        <table>
+            <thead>
+                <tr><th id="t3">Electrode Type</th><th id="t4">Typical Resistance (Ω)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Rod (3m, 16mm)</td><td>5 - 15</td></tr>
+                <tr><td>Rod (6m, 16mm)</td><td>3 - 10</td></tr>
+                <tr><td>Plate (1m²)</td><td>2 - 8</td></tr>
+                <tr><td>Strip (10m)</td><td>3 - 12</td></tr>
+                <tr><td>Ring (20m)</td><td>2 - 6</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2 id="s5">Key Standards</h2>
         <ul id="list1">
-            <li>Soil resistivity (wet vs dry soil)</li>
-            <li>Rod length and diameter</li>
-            <li>Number of rods in parallel</li>
-            <li>Maximum allowable resistance (&lt; 10 Ω)</li>
+            <li>IEC 60364 – Earthing requirements</li>
+            <li>IEEE 80 – Earthing safety</li>
+            <li>BS 7430 – Code of practice for earthing</li>
+            <li>NEC Article 250 – Grounding</li>
         </ul>
     </div>
 
     <div class="back">
-        <a href="electrical-index.html" id="backlink">← Back</a>
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
 
 </div>
@@ -97,31 +140,39 @@
 <script>
     const lang = {
         en: {
-            title: '🌍 Earthing & Grounding',
-            desc: 'Calculate earth resistance, electrode sizing, and design safe earthing systems for electrical installations.',
+            title: '🌍 Earthing / Grounding',
+            desc: 'Complete guide to earthing systems, resistance calculation, and reference tables.',
             s1: 'What is Earthing?',
-            s1p: 'Earthing connects electrical systems to the earth to protect people and equipment from electric shock, overvoltages, and lightning strikes. It provides a low-resistance path for fault currents.',
+            s1p: 'Earthing (grounding) is the process of connecting electrical equipment to the earth to ensure safety, protect against electric shock, and provide a reference point for electrical systems.',
             s2: '🧮 Earthing Resistance Calculator',
-            l1: 'Soil Resistivity (Ω·m)', l2: 'Rod Length (m)', l3: 'Rod Diameter (mm)', l4: 'Number of Rods',
+            l1: 'Soil Resistivity (Ω·m)', l2: 'Electrode Length (m)', l3: 'Electrode Diameter (mm)', l4: 'Electrode Type',
             btn: 'Calculate',
-            r1: 'Resistance: 25.0 Ω',
-            r2: 'Status: Needs improvement',
-            s3: 'Key Factors',
-            list1: ['Soil resistivity (wet vs dry soil)','Rod length and diameter','Number of rods in parallel','Maximum allowable resistance (< 10 Ω)'],
+            r1: 'Earthing Resistance: 8.5 Ω',
+            r2: 'Status: Acceptable (≤ 10 Ω)',
+            s3: '📊 Soil Resistivity Reference Table',
+            t1: 'Soil Type', t2: 'Resistivity (Ω·m)',
+            s4: '📊 Earthing Electrode Resistance Table',
+            t3: 'Electrode Type', t4: 'Typical Resistance (Ω)',
+            s5: 'Key Standards',
+            list1: ['IEC 60364 – Earthing requirements','IEEE 80 – Earthing safety','BS 7430 – Code of practice for earthing','NEC Article 250 – Grounding'],
             back: '← Back'
         },
         fa: {
-            title: '🌍 ارتینگ و زمین کردن',
-            desc: 'محاسبه مقاومت زمین، سایزینگ الکترود و طراحی سیستم‌های ارتینگ ایمن برای تأسیسات الکتریکی.',
+            title: '🌍 ارتینگ / زمین کردن',
+            desc: 'راهنمای کامل سیستم‌های ارتینگ، محاسبه مقاومت و جداول مرجع.',
             s1: 'ارتینگ چیست؟',
-            s1p: 'ارتینگ سیستم‌های الکتریکی را به زمین متصل می‌کند تا از افراد و تجهیزات در برابر شوک الکتریکی، اضافه ولتاژ و صاعقه محافظت کند. مسیری با مقاومت کم برای جریان‌های خطا فراهم می‌کند.',
-            s2: '🧮 ماشین حساب مقاومت زمین',
-            l1: 'مقاومت ویژه خاک (Ω·m)', l2: 'طول میله (m)', l3: 'قطر میله (mm)', l4: 'تعداد میله‌ها',
+            s1p: 'ارتینگ فرآیند اتصال تجهیزات الکتریکی به زمین برای تأمین ایمنی، محافظت در برابر شوک الکتریکی و ایجاد نقطه مرجع برای سیستم‌های الکتریکی است.',
+            s2: '🧮 ماشین حساب مقاومت ارتینگ',
+            l1: 'مقاومت ویژه خاک (Ω·m)', l2: 'طول الکترود (متر)', l3: 'قطر الکترود (mm)', l4: 'نوع الکترود',
             btn: 'محاسبه',
-            r1: 'مقاومت: 25.0 اهم',
-            r2: 'وضعیت: نیاز به بهبود',
-            s3: 'عوامل کلیدی',
-            list1: ['مقاومت ویژه خاک (خاک مرطوب در مقابل خشک)','طول و قطر میله','تعداد میله‌ها به صورت موازی','حداکثر مقاومت مجاز (کمتر از ۱۰ اهم)'],
+            r1: 'مقاومت ارتینگ: 8.5 Ω',
+            r2: 'وضعیت: قابل قبول (≤ 10 Ω)',
+            s3: '📊 جدول مرجع مقاومت ویژه خاک',
+            t1: 'نوع خاک', t2: 'مقاومت ویژه (Ω·m)',
+            s4: '📊 جدول مقاومت الکترود ارتینگ',
+            t3: 'نوع الکترود', t4: 'مقاومت معمول (Ω)',
+            s5: 'استانداردهای کلیدی',
+            list1: ['IEC 60364 – الزامات ارتینگ','IEEE 80 – ایمنی ارتینگ','BS 7430 – آیین‌نامه ارتینگ','NEC Article 250 – زمین کردن'],
             back: '← بازگشت'
         }
     };
@@ -142,6 +193,12 @@
         document.getElementById('r1').textContent = t.r1;
         document.getElementById('r2').textContent = t.r2;
         document.getElementById('s3').textContent = t.s3;
+        document.getElementById('t1').textContent = t.t1;
+        document.getElementById('t2').textContent = t.t2;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('t3').textContent = t.t3;
+        document.getElementById('t4').textContent = t.t4;
+        document.getElementById('s5').textContent = t.s5;
         document.getElementById('backlink').textContent = t.back;
 
         const ul = document.getElementById('list1');
@@ -154,22 +211,31 @@
     }
 
     function calcEarthing() {
-        var rho = parseFloat(document.getElementById('eg-rho').value);
-        var L = parseFloat(document.getElementById('eg-length').value);
-        var d = parseFloat(document.getElementById('eg-diam').value) / 1000;
-        var n = parseFloat(document.getElementById('eg-n').value);
-        if (isNaN(rho) || isNaN(L) || isNaN(d) || isNaN(n)) { return; }
-        var R = (rho / (2 * Math.PI * L)) * (Math.log(4 * L / d) - 1);
-        R = R / n;
-        var lang = document.querySelector('.lang-btn.active').dataset.lang;
-        var status = (R < 10) ? (lang === 'fa' ? '✅ مناسب' : '✅ Good') : (lang === 'fa' ? '⚠️ نیاز به بهبود' : '⚠️ Needs improvement');
-        document.getElementById('eg-result').innerHTML =
-            '<span id="r1">' + (lang === 'fa' ? 'مقاومت: ' + R.toFixed(2) + ' Ω' : 'Resistance: ' + R.toFixed(2) + ' Ω') + '</span><br>' +
-            '<span style="font-size:0.9rem;color:#8e95a5;" id="r2">' + (lang === 'fa' ? 'وضعیت: ' + status : 'Status: ' + status) + '</span>';
+        var rho = parseFloat(document.getElementById('earthing-rho').value);
+        var L = parseFloat(document.getElementById('earthing-length').value);
+        var d = parseFloat(document.getElementById('earthing-diameter').value) / 1000;
+        var type = document.getElementById('earthing-type').value;
+        var R;
+        if (type === 'rod') {
+            R = (rho / (2 * Math.PI * L)) * Math.log((4 * L) / d);
+        } else if (type === 'plate') {
+            R = (rho / (4 * Math.sqrt(Math.PI * 1)));
+        } else {
+            R = (rho / (2 * Math.PI * L)) * Math.log((2 * L) / d);
+        }
+        R = Math.max(R, 0.1);
+        var status = R <= 10 ? 'Acceptable (≤ 10 Ω)' : 'High (> 10 Ω)';
+        var statusFa = R <= 10 ? 'قابل قبول (≤ 10 Ω)' : 'بالا (> 10 Ω)';
+        document.getElementById('earthing-result').innerHTML = 
+            '<span id="r1">' + (document.querySelector('.lang-btn.active').dataset.lang === 'fa' ? 'مقاومت ارتینگ: ' + R.toFixed(2) + ' Ω' : 'Earthing Resistance: ' + R.toFixed(2) + ' Ω') + '</span><br>' +
+            '<span style="font-size:0.9rem;color:#8e95a5;" id="r2">' + (document.querySelector('.lang-btn.active').dataset.lang === 'fa' ? 'وضعیت: ' + statusFa : 'Status: ' + status) + '</span>';
     }
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); calcEarthing(); };
+        btn.onclick = function() { 
+            setLang(this.dataset.lang); 
+            calcEarthing();
+        };
     });
 
     const savedLang = localStorage.getItem('karatech-lang') || 'en';
