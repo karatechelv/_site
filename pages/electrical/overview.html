@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Overview</title>
+    <title>Karatech ELV · Electrical Overview</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
@@ -20,9 +20,6 @@
         .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
         .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
         .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
         .back{text-align:center;margin-top:30px}
         .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
@@ -42,36 +39,26 @@
         </div>
     </div>
 
-    <h1 id="title">📘 Overview of Electrical Engineering</h1>
-    <div class="sub" id="desc">A comprehensive overview of electrical engineering, covering power systems, protection, design, and standards.</div>
+    <h1 id="title">📘 Electrical Engineering Overview</h1>
+    <div class="sub" id="desc">Complete overview of electrical engineering principles, systems, and applications.</div>
 
     <div class="section">
-        <h2 id="s1">🔹 What is Electrical Engineering?</h2>
-        <p id="s1p">Electrical engineering is a field of engineering that deals with the study and application of electricity, electronics, and electromagnetism. It covers generation, transmission, distribution, and utilization of electrical power.</p>
+        <h2 id="s1">🔹 Fundamentals</h2>
+        <p id="p1">Basic electrical laws, circuit analysis, AC/DC theory, and electromagnetic principles.</p>
     </div>
 
     <div class="section">
-        <h2 id="s2">🔹 Main Branches</h2>
-        <ul id="list1">
-            <li>Power Systems – Generation, transmission, distribution</li>
-            <li>Control Systems – Automation and process control</li>
-            <li>Electronics – Analog and digital circuits</li>
-            <li>Telecommunications – Signal processing and communication</li>
-        </ul>
+        <h2 id="s2">🔹 Power Systems</h2>
+        <p id="p2">Generation, transmission, distribution, load flow, fault analysis, and power quality.</p>
     </div>
 
     <div class="section">
-        <h2 id="s3">🔹 Key Standards</h2>
-        <ul id="list2">
-            <li>IEC 60364 – Electrical Installations</li>
-            <li>IEC 61439 – Switchgear</li>
-            <li>IEEE 80 – Earthing</li>
-            <li>NEC (NFPA 70)</li>
-        </ul>
+        <h2 id="s3">🔹 Control Systems</h2>
+        <p id="p3">Feedback control, PLC, SCADA, industrial automation, and instrumentation.</p>
     </div>
 
     <div class="back">
-        <a href="electrical-index.html" id="backlink">← Back</a>
+        <a href="electrical.html" id="backlink" onclick="localStorage.setItem('dashboardActive', 'true')">← Back to Dashboard</a>
     </div>
 
 </div>
@@ -79,26 +66,26 @@
 <script>
     const lang = {
         en: {
-            title: '📘 Overview of Electrical Engineering',
-            desc: 'A comprehensive overview of electrical engineering, covering power systems, protection, design, and standards.',
-            s1: '🔹 What is Electrical Engineering?',
-            s1p: 'Electrical engineering is a field of engineering that deals with the study and application of electricity, electronics, and electromagnetism. It covers generation, transmission, distribution, and utilization of electrical power.',
-            s2: '🔹 Main Branches',
-            list1: ['Power Systems – Generation, transmission, distribution','Control Systems – Automation and process control','Electronics – Analog and digital circuits','Telecommunications – Signal processing and communication'],
-            s3: '🔹 Key Standards',
-            list2: ['IEC 60364 – Electrical Installations','IEC 61439 – Switchgear','IEEE 80 – Earthing','NEC (NFPA 70)'],
-            back: '← Back'
+            title: '📘 Electrical Engineering Overview',
+            desc: 'Complete overview of electrical engineering principles, systems, and applications.',
+            s1: '🔹 Fundamentals',
+            p1: 'Basic electrical laws, circuit analysis, AC/DC theory, and electromagnetic principles.',
+            s2: '🔹 Power Systems',
+            p2: 'Generation, transmission, distribution, load flow, fault analysis, and power quality.',
+            s3: '🔹 Control Systems',
+            p3: 'Feedback control, PLC, SCADA, industrial automation, and instrumentation.',
+            back: '← Back to Dashboard'
         },
         fa: {
             title: '📘 مرور کلی مهندسی برق',
-            desc: 'مرور جامع مهندسی برق، شامل سیستم‌های قدرت، حفاظت، طراحی و استانداردها.',
-            s1: '🔹 مهندسی برق چیست؟',
-            s1p: 'مهندسی برق شاخه‌ای از مهندسی است که به مطالعه و کاربرد الکتریسیته، الکترونیک و الکترومغناطیس می‌پردازد. شامل تولید، انتقال، توزیع و استفاده از انرژی الکتریکی است.',
-            s2: '🔹 شاخه‌های اصلی',
-            list1: ['سیستم‌های قدرت – تولید، انتقال، توزیع','سیستم‌های کنترل – اتوماسیون و کنترل فرآیند','الکترونیک – مدارهای آنالوگ و دیجیتال','مخابرات – پردازش سیگنال و ارتباطات'],
-            s3: '🔹 استانداردهای کلیدی',
-            list2: ['IEC 60364 – تأسیسات الکتریکی','IEC 61439 – تابلوهای برق','IEEE 80 – ارتینگ','NEC (NFPA 70)'],
-            back: '← بازگشت'
+            desc: 'مرور کامل اصول، سیستم‌ها و کاربردهای مهندسی برق.',
+            s1: '🔹 مبانی',
+            p1: 'قوانین پایه برق، تحلیل مدار، تئوری AC/DC و اصول الکترومغناطیس.',
+            s2: '🔹 سیستم‌های قدرت',
+            p2: 'تولید، انتقال، توزیع، تحلیل بار، تحلیل خطا و کیفیت توان.',
+            s3: '🔹 سیستم‌های کنترل',
+            p3: 'کنترل بازخورد، PLC، SCADA، اتوماسیون صنعتی و ابزاردقیق.',
+            back: '← بازگشت به داشبورد'
         }
     };
 
@@ -108,18 +95,12 @@
         document.getElementById('title').textContent = t.title;
         document.getElementById('desc').textContent = t.desc;
         document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('p1').textContent = t.p1;
         document.getElementById('s2').textContent = t.s2;
+        document.getElementById('p2').textContent = t.p2;
         document.getElementById('s3').textContent = t.s3;
+        document.getElementById('p3').textContent = t.p3;
         document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
 
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
         document.body.classList.toggle('lang-persian', l === 'fa');
