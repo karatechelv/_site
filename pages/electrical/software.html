@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Electrical Software</title>
+    <title>Karatech ELV · Software</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
@@ -19,6 +19,7 @@
         .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
         .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
         .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
         .section ul{list-style:none;padding:0}
         .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
@@ -41,38 +42,38 @@
         </div>
     </div>
 
-    <h1 id="title">💻 Electrical Engineering Software</h1>
-    <div class="sub" id="desc">Essential software tools for electrical design, analysis, and simulation.</div>
+    <h1 id="title">🛠️ Essential Software for Electrical Engineers</h1>
+    <div class="sub" id="desc">A list of essential software tools for electrical engineering design, analysis, and automation.</div>
 
     <div class="section">
         <h2 id="s1">🔹 Design & Drafting</h2>
         <ul id="list1">
-            <li>AutoCAD Electrical</li>
-            <li>EPLAN Electric P8</li>
+            <li>AutoCAD Electrical – Electrical CAD</li>
+            <li>EPLAN – Engineering design</li>
             <li>SEE Electrical</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2 id="s2">🔹 Power System Analysis</h2>
+        <h2 id="s2">🔹 Simulation & Analysis</h2>
         <ul id="list2">
-            <li>ETAP</li>
-            <li>DIgSILENT PowerFactory</li>
+            <li>ETAP – Power system analysis</li>
+            <li>DIALux – Lighting design</li>
             <li>SKM PowerTools</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2 id="s3">🔹 Simulation & Calculation</h2>
+        <h2 id="s3">🔹 Automation & Programming</h2>
         <ul id="list3">
-            <li>MATLAB/Simulink</li>
-            <li>PSCAD</li>
-            <li>EMTP-RV</li>
+            <li>TIA Portal – Siemens PLC</li>
+            <li>Codesys – IEC 61131-3</li>
+            <li>WinCC – SCADA</li>
         </ul>
     </div>
 
     <div class="back">
-        <a href="electrical-index.html" id="backlink">← Back</a>
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
 
 </div>
@@ -80,25 +81,25 @@
 <script>
     const lang = {
         en: {
-            title: '💻 Electrical Engineering Software',
-            desc: 'Essential software tools for electrical design, analysis, and simulation.',
+            title: '🛠️ Essential Software for Electrical Engineers',
+            desc: 'A list of essential software tools for electrical engineering design, analysis, and automation.',
             s1: '🔹 Design & Drafting',
-            list1: ['AutoCAD Electrical','EPLAN Electric P8','SEE Electrical'],
-            s2: '🔹 Power System Analysis',
-            list2: ['ETAP','DIgSILENT PowerFactory','SKM PowerTools'],
-            s3: '🔹 Simulation & Calculation',
-            list3: ['MATLAB/Simulink','PSCAD','EMTP-RV'],
+            list1: ['AutoCAD Electrical – Electrical CAD','EPLAN – Engineering design','SEE Electrical'],
+            s2: '🔹 Simulation & Analysis',
+            list2: ['ETAP – Power system analysis','DIALux – Lighting design','SKM PowerTools'],
+            s3: '🔹 Automation & Programming',
+            list3: ['TIA Portal – Siemens PLC','Codesys – IEC 61131-3','WinCC – SCADA'],
             back: '← Back'
         },
         fa: {
-            title: '💻 نرم‌افزارهای مهندسی برق',
-            desc: 'ابزارهای نرم‌افزاری ضروری برای طراحی، تحلیل و شبیه‌سازی برق.',
+            title: '🛠️ نرم‌افزارهای ضروری برای مهندسان برق',
+            desc: 'لیستی از نرم‌افزارهای ضروری برای طراحی، تحلیل و اتوماسیون مهندسی برق.',
             s1: '🔹 طراحی و نقشه‌کشی',
-            list1: ['AutoCAD Electrical','EPLAN Electric P8','SEE Electrical'],
-            s2: '🔹 تحلیل سیستم‌های قدرت',
-            list2: ['ETAP','DIgSILENT PowerFactory','SKM PowerTools'],
-            s3: '🔹 شبیه‌سازی و محاسبات',
-            list3: ['MATLAB/Simulink','PSCAD','EMTP-RV'],
+            list1: ['AutoCAD Electrical – نقشه‌کشی برق','EPLAN – طراحی مهندسی','SEE Electrical'],
+            s2: '🔹 شبیه‌سازی و تحلیل',
+            list2: ['ETAP – تحلیل سیستم‌های قدرت','DIALux – طراحی روشنایی','SKM PowerTools'],
+            s3: '🔹 اتوماسیون و برنامه‌نویسی',
+            list3: ['TIA Portal – PLC زیمنس','Codesys – IEC 61131-3','WinCC – SCADA'],
             back: '← بازگشت'
         }
     };
