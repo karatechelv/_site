@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Electrical Resources</title>
+    <title>Karatech ELV · Resources</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
@@ -19,6 +19,7 @@
         .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
         .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
         .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
         .section ul{list-style:none;padding:0}
         .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
@@ -41,39 +42,39 @@
         </div>
     </div>
 
-    <h1 id="title">📚 Electrical Engineering Resources</h1>
-    <div class="sub" id="desc">Standards, references, and educational materials for electrical engineers.</div>
+    <h1 id="title">📚 Resources</h1>
+    <div class="sub" id="desc">Standards, handbooks, and reference materials for electrical engineering.</div>
 
     <div class="section">
         <h2 id="s1">🔹 International Standards</h2>
         <ul id="list1">
-            <li>IEC 60364 – Electrical Installations</li>
-            <li>IEC 61439 – Switchgear</li>
+            <li>IEC 60364 – Electrical installations</li>
+            <li>IEC 61439 – Switchgear and controlgear</li>
             <li>IEEE 80 – Earthing</li>
-            <li>NEC (NFPA 70)</li>
+            <li>NEC NFPA 70</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2 id="s2">🔹 References</h2>
+        <h2 id="s2">🔹 Handbooks</h2>
         <ul id="list2">
-            <li>Electrical Power Systems Design</li>
-            <li>Protection of Industrial Power Systems</li>
-            <li>Earthing and Grounding Guide</li>
+            <li>Electrical Engineering Handbook</li>
+            <li>IEEE Std 141 – Red Book</li>
+            <li>IEC 60909 – Short-circuit currents</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2 id="s3">🔹 Websites</h2>
+        <h2 id="s3">🔹 Useful Links</h2>
         <ul id="list3">
             <li>IEC Webstore</li>
             <li>IEEE Xplore</li>
-            <li>Electrical Engineering Portal</li>
+            <li>National Electrical Code (NEC)</li>
         </ul>
     </div>
 
     <div class="back">
-        <a href="electrical-index.html" id="backlink">← Back</a>
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
 
 </div>
@@ -81,25 +82,25 @@
 <script>
     const lang = {
         en: {
-            title: '📚 Electrical Engineering Resources',
-            desc: 'Standards, references, and educational materials for electrical engineers.',
+            title: '📚 Resources',
+            desc: 'Standards, handbooks, and reference materials for electrical engineering.',
             s1: '🔹 International Standards',
-            list1: ['IEC 60364 – Electrical Installations','IEC 61439 – Switchgear','IEEE 80 – Earthing','NEC (NFPA 70)'],
-            s2: '🔹 References',
-            list2: ['Electrical Power Systems Design','Protection of Industrial Power Systems','Earthing and Grounding Guide'],
-            s3: '🔹 Websites',
-            list3: ['IEC Webstore','IEEE Xplore','Electrical Engineering Portal'],
+            list1: ['IEC 60364 – Electrical installations','IEC 61439 – Switchgear and controlgear','IEEE 80 – Earthing','NEC NFPA 70'],
+            s2: '🔹 Handbooks',
+            list2: ['Electrical Engineering Handbook','IEEE Std 141 – Red Book','IEC 60909 – Short-circuit currents'],
+            s3: '🔹 Useful Links',
+            list3: ['IEC Webstore','IEEE Xplore','National Electrical Code (NEC)'],
             back: '← Back'
         },
         fa: {
-            title: '📚 منابع مهندسی برق',
-            desc: 'استانداردها، مراجع و مواد آموزشی برای مهندسان برق.',
+            title: '📚 منابع',
+            desc: 'استانداردها، کتابچه‌ها و مواد مرجع برای مهندسی برق.',
             s1: '🔹 استانداردهای بین‌المللی',
-            list1: ['IEC 60364 – تأسیسات الکتریکی','IEC 61439 – تابلوهای برق','IEEE 80 – ارتینگ','NEC (NFPA 70)'],
-            s2: '🔹 مراجع',
-            list2: ['طراحی سیستم‌های قدرت','حفاظت سیستم‌های قدرت صنعتی','راهنمای ارتینگ و زمین کردن'],
-            s3: '🔹 وب‌سایت‌ها',
-            list3: ['فروشگاه استانداردهای IEC','IEEE Xplore','پورتال مهندسی برق'],
+            list1: ['IEC 60364 – تأسیسات الکتریکی','IEC 61439 – تابلوهای برق','IEEE 80 – ارتینگ','NEC NFPA 70'],
+            s2: '🔹 کتابچه‌ها',
+            list2: ['راهنمای مهندسی برق','IEEE Std 141 – Red Book','IEC 60909 – جریان‌های اتصال کوتاه'],
+            s3: '🔹 لینک‌های مفید',
+            list3: ['فروشگاه IEC','IEEE Xplore','کد ملی برق (NEC)'],
             back: '← بازگشت'
         }
     };
