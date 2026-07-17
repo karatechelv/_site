@@ -1,147 +1,163 @@
 <!DOCTYPE html>
 <html>
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Karatech ELV · Sensors</title>
- <style>
- *{margin:0;padding:0;box-sizing:border-box}
- body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
- .container{max-width:1000px;margin:0 auto}
- .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
- .brand{font-weight:700;font-size:1.5rem;color:#fff}
- .brand span{color:#d4af37}
- .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
- .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
- .lang-btn:hover{background:#5b3b8c;color:#fff}
- .lang-switch{display:flex;gap:6px}
- h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
- .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
- .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
- .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
- .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
- .section ul{list-style:none;padding:0}
- .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
- .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
- .back{text-align:center;margin-top:30px}
- .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
- .back a:hover{text-decoration:underline}
- .lang-persian{direction:rtl}
- .lang-persian .header{flex-direction:row-reverse}
- @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
- </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Sensors & Transmitters</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
+        .container{max-width:1000px;margin:0 auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+        .brand{font-weight:700;font-size:1.5rem;color:#fff}
+        .brand span{color:#d4af37}
+        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
+        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
+        .lang-btn:hover{background:#5b3b8c;color:#fff}
+        .lang-switch{display:flex;gap:6px}
+        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
+        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
+        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
+        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
+        .section ul{list-style:none;padding:0}
+        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
+        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
+        .back{text-align:center;margin-top:30px}
+        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
+        .back a:hover{text-decoration:underline}
+        .lang-persian{direction:rtl}
+        .lang-persian .header{flex-direction:row-reverse}
+        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+    </style>
 </head>
 <body>
 <div class="container">
- <div class="header">
-  <div class="brand">KARATECH <span>ELV</span></div>
-  <div class="lang-switch">
-   <button class="lang-btn active" data-lang="en">EN</button>
-   <button class="lang-btn" data-lang="fa">FA</button>
-  </div>
- </div>
- <h1 id="title">Sensors in Instrumentation</h1>
- <div class="sub" id="desc">Industrial sensors for measuring temperature, pressure, flow, level, and other process variables.</div>
- <div class="section">
-  <h2 id="s1">What are Industrial Sensors?</h2>
-  <p id="s1p">Industrial sensors are devices that detect and respond to changes in physical conditions such as temperature, pressure, flow, or level. They convert these physical parameters into electrical signals that can be read by control systems.</p>
- </div>
- <div class="section">
-  <h2 id="s2">Temperature Sensors</h2>
-  <ul id="list1">
-   <li>Thermocouples (Type K, J, T, etc.)</li>
-   <li>Resistance Temperature Detectors (RTD – PT100)</li>
-   <li>Thermistors (NTC, PTC)</li>
-   <li>Infrared / Pyrometers (Non-contact)</li>
-   <li>Temperature Transmitters (4-20mA, HART)</li>
-  </ul>
- </div>
- <div class="section">
-  <h2 id="s3">Pressure Sensors</h2>
-  <ul id="list2">
-   <li>Piezoelectric Pressure Sensors</li>
-   <li>Strain Gauge Pressure Transducers</li>
-   <li>Capacitive Pressure Sensors</li>
-   <li>Differential Pressure Transmitters</li>
-   <li>Absolute, Gauge, and Vacuum Sensors</li>
-  </ul>
- </div>
- <div class="section">
-  <h2 id="s4">Flow & Level Sensors</h2>
-  <ul id="list3">
-   <li>Magnetic Flow Meters (Magflow)</li>
-   <li>Coriolis Mass Flow Meters</li>
-   <li>Ultrasonic Flow Meters</li>
-   <li>Radar Level Sensors</li>
-   <li>Ultrasonic Level Sensors</li>
-   <li>Capacitance Level Switches</li>
-  </ul>
- </div>
- <div class="section">
-  <h2 id="s5">Example: Temperature Measurement System</h2>
-  <p id="s5p">A PT100 RTD sensor measures temperature in a chemical reactor. The sensor sends a resistance signal to a temperature transmitter, which converts it to a 4-20mA signal and sends it to the PLC/DCS for control and monitoring.</p>
- </div>
- <div class="back">
-  <a href="javascript:history.back()" id="backlink">← Back</a>
- </div>
+
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+
+    <h1 id="title">📡 Sensors & Transmitters</h1>
+    <div class="sub" id="desc">Industrial sensors and transmitters for measuring temperature, pressure, flow, level, and other process variables.</div>
+
+    <div class="section">
+        <h2 id="s1">What are Sensors and Transmitters?</h2>
+        <p id="s1p">Sensors detect physical changes in the process (temperature, pressure, flow, level). Transmitters convert sensor signals into standardized outputs (4-20mA, HART, etc.) for control systems.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s2">🔹 Temperature</h2>
+        <ul id="list1">
+            <li>Thermocouples (Type K, J, T)</li>
+            <li>RTD (PT100)</li>
+            <li>Thermistors (NTC, PTC)</li>
+            <li>Temperature Transmitters</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s3">🔹 Pressure</h2>
+        <ul id="list2">
+            <li>Piezoelectric Sensors</li>
+            <li>Strain Gauge Transducers</li>
+            <li>Capacitive Pressure Sensors</li>
+            <li>Differential Pressure Transmitters</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Flow & Level</h2>
+        <ul id="list3">
+            <li>Magnetic Flow Meters (Magflow)</li>
+            <li>Coriolis Mass Flow Meters</li>
+            <li>Ultrasonic Flow Meters</li>
+            <li>Radar Level Sensors</li>
+            <li>Ultrasonic Level Sensors</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s5">🔹 Example System</h2>
+        <p id="s5p">A PT100 RTD sensor measures temperature in a reactor. The signal goes to a temperature transmitter, which outputs 4-20mA to the PLC/DCS for control and monitoring.</p>
+    </div>
+
+    <div class="back">
+        <a href="javascript:history.back()" id="backlink">← Back</a>
+    </div>
+
 </div>
+
 <script>
-const lang = {
- en: {
-  title: 'Sensors in Instrumentation',
-  desc: 'Industrial sensors for measuring temperature, pressure, flow, level, and other process variables.',
-  s1: 'What are Industrial Sensors?',
-  s1p: 'Industrial sensors are devices that detect and respond to changes in physical conditions such as temperature, pressure, flow, or level. They convert these physical parameters into electrical signals that can be read by control systems.',
-  s2: 'Temperature Sensors',
-  list1: ['Thermocouples (Type K, J, T, etc.)','Resistance Temperature Detectors (RTD – PT100)','Thermistors (NTC, PTC)','Infrared / Pyrometers (Non-contact)','Temperature Transmitters (4-20mA, HART)'],
-  s3: 'Pressure Sensors',
-  list2: ['Piezoelectric Pressure Sensors','Strain Gauge Pressure Transducers','Capacitive Pressure Sensors','Differential Pressure Transmitters','Absolute, Gauge, and Vacuum Sensors'],
-  s4: 'Flow & Level Sensors',
-  list3: ['Magnetic Flow Meters (Magflow)','Coriolis Mass Flow Meters','Ultrasonic Flow Meters','Radar Level Sensors','Ultrasonic Level Sensors','Capacitance Level Switches'],
-  s5: 'Example: Temperature Measurement System',
-  s5p: 'A PT100 RTD sensor measures temperature in a chemical reactor. The sensor sends a resistance signal to a temperature transmitter, which converts it to a 4-20mA signal and sends it to the PLC/DCS for control and monitoring.',
-  back: '← Back'
- },
- fa: {
-  title: 'سنسورها در ابزار دقیق',
-  desc: 'سنسورهای صنعتی برای اندازه‌گیری دما، فشار، جریان، سطح و سایر متغیرهای فرآیندی.',
-  s1: 'سنسورهای صنعتی چیستند؟',
-  s1p: 'سنسورهای صنعتی وسایلی هستند که تغییرات در شرایط فیزیکی مانند دما، فشار، جریان یا سطح را تشخیص داده و به آنها پاسخ می‌دهند. آنها این پارامترهای فیزیکی را به سیگنال‌های الکتریکی قابل خواندن توسط سیستم‌های کنترل تبدیل می‌کنند.',
-  s2: 'سنسورهای دما',
-  list1: ['ترموکوپل‌ها (نوع K، J، T و ...)','تشخیص‌دهنده‌های دمای مقاومتی (RTD – PT100)','ترمیستورها (NTC، PTC)','مادون قرمز / پیرومتر (بدون تماس)','ترانسمیترهای دما (4-20mA، HART)'],
-  s3: 'سنسورهای فشار',
-  list2: ['سنسورهای فشار پیزوالکتریک','مبدل‌های فشار با کرنش‌سنج','سنسورهای فشار خازنی','ترانسمیترهای فشار تفاضلی','سنسورهای مطلق، گیج و خلأ'],
-  s4: 'سنسورهای جریان و سطح',
-  list3: ['فلومترهای مغناطیسی (Magflow)','فلومترهای جرمی کوریولیس','فلومترهای اولتراسونیک','سنسورهای سطح راداری','سنسورهای سطح اولتراسونیک','سوئیچ‌های سطح خازنی'],
-  s5: 'مثال: سیستم اندازه‌گیری دما',
-  s5p: 'یک سنسور PT100 RTD دما را در یک راکتور شیمیایی اندازه‌گیری می‌کند. سنسور یک سیگنال مقاومتی به ترانسمیتر دما ارسال می‌کند که آن را به سیگنال 4-20mA تبدیل کرده و به PLC/DCS برای کنترل و نظارت ارسال می‌کند.',
-  back: '← بازگشت'
- }
-};
-function setLang(l) {
- const t = lang[l]; if (!t) return;
- document.getElementById('title').textContent = t.title;
- document.getElementById('desc').textContent = t.desc;
- document.getElementById('s1').textContent = t.s1;
- document.getElementById('s1p').textContent = t.s1p;
- document.getElementById('s2').textContent = t.s2;
- document.getElementById('s3').textContent = t.s3;
- document.getElementById('s4').textContent = t.s4;
- document.getElementById('s5').textContent = t.s5;
- document.getElementById('s5p').textContent = t.s5p;
- document.getElementById('backlink').textContent = t.back;
- ['list1','list2','list3'].forEach(id => {
-  const ul = document.getElementById(id);
-  ul.innerHTML = '';
-  t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
- });
- document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
- document.body.classList.toggle('lang-persian', l === 'fa');
- localStorage.setItem('karatech-lang', l);
-}
-document.querySelectorAll('.lang-btn').forEach(btn => { btn.onclick = function() { setLang(this.dataset.lang); }; });
-const savedLang = localStorage.getItem('karatech-lang') || 'en';
-setLang(savedLang);
+    const lang = {
+        en: {
+            title: '📡 Sensors & Transmitters',
+            desc: 'Industrial sensors and transmitters for measuring temperature, pressure, flow, level, and other process variables.',
+            s1: 'What are Sensors and Transmitters?',
+            s1p: 'Sensors detect physical changes in the process (temperature, pressure, flow, level). Transmitters convert sensor signals into standardized outputs (4-20mA, HART, etc.) for control systems.',
+            s2: '🔹 Temperature',
+            list1: ['Thermocouples (Type K, J, T)','RTD (PT100)','Thermistors (NTC, PTC)','Temperature Transmitters'],
+            s3: '🔹 Pressure',
+            list2: ['Piezoelectric Sensors','Strain Gauge Transducers','Capacitive Pressure Sensors','Differential Pressure Transmitters'],
+            s4: '🔹 Flow & Level',
+            list3: ['Magnetic Flow Meters (Magflow)','Coriolis Mass Flow Meters','Ultrasonic Flow Meters','Radar Level Sensors','Ultrasonic Level Sensors'],
+            s5: '🔹 Example System',
+            s5p: 'A PT100 RTD sensor measures temperature in a reactor. The signal goes to a temperature transmitter, which outputs 4-20mA to the PLC/DCS for control and monitoring.',
+            back: '← Back'
+        },
+        fa: {
+            title: '📡 سنسورها و ترانسمیترها',
+            desc: 'سنسورها و ترانسمیترهای صنعتی برای اندازه‌گیری دما، فشار، جریان، سطح و سایر متغیرهای فرآیندی.',
+            s1: 'سنسورها و ترانسمیترها چیستند؟',
+            s1p: 'سنسورها تغییرات فیزیکی در فرآیند (دما، فشار، جریان، سطح) را تشخیص می‌دهند. ترانسمیترها سیگنال‌های سنسور را به خروجی‌های استاندارد (4-20mA، HART و ...) برای سیستم‌های کنترل تبدیل می‌کنند.',
+            s2: '🔹 دما',
+            list1: ['ترموکوپل‌ها (نوع K، J، T)','RTD (PT100)','ترمیستورها (NTC، PTC)','ترانسمیترهای دما'],
+            s3: '🔹 فشار',
+            list2: ['سنسورهای پیزوالکتریک','مبدل‌های کرنش‌سنج','سنسورهای فشار خازنی','ترانسمیترهای فشار تفاضلی'],
+            s4: '🔹 جریان و سطح',
+            list3: ['فلومترهای مغناطیسی (Magflow)','فلومترهای جرمی کوریولیس','فلومترهای اولتراسونیک','سنسورهای سطح راداری','سنسورهای سطح اولتراسونیک'],
+            s5: '🔹 مثال سیستم',
+            s5p: 'یک سنسور PT100 RTD دما را در یک راکتور اندازه‌گیری می‌کند. سیگنال به ترانسمیتر دما می‌رود که خروجی 4-20mA را به PLC/DCS برای کنترل و نظارت ارسال می‌کند.',
+            back: '← بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('desc').textContent = t.desc;
+        document.getElementById('s1').textContent = t.s1;
+        document.getElementById('s1p').textContent = t.s1p;
+        document.getElementById('s2').textContent = t.s2;
+        document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('s5').textContent = t.s5;
+        document.getElementById('s5p').textContent = t.s5p;
+        document.getElementById('backlink').textContent = t.back;
+
+        ['list1','list2','list3'].forEach(id => {
+            const ul = document.getElementById(id);
+            ul.innerHTML = '';
+            t[id].forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
 </script>
+
 </body>
 </html>
