@@ -23,14 +23,6 @@
         .section ul{list-style:none;padding:0}
         .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
-        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
-        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
-        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
-        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
-        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
-        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
-        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
         .back{text-align:center;margin-top:30px}
         .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
@@ -50,46 +42,37 @@
         </div>
     </div>
 
-    <h1 id="title">⚡ Power System Analysis</h1>
-    <div class="sub" id="desc">Calculate load flow, short-circuit current, power, and impedance for electrical power systems.</div>
+    <h1 id="title">📈 Power System Analysis</h1>
+    <div class="sub" id="desc">Load flow, short-circuit, stability, and protection studies.</div>
 
     <div class="section">
-        <h2 id="s1">What is Power System Analysis?</h2>
-        <p id="s1p">Power system analysis involves calculating load flow, fault currents, system stability, and protection coordination to ensure reliable and safe operation of electrical networks.</p>
+        <h2 id="s1">🔹 Load Flow Analysis</h2>
+        <p id="s1p">Load flow analysis determines the voltage, current, and power flow in a power system under steady-state conditions. It is essential for planning and operation.</p>
     </div>
 
     <div class="section">
-        <h2 id="s2">🧮 Power System Calculator</h2>
-        <div class="calc-box">
-            <label id="l1">Voltage (V)</label>
-            <input type="number" id="ps-voltage" value="400">
-            <label id="l2">Current (A)</label>
-            <input type="number" id="ps-current" value="100">
-            <label id="l3">Power Factor</label>
-            <input type="number" id="ps-pf" value="0.85" step="0.01">
-            <label id="l4">Impedance (Ω)</label>
-            <input type="number" id="ps-z" value="0.5">
-            <button class="calc-btn" onclick="calcPowerSystem()" id="btn-calc">Calculate</button>
-            <div class="result-box" id="ps-result">
-                <span id="r1">Power: 58.9 kW</span><br>
-                <span style="font-size:0.9rem;color:#8e95a5;" id="r2">Short-circuit: 0.46 kA</span>
-            </div>
-        </div>
-        <div class="code-box">P = √3 × V × I × PF &nbsp; Isc = V / (√3 × Z)</div>
+        <h2 id="s2">🔹 Short-Circuit Analysis</h2>
+        <p id="s2p">Short-circuit studies are performed to determine the fault currents and select appropriate protective devices. They ensure system safety and equipment protection.</p>
     </div>
 
     <div class="section">
-        <h2 id="s3">Key Factors</h2>
+        <h2 id="s3">🔹 Stability Analysis</h2>
+        <p id="s3p">Power system stability refers to the ability of the system to maintain synchronism after a disturbance. Transient and voltage stability are key aspects.</p>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">🔹 Key Studies</h2>
         <ul id="list1">
-            <li>Load flow analysis for voltage profiles</li>
-            <li>Short-circuit current for equipment sizing</li>
-            <li>Power factor and reactive power</li>
-            <li>System stability and protection</li>
+            <li>Load flow (power flow)</li>
+            <li>Short-circuit (fault) analysis</li>
+            <li>Transient stability</li>
+            <li>Voltage stability</li>
+            <li>Protection coordination</li>
         </ul>
     </div>
 
     <div class="back">
-        <a href="electrical-index.html" id="backlink">← Back</a>
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
 
 </div>
@@ -97,31 +80,29 @@
 <script>
     const lang = {
         en: {
-            title: '⚡ Power System Analysis',
-            desc: 'Calculate load flow, short-circuit current, power, and impedance for electrical power systems.',
-            s1: 'What is Power System Analysis?',
-            s1p: 'Power system analysis involves calculating load flow, fault currents, system stability, and protection coordination to ensure reliable and safe operation of electrical networks.',
-            s2: '🧮 Power System Calculator',
-            l1: 'Voltage (V)', l2: 'Current (A)', l3: 'Power Factor', l4: 'Impedance (Ω)',
-            btn: 'Calculate',
-            r1: 'Power: 58.9 kW',
-            r2: 'Short-circuit: 0.46 kA',
-            s3: 'Key Factors',
-            list1: ['Load flow analysis for voltage profiles','Short-circuit current for equipment sizing','Power factor and reactive power','System stability and protection'],
+            title: '📈 Power System Analysis',
+            desc: 'Load flow, short-circuit, stability, and protection studies.',
+            s1: '🔹 Load Flow Analysis',
+            s1p: 'Load flow analysis determines the voltage, current, and power flow in a power system under steady-state conditions. It is essential for planning and operation.',
+            s2: '🔹 Short-Circuit Analysis',
+            s2p: 'Short-circuit studies are performed to determine the fault currents and select appropriate protective devices. They ensure system safety and equipment protection.',
+            s3: '🔹 Stability Analysis',
+            s3p: 'Power system stability refers to the ability of the system to maintain synchronism after a disturbance. Transient and voltage stability are key aspects.',
+            s4: '🔹 Key Studies',
+            list1: ['Load flow (power flow)','Short-circuit (fault) analysis','Transient stability','Voltage stability','Protection coordination'],
             back: '← Back'
         },
         fa: {
-            title: '⚡ تحلیل سیستم‌های قدرت',
-            desc: 'محاسبه جریان بار، جریان اتصال کوتاه، توان و امپدانس برای سیستم‌های قدرت الکتریکی.',
-            s1: 'تحلیل سیستم‌های قدرت چیست؟',
-            s1p: 'تحلیل سیستم‌های قدرت شامل محاسبات جریان بار، جریان خطا، پایداری سیستم و هماهنگی حفاظت برای اطمینان از عملکرد قابل اعتماد و ایمن شبکه‌های الکتریکی است.',
-            s2: '🧮 ماشین حساب تحلیل سیستم قدرت',
-            l1: 'ولتاژ (V)', l2: 'جریان (A)', l3: 'ضریب توان', l4: 'امپدانس (Ω)',
-            btn: 'محاسبه',
-            r1: 'توان: 58.9 کیلووات',
-            r2: 'اتصال کوتاه: 0.46 کیلوآمپر',
-            s3: 'عوامل کلیدی',
-            list1: ['تحلیل جریان بار برای پروفایل ولتاژ','جریان اتصال کوتاه برای سایزینگ تجهیزات','ضریب توان و توان راکتیو','پایداری سیستم و حفاظت'],
+            title: '📈 تحلیل سیستم‌های قدرت',
+            desc: 'مطالعات بار، اتصال کوتاه، پایداری و حفاظت.',
+            s1: '🔹 تحلیل بار',
+            s1p: 'تحلیل بار ولتاژ، جریان و توان را در سیستم قدرت در حالت پایدار تعیین می‌کند. برای برنامه‌ریزی و بهره‌برداری ضروری است.',
+            s2: '🔹 تحلیل اتصال کوتاه',
+            s2p: 'مطالعات اتصال کوتاه برای تعیین جریان‌های خطا و انتخاب تجهیزات حفاظتی مناسب انجام می‌شود. ایمنی سیستم و حفاظت تجهیزات را تضمین می‌کند.',
+            s3: '🔹 تحلیل پایداری',
+            s3p: 'پایداری سیستم قدرت به توانایی سیستم در حفظ همزمانی پس از یک اغتشاش اشاره دارد. پایداری گذرا و ولتاژ جنبه‌های کلیدی هستند.',
+            s4: '🔹 مطالعات کلیدی',
+            list1: ['تحلیل بار','تحلیل اتصال کوتاه','پایداری گذرا','پایداری ولتاژ','هماهنگی حفاظت'],
             back: '← بازگشت'
         }
     };
@@ -134,14 +115,10 @@
         document.getElementById('s1').textContent = t.s1;
         document.getElementById('s1p').textContent = t.s1p;
         document.getElementById('s2').textContent = t.s2;
-        document.getElementById('l1').textContent = t.l1;
-        document.getElementById('l2').textContent = t.l2;
-        document.getElementById('l3').textContent = t.l3;
-        document.getElementById('l4').textContent = t.l4;
-        document.getElementById('btn-calc').textContent = t.btn;
-        document.getElementById('r1').textContent = t.r1;
-        document.getElementById('r2').textContent = t.r2;
+        document.getElementById('s2p').textContent = t.s2p;
         document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s3p').textContent = t.s3p;
+        document.getElementById('s4').textContent = t.s4;
         document.getElementById('backlink').textContent = t.back;
 
         const ul = document.getElementById('list1');
@@ -153,27 +130,12 @@
         localStorage.setItem('karatech-lang', l);
     }
 
-    function calcPowerSystem() {
-        var V = parseFloat(document.getElementById('ps-voltage').value);
-        var I = parseFloat(document.getElementById('ps-current').value);
-        var pf = parseFloat(document.getElementById('ps-pf').value);
-        var Z = parseFloat(document.getElementById('ps-z').value);
-        if (isNaN(V) || isNaN(I) || isNaN(pf) || isNaN(Z)) { return; }
-        var P = Math.sqrt(3) * V * I * pf / 1000;
-        var Isc = V / (Math.sqrt(3) * Z) / 1000;
-        var lang = document.querySelector('.lang-btn.active').dataset.lang;
-        document.getElementById('ps-result').innerHTML =
-            '<span id="r1">' + (lang === 'fa' ? 'توان: ' + P.toFixed(2) + ' کیلووات' : 'Power: ' + P.toFixed(2) + ' kW') + '</span><br>' +
-            '<span style="font-size:0.9rem;color:#8e95a5;" id="r2">' + (lang === 'fa' ? 'اتصال کوتاه: ' + Isc.toFixed(3) + ' کیلوآمپر' : 'Short-circuit: ' + Isc.toFixed(3) + ' kA') + '</span>';
-    }
-
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); calcPowerSystem(); };
+        btn.onclick = function() { setLang(this.dataset.lang); };
     });
 
     const savedLang = localStorage.getItem('karatech-lang') || 'en';
     setLang(savedLang);
-    calcPowerSystem();
 </script>
 
 </body>
