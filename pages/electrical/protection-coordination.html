@@ -23,20 +23,24 @@
         .section ul{list-style:none;padding:0}
         .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
-        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
-        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
-        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
-        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
-        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
-        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
-        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
         .back{text-align:center;margin-top:30px}
         .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
         .back a:hover{text-decoration:underline}
         .lang-persian{direction:rtl}
         .lang-persian .header{flex-direction:row-reverse}
         @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+        table{width:100%;border-collapse:collapse;margin:10px 0;color:#b0b8c5}
+        table th{background:#2a2f3a;color:#d4af37;padding:10px;text-align:left}
+        table td{padding:10px;border-bottom:1px solid #1e2128}
+        table tr:hover{background:#1a1d24}
+        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
+        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
+        .calc-box select{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
+        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
+        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
+        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
+        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
+        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
     </style>
 </head>
 <body>
@@ -51,45 +55,77 @@
     </div>
 
     <h1 id="title">🛡️ Protection Coordination</h1>
-    <div class="sub" id="desc">Calculate relay settings, pickup current, and time grading for overcurrent protection coordination.</div>
+    <div class="sub" id="desc">Protective devices, relay settings, and coordination for electrical systems.</div>
 
     <div class="section">
         <h2 id="s1">What is Protection Coordination?</h2>
-        <p id="s1p">Protection coordination ensures that only the faulty section of a power system is isolated during a fault. This is achieved by grading the time-current characteristics of protective devices like relays and circuit breakers.</p>
+        <p id="s1p">Protection coordination ensures that protective devices operate in a coordinated manner to isolate faults while minimizing system disruption. It involves selecting and setting relays, circuit breakers, and fuses.</p>
     </div>
 
     <div class="section">
-        <h2 id="s2">🧮 Relay Setting Calculator</h2>
+        <h2 id="s2">🧮 Protection Coordination Calculator</h2>
         <div class="calc-box">
-            <label id="l1">Load Current (A)</label>
-            <input type="number" id="pc-load" value="100">
-            <label id="l2">CT Ratio</label>
-            <input type="number" id="pc-ct" value="100/5" step="1">
-            <label id="l3">Pickup Multiplier</label>
-            <input type="number" id="pc-pickup" value="1.2" step="0.1">
+            <label id="l1">Fault Current (kA)</label>
+            <input type="number" id="fault-current" value="10">
+            <label id="l2">Relve Type</label>
+            <select id="relay-type">
+                <option value="inverse">Inverse Time</option>
+                <option value="very-inverse">Very Inverse</option>
+                <option value="extremely-inverse">Extremely Inverse</option>
+            </select>
+            <label id="l3">Pickup Current (A)</label>
+            <input type="number" id="pickup-current" value="100">
             <label id="l4">Time Dial (TMS)</label>
-            <input type="number" id="pc-tms" value="0.1" step="0.01">
-            <button class="calc-btn" onclick="calcProtection()" id="btn-calc">Calculate</button>
-            <div class="result-box" id="pc-result">
-                <span id="r1">Pickup: 120 A</span><br>
-                <span style="font-size:0.9rem;color:#8e95a5;" id="r2">Relay Setting: 1.20 A</span>
+            <input type="number" id="time-dial" value="0.1" step="0.01">
+            <button class="calc-btn" onclick="calcCoordination()" id="btn-calc">Calculate</button>
+            <div class="result-box" id="coord-result">
+                <span id="r1">Tripping Time: 0.35 s</span><br>
+                <span style="font-size:0.9rem;color:#8e95a5;" id="r2">Status: Coordinated</span>
             </div>
         </div>
-        <div class="code-box">I_pickup = I_load × multiplier &nbsp; I_relay = I_pickup / CT</div>
+        <div class="code-box" style="background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0;">t = TMS × (A / (I_fault / I_pickup)^B - 1)</div>
     </div>
 
     <div class="section">
-        <h2 id="s3">Key Factors</h2>
+        <h2 id="s3">📊 Relay Time-Current Characteristics</h2>
+        <table>
+            <thead>
+                <tr><th id="t1">Relay Type</th><th id="t2">Curve</th><th id="t3">A</th><th id="t4">B</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Inverse</td><td>Normal</td><td>0.14</td><td>0.02</td></tr>
+                <tr><td>Very Inverse</td><td>Steep</td><td>13.5</td><td>1.0</td></tr>
+                <tr><td>Extremely Inverse</td><td>Very Steep</td><td>80.0</td><td>2.0</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">📊 Recommended Coordination Times</h2>
+        <table>
+            <thead>
+                <tr><th id="t5">Protection Level</th><th id="t6">Time Interval (s)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Main feeder</td><td>0.3 - 0.5</td></tr>
+                <tr><td>Distribution feeder</td><td>0.2 - 0.4</td></tr>
+                <tr><td>Transformer</td><td>0.1 - 0.3</td></tr>
+                <tr><td>Motor</td><td>0.05 - 0.15</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2 id="s5">Key Standards</h2>
         <ul id="list1">
-            <li>Selectivity between upstream and downstream devices</li>
-            <li>Time-current characteristic curves</li>
-            <li>CT and VT ratios</li>
-            <li>Fault current levels</li>
+            <li>IEC 60255 – Relays</li>
+            <li>IEEE C37.112 – Inverse-time characteristics</li>
+            <li>IEC 60909 – Short-circuit currents</li>
         </ul>
     </div>
 
     <div class="back">
-        <a href="electrical-index.html" id="backlink">← Back</a>
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
 
 </div>
@@ -98,30 +134,38 @@
     const lang = {
         en: {
             title: '🛡️ Protection Coordination',
-            desc: 'Calculate relay settings, pickup current, and time grading for overcurrent protection coordination.',
+            desc: 'Protective devices, relay settings, and coordination for electrical systems.',
             s1: 'What is Protection Coordination?',
-            s1p: 'Protection coordination ensures that only the faulty section of a power system is isolated during a fault. This is achieved by grading the time-current characteristics of protective devices like relays and circuit breakers.',
-            s2: '🧮 Relay Setting Calculator',
-            l1: 'Load Current (A)', l2: 'CT Ratio', l3: 'Pickup Multiplier', l4: 'Time Dial (TMS)',
+            s1p: 'Protection coordination ensures that protective devices operate in a coordinated manner to isolate faults while minimizing system disruption. It involves selecting and setting relays, circuit breakers, and fuses.',
+            s2: '🧮 Protection Coordination Calculator',
+            l1: 'Fault Current (kA)', l2: 'Relay Type', l3: 'Pickup Current (A)', l4: 'Time Dial (TMS)',
             btn: 'Calculate',
-            r1: 'Pickup: 120 A',
-            r2: 'Relay Setting: 1.20 A',
-            s3: 'Key Factors',
-            list1: ['Selectivity between upstream and downstream devices','Time-current characteristic curves','CT and VT ratios','Fault current levels'],
+            r1: 'Tripping Time: 0.35 s',
+            r2: 'Status: Coordinated',
+            s3: '📊 Relay Time-Current Characteristics',
+            t1: 'Relay Type', t2: 'Curve', t3: 'A', t4: 'B',
+            s4: '📊 Recommended Coordination Times',
+            t5: 'Protection Level', t6: 'Time Interval (s)',
+            s5: 'Key Standards',
+            list1: ['IEC 60255 – Relays','IEEE C37.112 – Inverse-time characteristics','IEC 60909 – Short-circuit currents'],
             back: '← Back'
         },
         fa: {
             title: '🛡️ هماهنگی حفاظت',
-            desc: 'محاسبه تنظیمات رله، جریان pick-up و زمان‌بندی برای هماهنگی حفاظت اضافه‌جریان.',
+            desc: 'تجهیزات حفاظتی، تنظیمات رله و هماهنگی برای سیستم‌های الکتریکی.',
             s1: 'هماهنگی حفاظت چیست؟',
-            s1p: 'هماهنگی حفاظت تضمین می‌کند که فقط بخش معیوب سیستم قدرت در هنگام خطا جدا شود. این کار با درجه‌بندی مشخصات زمان-جریان تجهیزات حفاظتی مانند رله‌ها و کلیدهای مدار انجام می‌شود.',
-            s2: '🧮 ماشین حساب تنظیم رله',
-            l1: 'جریان بار (A)', l2: 'نسبت CT', l3: 'ضریب pick-up', l4: 'زمان (TMS)',
+            s1p: 'هماهنگی حفاظت تضمین می‌کند که تجهیزات حفاظتی به صورت هماهنگ برای جداسازی خطاها با حداقل اختلال در سیستم عمل کنند. شامل انتخاب و تنظیم رله‌ها، کلیدهای مدار و فیوزها است.',
+            s2: '🧮 ماشین حساب هماهنگی حفاظت',
+            l1: 'جریان خطا (kA)', l2: 'نوع رله', l3: 'جریان پیکاپ (A)', l4: 'Time Dial (TMS)',
             btn: 'محاسبه',
-            r1: 'Pick-up: 120 آمپر',
-            r2: 'تنظیم رله: 1.20 آمپر',
-            s3: 'عوامل کلیدی',
-            list1: ['انتخابی بودن بین تجهیزات بالادست و پایین‌دست','منحنی‌های مشخصه زمان-جریان','نسبت‌های CT و VT','سطوح جریان خطا'],
+            r1: 'زمان قطع: 0.35 ثانیه',
+            r2: 'وضعیت: هماهنگ',
+            s3: '📊 مشخصات زمانی-جریان رله',
+            t1: 'نوع رله', t2: 'منحنی', t3: 'A', t4: 'B',
+            s4: '📊 زمان‌های هماهنگی پیشنهادی',
+            t5: 'سطح حفاظت', t6: 'فاصله زمانی (ثانیه)',
+            s5: 'استانداردهای کلیدی',
+            list1: ['IEC 60255 – رله‌ها','IEEE C37.112 – مشخصات معکوس','IEC 60909 – جریان‌های اتصال کوتاه'],
             back: '← بازگشت'
         }
     };
@@ -142,6 +186,14 @@
         document.getElementById('r1').textContent = t.r1;
         document.getElementById('r2').textContent = t.r2;
         document.getElementById('s3').textContent = t.s3;
+        document.getElementById('t1').textContent = t.t1;
+        document.getElementById('t2').textContent = t.t2;
+        document.getElementById('t3').textContent = t.t3;
+        document.getElementById('t4').textContent = t.t4;
+        document.getElementById('s4').textContent = t.s4;
+        document.getElementById('t5').textContent = t.t5;
+        document.getElementById('t6').textContent = t.t6;
+        document.getElementById('s5').textContent = t.s5;
         document.getElementById('backlink').textContent = t.back;
 
         const ul = document.getElementById('list1');
@@ -153,27 +205,35 @@
         localStorage.setItem('karatech-lang', l);
     }
 
-    function calcProtection() {
-        var Iload = parseFloat(document.getElementById('pc-load').value);
-        var ct = parseFloat(document.getElementById('pc-ct').value);
-        var mult = parseFloat(document.getElementById('pc-pickup').value);
-        var tms = parseFloat(document.getElementById('pc-tms').value);
-        if (isNaN(Iload) || isNaN(ct) || isNaN(mult) || isNaN(tms)) { return; }
-        var pickup = Iload * mult;
-        var relay = pickup / ct;
-        var lang = document.querySelector('.lang-btn.active').dataset.lang;
-        document.getElementById('pc-result').innerHTML =
-            '<span id="r1">' + (lang === 'fa' ? 'Pick-up: ' + pickup.toFixed(2) + ' A' : 'Pickup: ' + pickup.toFixed(2) + ' A') + '</span><br>' +
-            '<span style="font-size:0.9rem;color:#8e95a5;" id="r2">' + (lang === 'fa' ? 'تنظیم رله: ' + relay.toFixed(2) + ' A' : 'Relay Setting: ' + relay.toFixed(2) + ' A') + '</span>';
+    function calcCoordination() {
+        var If = parseFloat(document.getElementById('fault-current').value);
+        var Ipickup = parseFloat(document.getElementById('pickup-current').value);
+        var TMS = parseFloat(document.getElementById('time-dial').value);
+        var type = document.getElementById('relay-type').value;
+        var A, B;
+        if (type === 'inverse') { A = 0.14; B = 0.02; }
+        else if (type === 'very-inverse') { A = 13.5; B = 1.0; }
+        else { A = 80.0; B = 2.0; }
+        var ratio = (If * 1000) / Ipickup;
+        var t = TMS * A / (Math.pow(ratio, B) - 1);
+        t = Math.max(t, 0.01);
+        var status = t <= 0.5 ? 'Coordinated' : 'Check Settings';
+        var statusFa = t <= 0.5 ? 'هماهنگ' : 'بررسی تنظیمات';
+        document.getElementById('coord-result').innerHTML = 
+            '<span id="r1">' + (document.querySelector('.lang-btn.active').dataset.lang === 'fa' ? 'زمان قطع: ' + t.toFixed(2) + ' ثانیه' : 'Tripping Time: ' + t.toFixed(2) + ' s') + '</span><br>' +
+            '<span style="font-size:0.9rem;color:#8e95a5;" id="r2">' + (document.querySelector('.lang-btn.active').dataset.lang === 'fa' ? 'وضعیت: ' + statusFa : 'Status: ' + status) + '</span>';
     }
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); calcProtection(); };
+        btn.onclick = function() { 
+            setLang(this.dataset.lang); 
+            calcCoordination();
+        };
     });
 
     const savedLang = localStorage.getItem('karatech-lang') || 'en';
     setLang(savedLang);
-    calcProtection();
+    calcCoordination();
 </script>
 
 </body>
