@@ -19,6 +19,7 @@
         .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
         .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
         .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
+        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
         .section ul{list-style:none;padding:0}
         .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
         .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
@@ -28,6 +29,9 @@
         .lang-persian{direction:rtl}
         .lang-persian .header{flex-direction:row-reverse}
         @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+        .step-container{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+        .step{background:#2a2f3a;padding:12px 20px;border-radius:30px;color:#d4af37;font-weight:600;font-size:.9rem;border:1px solid rgba(212,175,55,0.15)}
+        .step-arrow{color:#8e95a5;font-size:1.2rem}
     </style>
 </head>
 <body>
@@ -42,37 +46,59 @@
     </div>
 
     <h1 id="title">🗺️ Learning Path</h1>
-    <div class="sub" id="desc">A structured learning path for electrical engineering from fundamentals to advanced topics.</div>
+    <div class="sub" id="desc">From foundation to advanced electrical engineering. A structured learning roadmap.</div>
 
     <div class="section">
-        <h2 id="s1">🔹 Foundation</h2>
+        <h2 id="s1">📘 Foundation Level</h2>
         <ul id="list1">
-            <li>Basic electrical circuits (AC/DC)</li>
-            <li>Ohm's law and power calculations</li>
-            <li>Electrical safety fundamentals</li>
+            <li>Basic electrical concepts (Voltage, Current, Resistance)</li>
+            <li>Ohm's Law and Kirchhoff's Laws</li>
+            <li>AC/DC fundamentals</li>
+            <li>Basic circuit analysis</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2 id="s2">🔹 Intermediate</h2>
+        <h2 id="s2">📗 Intermediate Level</h2>
         <ul id="list2">
-            <li>Power systems analysis</li>
-            <li>Transformer and motor selection</li>
-            <li>Protection and earthing design</li>
+            <li>Power systems and load flow</li>
+            <li>Transformer and motor theory</li>
+            <li>Protection and relay coordination</li>
+            <li>Cable sizing and voltage drop</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2 id="s3">🔹 Advanced</h2>
+        <h2 id="s3">📕 Advanced Level</h2>
         <ul id="list3">
-            <li>Smart grids and renewable energy</li>
-            <li>Power system protection coordination</li>
-            <li>Engineering project management</li>
+            <li>Power system analysis and fault studies</li>
+            <li>Earthing design and safety</li>
+            <li>SCADA and automation systems</li>
+            <li>Project management and standards</li>
         </ul>
+    </div>
+
+    <div class="section">
+        <h2 id="s4">📌 Suggested Roadmap</h2>
+        <div class="step-container">
+            <span class="step">1. Basics</span>
+            <span class="step-arrow">→</span>
+            <span class="step">2. Circuits</span>
+            <span class="step-arrow">→</span>
+            <span class="step">3. Power</span>
+            <span class="step-arrow">→</span>
+            <span class="step">4. Protection</span>
+            <span class="step-arrow">→</span>
+            <span class="step">5. Design</span>
+            <span class="step-arrow">→</span>
+            <span class="step">6. Automation</span>
+            <span class="step-arrow">→</span>
+            <span class="step">7. Advanced</span>
+        </div>
     </div>
 
     <div class="back">
-        <a href="electrical-index.html" id="backlink">← Back</a>
+        <a href="javascript:history.back()" id="backlink">← Back</a>
     </div>
 
 </div>
@@ -81,24 +107,26 @@
     const lang = {
         en: {
             title: '🗺️ Learning Path',
-            desc: 'A structured learning path for electrical engineering from fundamentals to advanced topics.',
-            s1: '🔹 Foundation',
-            list1: ['Basic electrical circuits (AC/DC)','Ohm\'s law and power calculations','Electrical safety fundamentals'],
-            s2: '🔹 Intermediate',
-            list2: ['Power systems analysis','Transformer and motor selection','Protection and earthing design'],
-            s3: '🔹 Advanced',
-            list3: ['Smart grids and renewable energy','Power system protection coordination','Engineering project management'],
+            desc: 'From foundation to advanced electrical engineering. A structured learning roadmap.',
+            s1: '📘 Foundation Level',
+            list1: ['Basic electrical concepts (Voltage, Current, Resistance)','Ohm\'s Law and Kirchhoff\'s Laws','AC/DC fundamentals','Basic circuit analysis'],
+            s2: '📗 Intermediate Level',
+            list2: ['Power systems and load flow','Transformer and motor theory','Protection and relay coordination','Cable sizing and voltage drop'],
+            s3: '📕 Advanced Level',
+            list3: ['Power system analysis and fault studies','Earthing design and safety','SCADA and automation systems','Project management and standards'],
+            s4: '📌 Suggested Roadmap',
             back: '← Back'
         },
         fa: {
             title: '🗺️ مسیر یادگیری',
-            desc: 'یک مسیر یادگیری ساختاریافته برای مهندسی برق از مبانی تا موضوعات پیشرفته.',
-            s1: '🔹 مقدماتی',
-            list1: ['مدارهای الکتریکی پایه (AC/DC)','قانون اهم و محاسبات توان','مبانی ایمنی الکتریکی'],
-            s2: '🔹 متوسط',
-            list2: ['تحلیل سیستم‌های قدرت','انتخاب ترانسفورماتور و موتور','طراحی حفاظت و ارتینگ'],
-            s3: '🔹 پیشرفته',
-            list3: ['شبکه‌های هوشمند و انرژی تجدیدپذیر','هماهنگی حفاظت سیستم‌های قدرت','مدیریت پروژه مهندسی'],
+            desc: 'از پایه تا پیشرفته در مهندسی برق. یک نقشه راه ساختاریافته برای یادگیری.',
+            s1: '📘 سطح پایه',
+            list1: ['مفاهیم پایه برق (ولتاژ، جریان، مقاومت)','قانون اهم و قوانین کیرشهف','مبانی AC/DC','تحلیل مدار پایه'],
+            s2: '📗 سطح متوسط',
+            list2: ['سیستم‌های قدرت و تحلیل بار','تئوری ترانسفورماتور و موتور','حفاظت و هماهنگی رله','سایزینگ کابل و افت ولتاژ'],
+            s3: '📕 سطح پیشرفته',
+            list3: ['تحلیل سیستم‌های قدرت و مطالعات خطا','طراحی ارتینگ و ایمنی','سیستم‌های SCADA و اتوماسیون','مدیریت پروژه و استانداردها'],
+            s4: '📌 نقشه راه پیشنهادی',
             back: '← بازگشت'
         }
     };
@@ -111,6 +139,7 @@
         document.getElementById('s1').textContent = t.s1;
         document.getElementById('s2').textContent = t.s2;
         document.getElementById('s3').textContent = t.s3;
+        document.getElementById('s4').textContent = t.s4;
         document.getElementById('backlink').textContent = t.back;
 
         const ul1 = document.getElementById('list1');
