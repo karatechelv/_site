@@ -7,24 +7,196 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --text-main: #ffffff;
+            --text-muted: #8b8f99;
+            --transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Playfair Display', sans-serif;
+            color: var(--text-main);
+            min-height: 100vh;
+            background: radial-gradient(ellipse 80% 80% at 50% 50%, #0a4d33 0%, #04190f 40%, #000000 80%);
+        }
+        body.rtl { font-family: 'Vazirmatn', sans-serif; direction: rtl; }
+
+        body::after {
+            content: '';
+            position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+            opacity: 0.04; pointer-events: none; z-index: 9999; mix-blend-mode: overlay;
+        }
+
+        /* ===== هدر بالای سایت (همیشه قابل مشاهده) ===== */
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 40px; background: rgba(10, 20, 15, 0.6); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 255, 157, 0.15); position: sticky; top: 0; z-index: 100;
+        }
+        .brand { font-size: 1.6rem; font-weight: 700; letter-spacing: 1px; }
+        .brand span { color: #00ff9d; font-style: italic; font-weight: 500; }
+        
+        .datetime-widget { display: flex; flex-direction: column; align-items: center; font-size: 0.85rem; color: var(--text-muted); font-family: monospace; }
+        .time-display { color: #00ff9d; font-weight: 600; font-size: 1rem; }
+        
+        .header-actions { display: flex; align-items: center; gap: 16px; }
+        .exit-btn { background: transparent; border: 1px solid rgba(255, 100, 100, 0.3); color: rgba(255, 100, 100, 0.8); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        .exit-btn:hover { background: rgba(255, 100, 100, 0.1); color: #ff6464; }
+        .lang-switch { display: flex; gap: 8px; }
+        .lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        .lang-btn.active, .lang-btn:hover { background: rgba(0, 255, 157, 0.1); color: #00ff9d; border-color: rgba(0, 255, 157, 0.3); }
+
+        /* ===== Splash Screen ===== */
+        .splash {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            min-height: 90vh; text-align: center; padding: 20px; position: relative; z-index: 50;
+            background-image: url('assets/images/wallpaper.png'); background-size: cover; background-position: center;
+        }
+        .splash::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.75); z-index: -1; }
+        .splash-logo-img img { max-width: 250px; width: 100%; filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3)); }
+        .splash-sub { color: #00ff9d; font-size: 1.2rem; margin: 20px 0 40px; letter-spacing: 3px; font-style: italic; }
+        .splash-btn { background: transparent; border: 1px solid #d4af37; color: #fff; padding: 15px 50px; border-radius: 50px; font-size: 1.1rem; cursor: pointer; transition: 0.3s; font-family: inherit; }
+        .splash-btn:hover { background: #d4af37; color: #000; box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); }
+        .splash-credit { position: absolute; bottom: 30px; color: rgba(255,255,255,0.4); font-size: 0.9rem; font-style: italic; }
+        .splash.hidden { display: none; }
+
+        /* ===== App Container (Sidebar + Main) ===== */
+        .app-container { display: flex; height: calc(100vh - 75px); }
+
+        /* ===== Sidebar ===== */
+        .sidebar { width: 280px; background: rgba(10, 20, 15, 0.4); backdrop-filter: blur(20px); border-right: 1px solid rgba(255, 255, 255, 0.1); overflow-y: auto; flex-shrink: 0; }
+        body.rtl .sidebar { border-right: none; border-left: 1px solid rgba(255, 255, 255, 0.1); }
+        .sidebar-nav { padding: 20px 10px; }
+        .nav-category { margin-bottom: 5px; }
+        .nav-item { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 12px 15px; border-radius: 8px; color: var(--text-muted); cursor: pointer; font-size: 1.05rem; transition: 0.3s; border-left: 3px solid transparent; }
+        body.rtl .nav-item { border-left: none; border-right: 3px solid transparent; }
+        .nav-item-left { display: flex; align-items: center; gap: 12px; }
+        .nav-item i { width: 18px; text-align: center; font-size: 0.9rem; color: #00ff9d; opacity: 0.7; transition: 0.3s; }
+        .arrow-icon { font-size: 0.7rem; transition: transform 0.3s; opacity: 0.5; }
+        .nav-item:hover { background: rgba(0, 255, 157, 0.05); color: var(--text-main); }
+        .nav-item.linked-active { background: rgba(255, 255, 255, 0.05); color: var(--text-main); border-left-color: var(--gear-color); }
+        body.rtl .nav-item.linked-active { border-left: none; border-right-color: var(--gear-color); }
+        .nav-item.linked-active i { color: var(--gear-color); opacity: 1; text-shadow: 0 0 10px var(--gear-color); }
+        .nav-item.linked-active .arrow-icon { color: var(--gear-color); }
+        .sub-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; padding-left: 15px; }
+        body.rtl .sub-menu { padding-left: 0; padding-right: 15px; }
+        .sub-menu.open { max-height: 500px; }
+        .sub-item { display: flex; align-items: center; gap: 10px; padding: 8px 15px; font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: 0.2s; }
+        .sub-item:hover { color: var(--text-main); background: rgba(255,255,255,0.03); border-radius: 6px; }
+        .sub-item i { font-size: 0.5rem; color: var(--gear-color); }
+
+        /* ===== Main Content ===== */
+        .main-content { flex: 1; position: relative; overflow-y: auto; display: flex; flex-direction: column; align-items: center; padding: 40px; }
+        .aurora { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; mix-blend-mode: screen; }
+        .aurora-1 { width: 600px; height: 600px; background: rgba(0, 255, 157, 0.1); top: -20%; left: 10%; animation: drift1 15s ease-in-out infinite; }
+        .aurora-2 { width: 500px; height: 500px; background: rgba(212, 175, 55, 0.06); bottom: -20%; right: 10%; animation: drift2 18s ease-in-out infinite; }
+        @keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(80px, 50px) scale(1.1); } }
+        @keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-60px, -30px) scale(1.2); } }
+
+        .content-wrapper { position: relative; z-index: 2; width: 100%; max-width: 900px; text-align: center; margin-bottom: 60px; }
+        .page-title { font-size: 2.8rem; font-weight: 300; font-style: italic; margin-bottom: 8px; color: rgba(255,255,255,0.95); }
+        body.rtl .page-title { font-style: normal; font-weight: 500; }
+        .page-title b { font-weight: 700; font-style: normal; background: linear-gradient(135deg, #00ff9d, #d4af37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .page-desc { font-style: italic; color: rgba(255,255,255,0.4); font-size: 1rem; margin-bottom: 40px; letter-spacing: 2px; }
+        body.rtl .page-desc { font-style: normal; }
+
+        /* ===== Machine ===== */
+        .machine-container { position: relative; width: 760px; height: 320px; margin: 0 auto; direction: ltr; }
+        .power-line { fill: none; stroke: #ffea00; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 5 10; animation: electricFlow 0.2s linear infinite, voltagePulse 1s infinite; filter: drop-shadow(0 0 4px #ffea00); }
+        @keyframes electricFlow { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 15; } }
+        @keyframes voltagePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+        .gear-wrapper { position: absolute; cursor: pointer; z-index: 2; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .gear-base, .gear-holo { position: absolute; inset: 0; width: 100%; height: 100%; }
+        .gear-base { background: radial-gradient(circle at 30% 30%, #1a1f2b, #0d0f14); box-shadow: inset 0 0 20px rgba(0,0,0,0.8); animation: spin-cw 15s linear infinite; }
+        .gear-holo { background: conic-gradient(from 0deg, transparent 0%, var(--gear-color) 15%, transparent 35%, transparent 100%); opacity: 0.5; animation: spin-cw 8s linear infinite; mix-blend-mode: screen; }
+        .gear-ccw .gear-base { animation: spin-ccw 10s linear infinite; }
+        .gear-ccw .gear-holo { animation: spin-ccw 6s linear infinite; }
+        .gear-ring { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60%; height: 60%; border: 2px solid var(--gear-color); border-radius: 50%; pointer-events: none; opacity: 0.5; box-shadow: 0 0 10px var(--gear-color); }
+        .gear-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 1.4rem; color: var(--text-main); z-index: 10; transition: 0.3s; text-shadow: 0 0 10px var(--gear-color); }
+        .gear-tooltip { position: absolute; bottom: 115%; left: 50%; transform: translate(-50%, 15px); font-size: 1.2rem; font-weight: 600; font-style: italic; color: var(--gear-color); text-shadow: 0 0 10px var(--gear-glow); white-space: nowrap; pointer-events: none; opacity: 0; z-index: 12; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        body.rtl .gear-tooltip { font-style: normal; }
+        .gear-wrapper:hover, .gear-wrapper.simulated-hover { transform: scale(1.15) translateY(-10px); z-index: 10; filter: drop-shadow(0 15px 15px rgba(0,0,0,0.5)) drop-shadow(0 0 25px var(--gear-glow)); }
+        .gear-wrapper:hover .gear-holo, .gear-wrapper.simulated-hover .gear-holo { opacity: 1; animation-duration: 2s; }
+        .gear-wrapper:hover .gear-base, .gear-wrapper.simulated-hover .gear-base { animation-duration: 3s; }
+        .gear-wrapper:hover .gear-ccw .gear-base, .gear-wrapper.simulated-hover .gear-ccw .gear-base { animation-duration: 2s; }
+        .gear-wrapper:hover .gear-ring, .gear-wrapper.simulated-hover .gear-ring { opacity: 1; box-shadow: 0 0 20px var(--gear-color); }
+        .gear-wrapper:hover .gear-icon, .gear-wrapper.simulated-hover .gear-icon { opacity: 0.5; transform: translate(-50%, -50%) scale(0.8); }
+        .gear-wrapper:hover .gear-tooltip, .gear-wrapper.simulated-hover .gear-tooltip { opacity: 1; transform: translate(-50%, 0); }
+        @keyframes spin-cw { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes spin-ccw { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+        .m1 { --gear-color: #d4af37; --gear-glow: rgba(212, 175, 55, 0.8); }
+        .m2 { --gear-color: #00f2ff; --gear-glow: rgba(0, 242, 255, 0.8); }
+        .m3 { --gear-color: #ff4d8d; --gear-glow: rgba(255, 77, 141, 0.8); }
+        .m4 { --gear-color: #00ff9d; --gear-glow: rgba(0, 255, 157, 0.8); }
+        .m5 { --gear-color: #ff8c42; --gear-glow: rgba(255, 140, 66, 0.8); }
+        .m6 { --gear-color: #b388ff; --gear-glow: rgba(179, 136, 255, 0.8); }
+
+        /* ===== Holographic Projector ===== */
+        .holo-projector { position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 100px; height: 160px; z-index: 3; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
+        .holo-base { width: 80px; height: 30px; background: linear-gradient(135deg, #1a1f2b, #0d0f14); border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; box-shadow: 0 10px 20px rgba(0,0,0,0.5), inset 0 2px 5px rgba(255,255,255,0.1); position: relative; }
+        .holo-base::after { content: ''; position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 10px; background: #000; border-radius: 50%; box-shadow: inset 0 0 5px rgba(0,0,0,0.8); transition: 0.3s; }
+        .holo-emitter { width: 60px; height: 0; border-bottom: 60px solid transparent; border-left: 20px solid transparent; border-right: 20px solid transparent; margin-bottom: -5px; position: relative; }
+        .holo-beam { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 25px solid transparent; border-right: 25px solid transparent; border-bottom: 100px solid rgba(255, 255, 255, 0.02); opacity: 0; transition: all 0.4s ease; }
+        .holo-result { position: absolute; bottom: 50px; left: 50%; transform: translate(-50%, 20px); width: 100px; text-align: center; opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 5; }
+        .holo-icon { font-size: 2rem; color: #fff; margin-bottom: 5px; text-shadow: 0 0 15px var(--gear-color), 0 0 5px var(--gear-color); filter: drop-shadow(0 0 5px var(--gear-color)); }
+        .holo-text { font-family: 'Playfair Display', sans-serif; font-style: italic; font-size: 0.9rem; color: var(--gear-color); white-space: nowrap; text-shadow: 0 0 5px var(--gear-glow); }
+        body.rtl .holo-text { font-style: normal; font-family: 'Vazirmatn', sans-serif; }
+        .holo-projector.active .holo-beam { opacity: 1; border-bottom-color: var(--gear-glow); }
+        .holo-projector.active .holo-base::after { background: var(--gear-color); box-shadow: 0 0 15px var(--gear-color), inset 0 0 5px var(--gear-color); }
+        .holo-projector.active .holo-result { opacity: 1; transform: translate(-50%, 0); }
+
+        /* ===== بخش‌های پایین (چشم‌انداز و تماس) ===== */
+        .section-title { font-size: 1.8rem; font-weight: 300; font-style: italic; margin: 60px 0 30px; text-align: center; color: #fff; display: flex; align-items: center; gap: 15px; justify-content: center; }
+        body.rtl .section-title { font-style: normal; }
+        .section-title i { color: #d4af37; }
+        .section-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); max-width: 100px; }
+        .section-title::before { content: ''; flex: 1; height: 1px; background: linear-gradient(-90deg, var(--border), transparent); max-width: 100px; }
+
+        .vision-container { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 40px; }
+        .vision-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 30px; color: #fff; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; transition: 0.3s; }
+        .vision-item:hover { border-color: #00ff9d; box-shadow: 0 0 10px rgba(0,255,157,0.1); }
+        .vision-item i { color: #d4af37; }
+        .coming { background: rgba(212, 175, 55, 0.12); color: #d4af37; font-size: 0.65rem; padding: 2px 8px; border-radius: 20px; }
+
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; width: 100%; max-width: 900px; margin: 0 auto 40px; }
+        .contact-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 25px; border-radius: 16px; text-align: center; transition: 0.3s; text-decoration: none; color: inherit; }
+        .contact-card:hover { transform: translateY(-5px); border-color: #00ff9d; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .contact-card i { font-size: 1.8rem; color: #00ff9d; margin-bottom: 15px; display: block; }
+        .contact-card h4 { font-size: 1.1rem; margin-bottom: 8px; color: #fff; }
+        .contact-card p { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+        .contact-card a { color: #d4af37; text-decoration: none; }
+
+        .footer { text-align: center; color: rgba(255,255,255,0.3); font-size: 0.8rem; padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.05); width: 100%; }
+
+        @media (max-width: 1024px) { .machine-container { transform: scale(0.8); } }
+        @media (max-width: 768px) {
+            .app-container { flex-direction: column; }
+            body.rtl .app-container { flex-direction: column-reverse; }
+            .sidebar { width: 100%; height: 45vh; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .page-title { font-size: 2rem; }
+            .machine-container { transform: scale(0.5); margin-top: -30px; }
+            .header { flex-wrap: wrap; gap: 10px; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- ===== HEADER با ویجت ساعت/تقویم ===== -->
+<!-- ===== HEADER ===== -->
 <header class="header">
     <div class="brand">KARATECH <span>ELV</span></div>
-    
-    <!-- ویجت ساعت و تقویم جلالی -->
     <div class="datetime-widget" id="datetimeWidget">
         <div class="date-display" id="dateDisplay"></div>
         <div class="time-display" id="timeDisplay"></div>
     </div>
-
-    <div style="display:flex; align-items:center; gap:16px;">
-        <button class="exit-btn" onclick="goToSplash()">
+    <div class="header-actions">
+        <button class="exit-btn" onclick="document.getElementById('splash').classList.remove('hidden'); document.getElementById('dashboard').style.display='none';">
             <i class="fas fa-sign-out-alt"></i> <span data-en="Exit" data-fa="خروج">Exit</span>
         </button>
         <div class="lang-switch">
@@ -35,208 +207,270 @@
 </header>
 
 <!-- ===== SPLASH ===== -->
-<section class="splash" id="splash" style="
-    background-image: url('assets/images/wallpaper.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    position: relative;
-">
-    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.65); z-index: 0;"></div>
-    
-    <div style="position: relative; z-index: 1;">
-        <div class="splash-logo-img">
-            <img src="assets/images/karatech.png" alt="Karatech ELV Logo" style="max-width:250px; width:100%;">
-        </div>
-        <div class="splash-sub" data-en="Engineering · Automation · Intelligence" data-fa="مهندسی · اتوماسیون · هوش">
-            Engineering · Automation · Intelligence
-        </div>
-        <button class="splash-btn" id="enterBtn">
-            <i class="fas fa-arrow-right"></i> 
-            <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span>
-        </button>
-        <div class="splash-credit" data-en="Designed by Mohsen Keramati Layegh" data-fa="طراحی شده توسط محسن کرامتی لایق">
-            Designed by Mohsen Keramati Layegh
-        </div>
+<section class="splash" id="splash">
+    <div class="splash-logo-img">
+        <img src="assets/images/karatech.png" alt="Karatech ELV Logo">
+    </div>
+    <div class="splash-sub" data-en="Engineering · Automation · Intelligence" data-fa="مهندسی · اتوماسیون · هوش">
+        Engineering · Automation · Intelligence
+    </div>
+    <button class="splash-btn" id="enterBtn" onclick="document.getElementById('splash').classList.add('hidden'); document.getElementById('dashboard').style.display='flex';">
+        <i class="fas fa-arrow-right"></i> 
+        <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span>
+    </button>
+    <div class="splash-credit" data-en="Designed by Mohsen Keramati Layegh" data-fa="طراحی شده توسط محسن کرامتی لایق">
+        Designed by Mohsen Keramati Layegh
     </div>
 </section>
 
 <!-- ===== DASHBOARD ===== -->
-<div class="dashboard" id="dashboard">
+<div class="app-container" id="dashboard" style="display: none;">
+    <aside class="sidebar">
+        <nav class="sidebar-nav" id="sidebarNav"></nav>
+    </aside>
 
-    <!-- Academy -->
-    <div class="section-title"><i class="fas fa-graduation-cap"></i> <span data-en="Academy" data-fa="آکادمی">Academy</span></div>
-    <div class="grid-4">
-        <a href="pages/academy/electrical.html" class="card-academy"><i class="fas fa-bolt"></i><h3>Electrical</h3><p data-en="Power systems, protection coordination" data-fa="سیستم‌های برق، هماهنگی حفاظت">Power systems, protection coordination</p></a>
-        <a href="pages/academy/automation.html" class="card-academy"><i class="fas fa-robot"></i><h3>Automation</h3><p data-en="PLC, SCADA, industrial control" data-fa="PLC، SCADA، کنترل صنعتی">PLC, SCADA, industrial control</p></a>
-        <a href="pages/academy/instrumentation.html" class="card-academy"><i class="fas fa-tachometer-alt"></i><h3>Instrumentation</h3><p data-en="Sensors, transmitters, analyzers" data-fa="سنسورها، ترانسمیترها، آنالیزورها">Sensors, transmitters, analyzers</p></a>
-        <a href="pages/academy/design.html" class="card-academy"><i class="fas fa-drafting-compass"></i><h3>Design</h3><p data-en="Schematics, layouts, CAD" data-fa="شماتیک، نقشه‌ها، CAD">Schematics, layouts, CAD</p></a>
-        <a href="pages/academy/quality-control.html" class="card-academy"><i class="fas fa-check-double"></i><h3>Quality Control</h3><p data-en="Inspection, testing, ISO" data-fa="بازرسی، تست، ISO">Inspection, testing, ISO</p></a>
-        <a href="pages/academy/standards.html" class="card-academy"><i class="fas fa-book"></i><h3>Standards</h3><p data-en="IEC, NEC, ISO, API" data-fa="IEC، NEC، ISO، API">IEC, NEC, ISO, API</p></a>
-        <a href="pages/academy/management.html" class="card-academy"><i class="fas fa-users-cog"></i><h3>Management</h3><p data-en="Project, risk, workflow" data-fa="پروژه، ریسک، جریان کار">Project, risk, workflow</p></a>
-        <a href="pages/academy/hse.html" class="card-academy"><i class="fas fa-hard-hat"></i><h3>HSE</h3><p data-en="Safety, environment, health" data-fa="ایمنی، محیط زیست، بهداشت">Safety, environment, health</p></a>
-    </div>
+    <main class="main-content">
+        <div class="aurora aurora-1"></div>
+        <div class="aurora aurora-2"></div>
+        
+        <div class="content-wrapper">
+            <h1 class="page-title" id="pageTitle">Engineering <b>System</b></h1>
+            <p class="page-desc" id="pageDesc">— Synchronized Industrial Core —</p>
+            <div class="machine-container" id="machineContainer">
+                <svg style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1;">
+                    <path d="M100,150 L215,150 L330,150 L330,265 L445,265 L560,265 L650,265" class="power-line" id="powerLine" />
+                </svg>
+                <div class="holo-projector" id="holoProjector">
+                    <div class="holo-result">
+                        <i class="fas fa-check-circle holo-icon" id="holoIcon"></i>
+                        <div class="holo-text" id="holoText">Ready</div>
+                    </div>
+                    <div class="holo-beam"></div>
+                    <div class="holo-emitter"></div>
+                    <div class="holo-base"></div>
+                </div>
+            </div>
+        </div>
 
-    <!-- Workflow -->
-    <div class="section-title"><i class="fas fa-project-diagram"></i> <span data-en="Engineering Workflow" data-fa="جریان کار مهندسی">Engineering Workflow</span></div>
-    <div class="workflow-container">
-        <a href="pages/workflow/pid.html" class="wf-step"><i class="fas fa-file-pdf"></i> P&ID</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <a href="pages/workflow/design.html" class="wf-step"><i class="fas fa-pencil-ruler"></i> Design</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <a href="pages/workflow/panel.html" class="wf-step"><i class="fas fa-layer-group"></i> Panel</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <a href="pages/workflow/procurement.html" class="wf-step"><i class="fas fa-shopping-cart"></i> Procurement</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <a href="pages/workflow/assembly.html" class="wf-step"><i class="fas fa-tools"></i> Assembly</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <a href="pages/workflow/fat.html" class="wf-step"><i class="fas fa-vial"></i> FAT</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <a href="pages/workflow/installation.html" class="wf-step"><i class="fas fa-plug"></i> Installation</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <a href="pages/workflow/loop-check.html" class="wf-step"><i class="fas fa-circle-notch"></i> Loop Check</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <a href="pages/workflow/commissioning.html" class="wf-step"><i class="fas fa-play"></i> Commissioning</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <a href="pages/workflow/sat.html" class="wf-step"><i class="fas fa-check-circle"></i> SAT</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <a href="pages/workflow/documentation.html" class="wf-step"><i class="fas fa-file-alt"></i> Documentation</a><span class="wf-arrow"><i class="fas fa-chevron-right"></i></span>
-        <a href="pages/workflow/operation.html" class="wf-step"><i class="fas fa-cogs"></i> Operation</a>
-    </div>
+        <!-- بخش چشم‌انداز و آینده (بازگشت یافت) -->
+        <div class="section-title">
+            <i class="fas fa-eye"></i> 
+            <span data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</span>
+        </div>
+        <div class="vision-container">
+            <span class="vision-item"><i class="fas fa-industry"></i> <span data-en="Factory" data-fa="کارخانه">Factory</span> <span class="coming" data-en="In Dev" data-fa="در حال توسعه">In Dev</span></span>
+            <span class="vision-item"><i class="fas fa-boxes"></i> <span data-en="Products" data-fa="محصولات">Products</span> <span class="coming">Soon</span></span>
+            <span class="vision-item"><i class="fas fa-project-diagram"></i> <span data-en="Projects" data-fa="پروژه‌ها">Projects</span> <span class="coming">Soon</span></span>
+            <span class="vision-item"><i class="fas fa-users"></i> <span data-en="Community" data-fa="انجمن">Community</span> <span class="coming" data-en="In Dev" data-fa="در حال توسعه">In Dev</span></span>
+            <span class="vision-item"><i class="fas fa-flask"></i> <span data-en="Research" data-fa="تحقیق">Research</span> <span class="coming">Soon</span></span>
+            <span class="vision-item"><i class="fas fa-blog"></i> <span data-en="Blog" data-fa="وبلاگ">Blog</span> <span class="coming">Soon</span></span>
+            <span class="vision-item"><i class="fas fa-briefcase"></i> <span data-en="Job Board" data-fa="بخش کار">Job Board</span> <span class="coming">Soon</span></span>
+        </div>
 
-    <!-- Tools -->
-    <div class="section-title"><i class="fas fa-calculator"></i> <span data-en="Engineering Tools" data-fa="ابزارهای مهندسی">Engineering Tools</span></div>
-    <div class="tools-grid">
-        <a href="pages/tools/voltage-drop.html" class="tool-badge"><i class="fas fa-bolt"></i> Voltage Drop</a>
-        <a href="pages/tools/power-factor.html" class="tool-badge"><i class="fas fa-chart-line"></i> Power Factor</a>
-        <a href="pages/tools/cable-size.html" class="tool-badge"><i class="fas fa-ruler"></i> Cable Size</a>
-        <a href="pages/tools/breaker-selection.html" class="tool-badge"><i class="fas fa-shield-alt"></i> Breaker</a>
-        <a href="pages/tools/motor-current.html" class="tool-badge"><i class="fas fa-sync-alt"></i> Motor Current</a>
-        <a href="pages/tools/transformer.html" class="tool-badge"><i class="fas fa-bolt"></i> Transformer</a>
-        <a href="pages/tools/awg-converter.html" class="tool-badge"><i class="fas fa-arrows-alt-h"></i> AWG Conv.</a>
-        <a href="pages/tools/unit-converter.html" class="tool-badge"><i class="fas fa-exchange-alt"></i> Unit Conv.</a>
-        <a href="pages/tools/ip-rating.html" class="tool-badge"><i class="fas fa-water"></i> IP Rating</a>
-        <a href="pages/tools/iec-tables.html" class="tool-badge"><i class="fas fa-table"></i> IEC Tables</a>
-        <div class="tool-badge"><i class="fas fa-future"></i> <span class="coming">Coming</span></div>
-    </div>
+        <!-- بخش اطلاعات تماس (بازگشت یافت) -->
+        <div class="section-title">
+            <i class="fas fa-address-card"></i> 
+            <span data-en="Contact Information" data-fa="اطلاعات تماس">Contact Information</span>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card"><i class="fas fa-map-marker-alt"></i><h4 data-en="Head Office" data-fa="دفتر مرکزی">Head Office</h4><p data-en="Tehran, Iran" data-fa="تهران، ایران">Tehran, Iran</p></div>
+            <div class="contact-card"><i class="fas fa-phone-alt"></i><h4 data-en="Phone" data-fa="تلفن">Phone</h4><p><a href="tel:+989120891544">+98 912 089 1544</a></p></div>
+            <div class="contact-card"><i class="fas fa-envelope"></i><h4 data-en="Email" data-fa="ایمیل">Email</h4><p><a href="mailto:karatechelv@gmail.com">karatechelv@gmail.com</a></p></div>
+            <div class="contact-card"><i class="fas fa-clock"></i><h4 data-en="Working Hours" data-fa="ساعات کاری">Working Hours</h4><p data-en="Sat - Thu: 8:00 - 17:00" data-fa="شنبه تا چهارشنبه: ۸ تا ۱۷">Sat - Thu: 8:00 - 17:00</p></div>
+            <div class="contact-card"><i class="fab fa-linkedin"></i><h4>LinkedIn</h4><p><a href="#">/karatechelv</a></p></div>
+            <div class="contact-card"><i class="fab fa-github"></i><h4>GitHub</h4><p><a href="#">/karatechelv</a></p></div>
+        </div>
 
-    <!-- Software -->
-    <div class="section-title"><i class="fas fa-laptop-code"></i> <span data-en="Engineering Software" data-fa="نرم‌افزارهای مهندسی">Engineering Software</span></div>
-    <div class="soft-list">
-        <a href="pages/software/autocad.html" class="soft-item">AutoCAD</a>
-        <a href="pages/software/eplan.html" class="soft-item">EPLAN</a>
-        <a href="pages/software/see-electrical.html" class="soft-item">SEE Electrical</a>
-        <a href="pages/software/tia-portal.html" class="soft-item">TIA Portal</a>
-        <a href="pages/software/wincc.html" class="soft-item">WinCC</a>
-        <a href="pages/software/pcs7.html" class="soft-item">PCS7</a>
-        <a href="pages/software/step7.html" class="soft-item">STEP7</a>
-        <a href="pages/software/factory-io.html" class="soft-item">Factory IO</a>
-        <a href="pages/software/codesys.html" class="soft-item">Codesys</a>
-        <a href="pages/software/easybuilder.html" class="soft-item">EasyBuilder</a>
-    </div>
-
-    <!-- Programming -->
-    <div class="section-title"><i class="fas fa-code"></i> <span data-en="Programming" data-fa="برنامه‌نویسی">Programming</span></div>
-    <div class="programming-grid">
-        <a href="pages/programming/plc.html" class="programming-card"><i class="fas fa-microchip"></i><h4>PLC</h4><p data-en="Programmable Logic Controllers" data-fa="کنترل‌کننده‌های منطقی قابل برنامه‌ریزی">Programmable Logic Controllers</p></a>
-        <a href="pages/programming/hmi.html" class="programming-card"><i class="fas fa-desktop"></i><h4>HMI</h4><p data-en="Human-Machine Interface" data-fa="رابط انسان و ماشین">Human-Machine Interface</p></a>
-        <a href="pages/programming/scada.html" class="programming-card"><i class="fas fa-server"></i><h4>SCADA</h4><p data-en="Supervisory Control & Data Acquisition" data-fa="سیستم کنترل و جمع‌آوری داده">Supervisory Control & Data Acquisition</p></a>
-        <a href="pages/programming/vfd.html" class="programming-card"><i class="fas fa-sync-alt"></i><h4>VFD</h4><p data-en="Variable Frequency Drives" data-fa="درایوهای فرکانس متغیر">Variable Frequency Drives</p></a>
-        <a href="pages/programming/modbus.html" class="programming-card"><i class="fas fa-network-wired"></i><h4>Modbus</h4><p data-en="Industrial Communication Protocol" data-fa="پروتکل ارتباطی صنعتی">Industrial Communication Protocol</p></a>
-        <a href="pages/programming/profinet.html" class="programming-card"><i class="fas fa-wifi"></i><h4>Profinet</h4><p data-en="Industrial Ethernet Standard" data-fa="استاندارد اترنت صنعتی">Industrial Ethernet Standard</p></a>
-        <a href="pages/programming/ethernet-ip.html" class="programming-card"><i class="fas fa-ethernet"></i><h4>Ethernet/IP</h4><p data-en="Industrial Protocol Suite" data-fa="مجموعه پروتکل‌های صنعتی">Industrial Protocol Suite</p></a>
-        <a href="pages/programming/examples.html" class="programming-card"><i class="fas fa-play-circle"></i><h4>Examples</h4><p data-en="Practical exercises & code" data-fa="تمرینات عملی و کد">Practical exercises & code</p></a>
-    </div>
-
-    <!-- Resources -->
-    <div class="section-title"><i class="fas fa-folder-open"></i> <span data-en="Resources" data-fa="منابع">Resources</span></div>
-    <div class="resources-grid">
-        <a href="pages/resources/catalogs.html" class="resource-card"><i class="fas fa-file-pdf"></i><h4>Catalogs</h4><p data-en="Product catalogs from leading manufacturers" data-fa="کاتالوگ‌های محصولات از تولیدکنندگان برتر">Product catalogs from leading manufacturers</p><span class="badge">Coming Soon</span></a>
-        <a href="pages/resources/manuals.html" class="resource-card"><i class="fas fa-book"></i><h4>Manuals</h4><p data-en="Technical manuals and user guides" data-fa="راهنماهای فنی و کاربردی">Technical manuals and user guides</p><span class="badge">Coming Soon</span></a>
-        <a href="pages/resources/datasheets.html" class="resource-card"><i class="fas fa-table"></i><h4>Datasheets</h4><p data-en="Technical datasheets and specifications" data-fa="دیتاشیت‌های فنی و مشخصات">Technical datasheets and specifications</p><span class="badge">Coming Soon</span></a>
-        <a href="pages/resources/templates.html" class="resource-card"><i class="fas fa-file-alt"></i><h4>Templates</h4><p data-en="Engineering document templates" data-fa="قالب‌های مستندات مهندسی">Engineering document templates</p><span class="badge">Coming Soon</span></a>
-        <a href="pages/resources/videos.html" class="resource-card"><i class="fas fa-video"></i><h4>Videos</h4><p data-en="Training and tutorial videos" data-fa="ویدئوهای آموزشی و تمرینی">Training and tutorial videos</p><span class="badge">Coming Soon</span></a>
-        <a href="pages/resources/documents.html" class="resource-card"><i class="fas fa-folder"></i><h4>Documents</h4><p data-en="Engineering documents and reports" data-fa="مستندات و گزارش‌های مهندسی">Engineering documents and reports</p><span class="badge">Coming Soon</span></a>
-    </div>
-
-    <!-- Vision -->
-    <div class="section-title"><i class="fas fa-eye"></i> <span data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</span></div>
-    <div class="vision-container">
-        <span class="vision-item"><i class="fas fa-industry"></i> Factory <span class="coming">In Dev</span></span>
-        <span class="vision-item"><i class="fas fa-boxes"></i> Products <span class="coming">Soon</span></span>
-        <span class="vision-item"><i class="fas fa-project-diagram"></i> Projects <span class="coming">Soon</span></span>
-        <span class="vision-item"><i class="fas fa-users"></i> Community <span class="coming">In Dev</span></span>
-        <span class="vision-item"><i class="fas fa-flask"></i> Research <span class="coming">Soon</span></span>
-        <span class="vision-item"><i class="fas fa-blog"></i> Blog <span class="coming">Soon</span></span>
-        <span class="vision-item"><i class="fas fa-briefcase"></i> Job Board <span class="coming">Soon</span></span>
-    </div>
-
-    <!-- Contact -->
-    <div class="section-title"><i class="fas fa-address-card"></i> <span data-en="Contact Information" data-fa="اطلاعات تماس">Contact Information</span></div>
-    <div class="contact-grid">
-        <div class="contact-card"><i class="fas fa-map-marker-alt"></i><h4 data-en="Head Office" data-fa="دفتر مرکزی">Head Office</h4><p data-en="Tehran, Iran" data-fa="تهران، ایران">Tehran, Iran</p></div>
-        <div class="contact-card"><i class="fas fa-phone-alt"></i><h4 data-en="Phone" data-fa="تلفن">Phone</h4><p><a href="tel:+989120891544">+98 912 089 1544</a></p></div>
-        <div class="contact-card"><i class="fas fa-envelope"></i><h4 data-en="Email" data-fa="ایمیل">Email</h4><p><a href="mailto:karatechelv@gmail.com">karatechelv@gmail.com</a></p></div>
-        <div class="contact-card"><i class="fas fa-clock"></i><h4 data-en="Working Hours" data-fa="ساعات کاری">Working Hours</h4><p data-en="Sat - Thu: 8:00 - 17:00" data-fa="شنبه تا چهارشنبه: ۸ تا ۱۷">Sat - Thu: 8:00 - 17:00</p><p data-en="Fri: Closed" data-fa="جمعه: تعطیل">Fri: Closed</p></div>
-        <div class="contact-card"><i class="fab fa-linkedin"></i><h4>LinkedIn</h4><p><a href="#">/karatechelv</a></p></div>
-        <div class="contact-card"><i class="fab fa-github"></i><h4>GitHub</h4><p><a href="#">/karatechelv</a></p></div>
-    </div>
-
-    <footer class="footer">
-        <div><i class="fas fa-envelope"></i> <a href="mailto:karatechelv@gmail.com">karatechelv@gmail.com</a></div>
-        <div><i class="fas fa-phone"></i> <a href="tel:+989120891544">+98 912 089 1544</a></div>
-        <div><i class="fab fa-linkedin"></i> <a href="#">/karatechelv</a></div>
-        <div><i class="fab fa-github"></i> <a href="#">/karatechelv</a></div>
-        <div>© 2026 KARATECH ELV</div>
-    </footer>
+        <footer class="footer">
+            <div>© 2026 KARATECH ELV</div>
+        </footer>
+    </main>
 </div>
 
 <script>
-    // ========== ساعت و تقویم جلالی (شمسی) ==========
-    (function() {
-        let currentLang = document.querySelector('.lang-btn.active')?.dataset.lang || 'en';
-        
-        function formatDate(lang) {
-            const now = new Date();
-            if (lang === 'fa') {
-                return now.toLocaleDateString('fa-IR', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-            } else {
-                return now.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-            }
+    // ===== پایگاه داده دوزبانه با لینک‌های واقعی شما =====
+    const siteData = {
+        en: {
+            title: "Engineering <b>System</b>",
+            desc: "— Synchronized Industrial Core —",
+            categories: [
+                { id: 'm1', icon: 'fa-graduation-cap', name: 'Academy', subs: [ { name: 'Electrical', url: 'pages/academy/electrical.html' }, { name: 'Automation', url: 'pages/academy/automation.html' }, { name: 'Instrumentation', url: 'pages/academy/instrumentation.html' }, { name: 'Design', url: 'pages/academy/design.html' }, { name: 'Quality Control', url: 'pages/academy/quality-control.html' }, { name: 'Standards', url: 'pages/academy/standards.html' }, { name: 'Management', url: 'pages/academy/management.html' }, { name: 'HSE', url: 'pages/academy/hse.html' } ], result: { icon: 'fa-user-graduate', text: 'Expertise' } },
+                { id: 'm2', icon: 'fa-project-diagram', name: 'Workflow', subs: [ { name: 'P&ID', url: 'pages/workflow/pid.html' }, { name: 'Design', url: 'pages/workflow/design.html' }, { name: 'Panel', url: 'pages/workflow/panel.html' }, { name: 'Procurement', url: 'pages/workflow/procurement.html' }, { name: 'Assembly', url: 'pages/workflow/assembly.html' }, { name: 'FAT', url: 'pages/workflow/fat.html' }, { name: 'Installation', url: 'pages/workflow/installation.html' }, { name: 'Loop Check', url: 'pages/workflow/loop-check.html' }, { name: 'Commissioning', url: 'pages/workflow/commissioning.html' }, { name: 'SAT', url: 'pages/workflow/sat.html' }, { name: 'Documentation', url: 'pages/workflow/documentation.html' }, { name: 'Operation', url: 'pages/workflow/operation.html' } ], result: { icon: 'fa-clipboard-check', text: 'Delivered Project' } },
+                { id: 'm3', icon: 'fa-calculator', name: 'Tools', subs: [ { name: 'Voltage Drop', url: 'pages/tools/voltage-drop.html' }, { name: 'Power Factor', url: 'pages/tools/power-factor.html' }, { name: 'Cable Size', url: 'pages/tools/cable-size.html' }, { name: 'Breaker', url: 'pages/tools/breaker-selection.html' }, { name: 'Motor Current', url: 'pages/tools/motor-current.html' }, { name: 'Transformer', url: 'pages/tools/transformer.html' }, { name: 'AWG Conv.', url: 'pages/tools/awg-converter.html' }, { name: 'Unit Conv.', url: 'pages/tools/unit-converter.html' }, { name: 'IP Rating', url: 'pages/tools/ip-rating.html' }, { name: 'IEC Tables', url: 'pages/tools/iec-tables.html' } ], result: { icon: 'fa-square-root-variable', text: 'Precise Specs' } },
+                { id: 'm4', icon: 'fa-laptop-code', name: 'Software', subs: [ { name: 'AutoCAD', url: 'pages/software/autocad.html' }, { name: 'EPLAN', url: 'pages/software/eplan.html' }, { name: 'SEE Electrical', url: 'pages/software/see-electrical.html' }, { name: 'TIA Portal', url: 'pages/software/tia-portal.html' }, { name: 'WinCC', url: 'pages/software/wincc.html' }, { name: 'PCS7', url: 'pages/software/pcs7.html' }, { name: 'STEP7', url: 'pages/software/step7.html' }, { name: 'Factory IO', url: 'pages/software/factory-io.html' }, { name: 'Codesys', url: 'pages/software/codesys.html' }, { name: 'EasyBuilder', url: 'pages/software/easybuilder.html' } ], result: { icon: 'fa-pen-ruler', text: 'Optimized Design' } },
+                { id: 'm5', icon: 'fa-code', name: 'Programming', subs: [ { name: 'PLC', url: 'pages/programming/plc.html' }, { name: 'HMI', url: 'pages/programming/hmi.html' }, { name: 'SCADA', url: 'pages/programming/scada.html' }, { name: 'VFD', url: 'pages/programming/vfd.html' }, { name: 'Modbus', url: 'pages/programming/modbus.html' }, { name: 'Profinet', url: 'pages/programming/profinet.html' }, { name: 'Ethernet/IP', url: 'pages/programming/ethernet-ip.html' }, { name: 'Examples', url: 'pages/programming/examples.html' } ], result: { icon: 'fa-microchip', text: 'Automated Logic' } },
+                { id: 'm6', icon: 'fa-folder-open', name: 'Resources', subs: [ { name: 'Catalogs', url: 'pages/resources/catalogs.html' }, { name: 'Manuals', url: 'pages/resources/manuals.html' }, { name: 'Datasheets', url: 'pages/resources/datasheets.html' }, { name: 'Templates', url: 'pages/resources/templates.html' }, { name: 'Videos', url: 'pages/resources/videos.html' }, { name: 'Documents', url: 'pages/resources/documents.html' } ], result: { icon: 'fa-database', text: 'Knowledge Base' } }
+            ]
+        },
+        fa: {
+            title: "سیستم <b>مهندسی</b>",
+            desc: "— هسته هماهنگ صنعتی —",
+            categories: [
+                { id: 'm1', icon: 'fa-graduation-cap', name: 'آکادمی', subs: [ { name: 'برق', url: 'pages/academy/electrical.html' }, { name: 'اتوماسیون', url: 'pages/academy/automation.html' }, { name: 'ابزار دقیق', url: 'pages/academy/instrumentation.html' }, { name: 'طراحی', url: 'pages/academy/design.html' }, { name: 'کنترل کیفیت', url: 'pages/academy/quality-control.html' }, { name: 'استانداردها', url: 'pages/academy/standards.html' }, { name: 'مدیریت', url: 'pages/academy/management.html' }, { name: 'ایمنی', url: 'pages/academy/hse.html' } ], result: { icon: 'fa-user-graduate', text: 'تخصص مهندسی' } },
+                { id: 'm2', icon: 'fa-project-diagram', name: 'جریان کار', subs: [ { name: 'P&ID', url: 'pages/workflow/pid.html' }, { name: 'طراحی', url: 'pages/workflow/design.html' }, { name: 'تابلو', url: 'pages/workflow/panel.html' }, { name: 'تأمین', url: 'pages/workflow/procurement.html' }, { name: 'اسمبلی', url: 'pages/workflow/assembly.html' }, { name: 'FAT', url: 'pages/workflow/fat.html' }, { name: 'نصب', url: 'pages/workflow/installation.html' }, { name: 'چک لوپ', url: 'pages/workflow/loop-check.html' }, { name: 'کمیسیونینگ', url: 'pages/workflow/commissioning.html' }, { name: 'SAT', url: 'pages/workflow/sat.html' }, { name: 'مستندات', url: 'pages/workflow/documentation.html' }, { name: 'عملیات', url: 'pages/workflow/operation.html' } ], result: { icon: 'fa-clipboard-check', text: 'پروژه تحویل شده' } },
+                { id: 'm3', icon: 'fa-calculator', name: 'ابزارها', subs: [ { name: 'افت ولتاژ', url: 'pages/tools/voltage-drop.html' }, { name: 'ضریب توان', url: 'pages/tools/power-factor.html' }, { name: 'سایز کابل', url: 'pages/tools/cable-size.html' }, { name: 'کلید', url: 'pages/tools/breaker-selection.html' }, { name: 'جریان موتور', url: 'pages/tools/motor-current.html' }, { name: 'ترانس', url: 'pages/tools/transformer.html' }, { name: 'تبدیل AWG', url: 'pages/tools/awg-converter.html' }, { name: 'تبدیل واحد', url: 'pages/tools/unit-converter.html' }, { name: 'درجه IP', url: 'pages/tools/ip-rating.html' }, { name: 'جداول IEC', url: 'pages/tools/iec-tables.html' } ], result: { icon: 'fa-square-root-variable', text: 'محاسبات دقیق' } },
+                { id: 'm4', icon: 'fa-laptop-code', name: 'نرم‌افزارها', subs: [ { name: 'اتوکد', url: 'pages/software/autocad.html' }, { name: 'ای‌پلن', url: 'pages/software/eplan.html' }, { name: 'SEE Electrical', url: 'pages/software/see-electrical.html' }, { name: 'TIA پورتال', url: 'pages/software/tia-portal.html' }, { name: 'وین‌سی‌سی', url: 'pages/software/wincc.html' }, { name: 'PCS7', url: 'pages/software/pcs7.html' }, { name: 'STEP7', url: 'pages/software/step7.html' }, { name: 'Factory IO', url: 'pages/software/factory-io.html' }, { name: 'کدسیس', url: 'pages/software/codesys.html' }, { name: 'ایزی‌بیلدر', url: 'pages/software/easybuilder.html' } ], result: { icon: 'fa-pen-ruler', text: 'طراحی بهینه' } },
+                { id: 'm5', icon: 'fa-code', name: 'برنامه‌نویسی', subs: [ { name: 'پی‌ال‌سی', url: 'pages/programming/plc.html' }, { name: 'اچ‌ام‌آی', url: 'pages/programming/hmi.html' }, { name: 'اسکادا', url: 'pages/programming/scada.html' }, { name: 'درایو', url: 'pages/programming/vfd.html' }, { name: 'مودباس', url: 'pages/programming/modbus.html' }, { name: 'پروفینت', url: 'pages/programming/profinet.html' }, { name: 'اترنت/IP', url: 'pages/programming/ethernet-ip.html' }, { name: 'مثال‌ها', url: 'pages/programming/examples.html' } ], result: { icon: 'fa-microchip', text: 'منطق اتوماتیک' } },
+                { id: 'm6', icon: 'fa-folder-open', name: 'منابع', subs: [ { name: 'کاتالوگ‌ها', url: 'pages/resources/catalogs.html' }, { name: 'راهنماها', url: 'pages/resources/manuals.html' }, { name: 'دیتاشیت‌ها', url: 'pages/resources/datasheets.html' }, { name: 'قالب‌ها', url: 'pages/resources/templates.html' }, { name: 'ویدئوها', url: 'pages/resources/videos.html' }, { name: 'مستندات', url: 'pages/resources/documents.html' } ], result: { icon: 'fa-database', text: 'پایگاه دانش' } }
+            ]
         }
+    };
 
-        function formatTime() {
-            const now = new Date();
-            return now.toLocaleTimeString('fa-IR', {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
+    const gearsConfig = [
+        { cx: 100, cy: 150, r_out: 70, r_in: 60, teeth: 18, dir: 'cw',  class: 'm1', icon: 'fa-graduation-cap', phase: 0 },
+        { cx: 215, cy: 150, r_out: 45, r_in: 38, teeth: 12, dir: 'ccw', class: 'm2', icon: 'fa-project-diagram', phase: Math.PI/12 },
+        { cx: 330, cy: 150, r_out: 70, r_in: 60, teeth: 18, dir: 'cw',  class: 'm3', icon: 'fa-calculator', phase: 0 },
+        { cx: 330, cy: 265, r_out: 45, r_in: 38, teeth: 12, dir: 'ccw', class: 'm4', icon: 'fa-laptop-code', phase: Math.PI/12 },
+        { cx: 445, cy: 265, r_out: 70, r_in: 60, teeth: 18, dir: 'cw',  class: 'm5', icon: 'fa-code', phase: 0 },
+        { cx: 560, cy: 265, r_out: 45, r_in: 38, teeth: 12, dir: 'ccw', class: 'm6', icon: 'fa-folder-open', phase: Math.PI/12 }
+    ];
+
+    let currentLang = 'en';
+
+    function createGearPath(cx, cy, outerR, innerR, teeth, phaseOffset = 0) {
+        let path = ""; let angleStep = (Math.PI * 2) / teeth; let toothWidth = angleStep / 4;
+        for (let i = 0; i < teeth; i++) {
+            let a1 = i * angleStep - toothWidth + phaseOffset, a2 = i * angleStep + toothWidth + phaseOffset;
+            let a3 = i * angleStep + angleStep/2 - toothWidth + phaseOffset, a4 = i * angleStep + angleStep/2 + toothWidth + phaseOffset;
+            let p1x = cx + Math.cos(a1) * innerR, p1y = cy + Math.sin(a1) * innerR;
+            let p2x = cx + Math.cos(a2) * outerR, p2y = cy + Math.sin(a2) * outerR;
+            let p3x = cx + Math.cos(a3) * outerR, p3y = cy + Math.sin(a3) * outerR;
+            let p4x = cx + Math.cos(a4) * innerR, p4y = cy + Math.sin(a4) * innerR;
+            path += (i === 0 ? "M" : "L") + p1x + " " + p1y;
+            path += "L" + p2x + " " + p2y + "L" + p3x + " " + p3y + "L" + p4x + " " + p4y;
+        }
+        return path + "Z";
+    }
+
+    function activateLink(id) {
+        const gear = document.getElementById(`gear-${id}`);
+        const navItem = document.querySelector(`.nav-item[data-gear="${id}"]`);
+        const projector = document.getElementById('holoProjector');
+        const holoIcon = document.getElementById('holoIcon');
+        const holoText = document.getElementById('holoText');
+        if(!gear || !navItem) return;
+        const color = getComputedStyle(gear).getPropertyValue('--gear-color').trim();
+        const glow = getComputedStyle(gear).getPropertyValue('--gear-glow').trim();
+        const catData = siteData[currentLang].categories.find(c => c.id === id);
+        gear.classList.add('simulated-hover');
+        navItem.classList.add('linked-active');
+        navItem.style.setProperty('--gear-color', color);
+        document.getElementById('powerLine').style.stroke = color;
+        document.getElementById('powerLine').style.filter = `drop-shadow(0 0 4px ${color})`;
+        projector.classList.add('active');
+        projector.style.setProperty('--gear-color', color);
+        projector.style.setProperty('--gear-glow', glow);
+        if(catData) { holoIcon.className = `fas ${catData.result.icon} holo-icon`; holoText.textContent = catData.result.text; }
+    }
+
+    function deactivateLink(id) {
+        const gear = document.getElementById(`gear-${id}`);
+        const navItem = document.querySelector(`.nav-item[data-gear="${id}"]`);
+        const projector = document.getElementById('holoProjector');
+        if(!gear || !navItem) return;
+        gear.classList.remove('simulated-hover');
+        navItem.classList.remove('linked-active');
+        document.getElementById('powerLine').style.stroke = '#ffea00';
+        document.getElementById('powerLine').style.filter = `drop-shadow(0 0 4px #ffea00)`;
+        projector.classList.remove('active');
+    }
+
+    function renderGears() {
+        const container = document.getElementById('machineContainer');
+        const powerLineHTML = document.getElementById('powerLine').outerHTML;
+        const projectorHTML = document.getElementById('holoProjector').outerHTML;
+        container.innerHTML = powerLineHTML + projectorHTML;
+        gearsConfig.forEach(g => {
+            const wrapper = document.createElement('a');
+            wrapper.href = "#";
+            wrapper.id = `gear-${g.class}`;
+            wrapper.className = `gear-wrapper ${g.dir} ${g.class}`;
+            wrapper.style.left = `${g.cx - g.r_out}px`; wrapper.style.top = `${g.cy - g.r_out}px`;
+            wrapper.style.width = `${g.r_out * 2}px`; wrapper.style.height = `${g.r_out * 2}px`;
+            const pathD = createGearPath(g.r_out, g.r_out, g.r_out, g.r_in, g.teeth, g.phase);
+            const clipPath = `path('${pathD}')`;
+            const catData = siteData[currentLang].categories.find(c => c.id === g.class);
+            const gearLabel = catData ? catData.name : '';
+            wrapper.innerHTML = `
+                <div class="gear-base" style="clip-path: ${clipPath}; -webkit-clip-path: ${clipPath};"></div>
+                <div class="gear-holo" style="clip-path: ${clipPath}; -webkit-clip-path: ${clipPath};"></div>
+                <div class="gear-ring" style="width: ${g.r_out * 1.2}px; height: ${g.r_out * 1.2}px;"></div>
+                <i class="fas ${g.icon} gear-icon" style="font-size: ${g.r_out / 3}px;"></i>
+                <span class="gear-tooltip">${gearLabel}</span>
+            `;
+            wrapper.addEventListener('mouseenter', () => activateLink(g.class));
+            wrapper.addEventListener('mouseleave', () => deactivateLink(g.class));
+            wrapper.addEventListener('click', (e) => {
+                e.preventDefault();
+                const navItem = document.querySelector(`.nav-item[data-gear="${g.class}"]`);
+                if(navItem) { const subMenu = navItem.nextElementSibling; toggleAccordion(subMenu, navItem); }
             });
-        }
-
-        function updateDateTime() {
-            const dateEl = document.getElementById('dateDisplay');
-            const timeEl = document.getElementById('timeDisplay');
-            if (dateEl) dateEl.textContent = formatDate(currentLang);
-            if (timeEl) timeEl.textContent = formatTime();
-        }
-
-        // به‌روزرسانی هر ثانیه
-        updateDateTime();
-        setInterval(updateDateTime, 1000);
-
-        // گوش دادن به تغییر زبان
-        document.querySelectorAll('.lang-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                // زبان جدید رو بگیر
-                const newLang = this.dataset.lang;
-                currentLang = newLang;
-                // تاریخ رو به‌روز کن
-                const dateEl = document.getElementById('dateDisplay');
-                if (dateEl) dateEl.textContent = formatDate(newLang);
-            });
+            container.appendChild(wrapper);
         });
-    })();
+    }
+
+    function renderSidebar() {
+        const nav = document.getElementById('sidebarNav');
+        nav.innerHTML = '';
+        siteData[currentLang].categories.forEach(cat => {
+            const categoryHTML = `
+                <div class="nav-category" id="cat-${cat.id}">
+                    <div class="nav-item ${cat.id}" data-gear="${cat.id}">
+                        <div class="nav-item-left"><i class="fas ${cat.icon}"></i><span>${cat.name}</span></div>
+                        <i class="fas fa-chevron-down arrow-icon"></i>
+                    </div>
+                    <div class="sub-menu">
+                        ${cat.subs.map(sub => `<a href="${sub.url}" class="sub-item"><i class="fas fa-circle"></i> ${sub.name}</a>`).join('')}
+                    </div>
+                </div>
+            `;
+            nav.insertAdjacentHTML('beforeend', categoryHTML);
+        });
+        document.querySelectorAll('.nav-category').forEach(category => {
+            const gearId = category.querySelector('.nav-item').dataset.gear;
+            const navItem = category.querySelector('.nav-item');
+            const subMenu = category.querySelector('.sub-menu');
+            category.addEventListener('mouseenter', () => activateLink(gearId));
+            category.addEventListener('mouseleave', () => deactivateLink(gearId));
+            navItem.addEventListener('click', (e) => { e.preventDefault(); toggleAccordion(subMenu, navItem); });
+        });
+    }
+
+    function toggleAccordion(subMenu, navItem) {
+        const isOpen = subMenu.classList.contains('open');
+        document.querySelectorAll('.sub-menu').forEach(sm => sm.classList.remove('open'));
+        document.querySelectorAll('.nav-item .arrow-icon').forEach(ai => ai.style.transform = 'rotate(0deg)');
+        if(!isOpen) { subMenu.classList.add('open'); navItem.querySelector('.arrow-icon').style.transform = 'rotate(180deg)'; }
+    }
+
+    function updateStaticTexts() {
+        document.querySelectorAll('[data-en]').forEach(el => { el.textContent = el.getAttribute(`data-${currentLang}`); });
+    }
+
+    function setLang(lang) {
+        currentLang = lang;
+        document.body.classList.toggle('rtl', lang === 'fa');
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        document.getElementById('pageTitle').innerHTML = siteData[lang].title;
+        document.getElementById('pageDesc').textContent = siteData[lang].desc;
+        updateStaticTexts();
+        renderSidebar();
+        renderGears();
+        updateDateTime();
+    }
+
+    function updateDateTime() {
+        const now = new Date();
+        const timeOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        const dateOpts = currentLang === 'fa' ? { year: 'numeric', month: 'long', day: 'numeric' } : { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('timeDisplay').textContent = now.toLocaleTimeString(currentLang === 'fa' ? 'fa-IR' : 'en-GB', timeOpts);
+        document.getElementById('dateDisplay').textContent = now.toLocaleDateString(currentLang === 'fa' ? 'fa-IR' : 'en-US', dateOpts);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+    setLang('en');
+    setInterval(updateDateTime, 1000);
 </script>
 
-<script src="script.js"></script>
 </body>
 </html>
