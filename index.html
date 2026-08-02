@@ -74,7 +74,7 @@
         body.rtl .sidebar { border-right: none; border-left: 1px solid rgba(255, 255, 255, 0.1); }
         .sidebar-nav { flex: 1; overflow-y: auto; padding: 20px 10px; }
         .nav-category { margin-bottom: 5px; }
-        .nav-item { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 12px 15px; border-radius: 8px; color: var(--text-muted); cursor: pointer; font-size: 1.05rem; transition: 0.3s; border-left: 3px solid transparent; }
+        .nav-item { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 12px 15px; border-radius: 8px; color: var(--text-muted); cursor: pointer; font-size: 1.05rem; transition: 0.3s; border-left: 3px solid transparent; text-decoration: none; }
         body.rtl .nav-item { border-left: none; border-right: 3px solid transparent; }
         .nav-item-left { display: flex; align-items: center; gap: 12px; }
         .nav-item i { width: 18px; text-align: center; font-size: 0.9rem; color: #00ff9d; opacity: 0.7; transition: 0.3s; }
@@ -91,7 +91,7 @@
         .sub-item:hover { color: var(--text-main); background: rgba(255,255,255,0.03); border-radius: 6px; }
         .sub-item i { font-size: 0.5rem; color: var(--gear-color); }
 
-        /* آیتم‌های پایین سایدبار (چشم‌انداز و تماس) */
+        /* آیتم‌های پایین سایدبار */
         .sidebar-extra { padding: 10px; border-top: 1px solid rgba(255,255,255,0.05); }
         .extra-item { color: #d4af37; }
         .extra-item i { color: #d4af37; opacity: 1; }
@@ -99,14 +99,14 @@
         body.rtl .extra-item:hover { border-right-color: #d4af37; border-left: none; }
 
         /* ===== Main Content ===== */
-        .main-content { flex: 1; position: relative; overflow-y: auto; display: flex; flex-direction: column; align-items: center; padding: 40px; }
+        .main-content { flex: 1; position: relative; overflow-y: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; }
         .aurora { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; mix-blend-mode: screen; }
         .aurora-1 { width: 600px; height: 600px; background: rgba(0, 255, 157, 0.1); top: -20%; left: 10%; animation: drift1 15s ease-in-out infinite; }
         .aurora-2 { width: 500px; height: 500px; background: rgba(212, 175, 55, 0.06); bottom: -20%; right: 10%; animation: drift2 18s ease-in-out infinite; }
         @keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(80px, 50px) scale(1.1); } }
         @keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-60px, -30px) scale(1.2); } }
 
-        .content-wrapper { position: relative; z-index: 2; width: 100%; max-width: 900px; text-align: center; margin-bottom: 60px; }
+        .content-wrapper { position: relative; z-index: 2; width: 100%; max-width: 900px; text-align: center; }
         .page-title { font-size: 2.8rem; font-weight: 300; font-style: italic; margin-bottom: 8px; color: rgba(255,255,255,0.95); }
         body.rtl .page-title { font-style: normal; font-weight: 500; }
         .page-title b { font-weight: 700; font-style: normal; background: linear-gradient(135deg, #00ff9d, #d4af37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -158,34 +158,6 @@
         .holo-projector.active .holo-beam { opacity: 1; border-bottom-color: var(--gear-glow); }
         .holo-projector.active .holo-base::after { background: var(--gear-color); box-shadow: 0 0 15px var(--gear-color), inset 0 0 5px var(--gear-color); }
         .holo-projector.active .holo-result { opacity: 1; transform: translate(-50%, 0); }
-
-        /* ===== پنل‌های کشویی از پایین (Sliding Panels) ===== */
-        .sliding-panel {
-            position: absolute; bottom: 0; left: 0; right: 0; height: 100%;
-            background: rgba(5, 15, 10, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            border-top: 2px solid #d4af37; padding: 60px 40px; overflow-y: auto;
-            transform: translateY(100%); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: 15; display: flex; flex-direction: column; justify-content: center; align-items: center;
-        }
-        .sliding-panel.active { transform: translateY(0); }
-        
-        .panel-title { font-size: 2rem; font-weight: 300; font-style: italic; margin-bottom: 30px; text-align: center; color: #fff; display: flex; align-items: center; gap: 15px; justify-content: center; }
-        body.rtl .panel-title { font-style: normal; }
-        .panel-title i { color: #d4af37; }
-
-        .vision-container { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; max-width: 800px; }
-        .vision-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 15px 25px; border-radius: 30px; color: #fff; display: flex; align-items: center; gap: 10px; font-size: 1rem; transition: 0.3s; }
-        .vision-item:hover { border-color: #00ff9d; box-shadow: 0 0 15px rgba(0,255,157,0.1); transform: translateY(-3px); }
-        .vision-item i { color: #d4af37; }
-        .coming { background: rgba(212, 175, 55, 0.12); color: #d4af37; font-size: 0.7rem; padding: 3px 10px; border-radius: 20px; }
-
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; width: 100%; max-width: 900px; }
-        .contact-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 25px; border-radius: 16px; text-align: center; transition: 0.3s; text-decoration: none; color: inherit; }
-        .contact-card:hover { transform: translateY(-5px); border-color: #00ff9d; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-        .contact-card i { font-size: 2rem; color: #00ff9d; margin-bottom: 15px; display: block; }
-        .contact-card h4 { font-size: 1.2rem; margin-bottom: 8px; color: #fff; }
-        .contact-card p { color: rgba(255,255,255,0.6); font-size: 0.95rem; }
-        .contact-card a { color: #d4af37; text-decoration: none; }
 
         .footer { text-align: center; color: rgba(255,255,255,0.3); font-size: 0.8rem; padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.05); width: 100%; position: absolute; bottom: 0; z-index: 1; }
 
@@ -242,12 +214,12 @@
     <aside class="sidebar">
         <nav class="sidebar-nav" id="sidebarNav"></nav>
         <div class="sidebar-extra">
-            <div class="nav-item extra-item" id="nav-vision">
+            <a href="vision.html" class="nav-item extra-item">
                 <div class="nav-item-left"><i class="fas fa-eye"></i><span data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</span></div>
-            </div>
-            <div class="nav-item extra-item" id="nav-contact">
+            </a>
+            <a href="contact.html" class="nav-item extra-item">
                 <div class="nav-item-left"><i class="fas fa-address-card"></i><span data-en="Contact Information" data-fa="اطلاعات تماس">Contact Information</span></div>
-            </div>
+            </a>
         </div>
     </aside>
 
@@ -274,33 +246,6 @@
             </div>
         </div>
 
-        <!-- پنل کشویی چشم‌انداز -->
-        <div class="sliding-panel" id="panel-vision">
-            <h2 class="panel-title"><i class="fas fa-eye"></i> <span data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</span></h2>
-            <div class="vision-container">
-                <span class="vision-item"><i class="fas fa-industry"></i> <span data-en="Factory" data-fa="کارخانه">Factory</span> <span class="coming" data-en="In Dev" data-fa="در حال توسعه">In Dev</span></span>
-                <span class="vision-item"><i class="fas fa-boxes"></i> <span data-en="Products" data-fa="محصولات">Products</span> <span class="coming">Soon</span></span>
-                <span class="vision-item"><i class="fas fa-project-diagram"></i> <span data-en="Projects" data-fa="پروژه‌ها">Projects</span> <span class="coming">Soon</span></span>
-                <span class="vision-item"><i class="fas fa-users"></i> <span data-en="Community" data-fa="انجمن">Community</span> <span class="coming" data-en="In Dev" data-fa="در حال توسعه">In Dev</span></span>
-                <span class="vision-item"><i class="fas fa-flask"></i> <span data-en="Research" data-fa="تحقیق">Research</span> <span class="coming">Soon</span></span>
-                <span class="vision-item"><i class="fas fa-blog"></i> <span data-en="Blog" data-fa="وبلاگ">Blog</span> <span class="coming">Soon</span></span>
-                <span class="vision-item"><i class="fas fa-briefcase"></i> <span data-en="Job Board" data-fa="بخش کار">Job Board</span> <span class="coming">Soon</span></span>
-            </div>
-        </div>
-
-        <!-- پنل کشویی تماس -->
-        <div class="sliding-panel" id="panel-contact">
-            <h2 class="panel-title"><i class="fas fa-address-card"></i> <span data-en="Contact Information" data-fa="اطلاعات تماس">Contact Information</span></h2>
-            <div class="contact-grid">
-                <div class="contact-card"><i class="fas fa-map-marker-alt"></i><h4 data-en="Head Office" data-fa="دفتر مرکزی">Head Office</h4><p data-en="Tehran, Iran" data-fa="تهران، ایران">Tehran, Iran</p></div>
-                <div class="contact-card"><i class="fas fa-phone-alt"></i><h4 data-en="Phone" data-fa="تلفن">Phone</h4><p><a href="tel:+989120891544">+98 912 089 1544</a></p></div>
-                <div class="contact-card"><i class="fas fa-envelope"></i><h4 data-en="Email" data-fa="ایمیل">Email</h4><p><a href="mailto:karatechelv@gmail.com">karatechelv@gmail.com</a></p></div>
-                <div class="contact-card"><i class="fas fa-clock"></i><h4 data-en="Working Hours" data-fa="ساعات کاری">Working Hours</h4><p data-en="Sat - Thu: 8:00 - 17:00" data-fa="شنبه تا چهارشنبه: ۸ تا ۱۷">Sat - Thu: 8:00 - 17:00</p></div>
-                <div class="contact-card"><i class="fab fa-linkedin"></i><h4>LinkedIn</h4><p><a href="#">/karatechelv</a></p></div>
-                <div class="contact-card"><i class="fab fa-github"></i><h4>GitHub</h4><p><a href="#">/karatechelv</a></p></div>
-            </div>
-        </div>
-
         <footer class="footer">
             <div>© 2026 KARATECH ELV</div>
         </footer>
@@ -321,7 +266,6 @@
         document.getElementById('dashboard').style.display = 'none';
     }
 
-    // بررسی حالت هنگام لود صفحه
     if (sessionStorage.getItem('karatech_entered') === 'true') {
         document.getElementById('splash').classList.add('hidden');
         document.getElementById('dashboard').style.display = 'flex';
@@ -367,7 +311,8 @@
         { cx: 560, cy: 265, r_out: 45, r_in: 38, teeth: 12, dir: 'ccw', class: 'm6', icon: 'fa-folder-open', phase: Math.PI/12 }
     ];
 
-    let currentLang = 'en';
+    // خواندن زبان ذخیره شده در حافظه مرورگر (حل مشکل تغییر زبان پس از برگشت)
+    let currentLang = localStorage.getItem('karatech-lang') || 'en';
 
     function createGearPath(cx, cy, outerR, innerR, teeth, phaseOffset = 0) {
         let path = ""; let angleStep = (Math.PI * 2) / teeth; let toothWidth = angleStep / 4;
@@ -485,35 +430,15 @@
         if(!isOpen) { subMenu.classList.add('open'); navItem.querySelector('.arrow-icon').style.transform = 'rotate(180deg)'; }
     }
 
-    // ===== منطق پنل‌های کشویی (Slide Up) =====
-    let panelTimeout;
-    function showPanel(id) {
-        clearTimeout(panelTimeout);
-        document.querySelectorAll('.sliding-panel').forEach(p => p.classList.remove('active'));
-        document.getElementById(`panel-${id}`).classList.add('active');
-    }
-    function hidePanel() {
-        panelTimeout = setTimeout(() => {
-            document.querySelectorAll('.sliding-panel').forEach(p => p.classList.remove('active'));
-        }, 300);
-    }
-
-    document.getElementById('nav-vision').addEventListener('mouseenter', () => showPanel('vision'));
-    document.getElementById('nav-vision').addEventListener('mouseleave', hidePanel);
-    document.getElementById('nav-contact').addEventListener('mouseenter', () => showPanel('contact'));
-    document.getElementById('nav-contact').addEventListener('mouseleave', hidePanel);
-
-    document.querySelectorAll('.sliding-panel').forEach(panel => {
-        panel.addEventListener('mouseenter', () => clearTimeout(panelTimeout));
-        panel.addEventListener('mouseleave', hidePanel);
-    });
-
     function updateStaticTexts() {
         document.querySelectorAll('[data-en]').forEach(el => { el.textContent = el.getAttribute(`data-${currentLang}`); });
     }
 
     function setLang(lang) {
         currentLang = lang;
+        // ذخیره زبان انتخاب شده در حافظه مرورگر
+        localStorage.setItem('karatech-lang', lang);
+        
         document.body.classList.toggle('rtl', lang === 'fa');
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
         document.getElementById('pageTitle').innerHTML = siteData[lang].title;
@@ -533,7 +458,9 @@
     }
 
     document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
-    setLang('en');
+    
+    // بارگذاری اولیه سایت با زبانی که کاربر قبلا انتخاب کرده است
+    setLang(currentLang);
     setInterval(updateDateTime, 1000);
 </script>
 
