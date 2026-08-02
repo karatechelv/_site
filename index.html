@@ -14,6 +14,8 @@
             --text-main: #ffffff;
             --text-muted: #8b8f99;
             --transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --accent-indigo: #4d8bff; /* رنگ نیلی جایگزین طلایی */
+            --accent-cyan: #00f2ff;   /* رنگ فیروزه‌ای جایگزین زرد */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,7 +24,7 @@
             font-family: 'Playfair Display', sans-serif;
             color: var(--text-main);
             min-height: 100vh;
-            background: radial-gradient(ellipse 80% 80% at 50% 50%, #0a4d33 0%, #04190f 40%, #000000 80%);
+            background: radial-gradient(ellipse 80% 80% at 50% 50%, #0a1a2e 0%, #04101f 40%, #000000 80%);
         }
         body.rtl { font-family: 'Vazirmatn', sans-serif; direction: rtl; }
 
@@ -36,21 +38,21 @@
         /* ===== هدر بالای سایت ===== */
         .header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 40px; background: rgba(10, 20, 15, 0.6); backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0, 255, 157, 0.15); position: sticky; top: 0; z-index: 100;
+            padding: 15px 40px; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(77, 139, 255, 0.15); position: sticky; top: 0; z-index: 100;
         }
         .brand { font-size: 1.6rem; font-weight: 700; letter-spacing: 1px; }
-        .brand span { color: #00ff9d; font-style: italic; font-weight: 500; }
+        .brand span { color: var(--accent-indigo); font-style: italic; font-weight: 500; }
         
         .datetime-widget { display: flex; flex-direction: column; align-items: center; font-size: 0.85rem; color: var(--text-muted); font-family: monospace; }
-        .time-display { color: #00ff9d; font-weight: 600; font-size: 1rem; }
+        .time-display { color: var(--accent-cyan); font-weight: 600; font-size: 1rem; }
         
         .header-actions { display: flex; align-items: center; gap: 16px; }
         .exit-btn { background: transparent; border: 1px solid rgba(255, 100, 100, 0.3); color: rgba(255, 100, 100, 0.8); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
         .exit-btn:hover { background: rgba(255, 100, 100, 0.1); color: #ff6464; }
         .lang-switch { display: flex; gap: 8px; }
         .lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
-        .lang-btn.active, .lang-btn:hover { background: rgba(0, 255, 157, 0.1); color: #00ff9d; border-color: rgba(0, 255, 157, 0.3); }
+        .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color: var(--accent-indigo); border-color: rgba(77, 139, 255, 0.3); }
 
         /* ===== Splash Screen ===== */
         .splash {
@@ -59,10 +61,10 @@
             background-image: url('assets/images/wallpaper.png'); background-size: cover; background-position: center;
         }
         .splash::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.75); z-index: -1; }
-        .splash-logo-img img { max-width: 250px; width: 100%; filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3)); }
-        .splash-sub { color: #00ff9d; font-size: 1.2rem; margin: 20px 0 40px; letter-spacing: 3px; font-style: italic; }
-        .splash-btn { background: transparent; border: 1px solid #d4af37; color: #fff; padding: 15px 50px; border-radius: 50px; font-size: 1.1rem; cursor: pointer; transition: 0.3s; font-family: inherit; }
-        .splash-btn:hover { background: #d4af37; color: #000; box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); }
+        .splash-logo-img img { max-width: 250px; width: 100%; filter: drop-shadow(0 0 20px rgba(77, 139, 255, 0.3)); }
+        .splash-sub { color: var(--accent-cyan); font-size: 1.2rem; margin: 20px 0 40px; letter-spacing: 3px; font-style: italic; }
+        .splash-btn { background: transparent; border: 1px solid var(--accent-indigo); color: #fff; padding: 15px 50px; border-radius: 50px; font-size: 1.1rem; cursor: pointer; transition: 0.3s; font-family: inherit; }
+        .splash-btn:hover { background: var(--accent-indigo); color: #000; box-shadow: 0 0 20px rgba(77, 139, 255, 0.5); }
         .splash-credit { position: absolute; bottom: 30px; color: rgba(255,255,255,0.4); font-size: 0.9rem; font-style: italic; }
         .splash.hidden { display: none; }
 
@@ -70,16 +72,16 @@
         .app-container { display: flex; height: calc(100vh - 75px); }
 
         /* ===== Sidebar ===== */
-        .sidebar { width: 280px; background: rgba(10, 20, 15, 0.4); backdrop-filter: blur(20px); border-right: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; flex-shrink: 0; }
+        .sidebar { width: 280px; background: rgba(10, 20, 35, 0.4); backdrop-filter: blur(20px); border-right: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; flex-shrink: 0; }
         body.rtl .sidebar { border-right: none; border-left: 1px solid rgba(255, 255, 255, 0.1); }
         .sidebar-nav { flex: 1; overflow-y: auto; padding: 20px 10px; }
         .nav-category { margin-bottom: 5px; }
         .nav-item { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 12px 15px; border-radius: 8px; color: var(--text-muted); cursor: pointer; font-size: 1.05rem; transition: 0.3s; border-left: 3px solid transparent; text-decoration: none; }
         body.rtl .nav-item { border-left: none; border-right: 3px solid transparent; }
         .nav-item-left { display: flex; align-items: center; gap: 12px; }
-        .nav-item i { width: 18px; text-align: center; font-size: 0.9rem; color: #00ff9d; opacity: 0.7; transition: 0.3s; }
+        .nav-item i { width: 18px; text-align: center; font-size: 0.9rem; color: var(--accent-cyan); opacity: 0.7; transition: 0.3s; }
         .arrow-icon { font-size: 0.7rem; transition: transform 0.3s; opacity: 0.5; }
-        .nav-item:hover { background: rgba(0, 255, 157, 0.05); color: var(--text-main); }
+        .nav-item:hover { background: rgba(77, 139, 255, 0.05); color: var(--text-main); }
         .nav-item.linked-active { background: rgba(255, 255, 255, 0.05); color: var(--text-main); border-left-color: var(--gear-color); }
         body.rtl .nav-item.linked-active { border-left: none; border-right-color: var(--gear-color); }
         .nav-item.linked-active i { color: var(--gear-color); opacity: 1; text-shadow: 0 0 10px var(--gear-color); }
@@ -92,29 +94,29 @@
         .sub-item i { font-size: 0.5rem; color: var(--gear-color); }
 
         .sidebar-extra { padding: 10px; border-top: 1px solid rgba(255,255,255,0.05); }
-        .extra-item { color: #d4af37; }
-        .extra-item i { color: #d4af37; opacity: 1; }
-        .extra-item:hover { background: rgba(212, 175, 55, 0.05); border-left-color: #d4af37; }
-        body.rtl .extra-item:hover { border-right-color: #d4af37; border-left: none; }
+        .extra-item { color: var(--accent-indigo); }
+        .extra-item i { color: var(--accent-indigo); opacity: 1; }
+        .extra-item:hover { background: rgba(77, 139, 255, 0.05); border-left-color: var(--accent-indigo); }
+        body.rtl .extra-item:hover { border-right-color: var(--accent-indigo); border-left: none; }
 
         /* ===== Main Content ===== */
         .main-content { flex: 1; position: relative; overflow-y: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; }
         .aurora { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; mix-blend-mode: screen; }
-        .aurora-1 { width: 600px; height: 600px; background: rgba(0, 255, 157, 0.1); top: -20%; left: 10%; animation: drift1 15s ease-in-out infinite; }
-        .aurora-2 { width: 500px; height: 500px; background: rgba(212, 175, 55, 0.06); bottom: -20%; right: 10%; animation: drift2 18s ease-in-out infinite; }
+        .aurora-1 { width: 600px; height: 600px; background: rgba(77, 139, 255, 0.1); top: -20%; left: 10%; animation: drift1 15s ease-in-out infinite; }
+        .aurora-2 { width: 500px; height: 500px; background: rgba(0, 242, 255, 0.06); bottom: -20%; right: 10%; animation: drift2 18s ease-in-out infinite; }
         @keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(80px, 50px) scale(1.1); } }
         @keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-60px, -30px) scale(1.2); } }
 
         .content-wrapper { position: relative; z-index: 2; width: 100%; max-width: 900px; text-align: center; }
         .page-title { font-size: 2.8rem; font-weight: 300; font-style: italic; margin-bottom: 8px; color: rgba(255,255,255,0.95); }
         body.rtl .page-title { font-style: normal; font-weight: 500; }
-        .page-title b { font-weight: 700; font-style: normal; background: linear-gradient(135deg, #00ff9d, #d4af37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .page-title b { font-weight: 700; font-style: normal; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .page-desc { font-style: italic; color: rgba(255,255,255,0.4); font-size: 1rem; margin-bottom: 40px; letter-spacing: 2px; }
         body.rtl .page-desc { font-style: normal; }
 
         /* ===== Machine ===== */
         .machine-container { position: relative; width: 760px; height: 320px; margin: 0 auto; direction: ltr; z-index: 2; }
-        .power-line { fill: none; stroke: #ffea00; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 5 10; animation: electricFlow 0.2s linear infinite, voltagePulse 1s infinite; filter: drop-shadow(0 0 4px #ffea00); }
+        .power-line { fill: none; stroke: var(--accent-cyan); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 5 10; animation: electricFlow 0.2s linear infinite, voltagePulse 1s infinite; filter: drop-shadow(0 0 4px var(--accent-cyan)); }
         @keyframes electricFlow { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 15; } }
         @keyframes voltagePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
         .gear-wrapper { position: absolute; cursor: pointer; z-index: 2; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
@@ -160,128 +162,115 @@
 
         .footer { text-align: center; color: rgba(255,255,255,0.3); font-size: 0.8rem; padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.05); width: 100%; position: absolute; bottom: 0; z-index: 1; }
 
-        /* ===== پنل سینمایی هولوگرامیک صنعتی (Holographic HMI) ===== */
+        /* ===== پنل سینمایی سه‌بعدی (Rising from Ground) ===== */
         .cinematic-overlay {
             position: fixed; inset: 0; z-index: 200;
-            background: radial-gradient(circle at center, rgba(5, 15, 10, 0.85) 0%, rgba(0,0,0,0.98) 100%);
+            background: radial-gradient(circle at center, rgba(5, 15, 30, 0.85) 0%, rgba(0,0,0,0.98) 100%);
             backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             display: flex; align-items: center; justify-content: center;
             opacity: 0; visibility: hidden; transition: all 0.5s ease;
-            perspective: 2000px;
+            perspective: 1500px;
         }
         .cinematic-overlay.active { opacity: 1; visibility: visible; }
 
-        /* موج انفجار نوری هنگام باز شدن */
-        .shockwave {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 10px; height: 10px; border-radius: 50%;
-            border: 2px solid rgba(0, 255, 157, 0.8);
-            opacity: 0; pointer-events: none;
-        }
-        .cinematic-overlay.active .shockwave {
-            animation: shockwaveExpand 1s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
-        }
-        @keyframes shockwaveExpand {
-            0% { width: 10px; height: 10px; opacity: 1; border-width: 10px; }
-            100% { width: 1500px; height: 1500px; opacity: 0; border-width: 1px; }
-        }
-
         .overlay-content {
-            /* برش گوشه‌های صنعتی (Clipped Corners) */
-            clip-path: polygon(
-                20px 0, 100% 0, 
-                100% calc(100% - 20px), calc(100% - 20px) 100%, 
-                0 100%, 0 20px
-            );
-            background: linear-gradient(135deg, rgba(20, 30, 25, 0.9), rgba(5, 10, 7, 0.98));
-            transform: scale(0.1) rotate(180deg); /* چرخش و کوچک شدن شدید هنگام شروع */
+            clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+            background: linear-gradient(135deg, rgba(20, 30, 50, 0.9), rgba(5, 10, 20, 0.98));
+            transform: translateY(100%) rotateX(60deg) scale(0.8); /* شروع از زیر زمین با چرخش */
             opacity: 0; 
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
             text-align: center; max-width: 900px; width: 90%; padding: 60px; position: relative;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.9), 0 0 60px rgba(0, 255, 157, 0.1), inset 0 0 30px rgba(212, 175, 55, 0.05);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.9), 0 0 60px rgba(77, 139, 255, 0.1), inset 0 0 30px rgba(77, 139, 255, 0.05);
             backdrop-filter: blur(10px);
-            transform-style: preserve-3d;
-            overflow: hidden;
+            transform-origin: bottom center;
         }
         .cinematic-overlay.active .overlay-content {
-            transform: scale(1) rotate(0deg);
+            transform: translateY(0) rotateX(0) scale(1);
             opacity: 1;
-            animation: holoFloat 6s ease-in-out 0.8s infinite; /* شناوری پس از ظاهر شدن */
+            animation: holoFloat 6s ease-in-out 1s infinite; /* شناوری پس از قرار گرفتن در جای خود */
         }
         @keyframes holoFloat {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-15px); }
         }
 
-        /* لبه‌های نوری صنعتی */
+        /* بازتاب نوری روی زمین */
+        .overlay-content::after {
+            content: '';
+            position: absolute;
+            bottom: -40px; left: 10%; right: 10%; height: 40px;
+            background: radial-gradient(ellipse at center, rgba(77, 139, 255, 0.4) 0%, transparent 70%);
+            filter: blur(20px);
+            z-index: -1;
+        }
+
         .tech-corners { position: absolute; inset: 0; pointer-events: none; z-index: 5; }
         .tech-corners::before, .tech-corners::after {
             content: ''; position: absolute; width: 40px; height: 40px;
-            border: 2px solid #00ff9d; filter: drop-shadow(0 0 8px #00ff9d);
+            border: 2px solid var(--accent-indigo); filter: drop-shadow(0 0 8px var(--accent-indigo));
             transition: 0.3s;
         }
         .tech-corners::before { top: 10px; left: 10px; border-right: none; border-bottom: none; }
         .tech-corners::after { bottom: 10px; right: 10px; border-left: none; border-top: none; }
 
         .close-overlay {
-            position: absolute; top: 25px; right: 25px; background: transparent; border: 1px solid #d4af37; color: #d4af37;
+            position: absolute; top: 25px; right: 25px; background: transparent; border: 1px solid var(--accent-indigo); color: var(--accent-indigo);
             width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1rem; transition: 0.3s; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); z-index: 10;
+            box-shadow: 0 0 10px rgba(77, 139, 255, 0.2); z-index: 10;
         }
         body.rtl .close-overlay { right: auto; left: 25px; }
-        .close-overlay:hover { background: #d4af37; color: #000; transform: rotate(90deg) scale(1.1); box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); }
+        .close-overlay:hover { background: var(--accent-indigo); color: #000; transform: rotate(90deg) scale(1.1); box-shadow: 0 0 20px rgba(77, 139, 255, 0.5); }
 
         .overlay-title { font-size: 2.2rem; font-weight: 300; font-style: italic; margin-bottom: 50px; color: #fff; display: flex; align-items: center; gap: 20px; justify-content: center; text-shadow: 0 0 20px rgba(255,255,255,0.3); position: relative; z-index: 2; }
         body.rtl .overlay-title { font-style: normal; }
-        .overlay-title i { color: #00ff9d; filter: drop-shadow(0 0 10px #00ff9d); font-size: 1.8rem; }
+        .overlay-title i { color: var(--accent-indigo); filter: drop-shadow(0 0 10px var(--accent-indigo)); font-size: 1.8rem; }
 
         .vision-container { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; position: relative; z-index: 2; }
         .vision-item {
-            background: rgba(0, 255, 157, 0.03); 
-            border: 1px solid rgba(0, 255, 157, 0.2); 
+            background: rgba(77, 139, 255, 0.03); 
+            border: 1px solid rgba(77, 139, 255, 0.2); 
             padding: 15px 25px; color: #fff; display: flex; align-items: center; gap: 10px; font-size: 1rem; transition: 0.4s; 
             clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
             position: relative; overflow: hidden;
         }
         .vision-item:hover {
-            transform: translateY(-8px) scale(1.05) rotateX(10deg) rotateY(-10deg); /* افکت سه‌بعدی خفن */
-            border-color: #00ff9d; box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 0 30px rgba(0,255,157,0.3); 
-            background: rgba(0, 255, 157, 0.08);
+            transform: translateY(-8px) scale(1.05) rotateX(10deg) rotateY(-10deg); 
+            border-color: var(--accent-indigo); box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 0 30px rgba(77,139,255,0.3); 
+            background: rgba(77, 139, 255, 0.08);
         }
-        /* خط لیزری رد شونده روی آیتم */
         .vision-item::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(0, 255, 157, 0.4), transparent);
+            background: linear-gradient(to right, transparent, rgba(77, 139, 255, 0.4), transparent);
             transition: 0.5s;
         }
         .vision-item:hover::before { left: 100%; }
-        .vision-item i { color: #00ff9d; filter: drop-shadow(0 0 5px #00ff9d); }
-        .coming { background: rgba(212, 175, 55, 0.12); color: #d4af37; font-size: 0.7rem; padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.2); }
+        .vision-item i { color: var(--accent-indigo); filter: drop-shadow(0 0 5px var(--accent-indigo)); }
+        .coming { background: rgba(0, 242, 255, 0.12); color: var(--accent-cyan); font-size: 0.7rem; padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(0, 242, 255, 0.2); }
 
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; width: 100%; position: relative; z-index: 2; }
         .contact-card {
-            background: rgba(0, 255, 157, 0.03); 
-            border: 1px solid rgba(0, 255, 157, 0.2); 
+            background: rgba(77, 139, 255, 0.03); 
+            border: 1px solid rgba(77, 139, 255, 0.2); 
             padding: 30px; text-align: center; transition: 0.4s; text-decoration: none; color: inherit; 
             clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
             position: relative; overflow: hidden;
         }
         .contact-card:hover {
-            transform: translateY(-10px) scale(1.05) rotateX(10deg) rotateY(-10deg); /* افکت سه‌بعدی خفن */
-            border-color: #00ff9d; box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 35px rgba(0,255,157,0.3); 
-            background: rgba(0, 255, 157, 0.08);
+            transform: translateY(-10px) scale(1.05) rotateX(10deg) rotateY(-10deg); 
+            border-color: var(--accent-indigo); box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 35px rgba(77,139,255,0.3); 
+            background: rgba(77, 139, 255, 0.08);
         }
-        /* خط لیزری رد شونده روی کارت */
         .contact-card::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(0, 255, 157, 0.4), transparent);
+            background: linear-gradient(to right, transparent, rgba(77, 139, 255, 0.4), transparent);
             transition: 0.5s;
         }
         .contact-card:hover::before { left: 100%; }
-        .contact-card i { font-size: 2.2rem; color: #00ff9d; margin-bottom: 20px; display: block; filter: drop-shadow(0 0 10px rgba(0,255,157,0.5)); }
+        .contact-card i { font-size: 2.2rem; color: var(--accent-indigo); margin-bottom: 20px; display: block; filter: drop-shadow(0 0 10px rgba(77,139,255,0.5)); }
         .contact-card h4 { font-size: 1.2rem; margin-bottom: 8px; color: #fff; }
         .contact-card p { color: rgba(255,255,255,0.6); font-size: 0.95rem; }
-        .contact-card a { color: #d4af37; text-decoration: none; }
+        .contact-card a { color: var(--accent-cyan); text-decoration: none; }
+        .ltr-text { direction: ltr; display: inline-block; } /* اصلاح نمایش شماره تلفن */
 
         @media (max-width: 1024px) { .machine-container { transform: scale(0.8); } }
         @media (max-width: 768px) {
@@ -292,7 +281,7 @@
             .machine-container { transform: scale(0.5); margin-top: -30px; }
             .header { flex-wrap: wrap; gap: 10px; }
             .overlay-content { padding: 30px 15px; }
-            .vision-item, .contact-card { transform: none !important; } /* отключение 3D на мобилках */
+            .vision-item, .contact-card { transform: none !important; }
         }
     </style>
 </head>
@@ -376,9 +365,8 @@
     </main>
 </div>
 
-<!-- ===== پنل هولوگرامیک چشم‌انداز ===== -->
+<!-- ===== پنل سینمایی چشم‌انداز ===== -->
 <div class="cinematic-overlay" id="overlay-vision" onclick="closeOverlay('vision', event)">
-    <div class="shockwave"></div>
     <div class="overlay-content">
         <div class="tech-corners"></div>
         <button class="close-overlay" onclick="closeOverlay('vision', event)"><i class="fas fa-times"></i></button>
@@ -395,20 +383,19 @@
     </div>
 </div>
 
-<!-- ===== پنل هولوگرامیک اطلاعات تماس ===== -->
+<!-- ===== پنل سینمایی اطلاعات تماس ===== -->
 <div class="cinematic-overlay" id="overlay-contact" onclick="closeOverlay('contact', event)">
-    <div class="shockwave"></div>
     <div class="overlay-content">
         <div class="tech-corners"></div>
         <button class="close-overlay" onclick="closeOverlay('contact', event)"><i class="fas fa-times"></i></button>
         <h2 class="overlay-title"><i class="fas fa-address-card"></i> <span data-en="Contact Information" data-fa="اطلاعات تماس">Contact Information</span></h2>
         <div class="contact-grid">
-            <div class="contact-card"><i class="fas fa-map-marker-alt"></i><h4 data-en="Head Office" data-fa="دفتر مرکزی">Head Office</h4><p data-en="Tehran, Iran" data-fa="تهران، ایران">Tehran, Iran</p></div>
-            <div class="contact-card"><i class="fas fa-phone-alt"></i><h4 data-en="Phone" data-fa="تلفن">Phone</h4><p><a href="tel:+989120891544">+98 912 089 1544</a></p></div>
-            <div class="contact-card"><i class="fas fa-envelope"></i><h4 data-en="Email" data-fa="ایمیل">Email</h4><p><a href="mailto:karatechelv@gmail.com">karatechelv@gmail.com</a></p></div>
+            <div class="contact-card"><i class="fas fa-map-marker-alt"></i><h4 data-en="Head Office" data-fa="دفتر مرکزی">Head Office</h4><p data-en="Tehran, Iran" data-fa="ایران، تهران">Tehran, Iran</p></div>
+            <div class="contact-card"><i class="fas fa-phone-alt"></i><h4 data-en="Phone" data-fa="تلفن">Phone</h4><p><a href="tel:+989120891544" class="ltr-text">+98 912 089 1544</a></p></div>
+            <div class="contact-card"><i class="fas fa-envelope"></i><h4 data-en="Email" data-fa="ایمیل">Email</h4><p><a href="mailto:karatechelv@gmail.com" class="ltr-text">karatechelv@gmail.com</a></p></div>
             <div class="contact-card"><i class="fas fa-clock"></i><h4 data-en="Working Hours" data-fa="ساعات کاری">Working Hours</h4><p data-en="Sat - Thu: 8:00 - 17:00" data-fa="شنبه تا چهارشنبه: ۸ تا ۱۷">Sat - Thu: 8:00 - 17:00</p></div>
-            <div class="contact-card"><i class="fab fa-linkedin"></i><h4>LinkedIn</h4><p><a href="#">/karatechelv</a></p></div>
-            <div class="contact-card"><i class="fab fa-github"></i><h4>GitHub</h4><p><a href="#">/karatechelv</a></p></div>
+            <div class="contact-card"><i class="fab fa-linkedin"></i><h4>LinkedIn</h4><p><a href="#" class="ltr-text">/karatechelv</a></p></div>
+            <div class="contact-card"><i class="fab fa-github"></i><h4>GitHub</h4><p><a href="#" class="ltr-text">/karatechelv</a></p></div>
         </div>
     </div>
 </div>
@@ -435,7 +422,7 @@
         document.getElementById('dashboard').style.display = 'none';
     }
 
-    // ===== پنل‌های هولوگرامیک =====
+    // ===== پنل‌های سینمایی =====
     function openOverlay(id) {
         document.getElementById('overlay-' + id).classList.add('active');
     }
@@ -527,8 +514,8 @@
         if(!gear || !navItem) return;
         gear.classList.remove('simulated-hover');
         navItem.classList.remove('linked-active');
-        document.getElementById('powerLine').style.stroke = '#ffea00';
-        document.getElementById('powerLine').style.filter = `drop-shadow(0 0 4px #ffea00)`;
+        document.getElementById('powerLine').style.stroke = '#00f2ff';
+        document.getElementById('powerLine').style.filter = `drop-shadow(0 0 4px #00f2ff)`;
         projector.classList.remove('active');
     }
 
