@@ -91,7 +91,6 @@
         .sub-item:hover { color: var(--text-main); background: rgba(255,255,255,0.03); border-radius: 6px; }
         .sub-item i { font-size: 0.5rem; color: var(--gear-color); }
 
-        /* آیتم‌های پایین سایدبار */
         .sidebar-extra { padding: 10px; border-top: 1px solid rgba(255,255,255,0.05); }
         .extra-item { color: #d4af37; }
         .extra-item i { color: #d4af37; opacity: 1; }
@@ -161,10 +160,10 @@
 
         .footer { text-align: center; color: rgba(255,255,255,0.3); font-size: 0.8rem; padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.05); width: 100%; position: absolute; bottom: 0; z-index: 1; }
 
-        /* ===== پنل سینمایی شناور (Cinematic Floating Modal) ===== */
+        /* ===== پنل سینمایی شناور فوق‌العاده خفن ===== */
         .cinematic-overlay {
             position: fixed; inset: 0; z-index: 200;
-            background: radial-gradient(circle at center, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.98) 100%);
+            background: radial-gradient(circle at center, rgba(5, 15, 10, 0.85) 0%, rgba(0,0,0,0.98) 100%);
             backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             display: flex; align-items: center; justify-content: center;
             opacity: 0; visibility: hidden; transition: all 0.5s ease;
@@ -173,45 +172,80 @@
         .cinematic-overlay.active { opacity: 1; visibility: visible; }
         
         .overlay-content {
-            transform: scale(0.8) rotateX(-15deg) translateZ(-200px);
+            transform: scale(0.5) rotateY(90deg); /* چرخش سه‌بعدی شدید هنگام باز شدن */
             opacity: 0; 
-            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
             text-align: center; max-width: 900px; width: 90%; padding: 60px; position: relative;
-            background: rgba(10, 20, 15, 0.4); 
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: linear-gradient(135deg, rgba(20, 30, 25, 0.6), rgba(5, 10, 7, 0.8));
+            border: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 24px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.9), 0 0 60px rgba(212, 175, 55, 0.1), inset 0 0 30px rgba(0,0,0,0.5);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.9), 0 0 60px rgba(0, 255, 157, 0.1), inset 0 0 30px rgba(212, 175, 55, 0.05);
             backdrop-filter: blur(10px);
+            transform-style: preserve-3d;
+            overflow: hidden;
         }
         .cinematic-overlay.active .overlay-content {
-            transform: scale(1) rotateX(0) translateZ(0);
+            transform: scale(1) rotateY(0deg);
             opacity: 1;
-            animation: floatPanel 6s ease-in-out infinite;
+            animation: floatPanel 6s ease-in-out infinite; /* شناوری ملایم پس از باز شدن */
         }
         @keyframes floatPanel {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+            0%, 100% { transform: translateY(0px) rotateX(0deg); }
+            50% { transform: translateY(-20px) rotateX(2deg); }
+        }
+
+        /* هاله نورانی چرخان در پس‌زمینه پنل */
+        .overlay-content::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: conic-gradient(from 0deg, transparent 0%, rgba(212, 175, 55, 0.1) 10%, transparent 20%, transparent 50%, rgba(0, 255, 157, 0.1) 60%, transparent 70%);
+            animation: rotate-glow 10s linear infinite;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        @keyframes rotate-glow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* افکت درخشش (Shimmer) که از روی پنل رد می‌شود */
+        .overlay-content::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: skewX(-25deg);
+            transition: 0.5s;
+            animation: shimmer 5s infinite;
+        }
+        @keyframes shimmer {
+            0% { left: -100%; }
+            50% { left: 150%; }
+            100% { left: 150%; }
         }
 
         .close-overlay {
             position: absolute; top: 20px; right: 20px; background: transparent; border: 1px solid #d4af37; color: #d4af37;
             width: 45px; height: 45px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; transition: 0.3s; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); z-index: 10;
         }
         body.rtl .close-overlay { right: auto; left: 20px; }
         .close-overlay:hover { background: #d4af37; color: #000; transform: rotate(90deg) scale(1.1); box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); }
 
-        .overlay-title { font-size: 2.2rem; font-weight: 300; font-style: italic; margin-bottom: 50px; color: #fff; display: flex; align-items: center; gap: 20px; justify-content: center; text-shadow: 0 0 20px rgba(255,255,255,0.3); }
+        .overlay-title { font-size: 2.2rem; font-weight: 300; font-style: italic; margin-bottom: 50px; color: #fff; display: flex; align-items: center; gap: 20px; justify-content: center; text-shadow: 0 0 20px rgba(255,255,255,0.3); position: relative; z-index: 2; }
         body.rtl .overlay-title { font-style: normal; }
         .overlay-title i { color: #d4af37; filter: drop-shadow(0 0 10px #d4af37); font-size: 1.8rem; }
 
-        .vision-container { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
+        .vision-container { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; position: relative; z-index: 2; }
         .vision-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 15px 25px; border-radius: 30px; color: #fff; display: flex; align-items: center; gap: 10px; font-size: 1rem; transition: 0.3s; }
         .vision-item:hover { border-color: #00ff9d; box-shadow: 0 10px 20px rgba(0,0,0,0.3), 0 0 20px rgba(0,255,157,0.2); transform: translateY(-5px) scale(1.05); background: rgba(0, 255, 157, 0.05); }
         .vision-item i { color: #d4af37; filter: drop-shadow(0 0 5px #d4af37); }
         .coming { background: rgba(212, 175, 55, 0.12); color: #d4af37; font-size: 0.7rem; padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.2); }
 
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; width: 100%; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; width: 100%; position: relative; z-index: 2; }
         .contact-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 16px; text-align: center; transition: 0.3s; text-decoration: none; color: inherit; }
         .contact-card:hover { transform: translateY(-8px) scale(1.03); border-color: #00ff9d; box-shadow: 0 15px 30px rgba(0,0,0,0.4), 0 0 25px rgba(0,255,157,0.15); background: rgba(0, 255, 157, 0.03); }
         .contact-card i { font-size: 2.2rem; color: #00ff9d; margin-bottom: 20px; display: block; filter: drop-shadow(0 0 10px rgba(0,255,157,0.5)); }
