@@ -33,7 +33,7 @@
             opacity: 0.04; pointer-events: none; z-index: 9999; mix-blend-mode: overlay;
         }
 
-        /* ===== هدر بالای سایت (همیشه قابل مشاهده) ===== */
+        /* ===== هدر بالای سایت ===== */
         .header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 40px; background: rgba(10, 20, 15, 0.6); backdrop-filter: blur(15px);
@@ -66,13 +66,13 @@
         .splash-credit { position: absolute; bottom: 30px; color: rgba(255,255,255,0.4); font-size: 0.9rem; font-style: italic; }
         .splash.hidden { display: none; }
 
-        /* ===== App Container (Sidebar + Main) ===== */
+        /* ===== App Container ===== */
         .app-container { display: flex; height: calc(100vh - 75px); }
 
         /* ===== Sidebar ===== */
-        .sidebar { width: 280px; background: rgba(10, 20, 15, 0.4); backdrop-filter: blur(20px); border-right: 1px solid rgba(255, 255, 255, 0.1); overflow-y: auto; flex-shrink: 0; }
+        .sidebar { width: 280px; background: rgba(10, 20, 15, 0.4); backdrop-filter: blur(20px); border-right: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; flex-shrink: 0; }
         body.rtl .sidebar { border-right: none; border-left: 1px solid rgba(255, 255, 255, 0.1); }
-        .sidebar-nav { padding: 20px 10px; }
+        .sidebar-nav { flex: 1; overflow-y: auto; padding: 20px 10px; }
         .nav-category { margin-bottom: 5px; }
         .nav-item { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 12px 15px; border-radius: 8px; color: var(--text-muted); cursor: pointer; font-size: 1.05rem; transition: 0.3s; border-left: 3px solid transparent; }
         body.rtl .nav-item { border-left: none; border-right: 3px solid transparent; }
@@ -91,6 +91,13 @@
         .sub-item:hover { color: var(--text-main); background: rgba(255,255,255,0.03); border-radius: 6px; }
         .sub-item i { font-size: 0.5rem; color: var(--gear-color); }
 
+        /* آیتم‌های پایین سایدبار (چشم‌انداز و تماس) */
+        .sidebar-extra { padding: 10px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .extra-item { color: #d4af37; }
+        .extra-item i { color: #d4af37; opacity: 1; }
+        .extra-item:hover { background: rgba(212, 175, 55, 0.05); border-left-color: #d4af37; }
+        body.rtl .extra-item:hover { border-right-color: #d4af37; border-left: none; }
+
         /* ===== Main Content ===== */
         .main-content { flex: 1; position: relative; overflow-y: auto; display: flex; flex-direction: column; align-items: center; padding: 40px; }
         .aurora { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; mix-blend-mode: screen; }
@@ -107,7 +114,7 @@
         body.rtl .page-desc { font-style: normal; }
 
         /* ===== Machine ===== */
-        .machine-container { position: relative; width: 760px; height: 320px; margin: 0 auto; direction: ltr; }
+        .machine-container { position: relative; width: 760px; height: 320px; margin: 0 auto; direction: ltr; z-index: 2; }
         .power-line { fill: none; stroke: #ffea00; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 5 10; animation: electricFlow 0.2s linear infinite, voltagePulse 1s infinite; filter: drop-shadow(0 0 4px #ffea00); }
         @keyframes electricFlow { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 15; } }
         @keyframes voltagePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
@@ -152,28 +159,35 @@
         .holo-projector.active .holo-base::after { background: var(--gear-color); box-shadow: 0 0 15px var(--gear-color), inset 0 0 5px var(--gear-color); }
         .holo-projector.active .holo-result { opacity: 1; transform: translate(-50%, 0); }
 
-        /* ===== بخش‌های پایین (چشم‌انداز و تماس) ===== */
-        .section-title { font-size: 1.8rem; font-weight: 300; font-style: italic; margin: 60px 0 30px; text-align: center; color: #fff; display: flex; align-items: center; gap: 15px; justify-content: center; }
-        body.rtl .section-title { font-style: normal; }
-        .section-title i { color: #d4af37; }
-        .section-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); max-width: 100px; }
-        .section-title::before { content: ''; flex: 1; height: 1px; background: linear-gradient(-90deg, var(--border), transparent); max-width: 100px; }
+        /* ===== پنل‌های کشویی از پایین (Sliding Panels) ===== */
+        .sliding-panel {
+            position: absolute; bottom: 0; left: 0; right: 0; height: 100%;
+            background: rgba(5, 15, 10, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border-top: 2px solid #d4af37; padding: 60px 40px; overflow-y: auto;
+            transform: translateY(100%); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 15; display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        .sliding-panel.active { transform: translateY(0); }
+        
+        .panel-title { font-size: 2rem; font-weight: 300; font-style: italic; margin-bottom: 30px; text-align: center; color: #fff; display: flex; align-items: center; gap: 15px; justify-content: center; }
+        body.rtl .panel-title { font-style: normal; }
+        .panel-title i { color: #d4af37; }
 
-        .vision-container { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 40px; }
-        .vision-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 30px; color: #fff; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; transition: 0.3s; }
-        .vision-item:hover { border-color: #00ff9d; box-shadow: 0 0 10px rgba(0,255,157,0.1); }
+        .vision-container { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; max-width: 800px; }
+        .vision-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 15px 25px; border-radius: 30px; color: #fff; display: flex; align-items: center; gap: 10px; font-size: 1rem; transition: 0.3s; }
+        .vision-item:hover { border-color: #00ff9d; box-shadow: 0 0 15px rgba(0,255,157,0.1); transform: translateY(-3px); }
         .vision-item i { color: #d4af37; }
-        .coming { background: rgba(212, 175, 55, 0.12); color: #d4af37; font-size: 0.65rem; padding: 2px 8px; border-radius: 20px; }
+        .coming { background: rgba(212, 175, 55, 0.12); color: #d4af37; font-size: 0.7rem; padding: 3px 10px; border-radius: 20px; }
 
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; width: 100%; max-width: 900px; margin: 0 auto 40px; }
-        .contact-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 25px; border-radius: 16px; text-align: center; transition: 0.3s; text-decoration: none; color: inherit; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; width: 100%; max-width: 900px; }
+        .contact-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 25px; border-radius: 16px; text-align: center; transition: 0.3s; text-decoration: none; color: inherit; }
         .contact-card:hover { transform: translateY(-5px); border-color: #00ff9d; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-        .contact-card i { font-size: 1.8rem; color: #00ff9d; margin-bottom: 15px; display: block; }
-        .contact-card h4 { font-size: 1.1rem; margin-bottom: 8px; color: #fff; }
-        .contact-card p { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+        .contact-card i { font-size: 2rem; color: #00ff9d; margin-bottom: 15px; display: block; }
+        .contact-card h4 { font-size: 1.2rem; margin-bottom: 8px; color: #fff; }
+        .contact-card p { color: rgba(255,255,255,0.6); font-size: 0.95rem; }
         .contact-card a { color: #d4af37; text-decoration: none; }
 
-        .footer { text-align: center; color: rgba(255,255,255,0.3); font-size: 0.8rem; padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.05); width: 100%; }
+        .footer { text-align: center; color: rgba(255,255,255,0.3); font-size: 0.8rem; padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.05); width: 100%; position: absolute; bottom: 0; z-index: 1; }
 
         @media (max-width: 1024px) { .machine-container { transform: scale(0.8); } }
         @media (max-width: 768px) {
@@ -196,7 +210,7 @@
         <div class="time-display" id="timeDisplay"></div>
     </div>
     <div class="header-actions">
-        <button class="exit-btn" onclick="document.getElementById('splash').classList.remove('hidden'); document.getElementById('dashboard').style.display='none';">
+        <button class="exit-btn" onclick="exitSystem()">
             <i class="fas fa-sign-out-alt"></i> <span data-en="Exit" data-fa="خروج">Exit</span>
         </button>
         <div class="lang-switch">
@@ -214,7 +228,7 @@
     <div class="splash-sub" data-en="Engineering · Automation · Intelligence" data-fa="مهندسی · اتوماسیون · هوش">
         Engineering · Automation · Intelligence
     </div>
-    <button class="splash-btn" id="enterBtn" onclick="document.getElementById('splash').classList.add('hidden'); document.getElementById('dashboard').style.display='flex';">
+    <button class="splash-btn" id="enterBtn" onclick="enterSystem()">
         <i class="fas fa-arrow-right"></i> 
         <span data-en="Enter Engineering System" data-fa="ورود به سیستم مهندسی">Enter Engineering System</span>
     </button>
@@ -227,6 +241,14 @@
 <div class="app-container" id="dashboard" style="display: none;">
     <aside class="sidebar">
         <nav class="sidebar-nav" id="sidebarNav"></nav>
+        <div class="sidebar-extra">
+            <div class="nav-item extra-item" id="nav-vision">
+                <div class="nav-item-left"><i class="fas fa-eye"></i><span data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</span></div>
+            </div>
+            <div class="nav-item extra-item" id="nav-contact">
+                <div class="nav-item-left"><i class="fas fa-address-card"></i><span data-en="Contact Information" data-fa="اطلاعات تماس">Contact Information</span></div>
+            </div>
+        </div>
     </aside>
 
     <main class="main-content">
@@ -252,33 +274,31 @@
             </div>
         </div>
 
-        <!-- بخش چشم‌انداز و آینده (بازگشت یافت) -->
-        <div class="section-title">
-            <i class="fas fa-eye"></i> 
-            <span data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</span>
-        </div>
-        <div class="vision-container">
-            <span class="vision-item"><i class="fas fa-industry"></i> <span data-en="Factory" data-fa="کارخانه">Factory</span> <span class="coming" data-en="In Dev" data-fa="در حال توسعه">In Dev</span></span>
-            <span class="vision-item"><i class="fas fa-boxes"></i> <span data-en="Products" data-fa="محصولات">Products</span> <span class="coming">Soon</span></span>
-            <span class="vision-item"><i class="fas fa-project-diagram"></i> <span data-en="Projects" data-fa="پروژه‌ها">Projects</span> <span class="coming">Soon</span></span>
-            <span class="vision-item"><i class="fas fa-users"></i> <span data-en="Community" data-fa="انجمن">Community</span> <span class="coming" data-en="In Dev" data-fa="در حال توسعه">In Dev</span></span>
-            <span class="vision-item"><i class="fas fa-flask"></i> <span data-en="Research" data-fa="تحقیق">Research</span> <span class="coming">Soon</span></span>
-            <span class="vision-item"><i class="fas fa-blog"></i> <span data-en="Blog" data-fa="وبلاگ">Blog</span> <span class="coming">Soon</span></span>
-            <span class="vision-item"><i class="fas fa-briefcase"></i> <span data-en="Job Board" data-fa="بخش کار">Job Board</span> <span class="coming">Soon</span></span>
+        <!-- پنل کشویی چشم‌انداز -->
+        <div class="sliding-panel" id="panel-vision">
+            <h2 class="panel-title"><i class="fas fa-eye"></i> <span data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</span></h2>
+            <div class="vision-container">
+                <span class="vision-item"><i class="fas fa-industry"></i> <span data-en="Factory" data-fa="کارخانه">Factory</span> <span class="coming" data-en="In Dev" data-fa="در حال توسعه">In Dev</span></span>
+                <span class="vision-item"><i class="fas fa-boxes"></i> <span data-en="Products" data-fa="محصولات">Products</span> <span class="coming">Soon</span></span>
+                <span class="vision-item"><i class="fas fa-project-diagram"></i> <span data-en="Projects" data-fa="پروژه‌ها">Projects</span> <span class="coming">Soon</span></span>
+                <span class="vision-item"><i class="fas fa-users"></i> <span data-en="Community" data-fa="انجمن">Community</span> <span class="coming" data-en="In Dev" data-fa="در حال توسعه">In Dev</span></span>
+                <span class="vision-item"><i class="fas fa-flask"></i> <span data-en="Research" data-fa="تحقیق">Research</span> <span class="coming">Soon</span></span>
+                <span class="vision-item"><i class="fas fa-blog"></i> <span data-en="Blog" data-fa="وبلاگ">Blog</span> <span class="coming">Soon</span></span>
+                <span class="vision-item"><i class="fas fa-briefcase"></i> <span data-en="Job Board" data-fa="بخش کار">Job Board</span> <span class="coming">Soon</span></span>
+            </div>
         </div>
 
-        <!-- بخش اطلاعات تماس (بازگشت یافت) -->
-        <div class="section-title">
-            <i class="fas fa-address-card"></i> 
-            <span data-en="Contact Information" data-fa="اطلاعات تماس">Contact Information</span>
-        </div>
-        <div class="contact-grid">
-            <div class="contact-card"><i class="fas fa-map-marker-alt"></i><h4 data-en="Head Office" data-fa="دفتر مرکزی">Head Office</h4><p data-en="Tehran, Iran" data-fa="تهران، ایران">Tehran, Iran</p></div>
-            <div class="contact-card"><i class="fas fa-phone-alt"></i><h4 data-en="Phone" data-fa="تلفن">Phone</h4><p><a href="tel:+989120891544">+98 912 089 1544</a></p></div>
-            <div class="contact-card"><i class="fas fa-envelope"></i><h4 data-en="Email" data-fa="ایمیل">Email</h4><p><a href="mailto:karatechelv@gmail.com">karatechelv@gmail.com</a></p></div>
-            <div class="contact-card"><i class="fas fa-clock"></i><h4 data-en="Working Hours" data-fa="ساعات کاری">Working Hours</h4><p data-en="Sat - Thu: 8:00 - 17:00" data-fa="شنبه تا چهارشنبه: ۸ تا ۱۷">Sat - Thu: 8:00 - 17:00</p></div>
-            <div class="contact-card"><i class="fab fa-linkedin"></i><h4>LinkedIn</h4><p><a href="#">/karatechelv</a></p></div>
-            <div class="contact-card"><i class="fab fa-github"></i><h4>GitHub</h4><p><a href="#">/karatechelv</a></p></div>
+        <!-- پنل کشویی تماس -->
+        <div class="sliding-panel" id="panel-contact">
+            <h2 class="panel-title"><i class="fas fa-address-card"></i> <span data-en="Contact Information" data-fa="اطلاعات تماس">Contact Information</span></h2>
+            <div class="contact-grid">
+                <div class="contact-card"><i class="fas fa-map-marker-alt"></i><h4 data-en="Head Office" data-fa="دفتر مرکزی">Head Office</h4><p data-en="Tehran, Iran" data-fa="تهران، ایران">Tehran, Iran</p></div>
+                <div class="contact-card"><i class="fas fa-phone-alt"></i><h4 data-en="Phone" data-fa="تلفن">Phone</h4><p><a href="tel:+989120891544">+98 912 089 1544</a></p></div>
+                <div class="contact-card"><i class="fas fa-envelope"></i><h4 data-en="Email" data-fa="ایمیل">Email</h4><p><a href="mailto:karatechelv@gmail.com">karatechelv@gmail.com</a></p></div>
+                <div class="contact-card"><i class="fas fa-clock"></i><h4 data-en="Working Hours" data-fa="ساعات کاری">Working Hours</h4><p data-en="Sat - Thu: 8:00 - 17:00" data-fa="شنبه تا چهارشنبه: ۸ تا ۱۷">Sat - Thu: 8:00 - 17:00</p></div>
+                <div class="contact-card"><i class="fab fa-linkedin"></i><h4>LinkedIn</h4><p><a href="#">/karatechelv</a></p></div>
+                <div class="contact-card"><i class="fab fa-github"></i><h4>GitHub</h4><p><a href="#">/karatechelv</a></p></div>
+            </div>
         </div>
 
         <footer class="footer">
@@ -288,6 +308,28 @@
 </div>
 
 <script>
+    // ===== حل قطعی مشکل دکمه Back مرورگر =====
+    function enterSystem() {
+        sessionStorage.setItem('karatech_entered', 'true');
+        document.getElementById('splash').classList.add('hidden');
+        document.getElementById('dashboard').style.display = 'flex';
+    }
+
+    function exitSystem() {
+        sessionStorage.removeItem('karatech_entered');
+        document.getElementById('splash').classList.remove('hidden');
+        document.getElementById('dashboard').style.display = 'none';
+    }
+
+    // بررسی حالت هنگام لود صفحه
+    if (sessionStorage.getItem('karatech_entered') === 'true') {
+        document.getElementById('splash').classList.add('hidden');
+        document.getElementById('dashboard').style.display = 'flex';
+    } else {
+        document.getElementById('splash').classList.remove('hidden');
+        document.getElementById('dashboard').style.display = 'none';
+    }
+
     // ===== پایگاه داده دوزبانه با لینک‌های واقعی شما =====
     const siteData = {
         en: {
@@ -442,6 +484,29 @@
         document.querySelectorAll('.nav-item .arrow-icon').forEach(ai => ai.style.transform = 'rotate(0deg)');
         if(!isOpen) { subMenu.classList.add('open'); navItem.querySelector('.arrow-icon').style.transform = 'rotate(180deg)'; }
     }
+
+    // ===== منطق پنل‌های کشویی (Slide Up) =====
+    let panelTimeout;
+    function showPanel(id) {
+        clearTimeout(panelTimeout);
+        document.querySelectorAll('.sliding-panel').forEach(p => p.classList.remove('active'));
+        document.getElementById(`panel-${id}`).classList.add('active');
+    }
+    function hidePanel() {
+        panelTimeout = setTimeout(() => {
+            document.querySelectorAll('.sliding-panel').forEach(p => p.classList.remove('active'));
+        }, 300);
+    }
+
+    document.getElementById('nav-vision').addEventListener('mouseenter', () => showPanel('vision'));
+    document.getElementById('nav-vision').addEventListener('mouseleave', hidePanel);
+    document.getElementById('nav-contact').addEventListener('mouseenter', () => showPanel('contact'));
+    document.getElementById('nav-contact').addEventListener('mouseleave', hidePanel);
+
+    document.querySelectorAll('.sliding-panel').forEach(panel => {
+        panel.addEventListener('mouseenter', () => clearTimeout(panelTimeout));
+        panel.addEventListener('mouseleave', hidePanel);
+    });
 
     function updateStaticTexts() {
         document.querySelectorAll('[data-en]').forEach(el => { el.textContent = el.getAttribute(`data-${currentLang}`); });
