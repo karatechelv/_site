@@ -7,7 +7,8 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- افزودن فونت هنری Markazi Text برای تیترهای فارسی -->
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
@@ -43,9 +44,11 @@
         }
         .brand { font-size: 1.6rem; font-weight: 700; letter-spacing: 1px; }
         .brand span { color: var(--accent-indigo); font-style: italic; font-weight: 500; }
+        body.rtl .brand { font-family: 'Markazi Text', sans-serif; font-size: 1.8rem; }
         
         .datetime-widget { display: flex; flex-direction: column; align-items: center; font-size: 0.85rem; color: var(--text-muted); font-family: monospace; }
         .time-display { color: var(--accent-cyan); font-weight: 600; font-size: 1rem; }
+        body.rtl .datetime-widget { font-family: 'Vazirmatn', monospace; }
         
         .header-actions { display: flex; align-items: center; gap: 16px; }
         .exit-btn { background: transparent; border: 1px solid rgba(255, 100, 100, 0.3); color: rgba(255, 100, 100, 0.8); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
@@ -63,9 +66,11 @@
         .splash::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.75); z-index: -1; }
         .splash-logo-img img { max-width: 250px; width: 100%; filter: drop-shadow(0 0 20px rgba(77, 139, 255, 0.3)); }
         .splash-sub { color: var(--accent-cyan); font-size: 1.2rem; margin: 20px 0 40px; letter-spacing: 3px; font-style: italic; }
+        body.rtl .splash-sub { font-family: 'Markazi Text', sans-serif; font-style: normal; font-size: 1.4rem; }
         .splash-btn { background: transparent; border: 1px solid var(--accent-indigo); color: #fff; padding: 15px 50px; border-radius: 50px; font-size: 1.1rem; cursor: pointer; transition: 0.3s; font-family: inherit; }
         .splash-btn:hover { background: var(--accent-indigo); color: #000; box-shadow: 0 0 20px rgba(77, 139, 255, 0.5); }
         .splash-credit { position: absolute; bottom: 30px; color: rgba(255,255,255,0.4); font-size: 0.9rem; font-style: italic; }
+        body.rtl .splash-credit { font-family: 'Vazirmatn', sans-serif; font-style: normal; font-size: 1rem; }
         .splash.hidden { display: none; }
 
         /* ===== App Container ===== */
@@ -109,10 +114,10 @@
 
         .content-wrapper { position: relative; z-index: 2; width: 100%; max-width: 900px; text-align: center; }
         .page-title { font-size: 2.8rem; font-weight: 300; font-style: italic; margin-bottom: 8px; color: rgba(255,255,255,0.95); }
-        body.rtl .page-title { font-style: normal; font-weight: 500; }
+        body.rtl .page-title { font-family: 'Markazi Text', sans-serif; font-style: normal; font-weight: 700; font-size: 3.2rem; }
         .page-title b { font-weight: 700; font-style: normal; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .page-desc { font-style: italic; color: rgba(255,255,255,0.4); font-size: 1rem; margin-bottom: 40px; letter-spacing: 2px; }
-        body.rtl .page-desc { font-style: normal; }
+        body.rtl .page-desc { font-family: 'Vazirmatn', sans-serif; font-style: normal; font-size: 1.1rem; }
 
         /* ===== Machine ===== */
         .machine-container { position: relative; width: 760px; height: 320px; margin: 0 auto; direction: ltr; z-index: 2; }
@@ -128,7 +133,7 @@
         .gear-ring { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60%; height: 60%; border: 2px solid var(--gear-color); border-radius: 50%; pointer-events: none; opacity: 0.5; box-shadow: 0 0 10px var(--gear-color); }
         .gear-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 1.4rem; color: var(--text-main); z-index: 10; transition: 0.3s; text-shadow: 0 0 10px var(--gear-color); }
         .gear-tooltip { position: absolute; bottom: 115%; left: 50%; transform: translate(-50%, 15px); font-size: 1.2rem; font-weight: 600; font-style: italic; color: var(--gear-color); text-shadow: 0 0 10px var(--gear-glow); white-space: nowrap; pointer-events: none; opacity: 0; z-index: 12; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        body.rtl .gear-tooltip { font-style: normal; }
+        body.rtl .gear-tooltip { font-family: 'Markazi Text', sans-serif; font-style: normal; font-size: 1.4rem; }
         .gear-wrapper:hover, .gear-wrapper.simulated-hover { transform: scale(1.15) translateY(-10px); z-index: 10; filter: drop-shadow(0 15px 15px rgba(0,0,0,0.5)) drop-shadow(0 0 25px var(--gear-glow)); }
         .gear-wrapper:hover .gear-holo, .gear-wrapper.simulated-hover .gear-holo { opacity: 1; animation-duration: 2s; }
         .gear-wrapper:hover .gear-base, .gear-wrapper.simulated-hover .gear-base { animation-duration: 3s; }
@@ -155,7 +160,7 @@
         .holo-result { position: absolute; bottom: 50px; left: 50%; transform: translate(-50%, 20px); width: 100px; text-align: center; opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 5; }
         .holo-icon { font-size: 2rem; color: #fff; margin-bottom: 5px; text-shadow: 0 0 15px var(--gear-color), 0 0 5px var(--gear-color); filter: drop-shadow(0 0 5px var(--gear-color)); }
         .holo-text { font-family: 'Playfair Display', sans-serif; font-style: italic; font-size: 0.9rem; color: var(--gear-color); white-space: nowrap; text-shadow: 0 0 5px var(--gear-glow); }
-        body.rtl .holo-text { font-style: normal; font-family: 'Vazirmatn', sans-serif; }
+        body.rtl .holo-text { font-family: 'Markazi Text', sans-serif; font-style: normal; font-size: 1.1rem; }
         .holo-projector.active .holo-beam { opacity: 1; border-bottom-color: var(--gear-glow); }
         .holo-projector.active .holo-base::after { background: var(--gear-color); box-shadow: 0 0 15px var(--gear-color), inset 0 0 5px var(--gear-color); }
         .holo-projector.active .holo-result { opacity: 1; transform: translate(-50%, 0); }
@@ -183,7 +188,7 @@
             color: var(--accent-cyan); text-shadow: 0 0 15px var(--accent-cyan);
             letter-spacing: 2px;
         }
-        body.rtl .holo-hud-title { font-style: normal; }
+        body.rtl .holo-hud-title { font-family: 'Markazi Text', sans-serif; font-style: normal; font-size: 2.2rem; font-weight: 700; }
 
         .holo-item {
             display: flex; align-items: center;
@@ -264,6 +269,7 @@
             body.rtl .app-container { flex-direction: column-reverse; }
             .sidebar { width: 100%; height: 45vh; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
             .page-title { font-size: 2rem; }
+            body.rtl .page-title { font-size: 2.2rem; }
             .machine-container { transform: scale(0.5); margin-top: -30px; }
             .header { flex-wrap: wrap; gap: 10px; }
             .holo-hud { padding: 20px; }
@@ -393,11 +399,12 @@
         <div class="holo-hud-title" data-en="Contact Information" data-fa="اطلاعات تماس">Contact Information</div>
         <div class="holo-item">
             <div class="holo-icon-circle"><i class="fas fa-phone-alt"></i></div>
-            <div class="holo-data ltr-text">+98 912 089 1544</div>
+            <!-- اصلاح شماره تلفن فارسی -->
+            <div class="holo-data" data-en="+98 912 089 1544" data-fa="۹۸+ ۹۱۲ ۰۸۹ ۱۵۴۴">+98 912 089 1544</div>
         </div>
         <div class="holo-item">
             <div class="holo-icon-circle"><i class="fas fa-envelope"></i></div>
-            <div class="holo-data ltr-text">karatechelv@gmail.com</div>
+            <div class="holo-data" data-en="karatechelv@gmail.com" data-fa="karatechelv@gmail.com">karatechelv@gmail.com</div>
         </div>
         <div class="holo-item">
             <div class="holo-icon-circle"><i class="fas fa-map-marker-alt"></i></div>
@@ -409,11 +416,11 @@
         </div>
         <div class="holo-item">
             <div class="holo-icon-circle"><i class="fab fa-linkedin"></i></div>
-            <div class="holo-data ltr-text">/karatechelv</div>
+            <div class="holo-data" data-en="/karatechelv" data-fa="/karatechelv">/karatechelv</div>
         </div>
         <div class="holo-item">
             <div class="holo-icon-circle"><i class="fab fa-github"></i></div>
-            <div class="holo-data ltr-text">/karatechelv</div>
+            <div class="holo-data" data-en="/karatechelv" data-fa="/karatechelv">/karatechelv</div>
         </div>
     </div>
 </div>
@@ -593,7 +600,7 @@
             const navItem = category.querySelector('.nav-item');
             const subMenu = category.querySelector('.sub-menu');
             category.addEventListener('mouseenter', () => activateLink(gearId));
-            category.addEventListener('mouseleave', () => deactivateLink(gearId));
+            category.addEventListener('mouseleave', () => deactivateLink(geurId));
             navItem.addEventListener('click', (e) => { e.preventDefault(); toggleAccordion(subMenu, navItem); });
         });
     }
