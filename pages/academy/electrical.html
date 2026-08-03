@@ -1,156 +1,395 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Engineering electrical</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Karatech ELV · Electrical</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-     body {
-    background-color: #0d0e12;
-    background-image: url('../../assets/images/Assembly.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
-    color: #eef0f4;
-    font-family: Tahoma, sans-serif;
-    padding: 40px 20px;
-}
-        .container{max-width:1100px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.5rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1.05rem;margin-bottom:30px}
-        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:30px}
-        .card{background:#1e2128;padding:20px;border-radius:16px;border:1px solid #2a2f3a;transition:.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
-        .card:hover{background:#282d38;transform:translateY(-3px);border-color:#d4af37}
-        .card i{font-size:2rem;color:#d4af37;margin-bottom:10px;display:block}
-        .card h3{font-weight:600;font-size:1.1rem;margin-bottom:4px;color:#fff}
-        .card p{color:#8e95a5;font-size:.85rem}
-        .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:8px}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+        :root {
+            --text-main: #ffffff;
+            --text-muted: #8b8f99;
+            --transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --accent-indigo: #4d8bff;
+            --accent-cyan: #00f2ff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Playfair Display', sans-serif;
+            color: var(--text-main);
+            min-height: 100vh;
+            background: radial-gradient(ellipse 80% 80% at 50% 50%, #0a1a2e 0%, #04101f 40%, #000000 80%);
+            overflow-x: hidden;
+        }
+        body.rtl { font-family: 'Vazirmatn', sans-serif; direction: rtl; }
+
+        body::after {
+            content: '';
+            position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+            opacity: 0.04; pointer-events: none; z-index: 9999; mix-blend-mode: overlay;
+        }
+
+        /* ===== هدر ===== */
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 40px; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(77, 139, 255, 0.15); position: sticky; top: 0; z-index: 100;
+        }
+        .header-left { display: flex; align-items: center; gap: 20px; }
+        .brand { font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; }
+        .brand span { color: var(--accent-indigo); font-style: italic; font-weight: 500; }
+        body.rtl .brand { font-family: 'Markazi Text', sans-serif; font-size: 1.6rem; }
+        
+        .section-badge { 
+            font-size: 0.8rem; color: var(--accent-cyan); border: 1px solid rgba(0, 242, 255, 0.3); 
+            padding: 4px 12px; border-radius: 20px; background: rgba(0, 242, 255, 0.05);
+            font-family: 'Vazirmatn', sans-serif; 
+        }
+        body.rtl .section-badge { font-family: 'Markazi Text', sans-serif; font-size: 1rem; }
+
+        .datetime-widget { display: flex; flex-direction: column; align-items: center; font-size: 0.85rem; color: var(--text-muted); font-family: monospace; }
+        .time-display { color: var(--accent-cyan); font-weight: 600; font-size: 1rem; }
+        body.rtl .datetime-widget { font-family: 'Vazirmatn', monospace; }
+        
+        .header-actions { display: flex; align-items: center; gap: 16px; }
+        .back-btn { 
+            background: transparent; border: 1px solid rgba(77, 139, 255, 0.3); color: var(--accent-indigo); 
+            padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; 
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
+        .lang-switch { display: flex; gap: 8px; }
+        .lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color: var(--accent-indigo); border-color: rgba(77, 139, 255, 0.3); }
+
+        /* ===== محتوای اصلی ===== */
+        .main-content { 
+            flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; 
+            padding: 60px 20px; max-width: 900px; margin: 0 auto; width: 100%;
+        }
+        .aurora { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; mix-blend-mode: screen; }
+        .aurora-1 { width: 500px; height: 500px; background: rgba(77, 139, 255, 0.1); top: -10%; left: 10%; animation: drift1 15s ease-in-out infinite; }
+        .aurora-2 { width: 400px; height: 400px; background: rgba(0, 242, 255, 0.06); bottom: -10%; right: 10%; animation: drift2 18s ease-in-out infinite; }
+        @keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(80px, 50px) scale(1.1); } }
+        @keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-60px, -30px) scale(1.2); } }
+
+        .page-header { text-align: center; margin-bottom: 50px; position: relative; z-index: 2; }
+        .page-title { font-size: 3rem; font-weight: 300; font-style: italic; margin-bottom: 10px; color: rgba(255,255,255,0.95); }
+        body.rtl .page-title { font-family: 'Markazi Text', sans-serif; font-style: normal; font-weight: 700; font-size: 3.5rem; }
+        .page-title b { font-weight: 700; font-style: normal; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .page-desc { font-style: italic; color: rgba(255,255,255,0.4); font-size: 1rem; letter-spacing: 2px; }
+        body.rtl .page-desc { font-family: 'Vazirmatn', sans-serif; font-style: normal; font-size: 1.1rem; }
+
+        /* ===== لیست کپسولی (Capsule Menu) ===== */
+        .academy-list {
+            display: flex; flex-direction: column; gap: 15px;
+            width: 100%; position: relative; z-index: 2;
+        }
+
+        .academy-capsule {
+            display: flex; align-items: center; gap: 20px;
+            padding: 15px 30px;
+            background: rgba(10, 20, 35, 0.4);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
+            text-decoration: none; color: inherit;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative; overflow: hidden;
+        }
+
+        .academy-capsule::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(to right, transparent, var(--cap-glow), transparent);
+            opacity: 0; transition: 0.5s;
+        }
+        .academy-capsule:hover::before { left: 100%; opacity: 0.5; }
+
+        .academy-capsule:hover {
+            border-color: var(--cap-color);
+            background: rgba(20, 35, 50, 0.6);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 20px var(--cap-glow);
+            transform: translateX(15px);
+        }
+        body.rtl .academy-capsule:hover {
+            transform: translateX(-15px);
+        }
+
+        .cap-icon {
+            width: 45px; height: 45px; border-radius: 50%; flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.03);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; color: var(--cap-color);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+        .academy-capsule:hover .cap-icon {
+            background: var(--cap-color); color: #000;
+            box-shadow: 0 0 15px var(--cap-glow);
+            transform: scale(1.1);
+        }
+
+        .cap-content { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+        .cap-content h3 { font-size: 1.2rem; color: #fff; margin: 0; }
+        body.rtl .cap-content h3 { font-family: 'Markazi Text', sans-serif; font-size: 1.4rem; font-weight: 600; }
+        .cap-content p { color: var(--text-muted); font-size: 0.85rem; margin: 0; }
+        body.rtl .cap-content p { font-family: 'Vazirmatn', sans-serif; }
+
+        .cap-arrow {
+            font-size: 0.9rem; color: var(--cap-color); opacity: 0.5;
+            transition: 0.3s;
+        }
+        .academy-capsule:hover .cap-arrow { opacity: 1; transform: translateX(5px); }
+        body.rtl .academy-capsule:hover .cap-arrow { transform: translateX(-5px) rotate(180deg); }
+        body.rtl .cap-arrow { transform: rotate(180deg); }
+
+        /* رنگ‌های اختصاصی */
+        .c-1 { --cap-color: #d4af37; --cap-glow: rgba(212, 175, 55, 0.2); }
+        .c-2 { --cap-color: #00f2ff; --cap-glow: rgba(0, 242, 255, 0.2); }
+        .c-3 { --cap-color: #ff4d8d; --cap-glow: rgba(255, 77, 141, 0.2); }
+        .c-4 { --cap-color: #00ff9d; --cap-glow: rgba(0, 255, 157, 0.2); }
+        .c-5 { --cap-color: #4d8bff; --cap-glow: rgba(77, 139, 255, 0.2); }
+        .c-6 { --cap-color: #ff8c42; --cap-glow: rgba(255, 140, 66, 0.2); }
+        .c-7 { --cap-color: #b388ff; --cap-glow: rgba(179, 136, 255, 0.2); }
+        .c-8 { --cap-color: #ff6464; --cap-glow: rgba(255, 100, 100, 0.2); }
+        .c-9 { --cap-color: #f2c94c; --cap-glow: rgba(242, 201, 76, 0.2); }
+        .c-10 { --cap-color: #6fcf97; --cap-glow: rgba(111, 207, 151, 0.2); }
+        .c-11 { --cap-color: #56ccf2; --cap-glow: rgba(86, 204, 242, 0.2); }
+        .c-12 { --cap-color: #eb5757; --cap-glow: rgba(235, 87, 87, 0.2); }
+        .c-13 { --cap-color: #bb6bd9; --cap-glow: rgba(187, 107, 217, 0.2); }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        body.rtl @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .academy-capsule { animation: fadeInRight 0.5s ease-out backwards; }
+        .academy-capsule:nth-child(1) { animation-delay: 0.05s; }
+        .academy-capsule:nth-child(2) { animation-delay: 0.1s; }
+        .academy-capsule:nth-child(3) { animation-delay: 0.15s; }
+        .academy-capsule:nth-child(4) { animation-delay: 0.2s; }
+        .academy-capsule:nth-child(5) { animation-delay: 0.25s; }
+        .academy-capsule:nth-child(6) { animation-delay: 0.3s; }
+        .academy-capsule:nth-child(7) { animation-delay: 0.35s; }
+        .academy-capsule:nth-child(8) { animation-delay: 0.4s; }
+        .academy-capsule:nth-child(9) { animation-delay: 0.45s; }
+        .academy-capsule:nth-child(10) { animation-delay: 0.5s; }
+        .academy-capsule:nth-child(11) { animation-delay: 0.55s; }
+        .academy-capsule:nth-child(12) { animation-delay: 0.6s; }
+        .academy-capsule:nth-child(13) { animation-delay: 0.65s; }
+
+        @media (max-width: 768px) {
+            .header { flex-wrap: wrap; gap: 10px; padding: 15px; }
+            .main-content { padding: 30px 15px; }
+            .page-title { font-size: 2.2rem; }
+            body.rtl .page-title { font-size: 2.5rem; }
+            .academy-capsule { padding: 12px 20px; gap: 15px; }
+            .cap-content p { display: none; }
+            .cap-icon { width: 40px; height: 40px; font-size: 1rem; }
+            .academy-capsule:hover { transform: none; }
+        }
     </style>
 </head>
-<body class="page-electrical">
-<div class="container">
+<body>
 
-    <div class="header">
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <div class="header-left">
         <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="section-badge" data-en="Academy / Electrical" data-fa="آکادمی / برق">Academy / Electrical</div>
+    </div>
+    <div class="datetime-widget">
+        <div class="date-display" id="dateDisplay"></div>
+        <div class="time-display" id="timeDisplay"></div>
+    </div>
+    <div class="header-actions">
+        <a href="index.html" class="back-btn" id="backBtn">
+            <i class="fas fa-arrow-left"></i> <span data-en="Back to Academy" data-fa="بازگشت به آکادمی">Back to Academy</span>
+        </a>
         <div class="lang-switch">
             <button class="lang-btn active" data-lang="en">EN</button>
             <button class="lang-btn" data-lang="fa">FA</button>
         </div>
     </div>
+</header>
 
-    <h1 id="page-title">⚡ Electrical Engineering</h1>
-    <div class="sub" id="page-sub">Power systems, protection coordination, load calculation. Essential for all industrial and commercial projects.</div>
-
-    <div class="grid" id="cards-grid">
-        <a href="../electrical/overview.html" class="card"><i>📘</i><h3>Overview</h3><p>Complete overview</p><span class="badge">Learn More →</span></a>
-        <a href="../electrical/voltage-drop.html" class="card"><i>⚡</i><h3>Voltage Drop</h3><p>Calculate drop in circuits</p><span class="badge">Calculator →</span></a>
-        <a href="../electrical/power-factor.html" class="card"><i>📊</i><h3>Power Factor</h3><p>Calculate power factor</p><span class="badge">Calculator →</span></a>
-        <a href="../electrical/transformer-sizing.html" class="card"><i>🔌</i><h3>Transformer Sizing</h3><p>Size transformers</p><span class="badge">Calculator →</span></a>
-        <a href="../electrical/cable-sizing.html" class="card"><i>📏</i><h3>Cable Sizing</h3><p>Select cable size</p><span class="badge">Calculator →</span></a>
-        <a href="../electrical/earthing-resistance.html" class="card"><i>🌍</i><h3>Earthing Resistance</h3><p>Calculate earth resistance</p><span class="badge">Calculator →</span></a>
-        <a href="../electrical/key-topics.html" class="card"><i>💡</i><h3>Key Topics</h3><p>Important topics</p><span class="badge">Learn More →</span></a>
-        <a href="../electrical/software.html" class="card"><i>🛠️</i><h3>Software</h3><p>Essential software</p><span class="badge">Learn More →</span></a>
-        <a href="../electrical/resources.html" class="card"><i>📚</i><h3>Resources</h3><p>Standards, handbooks</p><span class="badge">Learn More →</span></a>
-        <a href="../electrical/learning-path.html" class="card"><i>🗺️</i><h3>Learning Path</h3><p>Foundation to advanced</p><span class="badge">Learn More →</span></a>
-        <a href="../electrical/videos-future.html" class="card"><i>🎬</i><h3>Videos & Future</h3><p>Tutorials and future tech</p><span class="badge">Learn More →</span></a>
-        <a href="../electrical/power-system-analysis.html" class="card"><i>📈</i><h3>Power System Analysis</h3><p>Load flow, short-circuit</p><span class="badge">Learn More →</span></a>
-        <a href="../electrical/protection-coordination.html" class="card"><i>🛡️</i><h3>Protection Coordination</h3><p>Protective devices</p><span class="badge">Learn More →</span></a>
+<!-- ===== MAIN CONTENT ===== -->
+<main class="main-content">
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    
+    <div class="page-header">
+        <h1 class="page-title" data-en="Electrical <b>Engineering</b>" data-fa="مهندسی <b>برق</b>">Electrical <b>Engineering</b></h1>
+        <p class="page-desc" data-en="— Power systems, protection coordination, and load calculation —" data-fa="— سیستم‌های قدرت، هماهنگی حفاظت و محاسبات بار —">— Power systems, protection coordination, and load calculation —</p>
     </div>
 
-    <div class="back">
-        <a href="../../index.html" id="backlink" onclick="localStorage.setItem('dashboardActive', 'true')">← Back to Dashboard</a>
-    </div>
+    <div class="academy-list">
+        <a href="overview.html" class="academy-capsule c-1">
+            <div class="cap-icon"><i class="fas fa-book"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Overview" data-fa="مرور کلی">Overview</h3>
+                <p data-en="Complete overview of electrical engineering." data-fa="مرور کامل مهندسی برق.">Complete overview of electrical engineering.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
 
-</div>
+        <a href="voltage-drop.html" class="academy-capsule c-2">
+            <div class="cap-icon"><i class="fas fa-bolt"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Voltage Drop" data-fa="افت ولتاژ">Voltage Drop</h3>
+                <p data-en="Calculate voltage drop in circuits." data-fa="محاسبه افت ولتاژ در مدارها.">Calculate voltage drop in circuits.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+
+        <a href="power-factor.html" class="academy-capsule c-3">
+            <div class="cap-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Power Factor" data-fa="ضریب توان">Power Factor</h3>
+                <p data-en="Calculate power factor correction." data-fa="محاسبه اصلاح ضریب توان.">Calculate power factor correction.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+
+        <a href="transformer-sizing.html" class="academy-capsule c-4">
+            <div class="cap-icon"><i class="fas fa-plug"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Transformer Sizing" data-fa="سایزینگ ترانس">Transformer Sizing</h3>
+                <p data-en="Size transformers for your loads." data-fa="تعیین سایز ترانسفورماتورها.">Size transformers for your loads.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+
+        <a href="cable-sizing.html" class="academy-capsule c-5">
+            <div class="cap-icon"><i class="fas fa-ruler"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Cable Sizing" data-fa="سایزینگ کابل">Cable Sizing</h3>
+                <p data-en="Select appropriate cable size." data-fa="انتخاب سایز مناسب کابل.">Select appropriate cable size.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+
+        <a href="earthing-resistance.html" class="academy-capsule c-6">
+            <div class="cap-icon"><i class="fas fa-globe"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Earthing Resistance" data-fa="مقاومت ارتینگ">Earthing Resistance</h3>
+                <p data-en="Calculate earth resistance." data-fa="محاسبه مقاومت زمین.">Calculate earth resistance.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+
+        <a href="key-topics.html" class="academy-capsule c-7">
+            <div class="cap-icon"><i class="fas fa-lightbulb"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Key Topics" data-fa="موضوعات کلیدی">Key Topics</h3>
+                <p data-en="Important topics in electrical engineering." data-fa="موضوعات مهم در مهندسی برق.">Important topics in electrical engineering.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+
+        <a href="software.html" class="academy-capsule c-8">
+            <div class="cap-icon"><i class="fas fa-laptop-code"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Software" data-fa="نرم‌افزارها">Software</h3>
+                <p data-en="Essential electrical design software." data-fa="نرم‌افزارهای ضروری طراحی برق.">Essential electrical design software.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+
+        <a href="resources.html" class="academy-capsule c-9">
+            <div class="cap-icon"><i class="fas fa-folder-open"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Resources" data-fa="منابع">Resources</h3>
+                <p data-en="Standards, handbooks, and guides." data-fa="استانداردها، کتابچه‌ها و راهنماها.">Standards, handbooks, and guides.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+
+        <a href="learning-path.html" class="academy-capsule c-10">
+            <div class="cap-icon"><i class="fas fa-route"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Learning Path" data-fa="مسیر یادگیری">Learning Path</h3>
+                <p data-en="Foundation to advanced roadmap." data-fa="نقشه راه از مبتدی تا پیشرفته.">Foundation to advanced roadmap.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+
+        <a href="videos-future.html" class="academy-capsule c-11">
+            <div class="cap-icon"><i class="fas fa-video"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Videos & Future" data-fa="ویدئوها و آینده">Videos & Future</h3>
+                <p data-en="Tutorials and future technologies." data-fa="آموزش‌ها و فناوری‌های آینده.">Tutorials and future technologies.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+
+        <a href="power-system-analysis.html" class="academy-capsule c-12">
+            <div class="cap-icon"><i class="fas fa-chart-bar"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Power System Analysis" data-fa="تحلیل سیستم‌های قدرت">Power System Analysis</h3>
+                <p data-en="Load flow and short-circuit analysis." data-fa="تحلیل جریان بار و اتصال کوتاه.">Load flow and short-circuit analysis.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+
+        <a href="protection-coordination.html" class="academy-capsule c-13">
+            <div class="cap-icon"><i class="fas fa-shield-halved"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Protection Coordination" data-fa="هماهنگی حفاظت">Protection Coordination</h3>
+                <p data-en="Protective device coordination." data-fa="هماهنگی دستگاه‌های حفاظتی.">Protective device coordination.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+    </div>
+</main>
 
 <script>
-    const lang = {
-        en: {
-            title: '⚡ Electrical Engineering',
-            sub: 'Power systems, protection coordination, load calculation. Essential for all industrial and commercial projects.',
-            cards: [
-                ['Overview', 'Complete overview', 'Learn More →'],
-                ['Voltage Drop', 'Calculate drop in circuits', 'Calculator →'],
-                ['Power Factor', 'Calculate power factor', 'Calculator →'],
-                ['Transformer Sizing', 'Size transformers', 'Calculator →'],
-                ['Cable Sizing', 'Select cable size', 'Calculator →'],
-                ['Earthing Resistance', 'Calculate earth resistance', 'Calculator →'],
-                ['Key Topics', 'Important topics', 'Learn More →'],
-                ['Software', 'Essential software', 'Learn More →'],
-                ['Resources', 'Standards, handbooks', 'Learn More →'],
-                ['Learning Path', 'Foundation to advanced', 'Learn More →'],
-                ['Videos & Future', 'Tutorials and future tech', 'Learn More →'],
-                ['Power System Analysis', 'Load flow, short-circuit', 'Learn More →'],
-                ['Protection Coordination', 'Protective devices', 'Learn More →']
-            ],
-            back: '← Back to Dashboard'
-        },
-        fa: {
-            title: '⚡ مهندسی برق',
-            sub: 'سیستم‌های قدرت، هماهنگی حفاظت، محاسبات بار. برای تمام پروژه‌های صنعتی و تجاری ضروری است.',
-            cards: [
-                ['مرور کلی', 'مرور کامل مهندسی برق', 'بیشتر بدانید →'],
-                ['افت ولتاژ', 'محاسبه افت ولتاژ در مدارها', 'ماشین حساب →'],
-                ['ضریب توان', 'محاسبه ضریب توان', 'ماشین حساب →'],
-                ['سایزینگ ترانس', 'سایزینگ ترانسفورماتور', 'ماشین حساب →'],
-                ['سایزینگ کابل', 'انتخاب سایز مناسب کابل', 'ماشین حساب →'],
-                ['مقاومت ارتینگ', 'محاسبه مقاومت زمین', 'ماشین حساب →'],
-                ['موضوعات کلیدی', 'موضوعات مهم در مهندسی برق', 'بیشتر بدانید →'],
-                ['نرم‌افزارها', 'نرم‌افزارهای ضروری', 'بیشتر بدانید →'],
-                ['منابع', 'استانداردها، کتابچه‌ها', 'بیشتر بدانید →'],
-                ['مسیر یادگیری', 'از مبتدی تا پیشرفته', 'بیشتر بدانید →'],
-                ['ویدئوها و آینده', 'آموزش‌ها و فناوری‌های آینده', 'بیشتر بدانید →'],
-                ['تحلیل سیستم‌های قدرت', 'جریان بار، اتصال کوتاه', 'بیشتر بدانید →'],
-                ['هماهنگی حفاظت', 'دستگاه‌های حفاظتی', 'بیشتر بدانید →']
-            ],
-            back: '← بازگشت به داشبورد'
-        }
-    };
+    let currentLang = localStorage.getItem('karatech-lang') || 'en';
 
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('page-title').textContent = t.title;
-        document.getElementById('page-sub').textContent = t.sub;
-        document.getElementById('backlink').textContent = t.back;
-
-        const grid = document.getElementById('cards-grid');
-        const cards = grid.querySelectorAll('.card');
-        t.cards.forEach((item, index) => {
-            if (cards[index]) {
-                cards[index].querySelector('h3').textContent = item[0];
-                cards[index].querySelector('p').textContent = item[1];
-                cards[index].querySelector('.badge').textContent = item[2];
-            }
+    function updateStaticTexts() {
+        document.querySelectorAll('[data-en]').forEach(el => { 
+            el.innerHTML = el.getAttribute(`data-${currentLang}`); 
         });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
     }
 
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() {
-            setLang(this.dataset.lang);
-        };
-    });
+    function setLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('karatech-lang', lang);
+        document.body.classList.toggle('rtl', lang === 'fa');
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        updateStaticTexts();
+        updateDateTime();
+        
+        const backIcon = document.querySelector('#backBtn i');
+        if(lang === 'fa') {
+            backIcon.style.transform = 'rotate(180deg)';
+        } else {
+            backIcon.style.transform = 'rotate(0deg)';
+        }
+    }
 
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+    function updateDateTime() {
+        const now = new Date();
+        const timeOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        const dateOpts = currentLang === 'fa' ? { year: 'numeric', month: 'long', day: 'numeric' } : { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('timeDisplay').textContent = now.toLocaleTimeString(currentLang === 'fa' ? 'fa-IR' : 'en-GB', timeOpts);
+        document.getElementById('dateDisplay').textContent = now.toLocaleDateString(currentLang === 'fa' ? 'fa-IR' : 'en-US', dateOpts);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+    
+    setLang(currentLang);
+    setInterval(updateDateTime, 1000);
 </script>
 
 </body>
