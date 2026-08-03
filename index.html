@@ -236,61 +236,24 @@
         }
 
         /* --- انیمیشن‌های اختصاصی آیتم‌ها --- */
-        /* 1. تلفن (لرزش و زنگ خوردن) */
-        .holo-item[data-type="phone"]:hover .holo-icon-circle i {
-            animation: phoneShake 0.4s linear infinite;
-        }
-        .holo-item[data-type="phone"] .holo-data {
-            border-color: #00ff9d; box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
-        }
-        .holo-item[data-type="phone"]:hover .holo-icon-circle::before {
-            content: ''; position: absolute; inset: -5px; border: 2px solid #00ff9d; border-radius: 50%;
-            animation: ripple 1s infinite;
-        }
-        @keyframes phoneShake {
-            0% { transform: rotate(0); } 25% { transform: rotate(-15deg); }
-            50% { transform: rotate(0); } 75% { transform: rotate(15deg); } 100% { transform: rotate(0); }
-        }
-        @keyframes ripple {
-            0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; }
-        }
+        .holo-item[data-type="phone"]:hover .holo-icon-circle i { animation: phoneShake 0.4s linear infinite; }
+        .holo-item[data-type="phone"] .holo-data { border-color: #00ff9d; box-shadow: 0 0 20px rgba(0, 255, 157, 0.3); }
+        .holo-item[data-type="phone"]:hover .holo-icon-circle::before { content: ''; position: absolute; inset: -5px; border: 2px solid #00ff9d; border-radius: 50%; animation: ripple 1s infinite; }
+        @keyframes phoneShake { 0% { transform: rotate(0); } 25% { transform: rotate(-15deg); } 50% { transform: rotate(0); } 75% { transform: rotate(15deg); } 100% { transform: rotate(0); } }
+        @keyframes ripple { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
 
-        /* 2. ایمیل (درآمدن کاغذ از پاکت) */
-        .holo-item[data-type="email"] .holo-data {
-            background: #fcfcfc; color: #111; border: 1px solid #ddd; border-radius: 5px;
-            font-family: 'Courier New', monospace; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-        }
-        .holo-item[data-type="email"]:hover .holo-icon-circle {
-            transform: translateY(5px) scale(1.1); /* پاکت کمی پایین می‌رود */
-        }
+        .holo-item[data-type="email"] .holo-data { background: #fcfcfc; color: #111; border: 1px solid #ddd; border-radius: 5px; font-family: 'Courier New', monospace; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .holo-item[data-type="email"]:hover .holo-icon-circle { transform: translateY(5px) scale(1.1); }
 
-        /* 3. موقعیت (پریدن آیکون) */
-        .holo-item[data-type="location"]:hover .holo-icon-circle i {
-            animation: mapBounce 0.6s ease-in-out infinite;
-        }
-        .holo-item[data-type="location"] .holo-data {
-            border-color: #ff4d8d; box-shadow: 0 0 20px rgba(255, 77, 141, 0.3);
-        }
-        @keyframes mapBounce {
-            0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); }
-        }
+        .holo-item[data-type="location"]:hover .holo-icon-circle i { animation: mapBounce 0.6s ease-in-out infinite; }
+        .holo-item[data-type="location"] .holo-data { border-color: #ff4d8d; box-shadow: 0 0 20px rgba(255, 77, 141, 0.3); }
+        @keyframes mapBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
-        /* 4. ساعت (تیک‌تاک) */
-        .holo-item[data-type="clock"]:hover .holo-icon-circle i {
-            animation: tick 1s ease-in-out infinite;
-        }
-        .holo-item[data-type="clock"] .holo-data {
-            border-color: #b388ff; box-shadow: 0 0 20px rgba(179, 136, 255, 0.3);
-        }
-        @keyframes tick {
-            0%, 100% { transform: rotate(0); } 25% { transform: rotate(15deg); } 75% { transform: rotate(-15deg); }
-        }
+        .holo-item[data-type="clock"]:hover .holo-icon-circle i { animation: tick 1s ease-in-out infinite; }
+        .holo-item[data-type="clock"] .holo-data { border-color: #b388ff; box-shadow: 0 0 20px rgba(179, 136, 255, 0.3); }
+        @keyframes tick { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(15deg); } 75% { transform: rotate(-15deg); } }
 
-        /* 5. لینکدین و گیت‌هاب (چرخش) */
-        .holo-item[data-type="linkedin"]:hover .holo-icon-circle i,
-        .holo-item[data-type="github"]:hover .holo-icon-circle i {
-            animation: spin 0.8s linear infinite;
-        }
+        .holo-item[data-type="linkedin"]:hover .holo-icon-circle i, .holo-item[data-type="github"]:hover .holo-icon-circle i { animation: spin 0.8s linear infinite; }
         .holo-item[data-type="linkedin"] .holo-data { border-color: #0e76a8; box-shadow: 0 0 20px rgba(14, 118, 168, 0.3); }
         .holo-item[data-type="github"] .holo-data { border-color: #fff; box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); }
         @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
@@ -303,9 +266,7 @@
         }
         .close-holo:hover { background: #ff6464; color: #fff; transform: translateX(-50%) scale(1.1); }
 
-        .holo-hud-overlay.active .holo-item {
-            animation: dropIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
-        }
+        .holo-hud-overlay.active .holo-item { animation: dropIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
         .holo-hud-overlay.active .holo-item:nth-child(2) { animation-delay: 0.1s; }
         .holo-hud-overlay.active .holo-item:nth-child(3) { animation-delay: 0.2s; }
         .holo-hud-overlay.active .holo-item:nth-child(4) { animation-delay: 0.3s; }
@@ -313,14 +274,8 @@
         .holo-hud-overlay.active .holo-item:nth-child(6) { animation-delay: 0.5s; }
         .holo-hud-overlay.active .holo-item:nth-child(7) { animation-delay: 0.6s; }
 
-        @keyframes dropIn {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes holoFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
+        @keyframes dropIn { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes holoFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
 
         @media (max-width: 1024px) { .machine-container { transform: scale(0.8); } }
         @media (max-width: 768px) {
@@ -522,29 +477,30 @@
     }
 
     // ===== پایگاه داده دوزبانه با لینک‌های واقعی شما =====
+    // توجه: url به عنوان لینک اصلی چرخ‌دنده‌ها اضافه شده است
     const siteData = {
         en: {
             title: "Engineering <b>System</b>",
             desc: "— Synchronized Industrial Core —",
             categories: [
-                { id: 'm1', icon: 'fa-graduation-cap', name: 'Academy', subs: [ { name: 'Electrical', url: 'pages/academy/electrical.html' }, { name: 'Automation', url: 'pages/academy/automation.html' }, { name: 'Instrumentation', url: 'pages/academy/instrumentation.html' }, { name: 'Design', url: 'pages/academy/design.html' }, { name: 'Quality Control', url: 'pages/academy/quality-control.html' }, { name: 'Standards', url: 'pages/academy/standards.html' }, { name: 'Management', url: 'pages/academy/management.html' }, { name: 'HSE', url: 'pages/academy/hse.html' } ], result: { icon: 'fa-user-graduate', text: 'Expertise' } },
-                { id: 'm2', icon: 'fa-project-diagram', name: 'Workflow', subs: [ { name: 'P&ID', url: 'pages/workflow/pid.html' }, { name: 'Design', url: 'pages/workflow/design.html' }, { name: 'Panel', url: 'pages/workflow/panel.html' }, { name: 'Procurement', url: 'pages/workflow/procurement.html' }, { name: 'Assembly', url: 'pages/workflow/assembly.html' }, { name: 'FAT', url: 'pages/workflow/fat.html' }, { name: 'Installation', url: 'pages/workflow/installation.html' }, { name: 'Loop Check', url: 'pages/workflow/loop-check.html' }, { name: 'Commissioning', url: 'pages/workflow/commissioning.html' }, { name: 'SAT', url: 'pages/workflow/sat.html' }, { name: 'Documentation', url: 'pages/workflow/documentation.html' }, { name: 'Operation', url: 'pages/workflow/operation.html' } ], result: { icon: 'fa-clipboard-check', text: 'Delivered Project' } },
-                { id: 'm3', icon: 'fa-calculator', name: 'Tools', subs: [ { name: 'Voltage Drop', url: 'pages/tools/voltage-drop.html' }, { name: 'Power Factor', url: 'pages/tools/power-factor.html' }, { name: 'Cable Size', url: 'pages/tools/cable-size.html' }, { name: 'Breaker', url: 'pages/tools/breaker-selection.html' }, { name: 'Motor Current', url: 'pages/tools/motor-current.html' }, { name: 'Transformer', url: 'pages/tools/transformer.html' }, { name: 'AWG Conv.', url: 'pages/tools/awg-converter.html' }, { name: 'Unit Conv.', url: 'pages/tools/unit-converter.html' }, { name: 'IP Rating', url: 'pages/tools/ip-rating.html' }, { name: 'IEC Tables', url: 'pages/tools/iec-tables.html' } ], result: { icon: 'fa-square-root-variable', text: 'Precise Specs' } },
-                { id: 'm4', icon: 'fa-laptop-code', name: 'Software', subs: [ { name: 'AutoCAD', url: 'pages/software/autocad.html' }, { name: 'EPLAN', url: 'pages/software/eplan.html' }, { name: 'SEE Electrical', url: 'pages/software/see-electrical.html' }, { name: 'TIA Portal', url: 'pages/software/tia-portal.html' }, { name: 'WinCC', url: 'pages/software/wincc.html' }, { name: 'PCS7', url: 'pages/software/pcs7.html' }, { name: 'STEP7', url: 'pages/software/step7.html' }, { name: 'Factory IO', url: 'pages/software/factory-io.html' }, { name: 'Codesys', url: 'pages/software/codesys.html' }, { name: 'EasyBuilder', url: 'pages/software/easybuilder.html' } ], result: { icon: 'fa-pen-ruler', text: 'Optimized Design' } },
-                { id: 'm5', icon: 'fa-code', name: 'Programming', subs: [ { name: 'PLC', url: 'pages/programming/plc.html' }, { name: 'HMI', url: 'pages/programming/hmi.html' }, { name: 'SCADA', url: 'pages/programming/scada.html' }, { name: 'VFD', url: 'pages/programming/vfd.html' }, { name: 'Modbus', url: 'pages/programming/modbus.html' }, { name: 'Profinet', url: 'pages/programming/profinet.html' }, { name: 'Ethernet/IP', url: 'pages/programming/ethernet-ip.html' }, { name: 'Examples', url: 'pages/programming/examples.html' } ], result: { icon: 'fa-microchip', text: 'Automated Logic' } },
-                { id: 'm6', icon: 'fa-folder-open', name: 'Resources', subs: [ { name: 'Catalogs', url: 'pages/resources/catalogs.html' }, { name: 'Manuals', url: 'pages/resources/manuals.html' }, { name: 'Datasheets', url: 'pages/resources/datasheets.html' }, { name: 'Templates', url: 'pages/resources/templates.html' }, { name: 'Videos', url: 'pages/resources/videos.html' }, { name: 'Documents', url: 'pages/resources/documents.html' } ], result: { icon: 'fa-database', text: 'Knowledge Base' } }
+                { id: 'm1', icon: 'fa-graduation-cap', name: 'Academy', url: 'pages/academy/index.html', subs: [ { name: 'Electrical', url: 'pages/academy/electrical.html' }, { name: 'Automation', url: 'pages/academy/automation.html' }, { name: 'Instrumentation', url: 'pages/academy/instrumentation.html' }, { name: 'Design', url: 'pages/academy/design.html' }, { name: 'Quality Control', url: 'pages/academy/quality-control.html' }, { name: 'Standards', url: 'pages/academy/standards.html' }, { name: 'Management', url: 'pages/academy/management.html' }, { name: 'HSE', url: 'pages/academy/hse.html' } ], result: { icon: 'fa-user-graduate', text: 'Expertise' } },
+                { id: 'm2', icon: 'fa-project-diagram', name: 'Workflow', url: 'pages/workflow/index.html', subs: [ { name: 'P&ID', url: 'pages/workflow/pid.html' }, { name: 'Design', url: 'pages/workflow/design.html' }, { name: 'Panel', url: 'pages/workflow/panel.html' }, { name: 'Procurement', url: 'pages/workflow/procurement.html' }, { name: 'Assembly', url: 'pages/workflow/assembly.html' }, { name: 'FAT', url: 'pages/workflow/fat.html' }, { name: 'Installation', url: 'pages/workflow/installation.html' }, { name: 'Loop Check', url: 'pages/workflow/loop-check.html' }, { name: 'Commissioning', url: 'pages/workflow/commissioning.html' }, { name: 'SAT', url: 'pages/workflow/sat.html' }, { name: 'Documentation', url: 'pages/workflow/documentation.html' }, { name: 'Operation', url: 'pages/workflow/operation.html' } ], result: { icon: 'fa-clipboard-check', text: 'Delivered Project' } },
+                { id: 'm3', icon: 'fa-calculator', name: 'Tools', url: 'pages/tools/index.html', subs: [ { name: 'Voltage Drop', url: 'pages/tools/voltage-drop.html' }, { name: 'Power Factor', url: 'pages/tools/power-factor.html' }, { name: 'Cable Size', url: 'pages/tools/cable-size.html' }, { name: 'Breaker', url: 'pages/tools/breaker-selection.html' }, { name: 'Motor Current', url: 'pages/tools/motor-current.html' }, { name: 'Transformer', url: 'pages/tools/transformer.html' }, { name: 'AWG Conv.', url: 'pages/tools/awg-converter.html' }, { name: 'Unit Conv.', url: 'pages/tools/unit-converter.html' }, { name: 'IP Rating', url: 'pages/tools/ip-rating.html' }, { name: 'IEC Tables', url: 'pages/tools/iec-tables.html' } ], result: { icon: 'fa-square-root-variable', text: 'Precise Specs' } },
+                { id: 'm4', icon: 'fa-laptop-code', name: 'Software', url: 'pages/software/index.html', subs: [ { name: 'AutoCAD', url: 'pages/software/autocad.html' }, { name: 'EPLAN', url: 'pages/software/eplan.html' }, { name: 'SEE Electrical', url: 'pages/software/see-electrical.html' }, { name: 'TIA Portal', url: 'pages/software/tia-portal.html' }, { name: 'WinCC', url: 'pages/software/wincc.html' }, { name: 'PCS7', url: 'pages/software/pcs7.html' }, { name: 'STEP7', url: 'pages/software/step7.html' }, { name: 'Factory IO', url: 'pages/software/factory-io.html' }, { name: 'Codesys', url: 'pages/software/codesys.html' }, { name: 'EasyBuilder', url: 'pages/software/easybuilder.html' } ], result: { icon: 'fa-pen-ruler', text: 'Optimized Design' } },
+                { id: 'm5', icon: 'fa-code', name: 'Programming', url: 'pages/programming/index.html', subs: [ { name: 'PLC', url: 'pages/programming/plc.html' }, { name: 'HMI', url: 'pages/programming/hmi.html' }, { name: 'SCADA', url: 'pages/programming/scada.html' }, { name: 'VFD', url: 'pages/programming/vfd.html' }, { name: 'Modbus', url: 'pages/programming/modbus.html' }, { name: 'Profinet', url: 'pages/programming/profinet.html' }, { name: 'Ethernet/IP', url: 'pages/programming/ethernet-ip.html' }, { name: 'Examples', url: 'pages/programming/examples.html' } ], result: { icon: 'fa-microchip', text: 'Automated Logic' } },
+                { id: 'm6', icon: 'fa-folder-open', name: 'Resources', url: 'pages/resources/index.html', subs: [ { name: 'Catalogs', url: 'pages/resources/catalogs.html' }, { name: 'Manuals', url: 'pages/resources/manuals.html' }, { name: 'Datasheets', url: 'pages/resources/datasheets.html' }, { name: 'Templates', url: 'pages/resources/templates.html' }, { name: 'Videos', url: 'pages/resources/videos.html' }, { name: 'Documents', url: 'pages/resources/documents.html' } ], result: { icon: 'fa-database', text: 'Knowledge Base' } }
             ]
         },
         fa: {
             title: "سیستم <b>مهندسی</b>",
             desc: "— هسته هماهنگ صنعتی —",
             categories: [
-                { id: 'm1', icon: 'fa-graduation-cap', name: 'آکادمی', subs: [ { name: 'برق', url: 'pages/academy/electrical.html' }, { name: 'اتوماسیون', url: 'pages/academy/automation.html' }, { name: 'ابزار دقیق', url: 'pages/academy/instrumentation.html' }, { name: 'طراحی', url: 'pages/academy/design.html' }, { name: 'کنترل کیفیت', url: 'pages/academy/quality-control.html' }, { name: 'استانداردها', url: 'pages/academy/standards.html' }, { name: 'مدیریت', url: 'pages/academy/management.html' }, { name: 'ایمنی', url: 'pages/academy/hse.html' } ], result: { icon: 'fa-user-graduate', text: 'تخصص مهندسی' } },
-                { id: 'm2', icon: 'fa-project-diagram', name: 'جریان کار', subs: [ { name: 'P&ID', url: 'pages/workflow/pid.html' }, { name: 'طراحی', url: 'pages/workflow/design.html' }, { name: 'تابلو', url: 'pages/workflow/panel.html' }, { name: 'تأمین', url: 'pages/workflow/procurement.html' }, { name: 'اسمبلی', url: 'pages/workflow/assembly.html' }, { name: 'FAT', url: 'pages/workflow/fat.html' }, { name: 'نصب', url: 'pages/workflow/installation.html' }, { name: 'چک لوپ', url: 'pages/workflow/loop-check.html' }, { name: 'کمیسیونینگ', url: 'pages/workflow/commissioning.html' }, { name: 'SAT', url: 'pages/workflow/sat.html' }, { name: 'مستندات', url: 'pages/workflow/documentation.html' }, { name: 'عملیات', url: 'pages/workflow/operation.html' } ], result: { icon: 'fa-clipboard-check', text: 'پروژه تحویل شده' } },
-                { id: 'm3', icon: 'fa-calculator', name: 'ابزارها', subs: [ { name: 'افت ولتاژ', url: 'pages/tools/voltage-drop.html' }, { name: 'ضریب توان', url: 'pages/tools/power-factor.html' }, { name: 'سایز کابل', url: 'pages/tools/cable-size.html' }, { name: 'کلید', url: 'pages/tools/breaker-selection.html' }, { name: 'جریان موتور', url: 'pages/tools/motor-current.html' }, { name: 'ترانس', url: 'pages/tools/transformer.html' }, { name: 'تبدیل AWG', url: 'pages/tools/awg-converter.html' }, { name: 'تبدیل واحد', url: 'pages/tools/unit-converter.html' }, { name: 'درجه IP', url: 'pages/tools/ip-rating.html' }, { name: 'جداول IEC', url: 'pages/tools/iec-tables.html' } ], result: { icon: 'fa-square-root-variable', text: 'محاسبات دقیق' } },
-                { id: 'm4', icon: 'fa-laptop-code', name: 'نرم‌افزارها', subs: [ { name: 'اتوکد', url: 'pages/software/autocad.html' }, { name: 'ای‌پلن', url: 'pages/software/eplan.html' }, { name: 'SEE Electrical', url: 'pages/software/see-electrical.html' }, { name: 'TIA پورتال', url: 'pages/software/tia-portal.html' }, { name: 'وین‌سی‌سی', url: 'pages/software/wincc.html' }, { name: 'PCS7', url: 'pages/software/pcs7.html' }, { name: 'STEP7', url: 'pages/software/step7.html' }, { name: 'Factory IO', url: 'pages/software/factory-io.html' }, { name: 'کدسیس', url: 'pages/software/codesys.html' }, { name: 'ایزی‌بیلدر', url: 'pages/software/easybuilder.html' } ], result: { icon: 'fa-pen-ruler', text: 'طراحی بهینه' } },
-                { id: 'm5', icon: 'fa-code', name: 'برنامه‌نویسی', subs: [ { name: 'پی‌ال‌سی', url: 'pages/programming/plc.html' }, { name: 'اچ‌ام‌آی', url: 'pages/programming/hmi.html' }, { name: 'اسکادا', url: 'pages/programming/scada.html' }, { name: 'درایو', url: 'pages/programming/vfd.html' }, { name: 'مودباس', url: 'pages/programming/modbus.html' }, { name: 'پروفینت', url: 'pages/programming/profinet.html' }, { name: 'اترنت/IP', url: 'pages/programming/ethernet-ip.html' }, { name: 'مثال‌ها', url: 'pages/programming/examples.html' } ], result: { icon: 'fa-microchip', text: 'منطق اتوماتیک' } },
-                { id: 'm6', icon: 'fa-folder-open', name: 'منابع', subs: [ { name: 'کاتالوگ‌ها', url: 'pages/resources/catalogs.html' }, { name: 'راهنماها', url: 'pages/resources/manuals.html' }, { name: 'دیتاشیت‌ها', url: 'pages/resources/datasheets.html' }, { name: 'قالب‌ها', url: 'pages/resources/templates.html' }, { name: 'ویدئوها', url: 'pages/resources/videos.html' }, { name: 'مستندات', url: 'pages/resources/documents.html' } ], result: { icon: 'fa-database', text: 'پایگاه دانش' } }
+                { id: 'm1', icon: 'fa-graduation-cap', name: 'آکادمی', url: 'pages/academy/index.html', subs: [ { name: 'برق', url: 'pages/academy/electrical.html' }, { name: 'اتوماسیون', url: 'pages/academy/automation.html' }, { name: 'ابزار دقیق', url: 'pages/academy/instrumentation.html' }, { name: 'طراحی', url: 'pages/academy/design.html' }, { name: 'کنترل کیفیت', url: 'pages/academy/quality-control.html' }, { name: 'استانداردها', url: 'pages/academy/standards.html' }, { name: 'مدیریت', url: 'pages/academy/management.html' }, { name: 'ایمنی', url: 'pages/academy/hse.html' } ], result: { icon: 'fa-user-graduate', text: 'تخصص مهندسی' } },
+                { id: 'm2', icon: 'fa-project-diagram', name: 'جریان کار', url: 'pages/workflow/index.html', subs: [ { name: 'P&ID', url: 'pages/workflow/pid.html' }, { name: 'طراحی', url: 'pages/workflow/design.html' }, { name: 'تابلو', url: 'pages/workflow/panel.html' }, { name: 'تأمین', url: 'pages/workflow/procurement.html' }, { name: 'اسمبلی', url: 'pages/workflow/assembly.html' }, { name: 'FAT', url: 'pages/workflow/fat.html' }, { name: 'نصب', url: 'pages/workflow/installation.html' }, { name: 'چک لوپ', url: 'pages/workflow/loop-check.html' }, { name: 'کمیسیونینگ', url: 'pages/workflow/commissioning.html' }, { name: 'SAT', url: 'pages/workflow/sat.html' }, { name: 'مستندات', url: 'pages/workflow/documentation.html' }, { name: 'عملیات', url: 'pages/workflow/operation.html' } ], result: { icon: 'fa-clipboard-check', text: 'پروژه تحویل شده' } },
+                { id: 'm3', icon: 'fa-calculator', name: 'ابزارها', url: 'pages/tools/index.html', subs: [ { name: 'افت ولتاژ', url: 'pages/tools/voltage-drop.html' }, { name: 'ضریب توان', url: 'pages/tools/power-factor.html' }, { name: 'سایز کابل', url: 'pages/tools/cable-size.html' }, { name: 'کلید', url: 'pages/tools/breaker-selection.html' }, { name: 'جریان موتور', url: 'pages/tools/motor-current.html' }, { name: 'ترانس', url: 'pages/tools/transformer.html' }, { name: 'تبدیل AWG', url: 'pages/tools/awg-converter.html' }, { name: 'تبدیل واحد', url: 'pages/tools/unit-converter.html' }, { name: 'درجه IP', url: 'pages/tools/ip-rating.html' }, { name: 'جداول IEC', url: 'pages/tools/iec-tables.html' } ], result: { icon: 'fa-square-root-variable', text: 'محاسبات دقیق' } },
+                { id: 'm4', icon: 'fa-laptop-code', name: 'نرم‌افزارها', url: 'pages/software/index.html', subs: [ { name: 'اتوکد', url: 'pages/software/autocad.html' }, { name: 'ای‌پلن', url: 'pages/software/eplan.html' }, { name: 'SEE Electrical', url: 'pages/software/see-electrical.html' }, { name: 'TIA پورتال', url: 'pages/software/tia-portal.html' }, { name: 'وین‌سی‌سی', url: 'pages/software/wincc.html' }, { name: 'PCS7', url: 'pages/software/pcs7.html' }, { name: 'STEP7', url: 'pages/software/step7.html' }, { name: 'Factory IO', url: 'pages/software/factory-io.html' }, { name: 'کدسیس', url: 'pages/software/codesys.html' }, { name: 'ایزی‌بیلدر', url: 'pages/software/easybuilder.html' } ], result: { icon: 'fa-pen-ruler', text: 'طراحی بهینه' } },
+                { id: 'm5', icon: 'fa-code', name: 'برنامه‌نویسی', url: 'pages/programming/index.html', subs: [ { name: 'پی‌ال‌سی', url: 'pages/programming/plc.html' }, { name: 'اچ‌ام‌آی', url: 'pages/programming/hmi.html' }, { name: 'اسکادا', url: 'pages/programming/scada.html' }, { name: 'درایو', url: 'pages/programming/vfd.html' }, { name: 'مودباس', url: 'pages/programming/modbus.html' }, { name: 'پروفینت', url: 'pages/programming/profinet.html' }, { name: 'اترنت/IP', url: 'pages/programming/ethernet-ip.html' }, { name: 'مثال‌ها', url: 'pages/programming/examples.html' } ], result: { icon: 'fa-microchip', text: 'منطق اتوماتیک' } },
+                { id: 'm6', icon: 'fa-folder-open', name: 'منابع', url: 'pages/resources/index.html', subs: [ { name: 'کاتالوگ‌ها', url: 'pages/resources/catalogs.html' }, { name: 'راهنماها', url: 'pages/resources/manuals.html' }, { name: 'دیتاشیت‌ها', url: 'pages/resources/datasheets.html' }, { name: 'قالب‌ها', url: 'pages/resources/templates.html' }, { name: 'ویدئوها', url: 'pages/resources/videos.html' }, { name: 'مستندات', url: 'pages/resources/documents.html' } ], result: { icon: 'fa-database', text: 'پایگاه دانش' } }
             ]
         }
     };
@@ -615,14 +571,17 @@
         container.innerHTML = powerLineHTML + projectorHTML;
         gearsConfig.forEach(g => {
             const wrapper = document.createElement('a');
-            wrapper.href = "#";
+            const catData = siteData[currentLang].categories.find(c => c.id === g.class);
+            
+            // لینک چرخ‌دنده مستقیماً به صفحه اصلی آن بخش وصل می‌شود
+            wrapper.href = catData ? catData.url : "#"; 
+            
             wrapper.id = `gear-${g.class}`;
             wrapper.className = `gear-wrapper ${g.dir} ${g.class}`;
             wrapper.style.left = `${g.cx - g.r_out}px`; wrapper.style.top = `${g.cy - g.r_out}px`;
             wrapper.style.width = `${g.r_out * 2}px`; wrapper.style.height = `${g.r_out * 2}px`;
             const pathD = createGearPath(g.r_out, g.r_out, g.r_out, g.r_in, g.teeth, g.phase);
             const clipPath = `path('${pathD}')`;
-            const catData = siteData[currentLang].categories.find(c => c.id === g.class);
             const gearLabel = catData ? catData.name : '';
             wrapper.innerHTML = `
                 <div class="gear-base" style="clip-path: ${clipPath}; -webkit-clip-path: ${clipPath};"></div>
@@ -633,11 +592,10 @@
             `;
             wrapper.addEventListener('mouseenter', () => activateLink(g.class));
             wrapper.addEventListener('mouseleave', () => deactivateLink(g.class));
-            wrapper.addEventListener('click', (e) => {
-                e.preventDefault();
-                const navItem = document.querySelector(`.nav-item[data-gear="${g.class}"]`);
-                if(navItem) { const subMenu = navItem.nextElementSibling; toggleAccordion(subMenu, navItem); }
-            });
+            
+            // کلیک روی چرخ‌دنده دیگر آکاردئون را باز نمی‌کند، بلکه به صفحه منتقل می‌شود
+            // بنابراین نیازی به event.preventDefault نیست.
+
             container.appendChild(wrapper);
         });
     }
@@ -665,7 +623,12 @@
             const subMenu = category.querySelector('.sub-menu');
             category.addEventListener('mouseenter', () => activateLink(gearId));
             category.addEventListener('mouseleave', () => deactivateLink(gearId));
-            navItem.addEventListener('click', (e) => { e.preventDefault(); toggleAccordion(subMenu, navItem); });
+            
+            // کلیک روی لیست منو (آیتم کناری) همچنان آکاردئون را باز می‌کند
+            navItem.addEventListener('click', (e) => { 
+                e.preventDefault(); 
+                toggleAccordion(subMenu, navItem); 
+            });
         });
     }
 
