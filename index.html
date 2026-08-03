@@ -7,7 +7,6 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- افزودن فونت هنری Markazi Text برای تیترهای فارسی -->
     <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -203,10 +202,10 @@
             font-size: 1.4rem; color: var(--accent-indigo);
             box-shadow: 0 0 15px rgba(0,0,0,0.5), inset 0 0 10px rgba(77, 139, 255, 0.2);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: 2; cursor: pointer;
+            z-index: 2; cursor: pointer; position: relative;
         }
         .holo-data {
-            position: absolute; left: 30px; /* Overlap behind icon */
+            position: absolute; left: 30px; 
             height: 50px; margin-top: 5px;
             background: rgba(10, 20, 35, 0.9);
             border: 1px solid var(--accent-cyan);
@@ -217,6 +216,7 @@
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
             backdrop-filter: blur(5px);
+            direction: ltr; 
         }
         body.rtl .holo-data {
             left: auto; right: 30px; padding: 0 40px 0 20px;
@@ -235,6 +235,66 @@
             box-shadow: 0 0 25px var(--accent-cyan), inset 0 0 15px rgba(255,255,255,0.2);
         }
 
+        /* --- انیمیشن‌های اختصاصی آیتم‌ها --- */
+        /* 1. تلفن (لرزش و زنگ خوردن) */
+        .holo-item[data-type="phone"]:hover .holo-icon-circle i {
+            animation: phoneShake 0.4s linear infinite;
+        }
+        .holo-item[data-type="phone"] .holo-data {
+            border-color: #00ff9d; box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+        }
+        .holo-item[data-type="phone"]:hover .holo-icon-circle::before {
+            content: ''; position: absolute; inset: -5px; border: 2px solid #00ff9d; border-radius: 50%;
+            animation: ripple 1s infinite;
+        }
+        @keyframes phoneShake {
+            0% { transform: rotate(0); } 25% { transform: rotate(-15deg); }
+            50% { transform: rotate(0); } 75% { transform: rotate(15deg); } 100% { transform: rotate(0); }
+        }
+        @keyframes ripple {
+            0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* 2. ایمیل (درآمدن کاغذ از پاکت) */
+        .holo-item[data-type="email"] .holo-data {
+            background: #fcfcfc; color: #111; border: 1px solid #ddd; border-radius: 5px;
+            font-family: 'Courier New', monospace; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .holo-item[data-type="email"]:hover .holo-icon-circle {
+            transform: translateY(5px) scale(1.1); /* پاکت کمی پایین می‌رود */
+        }
+
+        /* 3. موقعیت (پریدن آیکون) */
+        .holo-item[data-type="location"]:hover .holo-icon-circle i {
+            animation: mapBounce 0.6s ease-in-out infinite;
+        }
+        .holo-item[data-type="location"] .holo-data {
+            border-color: #ff4d8d; box-shadow: 0 0 20px rgba(255, 77, 141, 0.3);
+        }
+        @keyframes mapBounce {
+            0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); }
+        }
+
+        /* 4. ساعت (تیک‌تاک) */
+        .holo-item[data-type="clock"]:hover .holo-icon-circle i {
+            animation: tick 1s ease-in-out infinite;
+        }
+        .holo-item[data-type="clock"] .holo-data {
+            border-color: #b388ff; box-shadow: 0 0 20px rgba(179, 136, 255, 0.3);
+        }
+        @keyframes tick {
+            0%, 100% { transform: rotate(0); } 25% { transform: rotate(15deg); } 75% { transform: rotate(-15deg); }
+        }
+
+        /* 5. لینکدین و گیت‌هاب (چرخش) */
+        .holo-item[data-type="linkedin"]:hover .holo-icon-circle i,
+        .holo-item[data-type="github"]:hover .holo-icon-circle i {
+            animation: spin 0.8s linear infinite;
+        }
+        .holo-item[data-type="linkedin"] .holo-data { border-color: #0e76a8; box-shadow: 0 0 20px rgba(14, 118, 168, 0.3); }
+        .holo-item[data-type="github"] .holo-data { border-color: #fff; box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); }
+        @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+
         .close-holo {
             position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
             background: transparent; border: 1px solid #ff6464; color: #ff6464;
@@ -252,7 +312,6 @@
         .holo-hud-overlay.active .holo-item:nth-child(5) { animation-delay: 0.4s; }
         .holo-hud-overlay.active .holo-item:nth-child(6) { animation-delay: 0.5s; }
         .holo-hud-overlay.active .holo-item:nth-child(7) { animation-delay: 0.6s; }
-        .holo-hud-overlay.active .holo-item:nth-child(8) { animation-delay: 0.7s; }
 
         @keyframes dropIn {
             from { opacity: 0; transform: translateY(-30px); }
@@ -361,31 +420,31 @@
     <div class="holo-hud">
         <button class="close-holo" onclick="closeOverlay('vision', event)"><i class="fas fa-times"></i></button>
         <div class="holo-hud-title" data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</div>
-        <div class="holo-item">
+        <div class="holo-item" data-type="vision">
             <div class="holo-icon-circle"><i class="fas fa-industry"></i></div>
             <div class="holo-data" data-en="Factory - In Dev" data-fa="کارخانه - در حال توسعه">Factory - In Dev</div>
         </div>
-        <div class="holo-item">
+        <div class="holo-item" data-type="vision">
             <div class="holo-icon-circle"><i class="fas fa-boxes"></i></div>
             <div class="holo-data" data-en="Products - Soon" data-fa="محصولات - به زودی">Products - Soon</div>
         </div>
-        <div class="holo-item">
+        <div class="holo-item" data-type="vision">
             <div class="holo-icon-circle"><i class="fas fa-project-diagram"></i></div>
             <div class="holo-data" data-en="Projects - Soon" data-fa="پروژه‌ها - به زودی">Projects - Soon</div>
         </div>
-        <div class="holo-item">
+        <div class="holo-item" data-type="vision">
             <div class="holo-icon-circle"><i class="fas fa-users"></i></div>
             <div class="holo-data" data-en="Community - In Dev" data-fa="انجمن - در حال توسعه">Community - In Dev</div>
         </div>
-        <div class="holo-item">
+        <div class="holo-item" data-type="vision">
             <div class="holo-icon-circle"><i class="fas fa-flask"></i></div>
             <div class="holo-data" data-en="Research - Soon" data-fa="تحقیق - به زودی">Research - Soon</div>
         </div>
-        <div class="holo-item">
+        <div class="holo-item" data-type="vision">
             <div class="holo-icon-circle"><i class="fas fa-blog"></i></div>
             <div class="holo-data" data-en="Blog - Soon" data-fa="وبلاگ - به زودی">Blog - Soon</div>
         </div>
-        <div class="holo-item">
+        <div class="holo-item" data-type="vision">
             <div class="holo-icon-circle"><i class="fas fa-briefcase"></i></div>
             <div class="holo-data" data-en="Job Board - Soon" data-fa="بخش کار - به زودی">Job Board - Soon</div>
         </div>
@@ -397,28 +456,33 @@
     <div class="holo-hud">
         <button class="close-holo" onclick="closeOverlay('contact', event)"><i class="fas fa-times"></i></button>
         <div class="holo-hud-title" data-en="Contact Information" data-fa="اطلاعات تماس">Contact Information</div>
-        <div class="holo-item">
+        
+        <div class="holo-item" data-type="phone">
             <div class="holo-icon-circle"><i class="fas fa-phone-alt"></i></div>
-            <!-- اصلاح شماره تلفن فارسی -->
-            <div class="holo-data" data-en="+98 912 089 1544" data-fa="۹۸+ ۹۱۲ ۰۸۹ ۱۵۴۴">+98 912 089 1544</div>
+            <div class="holo-data" data-en="+98 912 089 1544" data-fa="‎+۹۸ ۹۱۲ ۰۸۹ ۱۵۴۴">+98 912 089 1544</div>
         </div>
-        <div class="holo-item">
+        
+        <div class="holo-item" data-type="email">
             <div class="holo-icon-circle"><i class="fas fa-envelope"></i></div>
             <div class="holo-data" data-en="karatechelv@gmail.com" data-fa="karatechelv@gmail.com">karatechelv@gmail.com</div>
         </div>
-        <div class="holo-item">
+        
+        <div class="holo-item" data-type="location">
             <div class="holo-icon-circle"><i class="fas fa-map-marker-alt"></i></div>
             <div class="holo-data" data-en="Tehran, Iran" data-fa="ایران، تهران">Tehran, Iran</div>
         </div>
-        <div class="holo-item">
+        
+        <div class="holo-item" data-type="clock">
             <div class="holo-icon-circle"><i class="fas fa-clock"></i></div>
             <div class="holo-data" data-en="Sat - Thu: 8:00 - 17:00" data-fa="شنبه تا چهارشنبه: ۸ تا ۱۷">Sat - Thu: 8:00 - 17:00</div>
         </div>
-        <div class="holo-item">
+        
+        <div class="holo-item" data-type="linkedin">
             <div class="holo-icon-circle"><i class="fab fa-linkedin"></i></div>
             <div class="holo-data" data-en="/karatechelv" data-fa="/karatechelv">/karatechelv</div>
         </div>
-        <div class="holo-item">
+        
+        <div class="holo-item" data-type="github">
             <div class="holo-icon-circle"><i class="fab fa-github"></i></div>
             <div class="holo-data" data-en="/karatechelv" data-fa="/karatechelv">/karatechelv</div>
         </div>
@@ -600,7 +664,7 @@
             const navItem = category.querySelector('.nav-item');
             const subMenu = category.querySelector('.sub-menu');
             category.addEventListener('mouseenter', () => activateLink(gearId));
-            category.addEventListener('mouseleave', () => deactivateLink(geurId));
+            category.addEventListener('mouseleave', () => deactivateLink(gearId));
             navItem.addEventListener('click', (e) => { e.preventDefault(); toggleAccordion(subMenu, navItem); });
         });
     }
