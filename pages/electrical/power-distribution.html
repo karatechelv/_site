@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Karatech ELV · Power Distribution</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --text-main: #ffffff;
+            --text-muted: #8b8f99;
+            --transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --accent-indigo: #4d8bff;
+            --accent-cyan: #00f2ff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Playfair Display', sans-serif;
+            color: var(--text-main);
+            min-height: 100vh;
+            background: radial-gradient(ellipse 80% 80% at 50% 50%, #0a1a2e 0%, #04101f 40%, #000000 80%);
+            overflow-x: hidden;
+        }
+        body.rtl { font-family: 'Vazirmatn', sans-serif; direction: rtl; }
+
+        body::after {
+            content: ''; position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+            opacity: 0.04; pointer-events: none; z-index: 9999; mix-blend-mode: overlay;
+        }
+
+        /* ===== هدر ===== */
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 40px; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(77, 139, 255, 0.15); position: sticky; top: 0; z-index: 100;
+        }
+        .header-left { display: flex; align-items: center; gap: 15px; }
+        .brand { font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; }
+        .brand span { color: var(--accent-indigo); font-style: italic; font-weight: 500; }
+        body.rtl .brand { font-family: 'Markazi Text', sans-serif; font-size: 1.6rem; }
+        
+        .breadcrumb { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-muted); }
+        .breadcrumb span { color: var(--accent-cyan); }
+        body.rtl .breadcrumb { font-family: 'Vazirmatn', sans-serif; font-size: 1rem; }
+
+        .datetime-widget { display: flex; flex-direction: column; align-items: center; font-size: 0.85rem; color: var(--text-muted); font-family: monospace; }
+        .time-display { color: var(--accent-cyan); font-weight: 600; font-size: 1rem; }
+        body.rtl .datetime-widget { font-family: 'Vazirmatn', monospace; }
+        
+        .header-actions { display: flex; align-items: center; gap: 16px; }
+        .back-btn { 
+            background: transparent; border: 1px solid rgba(77, 139, 255, 0.3); color: var(--accent-indigo); 
+            padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; 
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
+        .lang-switch { display: flex; gap: 8px; }
+        .lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color: var(--accent-indigo); border-color: rgba(77, 139, 255, 0.3); }
+
+        /* ===== محتوای اصلی ===== */
+        .main-content { 
+            flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; 
+            padding: 60px 20px; max-width: 900px; margin: 0 auto; width: 100%;
+        }
+        .aurora { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; mix-blend-mode: screen; }
+        .aurora-1 { width: 500px; height: 500px; background: rgba(77, 139, 255, 0.1); top: -10%; left: 10%; animation: drift1 15s ease-in-out infinite; }
+        .aurora-2 { width: 400px; height: 400px; background: rgba(0, 242, 255, 0.06); bottom: -10%; right: 10%; animation: drift2 18s ease-in-out infinite; }
+        @keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(80px, 50px) scale(1.1); } }
+        @keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-60px, -30px) scale(1.2); } }
+
+        .page-header { text-align: center; margin-bottom: 50px; position: relative; z-index: 2; width: 100%; }
+        .page-icon { font-size: 3rem; color: var(--accent-indigo); margin-bottom: 20px; filter: drop-shadow(0 0 15px var(--accent-indigo)); }
+        .page-title { font-size: 2.5rem; font-weight: 300; font-style: italic; margin-bottom: 10px; color: rgba(255,255,255,0.95); }
+        body.rtl .page-title { font-family: 'Markazi Text', sans-serif; font-style: normal; font-weight: 700; font-size: 3rem; }
+        .page-title b { font-weight: 700; font-style: normal; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .page-desc { font-style: italic; color: rgba(255,255,255,0.4); font-size: 1rem; letter-spacing: 1px; max-width: 700px; margin: 0 auto; }
+        body.rtl .page-desc { font-family: 'Vazirmatn', sans-serif; font-style: normal; font-size: 1.1rem; }
+
+        /* ===== کارت‌های محتوایی ===== */
+        .content-area { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; gap: 30px; }
+        
+        .content-card {
+            background: rgba(10, 20, 35, 0.4);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 3px solid var(--accent-indigo);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        body.rtl .content-card { border-left: none; border-right: 3px solid var(--accent-indigo); }
+        
+        .content-card:hover { border-color: var(--accent-cyan); box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 15px rgba(0, 242, 255, 0.1); }
+
+        .card-title { font-size: 1.5rem; color: #fff; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        body.rtl .card-title { font-family: 'Markazi Text', sans-serif; font-size: 1.8rem; font-weight: 600; }
+        .card-title i { color: var(--accent-cyan); }
+        
+        .card-text { color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 1rem; margin-bottom: 15px; }
+        body.rtl .card-text { font-family: 'Vazirmatn', sans-serif; font-size: 1.1rem; }
+
+        .styled-list { list-style: none; padding: 0; }
+        .styled-list li { 
+            color: rgba(255,255,255,0.7); padding: 10px 0; 
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; line-height: 1.6;
+        }
+        body.rtl .styled-list li { font-family: 'Vazirmatn', sans-serif; font-size: 1.05rem; }
+        .styled-list li:last-child { border-bottom: none; }
+        .styled-list li i { color: var(--accent-cyan); font-size: 0.6rem; margin-top: 8px; }
+
+        @media (max-width: 768px) {
+            .header { flex-wrap: wrap; gap: 10px; padding: 15px; }
+            .main-content { padding: 30px 15px; }
+            .page-title { font-size: 1.8rem; }
+            body.rtl .page-title { font-size: 2.2rem; }
+            .content-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <div class="header-left">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="breadcrumb">
+            <a href="overview.html" style="color: inherit; text-decoration: none;" data-en="Electrical" data-fa="برق">Electrical</a>
+            <i class="fas fa-chevron-right" style="font-size: 0.6rem;"></i>
+            <span data-en="Power Distribution" data-fa="توزیع برق">Power Distribution</span>
+        </div>
+    </div>
+    <div class="datetime-widget">
+        <div class="date-display" id="dateDisplay"></div>
+        <div class="time-display" id="timeDisplay"></div>
+    </div>
+    <div class="header-actions">
+        <a href="overview.html" class="back-btn" id="backBtn">
+            <i class="fas fa-arrow-left"></i> <span data-en="Back to Overview" data-fa="بازگشت به مرور کلی">Back to Overview</span>
+        </a>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="main-content">
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    
+    <div class="page-header">
+        <div class="page-icon"><i class="fas fa-sitemap"></i></div>
+        <h1 class="page-title" data-en="Power Distribution & <b>Transformers</b>" data-fa="توزیع برق و <b>ترانسفورماتورها</b>">Power Distribution & <b>Transformers</b></h1>
+        <p class="page-desc" data-en="Architecture of MV/LV networks and the critical role of transformers in industrial power delivery." data-fa="معماری شبکه‌های فشار متوسط و ضعیف و نقش حیاتی ترانسفورماتورها در تأمین برق صنعتی.">Architecture of MV/LV networks and the critical role of transformers in industrial power delivery.</p>
+    </div>
+
+    <div class="content-area">
+        
+        <!-- کارت ۱: شبکه‌های توزیع برق -->
+        <div class="content-card">
+            <h2 class="card-title"><i class="fas fa-network-wired"></i> <span data-en="Distribution Networks (MV/LV)" data-fa="شبکه‌های توزیع (فشار متوسط و ضعیف)">Distribution Networks (MV/LV)</span></h2>
+            <p class="card-text" data-en="Industrial power distribution involves stepping down high voltage from the grid to medium voltage (MV), typically 11kV or 33kV, and then to low voltage (LV) 400V for end-use equipment. Proper architecture ensures reliability, minimize power loss, and allows for maintenance isolation without shutting down the entire facility." data-fa="توزیع برق صنعتی شامل کاهش ولتاژ بالا از شبکه سراسری به فشار متوسط (MV)، معمولاً ۱۱ کیلوولت یا ۳۳ کیلوولت، و سپس به فشار ضعیف (LV) ۴۰۰ ولت برای تجهیزات مصرف‌کننده نهایی است. معماری صحیح قابلیت اطمینان را تضمین کرده، تلفات برق را به حداقل می‌رساند و اجازه می‌دهد تعمیر و نگهداری بدون خاموشی کل مجتمع انجام شود.">
+                Industrial power distribution involves stepping down high voltage from the grid to medium voltage (MV), typically 11kV or 33kV, and then to low voltage (LV) 400V for end-use equipment. Proper architecture ensures reliability, minimize power loss, and allows for maintenance isolation without shutting down the entire facility.
+            </p>
+        </div>
+
+        <!-- کارت ۲: اصول ترانسفورماتورها -->
+        <div class="content-card">
+            <h2 class="card-title"><i class="fas fa-plug"></i> <span data-en="Transformer Fundamentals" data-fa="اصول ترانسفورماتورها">Transformer Fundamentals</span></h2>
+            <p class="card-text" data-en="Transformers operate on the principle of electromagnetic induction to transfer AC power between circuits at different voltage levels without changing the frequency. In industrial panels, dry-type and oil-immersed transformers are commonly used to step down MV to LV. Correct sizing, based on total connected load and future expansion, is critical to prevent overheating and ensure operational longevity." data-fa="ترانسفورماتورها بر اساس اصل القای الکترومغناطیسی کار می‌کنند تا توان AC را بین مدارهایی با ولتاژهای مختلف، بدون تغییر فرکانس منتقل کنند. در تابلوهای صنعتی، ترانسفورماتورهای خشک و روغنی معمولاً برای کاهش فشار متوسط به ضعیف استفاده می‌شوند. سایزینگ صحیح، بر اساس کل بار متصل و توسعه آینده، برای جلوگیری از گرم شدن بیش از حد و تضمین طول عمر عملیاتی حیاتی است.">
+                Transformers operate on the principle of electromagnetic induction to transfer AC power between circuits at different voltage levels without changing the frequency. In industrial panels, dry-type and oil-immersed transformers are commonly used to step down MV to LV. Correct sizing, based on total connected load and future expansion, is critical to prevent overheating and ensure operational longevity.
+            </p>
+        </div>
+
+        <!-- کارت ۳: اجزای کلیدی پست‌ها -->
+        <div class="content-card">
+            <h2 class="card-title"><i class="fas fa-cube"></i> <span data-en="Key Substation Components" data-fa="اجزای کلیدی پست‌های برق">Key Substation Components</span></h2>
+            <ul class="styled-list">
+                <li data-en="MV Switchgear: Metal-enclosed panels housing circuit breakers, disconnectors, and protection relays." data-fa="تابلوهای فشار متوسط (MV): تابلوهای فلزی محافظ که شامل کلیدهای قدرت، کلیدهای جداکننده و رله‌های حفاظتی هستند."><i class="fas fa-circle"></i> <span>MV Switchgear: Metal-enclosed panels housing circuit breakers, disconnectors, and protection relays.</span></li>
+                <li data-en="Power Transformers: Step-down units connecting the MV network to the LV main switchgear." data-fa="ترانسفورماتورهای قدرت: واحدهای کاهنده که شبکه فشار متوسط را به تابلو اصلی فشار ضعیف متصل می‌کنند."><i class="fas fa-circle"></i> <span>Power Transformers: Step-down units connecting the MV network to the LV main switchgear.</span></li>
+                <li data-en="LV Main Distribution Boards: Assemblies containing main breakers, busbars, and outgoing feeders." data-fa="تابلوهای اصلی توزیع فشار ضعیف: مجموعه‌هایی شامل کلیدهای اصلی، شینه‌ها و فیدرهای خروجی."><i class="fas fa-circle"></i> <span>LV Main Distribution Boards: Assemblies containing main breakers, busbars, and outgoing feeders.</span></li>
+            </ul>
+        </div>
+
+    </div>
+</main>
+
+<script>
+    let currentLang = localStorage.getItem('karatech-lang') || 'en';
+
+    function updateStaticTexts() {
+        document.querySelectorAll('[data-en]').forEach(el => { 
+            el.innerHTML = el.getAttribute(`data-${currentLang}`); 
+        });
+    }
+
+    function setLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('karatech-lang', lang);
+        document.body.classList.toggle('rtl', lang === 'fa');
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        updateStaticTexts();
+        updateDateTime();
+        
+        const backIcon = document.querySelector('#backBtn i');
+        if(lang === 'fa') {
+            backIcon.style.transform = 'rotate(180deg)';
+        } else {
+            backIcon.style.transform = 'rotate(0deg)';
+        }
+    }
+
+    function updateDateTime() {
+        const now = new Date();
+        const timeOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        const dateOpts = currentLang === 'fa' ? { year: 'numeric', month: 'long', day: 'numeric' } : { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('timeDisplay').textContent = now.toLocaleTimeString(currentLang === 'fa' ? 'fa-IR' : 'en-GB', timeOpts);
+        document.getElementById('dateDisplay').textContent = now.toLocaleDateString(currentLang === 'fa' ? 'fa-IR' : 'en-US', dateOpts);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+    
+    setLang(currentLang);
+    setInterval(updateDateTime, 1000);
+</script>
+
+</body>
+  </html>
