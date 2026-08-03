@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Karatech ELV · Resources</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --text-main: #ffffff;
+            --text-muted: #8b8f99;
+            --transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --accent-indigo: #4d8bff;
+            --accent-cyan: #00f2ff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Playfair Display', sans-serif;
+            color: var(--text-main);
+            min-height: 100vh;
+            background: radial-gradient(ellipse 80% 80% at 50% 50%, #0a1a2e 0%, #04101f 40%, #000000 80%);
+            overflow-x: hidden;
+        }
+        body.rtl { font-family: 'Vazirmatn', sans-serif; direction: rtl; }
+
+        body::after {
+            content: '';
+            position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+            opacity: 0.04; pointer-events: none; z-index: 9999; mix-blend-mode: overlay;
+        }
+
+        /* ===== هدر ===== */
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 40px; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(77, 139, 255, 0.15); position: sticky; top: 0; z-index: 100;
+        }
+        .header-left { display: flex; align-items: center; gap: 20px; }
+        .brand { font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; }
+        .brand span { color: var(--accent-indigo); font-style: italic; font-weight: 500; }
+        body.rtl .brand { font-family: 'Markazi Text', sans-serif; font-size: 1.6rem; }
+        
+        .section-badge { 
+            font-size: 0.8rem; color: var(--accent-cyan); border: 1px solid rgba(0, 242, 255, 0.3); 
+            padding: 4px 12px; border-radius: 20px; background: rgba(0, 242, 255, 0.05);
+            font-family: 'Vazirmatn', sans-serif; 
+        }
+        body.rtl .section-badge { font-family: 'Markazi Text', sans-serif; font-size: 1rem; }
+
+        .datetime-widget { display: flex; flex-direction: column; align-items: center; font-size: 0.85rem; color: var(--text-muted); font-family: monospace; }
+        .time-display { color: var(--accent-cyan); font-weight: 600; font-size: 1rem; }
+        body.rtl .datetime-widget { font-family: 'Vazirmatn', monospace; }
+        
+        .header-actions { display: flex; align-items: center; gap: 16px; }
+        .back-btn { 
+            background: transparent; border: 1px solid rgba(77, 139, 255, 0.3); color: var(--accent-indigo); 
+            padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; 
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
+        .lang-switch { display: flex; gap: 8px; }
+        .lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color: var(--accent-indigo); border-color: rgba(77, 139, 255, 0.3); }
+
+        /* ===== محتوای اصلی ===== */
+        .main-content { 
+            flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; 
+            padding: 60px 20px; max-width: 900px; margin: 0 auto; width: 100%;
+        }
+        .aurora { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; mix-blend-mode: screen; }
+        .aurora-1 { width: 500px; height: 500px; background: rgba(77, 139, 255, 0.1); top: -10%; left: 10%; animation: drift1 15s ease-in-out infinite; }
+        .aurora-2 { width: 400px; height: 400px; background: rgba(0, 242, 255, 0.06); bottom: -10%; right: 10%; animation: drift2 18s ease-in-out infinite; }
+        @keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(80px, 50px) scale(1.1); } }
+        @keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-60px, -30px) scale(1.2); } }
+
+        .page-header { text-align: center; margin-bottom: 50px; position: relative; z-index: 2; }
+        .page-title { font-size: 3rem; font-weight: 300; font-style: italic; margin-bottom: 10px; color: rgba(255,255,255,0.95); }
+        body.rtl .page-title { font-family: 'Markazi Text', sans-serif; font-style: normal; font-weight: 700; font-size: 3.5rem; }
+        .page-title b { font-weight: 700; font-style: normal; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .page-desc { font-style: italic; color: rgba(255,255,255,0.4); font-size: 1rem; letter-spacing: 2px; }
+        body.rtl .page-desc { font-family: 'Vazirmatn', sans-serif; font-style: normal; font-size: 1.1rem; }
+
+        /* ===== لیست کپسولی (Capsule Menu) ===== */
+        .academy-list {
+            display: flex; flex-direction: column; gap: 15px;
+            width: 100%; position: relative; z-index: 2;
+        }
+
+        .academy-capsule {
+            display: flex; align-items: center; gap: 20px;
+            padding: 15px 30px;
+            background: rgba(10, 20, 35, 0.4);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
+            text-decoration: none; color: inherit;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative; overflow: hidden;
+        }
+
+        .academy-capsule::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(to right, transparent, var(--cap-glow), transparent);
+            opacity: 0; transition: 0.5s;
+        }
+        .academy-capsule:hover::before { left: 100%; opacity: 0.5; }
+
+        .academy-capsule:hover {
+            border-color: var(--cap-color);
+            background: rgba(20, 35, 50, 0.6);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 20px var(--cap-glow);
+            transform: translateX(15px);
+        }
+        body.rtl .academy-capsule:hover {
+            transform: translateX(-15px);
+        }
+
+        .cap-icon {
+            width: 45px; height: 45px; border-radius: 50%; flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.03);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; color: var(--cap-color);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+        .academy-capsule:hover .cap-icon {
+            background: var(--cap-color); color: #000;
+            box-shadow: 0 0 15px var(--cap-glow);
+            transform: scale(1.1);
+        }
+
+        .cap-content { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+        .cap-content h3 { font-size: 1.2rem; color: #fff; margin: 0; }
+        body.rtl .cap-content h3 { font-family: 'Markazi Text', sans-serif; font-size: 1.4rem; font-weight: 600; }
+        .cap-content p { color: var(--text-muted); font-size: 0.85rem; margin: 0; }
+        body.rtl .cap-content p { font-family: 'Vazirmatn', sans-serif; }
+
+        .cap-arrow {
+            font-size: 0.9rem; color: var(--cap-color); opacity: 0.5;
+            transition: 0.3s;
+        }
+        .academy-capsule:hover .cap-arrow { opacity: 1; transform: translateX(5px); }
+        body.rtl .academy-capsule:hover .cap-arrow { transform: translateX(-5px) rotate(180deg); }
+        body.rtl .cap-arrow { transform: rotate(180deg); }
+
+        /* رنگ‌های اختصاصی */
+        .c-1 { --cap-color: #d4af37; --cap-glow: rgba(212, 175, 55, 0.2); }
+        .c-2 { --cap-color: #00f2ff; --cap-glow: rgba(0, 242, 255, 0.2); }
+        .c-3 { --cap-color: #ff4d8d; --cap-glow: rgba(255, 77, 141, 0.2); }
+        .c-4 { --cap-color: #00ff9d; --cap-glow: rgba(0, 255, 157, 0.2); }
+        .c-5 { --cap-color: #4d8bff; --cap-glow: rgba(77, 139, 255, 0.2); }
+        .c-6 { --cap-color: #ff8c42; --cap-glow: rgba(255, 140, 66, 0.2); }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        body.rtl @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .academy-capsule { animation: fadeInRight 0.5s ease-out backwards; }
+        .academy-capsule:nth-child(1) { animation-delay: 0.05s; }
+        .academy-capsule:nth-child(2) { animation-delay: 0.1s; }
+        .academy-capsule:nth-child(3) { animation-delay: 0.15s; }
+        .academy-capsule:nth-child(4) { animation-delay: 0.2s; }
+        .academy-capsule:nth-child(5) { animation-delay: 0.25s; }
+        .academy-capsule:nth-child(6) { animation-delay: 0.3s; }
+
+        @media (max-width: 768px) {
+            .header { flex-wrap: wrap; gap: 10px; padding: 15px; }
+            .main-content { padding: 30px 15px; }
+            .page-title { font-size: 2.2rem; }
+            body.rtl .page-title { font-size: 2.5rem; }
+            .academy-capsule { padding: 12px 20px; gap: 15px; }
+            .cap-content p { display: none; }
+            .cap-icon { width: 40px; height: 40px; font-size: 1rem; }
+            .academy-capsule:hover { transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <div class="header-left">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="section-badge" data-en="Resources" data-fa="منابع">Resources</div>
+    </div>
+    <div class="datetime-widget">
+        <div class="date-display" id="dateDisplay"></div>
+        <div class="time-display" id="timeDisplay"></div>
+    </div>
+    <div class="header-actions">
+        <a href="../../index.html" class="back-btn" id="backBtn">
+            <i class="fas fa-arrow-left"></i> <span data-en="Dashboard" data-fa="داشبورد">Dashboard</span>
+        </a>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fa">FA</button>
+        </div>
+    </div>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="main-content">
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    
+    <div class="page-header">
+        <h1 class="page-title" data-en="Engineering <b>Resources</b>" data-fa="منابع <b>مهندسی</b>">Engineering <b>Resources</b></h1>
+        <p class="page-desc" data-en="— Technical documents, guides, and multimedia —" data-fa="— مستندات فنی، راهنماها و چندرسانه‌ای —">— Technical documents, guides, and multimedia —</p>
+    </div>
+
+    <div class="academy-list">
+        <a href="catalogs.html" class="academy-capsule c-1">
+            <div class="cap-icon"><i class="fas fa-file-pdf"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Catalogs" data-fa="کاتالوگ‌ها">Catalogs</h3>
+                <p data-en="Product catalogs from leading manufacturers." data-fa="کاتالوگ‌های محصولات از تولیدکنندگان برتر.">Product catalogs from leading manufacturers.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+
+        <a href="manuals.html" class="academy-capsule c-2">
+            <div class="cap-icon"><i class="fas fa-book"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Manuals" data-fa="راهنماها">Manuals</h3>
+                <p data-en="Technical manuals and user guides." data-fa="راهنماهای فنی و کاربردی.">Technical manuals and user guides.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+
+        <a href="datasheets.html" class="academy-capsule c-3">
+            <div class="cap-icon"><i class="fas fa-table"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Datasheets" data-fa="دیتاشیت‌ها">Datasheets</h3>
+                <p data-en="Technical datasheets and specifications." data-fa="دیتاشیت‌های فنی و مشخصات.">Technical datasheets and specifications.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+
+        <a href="templates.html" class="academy-capsule c-4">
+            <div class="cap-icon"><i class="fas fa-file-alt"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Templates" data-fa="قالب‌ها">Templates</h3>
+                <p data-en="Engineering document templates." data-fa="قالب‌های مستندات مهندسی.">Engineering document templates.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+
+        <a href="videos.html" class="academy-capsule c-5">
+            <div class="cap-icon"><i class="fas fa-video"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Videos" data-fa="ویدئوها">Videos</h3>
+                <p data-en="Training and tutorial videos." data-fa="ویدئوهای آموزشی و تمرینی.">Training and tutorial videos.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+
+        <a href="documents.html" class="academy-capsule c-6">
+            <div class="cap-icon"><i class="fas fa-folder"></i></div>
+            <div class="cap-content">
+                <h3 data-en="Documents" data-fa="مستندات">Documents</h3>
+                <p data-en="Engineering documents and reports." data-fa="مستندات و گزارش‌های مهندسی.">Engineering documents and reports.</p>
+            </div>
+            <i class="fas fa-chevron-right cap-arrow"></i>
+        </a>
+    </div>
+</main>
+
+<script>
+    let currentLang = localStorage.getItem('karatech-lang') || 'en';
+
+    function updateStaticTexts() {
+        document.querySelectorAll('[data-en]').forEach(el => { 
+            el.innerHTML = el.getAttribute(`data-${currentLang}`); 
+        });
+    }
+
+    function setLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('karatech-lang', lang);
+        document.body.classList.toggle('rtl', lang === 'fa');
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        updateStaticTexts();
+        updateDateTime();
+        
+        const backIcon = document.querySelector('#backBtn i');
+        if(lang === 'fa') {
+            backIcon.style.transform = 'rotate(180deg)';
+        } else {
+            backIcon.style.transform = 'rotate(0deg)';
+        }
+    }
+
+    function updateDateTime() {
+        const now = new Date();
+        const timeOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        const dateOpts = currentLang === 'fa' ? { year: 'numeric', month: 'long', day: 'numeric' } : { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('timeDisplay').textContent = now.toLocaleTimeString(currentLang === 'fa' ? 'fa-IR' : 'en-GB', timeOpts);
+        document.getElementById('dateDisplay').textContent = now.toLocaleDateString(currentLang === 'fa' ? 'fa-IR' : 'en-US', dateOpts);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+    
+    setLang(currentLang);
+    setInterval(updateDateTime, 1000);
+</script>
+
+</body>
+</html>
