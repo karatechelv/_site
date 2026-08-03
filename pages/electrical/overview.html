@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Karatech ELV · Overview</title>
+    <title>Karatech ELV · Electrical Overview</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -112,11 +112,19 @@
         .styled-list li { 
             color: rgba(255,255,255,0.7); padding: 10px 0; 
             border-bottom: 1px solid rgba(255,255,255,0.05);
-            display: flex; align-items: center; gap: 12px; font-size: 0.95rem;
+            display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; line-height: 1.6;
         }
         body.rtl .styled-list li { font-family: 'Vazirmatn', sans-serif; font-size: 1.05rem; }
         .styled-list li:last-child { border-bottom: none; }
-        .styled-list li i { color: var(--accent-cyan); font-size: 0.8rem; }
+        .styled-list li i { color: var(--accent-cyan); font-size: 0.6rem; margin-top: 8px; }
+
+        .formula-box {
+            background: #050a14; border: 1px solid rgba(77, 139, 255, 0.2);
+            border-radius: 8px; padding: 15px 20px; margin: 20px 0;
+            font-family: 'Courier New', monospace; color: var(--accent-cyan);
+            font-size: 1.1rem; direction: ltr; text-align: center;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+        }
 
         @media (max-width: 768px) {
             .header { flex-wrap: wrap; gap: 10px; padding: 15px; }
@@ -162,39 +170,57 @@
     <div class="page-header">
         <div class="page-icon"><i class="fas fa-book-open"></i></div>
         <h1 class="page-title" data-en="Overview of <b>Electrical Engineering</b>" data-fa="مرور کلی <b>مهندسی برق</b>">Overview of <b>Electrical Engineering</b></h1>
-        <p class="page-desc" data-en="A comprehensive overview of electrical engineering, covering power systems, protection, design, and standards." data-fa="مرور جامع مهندسی برق، شامل سیستم‌های قدرت، حفاظت، طراحی و استانداردها.">A comprehensive overview of electrical engineering, covering power systems, protection, design, and standards.</p>
+        <p class="page-desc" data-en="Comprehensive insights into power systems, industrial automation, protection coordination, and ELV infrastructure." data-fa="نمای جامع بر سیستم‌های قدرت، اتوماسیون صنعتی، هماهنگی حفاظت و زیرساخت‌های ELV.">Comprehensive insights into power systems, industrial automation, protection coordination, and ELV infrastructure.</p>
     </div>
 
     <div class="content-area">
-        <!-- کارت ۱: تعریف -->
+        
+        <!-- کارت ۱: تعریف و اهمیت -->
         <div class="content-card">
-            <h2 class="card-title"><i class="fas fa-bolt"></i> <span data-en="What is Electrical Engineering?" data-fa="مهندسی برق چیست؟">What is Electrical Engineering?</span></h2>
-            <p class="card-text" data-en="Electrical engineering is a field of engineering that deals with the study and application of electricity, electronics, and electromagnetism. It covers generation, transmission, distribution, and utilization of electrical power." data-fa="مهندسی برق شاخه‌ای از مهندسی است که به مطالعه و کاربرد الکتریسیته، الکترونیک و الکترومغناطیس می‌پردازد. شامل تولید، انتقال، توزیع و استفاده از انرژی الکتریکی است.">
-                Electrical engineering is a field of engineering that deals with the study and application of electricity, electronics, and electromagnetism. It covers generation, transmission, distribution, and utilization of electrical power.
+            <h2 class="card-title"><i class="fas fa-bolt"></i> <span data-en="Core Discipline in Modern Industry" data-fa="رشته محوری در صنعت مدرن">Core Discipline in Modern Industry</span></h2>
+            <p class="card-text" data-en="Electrical engineering in industrial and ELV (Extra-Low Voltage) contexts is the backbone of modern infrastructure. It encompasses the design, analysis, and maintenance of power distribution networks, control systems, and safety circuits. It ensures the reliable delivery of power, precise control of machinery, and integral safety of personnel and assets." data-fa="مهندسی برق در بسترهای صنعتی و ELV (ولتاژ بسیار ضعیف)، ستون فقرات زیرساخت‌های مدرن است. این رشته شامل طراحی، تحلیل و نگهداری شبکه‌های توزیع برق، سیستم‌های کنترل و مدارهای ایمنی است. این رشته تضمین می‌کند که برق به طور قابل اعتماد تحویل داده شود، کنترل ماشین‌آلات دقیق باشد و ایمنی پرسنل و تجهیزات به طور کامل حفظ شود.">
+                Electrical engineering in industrial and ELV (Extra-Low Voltage) contexts is the backbone of modern infrastructure. It encompasses the design, analysis, and maintenance of power distribution networks, control systems, and safety circuits. It ensures the reliable delivery of power, precise control of machinery, and integral safety of personnel and assets.
             </p>
         </div>
 
-        <!-- کارت ۲: شاخه‌های اصلی -->
+        <!-- کارت ۲: شاخه‌های اصلی تخصصی -->
         <div class="content-card">
-            <h2 class="card-title"><i class="fas fa-sitemap"></i> <span data-en="Main Branches" data-fa="شاخه‌های اصلی">Main Branches</span></h2>
+            <h2 class="card-title"><i class="fas fa-sitemap"></i> <span data-en="Specialized Branches" data-fa="شاخه‌های تخصصی">Specialized Branches</span></h2>
             <ul class="styled-list">
-                <li data-en="Power Systems – Generation, transmission, distribution" data-fa="سیستم‌های قدرت – تولید، انتقال، توزیع"><i class="fas fa-circle"></i> Power Systems – Generation, transmission, distribution</li>
-                <li data-en="Control Systems – Automation and process control" data-fa="سیستم‌های کنترل – اتوماسیون و کنترل فرآیند"><i class="fas fa-circle"></i> Control Systems – Automation and process control</li>
-                <li data-en="Electronics – Analog and digital circuits" data-fa="الکترونیک – مدارهای آنالوگ و دیجیتال"><i class="fas fa-circle"></i> Electronics – Analog and digital circuits</li>
-                <li data-en="Telecommunications – Signal processing and communication" data-fa="مخابرات – پردازش سیگنال و ارتباطات"><i class="fas fa-circle"></i> Telecommunications – Signal processing and communication</li>
+                <li data-en="Power Distribution & Transformers: Design of MV/LV networks, substation architecture, and transformer sizing." data-fa="توزیع برق و ترانسفورماتورها: طراحی شبکه‌های فشار متوسط و ضعیف، معماری پست‌ها و سایزینگ ترانسفورماتورها."><i class="fas fa-circle"></i> <span>Power Distribution & Transformers: Design of MV/LV networks, substation architecture, and transformer sizing.</span></li>
+                <li data-en="Protection & Coordination: Selective coordination of breakers, fuses, and relays to isolate faults instantly." data-fa="حفاظت و هماهنگی: هماهنگی انتخابی کلیدها، فیوزها و رله‌ها برای ایزوله کردن فوری خطاها."><i class="fas fa-circle"></i> <span>Protection & Coordination: Selective coordination of breakers, fuses, and relays to isolate faults instantly.</span></li>
+                <li data-en="ELV Systems: Fire alarm, CCTV, access control, and public address systems for building safety." data-fa="سیستم‌های ELV: سیستم‌های اعلام حریق، دوربین مداربسته، کنترل تردد و آدرس عمومی برای ایمنی ساختمان."><i class="fas fa-circle"></i> <span>ELV Systems: Fire alarm, CCTV, access control, and public address systems for building safety.</span></li>
+                <li data-en="Power Quality & Harmonics: Mitigation of THD, power factor correction, and voltage stability analysis." data-fa="کیفیت برق و هارمونیک‌ها: کاهش THD، اصلاح ضریب توان و تحلیل پایداری ولتاژ."><i class="fas fa-circle"></i> <span>Power Quality & Harmonics: Mitigation of THD, power factor correction, and voltage stability analysis.</span></li>
             </ul>
         </div>
 
-        <!-- کارت ۳: استانداردها -->
+        <!-- کارت ۳: فرمول‌های کلیدی -->
         <div class="content-card">
-            <h2 class="card-title"><i class="fas fa-shield-halved"></i> <span data-en="Key Standards" data-fa="استانداردهای کلیدی">Key Standards</span></h2>
+            <h2 class="card-title"><i class="fas fa-square-root-variable"></i> <span data-en="Fundamental Engineering Formulas" data-fa="فرمول‌های پایه مهندسی">Fundamental Engineering Formulas</span></h2>
+            <p class="card-text" data-en="Accurate calculation of power, current, and voltage drop is essential for equipment sizing and system stability." data-fa="محاسبه دقیق توان، جریان و افت ولتاژ برای سایزینگ تجهیزات و پایداری سیستم ضروری است.">
+                Accurate calculation of power, current, and voltage drop is essential for equipment sizing and system stability.
+            </p>
+            <div class="formula-box">
+                P (kW) = [√3 × V × I × cos(φ)] / 1000
+            </div>
+            <div class="formula-box">
+                ΔV = 2 × L × I × R × cos(φ) / 1000
+            </div>
+        </div>
+
+        <!-- کارت ۴: استانداردها (فقط عنوان کلی، بدون شماره) -->
+        <div class="content-card">
+            <h2 class="card-title"><i class="fas fa-shield-halved"></i> <span data-en="Standards & Regulations" data-fa="استانداردها و مقررات">Standards & Regulations</span></h2>
+            <p class="card-text" data-en="All electrical designs strictly adhere to national and international codes. Detailed standard numbers are documented in the Standards section." data-fa="تمامی طراحی‌های برق دقیقاً مطابق با کدهای ملی و بین‌المللی انجام می‌شود. شماره استانداردهای دقیق در بخش تخصصی استانداردها مستند شده است.">
+                All electrical designs strictly adhere to national and international codes. Detailed standard numbers are documented in the Standards section.
+            </p>
             <ul class="styled-list">
-                <li data-en="IEC 60364 – Electrical Installations" data-fa="IEC 60364 – تأسیسات الکتریکی"><i class="fas fa-circle"></i> IEC 60364 – Electrical Installations</li>
-                <li data-en="IEC 61439 – Switchgear" data-fa="IEC 61439 – تابلوهای برق"><i class="fas fa-circle"></i> IEC 61439 – Switchgear</li>
-                <li data-en="IEEE 80 – Earthing" data-fa="IEEE 80 – ارتینگ"><i class="fas fa-circle"></i> IEEE 80 – Earthing</li>
-                <li data-en="NEC (NFPA 70)" data-fa="NEC (NFPA 70)"><i class="fas fa-circle"></i> NEC (NFPA 70)</li>
+                <li data-en="National Building Regulations for building installations." data-fa="مقررات ملی ساختمان برای تأسیسات ساختمانی."><i class="fas fa-circle"></i> <span>National Building Regulations for building installations.</span></li>
+                <li data-en="Iranian Petroleum Standards for industrial projects." data-fa="استانداردهای نفت ایران برای پروژه‌های صنعتی."><i class="fas fa-circle"></i> <span>Iranian Petroleum Standards for industrial projects.</span></li>
+                <li data-en="IEC Standards for switchgear, panel building, and automation." data-fa="استانداردهای IEC برای تابلوسازی و اتوماسیون."><i class="fas fa-circle"></i> <span>IEC Standards for switchgear, panel building, and automation.</span></li>
             </ul>
         </div>
+
     </div>
 </main>
 
