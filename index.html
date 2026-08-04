@@ -35,7 +35,7 @@
             opacity: 0.04; pointer-events: none; z-index: 9999; mix-blend-mode: overlay;
         }
 
-        /* ===== هدر بالای سایت ===== */
+        /* ===== هدر ===== */
         .header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 40px; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(15px);
@@ -45,9 +45,16 @@
         .brand span { color: var(--accent-indigo); font-style: italic; font-weight: 500; }
         body.rtl .brand { font-family: 'Markazi Text', sans-serif; font-size: 1.8rem; }
         
-        .datetime-widget { display: flex; flex-direction: column; align-items: center; font-size: 0.85rem; color: var(--text-muted); font-family: monospace; }
+        .header-center { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+        .datetime-widget { display: flex; gap: 20px; font-size: 0.85rem; color: var(--text-muted); font-family: monospace; }
         .time-display { color: var(--accent-cyan); font-weight: 600; font-size: 1rem; }
         body.rtl .datetime-widget { font-family: 'Vazirmatn', monospace; }
+        .session-timer { 
+            font-size: 0.7rem; color: rgba(0, 242, 255, 0.6); 
+            background: rgba(0, 242, 255, 0.05); padding: 2px 10px; border-radius: 10px;
+            border: 1px solid rgba(0, 242, 255, 0.1); letter-spacing: 1px;
+        }
+        body.rtl .session-timer { font-family: 'Vazirmatn', sans-serif; }
         
         .header-actions { display: flex; align-items: center; gap: 16px; }
         .exit-btn { background: transparent; border: 1px solid rgba(255, 100, 100, 0.3); color: rgba(255, 100, 100, 0.8); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
@@ -56,7 +63,7 @@
         .lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
         .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color: var(--accent-indigo); border-color: rgba(77, 139, 255, 0.3); }
 
-        /* ===== Splash Screen ===== */
+        /* ===== Splash ===== */
         .splash {
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             min-height: 90vh; text-align: center; padding: 20px; position: relative; z-index: 50;
@@ -89,7 +96,6 @@
         .nav-item.linked-active { background: rgba(255, 255, 255, 0.05); color: var(--text-main); border-left-color: var(--gear-color); }
         body.rtl .nav-item.linked-active { border-left: none; border-right-color: var(--gear-color); }
         .nav-item.linked-active i { color: var(--gear-color); opacity: 1; text-shadow: 0 0 10px var(--gear-color); }
-        .nav-item.linked-active .arrow-icon { color: var(--gear-color); }
         .sub-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; padding-left: 15px; }
         body.rtl .sub-menu { padding-left: 0; padding-right: 15px; }
         .sub-menu.open { max-height: 500px; }
@@ -145,7 +151,7 @@
 
         .m1 { --gear-color: #d4af37; --gear-glow: rgba(212, 175, 55, 0.8); }
         .m2 { --gear-color: #00f2ff; --gear-glow: rgba(0, 242, 255, 0.8); }
-        .m3 { --gear-color: #ff4d8d; --gear-glow: rgba(255, 77, 141, 0.8); }
+        .m3 { --gear-color: #ff4d8d; --card-glow: rgba(255, 77, 141, 0.8); }
         .m4 { --gear-color: #00ff9d; --gear-glow: rgba(0, 255, 157, 0.8); }
         .m5 { --gear-color: #ff8c42; --gear-glow: rgba(255, 140, 66, 0.8); }
         .m6 { --gear-color: #b388ff; --gear-glow: rgba(179, 136, 255, 0.8); }
@@ -166,116 +172,54 @@
 
         .footer { text-align: center; color: rgba(255,255,255,0.3); font-size: 0.8rem; padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.05); width: 100%; position: absolute; bottom: 0; z-index: 1; }
 
-        /* ===== پنل هولوگرامیک شناور (Holo-HUD) ===== */
-        .holo-hud-overlay {
-            position: fixed; inset: 0; z-index: 200;
-            background: rgba(0, 5, 10, 0.7);
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; visibility: hidden; transition: all 0.4s ease;
+        /* ===== پنل خروج سینمایی (Exit Overlay) ===== */
+        .exit-overlay {
+            position: fixed; inset: 0; z-index: 300;
+            background: radial-gradient(circle at center, rgba(5, 15, 30, 0.95) 0%, rgba(0,0,0,1) 100%);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden; transition: all 0.5s ease;
         }
-        .holo-hud-overlay.active { opacity: 1; visibility: visible; }
-
-        .holo-hud {
-            display: flex; flex-direction: column; gap: 15px;
-            position: relative;
-            animation: holoFloat 6s ease-in-out infinite;
-            padding: 40px;
+        .exit-overlay.active { opacity: 1; visibility: visible; }
+        .exit-logo { font-size: 2rem; color: var(--accent-indigo); margin-bottom: 30px; filter: drop-shadow(0 0 15px var(--accent-indigo)); animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } }
+        
+        .exit-title { font-family: 'Markazi Text', sans-serif; font-size: 3rem; font-weight: 700; color: #fff; margin-bottom: 10px; text-shadow: 0 0 20px rgba(0, 242, 255, 0.3); }
+        body.rtl .exit-title { font-family: 'Vazirmatn', sans-serif; }
+        .exit-text { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px; }
+        body.rtl .exit-text { font-family: 'Vazirmatn', sans-serif; }
+        
+        .exit-session-box {
+            background: rgba(0, 242, 255, 0.05); border: 1px solid var(--accent-cyan);
+            padding: 15px 40px; border-radius: 50px; margin-bottom: 40px;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.1); backdrop-filter: blur(10px);
         }
-        .holo-hud-title {
-            text-align: center; font-size: 1.8rem; font-style: italic; margin-bottom: 30px;
-            color: var(--accent-cyan); text-shadow: 0 0 15px var(--accent-cyan);
-            letter-spacing: 2px;
+        .exit-session-label { font-size: 0.8rem; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        body.rtl .exit-session-label { font-family: 'Vazirmatn', sans-serif; }
+        .exit-session-time { font-size: 1.8rem; color: #fff; font-family: monospace; font-weight: 600; }
+        
+        .exit-credit { color: rgba(255,255,255,0.3); font-size: 0.9rem; font-style: italic; }
+        body.rtl .exit-credit { font-family: 'Vazirmatn', sans-serif; font-style: normal; }
+
+        /* ===== ویجت آمار و زمان (Stats HUD) ===== */
+        .stats-widget {
+            position: fixed; bottom: 20px; left: 20px; z-index: 50;
+            background: rgba(10, 20, 35, 0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(77, 139, 255, 0.2); border-radius: 12px;
+            padding: 15px 20px; min-width: 180px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            display: none; /* در ابتدا مخفی است */
         }
-        body.rtl .holo-hud-title { font-family: 'Markazi Text', sans-serif; font-style: normal; font-size: 2.2rem; font-weight: 700; }
-
-        .holo-item {
-            display: flex; align-items: center;
-            position: relative;
-            height: 60px;
-            transition: all 0.4s ease;
-        }
-        .holo-icon-circle {
-            width: 60px; height: 60px; border-radius: 50%;
-            background: rgba(10, 20, 35, 0.8); border: 1px solid rgba(77, 139, 255, 0.4);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.4rem; color: var(--accent-indigo);
-            box-shadow: 0 0 15px rgba(0,0,0,0.5), inset 0 0 10px rgba(77, 139, 255, 0.2);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: 2; cursor: pointer; position: relative;
-        }
-        .holo-data {
-            position: absolute; left: 30px; 
-            height: 50px; margin-top: 5px;
-            background: rgba(10, 20, 35, 0.9);
-            border: 1px solid var(--accent-cyan);
-            border-radius: 25px; padding: 0 20px 0 40px;
-            display: flex; align-items: center;
-            font-size: 1.1rem; color: #fff; white-space: nowrap;
-            max-width: 0; overflow: hidden; opacity: 0;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
-            backdrop-filter: blur(5px);
-            direction: ltr; 
-        }
-        body.rtl .holo-data {
-            left: auto; right: 30px; padding: 0 40px 0 20px;
-        }
-
-        .holo-item:hover .holo-data {
-            max-width: 450px; opacity: 1;
-            padding-left: 40px; padding-right: 20px;
-        }
-        body.rtl .holo-item:hover .holo-data {
-            padding-right: 40px; padding-left: 20px;
-        }
-        .holo-item:hover .holo-icon-circle {
-            background: var(--accent-indigo); color: #fff; transform: scale(1.15);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 25px var(--accent-cyan), inset 0 0 15px rgba(255,255,255,0.2);
-        }
-
-        /* --- انیمیشن‌های اختصاصی آیتم‌ها --- */
-        .holo-item[data-type="phone"]:hover .holo-icon-circle i { animation: phoneShake 0.4s linear infinite; }
-        .holo-item[data-type="phone"] .holo-data { border-color: #00ff9d; box-shadow: 0 0 20px rgba(0, 255, 157, 0.3); }
-        .holo-item[data-type="phone"]:hover .holo-icon-circle::before { content: ''; position: absolute; inset: -5px; border: 2px solid #00ff9d; border-radius: 50%; animation: ripple 1s infinite; }
-        @keyframes phoneShake { 0% { transform: rotate(0); } 25% { transform: rotate(-15deg); } 50% { transform: rotate(0); } 75% { transform: rotate(15deg); } 100% { transform: rotate(0); } }
-        @keyframes ripple { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
-
-        .holo-item[data-type="email"] .holo-data { background: #fcfcfc; color: #111; border: 1px solid #ddd; border-radius: 5px; font-family: 'Courier New', monospace; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-        .holo-item[data-type="email"]:hover .holo-icon-circle { transform: translateY(5px) scale(1.1); }
-
-        .holo-item[data-type="location"]:hover .holo-icon-circle i { animation: mapBounce 0.6s ease-in-out infinite; }
-        .holo-item[data-type="location"] .holo-data { border-color: #ff4d8d; box-shadow: 0 0 20px rgba(255, 77, 141, 0.3); }
-        @keyframes mapBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-
-        .holo-item[data-type="clock"]:hover .holo-icon-circle i { animation: tick 1s ease-in-out infinite; }
-        .holo-item[data-type="clock"] .holo-data { border-color: #b388ff; box-shadow: 0 0 20px rgba(179, 136, 255, 0.3); }
-        @keyframes tick { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(15deg); } 75% { transform: rotate(-15deg); } }
-
-        .holo-item[data-type="linkedin"]:hover .holo-icon-circle i, .holo-item[data-type="github"]:hover .holo-icon-circle i { animation: spin 0.8s linear infinite; }
-        .holo-item[data-type="linkedin"] .holo-data { border-color: #0e76a8; box-shadow: 0 0 20px rgba(14, 118, 168, 0.3); }
-        .holo-item[data-type="github"] .holo-data { border-color: #fff; box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); }
-        @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
-
-        .close-holo {
-            position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
-            background: transparent; border: 1px solid #ff6464; color: #ff6464;
-            width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
-            transition: 0.3s;
-        }
-        .close-holo:hover { background: #ff6464; color: #fff; transform: translateX(-50%) scale(1.1); }
-
-        .holo-hud-overlay.active .holo-item { animation: dropIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
-        .holo-hud-overlay.active .holo-item:nth-child(2) { animation-delay: 0.1s; }
-        .holo-hud-overlay.active .holo-item:nth-child(3) { animation-delay: 0.2s; }
-        .holo-hud-overlay.active .holo-item:nth-child(4) { animation-delay: 0.3s; }
-        .holo-hud-overlay.active .holo-item:nth-child(5) { animation-delay: 0.4s; }
-        .holo-hud-overlay.active .holo-item:nth-child(6) { animation-delay: 0.5s; }
-        .holo-hud-overlay.active .holo-item:nth-child(7) { animation-delay: 0.6s; }
-
-        @keyframes dropIn { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes holoFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        body.rtl .stats-widget { left: auto; right: 20px; }
+        .stats-widget.visible { display: block; animation: slideInUp 0.5s ease-out; }
+        @keyframes slideInUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        .stat-row { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
+        .stat-row:last-child { margin-bottom: 0; }
+        body.rtl .stat-row { font-family: 'Vazirmatn', sans-serif; font-size: 0.95rem; }
+        .stat-row i { color: var(--accent-cyan); width: 15px; text-align: center; }
+        .stat-value { color: #fff; font-weight: 600; margin-left: auto; font-family: monospace; }
+        body.rtl .stat-value { margin-left: 0; margin-right: auto; }
 
         @media (max-width: 1024px) { .machine-container { transform: scale(0.8); } }
         @media (max-width: 768px) {
@@ -285,8 +229,11 @@
             .page-title { font-size: 2rem; }
             body.rtl .page-title { font-size: 2.2rem; }
             .machine-container { transform: scale(0.5); margin-top: -30px; }
-            .header { flex-wrap: wrap; gap: 10px; }
-            .holo-hud { padding: 20px; }
+            .header { flex-wrap: wrap; gap: 10px; padding: 15px; }
+            .header-center { order: 3; width: 100%; margin-top: 10px; }
+            .exit-title { font-size: 2rem; }
+            .stats-widget { bottom: 10px; left: 10px; right: 10px; width: auto; }
+            body.rtl .stats-widget { right: 10px; left: 10px; }
         }
     </style>
 </head>
@@ -295,12 +242,17 @@
 <!-- ===== HEADER ===== -->
 <header class="header">
     <div class="brand">KARATECH <span>ELV</span></div>
-    <div class="datetime-widget" id="datetimeWidget">
-        <div class="date-display" id="dateDisplay"></div>
-        <div class="time-display" id="timeDisplay"></div>
+    
+    <div class="header-center">
+        <div class="datetime-widget">
+            <div class="date-display" id="dateDisplay"></div>
+            <div class="time-display" id="timeDisplay"></div>
+        </div>
+        <div class="session-timer" id="sessionTimer">Session: 00:00:00</div>
     </div>
+
     <div class="header-actions">
-        <button class="exit-btn" onclick="exitSystem()">
+        <button class="exit-btn" onclick="initiateExit()">
             <i class="fas fa-sign-out-alt"></i> <span data-en="Exit" data-fa="خروج">Exit</span>
         </button>
         <div class="lang-switch">
@@ -370,277 +322,175 @@
     </main>
 </div>
 
-<!-- ===== پنل هولوگرامیک چشم‌انداز ===== -->
-<div class="holo-hud-overlay" id="overlay-vision" onclick="closeOverlay('vision', event)">
-    <div class="holo-hud">
-        <button class="close-holo" onclick="closeOverlay('vision', event)"><i class="fas fa-times"></i></button>
-        <div class="holo-hud-title" data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</div>
-        <div class="holo-item" data-type="vision">
-            <div class="holo-icon-circle"><i class="fas fa-industry"></i></div>
-            <div class="holo-data" data-en="Factory - In Dev" data-fa="کارخانه - در حال توسعه">Factory - In Dev</div>
-        </div>
-        <div class="holo-item" data-type="vision">
-            <div class="holo-icon-circle"><i class="fas fa-boxes"></i></div>
-            <div class="holo-data" data-en="Products - Soon" data-fa="محصولات - به زودی">Products - Soon</div>
-        </div>
-        <div class="holo-item" data-type="vision">
-            <div class="holo-icon-circle"><i class="fas fa-project-diagram"></i></div>
-            <div class="holo-data" data-en="Projects - Soon" data-fa="پروژه‌ها - به زودی">Projects - Soon</div>
-        </div>
-        <div class="holo-item" data-type="vision">
-            <div class="holo-icon-circle"><i class="fas fa-users"></i></div>
-            <div class="holo-data" data-en="Community - In Dev" data-fa="انجمن - در حال توسعه">Community - In Dev</div>
-        </div>
-        <div class="holo-item" data-type="vision">
-            <div class="holo-icon-circle"><i class="fas fa-flask"></i></div>
-            <div class="holo-data" data-en="Research - Soon" data-fa="تحقیق - به زودی">Research - Soon</div>
-        </div>
-        <div class="holo-item" data-type="vision">
-            <div class="holo-icon-circle"><i class="fas fa-blog"></i></div>
-            <div class="holo-data" data-en="Blog - Soon" data-fa="وبلاگ - به زودی">Blog - Soon</div>
-        </div>
-        <div class="holo-item" data-type="vision">
-            <div class="holo-icon-circle"><i class="fas fa-briefcase"></i></div>
-            <div class="holo-data" data-en="Job Board - Soon" data-fa="بخش کار - به زودی">Job Board - Soon</div>
-        </div>
+<!-- ===== ویجت آمار و زمان (Stats Widget) ===== -->
+<div class="stats-widget" id="statsWidget">
+    <div class="stat-row">
+        <i class="fas fa-eye"></i>
+        <span data-en="Today Visits" data-fa="بازدید امروز">Today Visits</span>
+        <span class="stat-value" id="dailyVisits">0</span>
+    </div>
+    <div class="stat-row">
+        <i class="fas fa-chart-line"></i>
+        <span data-en="Total Visits" data-fa="بازدید کل">Total Visits</span>
+        <span class="stat-value" id="totalVisits">0</span>
+    </div>
+    <div class="stat-row">
+        <i class="fas fa-stopwatch"></i>
+        <span data-en="Total Time" data-fa="زمان کل">Total Time</span>
+        <span class="stat-value" id="totalTime">00:00:00</span>
     </div>
 </div>
 
-<!-- ===== پنل هولوگرامیک اطلاعات تماس ===== -->
-<div class="holo-hud-overlay" id="overlay-contact" onclick="closeOverlay('contact', event)">
-    <div class="holo-hud">
-        <button class="close-holo" onclick="closeOverlay('contact', event)"><i class="fas fa-times"></i></button>
-        <div class="holo-hud-title" data-en="Contact Information" data-fa="اطلاعات تماس">Contact Information</div>
-        
-        <div class="holo-item" data-type="phone">
-            <div class="holo-icon-circle"><i class="fas fa-phone-alt"></i></div>
-            <div class="holo-data" data-en="+98 912 089 1544" data-fa="‎+۹۸ ۹۱۲ ۰۸۹ ۱۵۴۴">+98 912 089 1544</div>
-        </div>
-        
-        <div class="holo-item" data-type="email">
-            <div class="holo-icon-circle"><i class="fas fa-envelope"></i></div>
-            <div class="holo-data" data-en="karatechelv@gmail.com" data-fa="karatechelv@gmail.com">karatechelv@gmail.com</div>
-        </div>
-        
-        <div class="holo-item" data-type="location">
-            <div class="holo-icon-circle"><i class="fas fa-map-marker-alt"></i></div>
-            <div class="holo-data" data-en="Tehran, Iran" data-fa="ایران، تهران">Tehran, Iran</div>
-        </div>
-        
-        <div class="holo-item" data-type="clock">
-            <div class="holo-icon-circle"><i class="fas fa-clock"></i></div>
-            <div class="holo-data" data-en="Sat - Thu: 8:00 - 17:00" data-fa="شنبه تا چهارشنبه: ۸ تا ۱۷">Sat - Thu: 8:00 - 17:00</div>
-        </div>
-        
-        <div class="holo-item" data-type="linkedin">
-            <div class="holo-icon-circle"><i class="fab fa-linkedin"></i></div>
-            <div class="holo-data" data-en="/karatechelv" data-fa="/karatechelv">/karatechelv</div>
-        </div>
-        
-        <div class="holo-item" data-type="github">
-            <div class="holo-icon-circle"><i class="fab fa-github"></i></div>
-            <div class="holo-data" data-en="/karatechelv" data-fa="/karatechelv">/karatechelv</div>
-        </div>
+<!-- ===== پنل خروج (Exit Overlay) ===== -->
+<div class="exit-overlay" id="exitOverlay">
+    <div class="exit-logo"><i class="fas fa-shield-halved"></i></div>
+    <h2 class="exit-title" data-en="Thank You" data-fa="از همراهی شما سپاسگزاریم">Thank You</h2>
+    <p class="exit-text" data-en="You have successfully exited the system." data-fa="با موفقیت از سیستم خارج شدید.">You have successfully exited the system.</p>
+    
+    <div class="exit-session-box">
+        <div class="exit-session-label" data-en="Total Session Duration" data-fa="مدت زمان حضور شما">Total Session Duration</div>
+        <div class="exit-session-time" id="exitSessionTime">00:00:00</div>
+    </div>
+    
+    <div class="exit-credit" data-en="Designed by Mohsen Keramati Layegh" data-fa="طراحی شده توسط محسن کرامتی لایق">
+        Designed by Mohsen Keramati Layegh
     </div>
 </div>
 
 <script>
-    // ===== حل قطعی مشکل دکمه Back مرورگر =====
+    // ===== مدیریت آمار، زمان و خروج =====
+    let sessionStartTime;
+    let sessionInterval;
+    let totalAccumulatedTime = parseInt(localStorage.getItem('karatech_total_time') || '0'); // زمان کل (هرگز صفر نمی‌شود)
+
+    function trackVisit() {
+        // ۱. شمارش بازدید کل
+        let totalVisits = parseInt(localStorage.getItem('karatech_total_visits') || '0');
+        totalVisits++;
+        localStorage.setItem('karatech_total_visits', totalVisits);
+
+        // ۲. شمارش بازدید روزانه
+        let today = new Date().toLocaleDateString();
+        let savedDate = localStorage.getItem('karatech_daily_date');
+        let dailyVisits;
+
+        if (savedDate === today) {
+            dailyVisits = parseInt(localStorage.getItem('karatech_daily_visits') || '0');
+            dailyVisits++;
+        } else {
+            // روز جدید، شمارش روزانه ریست می‌شود
+            dailyVisits = 1;
+            localStorage.setItem('karatech_daily_date', today);
+        }
+        localStorage.setItem('karatech_daily_visits', dailyVisits);
+
+        // به‌روزرسانی UI
+        document.getElementById('dailyVisits').textContent = dailyVisits;
+        document.getElementById('totalVisits').textContent = totalVisits;
+    }
+
+    function startSession() {
+        sessionStartTime = Date.now();
+        if (sessionInterval) clearInterval(sessionInterval);
+        sessionInterval = setInterval(updateTimers, 1000);
+        updateTimers();
+    }
+
+    function updateTimers() {
+        if (!sessionStartTime) return;
+        
+        // زمان جلسه فعلی (در هدر)
+        const elapsedSession = Math.floor((Date.now() - sessionStartTime) / 1000);
+        const sh = Math.floor(elapsedSession / 3600).toString().padStart(2, '0');
+        const sm = Math.floor((elapsedSession % 3600) / 60).toString().padStart(2, '0');
+        const ss = (elapsedSession % 60).toString().padStart(2, '0');
+        document.getElementById('sessionTimer').textContent = `Session: ${sh}:${sm}:${ss}`;
+
+        // زمان کل (در ویجت گوشه - هرگز صفر نمی‌شود)
+        const currentTotal = totalAccumulatedTime + elapsedSession;
+        const th = Math.floor(currentTotal / 3600).toString().padStart(2, '0');
+        const tm = Math.floor((currentTotal % 3600) / 60).toString().padStart(2, '0');
+        const ts = (currentTotal % 60).toString().padStart(2, '0');
+        document.getElementById('totalTime').textContent = `${th}:${tm}:${ts}`;
+        
+        // ذخیره زمان کل هر ثانیه برای جلوگیری از از دست رفتن در صورت رفرش یا بستن مرورگر
+        localStorage.setItem('karatech_total_time', currentTotal); 
+    }
+
     function enterSystem() {
         sessionStorage.setItem('karatech_entered', 'true');
+        trackVisit(); // افزایش شمارنده بازدیدها
+        startSession(); // شروع تایمرها
+        
         document.getElementById('splash').classList.add('hidden');
         document.getElementById('dashboard').style.display = 'flex';
+        document.getElementById('statsWidget').classList.add('visible');
     }
 
-    function exitSystem() {
-        sessionStorage.removeItem('karatech_entered');
-        document.getElementById('splash').classList.remove('hidden');
-        document.getElementById('dashboard').style.display = 'none';
+    function initiateExit() {
+        clearInterval(sessionInterval);
+        
+        // ذخیره نهایی زمان قبل از خروج
+        if (sessionStartTime) {
+            const elapsedSession = Math.floor((Date.now() - sessionStartTime) / 1000);
+            totalAccumulatedTime += elapsedSession;
+            localStorage.setItem('karatech_total_time', totalAccumulatedTime); // ذخیره در حافظه دائمی
+        }
+        
+        // نمایش زمان این جلسه در پنجره خروج
+        const exitTime = document.getElementById('exitSessionTime');
+        if (sessionStartTime) {
+            const elapsedSession = Math.floor((Date.now() - sessionStartTime) / 1000);
+            const sh = Math.floor(elapsedSession / 3600).toString().padStart(2, '0');
+            const sm = Math.floor((elapsedSession % 3600) / 60).toString().padStart(2, '0');
+            const ss = (elapsedSession % 60).toString().padStart(2, '0');
+            exitTime.textContent = `${sh}:${sm}:${ss}`;
+        }
+        
+        document.getElementById('exitOverlay').classList.add('active');
+        
+        // پس از ۴ ثانیه، سیستم ریست می‌شود
+        setTimeout(() => {
+            document.getElementById('exitOverlay').classList.remove('active');
+            sessionStorage.removeItem('karatech_entered');
+            document.getElementById('splash').classList.remove('hidden');
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('statsWidget').classList.remove('visible');
+            document.getElementById('sessionTimer').textContent = "Session: 00:00:00";
+        }, 4000);
     }
 
+    // بررسی وضعیت هنگام لود صفحه (اگر کاربر رفرش کرد)
     if (sessionStorage.getItem('karatech_entered') === 'true') {
         document.getElementById('splash').classList.add('hidden');
         document.getElementById('dashboard').style.display = 'flex';
+        document.getElementById('statsWidget').classList.add('visible');
+        
+        // نمایش آمار ذخیره شده بدون افزایش مجدد (چون با رفرش نباید بازدید جدید حساب شود)
+        document.getElementById('dailyVisits').textContent = localStorage.getItem('karatech_daily_visits') || '0';
+        document.getElementById('totalVisits').textContent = localStorage.getItem('karatech_total_visits') || '0';
+        
+        startSession(); // ادامه تایمر
     } else {
         document.getElementById('splash').classList.remove('hidden');
         document.getElementById('dashboard').style.display = 'none';
     }
 
     // ===== پنل‌های هولوگرامیک =====
-    function openOverlay(id) {
-        document.getElementById('overlay-' + id).classList.add('active');
-    }
+    function openOverlay(id) { document.getElementById('overlay-' + id).classList.add('active'); }
     function closeOverlay(id, event) {
         if (event.target.classList.contains('holo-hud-overlay') || event.target.closest('.close-holo')) {
             document.getElementById('overlay-' + id).classList.remove('active');
         }
     }
 
-    // ===== پایگاه داده دوزبانه با لینک‌های واقعی شما =====
-    // توجه: url به عنوان لینک اصلی چرخ‌دنده‌ها اضافه شده است
-    const siteData = {
-        en: {
-            title: "Engineering <b>System</b>",
-            desc: "— Synchronized Industrial Core —",
-            categories: [
-                { id: 'm1', icon: 'fa-graduation-cap', name: 'Academy', url: 'pages/academy/index.html', subs: [ { name: 'Electrical', url: 'pages/academy/electrical.html' }, { name: 'Automation', url: 'pages/academy/automation.html' }, { name: 'Instrumentation', url: 'pages/academy/instrumentation.html' }, { name: 'Design', url: 'pages/academy/design.html' }, { name: 'Quality Control', url: 'pages/academy/quality-control.html' }, { name: 'Standards', url: 'pages/academy/standards.html' }, { name: 'Management', url: 'pages/academy/management.html' }, { name: 'HSE', url: 'pages/academy/hse.html' } ], result: { icon: 'fa-user-graduate', text: 'Expertise' } },
-                { id: 'm2', icon: 'fa-project-diagram', name: 'Workflow', url: 'pages/workflow/index.html', subs: [ { name: 'P&ID', url: 'pages/workflow/pid.html' }, { name: 'Design', url: 'pages/workflow/design.html' }, { name: 'Panel', url: 'pages/workflow/panel.html' }, { name: 'Procurement', url: 'pages/workflow/procurement.html' }, { name: 'Assembly', url: 'pages/workflow/assembly.html' }, { name: 'FAT', url: 'pages/workflow/fat.html' }, { name: 'Installation', url: 'pages/workflow/installation.html' }, { name: 'Loop Check', url: 'pages/workflow/loop-check.html' }, { name: 'Commissioning', url: 'pages/workflow/commissioning.html' }, { name: 'SAT', url: 'pages/workflow/sat.html' }, { name: 'Documentation', url: 'pages/workflow/documentation.html' }, { name: 'Operation', url: 'pages/workflow/operation.html' } ], result: { icon: 'fa-clipboard-check', text: 'Delivered Project' } },
-                { id: 'm3', icon: 'fa-calculator', name: 'Tools', url: 'pages/tools/index.html', subs: [ { name: 'Voltage Drop', url: 'pages/tools/voltage-drop.html' }, { name: 'Power Factor', url: 'pages/tools/power-factor.html' }, { name: 'Cable Size', url: 'pages/tools/cable-size.html' }, { name: 'Breaker', url: 'pages/tools/breaker-selection.html' }, { name: 'Motor Current', url: 'pages/tools/motor-current.html' }, { name: 'Transformer', url: 'pages/tools/transformer.html' }, { name: 'AWG Conv.', url: 'pages/tools/awg-converter.html' }, { name: 'Unit Conv.', url: 'pages/tools/unit-converter.html' }, { name: 'IP Rating', url: 'pages/tools/ip-rating.html' }, { name: 'IEC Tables', url: 'pages/tools/iec-tables.html' } ], result: { icon: 'fa-square-root-variable', text: 'Precise Specs' } },
-                { id: 'm4', icon: 'fa-laptop-code', name: 'Software', url: 'pages/software/index.html', subs: [ { name: 'AutoCAD', url: 'pages/software/autocad.html' }, { name: 'EPLAN', url: 'pages/software/eplan.html' }, { name: 'SEE Electrical', url: 'pages/software/see-electrical.html' }, { name: 'TIA Portal', url: 'pages/software/tia-portal.html' }, { name: 'WinCC', url: 'pages/software/wincc.html' }, { name: 'PCS7', url: 'pages/software/pcs7.html' }, { name: 'STEP7', url: 'pages/software/step7.html' }, { name: 'Factory IO', url: 'pages/software/factory-io.html' }, { name: 'Codesys', url: 'pages/software/codesys.html' }, { name: 'EasyBuilder', url: 'pages/software/easybuilder.html' } ], result: { icon: 'fa-pen-ruler', text: 'Optimized Design' } },
-                { id: 'm5', icon: 'fa-code', name: 'Programming', url: 'pages/programming/index.html', subs: [ { name: 'PLC', url: 'pages/programming/plc.html' }, { name: 'HMI', url: 'pages/programming/hmi.html' }, { name: 'SCADA', url: 'pages/programming/scada.html' }, { name: 'VFD', url: 'pages/programming/vfd.html' }, { name: 'Modbus', url: 'pages/programming/modbus.html' }, { name: 'Profinet', url: 'pages/programming/profinet.html' }, { name: 'Ethernet/IP', url: 'pages/programming/ethernet-ip.html' }, { name: 'Examples', url: 'pages/programming/examples.html' } ], result: { icon: 'fa-microchip', text: 'Automated Logic' } },
-                { id: 'm6', icon: 'fa-folder-open', name: 'Resources', url: 'pages/resources/index.html', subs: [ { name: 'Catalogs', url: 'pages/resources/catalogs.html' }, { name: 'Manuals', url: 'pages/resources/manuals.html' }, { name: 'Datasheets', url: 'pages/resources/datasheets.html' }, { name: 'Templates', url: 'pages/resources/templates.html' }, { name: 'Videos', url: 'pages/resources/videos.html' }, { name: 'Documents', url: 'pages/resources/documents.html' } ], result: { icon: 'fa-database', text: 'Knowledge Base' } }
-            ]
-        },
-        fa: {
-            title: "سیستم <b>مهندسی</b>",
-            desc: "— هسته هماهنگ صنعتی —",
-            categories: [
-                { id: 'm1', icon: 'fa-graduation-cap', name: 'آکادمی', url: 'pages/academy/index.html', subs: [ { name: 'برق', url: 'pages/academy/electrical.html' }, { name: 'اتوماسیون', url: 'pages/academy/automation.html' }, { name: 'ابزار دقیق', url: 'pages/academy/instrumentation.html' }, { name: 'طراحی', url: 'pages/academy/design.html' }, { name: 'کنترل کیفیت', url: 'pages/academy/quality-control.html' }, { name: 'استانداردها', url: 'pages/academy/standards.html' }, { name: 'مدیریت', url: 'pages/academy/management.html' }, { name: 'ایمنی', url: 'pages/academy/hse.html' } ], result: { icon: 'fa-user-graduate', text: 'تخصص مهندسی' } },
-                { id: 'm2', icon: 'fa-project-diagram', name: 'جریان کار', url: 'pages/workflow/index.html', subs: [ { name: 'P&ID', url: 'pages/workflow/pid.html' }, { name: 'طراحی', url: 'pages/workflow/design.html' }, { name: 'تابلو', url: 'pages/workflow/panel.html' }, { name: 'تأمین', url: 'pages/workflow/procurement.html' }, { name: 'اسمبلی', url: 'pages/workflow/assembly.html' }, { name: 'FAT', url: 'pages/workflow/fat.html' }, { name: 'نصب', url: 'pages/workflow/installation.html' }, { name: 'چک لوپ', url: 'pages/workflow/loop-check.html' }, { name: 'کمیسیونینگ', url: 'pages/workflow/commissioning.html' }, { name: 'SAT', url: 'pages/workflow/sat.html' }, { name: 'مستندات', url: 'pages/workflow/documentation.html' }, { name: 'عملیات', url: 'pages/workflow/operation.html' } ], result: { icon: 'fa-clipboard-check', text: 'پروژه تحویل شده' } },
-                { id: 'm3', icon: 'fa-calculator', name: 'ابزارها', url: 'pages/tools/index.html', subs: [ { name: 'افت ولتاژ', url: 'pages/tools/voltage-drop.html' }, { name: 'ضریب توان', url: 'pages/tools/power-factor.html' }, { name: 'سایز کابل', url: 'pages/tools/cable-size.html' }, { name: 'کلید', url: 'pages/tools/breaker-selection.html' }, { name: 'جریان موتور', url: 'pages/tools/motor-current.html' }, { name: 'ترانس', url: 'pages/tools/transformer.html' }, { name: 'تبدیل AWG', url: 'pages/tools/awg-converter.html' }, { name: 'تبدیل واحد', url: 'pages/tools/unit-converter.html' }, { name: 'درجه IP', url: 'pages/tools/ip-rating.html' }, { name: 'جداول IEC', url: 'pages/tools/iec-tables.html' } ], result: { icon: 'fa-square-root-variable', text: 'محاسبات دقیق' } },
-                { id: 'm4', icon: 'fa-laptop-code', name: 'نرم‌افزارها', url: 'pages/software/index.html', subs: [ { name: 'اتوکد', url: 'pages/software/autocad.html' }, { name: 'ای‌پلن', url: 'pages/software/eplan.html' }, { name: 'SEE Electrical', url: 'pages/software/see-electrical.html' }, { name: 'TIA پورتال', url: 'pages/software/tia-portal.html' }, { name: 'وین‌سی‌سی', url: 'pages/software/wincc.html' }, { name: 'PCS7', url: 'pages/software/pcs7.html' }, { name: 'STEP7', url: 'pages/software/step7.html' }, { name: 'Factory IO', url: 'pages/software/factory-io.html' }, { name: 'کدسیس', url: 'pages/software/codesys.html' }, { name: 'ایزی‌بیلدر', url: 'pages/software/easybuilder.html' } ], result: { icon: 'fa-pen-ruler', text: 'طراحی بهینه' } },
-                { id: 'm5', icon: 'fa-code', name: 'برنامه‌نویسی', url: 'pages/programming/index.html', subs: [ { name: 'پی‌ال‌سی', url: 'pages/programming/plc.html' }, { name: 'اچ‌ام‌آی', url: 'pages/programming/hmi.html' }, { name: 'اسکادا', url: 'pages/programming/scada.html' }, { name: 'درایو', url: 'pages/programming/vfd.html' }, { name: 'مودباس', url: 'pages/programming/modbus.html' }, { name: 'پروفینت', url: 'pages/programming/profinet.html' }, { name: 'اترنت/IP', url: 'pages/programming/ethernet-ip.html' }, { name: 'مثال‌ها', url: 'pages/programming/examples.html' } ], result: { icon: 'fa-microchip', text: 'منطق اتوماتیک' } },
-                { id: 'm6', icon: 'fa-folder-open', name: 'منابع', url: 'pages/resources/index.html', subs: [ { name: 'کاتالوگ‌ها', url: 'pages/resources/catalogs.html' }, { name: 'راهنماها', url: 'pages/resources/manuals.html' }, { name: 'دیتاشیت‌ها', url: 'pages/resources/datasheets.html' }, { name: 'قالب‌ها', url: 'pages/resources/templates.html' }, { name: 'ویدئوها', url: 'pages/resources/videos.html' }, { name: 'مستندات', url: 'pages/resources/documents.html' } ], result: { icon: 'fa-database', text: 'پایگاه دانش' } }
-            ]
-        }
-    };
-
-    const gearsConfig = [
-        { cx: 100, cy: 150, r_out: 70, r_in: 60, teeth: 18, dir: 'cw',  class: 'm1', icon: 'fa-graduation-cap', phase: 0 },
-        { cx: 215, cy: 150, r_out: 45, r_in: 38, teeth: 12, dir: 'ccw', class: 'm2', icon: 'fa-project-diagram', phase: Math.PI/12 },
-        { cx: 330, cy: 150, r_out: 70, r_in: 60, teeth: 18, dir: 'cw',  class: 'm3', icon: 'fa-calculator', phase: 0 },
-        { cx: 330, cy: 265, r_out: 45, r_in: 38, teeth: 12, dir: 'ccw', class: 'm4', icon: 'fa-laptop-code', phase: Math.PI/12 },
-        { cx: 445, cy: 265, r_out: 70, r_in: 60, teeth: 18, dir: 'cw',  class: 'm5', icon: 'fa-code', phase: 0 },
-        { cx: 560, cy: 265, r_out: 45, r_in: 38, teeth: 12, dir: 'ccw', class: 'm6', icon: 'fa-folder-open', phase: Math.PI/12 }
-    ];
-
+    // ===== پایگاه داده و منطق داشبورد =====
     let currentLang = localStorage.getItem('karatech-lang') || 'en';
 
-    function createGearPath(cx, cy, outerR, innerR, teeth, phaseOffset = 0) {
-        let path = ""; let angleStep = (Math.PI * 2) / teeth; let toothWidth = angleStep / 4;
-        for (let i = 0; i < teeth; i++) {
-            let a1 = i * angleStep - toothWidth + phaseOffset, a2 = i * angleStep + toothWidth + phaseOffset;
-            let a3 = i * angleStep + angleStep/2 - toothWidth + phaseOffset, a4 = i * angleStep + angleStep/2 + toothWidth + phaseOffset;
-            let p1x = cx + Math.cos(a1) * innerR, p1y = cy + Math.sin(a1) * innerR;
-            let p2x = cx + Math.cos(a2) * outerR, p2y = cy + Math.sin(a2) * outerR;
-            let p3x = cx + Math.cos(a3) * outerR, p3y = cy + Math.sin(a3) * outerR;
-            let p4x = cx + Math.cos(a4) * innerR, p4y = cy + Math.sin(a4) * innerR;
-            path += (i === 0 ? "M" : "L") + p1x + " " + p1y;
-            path += "L" + p2x + " " + p2y + "L" + p3x + " " + p3y + "L" + p4x + " " + p4y;
-        }
-        return path + "Z";
-    }
-
-    function activateLink(id) {
-        const gear = document.getElementById(`gear-${id}`);
-        const navItem = document.querySelector(`.nav-item[data-gear="${id}"]`);
-        const projector = document.getElementById('holoProjector');
-        const holoIcon = document.getElementById('holoIcon');
-        const holoText = document.getElementById('holoText');
-        if(!gear || !navItem) return;
-        const color = getComputedStyle(gear).getPropertyValue('--gear-color').trim();
-        const glow = getComputedStyle(gear).getPropertyValue('--gear-glow').trim();
-        const catData = siteData[currentLang].categories.find(c => c.id === id);
-        gear.classList.add('simulated-hover');
-        navItem.classList.add('linked-active');
-        navItem.style.setProperty('--gear-color', color);
-        document.getElementById('powerLine').style.stroke = color;
-        document.getElementById('powerLine').style.filter = `drop-shadow(0 0 4px ${color})`;
-        projector.classList.add('active');
-        projector.style.setProperty('--gear-color', color);
-        projector.style.setProperty('--gear-glow', glow);
-        if(catData) { holoIcon.className = `fas ${catData.result.icon} holo-icon`; holoText.textContent = catData.result.text; }
-    }
-
-    function deactivateLink(id) {
-        const gear = document.getElementById(`gear-${id}`);
-        const navItem = document.querySelector(`.nav-item[data-gear="${id}"]`);
-        const projector = document.getElementById('holoProjector');
-        if(!gear || !navItem) return;
-        gear.classList.remove('simulated-hover');
-        navItem.classList.remove('linked-active');
-        document.getElementById('powerLine').style.stroke = '#00f2ff';
-        document.getElementById('powerLine').style.filter = `drop-shadow(0 0 4px #00f2ff)`;
-        projector.classList.remove('active');
-    }
-
-    function renderGears() {
-        const container = document.getElementById('machineContainer');
-        const powerLineHTML = document.getElementById('powerLine').outerHTML;
-        const projectorHTML = document.getElementById('holoProjector').outerHTML;
-        container.innerHTML = powerLineHTML + projectorHTML;
-        gearsConfig.forEach(g => {
-            const wrapper = document.createElement('a');
-            const catData = siteData[currentLang].categories.find(c => c.id === g.class);
-            
-            // لینک چرخ‌دنده مستقیماً به صفحه اصلی آن بخش وصل می‌شود
-            wrapper.href = catData ? catData.url : "#"; 
-            
-            wrapper.id = `gear-${g.class}`;
-            wrapper.className = `gear-wrapper ${g.dir} ${g.class}`;
-            wrapper.style.left = `${g.cx - g.r_out}px`; wrapper.style.top = `${g.cy - g.r_out}px`;
-            wrapper.style.width = `${g.r_out * 2}px`; wrapper.style.height = `${g.r_out * 2}px`;
-            const pathD = createGearPath(g.r_out, g.r_out, g.r_out, g.r_in, g.teeth, g.phase);
-            const clipPath = `path('${pathD}')`;
-            const gearLabel = catData ? catData.name : '';
-            wrapper.innerHTML = `
-                <div class="gear-base" style="clip-path: ${clipPath}; -webkit-clip-path: ${clipPath};"></div>
-                <div class="gear-holo" style="clip-path: ${clipPath}; -webkit-clip-path: ${clipPath};"></div>
-                <div class="gear-ring" style="width: ${g.r_out * 1.2}px; height: ${g.r_out * 1.2}px;"></div>
-                <i class="fas ${g.icon} gear-icon" style="font-size: ${g.r_out / 3}px;"></i>
-                <span class="gear-tooltip">${gearLabel}</span>
-            `;
-            wrapper.addEventListener('mouseenter', () => activateLink(g.class));
-            wrapper.addEventListener('mouseleave', () => deactivateLink(g.class));
-            
-            // کلیک روی چرخ‌دنده دیگر آکاردئون را باز نمی‌کند، بلکه به صفحه منتقل می‌شود
-            // بنابراین نیازی به event.preventDefault نیست.
-
-            container.appendChild(wrapper);
-        });
-    }
-
-    function renderSidebar() {
-        const nav = document.getElementById('sidebarNav');
-        nav.innerHTML = '';
-        siteData[currentLang].categories.forEach(cat => {
-            const categoryHTML = `
-                <div class="nav-category" id="cat-${cat.id}">
-                    <div class="nav-item ${cat.id}" data-gear="${cat.id}">
-                        <div class="nav-item-left"><i class="fas ${cat.icon}"></i><span>${cat.name}</span></div>
-                        <i class="fas fa-chevron-down arrow-icon"></i>
-                    </div>
-                    <div class="sub-menu">
-                        ${cat.subs.map(sub => `<a href="${sub.url}" class="sub-item"><i class="fas fa-circle"></i> ${sub.name}</a>`).join('')}
-                    </div>
-                </div>
-            `;
-            nav.insertAdjacentHTML('beforeend', categoryHTML);
-        });
-        document.querySelectorAll('.nav-category').forEach(category => {
-            const gearId = category.querySelector('.nav-item').dataset.gear;
-            const navItem = category.querySelector('.nav-item');
-            const subMenu = category.querySelector('.sub-menu');
-            category.addEventListener('mouseenter', () => activateLink(gearId));
-            category.addEventListener('mouseleave', () => deactivateLink(gearId));
-            
-            // کلیک روی لیست منو (آیتم کناری) همچنان آکاردئون را باز می‌کند
-            navItem.addEventListener('click', (e) => { 
-                e.preventDefault(); 
-                toggleAccordion(subMenu, navItem); 
-            });
-        });
-    }
-
-    function toggleAccordion(subMenu, navItem) {
-        const isOpen = subMenu.classList.contains('open');
-        document.querySelectorAll('.sub-menu').forEach(sm => sm.classList.remove('open'));
-        document.querySelectorAll('.nav-item .arrow-icon').forEach(ai => ai.style.transform = 'rotate(0deg)');
-        if(!isOpen) { subMenu.classList.add('open'); navItem.querySelector('.arrow-icon').style.transform = 'rotate(180deg)'; }
-    }
-
     function updateStaticTexts() {
-        document.querySelectorAll('[data-en]').forEach(el => { el.textContent = el.getAttribute(`data-${currentLang}`); });
+        document.querySelectorAll('[data-en]').forEach(el => { 
+            el.innerHTML = el.getAttribute(`data-${currentLang}`); 
+        });
     }
 
     function setLang(lang) {
@@ -648,11 +498,7 @@
         localStorage.setItem('karatech-lang', lang);
         document.body.classList.toggle('rtl', lang === 'fa');
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-        document.getElementById('pageTitle').innerHTML = siteData[lang].title;
-        document.getElementById('pageDesc').textContent = siteData[lang].desc;
         updateStaticTexts();
-        renderSidebar();
-        renderGears();
         updateDateTime();
     }
 
@@ -665,8 +511,11 @@
     }
 
     document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+    
     setLang(currentLang);
     setInterval(updateDateTime, 1000);
+
+    // (کدهای مربوط به رندر چرخ‌دنده‌ها و منوها که قبلاً نوشتیم در اینجا قرار می‌گیرند)
 </script>
 
 </body>
