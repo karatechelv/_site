@@ -45,16 +45,21 @@
         .brand span { color: var(--accent-indigo); font-style: italic; font-weight: 500; }
         body.rtl .brand { font-family: 'Markazi Text', sans-serif; font-size: 1.8rem; }
         
-        .header-center { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+        .header-center { display: flex; flex-direction: column; align-items: center; gap: 6px; }
         .datetime-widget { display: flex; gap: 20px; font-size: 0.85rem; color: var(--text-muted); font-family: monospace; }
         .time-display { color: var(--accent-cyan); font-weight: 600; font-size: 1rem; }
         body.rtl .datetime-widget { font-family: 'Vazirmatn', monospace; }
-        .session-timer { 
+        
+        /* بخش آمار به صورت متن مینیمال در هدر */
+        .header-stats {
+            display: none; 
+            align-items: center; gap: 15px; 
             font-size: 0.7rem; color: rgba(0, 242, 255, 0.6); 
-            background: rgba(0, 242, 255, 0.05); padding: 2px 10px; border-radius: 10px;
-            border: 1px solid rgba(0, 242, 255, 0.1); letter-spacing: 1px;
+            font-family: monospace; letter-spacing: 0.5px;
         }
-        body.rtl .session-timer { font-family: 'Vazirmatn', sans-serif; }
+        .header-stats.visible { display: flex; }
+        body.rtl .header-stats { font-family: 'Vazirmatn', monospace; }
+        .header-stats i { font-size: 0.65rem; margin-right: 3px; }
         
         .header-actions { display: flex; align-items: center; gap: 16px; }
         .exit-btn { background: transparent; border: 1px solid rgba(255, 100, 100, 0.3); color: rgba(255, 100, 100, 0.8); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
@@ -62,20 +67,6 @@
         .lang-switch { display: flex; gap: 8px; }
         .lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
         .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color: var(--accent-indigo); border-color: rgba(77, 139, 255, 0.3); }
-
-        /* ===== ویجت آمار در هدر ===== */
-        .stats-widget {
-            display: none; 
-            align-items: center; gap: 15px;
-            background: rgba(10, 20, 35, 0.6); 
-            border: 1px solid rgba(77, 139, 255, 0.2); border-radius: 20px;
-            padding: 6px 15px; 
-        }
-        .stats-widget.visible { display: flex; }
-        .stat-row { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--text-muted); margin: 0; }
-        body.rtl .stat-row { font-family: 'Vazirmatn', sans-serif; }
-        .stat-row i { color: var(--accent-cyan); font-size: 0.7rem; }
-        .stat-value { color: var(--accent-cyan); font-weight: 600; margin: 0; font-family: monospace; }
 
         /* ===== Splash ===== */
         .splash {
@@ -251,7 +242,7 @@
             .header { flex-wrap: wrap; gap: 10px; padding: 15px; }
             .header-center { order: 3; width: 100%; margin-top: 10px; }
             .exit-title { font-size: 2rem; }
-            .stats-widget { display: none !important; } /* مخفی کردن در موبایل برای جلوگیری از شلوغی هدر */
+            .header-stats { display: none !important; } /* مخفی در موبایل */
         }
     </style>
 </head>
@@ -266,28 +257,16 @@
             <div class="date-display" id="dateDisplay"></div>
             <div class="time-display" id="timeDisplay"></div>
         </div>
-        <div class="session-timer" id="sessionTimer">Session: 00:00:00</div>
+        <!-- بخش آمار مینیمال در هدر -->
+        <div class="header-stats" id="headerStats">
+            <span title="Session Time"><i class="fas fa-stopwatch"></i><span id="sessionTimer">00:00:00</span></span>
+            <span title="Visits Today"><i class="fas fa-eye"></i><span id="dailyVisits">0</span></span>
+            <span title="Total Visits"><i class="fas fa-chart-line"></i><span id="totalVisits">0</span></span>
+            <span title="Total Time"><i class="fas fa-hourglass-half"></i><span id="totalTime">00:00:00</span></span>
+        </div>
     </div>
 
     <div class="header-actions">
-        <!-- ویجت آمار انتقال یافته به هدر -->
-        <div class="stats-widget" id="statsWidget">
-            <div class="stat-row">
-                <i class="fas fa-eye"></i>
-                <span data-en="Today" data-fa="امروز">Today</span>
-                <span class="stat-value" id="dailyVisits">0</span>
-            </div>
-            <div class="stat-row">
-                <i class="fas fa-chart-line"></i>
-                <span data-en="Total" data-fa="کل">Total</span>
-                <span class="stat-value" id="totalVisits">0</span>
-            </div>
-            <div class="stat-row">
-                <i class="fas fa-stopwatch"></i>
-                <span class="stat-value" id="totalTime">00:00:00</span>
-            </div>
-        </div>
-
         <button class="exit-btn" onclick="initiateExit()">
             <i class="fas fa-sign-out-alt"></i> <span data-en="Exit" data-fa="خروج">Exit</span>
         </button>
@@ -452,7 +431,7 @@
         const sh = Math.floor(elapsedSession / 3600).toString().padStart(2, '0');
         const sm = Math.floor((elapsedSession % 3600) / 60).toString().padStart(2, '0');
         const ss = (elapsedSession % 60).toString().padStart(2, '0');
-        document.getElementById('sessionTimer').textContent = `Session: ${sh}:${sm}:${ss}`;
+        document.getElementById('sessionTimer').textContent = `${sh}:${sm}:${ss}`;
 
         const currentTotal = totalAccumulatedTime + elapsedSession;
         const th = Math.floor(currentTotal / 3600).toString().padStart(2, '0');
@@ -468,7 +447,7 @@
         
         document.getElementById('splash').classList.add('hidden');
         document.getElementById('dashboard').style.display = 'flex';
-        document.getElementById('statsWidget').classList.add('visible');
+        document.getElementById('headerStats').classList.add('visible');
     }
 
     function initiateExit() {
@@ -497,15 +476,15 @@
             sessionStorage.removeItem('karatech_session_start');
             document.getElementById('splash').classList.remove('hidden');
             document.getElementById('dashboard').style.display = 'none';
-            document.getElementById('statsWidget').classList.remove('visible');
-            document.getElementById('sessionTimer').textContent = "Session: 00:00:00";
+            document.getElementById('headerStats').classList.remove('visible');
+            document.getElementById('sessionTimer').textContent = "00:00:00";
         }, 4000);
     }
 
     if (sessionStorage.getItem('karatech_entered') === 'true') {
         document.getElementById('splash').classList.add('hidden');
         document.getElementById('dashboard').style.display = 'flex';
-        document.getElementById('statsWidget').classList.add('visible');
+        document.getElementById('headerStats').classList.add('visible');
         
         document.getElementById('dailyVisits').textContent = localStorage.getItem('karatech_daily_visits') || '0';
         document.getElementById('totalVisits').textContent = localStorage.getItem('karatech_total_visits') || '0';
