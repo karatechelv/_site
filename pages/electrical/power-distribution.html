@@ -97,7 +97,6 @@
             transition: all 0.3s ease;
         }
         body.rtl .content-card { border-left: none; border-right: 3px solid var(--accent-indigo); }
-        
         .content-card:hover { border-color: var(--accent-cyan); box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 15px rgba(0, 242, 255, 0.1); }
 
         .card-title { font-size: 1.5rem; color: #fff; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
@@ -107,15 +106,36 @@
         .card-text { color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 1rem; margin-bottom: 15px; }
         body.rtl .card-text { font-family: 'Vazirmatn', sans-serif; font-size: 1.1rem; }
 
-        .styled-list { list-style: none; padding: 0; }
-        .styled-list li { 
-            color: rgba(255,255,255,0.7); padding: 10px 0; 
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; line-height: 1.6;
+        /* استایل لیست‌های قابل گسترش (Expandable Links) */
+        .tree-list { list-style: none; padding: 0; margin-top: 10px; }
+        .tree-list li { border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .tree-list li:last-child { border-bottom: none; }
+        
+        .tree-link {
+            display: flex; align-items: center; gap: 12px; 
+            padding: 15px 10px; font-size: 0.95rem; line-height: 1.6;
+            color: rgba(255,255,255,0.7); text-decoration: none;
+            transition: 0.3s ease; border-radius: 8px;
         }
-        body.rtl .styled-list li { font-family: 'Vazirmatn', sans-serif; font-size: 1.05rem; }
-        .styled-list li:last-child { border-bottom: none; }
-        .styled-list li i { color: var(--accent-cyan); font-size: 0.6rem; margin-top: 8px; }
+        body.rtl .tree-link { font-family: 'Vazirmatn', sans-serif; font-size: 1.05rem; }
+        .tree-link i.bullet { color: var(--accent-cyan); font-size: 0.6rem; transition: 0.3s; }
+        .tree-link i.arrow { margin-left: auto; color: var(--text-muted); font-size: 0.8rem; opacity: 0; transition: 0.3s; padding-top: 5px;}
+        body.rtl .tree-link i.arrow { margin-left: 0; margin-right: auto; }
+        
+        .tree-link:hover { color: var(--accent-cyan); background: rgba(0, 242, 255, 0.05); transform: translateX(10px); }
+        body.rtl .tree-link:hover { transform: translateX(-10px); }
+        .tree-link:hover i.bullet { color: var(--accent-indigo); transform: scale(1.5); }
+        .tree-link:hover i.arrow { opacity: 1; color: var(--accent-cyan); }
+
+        .formula-box {
+            background: #050a14; border: 1px solid rgba(77, 139, 255, 0.2);
+            border-radius: 8px; padding: 15px 20px; margin: 20px 0;
+            font-family: 'Courier New', monospace; color: var(--accent-cyan);
+            font-size: 1.1rem; direction: ltr; text-align: center;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+            transition: 0.3s;
+        }
+        .formula-box:hover { border-color: var(--accent-cyan); box-shadow: 0 0 15px rgba(0, 242, 255, 0.2); }
 
         @media (max-width: 768px) {
             .header { flex-wrap: wrap; gap: 10px; padding: 15px; }
@@ -123,6 +143,7 @@
             .page-title { font-size: 1.8rem; }
             body.rtl .page-title { font-size: 2.2rem; }
             .content-card { padding: 20px; }
+            .tree-link:hover { transform: none; }
         }
     </style>
 </head>
@@ -133,7 +154,6 @@
     <div class="header-left">
         <div class="brand">KARATECH <span>ELV</span></div>
         <div class="breadcrumb">
-            <!-- مسیر اصلاح شده: برق > مرور کلی > توزیع برق -->
             <a href="../academy/electrical.html" style="color: inherit; text-decoration: none;" data-en="Electrical" data-fa="برق">Electrical</a>
             <i class="fas fa-chevron-right" style="font-size: 0.6rem;"></i>
             <a href="overview.html" style="color: inherit; text-decoration: none;" data-en="Overview" data-fa="مرور کلی">Overview</a>
@@ -146,7 +166,6 @@
         <div class="time-display" id="timeDisplay"></div>
     </div>
     <div class="header-actions">
-        <!-- دکمه بازگشت به صفحه مرور کلی -->
         <a href="overview.html" class="back-btn" id="backBtn">
             <i class="fas fa-arrow-left"></i> <span data-en="Back to Overview" data-fa="بازگشت به مرور کلی">Back to Overview</span>
         </a>
@@ -173,8 +192,8 @@
         <!-- کارت ۱: شبکه‌های توزیع برق -->
         <div class="content-card">
             <h2 class="card-title"><i class="fas fa-network-wired"></i> <span data-en="Distribution Networks (MV/LV)" data-fa="شبکه‌های توزیع (فشار متوسط و ضعیف)">Distribution Networks (MV/LV)</span></h2>
-            <p class="card-text" data-en="Industrial power distribution involves stepping down high voltage from the grid to medium voltage (MV), typically 11kV or 33kV, and then to low voltage (LV) 400V for end-use equipment. Proper architecture ensures reliability, minimize power loss, and allows for maintenance isolation without shutting down the entire facility." data-fa="توزیع برق صنعتی شامل کاهش ولتاژ بالا از شبکه سراسری به فشار متوسط (MV)، معمولاً ۱۱ کیلوولت یا ۳۳ کیلوولت، و سپس به فشار ضعیف (LV) ۴۰۰ ولت برای تجهیزات مصرف‌کننده نهایی است. معماری صحیح قابلیت اطمینان را تضمین کرده، تلفات برق را به حداقل می‌رساند و اجازه می‌دهد تعمیر و نگهداری بدون خاموشی کل مجتمع انجام شود.">
-                Industrial power distribution involves stepping down high voltage from the grid to medium voltage (MV), typically 11kV or 33kV, and then to low voltage (LV) 400V for end-use equipment. Proper architecture ensures reliability, minimize power loss, and allows for maintenance isolation without shutting down the entire facility.
+            <p class="card-text" data-en="Industrial power distribution involves stepping down high voltage from the grid to medium voltage (MV), typically 11kV or 33kV, and then to low voltage (LV) 400V for end-use equipment. Proper architecture ensures reliability, minimizes power loss, and allows for maintenance isolation without shutting down the entire facility." data-fa="توزیع برق صنعتی شامل کاهش ولتاژ بالا از شبکه سراسری به فشار متوسط (MV)، معمولاً ۱۱ کیلوولت یا ۳۳ کیلوولت، و سپس به فشار ضعیف (LV) ۴۰۰ ولت برای تجهیزات مصرف‌کننده نهایی است. معماری صحیح قابلیت اطمینان را تضمین کرده، تلفات برق را به حداقل می‌رساند و اجازه می‌دهد تعمیر و نگهداری بدون خاموشی کل مجتمع انجام شود.">
+                Industrial power distribution involves stepping down high voltage from the grid to medium voltage (MV), typically 11kV or 33kV, and then to low voltage (LV) 400V for end-use equipment. Proper architecture ensures reliability, minimizes power loss, and allows for maintenance isolation without shutting down the entire facility.
             </p>
         </div>
 
@@ -186,14 +205,43 @@
             </p>
         </div>
 
-        <!-- کارت ۳: اجزای کلیدی پست‌ها -->
+        <!-- کارت ۳: اجزای کلیدی پست‌ها (لینک‌دار و قابل گسترش) -->
         <div class="content-card">
             <h2 class="card-title"><i class="fas fa-cube"></i> <span data-en="Key Substation Components" data-fa="اجزای کلیدی پست‌های برق">Key Substation Components</span></h2>
-            <ul class="styled-list">
-                <li data-en="MV Switchgear: Metal-enclosed panels housing circuit breakers, disconnectors, and protection relays." data-fa="تابلوهای فشار متوسط (MV): تابلوهای فلزی محافظ که شامل کلیدهای قدرت، کلیدهای جداکننده و رله‌های حفاظتی هستند."><i class="fas fa-circle"></i> <span>MV Switchgear: Metal-enclosed panels housing circuit breakers, disconnectors, and protection relays.</span></li>
-                <li data-en="Power Transformers: Step-down units connecting the MV network to the LV main switchgear." data-fa="ترانسفورماتورهای قدرت: واحدهای کاهنده که شبکه فشار متوسط را به تابلو اصلی فشار ضعیف متصل می‌کنند."><i class="fas fa-circle"></i> <span>Power Transformers: Step-down units connecting the MV network to the LV main switchgear.</span></li>
-                <li data-en="LV Main Distribution Boards: Assemblies containing main breakers, busbars, and outgoing feeders." data-fa="تابلوهای اصلی توزیع فشار ضعیف: مجموعه‌هایی شامل کلیدهای اصلی، شینه‌ها و فیدرهای خروجی."><i class="fas fa-circle"></i> <span>LV Main Distribution Boards: Assemblies containing main breakers, busbars, and outgoing feeders.</span></li>
+            <ul class="tree-list">
+                <li>
+                    <a href="mv-switchgear.html" class="tree-link">
+                        <i class="fas fa-circle bullet"></i> 
+                        <span data-en="MV Switchgear: Metal-enclosed panels housing circuit breakers, disconnectors, and protection relays." data-fa="تابلوهای فشار متوسط (MV): تابلوهای فلزی محافظ که شامل کلیدهای قدرت، کلیدهای جداکننده و رله‌های حفاظتی هستند.">MV Switchgear: Metal-enclosed panels housing circuit breakers, disconnectors, and protection relays.</span>
+                        <i class="fas fa-arrow-right arrow"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="power-transformers.html" class="tree-link">
+                        <i class="fas fa-circle bullet"></i> 
+                        <span data-en="Power Transformers: Step-down units connecting the MV network to the LV main switchgear." data-fa="ترانسفورماتورهای قدرت: واحدهای کاهنده که شبکه فشار متوسط را به تابلو اصلی فشار ضعیف متصل می‌کنند.">Power Transformers: Step-down units connecting the MV network to the LV main switchgear.</span>
+                        <i class="fas fa-arrow-right arrow"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="lv-boards.html" class="tree-link">
+                        <i class="fas fa-circle bullet"></i> 
+                        <span data-en="LV Main Distribution Boards: Assemblies containing main breakers, busbars, and outgoing feeders." data-fa="تابلوهای اصلی توزیع فشار ضعیف: مجموعه‌هایی شامل کلیدهای اصلی، شینه‌ها و فیدرهای خروجی.">LV Main Distribution Boards: Assemblies containing main breakers, busbars, and outgoing feeders.</span>
+                        <i class="fas fa-arrow-right arrow"></i>
+                    </a>
+                </li>
             </ul>
+        </div>
+
+        <!-- کارت ۴: فرمول‌های کلیدی (لینک‌دار) -->
+        <div class="content-card">
+            <h2 class="card-title"><i class="fas fa-square-root-variable"></i> <span data-en="Sizing Formulas" data-fa="فرمول‌های سایزینگ">Sizing Formulas</span></h2>
+            <p class="card-text" data-en="Accurate calculation of power, current, and voltage drop is essential for equipment sizing and system stability. Click on a formula to view detailed derivations and examples." data-fa="محاسبه دقیق توان، جریان و افت ولتاژ برای سایزینگ تجهیزات و پایداری سیستم ضروری است. برای مشاهده مشتقات و مثال‌های دقیق، روی هر فرمول کلیک کنید.">
+                Accurate calculation of power, current, and voltage drop is essential for equipment sizing and system stability. Click on a formula to view detailed derivations and examples.
+            </p>
+            <a href="formula-transformer.html" class="formula-link" style="display: block; text-decoration: none; margin: 15px 0; background: #050a14; border: 1px solid rgba(77, 139, 255, 0.2); border-radius: 8px; padding: 15px 20px; font-family: 'Courier New', monospace; color: var(--accent-cyan); font-size: 1.1rem; direction: ltr; text-align: center; box-shadow: inset 0 0 15px rgba(0,0,0,0.5); transition: 0.3s;">
+                kVA = (V × I × √3) / 1000  (Three Phase)
+            </a>
         </div>
 
     </div>
@@ -206,6 +254,17 @@
         document.querySelectorAll('[data-en]').forEach(el => { 
             el.innerHTML = el.getAttribute(`data-${currentLang}`); 
         });
+        
+        const backIcon = document.querySelector('#backBtn i');
+        const treeArrows = document.querySelectorAll('.tree-link .arrow');
+        
+        if(currentLang === 'fa') {
+            if(backIcon) backIcon.style.transform = 'rotate(180deg)';
+            treeArrows.forEach(arr => arr.style.transform = 'rotate(180deg)');
+        } else {
+            if(backIcon) backIcon.style.transform = 'rotate(0deg)';
+            treeArrows.forEach(arr => arr.style.transform = 'rotate(0deg)');
+        }
     }
 
     function setLang(lang) {
@@ -215,13 +274,6 @@
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
         updateStaticTexts();
         updateDateTime();
-        
-        const backIcon = document.querySelector('#backBtn i');
-        if(lang === 'fa') {
-            backIcon.style.transform = 'rotate(180deg)';
-        } else {
-            backIcon.style.transform = 'rotate(0deg)';
-        }
     }
 
     function updateDateTime() {
