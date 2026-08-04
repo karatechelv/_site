@@ -97,7 +97,6 @@
             transition: all 0.3s ease;
         }
         body.rtl .content-card { border-left: none; border-right: 3px solid var(--accent-indigo); }
-        
         .content-card:hover { border-color: var(--accent-cyan); box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 15px rgba(0, 242, 255, 0.1); }
 
         .card-title { font-size: 1.5rem; color: #fff; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
@@ -107,36 +106,37 @@
         .card-text { color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 1rem; margin-bottom: 15px; }
         body.rtl .card-text { font-family: 'Vazirmatn', sans-serif; font-size: 1.1rem; }
 
-        .styled-list { list-style: none; padding: 0; margin-top: 10px; }
-        .styled-list li { 
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .styled-list li:last-child { border-bottom: none; }
+        /* استایل لیست‌های قابل گسترش (Expandable Links) */
+        .tree-list { list-style: none; padding: 0; margin-top: 10px; }
+        .tree-list li { border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .tree-list li:last-child { border-bottom: none; }
         
-        /* استایل لینک‌های شاخه‌ها و استانداردها */
-        .branch-link {
-            display: flex; align-items: flex-start; gap: 12px; 
+        .tree-link {
+            display: flex; align-items: center; gap: 12px; 
             padding: 15px 10px; font-size: 0.95rem; line-height: 1.6;
             color: rgba(255,255,255,0.7); text-decoration: none;
             transition: 0.3s ease; border-radius: 8px;
         }
-        body.rtl .branch-link { font-family: 'Vazirmatn', sans-serif; font-size: 1.05rem; }
-        .branch-link i.bullet { color: var(--accent-cyan); font-size: 0.6rem; margin-top: 8px; transition: 0.3s; }
-        .branch-link i.arrow { margin-right: auto; color: var(--text-muted); font-size: 0.8rem; opacity: 0; transition: 0.3s; padding-top: 5px;}
-        body.rtl .branch-link i.arrow { margin-right: 0; margin-left: auto; }
+        body.rtl .tree-link { font-family: 'Vazirmatn', sans-serif; font-size: 1.05rem; }
+        .tree-link i.bullet { color: var(--accent-cyan); font-size: 0.6rem; transition: 0.3s; }
+        .tree-link i.arrow { margin-left: auto; color: var(--text-muted); font-size: 0.8rem; opacity: 0; transition: 0.3s; }
+        body.rtl .tree-link i.arrow { margin-left: 0; margin-right: auto; }
         
-        .branch-link:hover { color: var(--accent-cyan); background: rgba(0, 242, 255, 0.05); transform: translateX(10px); }
-        body.rtl .branch-link:hover { transform: translateX(-10px); }
-        .branch-link:hover i.bullet { color: var(--accent-indigo); transform: scale(1.5); }
-        .branch-link:hover i.arrow { opacity: 1; color: var(--accent-cyan); }
+        .tree-link:hover { color: var(--accent-cyan); background: rgba(0, 242, 255, 0.05); transform: translateX(10px); }
+        body.rtl .tree-link:hover { transform: translateX(-10px); }
+        .tree-link:hover i.bullet { color: var(--accent-indigo); transform: scale(1.5); }
+        .tree-link:hover i.arrow { opacity: 1; color: var(--accent-cyan); }
 
-        .formula-box {
+        .formula-link {
+            display: block; text-decoration: none; margin: 15px 0;
             background: #050a14; border: 1px solid rgba(77, 139, 255, 0.2);
-            border-radius: 8px; padding: 15px 20px; margin: 20px 0;
+            border-radius: 8px; padding: 15px 20px;
             font-family: 'Courier New', monospace; color: var(--accent-cyan);
             font-size: 1.1rem; direction: ltr; text-align: center;
             box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+            transition: 0.3s;
         }
+        .formula-link:hover { border-color: var(--accent-cyan); box-shadow: 0 0 15px rgba(0, 242, 255, 0.2); transform: translateY(-2px); }
 
         @media (max-width: 768px) {
             .header { flex-wrap: wrap; gap: 10px; padding: 15px; }
@@ -144,7 +144,7 @@
             .page-title { font-size: 1.8rem; }
             body.rtl .page-title { font-size: 2.2rem; }
             .content-card { padding: 20px; }
-            .branch-link:hover { transform: none; }
+            .tree-link:hover { transform: none; }
         }
     </style>
 </head>
@@ -196,33 +196,33 @@
             </p>
         </div>
 
-        <!-- کارت ۲: شاخه‌های اصلی تخصصی (لینک‌دار) -->
+        <!-- کارت ۲: شاخه‌های اصلی تخصصی (لینک‌دار و قابل گسترش) -->
         <div class="content-card">
             <h2 class="card-title"><i class="fas fa-sitemap"></i> <span data-en="Specialized Branches" data-fa="شاخه‌های تخصصی">Specialized Branches</span></h2>
-            <ul class="styled-list">
+            <ul class="tree-list">
                 <li>
-                    <a href="power-distribution.html" class="branch-link">
+                    <a href="power-distribution.html" class="tree-link">
                         <i class="fas fa-circle bullet"></i> 
                         <span data-en="Power Distribution & Transformers: Design of MV/LV networks, substation architecture, and transformer sizing." data-fa="توزیع برق و ترانسفورماتورها: طراحی شبکه‌های فشار متوسط و ضعیف، معماری پست‌ها و سایزینگ ترانسفورماتورها.">Power Distribution & Transformers: Design of MV/LV networks, substation architecture, and transformer sizing.</span>
                         <i class="fas fa-arrow-right arrow"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="protection.html" class="branch-link">
+                    <a href="protection.html" class="tree-link">
                         <i class="fas fa-circle bullet"></i> 
                         <span data-en="Protection & Coordination: Selective coordination of breakers, fuses, and relays to isolate faults instantly." data-fa="حفاظت و هماهنگی: هماهنگی انتخابی کلیدها، فیوزها و رله‌ها برای ایزوله کردن فوری خطاها.">Protection & Coordination: Selective coordination of breakers, fuses, and relays to isolate faults instantly.</span>
                         <i class="fas fa-arrow-right arrow"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="elv-systems.html" class="branch-link">
+                    <a href="elv-systems.html" class="tree-link">
                         <i class="fas fa-circle bullet"></i> 
                         <span data-en="ELV Systems: Fire alarm, CCTV, access control, and public address systems for building safety." data-fa="سیستم‌های ELV: سیستم‌های اعلام حریق، دوربین مداربسته، کنترل تردد و آدرس عمومی برای ایمنی ساختمان.">ELV Systems: Fire alarm, CCTV, access control, and public address systems for building safety.</span>
                         <i class="fas fa-arrow-right arrow"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="power-quality.html" class="branch-link">
+                    <a href="power-quality.html" class="tree-link">
                         <i class="fas fa-circle bullet"></i> 
                         <span data-en="Power Quality & Harmonics: Mitigation of THD, power factor correction, and voltage stability analysis." data-fa="کیفیت برق و هارمونیک‌ها: کاهش THD، اصلاح ضریب توان و تحلیل پایداری ولتاژ.">Power Quality & Harmonics: Mitigation of THD, power factor correction, and voltage stability analysis.</span>
                         <i class="fas fa-arrow-right arrow"></i>
@@ -231,43 +231,43 @@
             </ul>
         </div>
 
-        <!-- کارت ۳: فرمول‌های کلیدی -->
+        <!-- کارت ۳: فرمول‌های کلیدی (لینک‌دار و قابل گسترش) -->
         <div class="content-card">
             <h2 class="card-title"><i class="fas fa-square-root-variable"></i> <span data-en="Fundamental Engineering Formulas" data-fa="فرمول‌های پایه مهندسی">Fundamental Engineering Formulas</span></h2>
-            <p class="card-text" data-en="Accurate calculation of power, current, and voltage drop is essential for equipment sizing and system stability." data-fa="محاسبه دقیق توان، جریان و افت ولتاژ برای سایزینگ تجهیزات و پایداری سیستم ضروری است.">
-                Accurate calculation of power, current, and voltage drop is essential for equipment sizing and system stability.
+            <p class="card-text" data-en="Accurate calculation of power, current, and voltage drop is essential for equipment sizing and system stability. Click on a formula to view detailed derivations and examples." data-fa="محاسبه دقیق توان، جریان و افت ولتاژ برای سایزینگ تجهیزات و پایداری سیستم ضروری است. برای مشاهده مشتقات و مثال‌های دقیق، روی هر فرمول کلیک کنید.">
+                Accurate calculation of power, current, and voltage drop is essential for equipment sizing and system stability. Click on a formula to view detailed derivations and examples.
             </p>
-            <div class="formula-box">
+            <a href="formula-power.html" class="formula-link">
                 P (kW) = [√3 × V × I × cos(φ)] / 1000
-            </div>
-            <div class="formula-box">
+            </a>
+            <a href="formula-voltage-drop.html" class="formula-link">
                 ΔV = 2 × L × I × R × cos(φ) / 1000
-            </div>
+            </a>
         </div>
 
-        <!-- کارت ۴: استانداردها (لینک‌دار شدن) -->
+        <!-- کارت ۴: استانداردها (لینک‌دار و قابل گسترش) -->
         <div class="content-card">
             <h2 class="card-title"><i class="fas fa-shield-halved"></i> <span data-en="Standards & Regulations" data-fa="استانداردها و مقررات">Standards & Regulations</span></h2>
-            <p class="card-text" data-en="All electrical designs strictly adhere to national and international codes. Detailed standard numbers are documented in the specific sections below." data-fa="تمامی طراحی‌های برق دقیقاً مطابق با کدهای ملی و بین‌المللی انجام می‌شود. شماره استانداردهای دقیق در بخش‌های تخصصی زیر مستند شده است.">
-                All electrical designs strictly adhere to national and international codes. Detailed standard numbers are documented in the specific sections below.
+            <p class="card-text" data-en="All electrical designs strictly adhere to national and international codes. Explore the specific sections below for detailed clauses and requirements." data-fa="تمامی طراحی‌های برق دقیقاً مطابق با کدهای ملی و بین‌المللی انجام می‌شود. برای مشاهده بندها و الزامات دقیق، بخش‌های اختصاصی زیر را کاوش کنید.">
+                All electrical designs strictly adhere to national and international codes. Explore the specific sections below for detailed clauses and requirements.
             </p>
-            <ul class="styled-list">
+            <ul class="tree-list">
                 <li>
-                    <a href="standards-national.html" class="branch-link">
+                    <a href="standards-national.html" class="tree-link">
                         <i class="fas fa-circle bullet"></i> 
                         <span data-en="National Building Regulations for building installations." data-fa="مقررات ملی ساختمان برای تأسیسات ساختمانی.">National Building Regulations for building installations.</span>
                         <i class="fas fa-arrow-right arrow"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="standards-ips.html" class="branch-link">
+                    <a href="standards-ips.html" class="tree-link">
                         <i class="fas fa-circle bullet"></i> 
                         <span data-en="Iranian Petroleum Standards for industrial projects." data-fa="استانداردهای نفت ایران برای پروژه‌های صنعتی.">Iranian Petroleum Standards for industrial projects.</span>
                         <i class="fas fa-arrow-right arrow"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="standards-iec.html" class="branch-link">
+                    <a href="standards-iec.html" class="tree-link">
                         <i class="fas fa-circle bullet"></i> 
                         <span data-en="IEC Standards for switchgear, panel building, and automation." data-fa="استانداردهای IEC برای تابلوسازی و اتوماسیون.">IEC Standards for switchgear, panel building, and automation.</span>
                         <i class="fas fa-arrow-right arrow"></i>
@@ -288,14 +288,14 @@
         });
         
         const backIcon = document.querySelector('#backBtn i');
-        const branchArrows = document.querySelectorAll('.branch-link .arrow');
+        const treeArrows = document.querySelectorAll('.tree-link .arrow');
         
         if(currentLang === 'fa') {
             if(backIcon) backIcon.style.transform = 'rotate(180deg)';
-            branchArrows.forEach(arr => arr.style.transform = 'rotate(180deg)');
+            treeArrows.forEach(arr => arr.style.transform = 'rotate(180deg)');
         } else {
             if(backIcon) backIcon.style.transform = 'rotate(0deg)';
-            branchArrows.forEach(arr => arr.style.transform = 'rotate(0deg)');
+            treeArrows.forEach(arr => arr.style.transform = 'rotate(0deg)');
         }
     }
 
