@@ -116,10 +116,12 @@
             padding: 15px 10px; font-size: 0.95rem; line-height: 1.6;
             color: rgba(255,255,255,0.7); text-decoration: none;
             transition: 0.3s ease; border-radius: 8px;
+            background: rgba(255,255,255,0.02); /* بک‌گراند خفن برای حس دکمه */
+            cursor: pointer; /* اضافه شدن نشانگر موس به شکل دست */
         }
         body.rtl .tree-link { font-family: 'Vazirmatn', sans-serif; font-size: 1.05rem; }
         .tree-link i.bullet { color: var(--accent-cyan); font-size: 0.6rem; transition: 0.3s; }
-        .tree-link i.arrow { margin-left: auto; color: var(--text-muted); font-size: 0.8rem; opacity: 0; transition: 0.3s; padding-top: 5px;}
+        .tree-link i.arrow { margin-left: auto; color: var(--text-muted); font-size: 0.8rem; opacity: 0.5; transition: 0.3s; padding-top: 5px;}
         body.rtl .tree-link i.arrow { margin-left: 0; margin-right: auto; }
         
         .tree-link:hover { color: var(--accent-cyan); background: rgba(0, 242, 255, 0.05); transform: translateX(10px); }
@@ -133,7 +135,7 @@
             font-family: 'Courier New', monospace; color: var(--accent-cyan);
             font-size: 1.1rem; direction: ltr; text-align: center;
             box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
-            transition: 0.3s;
+            transition: 0.3s; cursor: pointer; display: block; text-decoration: none;
         }
         .formula-box:hover { border-color: var(--accent-cyan); box-shadow: 0 0 15px rgba(0, 242, 255, 0.2); }
 
@@ -239,7 +241,7 @@
             <p class="card-text" data-en="Accurate calculation of power, current, and voltage drop is essential for equipment sizing and system stability. Click on a formula to view detailed derivations and examples." data-fa="محاسبه دقیق توان، جریان و افت ولتاژ برای سایزینگ تجهیزات و پایداری سیستم ضروری است. برای مشاهده مشتقات و مثال‌های دقیق، روی هر فرمول کلیک کنید.">
                 Accurate calculation of power, current, and voltage drop is essential for equipment sizing and system stability. Click on a formula to view detailed derivations and examples.
             </p>
-            <a href="formula-transformer.html" class="formula-link" style="display: block; text-decoration: none; margin: 15px 0; background: #050a14; border: 1px solid rgba(77, 139, 255, 0.2); border-radius: 8px; padding: 15px 20px; font-family: 'Courier New', monospace; color: var(--accent-cyan); font-size: 1.1rem; direction: ltr; text-align: center; box-shadow: inset 0 0 15px rgba(0,0,0,0.5); transition: 0.3s;">
+            <a href="formula-transformer.html" class="formula-link formula-box">
                 kVA = (V × I × √3) / 1000  (Three Phase)
             </a>
         </div>
