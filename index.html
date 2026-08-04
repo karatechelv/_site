@@ -86,22 +86,14 @@
         .sidebar { width: 280px; background: rgba(10, 20, 35, 0.4); backdrop-filter: blur(20px); border-right: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; flex-shrink: 0; }
         body.rtl .sidebar { border-right: none; border-left: 1px solid rgba(255, 255, 255, 0.1); }
         
-        /* آیتم‌های ویژه (تماس و چشم‌انداز) انتقال به بالا */
-        .sidebar-extra { padding: 15px 10px; border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(10, 20, 35, 0.3); }
+        .sidebar-nav { flex: 1; overflow-y: auto; padding: 20px 10px; }
+        .nav-category { margin-bottom: 5px; }
         .nav-item { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 12px 15px; border-radius: 8px; color: var(--text-muted); cursor: pointer; font-size: 1.05rem; transition: 0.3s; border-left: 3px solid transparent; text-decoration: none; }
         body.rtl .nav-item { border-left: none; border-right: 3px solid transparent; }
         .nav-item-left { display: flex; align-items: center; gap: 12px; }
         .nav-item i { width: 18px; text-align: center; font-size: 0.9rem; color: var(--accent-cyan); opacity: 0.7; transition: 0.3s; }
         .arrow-icon { font-size: 0.7rem; transition: transform 0.3s; opacity: 0.5; }
         .nav-item:hover { background: rgba(77, 139, 255, 0.05); color: var(--text-main); }
-        
-        .extra-item { color: var(--accent-indigo); font-weight: 600; }
-        .extra-item i { color: var(--accent-indigo); opacity: 1; }
-        .extra-item:hover { background: rgba(77, 139, 255, 0.1); border-left-color: var(--accent-indigo); }
-        body.rtl .extra-item:hover { border-right-color: var(--accent-indigo); border-left: none; }
-
-        .sidebar-nav { flex: 1; overflow-y: auto; padding: 15px 10px; }
-        .nav-category { margin-bottom: 5px; }
         .nav-item.linked-active { background: rgba(255, 255, 255, 0.05); color: var(--text-main); border-left-color: var(--gear-color); }
         body.rtl .nav-item.linked-active { border-left: none; border-right-color: var(--gear-color); }
         .nav-item.linked-active i { color: var(--gear-color); opacity: 1; text-shadow: 0 0 10px var(--gear-color); }
@@ -112,6 +104,13 @@
         .sub-item { display: flex; align-items: center; gap: 10px; padding: 8px 15px; font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: 0.2s; }
         .sub-item:hover { color: var(--text-main); background: rgba(255,255,255,0.03); border-radius: 6px; }
         .sub-item i { font-size: 0.5rem; color: var(--gear-color); }
+
+        /* آیتم‌های ویژه (تماس و چشم‌انداز) در پایین منو */
+        .sidebar-extra { padding: 15px 10px; border-top: 1px solid rgba(255,255,255,0.05); background: rgba(10, 20, 35, 0.3); }
+        .extra-item { color: var(--accent-indigo); font-weight: 600; }
+        .extra-item i { color: var(--accent-indigo); opacity: 1; }
+        .extra-item:hover { background: rgba(77, 139, 255, 0.1); border-left-color: var(--accent-indigo); }
+        body.rtl .extra-item:hover { border-right-color: var(--accent-indigo); border-left: none; }
 
         /* ===== Main Content ===== */
         .main-content { flex: 1; position: relative; overflow-y: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; }
@@ -308,7 +307,9 @@
 <!-- ===== DASHBOARD ===== -->
 <div class="app-container" id="dashboard" style="display: none;">
     <aside class="sidebar">
-        <!-- انتقال آیتم‌های ویژه به بالای منو -->
+        <nav class="sidebar-nav" id="sidebarNav"></nav>
+        
+        <!-- بازگشت آیتم‌های ویژه به پایین منو -->
         <div class="sidebar-extra">
             <div class="nav-item extra-item" onclick="openOverlay('vision')">
                 <div class="nav-item-left"><i class="fas fa-eye"></i><span data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</span></div>
@@ -317,8 +318,6 @@
                 <div class="nav-item-left"><i class="fas fa-address-card"></i><span data-en="Contact Information" data-fa="اطلاعات تماس">Contact Information</span></div>
             </div>
         </div>
-        
-        <nav class="sidebar-nav" id="sidebarNav"></nav>
     </aside>
 
     <main class="main-content">
