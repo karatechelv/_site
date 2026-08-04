@@ -30,8 +30,7 @@
         body.rtl { font-family: 'Vazirmatn', sans-serif; direction: rtl; }
 
         body::after {
-            content: '';
-            position: fixed; inset: 0;
+            content: ''; position: fixed; inset: 0;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
             opacity: 0.04; pointer-events: none; z-index: 9999; mix-blend-mode: overlay;
         }
@@ -110,13 +109,23 @@
 
         .styled-list { list-style: none; padding: 0; }
         .styled-list li { 
-            color: rgba(255,255,255,0.7); padding: 10px 0; 
             border-bottom: 1px solid rgba(255,255,255,0.05);
-            display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; line-height: 1.6;
         }
-        body.rtl .styled-list li { font-family: 'Vazirmatn', sans-serif; font-size: 1.05rem; }
         .styled-list li:last-child { border-bottom: none; }
-        .styled-list li i { color: var(--accent-cyan); font-size: 0.6rem; margin-top: 8px; }
+        
+        /* استایل لینک‌های شاخه‌های تخصصی */
+        .branch-link {
+            display: flex; align-items: flex-start; gap: 12px; 
+            padding: 12px 0; font-size: 0.95rem; line-height: 1.6;
+            color: rgba(255,255,255,0.7); text-decoration: none;
+            transition: 0.3s ease;
+        }
+        body.rtl .branch-link { font-family: 'Vazirmatn', sans-serif; font-size: 1.05rem; }
+        .branch-link i { color: var(--accent-cyan); font-size: 0.6rem; margin-top: 8px; transition: 0.3s; }
+        
+        .branch-link:hover { color: var(--accent-cyan); transform: translateX(10px); }
+        body.rtl .branch-link:hover { transform: translateX(-10px); }
+        .branch-link:hover i { color: var(--accent-indigo); transform: scale(1.5); }
 
         .formula-box {
             background: #050a14; border: 1px solid rgba(77, 139, 255, 0.2);
@@ -132,6 +141,7 @@
             .page-title { font-size: 1.8rem; }
             body.rtl .page-title { font-size: 2.2rem; }
             .content-card { padding: 20px; }
+            .branch-link:hover { transform: none; }
         }
     </style>
 </head>
@@ -183,14 +193,30 @@
             </p>
         </div>
 
-        <!-- کارت ۲: شاخه‌های اصلی تخصصی -->
+        <!-- کارت ۲: شاخه‌های اصلی تخصصی (تبدیل به لینک) -->
         <div class="content-card">
             <h2 class="card-title"><i class="fas fa-sitemap"></i> <span data-en="Specialized Branches" data-fa="شاخه‌های تخصصی">Specialized Branches</span></h2>
             <ul class="styled-list">
-                <li data-en="Power Distribution & Transformers: Design of MV/LV networks, substation architecture, and transformer sizing." data-fa="توزیع برق و ترانسفورماتورها: طراحی شبکه‌های فشار متوسط و ضعیف، معماری پست‌ها و سایزینگ ترانسفورماتورها."><i class="fas fa-circle"></i> <span>Power Distribution & Transformers: Design of MV/LV networks, substation architecture, and transformer sizing.</span></li>
-                <li data-en="Protection & Coordination: Selective coordination of breakers, fuses, and relays to isolate faults instantly." data-fa="حفاظت و هماهنگی: هماهنگی انتخابی کلیدها، فیوزها و رله‌ها برای ایزوله کردن فوری خطاها."><i class="fas fa-circle"></i> <span>Protection & Coordination: Selective coordination of breakers, fuses, and relays to isolate faults instantly.</span></li>
-                <li data-en="ELV Systems: Fire alarm, CCTV, access control, and public address systems for building safety." data-fa="سیستم‌های ELV: سیستم‌های اعلام حریق، دوربین مداربسته، کنترل تردد و آدرس عمومی برای ایمنی ساختمان."><i class="fas fa-circle"></i> <span>ELV Systems: Fire alarm, CCTV, access control, and public address systems for building safety.</span></li>
-                <li data-en="Power Quality & Harmonics: Mitigation of THD, power factor correction, and voltage stability analysis." data-fa="کیفیت برق و هارمونیک‌ها: کاهش THD، اصلاح ضریب توان و تحلیل پایداری ولتاژ."><i class="fas fa-circle"></i> <span>Power Quality & Harmonics: Mitigation of THD, power factor correction, and voltage stability analysis.</span></li>
+                <li>
+                    <a href="power-distribution.html" class="branch-link" data-en="<i class='fas fa-circle'></i> <span>Power Distribution & Transformers: Design of MV/LV networks, substation architecture, and transformer sizing.</span>" data-fa="<i class='fas fa-circle'></i> <span>توزیع برق و ترانسفورماتورها: طراحی شبکه‌های فشار متوسط و ضعیف، معماری پست‌ها و سایزینگ ترانسفورماتورها.</span>">
+                        <i class="fas fa-circle"></i> <span>Power Distribution & Transformers: Design of MV/LV networks, substation architecture, and transformer sizing.</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="protection.html" class="branch-link" data-en="<i class='fas fa-circle'></i> <span>Protection & Coordination: Selective coordination of breakers, fuses, and relays to isolate faults instantly.</span>" data-fa="<i class='fas fa-circle'></i> <span>حفاظت و هماهنگی: هماهنگی انتخابی کلیدها، فیوزها و رله‌ها برای ایزوله کردن فوری خطاها.</span>">
+                        <i class="fas fa-circle"></i> <span>Protection & Coordination: Selective coordination of breakers, fuses, and relays to isolate faults instantly.</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="elv-systems.html" class="branch-link" data-en="<i class='fas fa-circle'></i> <span>ELV Systems: Fire alarm, CCTV, access control, and public address systems for building safety.</span>" data-fa="<i class='fas fa-circle'></i> <span>سیستم‌های ELV: سیستم‌های اعلام حریق، دوربین مداربسته، کنترل تردد و آدرس عمومی برای ایمنی ساختمان.</span>">
+                        <i class="fas fa-circle"></i> <span>ELV Systems: Fire alarm, CCTV, access control, and public address systems for building safety.</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="power-quality.html" class="branch-link" data-en="<i class='fas fa-circle'></i> <span>Power Quality & Harmonics: Mitigation of THD, power factor correction, and voltage stability analysis.</span>" data-fa="<i class='fas fa-circle'></i> <span>کیفیت برق و هارمونیک‌ها: کاهش THD، اصلاح ضریب توان و تحلیل پایداری ولتاژ.</span>">
+                        <i class="fas fa-circle"></i> <span>Power Quality & Harmonics: Mitigation of THD, power factor correction, and voltage stability analysis.</span>
+                    </a>
+                </li>
             </ul>
         </div>
 
