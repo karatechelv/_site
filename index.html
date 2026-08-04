@@ -63,6 +63,20 @@
         .lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
         .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color: var(--accent-indigo); border-color: rgba(77, 139, 255, 0.3); }
 
+        /* ===== ویجت آمار در هدر ===== */
+        .stats-widget {
+            display: none; 
+            align-items: center; gap: 15px;
+            background: rgba(10, 20, 35, 0.6); 
+            border: 1px solid rgba(77, 139, 255, 0.2); border-radius: 20px;
+            padding: 6px 15px; 
+        }
+        .stats-widget.visible { display: flex; }
+        .stat-row { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--text-muted); margin: 0; }
+        body.rtl .stat-row { font-family: 'Vazirmatn', sans-serif; }
+        .stat-row i { color: var(--accent-cyan); font-size: 0.7rem; }
+        .stat-value { color: var(--accent-cyan); font-weight: 600; margin: 0; font-family: monospace; }
+
         /* ===== Splash ===== */
         .splash {
             display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -105,8 +119,7 @@
         .sub-item:hover { color: var(--text-main); background: rgba(255,255,255,0.03); border-radius: 6px; }
         .sub-item i { font-size: 0.5rem; color: var(--gear-color); }
 
-        /* آیتم‌های ویژه (تماس و چشم‌انداز) در پایین منو */
-        .sidebar-extra { padding: 15px 10px; border-top: 1px solid rgba(255,255,255,0.05); background: rgba(10, 20, 35, 0.3); }
+        .sidebar-extra { padding: 15px 10px; background: rgba(5, 10, 20, 0.5); border-top: 1px solid rgba(77, 139, 255, 0.15); flex-shrink: 0; }
         .extra-item { color: var(--accent-indigo); font-weight: 600; }
         .extra-item i { color: var(--accent-indigo); opacity: 1; }
         .extra-item:hover { background: rgba(77, 139, 255, 0.1); border-left-color: var(--accent-indigo); }
@@ -197,25 +210,6 @@
         .exit-credit { color: rgba(255,255,255,0.3); font-size: 0.9rem; font-style: italic; }
         body.rtl .exit-credit { font-family: 'Vazirmatn', sans-serif; font-style: normal; }
 
-        /* ===== ویجت آمار و زمان (Stats HUD) ===== */
-        .stats-widget {
-            position: fixed; bottom: 20px; left: 20px; z-index: 50;
-            background: rgba(10, 20, 35, 0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(77, 139, 255, 0.2); border-radius: 12px;
-            padding: 15px 20px; min-width: 180px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            display: none; 
-        }
-        body.rtl .stats-widget { left: auto; right: 20px; }
-        .stats-widget.visible { display: block; animation: slideInUp 0.5s ease-out; }
-        @keyframes slideInUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .stat-row { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
-        .stat-row:last-child { margin-bottom: 0; }
-        body.rtl .stat-row { font-family: 'Vazirmatn', sans-serif; font-size: 0.95rem; }
-        .stat-row i { color: var(--accent-cyan); width: 15px; text-align: center; }
-        .stat-value { color: #fff; font-weight: 600; margin-left: auto; font-family: monospace; }
-        body.rtl .stat-value { margin-left: 0; margin-right: auto; }
-
         /* ===== پنل‌های هولوگرامیک (Holo-HUD) ===== */
         .holo-hud-overlay {
             position: fixed; inset: 0; z-index: 200;
@@ -257,8 +251,7 @@
             .header { flex-wrap: wrap; gap: 10px; padding: 15px; }
             .header-center { order: 3; width: 100%; margin-top: 10px; }
             .exit-title { font-size: 2rem; }
-            .stats-widget { bottom: 10px; left: 10px; right: 10px; width: auto; }
-            body.rtl .stats-widget { right: 10px; left: 10px; }
+            .stats-widget { display: none !important; } /* مخفی کردن در موبایل برای جلوگیری از شلوغی هدر */
         }
     </style>
 </head>
@@ -277,6 +270,24 @@
     </div>
 
     <div class="header-actions">
+        <!-- ویجت آمار انتقال یافته به هدر -->
+        <div class="stats-widget" id="statsWidget">
+            <div class="stat-row">
+                <i class="fas fa-eye"></i>
+                <span data-en="Today" data-fa="امروز">Today</span>
+                <span class="stat-value" id="dailyVisits">0</span>
+            </div>
+            <div class="stat-row">
+                <i class="fas fa-chart-line"></i>
+                <span data-en="Total" data-fa="کل">Total</span>
+                <span class="stat-value" id="totalVisits">0</span>
+            </div>
+            <div class="stat-row">
+                <i class="fas fa-stopwatch"></i>
+                <span class="stat-value" id="totalTime">00:00:00</span>
+            </div>
+        </div>
+
         <button class="exit-btn" onclick="initiateExit()">
             <i class="fas fa-sign-out-alt"></i> <span data-en="Exit" data-fa="خروج">Exit</span>
         </button>
@@ -308,8 +319,6 @@
 <div class="app-container" id="dashboard" style="display: none;">
     <aside class="sidebar">
         <nav class="sidebar-nav" id="sidebarNav"></nav>
-        
-        <!-- بازگشت آیتم‌های ویژه به پایین منو -->
         <div class="sidebar-extra">
             <div class="nav-item extra-item" onclick="openOverlay('vision')">
                 <div class="nav-item-left"><i class="fas fa-eye"></i><span data-en="Vision & Future" data-fa="چشم‌انداز و آینده">Vision & Future</span></div>
@@ -347,25 +356,6 @@
             <div>© 2026 KARATECH ELV</div>
         </footer>
     </main>
-</div>
-
-<!-- ===== ویجت آمار و زمان (Stats Widget) ===== -->
-<div class="stats-widget" id="statsWidget">
-    <div class="stat-row">
-        <i class="fas fa-eye"></i>
-        <span data-en="Today Visits" data-fa="بازدید امروز">Today Visits</span>
-        <span class="stat-value" id="dailyVisits">0</span>
-    </div>
-    <div class="stat-row">
-        <i class="fas fa-chart-line"></i>
-        <span data-en="Total Visits" data-fa="بازدید کل">Total Visits</span>
-        <span class="stat-value" id="totalVisits">0</span>
-    </div>
-    <div class="stat-row">
-        <i class="fas fa-stopwatch"></i>
-        <span data-en="Total Time" data-fa="زمان کل">Total Time</span>
-        <span class="stat-value" id="totalTime">00:00:00</span>
-    </div>
 </div>
 
 <!-- ===== پنل خروج (Exit Overlay) ===== -->
