@@ -232,23 +232,6 @@
         .holo-item:hover .holo-data { max-width: 450px; opacity: 1; padding-left: 40px; padding-right: 20px; }
         body.rtl .holo-item:hover .holo-data { padding-right: 40px; padding-left: 20px; }
         .holo-item:hover .holo-icon-circle { background: var(--accent-indigo); color: #fff; transform: scale(1.15); border-color: var(--accent-cyan); box-shadow: 0 0 25px var(--accent-cyan), inset 0 0 15px rgba(255,255,255,0.2); }
-        .holo-item[data-type="phone"]:hover .holo-icon-circle i { animation: phoneShake 0.4s linear infinite; }
-        .holo-item[data-type="phone"] .holo-data { border-color: #00ff9d; box-shadow: 0 0 20px rgba(0, 255, 157, 0.3); }
-        .holo-item[data-type="phone"]:hover .holo-icon-circle::before { content: ''; position: absolute; inset: -5px; border: 2px solid #00ff9d; border-radius: 50%; animation: ripple 1s infinite; }
-        @keyframes phoneShake { 0% { transform: rotate(0); } 25% { transform: rotate(-15deg); } 50% { transform: rotate(0); } 75% { transform: rotate(15deg); } 100% { transform: rotate(0); } }
-        @keyframes ripple { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
-        .holo-item[data-type="email"] .holo-data { background: #fcfcfc; color: #111; border: 1px solid #ddd; border-radius: 5px; font-family: 'Courier New', monospace; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-        .holo-item[data-type="email"]:hover .holo-icon-circle { transform: translateY(5px) scale(1.1); }
-        .holo-item[data-type="location"]:hover .holo-icon-circle i { animation: mapBounce 0.6s ease-in-out infinite; }
-        .holo-item[data-type="location"] .holo-data { border-color: #ff4d8d; box-shadow: 0 0 20px rgba(255, 77, 141, 0.3); }
-        @keyframes mapBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-        .holo-item[data-type="clock"]:hover .holo-icon-circle i { animation: tick 1s ease-in-out infinite; }
-        .holo-item[data-type="clock"] .holo-data { border-color: #b388ff; box-shadow: 0 0 20px rgba(179, 136, 255, 0.3); }
-        @keyframes tick { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(15deg); } 75% { transform: rotate(-15deg); } }
-        .holo-item[data-type="linkedin"]:hover .holo-icon-circle i, .holo-item[data-type="github"]:hover .holo-icon-circle i { animation: spin 0.8s linear infinite; }
-        .holo-item[data-type="linkedin"] .holo-data { border-color: #0e76a8; box-shadow: 0 0 20px rgba(14, 118, 168, 0.3); }
-        .holo-item[data-type="github"] .holo-data { border-color: #fff; box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); }
-        @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
         .close-holo { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background: transparent; border: 1px solid #ff6464; color: #ff6464; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
         .close-holo:hover { background: #ff6464; color: #fff; transform: translateX(-50%) scale(1.1); }
         .holo-hud-overlay.active .holo-item { animation: dropIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
@@ -712,11 +695,11 @@
             el.innerHTML = el.getAttribute(`data-${currentLang}`); 
         });
         
-        const backIcon = document.querySelector('.exit-btn i');
+        const exitBtnIcon = document.querySelector('.exit-btn i');
         if(currentLang === 'fa') {
-            backIcon.style.transform = 'rotate(180deg)';
+            exitBtnIcon.style.transform = 'rotate(180deg)';
         } else {
-            backIcon.style.transform = 'rotate(0deg)';
+            exitBtnIcon.style.transform = 'rotate(0deg)';
         }
     }
 
@@ -743,7 +726,7 @@
 
     document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
     
-    // راه‌اندازی اولیه
+    // راه‌اندازی اولیه سایت
     setLang(currentLang);
     setInterval(updateDateTime, 1000);
 </script>
