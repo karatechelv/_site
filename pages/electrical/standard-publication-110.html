@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Karatech ELV · نشریه 110 - شینه‌ها</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;600;700&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --text-main: #ffffff;
+            --text-muted: #8b8f99;
+            --accent-indigo: #4d8bff;
+            --accent-cyan: #00f2ff;
+            --accent-gold: #d4af37;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            color: var(--text-main);
+            min-height: 100vh;
+            background: radial-gradient(ellipse 80% 80% at 50% 50%, #0a1a2e 0%, #04101f 40%, #000000 80%);
+            overflow-x: hidden;
+            direction: rtl;
+        }
+
+        body::after {
+            content: ''; position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+            opacity: 0.04; pointer-events: none; z-index: 9999; mix-blend-mode: overlay;
+        }
+
+        /* ===== هدر ===== */
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 40px; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(77, 139, 255, 0.15); position: sticky; top: 0; z-index: 100;
+        }
+        .header-left { display: flex; align-items: center; gap: 15px; }
+        .brand { font-family: 'Markazi Text', sans-serif; font-size: 1.6rem; font-weight: 700; letter-spacing: 1px; }
+        .brand span { color: var(--accent-indigo); font-style: italic; font-weight: 500; }
+        
+        .breadcrumb { display: flex; align-items: center; gap: 10px; font-size: 1rem; color: var(--text-muted); }
+        .breadcrumb span { color: var(--accent-cyan); }
+
+        .datetime-widget { display: flex; flex-direction: column; align-items: center; font-size: 0.85rem; color: var(--text-muted); font-family: monospace; }
+        .time-display { color: var(--accent-cyan); font-weight: 600; font-size: 1rem; }
+        
+        .header-actions { display: flex; align-items: center; gap: 16px; }
+        .back-btn { 
+            background: transparent; border: 1px solid rgba(77, 139, 255, 0.3); color: var(--accent-indigo); 
+            padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; 
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .back-btn i { transform: rotate(180deg); }
+        .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
+        .lang-switch { display: flex; gap: 8px; }
+        .lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color: var(--accent-indigo); border-color: rgba(77, 139, 255, 0.3); }
+
+        /* ===== محتوای اصلی ===== */
+        .main-content { 
+            flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; 
+            padding: 60px 20px; max-width: 900px; margin: 0 auto; width: 100%;
+        }
+        .aurora { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; mix-blend-mode: screen; }
+        .aurora-1 { width: 500px; height: 500px; background: rgba(77, 139, 255, 0.1); top: -10%; right: 10%; animation: drift1 15s ease-in-out infinite; }
+        .aurora-2 { width: 400px; height: 400px; background: rgba(0, 242, 255, 0.06); bottom: -10%; left: 10%; animation: drift2 18s ease-in-out infinite; }
+        @keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-80px, 50px) scale(1.1); } }
+        @keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(60px, -30px) scale(1.2); } }
+
+        .page-header { text-align: center; margin-bottom: 50px; position: relative; z-index: 2; width: 100%; }
+        .page-icon { font-size: 3rem; color: var(--accent-indigo); margin-bottom: 20px; filter: drop-shadow(0 0 15px var(--accent-indigo)); }
+        .page-title { font-family: 'Markazi Text', serif; font-size: 3rem; font-weight: 700; margin-bottom: 10px; color: rgba(255,255,255,0.95); }
+        .page-title b { color: var(--accent-cyan); }
+        .page-desc { color: rgba(255,255,255,0.4); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
+
+        /* ===== کارت‌های محتوایی ===== */
+        .content-area { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; gap: 30px; }
+        
+        .content-card {
+            background: rgba(10, 20, 35, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-right: 3px solid var(--accent-indigo);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        .content-card:hover { border-color: var(--accent-cyan); box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 15px rgba(0, 242, 255, 0.1); }
+
+        .card-title { font-family: 'Markazi Text', serif; font-size: 1.8rem; font-weight: 600; color: #fff; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .card-title i { color: var(--accent-cyan); }
+        
+        .rule-list { list-style: none; padding: 0; }
+        .rule-item { 
+            margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); 
+            display: flex; gap: 15px; 
+        }
+        .rule-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .rule-num { 
+            min-width: 30px; height: 30px; background: rgba(77, 139, 255, 0.1); color: var(--accent-cyan); 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; 
+            border: 1px solid rgba(77, 139, 255, 0.2);
+        }
+        .rule-text { color: rgba(255,255,255,0.8); line-height: 1.8; font-size: 1rem; }
+        .param { color: var(--accent-gold); font-weight: 700; font-family: monospace; }
+
+        /* باکس فرمول ریاضی */
+        .formula-box {
+            background: #050a14; border: 1px solid rgba(0, 242, 255, 0.3);
+            border-radius: 8px; padding: 25px; margin: 15px 0;
+            text-align: center; direction: ltr;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .formula-text {
+            font-family: 'Times New Roman', serif; color: var(--accent-cyan);
+            font-size: 2rem; font-weight: 600;
+        }
+        .formula-desc { color: var(--text-muted); font-size: 0.85rem; margin-top: 10px; direction: rtl; }
+
+        /* جدول ضرایب */
+        .derating-table {
+            width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 1rem;
+            border-radius: 8px; overflow: hidden;
+        }
+        .derating-table th {
+            background: rgba(212, 175, 55, 0.1); color: var(--accent-gold); 
+            padding: 15px; border: 1px solid rgba(212, 175, 55, 0.2); text-align: center; font-weight: 700;
+        }
+        .derating-table td {
+            padding: 12px; border: 1px solid rgba(255,255,255,0.05); 
+            text-align: center; color: #fff; background: rgba(255,255,255,0.02);
+        }
+
+        /* ===== باکس نمودار فنی مهندسی (Blueprint) ===== */
+        .blueprint-box {
+            background: #02040a; 
+            border: 1px solid rgba(0, 242, 255, 0.2); 
+            border-radius: 12px; 
+            padding: 20px; 
+            margin: 25px 0; 
+            position: relative;
+            overflow: hidden;
+        }
+        .blueprint-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
+            background-size: 25px 25px;
+            z-index: 0;
+        }
+        .blueprint-content { position: relative; z-index: 1; text-align: center; }
+        .blueprint-caption {
+            color: var(--accent-cyan); font-size: 0.9rem; margin-top: 15px; font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .blueprint-svg {
+            width: 100%; max-width: 800px; height: auto;
+        }
+
+        /* باکس توضیح شکل و ابعاد */
+        .legend-box {
+            background: rgba(0, 242, 255, 0.03); border: 1px solid rgba(0, 242, 255, 0.15);
+            border-radius: 12px; padding: 25px; margin-top: 10px;
+        }
+        .legend-title { color: var(--accent-cyan); font-size: 1.1rem; font-weight: 700; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        .legend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .legend-item { display: flex; align-items: flex-start; gap: 10px; color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.6; }
+        .legend-symbol { min-width: 25px; color: var(--accent-gold); font-weight: 700; font-family: monospace; font-size: 1.1rem; }
+
+        @media (max-width: 768px) {
+            .header { flex-wrap: wrap; gap: 10px; padding: 15px; }
+            .main-content { padding: 30px 15px; }
+            .page-title { font-size: 2.2rem; }
+            .content-card { padding: 20px; }
+            .legend-grid { grid-template-columns: 1fr; }
+            .formula-text { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <div class="header-left">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="breadcrumb">
+            <a href="../academy/electrical.html" style="color: inherit; text-decoration: none;">برق</a>
+            <i class="fas fa-chevron-left" style="font-size: 0.6rem;"></i>
+            <a href="busbars.html" style="color: inherit; text-decoration: none;">شینه‌ها</a>
+            <i class="fas fa-chevron-left" style="font-size: 0.6rem;"></i>
+            <span>نشریه 110</span>
+        </div>
+    </div>
+    <div class="datetime-widget">
+        <div class="date-display" id="dateDisplay"></div>
+        <div class="time-display" id="timeDisplay">00:00:00</div>
+    </div>
+    <div class="header-actions">
+        <a href="busbars.html" class="back-btn" id="backBtn">
+            <i class="fas fa-arrow-left"></i> <span>بازگشت به شینه‌ها</span>
+        </a>
+        <div class="lang-switch">
+            <button class="lang-btn">EN</button>
+            <button class="lang-btn active">FA</button>
+        </div>
+    </div>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="main-content">
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    
+    <div class="page-header">
+        <div class="page-icon"><i class="fas fa-book-open"></i></div>
+        <h1 class="page-title">نشریه <b>۱۱۰</b></h1>
+        <p class="page-desc">الزامات فنی، فواصل مجاز، فرمول‌ها و ضرایب کاهش ظرفیت بار شینه‌ها طبق استاندارد ملی</p>
+    </div>
+
+    <div class="content-area">
+        
+        <!-- کارت نمودار فنی شینه‌ها -->
+        <div class="content-card">
+            <h2 class="card-title"><i class="fas fa-drafting-compass"></i> نمودار فنی چیدمان شینه‌ها</h2>
+            
+            <div class="blueprint-box">
+                <div class="blueprint-content">
+                    <svg class="blueprint-svg" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="busGrad" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stop-color="#b8860b"/>
+                                <stop offset="50%" stop-color="#d4af37"/>
+                                <stop offset="100%" stop-color="#b8860b"/>
+                            </linearGradient>
+                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#00f2ff" />
+                            </marker>
+                        </defs>
+
+                        <!-- فاز 1 (دو شینه) -->
+                        <rect x="100" y="100" width="20" height="200" fill="url(#busGrad)" stroke="#fff" stroke-width="1" rx="2"/>
+                        <rect x="130" y="100" width="20" height="200" fill="url(#busGrad)" stroke="#fff" stroke-width="1" rx="2"/>
+                        <text x="125" y="80" fill="#fff" font-size="16" font-weight="bold" text-anchor="middle" font-family="Tahoma">L1</text>
+                        <!-- پایه عایق فاز 1 -->
+                        <polygon points="115,300 135,300 145,330 105,330" fill="#333" stroke="#555"/>
+                        <polygon points="145,300 165,300 175,330 135,330" fill="#333" stroke="#555"/>
+
+                        <!-- فاز 2 (دو شینه) -->
+                        <rect x="400" y="100" width="20" height="200" fill="url(#busGrad)" stroke="#fff" stroke-width="1" rx="2"/>
+                        <rect x="430" y="100" width="20" height="200" fill="url(#busGrad)" stroke="#fff" stroke-width="1" rx="2"/>
+                        <text x="425" y="80" fill="#fff" font-size="16" font-weight="bold" text-anchor="middle" font-family="Tahoma">L2</text>
+                        <!-- پایه عایق فاز 2 -->
+                        <polygon points="415,300 435,300 445,330 405,330" fill="#333" stroke="#555"/>
+                        <polygon points="445,300 465,300 475,330 435,330" fill="#333" stroke="#555"/>
+
+                        <!-- فاز 3 (دو شینه) -->
+                        <rect x="700" y="100" width="20" height="200" fill="url(#busGrad)" stroke="#fff" stroke-width="1" rx="2"/>
+                        <rect x="730" y="100" width="20" height="200" fill="url(#busGrad)" stroke="#fff" stroke-width="1" rx="2"/>
+                        <text x="725" y="80" fill="#fff" font-size="16" font-weight="bold" text-anchor="middle" font-family="Tahoma">L3</text>
+                        <!-- پایه عایق فاز 3 -->
+                        <polygon points="715,300 735,300 745,330 705,330" fill="#333" stroke="#555"/>
+                        <polygon points="745,300 765,300 775,330 735,330" fill="#333" stroke="#555"/>
+
+                        <!-- خطوط ابعاد (Dimensions) -->
+                        
+                        <!-- 'a' (بعد بزرگتر / ارتفاع) -->
+                        <line x1="60" y1="100" x2="60" y2="300" stroke="#00f2ff" stroke-width="1.5" stroke-dasharray="4 2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+                        <text x="45" y="200" fill="#00f2ff" font-size="18" font-weight="bold" font-family="monospace" transform="rotate(-90 45 200)">a</text>
+
+                        <!-- 'b' (فاصله بین شینه‌های مجاور در یک فاز) -->
+                        <line x1="120" y1="370" x2="130" y2="370" stroke="#00f2ff" stroke-width="1.5" stroke-dasharray="3 2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+                        <text x="125" y="390" fill="#00f2ff" font-size="16" font-weight="bold" font-family="monospace" text-anchor="middle">b</text>
+
+                        <!-- 'c' (عرض مجموعه یک فاز) -->
+                        <line x1="100" y1="350" x2="150" y2="350" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="4 2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+                        <text x="125" y="345" fill="#d4af37" font-size="16" font-weight="bold" font-family="monospace" text-anchor="middle">c</text>
+
+                        <!-- 'd' (فاصله بین فازها) -->
+                        <line x1="150" y1="350" x2="400" y2="350" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="4 2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+                        <text x="275" y="345" fill="#d4af37" font-size="16" font-weight="bold" font-family="monospace" text-anchor="middle">d</text>
+                        
+                        <!-- عنوان فاصله d در بالا هم برای وضوح -->
+                        <line x1="150" y1="120" x2="400" y2="120" stroke="#d4af37" stroke-width="1" stroke-dasharray="2 4" opacity="0.5"/>
+                        
+                    </svg>
+                    <div class="blueprint-caption">شکل: چیدمان شینه‌ها در یک تابلو و پارامترهای فاصله‌گذاری طبق نشریه ۱۱۰</div>
+                </div>
+            </div>
+
+            <div class="legend-box">
+                <div class="legend-title"><i class="fas fa-info-circle"></i> توضیح پارامترهای شکل</div>
+                <div class="legend-grid">
+                    <div class="legend-item">
+                        <span class="legend-symbol">a :</span>
+                        <span>بعد بزرگ‌تر مقطع شینه (باید در وضعیت عمودی قرار گیرد)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-symbol">b :</span>
+                        <span>فاصله بین شینه‌های مجاور در یک فاز (برابر با ضخامت شینه)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-symbol">c :</span>
+                        <span>قطر مجموع شینه‌های یکی از فازها (عرض کل گروه)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-symbol">d :</span>
+                        <span>فاصله بین گروه‌های شینه و فازها (باید ≥ 10c باشد)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- کارت ۱: قوانین کلی و فرمول‌ها -->
+        <div class="content-card">
+            <h2 class="card-title"><i class="fas fa-ruler-combined"></i> شرایط کلی و فرمول‌های محاسباتی</h2>
+            
+            <ul class="rule-list">
+                <li class="rule-item">
+                    <div class="rule-num">۱</div>
+                    <div class="rule-text">
+                        ظرفیت بار مشخص شده در هر یک از جدول‌ها، برای شینه‌هایی معتبر است که ضلع بزرگ‌تر مقطع آن <span class="param">(a)</span> در وضعیت عمودی قرار گیرد.
+                    </div>
+                </li>
+                <li class="rule-item">
+                    <div class="rule-num">۲</div>
+                    <div class="rule-text">
+                        در هر یک از فازها، فاصله بین دو شینه مجاور <span class="param">(b)</span> برابر است با ضخامت شینه موردنظر.
+                    </div>
+                </li>
+                <li class="rule-item">
+                    <div class="rule-num">۳</div>
+                    <div class="rule-text">
+                        مقادیر ظرفیت بار <span class="param">(I)</span> در حرارت‌های بیش از ۳۰ درجه سانتی‌گراد <span class="param">(θ)</span> با استفاده از فرمول زیر محاسبه می‌شود:
+                        <div class="formula-box">
+                            <div class="formula-text">I = I<sub>30</sub> √(30 / θ)</div>
+                            <div class="formula-desc">که در آن: I<sub>30</sub> = ظرفیت بار (آمپر) در حرارت ۳۰ درجه سانتی‌گراد</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="rule-item">
+                    <div class="rule-num">۴</div>
+                    <div class="rule-text">
+                        شدت جریان مجاز <span class="param">(I)</span> برای فرکانس‌های دیگر <span class="param">(f)</span>، با استفاده از فرمول زیر محاسبه می‌شود:
+                        <div class="formula-box">
+                            <div class="formula-text">I = I<sub>50</sub> √(50 / f)</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="rule-item">
+                    <div class="rule-num">۵</div>
+                    <div class="rule-text">
+                        در هر یک از فازها فقط سطوح خارجی شینه‌ها باید رنگ‌آمیزی شود.
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- کارت ۲: شرایط برق متناوب (AC) -->
+        <div class="content-card">
+            <h2 class="card-title"><i class="fas fa-bolt"></i> شرایط برای برق متناوب (A.C)</h2>
+            
+            <ul class="rule-list">
+                <li class="rule-item">
+                    <div class="rule-num">الف</div>
+                    <div class="rule-text">
+                        معدل افزایش حرارت در جدول برابر ۳۰ درجه سانتی‌گراد خواهد بود مشروط بر آنکه فاصله بین مجموعه شینه‌های دوفاز <span class="param">(d)</span> برابر ۱۰ برابر قطر مجموع شینه‌های یکی از فازها <span class="param">(c)</span> کمتر نباشد. در صورتی که فاصله <span class="param">d</span> کمتر از ۱۰ برابر فاصله <span class="param">c</span> باشد، مقادیر ظرفیت بار مندرج در جداول طبق ضرایب زیر کاهش می‌یابد:
+                        
+                        <table class="derating-table">
+                            <thead>
+                                <tr>
+                                    <th>نسبت c : d</th>
+                                    <th>۲</th>
+                                    <th>۴</th>
+                                    <th>۶</th>
+                                    <th>۸</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>ضریب کاهش</strong></td>
+                                    <td>۰/۸</td>
+                                    <td>۰/۹</td>
+                                    <td>۰/۹۴</td>
+                                    <td>۰/۹۷</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                <li class="rule-item">
+                    <div class="rule-num">ب</div>
+                    <div class="rule-text">
+                        شینه‌هایی که روی یکدیگر قرار می‌گیرند دارای چند درجه حرارت بیشتر خواهند بود.
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</main>
+
+<script>
+    function updateDateTime() {
+        const now = new Date();
+        document.getElementById('timeDisplay').textContent = now.toLocaleTimeString('fa-IR');
+        document.getElementById('dateDisplay').textContent = now.toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+</script>
+
+</body>
+</html>
