@@ -210,14 +210,21 @@
             </p>
         </div>
 
-        <!-- کارت ۲: استانداردهای شینه (لینک‌دار - اضافه شدن نشریه 110) -->
+        <!-- کارت ۲: استانداردهای شینه (لینک‌دار - تفکیک IPS و نشریه 110) -->
         <div class="content-card">
             <h2 class="card-title"><i class="fas fa-book"></i> <span data-en="Design Standards" data-fa="استانداردهای طراحی">Design Standards</span></h2>
             <ul class="tree-list">
                 <li>
-                    <a href="standard-ips-110.html" class="tree-link">
+                    <a href="standard-ips-e-el-110.html" class="tree-link">
                         <i class="fas fa-circle bullet"></i> 
-                        <span data-en="IPS-E-EL-110 (Publication 110): Comprehensive Iranian standard for electrical installations, panel layouts, and busbar arrangements." data-fa="نشریه 110 (IPS-E-EL-110): استاندارد جامع شرکت نفت ایران برای تأسیسات الکتریکی، چیدمان تابلوها و نحوه قرارگیری شینه‌ها.">IPS-E-EL-110 (Publication 110): Comprehensive Iranian standard for electrical installations, panel layouts, and busbar arrangements.</span>
+                        <span data-en="IPS-E-EL-110: Iranian Petroleum Standard for industrial electrical installations and panel layouts." data-fa="IPS-E-EL-110: استاندارد شرکت ملی نفت ایران برای تأسیسات الکتریکی صنعتی و چیدمان تابلوها.">IPS-E-EL-110: Iranian Petroleum Standard for industrial electrical installations and panel layouts.</span>
+                        <i class="fas fa-arrow-right arrow"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="standard-publication-110.html" class="tree-link">
+                        <i class="fas fa-circle bullet"></i> 
+                        <span data-en="Publication 110: National standard for building electrical installations and wiring regulations." data-fa="نشریه 110: استاندارد ملی برای تأسیسات الکتریکی ساختمان و مقررات سیم‌کشی.">Publication 110: National standard for building electrical installations and wiring regulations.</span>
                         <i class="fas fa-arrow-right arrow"></i>
                     </a>
                 </li>
@@ -228,17 +235,10 @@
                         <i class="fas fa-arrow-right arrow"></i>
                     </a>
                 </li>
-                <li>
-                    <a href="standard-iec-60439.html" class="tree-link">
-                        <i class="fas fa-circle bullet"></i> 
-                        <span data-en="IEC 60439: Legacy standard for busbar trunking systems and short-circuit testing." data-fa="IEC 60439: استاندارد قدیمی برای سیستم‌های شینه و تست اتصال کوتاه.">IEC 60439: Legacy standard for busbar trunking systems and short-circuit testing.</span>
-                        <i class="fas fa-arrow-right arrow"></i>
-                    </a>
-                </li>
             </ul>
         </div>
 
-        <!-- کارت ۳: ماشین‌حساب سایزینگ شینه (ارتقا یافته با سایزهای استاندارد) -->
+        <!-- کارت ۳: ماشین‌حساب سایزینگ شینه -->
         <div class="content-card">
             <h2 class="card-title"><i class="fas fa-calculator"></i> <span data-en="Busbar Sizing Calculator" data-fa="ماشین‌حساب سایزینگ شینه">Busbar Sizing Calculator</span></h2>
             <p class="card-text" data-en="Calculates the required area and suggests a standard copper busbar size (based on DIN 43671) for the given current. Note: Thermal and short-circuit verification is still required." data-fa="سطح مقطع مورد نیاز را محاسبه کرده و سایز استاندارد شینه مسی (بر اساس DIN 43671) را پیشنهاد می‌دهد. نکته: بررسی حرارتی و اتصال کوتاه همچنان الزامی است.">
@@ -297,14 +297,14 @@
 </main>
 
 <script>
-    // منطق ماشین‌حساب سایزینگ شینه (با پیشنهاد سایز استاندارد)
+    // منطق ماشین‌حساب سایزینگ شینه
     function calcBusbar() {
         const I = parseFloat(document.getElementById('busI').value) || 0;
         const J = parseFloat(document.getElementById('busJ').value); // چگالی جریان (A/mm²)
         
         let area = I / J; // سطح مقطع مورد نیاز (mm²)
         
-        // جدول سایزهای استاندارد شینه مسی (DIN 43671) - مساحت و نام سایز
+        // جدول سایزهای استاندارد شینه مسی (DIN 43671)
         const stdCopperBusbars = [
             { size: '15x3 mm', area: 45 }, { size: '20x3 mm', area: 60 }, 
             { size: '20x5 mm', area: 100 }, { size: '25x5 mm', area: 125 }, 
@@ -315,7 +315,6 @@
             { size: '120x10 mm', area: 1200 }
         ];
         
-        // پیدا کردن اولین سایز استاندارد که مساحت آن بزرگتر یا مساوی مساحت مورد نیاز باشد
         let suggested = stdCopperBusbars.find(b => b.area >= area);
         let suggestedText = suggested ? suggested.size : 'Custom Required';
         
@@ -335,7 +334,6 @@
         const D = parseFloat(document.getElementById('wMat').value); // چگالی (g/cm³)
         
         const area = W * T;
-        // وزن هر متر (kg) = (مساحت در mm² * چگالی g/cm³) / 1000
         const weightPerMeter = (area * D) / 1000;
         const totalWeight = weightPerMeter * L;
         
