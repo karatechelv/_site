@@ -253,15 +253,15 @@
             </p>
             
             <div class="calc-grid">
-                <label data-en="Voltage (V)" data-fa="ولتاژ (V)">
+                <label>
                     <span data-en="Voltage (V)" data-fa="ولتاژ (V)">Voltage (V)</span>
                     <input type="number" id="transV" value="400" step="1" oninput="calcTransformer()">
                 </label>
-                <label data-en="Load Current (A)" data-fa="جریان بار (A)">
+                <label>
                     <span data-en="Load Current (A)" data-fa="جریان بار (A)">Load Current (A)</span>
                     <input type="number" id="transI" value="100" step="0.1" oninput="calcTransformer()">
                 </label>
-                <label data-en="System Type" data-fa="نوع سیستم">
+                <label>
                     <span data-en="System Type" data-fa="نوع سیستم">System Type</span>
                     <select id="transSys" onchange="calcTransformer()">
                         <option value="3" data-en="Three Phase" data-fa="سه فاز">Three Phase</option>
@@ -280,19 +280,19 @@
             </p>
             
             <div class="calc-grid">
-                <label data-en="System Voltage (V)" data-fa="ولتاژ سیستم (V)">
+                <label>
                     <span data-en="System Voltage (V)" data-fa="ولتاژ سیستم (V)">System Voltage (V)</span>
                     <input type="number" id="vdV" value="400" step="1" oninput="calcVD()">
                 </label>
-                <label data-en="Load Current (A)" data-fa="جریان بار (A)">
+                <label>
                     <span data-en="Load Current (A)" data-fa="جریان بار (A)">Load Current (A)</span>
                     <input type="number" id="vdI" value="50" step="0.1" oninput="calcVD()">
                 </label>
-                <label data-en="Cable Length (m)" data-fa="طول کابل (m)">
+                <label>
                     <span data-en="Cable Length (m)" data-fa="طول کابل (m)">Cable Length (m)</span>
                     <input type="number" id="vdL" value="30" step="1" oninput="calcVD()">
                 </label>
-                <label data-en="Cable Size (mm²)" data-fa="سایز کابل (mm²)">
+                <label>
                     <span data-en="Cable Size (mm²)" data-fa="سایز کابل (mm²)">Cable Size (mm²)</span>
                     <select id="vdSize" onchange="calcVD()">
                         <option value="7.41">2.5 mm²</option>
