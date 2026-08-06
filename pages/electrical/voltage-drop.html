@@ -1,177 +1,427 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Voltage Drop</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Karatech ELV · ویدئوها و آینده</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;600;700&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .code-box{background:#0d0e12;padding:12px;border-radius:10px;font-family:monospace;font-size:.85rem;color:#b0b8c5;border-left:3px solid #d4af37;margin:12px 0}
-        .calc-box{background:#0d0e12;padding:16px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);margin:15px 0}
-        .calc-box input{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#1a1d24;color:#fff;margin:8px 0;font-size:1rem}
-        .calc-box label{color:#b0b8c5;font-size:.9rem;display:block;margin-top:8px}
-        .calc-btn{background:#d4af37;color:#111;border:none;padding:10px 24px;border-radius:30px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.3s;margin:12px 0}
-        .calc-btn:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
-        .result-box{background:rgba(212,175,55,0.08);padding:12px;border-radius:10px;border:1px solid #d4af37;margin-top:10px;text-align:center}
-        .result-box span{color:#d4af37;font-weight:700;font-size:1.1rem}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
+        :root {
+            --text-main: #ffffff;
+            --text-muted: #8b8f99;
+            --accent-indigo: #4d8bff;
+            --accent-cyan: #00f2ff;
+            --accent-gold: #d4af37;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            color: var(--text-main);
+            min-height: 100vh;
+            background: radial-gradient(ellipse 80% 80% at 50% 50%, #0a1a2e 0%, #04101f 40%, #000000 80%);
+            overflow-x: hidden;
+            direction: rtl;
+        }
+
+        body::after {
+            content: ''; position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+            opacity: 0.04; pointer-events: none; z-index: 9999; mix-blend-mode: overlay;
+        }
+
+        /* ===== هدر ===== */
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 40px; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(77, 139, 255, 0.15); position: sticky; top: 0; z-index: 100;
+        }
+        .header-left { display: flex; align-items: center; gap: 15px; }
+        .brand { font-family: 'Markazi Text', sans-serif; font-size: 1.6rem; font-weight: 700; letter-spacing: 1px; }
+        .brand span { color: var(--accent-indigo); font-style: italic; font-weight: 500; }
+        
+        .breadcrumb { display: flex; align-items: center; gap: 10px; font-size: 1rem; color: var(--text-muted); }
+        .breadcrumb span { color: var(--accent-cyan); }
+
+        .datetime-widget { display: flex; flex-direction: column; align-items: center; font-size: 0.85rem; color: var(--text-muted); font-family: monospace; }
+        .time-display { color: var(--accent-cyan); font-weight: 600; font-size: 1rem; }
+        
+        .header-actions { display: flex; align-items: center; gap: 16px; }
+        .back-btn { 
+            background: transparent; border: 1px solid rgba(77, 139, 255, 0.3); color: var(--accent-indigo); 
+            padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; 
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .back-btn i { transform: rotate(180deg); }
+        .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
+        .lang-switch { display: flex; gap: 8px; }
+        .lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color: var(--accent-indigo); border-color: rgba(77, 139, 255, 0.3); }
+
+        /* ===== محتوای اصلی ===== */
+        .main-content { 
+            flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; 
+            padding: 60px 20px; max-width: 1200px; margin: 0 auto; width: 100%;
+        }
+        .aurora { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; mix-blend-mode: screen; }
+        .aurora-1 { width: 500px; height: 500px; background: rgba(77, 139, 255, 0.1); top: -10%; right: 10%; animation: drift1 15s ease-in-out infinite; }
+        .aurora-2 { width: 400px; height: 400px; background: rgba(0, 242, 255, 0.06); bottom: -10%; left: 10%; animation: drift2 18s ease-in-out infinite; }
+        @keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-80px, 50px) scale(1.1); } }
+        @keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(60px, -30px) scale(1.2); } }
+
+        .page-header { text-align: center; margin-bottom: 50px; position: relative; z-index: 2; width: 100%; }
+        .page-icon { font-size: 3rem; color: var(--accent-indigo); margin-bottom: 20px; filter: drop-shadow(0 0 15px var(--accent-indigo)); }
+        .page-title { font-family: 'Markazi Text', serif; font-size: 3rem; font-weight: 700; margin-bottom: 10px; color: rgba(255,255,255,0.95); }
+        .page-title b { color: var(--accent-cyan); }
+        .page-desc { color: rgba(255,255,255,0.4); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
+
+        /* ===== کارت‌های محتوایی ===== */
+        .content-area { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; gap: 30px; }
+        
+        /* گرید ویدئوها */
+        .video-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px;
+        }
+        
+        .video-card {
+            background: rgba(10, 20, 35, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-right: 3px solid var(--accent-indigo);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .video-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 15px rgba(0, 242, 255, 0.1);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #050a14 0%, #1a1d24 100%);
+            display: flex; align-items: center; justify-content: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .play-btn {
+            width: 60px; height: 60px;
+            background: rgba(0, 242, 255, 0.2);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 1.5rem;
+            transition: 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        .video-card:hover .play-btn {
+            background: var(--accent-cyan);
+            color: #000;
+            transform: scale(1.1);
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+        .video-title {
+            font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 8px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+
+        /* پنجره باز شدن ویدئو (Lightbox) */
+        .video-modal {
+            position: fixed; inset: 0; z-index: 1000;
+            background: rgba(0,0,0,0.95);
+            display: none; align-items: center; justify-content: center;
+            padding: 20px;
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .video-modal.active { display: flex; opacity: 1; }
+        
+        .modal-content {
+            position: relative;
+            width: 90%; max-width: 900px;
+            aspect-ratio: 16/9;
+            background: #000;
+            border: 2px solid var(--accent-cyan);
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(0, 242, 255, 0.2);
+            overflow: hidden;
+        }
+        
+        .modal-content video {
+            width: 100%; height: 100%;
+            border: none;
+            display: block;
+        }
+
+        .close-modal {
+            position: absolute; top: -45px; left: 0;
+            color: #fff; cursor: pointer;
+            transition: 0.3s; display: flex; align-items: center; gap: 8px;
+            background: rgba(255, 100, 100, 0.2);
+            border: 1px solid rgba(255, 100, 100, 0.4);
+            padding: 5px 15px; border-radius: 20px;
+            font-size: 1rem; font-family: 'Vazirmatn', sans-serif;
+        }
+        .close-modal:hover { background: #ff6464; color: #fff; }
+
+        @media (max-width: 768px) {
+            .header { flex-wrap: wrap; gap: 10px; padding: 15px; }
+            .main-content { padding: 30px 15px; }
+            .page-title { font-size: 2.2rem; }
+        }
     </style>
 </head>
 <body>
-<div class="container">
 
-    <div class="header">
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <div class="header-left">
         <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="breadcrumb">
+            <a href="../../index.html" style="color: inherit; text-decoration: none;">داشبورد</a>
+            <i class="fas fa-chevron-left" style="font-size: 0.6rem;"></i>
+            <a href="index.html" style="color: inherit; text-decoration: none;">آکادمی</a>
+            <i class="fas fa-chevron-left" style="font-size: 0.6rem;"></i>
+            <a href="electrical.html" style="color: inherit; text-decoration: none;">برق</a>
+            <i class="fas fa-chevron-left" style="font-size: 0.6rem;"></i>
+            <span>ویدئوها و آینده</span>
+        </div>
+    </div>
+    <div class="datetime-widget">
+        <div class="date-display" id="dateDisplay"></div>
+        <div class="time-display" id="timeDisplay">00:00:00</div>
+    </div>
+    <div class="header-actions">
+        <a href="electrical.html" class="back-btn" id="backBtn">
+            <i class="fas fa-arrow-left"></i> <span>بازگشت به برق</span>
+        </a>
         <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
+            <button class="lang-btn">EN</button>
+            <button class="lang-btn active">FA</button>
         </div>
     </div>
+</header>
 
-    <h1 id="title">⚡ Voltage Drop</h1>
-    <div class="sub" id="desc">Calculate voltage drop in electrical circuits based on cable length, current, and conductor size.</div>
-
-    <div class="section">
-        <h2 id="s1">What is Voltage Drop?</h2>
-        <p id="s1p">Voltage drop is the reduction in voltage in an electrical circuit between the source and the load. It occurs due to the resistance of the conductors and is influenced by the cable length, cross-sectional area, and the amount of current flowing.</p>
+<!-- ===== MAIN CONTENT ===== -->
+<main class="main-content">
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    
+    <div class="page-header">
+        <div class="page-icon"><i class="fas fa-video"></i></div>
+        <h1 class="page-title">ویدئوها و <b>آینده</b></h1>
+        <p class="page-desc">مجموعه‌ای از آموزش‌های تصویری، نکات کاربردی و معرفی فناوری‌های آینده</p>
     </div>
 
-    <div class="section">
-        <h2 id="s2">🧮 Voltage Drop Calculator</h2>
-        <div class="calc-box">
-            <label id="l1">Current (A)</label>
-            <input type="number" id="vd-current" value="50">
-            <label id="l2">Cable Length (m)</label>
-            <input type="number" id="vd-length" value="100">
-            <label id="l3">Conductor Size (mm²)</label>
-            <input type="number" id="vd-size" value="25">
-            <button class="calc-btn" onclick="calcVoltageDrop()" id="btn-calc">Calculate</button>
-            <div class="result-box" id="vd-result">
-                <span id="r1">Voltage Drop: 5.2 V</span><br>
-                <span style="font-size:0.9rem;color:#8e95a5;" id="r2">Percentage: 2.3%</span>
+    <div class="content-area">
+        <div class="video-grid">
+            
+            <!-- VID 3 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_3.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 3</div></div>
             </div>
+
+            <!-- VID 4 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_4.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 4</div></div>
+            </div>
+
+            <!-- VID 5 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_5.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 5</div></div>
+            </div>
+
+            <!-- VID 6 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_6.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 6</div></div>
+            </div>
+
+            <!-- VID 7 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_7.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 7</div></div>
+            </div>
+
+            <!-- VID 8 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_8.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 8</div></div>
+            </div>
+
+            <!-- VID 9 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_9.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 9</div></div>
+            </div>
+
+            <!-- VID 12 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_12.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">مدار start.stop با یک شستی start</div></div>
+            </div>
+
+            <!-- VID 13 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_13.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 13</div></div>
+            </div>
+
+            <!-- VID 14 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_14.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 14</div></div>
+            </div>
+
+            <!-- VID 15 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_15.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 15</div></div>
+            </div>
+
+            <!-- VID 16 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_16.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 16</div></div>
+            </div>
+
+            <!-- VID 17 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_17.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 17</div></div>
+            </div>
+
+            <!-- VID 18 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_18.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 18</div></div>
+            </div>
+
+            <!-- VID 19 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_19.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 19</div></div>
+            </div>
+
+            <!-- VID 21 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_21.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 21</div></div>
+            </div>
+
+            <!-- VID 22 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_22.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 22</div></div>
+            </div>
+
+            <!-- VID 24 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_24.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 24</div></div>
+            </div>
+
+            <!-- VID 26 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_26.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 26</div></div>
+            </div>
+
+            <!-- VID 27 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_27.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 27</div></div>
+            </div>
+
+            <!-- VID 28 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_28.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 28</div></div>
+            </div>
+
+            <!-- VID 32 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_32.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 32</div></div>
+            </div>
+
+            <!-- VID 33 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_33.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 33</div></div>
+            </div>
+
+            <!-- VID 34 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_34.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 34</div></div>
+            </div>
+
+            <!-- VID 71 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_71.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">ویدئو 71</div></div>
+            </div>
+
         </div>
-        <div class="code-box">Vd = (2 × ρ × L × I) / A &nbsp; (ρ = 0.0178 for copper)</div>
     </div>
+</main>
 
-    <div class="section">
-        <h2 id="s3">Key Factors</h2>
-        <ul id="list1">
-            <li>Conductor Material: Copper vs. Aluminum</li>
-            <li>Cable Length: Longer cables have higher voltage drop</li>
-            <li>Cross-Sectional Area: Larger area reduces voltage drop</li>
-            <li>Current Load: Higher current increases voltage drop</li>
-        </ul>
+<!-- پنجره باز شدن ویدئو -->
+<div class="video-modal" id="videoModal" onclick="closeVideo(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="close-modal" onclick="closeVideo(event)">
+            <i class="fas fa-times"></i> بستن
+        </div>
+        <video id="videoPlayer" controls autoplay></video>
     </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
 </div>
 
 <script>
-    const lang = {
-        en: {
-            title: '⚡ Voltage Drop',
-            desc: 'Calculate voltage drop in electrical circuits based on cable length, current, and conductor size.',
-            s1: 'What is Voltage Drop?',
-            s1p: 'Voltage drop is the reduction in voltage in an electrical circuit between the source and the load. It occurs due to the resistance of the conductors and is influenced by the cable length, cross-sectional area, and the amount of current flowing.',
-            s2: '🧮 Voltage Drop Calculator',
-            l1: 'Current (A)', l2: 'Cable Length (m)', l3: 'Conductor Size (mm²)',
-            btn: 'Calculate',
-            r1: 'Voltage Drop: 5.2 V',
-            r2: 'Percentage: 2.3%',
-            s3: 'Key Factors',
-            list1: ['Conductor Material: Copper vs. Aluminum', 'Cable Length: Longer cables have higher voltage drop', 'Cross-Sectional Area: Larger area reduces voltage drop', 'Current Load: Higher current increases voltage drop'],
-            back: '← Back'
-        },
-        fa: {
-            title: '⚡ افت ولتاژ',
-            desc: 'محاسبه افت ولتاژ در مدارهای الکتریکی بر اساس طول کابل، جریان و سطح مقطع هادی.',
-            s1: 'افت ولتاژ چیست؟',
-            s1p: 'افت ولتاژ کاهش ولتاژ در یک مدار الکتریکی بین منبع و بار است. به دلیل مقاومت هادی‌ها رخ می‌دهد و تحت تأثیر طول کابل، سطح مقطع و مقدار جریان عبوری است.',
-            s2: '🧮 ماشین حساب افت ولتاژ',
-            l1: 'جریان (آمپر)', l2: 'طول کابل (متر)', l3: 'سطح مقطع هادی (mm²)',
-            btn: 'محاسبه',
-            r1: 'افت ولتاژ: 5.2 ولت',
-            r2: 'درصد: 2.3%',
-            s3: 'عوامل کلیدی',
-            list1: ['جنس هادی: مس در مقابل آلومینیوم', 'طول کابل: کابل‌های بلندتر افت ولتاژ بیشتری دارند', 'سطح مقطع: سطح مقطع بزرگتر افت ولتاژ را کاهش می‌دهد', 'بار جریان: جریان بالاتر افت ولتاژ را افزایش می‌دهد'],
-            back: '← بازگشت'
+    // سیستم باز شدن ویدئو محلی
+    function openVideo(src) {
+        const modal = document.getElementById('videoModal');
+        const player = document.getElementById('videoPlayer');
+        
+        player.src = src; // تنظیم مسیر فایل ویدئو
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // جلوگیری از اسکرول صفحه زیرین
+        player.play(); // پخش خودکار ویدئو
+    }
+
+    function closeVideo(event) {
+        const modal = document.getElementById('videoModal');
+        // اگر روی خود ویدئو کلیک شد، بسته نشود
+        if (event.target.classList.contains('video-modal') || event.target.closest('.close-modal')) {
+            modal.classList.remove('active');
+            const player = document.getElementById('videoPlayer');
+            player.pause(); // توقف پخش
+            player.src = ''; // پاک کردن مسیر برای توقف کامل دانلود
+            document.body.style.overflow = 'auto';
         }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s1p').textContent = t.s1p;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('l1').textContent = t.l1;
-        document.getElementById('l2').textContent = t.l2;
-        document.getElementById('l3').textContent = t.l3;
-        document.getElementById('btn-calc').textContent = t.btn;
-        document.getElementById('r1').textContent = t.r1;
-        document.getElementById('r2').textContent = t.r2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul = document.getElementById('list1');
-        ul.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
     }
 
-    function calcVoltageDrop() {
-        var I = parseFloat(document.getElementById('vd-current').value);
-        var L = parseFloat(document.getElementById('vd-length').value);
-        var A = parseFloat(document.getElementById('vd-size').value);
-        var rho = 0.0178;
-        var Vd = (2 * rho * L * I) / A;
-        var VdPercent = (Vd / 230) * 100;
-        document.getElementById('vd-result').innerHTML = 
-            '<span id="r1">' + (document.querySelector('.lang-btn.active').dataset.lang === 'fa' ? 'افت ولتاژ: ' + Vd.toFixed(2) + ' ولت' : 'Voltage Drop: ' + Vd.toFixed(2) + ' V') + '</span><br>' +
-            '<span style="font-size:0.9rem;color:#8e95a5;" id="r2">' + (document.querySelector('.lang-btn.active').dataset.lang === 'fa' ? 'درصد: ' + VdPercent.toFixed(2) + '%' : 'Percentage: ' + VdPercent.toFixed(2) + '%') + '</span>';
+    // سیستم ساعت و تاریخ
+    function updateDateTime() {
+        const now = new Date();
+        document.getElementById('timeDisplay').textContent = now.toLocaleTimeString('fa-IR');
+        document.getElementById('dateDisplay').textContent = now.toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric' });
     }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { 
-            setLang(this.dataset.lang); 
-            calcVoltageDrop();
-        };
-    });
-
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
-    calcVoltageDrop();
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
 </script>
 
 </body>
