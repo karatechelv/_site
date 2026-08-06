@@ -1,145 +1,382 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · Videos & Future</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Karatech ELV · ویدئوها و آینده</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;600;700&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0d0e12;color:#eef0f4;font-family:Tahoma,sans-serif;padding:40px 20px}
-        .container{max-width:1000px;margin:0 auto}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;background:#1e2128;border-radius:16px;margin-bottom:30px;flex-wrap:wrap;gap:10px}
-        .brand{font-weight:700;font-size:1.5rem;color:#fff}
-        .brand span{color:#d4af37}
-        .lang-btn{background:transparent;border:1px solid #333;color:#8e95a5;padding:5px 14px;border-radius:30px;cursor:pointer;font-size:.8rem;transition:.2s}
-        .lang-btn.active{background:#5b3b8c;border-color:#d4af37;color:#fff}
-        .lang-btn:hover{background:#5b3b8c;color:#fff}
-        .lang-switch{display:flex;gap:6px}
-        h1{color:#d4af37;font-size:2.2rem;margin-bottom:10px}
-        .sub{color:#8e95a5;font-size:1rem;line-height:1.8;margin-bottom:25px}
-        .section{background:#1e2128;padding:20px;border-radius:12px;margin-bottom:15px;border:1px solid rgba(212,175,55,0.08)}
-        .section h2{color:#d4af37;font-size:1.3rem;margin-bottom:10px}
-        .section p{color:#b0b8c5;line-height:1.8;margin-bottom:10px}
-        .section ul{list-style:none;padding:0}
-        .section ul li{color:#b0b8c5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px}
-        .section ul li::before{content:"▸ ";color:#d4af37;font-weight:700}
-        .back{text-align:center;margin-top:30px}
-        .back a{color:#d4af37;text-decoration:none;font-weight:600;cursor:pointer}
-        .back a:hover{text-decoration:underline}
-        .lang-persian{direction:rtl}
-        .lang-persian .header{flex-direction:row-reverse}
-        @media(max-width:768px){h1{font-size:1.8rem}.header{flex-direction:column;align-items:stretch}}
-        .video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:15px;margin-top:10px}
-        .video-card{background:#0d0e12;padding:15px;border-radius:12px;border:1px solid #2a2f3a;transition:.3s}
-        .video-card:hover{border-color:#d4af37}
-        .video-card h4{color:#d4af37;margin-bottom:4px}
-        .video-card p{color:#8e95a5;font-size:.85rem}
-        .badge{display:inline-block;background:rgba(212,175,55,0.12);color:#d4af37;font-size:.65rem;padding:2px 12px;border-radius:20px;margin-top:6px}
+        :root {
+            --text-main: #ffffff;
+            --text-muted: #8b8f99;
+            --accent-indigo: #4d8bff;
+            --accent-cyan: #00f2ff;
+            --accent-gold: #d4af37;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            color: var(--text-main);
+            min-height: 100vh;
+            background: radial-gradient(ellipse 80% 80% at 50% 50%, #0a1a2e 0%, #04101f 40%, #000000 80%);
+            overflow-x: hidden;
+            direction: rtl;
+        }
+
+        body::after {
+            content: ''; position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+            opacity: 0.04; pointer-events: none; z-index: 9999; mix-blend-mode: overlay;
+        }
+
+        /* ===== هدر ===== */
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 40px; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(77, 139, 255, 0.15); position: sticky; top: 0; z-index: 100;
+        }
+        .header-left { display: flex; align-items: center; gap: 15px; }
+        .brand { font-family: 'Markazi Text', sans-serif; font-size: 1.6rem; font-weight: 700; letter-spacing: 1px; }
+        .brand span { color: var(--accent-indigo); font-style: italic; font-weight: 500; }
+        
+        .breadcrumb { display: flex; align-items: center; gap: 10px; font-size: 1rem; color: var(--text-muted); }
+        .breadcrumb span { color: var(--accent-cyan); }
+
+        .datetime-widget { display: flex; flex-direction: column; align-items: center; font-size: 0.85rem; color: var(--text-muted); font-family: monospace; }
+        .time-display { color: var(--accent-cyan); font-weight: 600; font-size: 1rem; }
+        
+        .header-actions { display: flex; align-items: center; gap: 16px; }
+        .back-btn { 
+            background: transparent; border: 1px solid rgba(77, 139, 255, 0.3); color: var(--accent-indigo); 
+            padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; 
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .back-btn i { transform: rotate(180deg); }
+        .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
+        .lang-switch { display: flex; gap: 8px; }
+        .lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color: var(--accent-indigo); border-color: rgba(77, 139, 255, 0.3); }
+
+        /* ===== محتوای اصلی ===== */
+        .main-content { 
+            flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; 
+            padding: 60px 20px; max-width: 1200px; margin: 0 auto; width: 100%;
+        }
+        .aurora { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; mix-blend-mode: screen; }
+        .aurora-1 { width: 500px; height: 500px; background: rgba(77, 139, 255, 0.1); top: -10%; right: 10%; animation: drift1 15s ease-in-out infinite; }
+        .aurora-2 { width: 400px; height: 400px; background: rgba(0, 242, 255, 0.06); bottom: -10%; left: 10%; animation: drift2 18s ease-in-out infinite; }
+        @keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-80px, 50px) scale(1.1); } }
+        @keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(60px, -30px) scale(1.2); } }
+
+        .page-header { text-align: center; margin-bottom: 50px; position: relative; z-index: 2; width: 100%; }
+        .page-icon { font-size: 3rem; color: var(--accent-indigo); margin-bottom: 20px; filter: drop-shadow(0 0 15px var(--accent-indigo)); }
+        .page-title { font-family: 'Markazi Text', serif; font-size: 3rem; font-weight: 700; margin-bottom: 10px; color: rgba(255,255,255,0.95); }
+        .page-title b { color: var(--accent-cyan); }
+        .page-desc { color: rgba(255,255,255,0.4); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
+
+        /* ===== کارت‌های محتوایی ===== */
+        .content-area { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; gap: 30px; }
+        
+        /* گرید ویدئوها */
+        .video-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px;
+        }
+        
+        .video-card {
+            background: rgba(10, 20, 35, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-right: 3px solid var(--accent-indigo);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .video-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 15px rgba(0, 242, 255, 0.1);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #050a14 0%, #1a1d24 100%);
+            display: flex; align-items: center; justify-content: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .play-btn {
+            width: 60px; height: 60px;
+            background: rgba(0, 242, 255, 0.2);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 1.5rem;
+            transition: 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        .video-card:hover .play-btn {
+            background: var(--accent-cyan);
+            color: #000;
+            transform: scale(1.1);
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+        .video-title {
+            font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 8px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .video-desc {
+            font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;
+        }
+
+        /* پنجره باز شدن ویدئو (Lightbox) */
+        .video-modal {
+            position: fixed; inset: 0; z-index: 1000;
+            background: rgba(0,0,0,0.95);
+            display: none; align-items: center; justify-content: center;
+            padding: 20px;
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .video-modal.active { display: flex; opacity: 1; }
+        
+        .modal-content {
+            position: relative;
+            width: 90%; max-width: 900px;
+            aspect-ratio: 16/9;
+            background: #000;
+            border: 2px solid var(--accent-cyan);
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(0, 242, 255, 0.2);
+            overflow: hidden;
+        }
+        
+        .modal-content video {
+            width: 100%; height: 100%;
+            border: none;
+            display: block;
+        }
+
+        .close-modal {
+            position: absolute; top: -45px; left: 0;
+            color: #fff; cursor: pointer;
+            transition: 0.3s; display: flex; align-items: center; gap: 8px;
+            background: rgba(255, 100, 100, 0.2);
+            border: 1px solid rgba(255, 100, 100, 0.4);
+            padding: 5px 15px; border-radius: 20px;
+            font-size: 1rem; font-family: 'Vazirmatn', sans-serif;
+        }
+        .close-modal:hover { background: #ff6464; color: #fff; }
+
+        @media (max-width: 768px) {
+            .header { flex-wrap: wrap; gap: 10px; padding: 15px; }
+            .main-content { padding: 30px 15px; }
+            .page-title { font-size: 2.2rem; }
+        }
     </style>
 </head>
 <body>
-<div class="container">
 
-    <div class="header">
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <div class="header-left">
         <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="breadcrumb">
+            <a href="../../index.html" style="color: inherit; text-decoration: none;">داشبورد</a>
+            <i class="fas fa-chevron-left" style="font-size: 0.6rem;"></i>
+            <a href="index.html" style="color: inherit; text-decoration: none;">آکادمی</a>
+            <i class="fas fa-chevron-left" style="font-size: 0.6rem;"></i>
+            <a href="electrical.html" style="color: inherit; text-decoration: none;">برق</a>
+            <i class="fas fa-chevron-left" style="font-size: 0.6rem;"></i>
+            <span>ویدئوها و آینده</span>
+        </div>
+    </div>
+    <div class="datetime-widget">
+        <div class="date-display" id="dateDisplay"></div>
+        <div class="time-display" id="timeDisplay">00:00:00</div>
+    </div>
+    <div class="header-actions">
+        <a href="electrical.html" class="back-btn" id="backBtn">
+            <i class="fas fa-arrow-left"></i> <span>بازگشت به برق</span>
+        </a>
         <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
+            <button class="lang-btn">EN</button>
+            <button class="lang-btn active">FA</button>
         </div>
     </div>
+</header>
 
-    <h1 id="title">🎬 Videos & Future</h1>
-    <div class="sub" id="desc">Tutorials and future trends in electrical engineering and technology.</div>
+<!-- ===== MAIN CONTENT ===== -->
+<main class="main-content">
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    
+    <div class="page-header">
+        <div class="page-icon"><i class="fas fa-video"></i></div>
+        <h1 class="page-title">ویدئوها و <b>آینده</b></h1>
+        <p class="page-desc">مجموعه‌ای از آموزش‌های تصویری، نکات کاربردی و معرفی فناوری‌های آینده</p>
+    </div>
 
-    <div class="section">
-        <h2 id="s1">📹 Training Videos</h2>
+    <div class="content-area">
         <div class="video-grid">
-            <div class="video-card"><h4>🔹 Voltage Drop</h4><p>Calculation tutorial</p><span class="badge">Watch Later</span></div>
-            <div class="video-card"><h4>🔹 Cable Sizing</h4><p>Step-by-step guide</p><span class="badge">Watch Later</span></div>
-            <div class="video-card"><h4>🔹 Earthing</h4><p>Design and installation</p><span class="badge">Watch Later</span></div>
-            <div class="video-card"><h4>🔹 PLC Programming</h4><p>Ladder logic basics</p><span class="badge">Watch Later</span></div>
+            
+            <!-- VID 12 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_12.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">آموزش نصب شینه‌ها</div><div class="video-desc">نحوه قرارگیری و نصب شینه‌ها در تابلو برق.</div></div>
+            </div>
+
+            <!-- VID 13 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_13.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">اتصالات کابل در تابلو</div><div class="video-desc">استاندارد سیم‌بندی و فشردگی کابل‌ها.</div></div>
+            </div>
+
+            <!-- VID 14 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_14.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">معرفی رله‌های حفاظتی</div><div class="video-desc">کاربرد رله‌های حفاظتی در سیستم‌های قدرت.</div></div>
+            </div>
+
+            <!-- VID 15 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_15.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">برنامه‌نویسی PLC (بخش ۱)</div><div class="video-desc">شروع کار با زبان نردبانی (Ladder Diagram).</div></div>
+            </div>
+
+            <!-- VID 16 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_16.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">برنامه‌نویسی PLC (بخش ۲)</div><div class="video-desc">ادامه آموزش دستورات پایه PLC.</div></div>
+            </div>
+
+            <!-- VID 17 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_17.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">راه‌اندازی درایو (VFD)</div><div class="video-desc">تنظیمات پارامترهای درایو فرکانس متغیر.</div></div>
+            </div>
+
+            <!-- VID 18 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_18.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">تست تابلو (FAT)</div><div class="video-desc">مراحل تست کارخانه‌ای قبل از ارسال تابلو.</div></div>
+            </div>
+
+            <!-- VID 19 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_19.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">نصب کنتاکتور و رله</div><div class="video-desc">نحوه نصب و سیم‌بندی کنتاکتورها روی ریل.</div></div>
+            </div>
+
+            <!-- VID 20 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_20.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">سیم‌بندی تابلو برق</div><div class="video-desc">نکات زیبایی و ایمنی در سیم‌بندی.</div></div>
+            </div>
+
+            <!-- VID 21 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_21.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">معرفی نرم‌افزار EPLAN</div><div class="video-desc">آشنایی با محیط طراحی تابلو EPLAN.</div></div>
+            </div>
+
+            <!-- VID 22 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_22.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">طراحی نقشه تک‌خطی</div><div class="video-desc">اصول طراحی Single Line Diagram.</div></div>
+            </div>
+
+            <!-- VID 23 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_23.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">تست فیوزها و کلیدها</div><div class="video-desc">بررسی عملکرد کلیدهای مینیاتوری.</div></div>
+            </div>
+
+            <!-- VID 24 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_24.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">آموزش کار با مولتی‌متر</div><div class="video-desc">اندازه‌گیری ولتاژ، جریان و مقاومت.</div></div>
+            </div>
+
+            <!-- VID 25 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_25.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">اندازه‌گیری مقاومت ارت</div><div class="video-desc">تست سیستم ارتینگ با دستگاه مخصوص.</div></div>
+            </div>
+
+            <!-- VID 26 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_26.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">بررسی سیستم اعلام حریق</div><div class="video-desc">نحوه عملکرد سنسورهای دود و حرارت.</div></div>
+            </div>
+
+            <!-- VID 27 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_27.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">دوربین مداربسته و شبکه</div><div class="video-desc">راه‌اندازی سیستم نظارت تصویری.</div></div>
+            </div>
+
+            <!-- VID 28 -->
+            <div class="video-card" onclick="openVideo('../../assets/videos/VID_28.mp4')">
+                <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><div class="video-title">جمع‌بندی و نکات ایمنی</div><div class="video-desc">مرور نکات کلیدی ایمنی در تابلوسازی.</div></div>
+            </div>
+
         </div>
     </div>
+</main>
 
-    <div class="section">
-        <h2 id="s2">🚀 Future Trends</h2>
-        <ul id="list1">
-            <li>Artificial Intelligence in power systems</li>
-            <li>Smart grids and IoT</li>
-            <li>Renewable energy integration</li>
-            <li>Digital twins and simulation</li>
-        </ul>
+<!-- پنجره باز شدن ویدئو -->
+<div class="video-modal" id="videoModal" onclick="closeVideo(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="close-modal" onclick="closeVideo(event)">
+            <i class="fas fa-times"></i> بستن
+        </div>
+        <video id="videoPlayer" controls autoplay></video>
     </div>
-
-    <div class="section">
-        <h2 id="s3">🔮 Emerging Technologies</h2>
-        <ul id="list2">
-            <li>Solid-state transformers</li>
-            <li>Wireless power transmission</li>
-            <li>Advanced energy storage systems</li>
-            <li>AI-driven predictive maintenance</li>
-        </ul>
-    </div>
-
-    <div class="back">
-        <a href="javascript:history.back()" id="backlink">← Back</a>
-    </div>
-
 </div>
 
 <script>
-    const lang = {
-        en: {
-            title: '🎬 Videos & Future',
-            desc: 'Tutorials and future trends in electrical engineering and technology.',
-            s1: '📹 Training Videos',
-            s2: '🚀 Future Trends',
-            list1: ['Artificial Intelligence in power systems','Smart grids and IoT','Renewable energy integration','Digital twins and simulation'],
-            s3: '🔮 Emerging Technologies',
-            list2: ['Solid-state transformers','Wireless power transmission','Advanced energy storage systems','AI-driven predictive maintenance'],
-            back: '← Back'
-        },
-        fa: {
-            title: '🎬 ویدئوها و آینده',
-            desc: 'آموزش‌ها و روندهای آینده در مهندسی برق و فناوری.',
-            s1: '📹 ویدئوهای آموزشی',
-            s2: '🚀 روندهای آینده',
-            list1: ['هوش مصنوعی در سیستم‌های قدرت','شبکه‌های هوشمند و اینترنت اشیاء','یکپارچه‌سازی انرژی تجدیدپذیر','دوقلوی دیجیتال و شبیه‌سازی'],
-            s3: '🔮 فناوری‌های نوظهور',
-            list2: ['ترانسفورماتورهای حالت جامد','انتقال برق بی‌سیم','سیستم‌های پیشرفته ذخیره انرژی','نگهداری پیش‌بینی‌کننده مبتنی بر AI'],
-            back: '← بازگشت'
-        }
-    };
-
-    function setLang(l) {
-        const t = lang[l];
-        if (!t) return;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('desc').textContent = t.desc;
-        document.getElementById('s1').textContent = t.s1;
-        document.getElementById('s2').textContent = t.s2;
-        document.getElementById('s3').textContent = t.s3;
-        document.getElementById('backlink').textContent = t.back;
-
-        const ul1 = document.getElementById('list1');
-        ul1.innerHTML = '';
-        t.list1.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul1.appendChild(li); });
-
-        const ul2 = document.getElementById('list2');
-        ul2.innerHTML = '';
-        t.list2.forEach(item => { const li = document.createElement('li'); li.textContent = item; ul2.appendChild(li); });
-
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-        document.body.classList.toggle('lang-persian', l === 'fa');
-        localStorage.setItem('karatech-lang', l);
+    // سیستم باز شدن ویدئو محلی
+    function openVideo(src) {
+        const modal = document.getElementById('videoModal');
+        const player = document.getElementById('videoPlayer');
+        
+        player.src = src; // تنظیم مسیر فایل ویدئو
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // جلوگیری از اسکرول صفحه زیرین
+        player.play(); // پخش خودکار ویدئو
     }
 
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.onclick = function() { setLang(this.dataset.lang); };
-    });
+    function closeVideo(event) {
+        const modal = document.getElementById('videoModal');
+        // اگر روی خود ویدئو کلیک شد، بسته نشود
+        if (event.target.classList.contains('video-modal') || event.target.closest('.close-modal')) {
+            modal.classList.remove('active');
+            const player = document.getElementById('videoPlayer');
+            player.pause(); // توقف پخش
+            player.src = ''; // پاک کردن مسیر برای توقف کامل دانلود
+            document.body.style.overflow = 'auto';
+        }
+    }
 
-    const savedLang = localStorage.getItem('karatech-lang') || 'en';
-    setLang(savedLang);
+    // سیستم ساعت و تاریخ
+    function updateDateTime() {
+        const now = new Date();
+        document.getElementById('timeDisplay').textContent = now.toLocaleTimeString('fa-IR');
+        document.getElementById('dateDisplay').textContent = now.toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
 </script>
 
 </body>
