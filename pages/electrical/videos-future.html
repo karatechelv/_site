@@ -83,7 +83,6 @@
         /* ===== کارت‌های محتوایی ===== */
         .content-area { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; gap: 30px; }
         
-        /* گرید ویدئوها */
         .video-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px;
         }
@@ -188,14 +187,14 @@
     <div class="header-left">
         <div class="brand">KARATECH <span>ELV</span></div>
         <div class="breadcrumb">
-            <a href="../../index.html" style="color: inherit; text-decoration: none;">داشبورد</a>
+            <a href="../../index.html" style="color: inherit; text-decoration: none;" data-en="Dashboard" data-fa="داشبورد">داشبورد</a>
             <i class="fas fa-chevron-left" style="font-size: 0.6rem;"></i>
-            <a href="index.html" style="color: inherit; text-decoration: none;">آکادمی</a>
+            <a href="../academy/index.html" style="color: inherit; text-decoration: none;" data-en="Academy" data-fa="آکادمی">آکادمی</a>
             <i class="fas fa-chevron-left" style="font-size: 0.6rem;"></i>
-            <!-- مسیر اصلاح شد: فایل electrical.html در همان پوشه academy است -->
-            <a href="electrical.html" style="color: inherit; text-decoration: none;">الکتریکال</a>
+            <!-- مسیر اصلاح شد: خروج از پوشه electrical و ورود به پوشه academy -->
+            <a href="../academy/electrical.html" style="color: inherit; text-decoration: none;" data-en="Electrical" data-fa="برق">برق</a>
             <i class="fas fa-chevron-left" style="font-size: 0.6rem;"></i>
-            <span>ویدئوها و آینده</span>
+            <span data-en="Videos & Future" data-fa="ویدئوها و آینده">ویدئوها و آینده</span>
         </div>
     </div>
     <div class="datetime-widget">
@@ -203,13 +202,12 @@
         <div class="time-display" id="timeDisplay">00:00:00</div>
     </div>
     <div class="header-actions">
-        <!-- مسیر اصلاح شد -->
-        <a href="electrical.html" class="back-btn" id="backBtn">
-            <i class="fas fa-arrow-left"></i> <span>بازگشت به الکتریکال</span>
+        <a href="../academy/electrical.html" class="back-btn" id="backBtn">
+            <i class="fas fa-arrow-left"></i> <span data-en="Back to Electrical" data-fa="بازگشت به برق">بازگشت به برق</span>
         </a>
         <div class="lang-switch">
-            <button class="lang-btn">EN</button>
-            <button class="lang-btn active">FA</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn active" data-lang="fa">FA</button>
         </div>
     </div>
 </header>
@@ -221,8 +219,8 @@
     
     <div class="page-header">
         <div class="page-icon"><i class="fas fa-video"></i></div>
-        <h1 class="page-title">ویدئوها و <b>آینده</b></h1>
-        <p class="page-desc">مجموعه‌ای از آموزش‌های تصویری، نکات کاربردی و معرفی فناوری‌های آینده</p>
+        <h1 class="page-title" data-en="Videos & <b>Future</b>" data-fa="ویدئوها و <b>آینده</b>">ویدئوها و <b>آینده</b></h1>
+        <p class="page-desc" data-en="A collection of visual tutorials, practical tips, and future technologies." data-fa="مجموعه‌ای از آموزش‌های تصویری، نکات کاربردی و معرفی فناوری‌های آینده">مجموعه‌ای از آموزش‌های تصویری، نکات کاربردی و معرفی فناوری‌های آینده</p>
     </div>
 
     <div class="content-area">
@@ -231,151 +229,151 @@
             <!-- VID 3 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_3.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 3</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 3" data-fa="ویدئو 3">ویدئو 3</div></div>
             </div>
 
             <!-- VID 4 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_4.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 4</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 4" data-fa="ویدئو 4">ویدئو 4</div></div>
             </div>
 
             <!-- VID 5 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_5.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 5</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 5" data-fa="ویدئو 5">ویدئو 5</div></div>
             </div>
 
             <!-- VID 6 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_6.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 6</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 6" data-fa="ویدئو 6">ویدئو 6</div></div>
             </div>
 
             <!-- VID 7 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_7.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 7</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 7" data-fa="ویدئو 7">ویدئو 7</div></div>
             </div>
 
             <!-- VID 8 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_8.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 8</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 8" data-fa="ویدئو 8">ویدئو 8</div></div>
             </div>
 
             <!-- VID 9 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_9.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 9</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 9" data-fa="ویدئو 9">ویدئو 9</div></div>
             </div>
 
             <!-- VID 12 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_12.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">مدار start.stop با یک شستی start</div></div>
+                <div class="video-info"><div class="video-title" data-en="Start-Stop Circuit with Start Push Button" data-fa="مدار start.stop با یک شستی start">مدار start.stop با یک شستی start</div></div>
             </div>
 
             <!-- VID 13 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_13.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 13</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 13" data-fa="ویدئو 13">ویدئو 13</div></div>
             </div>
 
             <!-- VID 14 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_14.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 14</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 14" data-fa="ویدئو 14">ویدئو 14</div></div>
             </div>
 
             <!-- VID 15 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_15.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 15</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 15" data-fa="ویدئو 15">ویدئو 15</div></div>
             </div>
 
             <!-- VID 16 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_16.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 16</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 16" data-fa="ویدئو 16">ویدئو 16</div></div>
             </div>
 
             <!-- VID 17 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_17.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 17</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 17" data-fa="ویدئو 17">ویدئو 17</div></div>
             </div>
 
             <!-- VID 18 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_18.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 18</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 18" data-fa="ویدئو 18">ویدئو 18</div></div>
             </div>
 
             <!-- VID 19 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_19.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 19</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 19" data-fa="ویدئو 19">ویدئو 19</div></div>
             </div>
 
             <!-- VID 21 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_21.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 21</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 21" data-fa="ویدئو 21">ویدئو 21</div></div>
             </div>
 
             <!-- VID 22 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_22.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 22</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 22" data-fa="ویدئو 22">ویدئو 22</div></div>
             </div>
 
             <!-- VID 24 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_24.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 24</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 24" data-fa="ویدئو 24">ویدئو 24</div></div>
             </div>
 
             <!-- VID 26 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_26.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 26</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 26" data-fa="ویدئو 26">ویدئو 26</div></div>
             </div>
 
             <!-- VID 27 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_27.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 27</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 27" data-fa="ویدئو 27">ویدئو 27</div></div>
             </div>
 
             <!-- VID 28 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_28.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 28</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 28" data-fa="ویدئو 28">ویدئو 28</div></div>
             </div>
 
             <!-- VID 32 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_32.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 32</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 32" data-fa="ویدئو 32">ویدئو 32</div></div>
             </div>
 
             <!-- VID 33 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_33.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 33</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 33" data-fa="ویدئو 33">ویدئو 33</div></div>
             </div>
 
             <!-- VID 34 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_34.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 34</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 34" data-fa="ویدئو 34">ویدئو 34</div></div>
             </div>
 
             <!-- VID 71 -->
             <div class="video-card" onclick="openVideo('../../assets/videos/VID_71.mp4')">
                 <div class="video-thumbnail"><div class="play-btn"><i class="fas fa-play"></i></div></div>
-                <div class="video-info"><div class="video-title">ویدئو 71</div></div>
+                <div class="video-info"><div class="video-title" data-en="Video 71" data-fa="ویدئو 71">ویدئو 71</div></div>
             </div>
 
         </div>
@@ -386,7 +384,7 @@
 <div class="video-modal" id="videoModal" onclick="closeVideo(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
         <div class="close-modal" onclick="closeVideo(event)">
-            <i class="fas fa-times"></i> بستن
+            <i class="fas fa-times"></i> <span data-en="Close" data-fa="بستن">بستن</span>
         </div>
         <video id="videoPlayer" controls autoplay></video>
     </div>
@@ -416,15 +414,47 @@
         }
     }
 
+    // سیستم دوزبانه (EN / FA)
+    let currentLang = localStorage.getItem('karatech-lang') || 'fa';
+
+    function updateStaticTexts() {
+        document.querySelectorAll('[data-en]').forEach(el => { 
+            el.innerHTML = el.getAttribute(`data-${currentLang}`); 
+        });
+        
+        const backIcon = document.querySelector('#backBtn i');
+        if(currentLang === 'fa') {
+            document.body.style.direction = 'rtl';
+            document.body.style.fontFamily = "'Vazirmatn', sans-serif";
+            backIcon.style.transform = 'rotate(180deg)';
+        } else {
+            document.body.style.direction = 'ltr';
+            document.body.style.fontFamily = 'Outfit, sans-serif';
+            backIcon.style.transform = 'rotate(0deg)';
+        }
+    }
+
+    function setLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('karatech-lang', lang);
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        updateStaticTexts();
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+    
     // سیستم ساعت و تاریخ
     function updateDateTime() {
         const now = new Date();
-        document.getElementById('timeDisplay').textContent = now.toLocaleTimeString('fa-IR');
-        document.getElementById('dateDisplay').textContent = now.toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric' });
+        document.getElementById('timeDisplay').textContent = now.toLocaleTimeString(currentLang === 'fa' ? 'fa-IR' : 'en-GB');
+        document.getElementById('dateDisplay').textContent = now.toLocaleDateString(currentLang === 'fa' ? 'fa-IR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     }
+    
+    // راه‌اندازی اولیه
+    setLang(currentLang);
     setInterval(updateDateTime, 1000);
     updateDateTime();
 </script>
 
 </body>
-                                                                          </html>
+</html>
