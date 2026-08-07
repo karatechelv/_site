@@ -62,4 +62,307 @@
         .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
         .lang-switch { display: flex; gap: 8px; }
         .lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
-        .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color:
+        .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color: var(--accent-indigo); border-color: rgba(77, 139, 255, 0.3); }
+
+        /* ===== محتوای اصلی ===== */
+        .main-content { 
+            flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; 
+            padding: 60px 20px; max-width: 1200px; margin: 0 auto; width: 100%;
+        }
+        .aurora { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; mix-blend-mode: screen; }
+        .aurora-1 { width: 500px; height: 500px; background: rgba(77, 139, 255, 0.1); top: -10%; right: 10%; animation: drift1 15s ease-in-out infinite; }
+        .aurora-2 { width: 400px; height: 400px; background: rgba(0, 242, 255, 0.06); bottom: -10%; left: 10%; animation: drift2 18s ease-in-out infinite; }
+        @keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-80px, 50px) scale(1.1); } }
+        @keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(60px, -30px) scale(1.2); } }
+
+        .page-header { text-align: center; margin-bottom: 50px; position: relative; z-index: 2; width: 100%; }
+        .page-icon { font-size: 3rem; color: var(--accent-indigo); margin-bottom: 20px; filter: drop-shadow(0 0 15px var(--accent-indigo)); }
+        .page-title { font-family: 'Markazi Text', serif; font-size: 3rem; font-weight: 700; margin-bottom: 10px; color: rgba(255,255,255,0.95); }
+        .page-title b { color: var(--accent-cyan); }
+        .page-desc { color: rgba(255,255,255,0.4); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
+
+        /* ===== کارت‌های محتوایی ===== */
+        .content-area { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; gap: 30px; }
+        
+        .content-card {
+            background: rgba(10, 20, 35, 0.4);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-right: 3px solid var(--accent-indigo);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        .content-card:hover { border-color: var(--accent-cyan); box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 15px rgba(0, 242, 255, 0.1); }
+
+        .card-title { font-family: 'Markazi Text', serif; font-size: 1.8rem; font-weight: 600; color: #fff; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .card-title i { color: var(--accent-cyan); }
+        
+        .card-text { color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 1.05rem; margin-bottom: 15px; }
+
+        /* جدول‌های تخصصی */
+        .tech-table-container { overflow-x: auto; margin: 20px 0; border-radius: 8px; border: 1px solid rgba(77, 139, 255, 0.2); }
+        .tech-table {
+            width: 100%; border-collapse: collapse; font-size: 0.95rem; min-width: 600px;
+        }
+        .tech-table th {
+            background: rgba(77, 139, 255, 0.1); color: var(--accent-cyan); 
+            padding: 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; font-weight: 700;
+        }
+        .tech-table td {
+            padding: 12px 15px; border: 1px solid rgba(255,255,255,0.05); 
+            text-align: center; color: #fff; background: rgba(255,255,255,0.02);
+        }
+        .tech-table td:first-child { text-align: right; color: var(--accent-gold); font-weight: 700; }
+
+        /* باکس نکات فنی */
+        .note-box {
+            background: rgba(0, 242, 255, 0.03); border: 1px solid rgba(0, 242, 255, 0.15);
+            border-radius: 8px; padding: 15px 20px; margin: 20px 0;
+            display: flex; gap: 15px; align-items: flex-start;
+        }
+        .note-box i { color: var(--accent-cyan); font-size: 1.2rem; margin-top: 3px; }
+        .note-box span { color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.6; }
+
+        /* استایل لیست‌های لینک‌دار */
+        .tree-list { list-style: none; padding: 0; margin-top: 10px; }
+        .tree-list li { border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .tree-list li:last-child { border-bottom: none; }
+        .tree-link {
+            display: flex; align-items: center; gap: 12px; 
+            padding: 15px 10px; font-size: 1.05rem; line-height: 1.6;
+            color: rgba(255,255,255,0.7); text-decoration: none;
+            transition: 0.3s ease; border-radius: 8px;
+            background: rgba(255,255,255,0.02); cursor: pointer;
+        }
+        .tree-link i.bullet { color: var(--accent-cyan); font-size: 0.6rem; transition: 0.3s; }
+        .tree-link i.arrow { margin-left: auto; color: var(--text-muted); font-size: 0.8rem; opacity: 0.5; transition: 0.3s; padding-top: 5px;}
+        .tree-link:hover { color: var(--accent-cyan); background: rgba(0, 242, 255, 0.05); transform: translateX(10px); }
+        .tree-link:hover i.bullet { color: var(--accent-indigo); transform: scale(1.5); }
+        .tree-link:hover i.arrow { opacity: 1; color: var(--accent-cyan); }
+
+        @media (max-width: 768px) {
+            .header { flex-wrap: wrap; gap: 10px; padding: 15px; }
+            .main-content { padding: 30px 15px; }
+            .page-title { font-size: 2.2rem; }
+            .content-card { padding: 20px; }
+            .tree-link:hover { transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <div class="header-left">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <div class="breadcrumb">
+            <a href="../../index.html" style="color: inherit; text-decoration: none;" data-en="Dashboard" data-fa="داشبورد">داشبورد</a>
+            <i class="fas fa-chevron-left" style="font-size: 0.6rem;"></i>
+            <a href="index.html" style="color: inherit; text-decoration: none;" data-en="Academy" data-fa="آکادمی">آکادمی</a>
+            <i class="fas fa-chevron-left" style="font-size: 0.6rem;"></i>
+            <span data-en="Quality Control" data-fa="کنترل کیفیت">کنترل کیفیت</span>
+        </div>
+    </div>
+    <div class="datetime-widget">
+        <div class="date-display" id="dateDisplay"></div>
+        <div class="time-display" id="timeDisplay">00:00:00</div>
+    </div>
+    <div class="header-actions">
+        <a href="index.html" class="back-btn" id="backBtn">
+            <i class="fas fa-arrow-left"></i> <span data-en="Back to Academy" data-fa="بازگشت به آکادمی">بازگشت به آکادمی</span>
+        </a>
+        <div class="lang-switch">
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn active" data-lang="fa">FA</button>
+        </div>
+    </div>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="main-content">
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    
+    <div class="page-header">
+        <div class="page-icon"><i class="fas fa-shield-alt"></i></div>
+        <h1 class="page-title" data-en="Quality <b>Control</b>" data-fa="کنترل <b>کیفیت</b>">کنترل <b>کیفیت</b></h1>
+        <p class="page-desc" data-en="Quality Assurance (QA) and Quality Control (QC) protocols in electrical panel manufacturing, based on IEC 61439 and ISO 9001 standards." data-fa="پروتکل‌های تضمین کیفیت (QA) و کنترل کیفیت (QC) در ساخت تابلوی برق، بر پایه استانداردهای IEC 61439 و ISO 9001.">پروتکل‌های تضمین کیفیت (QA) و کنترل کیفیت (QC) در ساخت تابلوی برق، بر پایه استانداردهای IEC 61439 و ISO 9001.</p>
+    </div>
+
+    <div class="content-area">
+        
+        <!-- کارت ۱: مقدمه و استانداردها -->
+        <div class="content-card">
+            <h2 class="card-title"><i class="fas fa-book-medical"></i> <span data-en="QC Philosophy & Standards" data-fa="فلسفه کنترل کیفیت و استانداردها">فلسفه کنترل کیفیت و استانداردها</span></h2>
+            <p class="card-text" data-en="Quality Control (QC) in electrical panel manufacturing is not just about final testing; it is a comprehensive process that begins with the inspection of raw materials and continues through design, assembly, wiring, and final testing. Implementing strict QC protocols ensures that the panel will operate safely and reliably under fault conditions for its intended lifespan." data-fa="کنترل کیفیت (QC) در ساخت تابلوی برق فقط به تست نهایی محدود نمی‌شود؛ بلکه فرآیندی جامع است که از بازرسی مواد اولیه آغاز شده و تا طراحی، اسمبلی، سیم‌بندی و تست نهایی ادامه می‌یابد. اجرای پروتکل‌های سخت‌گیرانه QC تضمین می‌کند که تابلو تحت شرایط خطا و در طول عمر مفید آن به طور ایمن و قابل اعتماد کار کند.">
+                کنترل کیفیت (QC) در ساخت تابلوی برق فقط به تست نهایی محدود نمی‌شود؛ بلکه فرآیندی جامع است که از بازرسی مواد اولیه آغاز شده و تا طراحی، اسمبلی، سیم‌بندی و تست نهایی ادامه می‌یابد. اجرای پروتکل‌های سخت‌گیرانه QC تضمین می‌کند که تابلو تحت شرایط خطا و در طول عمر مفید آن به طور ایمن و قابل اعتماد کار کند.
+            </p>
+            <ul class="tree-list">
+                <li>
+                    <a href="standard-iso-9001.html" class="tree-link">
+                        <i class="fas fa-circle bullet"></i> 
+                        <span data-en="ISO 9001: Quality Management Systems - Requirements for panel builders." data-fa="ایزو ۹۰۰۱: سیستم‌های مدیریت کیفیت - الزامات برای تابلوسازان.">ایزو ۹۰۰۱: سیستم‌های مدیریت کیفیت - الزامات برای تابلوسازان.</span>
+                        <i class="fas fa-arrow-left arrow"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="standard-iec-61439.html" class="tree-link">
+                        <i class="fas fa-circle bullet"></i> 
+                        <span data-en="IEC 61439: Design verification and routine tests for low-voltage assemblies." data-fa="IEC 61439: تأیید طراحی و تست‌های روتین برای تابلوهای فشار ضعیف.">IEC 61439: تأیید طراحی و تست‌های روتین برای تابلوهای فشار ضعیف.</span>
+                        <i class="fas fa-arrow-left arrow"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- کارت ۲: تست‌های روتین IEC 61439 (جدول تخصصی) -->
+        <div class="content-card">
+            <h2 class="card-title"><i class="fas fa-vial"></i> <span data-en="IEC 61439 Routine Tests" data-fa="تست‌های روتین IEC 61439">تست‌های روتین IEC 61439</span></h2>
+            <p class="card-text" data-en="Routine tests are mandatory checks performed on every manufactured panel to ensure it meets the design verified criteria." data-fa="تست‌های روتین، بررسی‌های اجباری هستند که روی هر تابلوی ساخته‌شده انجام می‌شوند تا مطابقت با معیارهای تأیید طراحی را تأیید کنند.">
+                تست‌های روتین، بررسی‌های اجباری هستند که روی هر تابلوی ساخته‌شده انجام می‌شوند تا مطابقت با معیارهای تأیید طراحی را تأیید کنند.
+            </p>
+            <div class="tech-table-container">
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th data-en="Test Type" data-fa="نوع تست">نوع تست</th>
+                            <th data-en="Procedure" data-fa="روند اجرا">روند اجرا</th>
+                            <th data-en="Acceptance Criteria" data-fa="معیار پذیرش">معیار پذیرش</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-en="Visual Inspection" data-fa="بازرسی بصری">بازرسی بصری</td>
+                            <td data-en="Check for proper grounding, labeling, clearances, and physical damage." data-fa="بررسی ارتینگ، برچسب‌گذاری، فواصل و آسیب‌های فیزیکی.">بررسی ارتینگ، برچسب‌گذاری، فواصل و آسیب‌های فیزیکی.</td>
+                            <td data-en="No visible defects, proper IP rating." data-fa="بدون نقص ظاهری، درجه IP صحیح.">بدون نقص ظاهری، درجه IP صحیح.</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Dielectric Test" data-fa="تست دی‌الکتریک">تست دی‌الکتریک</td>
+                            <td data-en="Apply test voltage between circuits and earth for 1 second." data-fa="اعمال ولتاژ تست بین مدارها و زمین به مدت ۱ ثانیه.">اعمال ولتاژ تست بین مدارها و زمین به مدت ۱ ثانیه.</td>
+                            <td data-en="No breakdown or flashover." data-fa="بدون شکست عایقی یا جرقه.">بدون شکست عایقی یا جرقه.</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Insulation Resistance" data-fa="مقاومت عایقی">مقاومت عایقی</td>
+                            <td data-en="Measure resistance using a Megger (500V or 1000V)." data-fa="اندازه‌گیری مقاومت با مگومتر (۵۰۰ یا ۱۰۰۰ ولت).">اندازه‌گیری مقاومت با مگومتر (۵۰۰ یا ۱۰۰۰ ولت).</td>
+                            <td data-en="> 1 MΩ" data-fa="بزرگتر از ۱ مگااهم">بزرگتر از ۱ مگااهم</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Torque Verification" data-fa="بررسی گشتاور">بررسی گشتاور</td>
+                            <td data-en="Check tightening torque of all bolted connections." data-fa="بررسی گشتاور محکم کردن تمام اتصالات پیچی.">بررسی گشتاور محکم کردن تمام اتصالات پیچی.</td>
+                            <td data-en="Meets manufacturer's torque specs." data-fa="مطابقت با مشخصات سازنده.">مطابقت با مشخصات سازنده.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- کارت ۳: FAT و SAT -->
+        <div class="content-card">
+            <h2 class="card-title"><i class="fas fa-industry"></i> <span data-en="FAT & SAT Protocols" data-fa="پروتکل‌های FAT و SAT">پروتکل‌های FAT و SAT</span></h2>
+            <div class="note-box">
+                <i class="fas fa-clipboard-check"></i>
+                <div>
+                    <strong data-en="FAT (Factory Acceptance Test):" data-fa="FAT (تست پذیرش کارخانه‌ای):">FAT (تست پذیرش کارخانه‌ای):</strong>
+                    <span data-en="Conducted at the manufacturer's facility before shipment. Includes visual inspection, dielectric test, temperature rise verification, and functional tests." data-fa="در محل سازنده قبل از ارسال انجام می‌شود. شامل بازرسی بصری، تست دی‌الکتریک، بررسی افزایش دما و تست‌های عملکردی است.">در محل سازنده قبل از ارسال انجام می‌شود. شامل بازرسی بصری، تست دی‌الکتریک، بررسی افزایش دما و تست‌های عملکردی است.</span>
+                </div>
+            </div>
+            <div class="note-box">
+                <i class="fas fa-clipboard-check"></i>
+                <div>
+                    <strong data-en="SAT (Site Acceptance Test):" data-fa="SAT (تست پذیرش در سایت):">SAT (تست پذیرش در سایت):</strong>
+                    <span data-en="Conducted after installation at the final site. Verifies that the panel was not damaged during transport and integrates correctly with the site's electrical system." data-fa="پس از نصب در سایت نهایی انجام می‌شود. بررسی می‌کند که تابلو در طول حمل‌ونقل آسیب ندیده و به درستی با سیستم برق سایت یکپارچه می‌شود.">پس از نصب در سایت نهایی انجام می‌شود. بررسی می‌کند که تابلو در طول حمل‌ونقل آسیب ندیده و به درستی با سیستم برق سایت یکپارچه می‌شود.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- کارت ۴: چک‌لیست فنی -->
+        <div class="content-card">
+            <h2 class="card-title"><i class="fas fa-list-ul"></i> <span data-en="Technical Checklist" data-fa="چک‌لیست فنی">چک‌لیست فنی</span></h2>
+            <p class="card-text" data-en="Key parameters checked during the QC process:" data-fa="پارامترهای کلیدی که در فرآیند کنترل کیفیت بررسی می‌شوند:">
+                پارامترهای کلیدی که در فرآیند کنترل کیفیت بررسی می‌شوند:
+            </p>
+            <div class="tech-table-container">
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th data-en="Parameter" data-fa="پارامتر">پارامتر</th>
+                            <th data-en="Standard/Value" data-fa="استاندارد/مقدار">استاندارد/مقدار</th>
+                            <th data-en="Instrument" data-fa="ابزار">ابزار</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-en="Clearance (Phase-Phase)" data-fa="فاصله فاز-فاز">فاصله فاز-فاز</td>
+                            <td data-en=">10 mm (400V)" data-fa="> ۱۰ میلی‌متر (۴۰۰ ولت)">بزرگتر از ۱۰ میلی‌متر (۴۰۰ ولت)</td>
+                            <td data-en="Feeler Gauge" data-fa="کولیس / فیلر گیج">کولیس / فیلر گیج</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Insulation Resistance" data-fa="مقاومت عایقی">مقاومت عایقی</td>
+                            <td data-en="> 1 MΩ" data-fa="بزرگتر از ۱ مگااهم">بزرگتر از ۱ مگااهم</td>
+                            <td data-en="Megger (1000V)" data-fa="مگومتر (۱۰۰۰ ولت)">مگومتر (۱۰۰۰ ولت)</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Torque (M8 Bolt)" data-fa="گشتاور (پیچ M8)">گشتاور (پیچ M8)</td>
+                            <td data-en="8 - 12 Nm" data-fa="۸ - ۱۲ نیوتن‌متر">۸ - ۱۲ نیوتن‌متر</td>
+                            <td data-en="Torque Wrench" data-fa="کلیه گشتاورسنج">کلیه گشتاورسنج</td>
+                        </tr>
+                        <tr>
+                            <td data-en="IP Protection" data-fa="درجه حفاظت (IP)">درجه حفاظت (IP)</td>
+                            <td data-en="IP54 / IP65" data-fa="IP54 / IP65">IP54 / IP65</td>
+                            <td data-en="Visual / Spray Test" data-fa="بازرسی بصری / تست اسپری">بازرسی بصری / تست اسپری</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<script>
+    // سیستم دوزبانه (EN / FA)
+    let currentLang = localStorage.getItem('karatech-lang') || 'fa';
+
+    function updateStaticTexts() {
+        document.querySelectorAll('[data-en]').forEach(el => { 
+            let text = el.getAttribute(`data-${currentLang}`);
+            if (text) el.textContent = text;
+        });
+        
+        const backIcon = document.querySelector('#backBtn i');
+        if(currentLang === 'fa') {
+            document.body.style.direction = 'rtl';
+            document.body.style.fontFamily = "'Vazirmatn', sans-serif";
+            if(backIcon) backIcon.style.transform = 'rotate(180deg)';
+        } else {
+            document.body.style.direction = 'ltr';
+            document.body.style.fontFamily = 'Outfit, sans-serif';
+            if(backIcon) backIcon.style.transform = 'rotate(0deg)';
+        }
+    }
+
+    function setLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('karatech-lang', lang);
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        updateStaticTexts();
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+    
+    // سیستم ساعت و تاریخ
+    function updateDateTime() {
+        const now = new Date();
+        document.getElementById('timeDisplay').textContent = now.toLocaleTimeString(currentLang === 'fa' ? 'fa-IR' : 'en-GB');
+        document.getElementById('dateDisplay').textContent = now.toLocaleDateString(currentLang === 'fa' ? 'fa-IR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+    
+    // راه‌اندازی اولیه
+    setLang(currentLang);
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+</script>
+
+</body>
+</html>
