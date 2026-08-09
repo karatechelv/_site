@@ -68,10 +68,7 @@
         .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color: var(--accent-indigo); border-color: rgba(77, 139, 255, 0.3); }
 
         /* ===== محتوای اصلی ===== */
-        .main-content { 
-            flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; 
-            padding: 60px 20px; max-width: 1000px; margin: 0 auto; width: 100%;
-        }
+        .main-content { flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; padding: 60px 20px; max-width: 1000px; margin: 0 auto; width: 100%; }
         .aurora { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; mix-blend-mode: screen; }
         .aurora-1 { width: 500px; height: 500px; background: rgba(77, 139, 255, 0.1); top: -10%; right: 10%; animation: drift1 15s ease-in-out infinite; }
         .aurora-2 { width: 400px; height: 400px; background: rgba(0, 242, 255, 0.06); bottom: -10%; left: 10%; animation: drift2 18s ease-in-out infinite; }
@@ -86,18 +83,12 @@
 
         /* ===== کارت‌های محتوایی ===== */
         .content-area { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; gap: 30px; }
-        
         .content-card {
-            background: rgba(10, 20, 35, 0.4);
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-right: 3px solid var(--accent-indigo);
-            border-radius: 12px;
-            padding: 30px;
-            transition: all 0.3s ease;
+            background: rgba(10, 20, 35, 0.4); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05); border-right: 3px solid var(--accent-indigo);
+            border-radius: 12px; padding: 30px; transition: all 0.3s ease;
         }
         .content-card:hover { border-color: var(--accent-cyan); box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 15px rgba(0, 242, 255, 0.1); }
-
         .card-title { font-family: 'Markazi Text', serif; font-size: 1.8rem; font-weight: 600; color: #fff; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
         .card-title i { color: var(--accent-cyan); }
         .card-text { color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 1.05rem; margin-bottom: 15px; }
@@ -109,15 +100,19 @@
         .tech-table td { padding: 12px 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; color: #fff; background: rgba(255,255,255,0.02); transition: 0.3s; }
         .tech-table td:first-child { text-align: right; color: var(--accent-gold); font-weight: 700; }
         
-        /* استایل‌های اضافه شده برای جدول و چک‌لیست */
+        /* انتخابگر نوع تابلو */
+        .panel-selector { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .panel-btn { padding: 8px 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-muted); border-radius: 20px; cursor: pointer; font-weight: 600; transition: 0.3s; }
+        .panel-btn.active, .panel-btn:hover { background: rgba(77, 139, 255, 0.2); color: #fff; border-color: var(--accent-indigo); box-shadow: 0 0 10px rgba(77, 139, 255, 0.2); }
+
+        /* چک‌لیست */
         .status-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
         .status-pass { background: rgba(46, 204, 113, 0.15); color: var(--success-green); border: 1px solid rgba(46, 204, 113, 0.3); }
-        .status-fail { background: rgba(231, 76, 60, 0.15); color: var(--danger-red); border: 1px solid rgba(231, 76, 60, 0.3); }
         .status-pending { background: rgba(243, 156, 18, 0.15); color: var(--warning-orange); border: 1px solid rgba(243, 156, 18, 0.3); }
+        .status-fail { background: rgba(231, 76, 60, 0.15); color: var(--danger-red); border: 1px solid rgba(231, 76, 60, 0.3); }
 
         .checklist-row.completed { background: rgba(46, 204, 113, 0.05) !important; }
         .checklist-row.completed td { color: var(--text-muted); text-decoration: line-through; }
-        
         .custom-checkbox { display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
         .custom-checkbox input { display: none; }
         .custom-checkbox .checkmark { width: 24px; height: 24px; background: rgba(255,255,255,0.05); border: 1px solid var(--text-muted); border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
@@ -125,33 +120,27 @@
         .custom-checkbox .checkmark i { color: #fff; font-size: 0.8rem; opacity: 0; transition: 0.3s; }
         .custom-checkbox input:checked + .checkmark i { opacity: 1; }
 
-        /* نوار پیشرفت */
         .progress-container { margin-bottom: 20px; }
         .progress-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem; color: var(--text-muted); }
         .progress-bar { width: 100%; height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
         .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent-indigo), var(--accent-cyan)); width: 0%; transition: width 0.4s ease; box-shadow: 0 0 10px var(--accent-cyan); }
+        
+        .action-row { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; gap: 15px; flex-wrap: wrap; }
+        .export-btn { background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan)); color: #000; padding: 12px 25px; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+        .export-btn:hover { box-shadow: 0 0 20px rgba(0, 242, 255, 0.4); transform: translateY(-2px); }
 
-        /* باکس نکات فنی */
+        /* باکس نکات */
         .note-box { background: rgba(0, 242, 255, 0.03); border: 1px solid rgba(0, 242, 255, 0.15); border-radius: 8px; padding: 15px 20px; margin: 20px 0; display: flex; gap: 15px; align-items: flex-start; }
         .note-box i { color: var(--accent-cyan); font-size: 1.2rem; margin-top: 3px; }
         .note-box span { color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.6; }
 
-        /* کادر جستجو */
         .search-box { position: relative; margin-bottom: 20px; }
         .search-box i { position: absolute; top: 50%; right: 20px; transform: translateY(-50%); color: var(--text-muted); }
         .search-box input { width: 100%; padding: 12px 45px 12px 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 30px; color: #fff; font-family: inherit; font-size: 1rem; transition: 0.3s; }
         .search-box input:focus { outline: none; border-color: var(--accent-cyan); box-shadow: 0 0 15px rgba(0, 242, 255, 0.1); }
 
-        /* استایل لیست‌های لینک‌دار (کپسولی) */
         .tree-list { list-style: none; padding: 0; margin-top: 10px; display: flex; flex-direction: column; gap: 12px; }
-        .tree-link {
-            display: flex; align-items: center; justify-content: space-between;
-            background: rgba(255,255,255,0.02); backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 50px; padding: 15px 25px;
-            color: rgba(255,255,255,0.8); text-decoration: none;
-            transition: 0.3s ease; cursor: pointer;
-        }
+        .tree-link { display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.02); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 50px; padding: 15px 25px; color: rgba(255,255,255,0.8); text-decoration: none; transition: 0.3s ease; cursor: pointer; }
         .tree-link:hover { color: #fff; background: rgba(0, 242, 255, 0.05); transform: translateX(-10px); border-color: var(--accent-cyan); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
         .tree-link-left { display: flex; align-items: center; gap: 15px; }
         .tree-link i.bullet { color: var(--accent-cyan); font-size: 1.2rem; transition: 0.3s; width: 20px; text-align: center; }
@@ -161,7 +150,6 @@
         .tree-link i.arrow { color: var(--text-muted); font-size: 0.8rem; opacity: 0.5; transition: 0.3s; }
         .tree-link:hover i.arrow { opacity: 1; color: var(--accent-cyan); }
 
-        /* زیرمجموعه‌های آکاردئونی */
         .accordion-trigger { cursor: pointer; }
         .sub-tree-container { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
         .sub-tree-container.open { max-height: 500px; }
@@ -226,9 +214,7 @@
         <!-- کارت ۱: تست‌های روتین IEC 61439 -->
         <div class="content-card">
             <h2 class="card-title"><i class="fas fa-vial"></i> <span data-en="IEC 61439 Routine Tests" data-fa="تست‌های روتین IEC 61439">تست‌های روتین IEC 61439</span></h2>
-            <p class="card-text" data-en="Routine tests are mandatory checks performed on every manufactured panel." data-fa="تست‌های روتین، بررسی‌های اجباری هستند که روی هر تابلوی ساخته‌شده انجام می‌شوند.">
-                تست‌های روتین، بررسی‌های اجباری هستند که روی هر تابلوی ساخته‌شده انجام می‌شوند.
-            </p>
+            <p class="card-text" data-en="Routine tests are mandatory checks performed on every manufactured panel." data-fa="تست‌های روتین، بررسی‌های اجباری هستند که روی هر تابلوی ساخته‌شده انجام می‌شوند.">تست‌های روتین، بررسی‌های اجباری هستند که روی هر تابلوی ساخته‌شده انجام می‌شوند.</p>
             <div class="tech-table-container">
                 <table class="tech-table">
                     <thead>
@@ -288,10 +274,18 @@
             </div>
         </div>
 
-        <!-- کارت ۳: چک‌لیست تعاملی -->
+        <!-- کارت ۳: چک‌لیست تعاملی (پویا و قابل خروجی) -->
         <div class="content-card">
-            <h2 class="card-title"><i class="fas fa-list-check"></i> <span data-en="Interactive Checklist" data-fa="چک‌لیست تعاملی">چک‌لیست تعاملی</span></h2>
+            <h2 class="card-title"><i class="fas fa-list-check"></i> <span data-en="Interactive Panel Checklist" data-fa="چک‌لیست تعاملی تابلو">چک‌لیست تعاملی تابلو</span></h2>
             
+            <!-- انتخاب نوع تابلو -->
+            <div class="panel-selector" id="panelSelector">
+                <button class="panel-btn active" onclick="loadChecklist('mdb')" data-en="MDB" data-fa="تابلو توزیع اصلی (MDB)">تابلو توزیع اصلی (MDB)</button>
+                <button class="panel-btn" onclick="loadChecklist('mcc')" data-en="MCC" data-fa="تابلو کنترل موتور (MCC)">تابلو کنترل موتور (MCC)</button>
+                <button class="panel-btn" onclick="loadChecklist('sdb')" data-en="SDB" data-fa="تابلو توزیع فرعی (SDB)">تابلو توزیع فرعی (SDB)</button>
+                <button class="panel-btn" onclick="loadChecklist('ats')" data-en="ATS" data-fa="تابلو انتقال خودکار (ATS)">تابلو انتقال خودکار (ATS)</button>
+            </div>
+
             <div class="progress-container">
                 <div class="progress-info">
                     <span data-en="QC Progress" data-fa="پیشرفت کنترل کیفیت">پیشرفت کنترل کیفیت</span>
@@ -312,38 +306,16 @@
                         </tr>
                     </thead>
                     <tbody id="checklistBody">
-                        <tr class="checklist-row">
-                            <td data-en="Clearance (Phase-Phase)" data-fa="فاصله فاز-فاز">فاصله فاز-فاز</td>
-                            <td data-en=">10 mm (400V)" data-fa="> ۱۰ میلی‌متر (۴۰۰ ولت)">بزرگتر از ۱۰ میلی‌متر (۴۰۰ ولت)</td>
-                            <td><label class="custom-checkbox"><input type="checkbox" onchange="updateProgress()"><span class="checkmark"><i class="fas fa-check"></i></span></label></td>
-                        </tr>
-                        <tr class="checklist-row">
-                            <td data-en="Creepage Distance" data-fa="مسیر نشتی (کرپ)">مسیر نشتی (کرپ)</td>
-                            <td data-en=">14 mm (400V)" data-fa="> ۱۴ میلی‌متر (۴۰۰ ولت)">بزرگتر از ۱۴ میلی‌متر (۴۰۰ ولت)</td>
-                            <td><label class="custom-checkbox"><input type="checkbox" onchange="updateProgress()"><span class="checkmark"><i class="fas fa-check"></i></span></label></td>
-                        </tr>
-                        <tr class="checklist-row">
-                            <td data-en="Insulation Resistance" data-fa="مقاومت عایقی">مقاومت عایقی</td>
-                            <td data-en="> 1 MΩ" data-fa="بزرگتر از ۱ مگااهم">بزرگتر از ۱ مگااهم</td>
-                            <td><label class="custom-checkbox"><input type="checkbox" onchange="updateProgress()"><span class="checkmark"><i class="fas fa-check"></i></span></label></td>
-                        </tr>
-                        <tr class="checklist-row">
-                            <td data-en="Torque (M8 Bolt)" data-fa="گشتاور (پیچ M8)">گشتاور (پیچ M8)</td>
-                            <td data-en="8 - 12 Nm" data-fa="۸ - ۱۲ نیوتن‌متر">۸ - ۱۲ نیوتن‌متر</td>
-                            <td><label class="custom-checkbox"><input type="checkbox" onchange="updateProgress()"><span class="checkmark"><i class="fas fa-check"></i></span></label></td>
-                        </tr>
-                        <tr class="checklist-row">
-                            <td data-en="Grounding Continuity" data-fa="پیوستگی ارتینگ">پیوستگی ارتینگ</td>
-                            <td data-en="< 0.1 Ω" data-fa="کمتر از ۰.۱ اهم">کمتر از ۰.۱ اهم</td>
-                            <td><label class="custom-checkbox"><input type="checkbox" onchange="updateProgress()"><span class="checkmark"><i class="fas fa-check"></i></span></label></td>
-                        </tr>
-                        <tr class="checklist-row">
-                            <td data-en="Phase Sequence" data-fa="توالی فازها">توالی فازها</td>
-                            <td data-en="L1-L2-L3" data-fa="L1-L2-L3">L1-L2-L3</td>
-                            <td><label class="custom-checkbox"><input type="checkbox" onchange="updateProgress()"><span class="checkmark"><i class="fas fa-check"></i></span></label></td>
-                        </tr>
+                        <!-- JS fills this -->
                     </tbody>
                 </table>
+            </div>
+
+            <div class="action-row">
+                <input type="text" id="projectNameInput" placeholder="نام پروژه / شماره تابلو" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; color: #fff; padding: 12px 20px; flex: 1; min-width: 200px; font-family: inherit;">
+                <button class="export-btn" onclick="generateReport()">
+                    <i class="fas fa-file-export"></i> <span data-en="Export PDF / Print" data-fa="خروجی PDF / چاپ">خروجی PDF / چاپ</span>
+                </button>
             </div>
         </div>
 
@@ -364,17 +336,9 @@
                         <i class="fas fa-arrow-left arrow"></i>
                     </a>
                 </li>
-
-                <!-- ۲. بازرسی و تست (آکاردئونی) -->
                 <li class="module-item">
                     <div class="tree-link accordion-trigger" onclick="toggleAccordion(this)">
-                        <div class="tree-link-left">
-                            <i class="fas fa-search bullet"></i>
-                            <div>
-                                <h4 data-en="Inspection & Testing" data-fa="بازرسی و تست">بازرسی و تست</h4>
-                                <p data-en="Methods and procedures" data-fa="روش‌ها و رویه‌ها">روش‌ها و رویه‌ها</p>
-                            </div>
-                        </div>
+                        <div class="tree-link-left"><i class="fas fa-search bullet"></i><div><h4 data-en="Inspection & Testing" data-fa="بازرسی و تست">بازرسی و تست</h4><p data-en="Methods and procedures" data-fa="روش‌ها و رویه‌ها">روش‌ها و رویه‌ها</p></div></div>
                         <i class="fas fa-chevron-down arrow"></i>
                     </div>
                     <div class="sub-tree-container">
@@ -386,8 +350,6 @@
                         </ul>
                     </div>
                 </li>
-
-                <!-- سایر آیتم‌ها -->
                 <li class="module-item"><a href="../quality/overview.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-book-open bullet"></i><div><h4 data-en="Overview" data-fa="مرور کلی">مرور کلی</h4><p data-en="Complete overview" data-fa="مرور کامل کنترل کیفیت">مرور کامل کنترل کیفیت</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
                 <li class="module-item"><a href="../quality/spc.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-chart-line bullet"></i><div><h4 data-en="SPC" data-fa="کنترل آماری فرآیند">کنترل آماری فرآیند</h4><p data-en="SPC" data-fa="SPC">SPC</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
                 <li class="module-item"><a href="../quality/7qc-tools.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-tools bullet"></i><div><h4 data-en="7 QC Tools" data-fa="۷ ابزار کیفیت">۷ ابزار کیفیت</h4><p data-en="Pareto, Fishbone, etc." data-fa="پارتو، استخوان ماهی و غیره">پارتو، استخوان ماهی و غیره</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
@@ -404,7 +366,6 @@
                 <li class="module-item"><a href="../quality/quality-tools.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-toolbox bullet"></i><div><h4 data-en="Quality Tools" data-fa="ابزارهای کیفیت">ابزارهای کیفیت</h4><p data-en="Problem solving" data-fa="ابزارهای حل مسئله">ابزارهای حل مسئله</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
             </ul>
         </div>
-
     </div>
 </main>
 
@@ -424,11 +385,13 @@
             document.body.style.fontFamily = "'Vazirmatn', sans-serif";
             if(backIcon) backIcon.style.transform = 'rotate(180deg)';
             document.getElementById('moduleSearch').placeholder = 'جستجو در ماژول‌ها...';
+            document.getElementById('projectNameInput').placeholder = 'نام پروژه / شماره تابلو';
         } else {
             document.body.style.direction = 'ltr';
             document.body.style.fontFamily = 'Outfit, sans-serif';
             if(backIcon) backIcon.style.transform = 'rotate(0deg)';
             document.getElementById('moduleSearch').placeholder = 'Search modules...';
+            document.getElementById('projectNameInput').placeholder = 'Project Name / Panel No.';
         }
     }
 
@@ -437,23 +400,23 @@
         localStorage.setItem('karatech-lang', lang);
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
         updateStaticTexts();
+        // Reload checklist to update language
+        const activePanel = document.querySelector('.panel-btn.active').getAttribute('onclick').match(/'([^']+)'/)[1];
+        loadChecklist(activePanel);
     }
 
     document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
     
-    // سیستم ساعت و تاریخ
     function updateDateTime() {
         const now = new Date();
         document.getElementById('timeDisplay').textContent = now.toLocaleTimeString(currentLang === 'fa' ? 'fa-IR' : 'en-GB');
         document.getElementById('dateDisplay').textContent = now.toLocaleDateString(currentLang === 'fa' ? 'fa-IR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     }
     
-    // ۱. تابع آکاردئون
+    // ۱. آکاردئون
     function toggleAccordion(element) {
-        element.classList.toggle('accordion-active');
         const container = element.nextElementSibling;
         const arrow = element.querySelector('.arrow');
-        
         if (container.classList.contains('open')) {
             container.classList.remove('open');
             container.style.maxHeight = '0';
@@ -465,7 +428,81 @@
         }
     }
 
-    // ۲. تابع نوار پیشرفت و چک‌لیست
+    // ۲. پایگاه داده چک‌لیست‌ها (گسترده و بر اساس نوع تابلو)
+    const checklistData = {
+        mdb: [
+            { p_fa: "بررسی فیزیکی بدنه و رنگ", p_en: "Enclosure Physical Check", s: "No Scratches" },
+            { p_fa: "فواصل حریم ایمنی (فاز-فاز و فاز-بدنه)", p_en: "Clearance & Creepage", s: ">10mm / >14mm" },
+            { p_fa: "تست مقاومت عایقی (مگومتر)", p_en: "Insulation Resistance Test", s: "> 1 MΩ" },
+            { p_fa: "تست دی‌الکتریک (ولتاژ بالا)", p_en: "Dielectric Test", s: "2.5kV for 1 sec" },
+            { p_fa: "بررسی گشتاور پیچ‌های شینه اصلی", p_en: "Main Busbar Torque", s: "Spec by Manufacturer" },
+            { p_fa: "پیوستگی مدار حفاظتی (ارتینگ)", p_en: "Protective Circuit Continuity", s: "< 0.1 Ω" },
+            { p_fa: "برچسب‌گذاری شینه‌ها و کابل‌ها", p_en: "Labeling & Tagging", s: "Match Schematic" },
+            { p_fa: "تست درجه حفاظت (IP)", p_en: "IP Protection Test", s: "IP54 / IP65" },
+            { p_fa: "عملکرد کلید اصلی (کلید隔离)", p_en: "Main Switch Operation", s: "Smooth Mechanism" }
+        ],
+        mcc: [
+            { p_fa: "بررسی فیزیکی بدنه و ریل‌ها", p_en: "Enclosure & Rails Check", s: "No Damage" },
+            { p_fa: "تست مقاومت عایقی", p_en: "Insulation Resistance", s: "> 1 MΩ" },
+            { p_fa: "تنظیمات رله حرارتی (Overload)", p_en: "Thermal Relay Setting", s: "Match Motor FLC" },
+            { p_fa: "تست اینترلاک‌های مکانیکی و الکتریکی", p_en: "Interlock Testing", s: "Functional" },
+            { p_fa: "بررسی سایز کنتاکتورها", p_en: "Contactor Sizing", s: "AC3 Rating" },
+            { p_fa: "تست عملکرد کنتاکتورها (چپ و راست)", p_en: "Contactor Operation", s: "No Chattering" },
+            { p_fa: "بررسی حفاظت موتور (کابل حرارتی)", p_en: "Motor Thermal Protection", s: "Correct Wiring" },
+            { p_fa: "تست مدار فرمان و چراغ‌ها", p_en: "Control Circuit Test", s: "Indicators Work" },
+            { p_fa: "بررسی ارتباط با PLC (در صورت وجود)", p_en: "PLC Communication Check", s: "Signal OK" }
+        ],
+        sdb: [
+            { p_fa: "بررسی کیفیت سیم‌بندی و شانه‌کشی", p_en: "Wiring Quality", s: "Neat & Tidy" },
+            { p_fa: "تست مقاومت عایقی", p_en: "Insulation Resistance", s: "> 1 MΩ" },
+            { p_fa: "بررسی سایز و نوع کلیدهای مینیاتوری", p_en: "MCB Type & Size", s: "Match Design" },
+            { p_fa: "تست عملکرد کلیدهای محافظ جان (RCD/RCBO)", p_en: "RCD/RCBO Test", s: "Trip at 30mA" },
+            { p_fa: "تست توالی فازها", p_en: "Phase Sequence", s: "L1-L2-L3" },
+            { p_fa: "بررسی بارگذاری متوازن فازها", p_en: "Phase Balancing", s: "< 10% Imbalance" },
+            { p_fa: "تست پیوستگی ارتینگ", p_en: "Earth Continuity", s: "< 0.1 Ω" },
+            { p_fa: "بررسی پایانه‌های خروجی", p_en: "Outgoing Terminals", s: "Proper Torque" }
+        ],
+        ats: [
+            { p_fa: "تست عملکرد رله‌های ولتاژ (Under/Over)", p_en: "Voltage Relay Test", s: "Adjust Limits" },
+            { p_fa: "زمان سنجی انتقال برق (زبانشمول to Gen)", p_en: "Transfer Time Test", s: "< 3 sec" },
+            { p_fa: "بررسی اینترلاک‌های مکانیکی", p_en: "Mechanical Interlock", s: "No Short Circuit" },
+            { p_fa: "تست موتور موتور تابلو (Motorized Switch)", p_en: "Motorized Switch Operation", s: "Smooth Travel" },
+            { p_fa: "تست شارژ فنر (در صورت وجود)", p_en: "Spring Charge Test", s: "Full Charge" },
+            { p_fa: "بررسی وضعیت کلیدهای کنترلی (Auto/Manual)", p_en: "Control Mode Switch", s: "Functional" },
+            { p_fa: "تست سیگنال‌های استارت/استوپ ژنراتور", p_en: "Gen Start/Stop Signals", s: "Correct Logic" },
+            { p_fa: "تست تایمرهای تاخیری (Delay Timers)", p_en: "Time Delay Settings", s: "Programmed" }
+        ]
+    };
+
+    function loadChecklist(type) {
+        // Update Active Button
+        document.querySelectorAll('.panel-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        const body = document.getElementById('checklistBody');
+        body.innerHTML = '';
+        
+        checklistData[type].forEach((item, index) => {
+            const row = document.createElement('tr');
+            row.className = 'checklist-row';
+            const pText = currentLang === 'fa' ? item.p_fa : item.p_en;
+            
+            row.innerHTML = `
+                <td>${pText}</td>
+                <td>${item.s}</td>
+                <td>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" onchange="updateProgress()">
+                        <span class="checkmark"><i class="fas fa-check"></i></span>
+                    </label>
+                </td>
+            `;
+            body.appendChild(row);
+        });
+        updateProgress();
+    }
+
+    // ۳. نوار پیشرفت
     function updateProgress() {
         const checkboxes = document.querySelectorAll('#checklistBody input[type="checkbox"]');
         const rows = document.querySelectorAll('#checklistBody .checklist-row');
@@ -480,31 +517,100 @@
             }
         });
         
-        const percent = Math.round((checkedCount / checkboxes.length) * 100);
+        const percent = checkboxes.length > 0 ? Math.round((checkedCount / checkboxes.length) * 100) : 0;
         document.getElementById('progressFill').style.width = percent + '%';
         document.getElementById('progressPercent').textContent = percent + '%';
     }
 
-    // ۳. تابع جستجو
+    // ۴. جستجو
     function filterModules() {
         const input = document.getElementById('moduleSearch');
         const filter = input.value.toLowerCase();
         const items = document.getElementsByClassName('module-item');
         
-        items.forEach(item => {
-            const text = item.textContent || item.innerText;
+        for(let i=0; i<items.length; i++) {
+            const text = items[i].textContent || items[i].innerText;
             if (text.toLowerCase().includes(filter)) {
-                item.style.display = '';
+                items[i].style.display = '';
             } else {
-                item.style.display = 'none';
+                items[i].style.display = 'none';
             }
+        }
+    }
+
+    // ۵. خروجی گزارش (Print/PDF)
+    function generateReport() {
+        const projectName = document.getElementById('projectNameInput').value || (currentLang === 'fa' ? 'نامشخص' : 'N/A');
+        const activePanelBtn = document.querySelector('.panel-btn.active');
+        const panelType = activePanelBtn ? activePanelBtn.textContent : 'N/A';
+        const date = new Date().toLocaleDateString(currentLang === 'fa' ? 'fa-IR' : 'en-US');
+        
+        let tableRows = '';
+        const rows = document.querySelectorAll('#checklistBody .checklist-row');
+        rows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            const isChecked = row.querySelector('input[type="checkbox"]').checked;
+            const statusColor = isChecked ? '#2ecc71' : '#f39c12';
+            const statusText = isChecked ? (currentLang === 'fa' ? 'تایید شد' : 'Pass') : (currentLang === 'fa' ? 'در انتظار' : 'Pending');
+            
+            tableRows += `
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px;">${cells[0].innerText}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">${cells[1].innerText}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: center; color: ${statusColor}; font-weight: bold;">${statusText}</td>
+                </tr>
+            `;
         });
+
+        const reportHTML = `
+            <html lang="${currentLang}" dir="${currentLang === 'fa' ? 'rtl' : 'ltr'}">
+            <head>
+                <meta charset="UTF-8">
+                <title>QC Report - ${projectName}</title>
+                <style>
+                    body { font-family: ${currentLang === 'fa' ? 'Vazirmatn, sans-serif' : 'Arial, sans-serif'}; padding: 40px; color: #000; }
+                    h1 { color: #0066cc; border-bottom: 2px solid #0066cc; padding-bottom: 10px; }
+                    .meta { margin-bottom: 20px; font-size: 16px; }
+                    .meta strong { color: #333; }
+                    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                    th { background: #f2f2f2; padding: 10px; border: 1px solid #ddd; text-align: center; }
+                    @media print { button { display: none; } }
+                </style>
+            </head>
+            <body>
+                <h1>${currentLang === 'fa' ? 'گزارش کنترل کیفیت (QC)' : 'Quality Control Report'}</h1>
+                <div class="meta">
+                    <p><strong>${currentLang === 'fa' ? 'نام پروژه:' : 'Project Name:'}</strong> ${projectName}</p>
+                    <p><strong>${currentLang === 'fa' ? 'نوع تابلو:' : 'Panel Type:'}</strong> ${panelType}</p>
+                    <p><strong>${currentLang === 'fa' ? 'تاریخ:' : 'Date:'}</strong> ${date}</p>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>${currentLang === 'fa' ? 'پارامتر' : 'Parameter'}</th>
+                            <th>${currentLang === 'fa' ? 'استاندارد/مقدار' : 'Standard/Value'}</th>
+                            <th>${currentLang === 'fa' ? 'وضعیت' : 'Status'}</th>
+                        </tr>
+                    </thead>
+                    <tbody>${tableRows}</tbody>
+                </table>
+                <button onclick="window.print()" style="margin-top: 30px; padding: 10px 20px; background: #0066cc; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+                    ${currentLang === 'fa' ?چاپ / ذخیره' : 'Print / Save'}
+                </button>
+            </body>
+            </html>
+        `;
+        
+        const reportWindow = window.open('', '_blank');
+        reportWindow.document.write(reportHTML);
+        reportWindow.document.close();
     }
 
     // راه‌اندازی اولیه
     setLang(currentLang);
     setInterval(updateDateTime, 1000);
     updateDateTime();
+    loadChecklist('mdb'); // Load default checklist
 </script>
 
 </body>
