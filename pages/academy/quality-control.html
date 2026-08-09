@@ -1,597 +1,98 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karatech ELV · کنترل کیفیت</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;600;700&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@600;700&family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root {
-            --text-main: #ffffff; --text-muted: #8b8f99; --accent-indigo: #4d8bff; --accent-cyan: #00f2ff;
-            --accent-gold: #d4af37; --success-green: #2ecc71; --warning-orange: #f39c12; --danger-red: #e74c3c;
-        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Vazirmatn', sans-serif; color: var(--text-main); min-height: 100vh; background: radial-gradient(ellipse 80% 80% at 50% 50%, #0a1a2e 0%, #04101f 40%, #000000 80%); overflow-x: hidden; direction: rtl; }
-        body::after { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E"); opacity: 0.04; pointer-events: none; z-index: 9999; mix-blend-mode: overlay; }
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(77, 139, 255, 0.15); position: sticky; top: 0; z-index: 100; }
-        .header-left { display: flex; align-items: center; gap: 15px; }
-        .brand { font-family: 'Markazi Text', sans-serif; font-size: 1.6rem; font-weight: 700; }
-        .brand span { color: var(--accent-indigo); font-style: italic; }
-        .breadcrumb { display: flex; align-items: center; gap: 10px; font-size: 1rem; color: var(--text-muted); }
-        .breadcrumb span { color: var(--accent-cyan); }
-        .datetime-widget { display: flex; flex-direction: column; align-items: center; font-size: 0.85rem; color: var(--text-muted); font-family: monospace; }
-        .time-display { color: var(--accent-cyan); font-weight: 600; font-size: 1rem; }
-        .header-actions { display: flex; align-items: center; gap: 16px; }
-        .back-btn { background: transparent; border: 1px solid rgba(77, 139, 255, 0.3); color: var(--accent-indigo); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .back-btn i { transform: rotate(180deg); }
-        .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
-        .lang-switch { display: flex; gap: 8px; }
-        .lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
-        .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color: var(--accent-indigo); border-color: rgba(77, 139, 255, 0.3); }
-        .main-content { flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; padding: 60px 20px; max-width: 1000px; margin: 0 auto; width: 100%; }
-        .aurora { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; mix-blend-mode: screen; }
-        .aurora-1 { width: 500px; height: 500px; background: rgba(77, 139, 255, 0.1); top: -10%; right: 10%; animation: drift1 15s ease-in-out infinite; }
-        .aurora-2 { width: 400px; height: 400px; background: rgba(0, 242, 255, 0.06); bottom: -10%; left: 10%; animation: drift2 18s ease-in-out infinite; }
-        @keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-80px, 50px) scale(1.1); } }
-        @keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(60px, -30px) scale(1.2); } }
-        .page-header { text-align: center; margin-bottom: 50px; position: relative; z-index: 2; width: 100%; }
-        .page-icon { font-size: 3rem; color: var(--accent-indigo); margin-bottom: 20px; filter: drop-shadow(0 0 15px var(--accent-indigo)); }
-        .page-title { font-family: 'Markazi Text', serif; font-size: 3rem; font-weight: 700; margin-bottom: 10px; color: rgba(255,255,255,0.95); }
-        .page-title b { color: var(--accent-cyan); }
-        .page-desc { color: rgba(255,255,255,0.4); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
-        .content-area { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; gap: 30px; }
-        .content-card { background: rgba(10, 20, 35, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); border-right: 3px solid var(--accent-indigo); border-radius: 12px; padding: 30px; transition: all 0.3s ease; }
-        .content-card:hover { border-color: var(--accent-cyan); box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 15px rgba(0, 242, 255, 0.1); }
-        .card-title { font-family: 'Markazi Text', serif; font-size: 1.8rem; font-weight: 600; color: #fff; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-        .card-title i { color: var(--accent-cyan); }
-        .card-text { color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 1.05rem; margin-bottom: 15px; }
-        .tech-table-container { overflow-x: auto; margin: 20px 0; border-radius: 8px; border: 1px solid rgba(77, 139, 255, 0.2); }
-        .tech-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; min-width: 600px; }
-        .tech-table th { background: rgba(77, 139, 255, 0.1); color: var(--accent-cyan); padding: 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; font-weight: 700; }
-        .tech-table td { padding: 12px 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; color: #fff; background: rgba(255,255,255,0.02); }
-        .tech-table td:first-child { text-align: right; color: var(--accent-gold); font-weight: 700; }
-        .status-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
-        .status-pass { background: rgba(46, 204, 113, 0.15); color: var(--success-green); border: 1px solid rgba(46, 204, 113, 0.3); }
-        .status-pending { background: rgba(243, 156, 18, 0.15); color: var(--warning-orange); border: 1px solid rgba(243, 156, 18, 0.3); }
-        .status-fail { background: rgba(231, 76, 60, 0.15); color: var(--danger-red); border: 1px solid rgba(231, 76, 60, 0.3); }
-        .note-box { background: rgba(0, 242, 255, 0.03); border: 1px solid rgba(0, 242, 255, 0.15); border-radius: 8px; padding: 15px 20px; margin: 20px 0; display: flex; gap: 15px; align-items: flex-start; }
-        .note-box i { color: var(--accent-cyan); font-size: 1.2rem; margin-top: 3px; }
-        .note-box span { color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.6; }
-        .search-box { position: relative; margin-bottom: 20px; }
-        .search-box i { position: absolute; top: 50%; right: 20px; transform: translateY(-50%); color: var(--text-muted); }
-        .search-box input { width: 100%; padding: 12px 45px 12px 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 30px; color: #fff; font-family: inherit; font-size: 1rem; transition: 0.3s; }
-        .search-box input:focus { outline: none; border-color: var(--accent-cyan); box-shadow: 0 0 15px rgba(0, 242, 255, 0.1); }
-        .tree-list { list-style: none; padding: 0; margin-top: 10px; display: flex; flex-direction: column; gap: 12px; }
-        .tree-link { display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.02); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 50px; padding: 15px 25px; color: rgba(255,255,255,0.8); text-decoration: none; transition: 0.3s ease; cursor: pointer; }
-        .tree-link:hover { color: #fff; background: rgba(0, 242, 255, 0.05); transform: translateX(-10px); border-color: var(--accent-cyan); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        .tree-link-left { display: flex; align-items: center; gap: 15px; }
-        .tree-link i.bullet { color: var(--accent-cyan); font-size: 1.2rem; transition: 0.3s; width: 20px; text-align: center; }
-        .tree-link:hover i.bullet { color: var(--accent-indigo); transform: scale(1.2); }
-        .tree-link h4 { font-size: 1rem; font-weight: 600; margin: 0; }
-        .tree-link p { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
-        .tree-link i.arrow { color: var(--text-muted); font-size: 0.8rem; opacity: 0.5; transition: 0.3s; }
-        .tree-link:hover i.arrow { opacity: 1; color: var(--accent-cyan); }
-        .accordion-trigger { cursor: pointer; }
-        .sub-tree-container { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
-        .sub-tree-container.open { max-height: 500px; }
-        .sub-tree { list-style: none; padding-right: 40px; margin-top: 12px; display: flex; flex-direction: column; gap: 10px; border-right: 1px dashed rgba(77, 139, 255, 0.2); }
-        .sub-tree .tree-link { padding: 10px 20px; background: rgba(0,0,0,0.2); border-radius: 30px; }
-        .sub-tree .tree-link i.bullet { font-size: 0.8rem; color: var(--accent-indigo); }
-        .sub-tree .tree-link h4 { font-size: 0.9rem; }
-        .sub-tree .tree-link p { font-size: 0.75rem; }
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: radial-gradient(ellipse at top, #0a1a2e 0%, #04101f 60%, #000 100%);
+            color: #fff; min-height: 100vh; padding: 20px;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .container { max-width: 800px; width: 100%; position: relative; z-index: 2; }
         
-        /* استایل‌های چک‌لیست تعاملی */
-        .panel-selector { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-        .panel-btn { padding: 8px 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-muted); border-radius: 20px; cursor: pointer; font-weight: 600; transition: 0.3s; }
-        .panel-btn.active, .panel-btn:hover { background: rgba(77, 139, 255, 0.2); color: #fff; border-color: var(--accent-indigo); box-shadow: 0 0 10px rgba(77, 139, 255, 0.2); }
-        .progress-dashboard { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; gap: 15px; flex-wrap: wrap; }
-        .stat-box { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 10px 20px; border-radius: 8px; text-align: center; min-width: 100px; }
-        .stat-box span { display: block; font-size: 1.5rem; font-weight: 700; }
-        .stat-box label { font-size: 0.8rem; color: var(--text-muted); }
-        .stat-approved span { color: var(--success-green); }
-        .stat-rejected span { color: var(--danger-red); }
-        .stat-pending span { color: var(--warning-orange); }
-        .progress-bar-container { width: 100%; height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; margin-top: 10px; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent-indigo), var(--accent-cyan)); width: 0%; transition: width 0.4s ease; box-shadow: 0 0 10px var(--accent-cyan); }
-        .accordion-item { background: rgba(255,255,255,0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; margin-bottom: 15px; overflow: hidden; }
-        .accordion-header { padding: 15px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; transition: 0.3s; }
-        .accordion-header:hover { background: rgba(77, 139, 255, 0.05); }
-        .accordion-header i.arrow { transition: 0.3s; color: var(--accent-cyan); }
-        .accordion-header.active i.arrow { transform: rotate(180deg); }
-        .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
-        .check-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-        .check-table th { background: rgba(0,0,0,0.2); color: var(--text-muted); padding: 12px; text-align: right; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .check-table td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.03); vertical-align: middle; }
-        .check-row { transition: 0.3s; }
-        .check-row.approved { background: rgba(46, 204, 113, 0.05); }
-        .check-row.rejected { background: rgba(231, 76, 60, 0.05); }
-        .crit-badge { padding: 3px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; }
-        .crit-critical { background: rgba(231, 76, 60, 0.2); color: var(--danger-red); }
-        .crit-general { background: rgba(243, 156, 18, 0.2); color: var(--warning-orange); }
-        .crit-minor { background: rgba(255, 255, 255, 0.1); color: var(--text-muted); }
-        .item-link { color: #fff; text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .item-link:hover { color: var(--accent-cyan); }
-        .item-link i { font-size: 0.7rem; opacity: 0.5; }
-        .action-group { display: flex; gap: 10px; align-items: center; }
-        .action-btn { width: 32px; height: 32px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-        .btn-approve:hover, .btn-approve.active { background: var(--success-green); color: #fff; border-color: var(--success-green); box-shadow: 0 0 10px rgba(46, 204, 113, 0.3); }
-        .btn-reject:hover, .btn-reject.active { background: var(--danger-red); color: #fff; border-color: var(--danger-red); box-shadow: 0 0 10px rgba(231, 76, 60, 0.3); }
-        .ncr-input { width: 100px; background: rgba(231, 76, 60, 0.1); border: 1px solid rgba(231, 76, 60, 0.3); color: #fff; padding: 6px 10px; border-radius: 6px; font-size: 0.8rem; display: none; }
-        .ncr-input.show { display: block; }
-        .export-btn { background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan)); color: #000; padding: 12px 25px; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; margin-top: 20px; }
-        .export-btn:hover { box-shadow: 0 0 20px rgba(0, 242, 255, 0.4); transform: translateY(-2px); }
-        @media (max-width: 768px) { .header { flex-wrap: wrap; gap: 10px; padding: 15px; } .main-content { padding: 30px 15px; } .page-title { font-size: 2.2rem; } .content-card { padding: 20px; } .tree-link:hover { transform: none; } .sub-tree { padding-right: 20px; } .check-table th:nth-child(4), .check-table td:nth-child(4) { display: none; } }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; margin-bottom: 40px; }
+        .brand { font-size: 1.2rem; font-weight: 700; }
+        .brand span { color: #00f2ff; text-shadow: 0 0 10px rgba(0, 242, 255, 0.4); }
+        .back-btn { color: #4d8bff; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid rgba(77, 139, 255, 0.2); border-radius: 8px; transition: 0.3s; }
+        .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
+        
+        .title { text-align: center; margin-bottom: 50px; }
+        .title-icon { font-size: 3rem; color: #4d8bff; margin-bottom: 15px; filter: drop-shadow(0 0 15px rgba(77, 139, 255, 0.5)); }
+        .title h1 { font-family: 'Markazi Text', serif; font-size: 3rem; font-weight: 700; }
+        .title h1 b { color: #00f2ff; text-shadow: 0 0 15px rgba(0, 242, 255, 0.3); }
+        .title p { color: #8b8f99; margin-top: 10px; font-size: 1.1rem; }
+        
+        .sub-pages { display: flex; flex-direction: column; gap: 15px; }
+        .page-link { display: flex; align-items: center; gap: 20px; background: rgba(16, 22, 33, 0.6); backdrop-filter: blur(10px); padding: 20px; border-radius: 16px; text-decoration: none; color: #fff; border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden; transition: 0.3s; }
+        .page-link::before { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 3px; background: #00f2ff; transform: scaleY(0); transition: transform 0.3s; }
+        .page-link:hover { background: rgba(16, 22, 33, 0.9); border-color: rgba(0, 242, 255, 0.3); transform: translateX(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .page-link:hover::before { transform: scaleY(1); }
+        
+        .icon-box { width: 50px; height: 50px; background: rgba(0, 242, 255, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #00f2ff; flex-shrink: 0; transition: 0.3s; }
+        .page-link:hover .icon-box { background: rgba(77, 139, 255, 0.2); color: #4d8bff; }
+        
+        .text-box h4 { font-size: 1.1rem; margin-bottom: 5px; }
+        .text-box p { font-size: 0.85rem; color: #8b8f99; line-height: 1.5; }
+        .arrow { margin-right: auto; color: #4d8bff; opacity: 0.5; transition: 0.3s; }
+        .page-link:hover .arrow { opacity: 1; transform: translateX(-5px); }
     </style>
 </head>
 <body>
-<header class="header">
-    <div class="header-left">
+<div class="container">
+    <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="breadcrumb">
-            <a href="../../index.html" style="color: inherit; text-decoration: none;" data-en="Dashboard" data-fa="داشبورد">داشبورد</a>
-            <i class="fas fa-chevron-left" style="font-size: 0.6rem;"></i>
-            <a href="index.html" style="color: inherit; text-decoration: none;" data-en="Academy" data-fa="آکادمی">آکادمی</a>
-            <i class="fas fa-chevron-left" style="font-size: 0.6rem;"></i>
-            <span data-en="Quality Control" data-fa="کنترل کیفیت">کنترل کیفیت</span>
-        </div>
-    </div>
-    <div class="datetime-widget">
-        <div class="date-display" id="dateDisplay"></div>
-        <div class="time-display" id="timeDisplay">00:00:00</div>
-    </div>
-    <div class="header-actions">
-        <a href="index.html" class="back-btn" id="backBtn"><i class="fas fa-arrow-left"></i> <span data-en="Back to Academy" data-fa="بازگشت به آکادمی">بازگشت به آکادمی</span></a>
-        <div class="lang-switch">
-            <button class="lang-btn" data-lang="en">EN</button>
-            <button class="lang-btn active" data-lang="fa">FA</button>
-        </div>
-    </div>
-</header>
-
-<main class="main-content">
-    <div class="aurora aurora-1"></div>
-    <div class="aurora aurora-2"></div>
-    <div class="page-header">
-        <div class="page-icon"><i class="fas fa-shield-alt"></i></div>
-        <h1 class="page-title" data-en="Quality <b>Control</b>" data-fa="کنترل <b>کیفیت</b>">کنترل <b>کیفیت</b></h1>
-        <p class="page-desc" data-en="Interactive Quality Control System based on IEC 61439 & ISO 9001" data-fa="سیستم تعاملی کنترل کیفیت بر پایه استانداردهای IEC 61439 و ISO 9001">سیستم تعاملی کنترل کیفیت بر پایه استانداردهای IEC 61439 و ISO 9001</p>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-right"></i> بازگشت به آکادمی</a>
     </div>
 
-    <div class="content-area">
-        <!-- کارت ۱: تست‌های روتین IEC 61439 -->
-        <div class="content-card">
-            <h2 class="card-title"><i class="fas fa-vial"></i> <span data-en="IEC 61439 Routine Tests" data-fa="تست‌های روتین IEC 61439">تست‌های روتین IEC 61439</span></h2>
-            <p class="card-text" data-en="Routine tests are mandatory checks performed on every manufactured panel." data-fa="تست‌های روتین، بررسی‌های اجباری هستند که روی هر تابلوی ساخته‌شده انجام می‌شوند.">تست‌های روتین، بررسی‌های اجباری هستند که روی هر تابلوی ساخته‌شده انجام می‌شوند.</p>
-            <div class="tech-table-container">
-                <table class="tech-table">
-                    <thead><tr><th data-en="Test Type" data-fa="نوع تست">نوع تست</th><th data-en="Procedure" data-fa="روند اجرا">روند اجرا</th><th data-en="Acceptance Criteria" data-fa="معیار پذیرش">معیار پذیرش</th><th data-en="Status" data-fa="وضعیت">وضعیت</th></tr></thead>
-                    <tbody>
-                        <tr><td data-en="Visual Inspection" data-fa="بازرسی بصری">بازرسی بصری</td><td data-en="Check grounding, labeling, clearances." data-fa="بررسی ارتینگ، برچسب‌گذاری، فواصل.">بررسی ارتینگ، برچسب‌گذاری، فواصل.</td><td data-en="No visible defects." data-fa="بدون نقص ظاهری.">بدون نقص ظاهری.</td><td><span class="status-badge status-pass" data-en="Pass" data-fa="قبول">قبول</span></td></tr>
-                        <tr><td data-en="Dielectric Test" data-fa="تست دی‌الکتریک">تست دی‌الکتریک</td><td data-en="Apply test voltage for 1 sec." data-fa="اعمال ولتاژ تست به مدت ۱ ثانیه.">اعمال ولتاژ تست به مدت ۱ ثانیه.</td><td data-en="No breakdown." data-fa="بدون شکست عایقی.">بدون شکست عایقی.</td><td><span class="status-badge status-pending" data-en="Pending" data-fa="در انتظار">در انتظار</span></td></tr>
-                        <tr><td data-en="Insulation Resistance" data-fa="مقاومت عایقی">مقاومت عایقی</td><td data-en="Measure using Megger." data-fa="اندازه‌گیری با مگومتر.">اندازه‌گیری با مگومتر.</td><td data-en="> 1 MΩ" data-fa="بزرگتر از ۱ مگااهم">بزرگتر از ۱ مگااهم</td><td><span class="status-badge status-pass" data-en="Pass" data-fa="قبول">قبول</span></td></tr>
-                        <tr><td data-en="Torque Verification" data-fa="بررسی گشتاور">بررسی گشتاور</td><td data-en="Check bolted connections." data-fa="بررسی اتصالات پیچی.">بررسی اتصالات پیچی.</td><td data-en="Meets specs." data-fa="مطابقت با مشخصات.">مطابقت با مشخصات.</td><td><span class="status-badge status-fail" data-en="Fail" data-fa="رد">رد</span></td></tr>
-                    </tbody>
-                </table>
+    <div class="title">
+        <div class="title-icon"><i class="fas fa-shield-halved"></i></div>
+        <h1>کنترل <b>کیفیت</b></h1>
+        <p>سیستم جامع بازرسی و کنترل کیفیت تابلوهای برق</p>
+    </div>
+
+    <div class="sub-pages">
+        <a href="qc-routine-tests.html" class="page-link">
+            <div class="icon-box"><i class="fas fa-vial"></i></div>
+            <div class="text-box">
+                <h4>تست‌های روتین IEC 61439</h4>
+                <p>بررسی‌های اجباری هر تابلو (بصری، دی‌الکتریک، عایقی...)</p>
             </div>
-        </div>
-
-        <!-- کارت ۲: FAT و SAT -->
-        <div class="content-card">
-            <h2 class="card-title"><i class="fas fa-industry"></i> <span data-en="FAT & SAT Protocols" data-fa="پروتکل‌های FAT و SAT">پروتکل‌های FAT و SAT</span></h2>
-            <div class="note-box"><i class="fas fa-clipboard-check"></i><div><strong data-en="FAT (Factory Acceptance Test):" data-fa="FAT (تست پذیرش کارخانه‌ای):">FAT (تست پذیرش کارخانه‌ای):</strong><span data-en="Conducted at the manufacturer's facility before shipment." data-fa="در محل سازنده قبل از ارسال انجام می‌شود.">در محل سازنده قبل از ارسال انجام می‌شود.</span></div></div>
-            <div class="note-box"><i class="fas fa-clipboard-check"></i><div><strong data-en="SAT (Site Acceptance Test):" data-fa="SAT (تست پذیرش در سایت):">SAT (تست پذیرش در سایت):</strong><span data-en="Conducted after installation at the final site." data-fa="پس از نصب در سایت نهایی انجام می‌شود.">پس از نصب در سایت نهایی انجام می‌شود.</span></div></div>
-        </div>
-
-        <!-- کارت ۳: چک‌لیست تعاملی ۵۶ ردیفه -->
-        <div class="content-card">
-            <h2 class="card-title"><i class="fas fa-list-check"></i> <span data-en="Interactive Panel Checklist" data-fa="چک‌لیست تعاملی تابلو">چک‌لیست تعاملی تابلو</span></h2>
-            <div class="panel-selector" id="panelSelector">
-                <button class="panel-btn active" onclick="loadChecklist('mdb')" data-en="MDB" data-fa="تابلو توزیع اصلی (MDB)">تابلو توزیع اصلی (MDB)</button>
-                <button class="panel-btn" onclick="loadChecklist('mcc')" data-en="MCC" data-fa="تابلو کنترل موتور (MCC)">تابلو کنترل موتور (MCC)</button>
-                <button class="panel-btn" onclick="loadChecklist('lv')" data-en="LV" data-fa="فشار ضعیف (LV)">فشار ضعیف (LV)</button>
-                <button class="panel-btn" onclick="loadChecklist('mv')" data-en="MV" data-fa="فشار متوسط (MV)">فشار متوسط (MV)</button>
-                <button class="panel-btn" onclick="loadChecklist('plc')" data-en="PLC" data-fa="اتوماسیون (PLC)">اتوماسیون (PLC)</button>
-            </div>
-            <div class="progress-dashboard">
-                <div class="stat-box stat-approved"><span id="statApproved">0</span><label data-en="Approved" data-fa="تأیید شده">تأیید شده</label></div>
-                <div class="stat-box stat-rejected"><span id="statRejected">0</span><label data-en="Rejected" data-fa="رد شده">رد شده</label></div>
-                <div class="stat-box stat-pending"><span id="statPending">0</span><label data-en="Pending" data-fa="در انتظار">در انتظار</label></div>
-                <div style="flex: 1; min-width: 200px;">
-                    <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;"><span data-en="Progress" data-fa="پیشرفت">پیشرفت</span><span id="progressPercent">0%</span></div>
-                    <div class="progress-bar-container"><div class="progress-fill" id="progressFill"></div></div>
-                </div>
-            </div>
-            <div id="checklistContainer"></div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; gap: 15px; flex-wrap: wrap;">
-                <input type="text" id="projectNameInput" placeholder="نام پروژه / شماره سریال" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; color: #fff; padding: 12px 20px; flex: 1; min-width: 200px; font-family: inherit;">
-                <button class="export-btn" onclick="generateReport()"><i class="fas fa-file-export"></i> <span data-en="Export PDF / Print" data-fa="خروجی PDF / چاپ">خروجی PDF / چاپ</span></button>
-            </div>
-        </div>
-
-        <!-- کارت ۴: ماژول‌ها و ابزارها -->
-        <div class="content-card">
-            <h2 class="card-title"><i class="fas fa-th-large"></i> <span data-en="QC Modules & Tools" data-fa="ماژول‌ها و ابزارهای کنترل کیفیت">ماژول‌ها و ابزارهای کنترل کیفیت</span></h2>
-            <div class="search-box"><i class="fas fa-search"></i><input type="text" id="moduleSearch" placeholder="جستجو در ماژول‌ها..." onkeyup="filterModules()"></div>
-            <ul class="tree-list" id="moduleList">
-                <li class="module-item"><a href="../quality/standards.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-book bullet"></i><div><h4 data-en="Standards" data-fa="استانداردها">استانداردها</h4><p data-en="ISO, IEC, IPS" data-fa="ISO، IEC، IPS">ISO، IEC، IPS</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li class="module-item">
-                    <div class="tree-link accordion-trigger" onclick="toggleSubAccordion(this)"><div class="tree-link-left"><i class="fas fa-search bullet"></i><div><h4 data-en="Inspection & Testing" data-fa="بازرسی و تست">بازرسی و تست</h4><p data-en="Methods and procedures" data-fa="روش‌ها و رویه‌ها">روش‌ها و رویه‌ها</p></div></div><i class="fas fa-chevron-down arrow"></i></div>
-                    <div class="sub-tree-container">
-                        <ul class="sub-tree">
-                            <li><a href="../quality/visual-inspection.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-circle bullet"></i><div><h4 data-en="Visual Inspection" data-fa="بازرسی بصری">بازرسی بصری</h4><p data-en="Surface defects" data-fa="عیوب سطحی">عیوب سطحی</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                            <li><a href="../quality/electrical-testing.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-circle bullet"></i><div><h4 data-en="Electrical Testing" data-fa="تست الکتریکی">تست الکتریکی</h4><p data-en="Continuity, insulation" data-fa="پیوستگی، عایق">پیوستگی، عایق</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                            <li><a href="../quality/dimensional-measurement.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-circle bullet"></i><div><h4 data-en="Dimensional Measurement" data-fa="اندازه‌گیری ابعادی">اندازه‌گیری ابعادی</h4><p data-en="Precision measurement" data-fa="اندازه‌گیری دقیق">اندازه‌گیری دقیق</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                            <li><a href="../quality/functional-testing.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-circle bullet"></i><div><h4 data-en="Functional Testing" data-fa="تست عملکردی">تست عملکردی</h4><p data-en="Performance verification" data-fa="تأیید عملکرد">تأیید عملکرد</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="module-item"><a href="../quality/overview.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-book-open bullet"></i><div><h4 data-en="Overview" data-fa="مرور کلی">مرور کلی</h4><p data-en="Complete overview" data-fa="مرور کامل کنترل کیفیت">مرور کامل کنترل کیفیت</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li class="module-item"><a href="../quality/spc.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-chart-line bullet"></i><div><h4 data-en="SPC" data-fa="کنترل آماری فرآیند">کنترل آماری فرآیند</h4><p data-en="SPC" data-fa="SPC">SPC</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li class="module-item"><a href="../quality/7qc-tools.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-tools bullet"></i><div><h4 data-en="7 QC Tools" data-fa="۷ ابزار کیفیت">۷ ابزار کیفیت</h4><p data-en="Pareto, Fishbone, etc." data-fa="پارتو، استخوان ماهی و غیره">پارتو، استخوان ماهی و غیره</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li class="module-item"><a href="../quality/six-sigma.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-cogs bullet"></i><div><h4 data-en="Six Sigma" data-fa="شش سیگما">شش سیگما</h4><p data-en="DMAIC" data-fa="DMAIC">DMAIC</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li class="module-item"><a href="../quality/quality-audits.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-clipboard-list bullet"></i><div><h4 data-en="Quality Audits" data-fa="حسابرسی کیفیت">حسابرسی کیفیت</h4><p data-en="Audits" data-fa="حسابرسی داخلی و خارجی">حسابرسی داخلی و خارجی</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li class="module-item"><a href="../quality/ndt.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-microscope bullet"></i><div><h4 data-en="NDT" data-fa="تست غیرمخرب">تست غیرمخرب</h4><p data-en="NDT" data-fa="روش‌های غیرمخرب">روش‌های غیرمخرب</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li class="module-item"><a href="../quality/documentation.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-file-alt bullet"></i><div><h4 data-en="Documentation" data-fa="مستندات">مستندات</h4><p data-en="Manuals" data-fa="دفترچه‌ها، گواهینامه‌ها">دفترچه‌ها، گواهینامه‌ها</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li class="module-item"><a href="../quality/software.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-laptop-code bullet"></i><div><h4 data-en="Software" data-fa="نرم‌افزارها">نرم‌افزارها</h4><p data-en="Tools" data-fa="ابزارهای ضروری">ابزارهای ضروری</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li class="module-item"><a href="../quality/resources.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-book bullet"></i><div><h4 data-en="Resources" data-fa="منابع">منابع</h4><p data-en="Guides" data-fa="راهنماها">راهنماها</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li class="module-item"><a href="../quality/learning-path.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-map-marked-alt bullet"></i><div><h4 data-en="Learning Path" data-fa="مسیر یادگیری">مسیر یادگیری</h4><p data-en="Foundation to advanced" data-fa="از مبتدی تا پیشرفته">از مبتدی تا پیشرفته</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li class="module-item"><a href="../quality/videos-future.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-video bullet"></i><div><h4 data-en="Videos & Future" data-fa="ویدئوها و آینده">ویدئوها و آینده</h4><p data-en="Tutorials" data-fa="آموزش‌ها">آموزش‌ها</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li class="module-item"><a href="../quality/examples.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-project-diagram bullet"></i><div><h4 data-en="Examples" data-fa="مثال‌ها">مثال‌ها</h4><p data-en="Practical projects" data-fa="پروژه‌های عملی">پروژه‌های عملی</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li class="module-item"><a href="../quality/qms.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-clipboard-check bullet"></i><div><h4 data-en="QMS" data-fa="سیستم مدیریت کیفیت">سیستم مدیریت کیفیت</h4><p data-en="QMS" data-fa="QMS">QMS</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li class="module-item"><a href="../quality/quality-tools.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-toolbox bullet"></i><div><h4 data-en="Quality Tools" data-fa="ابزارهای کیفیت">ابزارهای کیفیت</h4><p data-en="Problem solving" data-fa="ابزارهای حل مسئله">ابزارهای حل مسئله</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-            </ul>
-        </div>
-    </div>
-</main>
-
-<script>
-    let currentLang = localStorage.getItem('karatech-lang') || 'fa';
-
-    // پایگاه داده چک‌لیست ۵۶ ردیفه (برگرفته از فرم استاندارد بازرسی)
-    const qcData = {
-        mdb: [
-            { cat_fa: "بازرسی مستندات و نقشه‌ها", cat_en: "Documents & Drawings", items: [
-                { id: 1, t_fa: "دارا بودن تمامی نقشه های مکانیکال ممهور به مهر مهندسی", t_en: "Mechanical drawings stamped", crit: "general" },
-                { id: 2, t_fa: "دارا بودن تمامی نقشه های الکتریکال ممهور به مهر مهندسی", t_en: "Electrical drawings stamped", crit: "general" },
-                { id: 3, t_fa: "بررسی تعداد ونوع سلول", t_en: "Check cell count & type", crit: "minor" }
-            ]},
-            { cat_fa: "بازرسی مکانیکی و ظاهری", cat_en: "Mechanical & Visual", items: [
-                { id: 4, t_fa: "کنترل و بررسی اتصالات سلول ها", t_en: "Cell connections check", crit: "critical" },
-                { id: 5, t_fa: "کنترل ابعاد سلول و محل ورودی و خروجی مطابق نقشه", t_en: "Cell dimensions & entry/exit", crit: "general" },
-                { id: 6, t_fa: "کنترل رنگ تابلو (خراشیدگی، ضخامت، رال)", t_en: "Paint check (scratch, thickness, RAL)", crit: "minor" },
-                { id: 7, t_fa: "مطابقت نقشه جانمایی با چیدمان تجهیزات داخل تابلو", t_en: "Layout matches drawing", crit: "general" },
-                { id: 8, t_fa: "کنترل پارت لیست با تجهیزات موجود", t_en: "Parts list vs equipment", crit: "general" },
-                { id: 9, t_fa: "کنترل مکانیکی دربها، لولاها، قفلها، لاستیک دور دربها", t_en: "Doors, hinges, locks, gaskets", crit: "minor" },
-                { id: 10, t_fa: "کنترل پیچ، مهره و واشر های تخت و فنری مصرف شده", t_en: "Screws, nuts, washers", crit: "critical" },
-                { id: 11, t_fa: "کنترل محکم بودن تجهیزات نصب شده در تابلو", t_en: "Equipment mounting tightness", crit: "critical" },
-                { id: 12, t_fa: "کنترل تماس صحیح محل اتصالات ارت سلول ها و دربها", t_en: "Earthing contacts (cells & doors)", crit: "critical" },
-                { id: 13, t_fa: "بررسی تجهیزات با نقشه تک خطی", t_en: "Equipment vs single line", crit: "general" },
-                { id: 14, t_fa: "کنترل ترمینالها با نقشه", t_en: "Terminals vs drawing", crit: "general" },
-                { id: 15, t_fa: "دسترسی اسان به تجهیزات جهت تعویض", t_en: "Easy access for replacement", crit: "minor" },
-                { id: 16, t_fa: "بررسی سایز باسبارها", t_en: "Busbar sizing check", crit: "critical" },
-                { id: 17, t_fa: "کنترل رنگ آمیزی شمشها", t_en: "Busbar painting", crit: "minor" },
-                { id: 18, t_fa: "کنترل عدم وجود رنگ در نقاط اتصالات شمشها", t_en: "No paint on busbar joints", crit: "critical" },
-                { id: 19, t_fa: "عدم وجود ترک برروی مقره ها", t_en: "No cracks on insulators", crit: "critical" },
-                { id: 20, t_fa: "کنترل پرس کابلشو و سرسیمها", t_en: "Cable lugs & ferrules crimping", crit: "general" }
-            ]},
-            { cat_fa: "سیم‌بندی و اتصالات", cat_en: "Wiring & Connections", items: [
-                { id: 21, t_fa: "کنترل شماره سیم ها بر اساس نقشه", t_en: "Wire numbering per drawing", crit: "general" },
-                { id: 22, t_fa: "کنترل تماس و محکم بودن سیم و کابل در زیر پیچ", t_en: "Wire tightness under screws", crit: "critical" },
-                { id: 23, t_fa: "کنترل فرم بندی و آرایش سیمها و کابلها", t_en: "Wiring form & layout", crit: "minor" },
-                { id: 24, t_fa: "کنترل صحت لخت بودن کابلها و سیمها", t_en: "Cable stripping check", crit: "general" },
-                { id: 25, t_fa: "کنترل شماره ترمینالها", t_en: "Terminal numbering", crit: "minor" },
-                { id: 26, t_fa: "کنترل رعایت فضای کافی برای هادیهای ورودی و خروجی", t_en: "Space for in/out cables", crit: "general" },
-                { id: 27, t_fa: "کنترل صحت نصب تگ های قطعات داخل تابلو", t_en: "Component tags", crit: "minor" },
-                { id: 28, t_fa: "نصب نام سلول و تابلو", t_en: "Cell & panel nameplate", crit: "minor" },
-                { id: 29, t_fa: "عملکرد دستی مکانیزمها", t_en: "Manual mechanism operation", crit: "general" },
-                { id: 30, t_fa: "صحت ارتهای مربوط به CTوPT", t_en: "CT & PT earthing", crit: "critical" },
-                { id: 31, t_fa: "صحت مقدار سفتی پیچها به وسیله ترکمتر", t_en: "Screw torque verification", crit: "critical" },
-                { id: 32, t_fa: "کنترل استاپر درب", t_en: "Door stopper", crit: "minor" },
-                { id: 33, t_fa: "کنترل زاویه باز شدن درب (90-120 درجه)", t_en: "Door opening angle", crit: "minor" },
-                { id: 34, t_fa: "کنترل و بررسی صفحه گلند تابلو", t_en: "Gland plate", crit: "general" },
-                { id: 35, t_fa: "کنترل و بررسی گلند تابلو", t_en: "Panel glands", crit: "general" },
-                { id: 36, t_fa: "بررسی و کنترل IP تابلو", t_en: "IP rating check", crit: "critical" },
-                { id: 37, t_fa: "کنترل وجود امکانات لازم برای حمل و نصب قلاب و پایه", t_en: "Lifting & mounting facilities", crit: "general" },
-                { id: 38, t_fa: "کنترل وجود تکیه گاهها و بستهای مهار برای کابلها", t_en: "Cable supports & ties", crit: "general" },
-                { id: 39, t_fa: "کنترل نصب محافظ ها در صورت نیاز", t_en: "Protective covers", crit: "general" },
-                { id: 40, t_fa: "کنترل تجهیزات لازم در تابلو برای بهره برداری", t_en: "Operating equipment", crit: "minor" }
-            ]},
-            { cat_fa: "تست‌های عملکردی و الکتریکی", cat_en: "Functional & Electrical Tests", items: [
-                { id: 41, t_fa: "تست مدار قدرت با ولتاژ نامی", t_en: "Power circuit test (rated V)", crit: "critical" },
-                { id: 42, t_fa: "تست مدار فرمان با ولتاژ کنترلی تایید شده", t_en: "Control circuit test", crit: "critical" },
-                { id: 43, t_fa: "کنترل صحت عملکرد لامپ های سیگنال", t_en: "Signal lamps operation", crit: "minor" },
-                { id: 44, t_fa: "کنترل روشنایی داخل تابلو", t_en: "Internal lighting", crit: "minor" },
-                { id: 45, t_fa: "تست رله ها و قطع کننده ها", t_en: "Relays & breakers test", crit: "critical" },
-                { id: 46, t_fa: "تست رله های حفاظتی مطابق تست شیت", t_en: "Protection relays test", crit: "critical" },
-                { id: 47, t_fa: "خواندن مقدار واقعی امپرمترها و ولتمترها", t_en: "Ammeter & Voltmeter reading", crit: "general" },
-                { id: 48, t_fa: "تست عایقی میگر مرحله اول", t_en: "Insulation test (Megger) Phase 1", crit: "critical" },
-                { id: 49, t_fa: "تست Power Frequency", t_en: "Power Frequency Test", crit: "critical" },
-                { id: 50, t_fa: "تست عایقی میگر پس از تست P.F", t_en: "Insulation test after P.F", crit: "critical" }
-            ]},
-            { cat_fa: "تحویل و مستندات", cat_en: "Delivery & Documentation", items: [
-                { id: 51, t_fa: "کنترل دستورالعمل حمل تابلو", t_en: "Handling instructions", crit: "minor" },
-                { id: 52, t_fa: "کنترل دستورالعمل نصب تابلو", t_en: "Installation instructions", crit: "minor" },
-                { id: 53, t_fa: "تمیز بودن تابلو با جاروبرقی", t_en: "Panel cleanliness", crit: "minor" },
-                { id: 54, t_fa: "نصب برچسب شناسایی و ردیابی محصول", t_en: "ID & tracking label", crit: "general" },
-                { id: 55, t_fa: "کنترل نصب لیبل های تایید کنترل کیفی", t_en: "QC approval labels", crit: "general" },
-                { id: 56, t_fa: "جمع آوری کاتالوگ جهت FINAL BOOK", t_en: "Catalogs for Final Book", crit: "minor" }
-            ]}
-        ],
-        mcc: [
-            { cat_fa: "بازرسی مکانیکی", cat_en: "Mechanical Inspection", items: [
-                { id: 1, t_fa: "کنترل ریل‌های نصب کنتاکتورها", t_en: "DIN rails for contactors", crit: "general" },
-                { id: 2, t_fa: "بررسی کیفیت رنگ و بدنه", t_en: "Paint & body quality", crit: "minor" }
-            ]},
-            { cat_fa: "تست‌های الکتریکی", cat_en: "Electrical Tests", items: [
-                { id: 3, t_fa: "تنظیمات رله حرارتی مطابق جریان موتور", t_en: "Thermal relay setting", crit: "critical" },
-                { id: 4, t_fa: "تست عملکرد کنتاکتورها", t_en: "Contactor operation", crit: "critical" },
-                { id: 5, t_fa: "بررسی ارتباط با PLC", t_en: "PLC communication", crit: "general" }
-            ]}
-        ],
-        lv: [{ cat_fa: "بازرسی عمومی", cat_en: "General Inspection", items: [{ id: 1, t_fa: "کنترل سایز کلیدهای مینیاتوری", t_en: "MCB sizing", crit: "general" }]}],
-        mv: [{ cat_fa: "بازرسی عمومی", cat_en: "General Inspection", items: [{ id: 1, t_fa: "بررسی مقره‌ها و ترکیدگی", t_en: "Insulators check", crit: "critical" }]}],
-        plc: [{ cat_fa: "بازرسی عمومی", cat_en: "General Inspection", items: [{ id: 1, t_fa: "بررسی سیم‌بندی I/O", t_en: "I/O wiring check", crit: "critical" }]}]
-    };
-
-    function updateStaticTexts() {
-        document.querySelectorAll('[data-en]').forEach(el => { 
-            let text = el.getAttribute(`data-${currentLang}`);
-            if (text !== null) el.innerHTML = text;
-        });
-        if(currentLang === 'fa') {
-            document.body.style.direction = 'rtl';
-            document.body.style.fontFamily = "'Vazirmatn', sans-serif";
-            document.getElementById('projectNameInput').placeholder = 'نام پروژه / شماره سریال';
-            document.getElementById('moduleSearch').placeholder = 'جستجو در ماژول‌ها...';
-        } else {
-            document.body.style.direction = 'ltr';
-            document.body.style.fontFamily = 'Outfit, sans-serif';
-            document.getElementById('projectNameInput').placeholder = 'Project Name / Serial No.';
-            document.getElementById('moduleSearch').placeholder = 'Search modules...';
-        }
-    }
-
-    function setLang(lang) {
-        currentLang = lang;
-        localStorage.setItem('karatech-lang', lang);
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-        updateStaticTexts();
-        const activePanel = document.querySelector('.panel-btn.active').getAttribute('onclick').match(/'([^']+)'/)[1];
-        loadChecklist(activePanel);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
-    
-    function updateDateTime() {
-        const now = new Date();
-        document.getElementById('timeDisplay').textContent = now.toLocaleTimeString(currentLang === 'fa' ? 'fa-IR' : 'en-GB');
-        document.getElementById('dateDisplay').textContent = now.toLocaleDateString(currentLang === 'fa' ? 'fa-IR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-    }
-
-    function toggleSubAccordion(elem) {
-        const container = elem.nextElementSibling;
-        const arrow = elem.querySelector('.arrow');
-        if (container.classList.contains('open')) {
-            container.classList.remove('open');
-            container.style.maxHeight = '0';
-            arrow.style.transform = 'rotate(0deg)';
-        } else {
-            container.classList.add('open');
-            container.style.maxHeight = container.scrollHeight + 'px';
-            arrow.style.transform = 'rotate(180deg)';
-        }
-    }
-
-    function toggleMainAccordion(elem) {
-        const body = elem.nextElementSibling;
-        if (body.style.maxHeight && body.style.maxHeight !== '0px') {
-            body.style.maxHeight = '0';
-            elem.classList.remove('active');
-        } else {
-            body.style.maxHeight = body.scrollHeight + 'px';
-            elem.classList.add('active');
-        }
-    }
-
-    function loadChecklist(type) {
-        document.querySelectorAll('.panel-btn').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-
-        const container = document.getElementById('checklistContainer');
-        container.innerHTML = '';
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
         
-        qcData[type].forEach((cat, catIndex) => {
-            const catTitle = currentLang === 'fa' ? cat.cat_fa : cat.cat_en;
-            let itemsHTML = '';
-            
-            cat.items.forEach(item => {
-                const itemText = currentLang === 'fa' ? item.t_fa : item.t_en;
-                const critText = item.crit === 'critical' ? (currentLang === 'fa' ? 'بحرانی' : 'Critical') : item.crit === 'general' ? (currentLang === 'fa' ? 'کلی' : 'General') : (currentLang === 'fa' ? 'جزئی' : 'Minor');
-                
-                itemsHTML += `
-                    <tr class="check-row" data-id="${type}-${catIndex}-${item.id}">
-                        <td style="width: 40px; text-align: center;">${item.id}</td>
-                        <td><a href="../quality/inspection-${item.id}.html" class="item-link"><i class="fas fa-link"></i> ${itemText}</a></td>
-                        <td style="width: 80px; text-align: center;"><span class="crit-badge crit-${item.crit}">${critText}</span></td>
-                        <td style="width: 180px;">
-                            <div class="action-group">
-                                <button class="action-btn btn-approve" onclick="approveItem('${type}-${catIndex}-${item.id}')"><i class="fas fa-check"></i></button>
-                                <button class="action-btn btn-reject" onclick="rejectItem('${type}-${catIndex}-${item.id}')"><i class="fas fa-times"></i></button>
-                                <input type="text" class="ncr-input" placeholder="NCR No." id="ncr-${type}-${catIndex}-${item.id}">
-                            </div>
-                        </td>
-                    </tr>
-                `;
-            });
+        <a href="qc-fat-sat.html" class="page-link">
+            <div class="icon-box"><i class="fas fa-industry"></i></div>
+            <div class="text-box">
+                <h4>پروتکل‌های FAT و SAT</h4>
+                <p>تست‌های پذیرش کارخانه‌ای و تست‌های پذیرش در سایت</p>
+            </div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
 
-            const accordionHTML = `
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleMainAccordion(this)">
-                        <span>${catTitle}</span>
-                        <i class="fas fa-chevron-down arrow"></i>
-                    </div>
-                    <div class="accordion-body">
-                        <table class="check-table">
-                            <thead><tr><th>#</th><th data-en="Item" data-fa="مورد بازرسی">مورد بازرسی</th><th data-en="Importance" data-fa="اهمیت">اهمیت</th><th data-en="Action" data-fa="اقدام">اقدام</th></tr></thead>
-                            <tbody>${itemsHTML}</tbody>
-                        </table>
-                    </div>
-                </div>
-            `;
-            container.innerHTML += accordionHTML;
-        });
+        <a href="qc-checklist.html" class="page-link">
+            <div class="icon-box"><i class="fas fa-list-check"></i></div>
+            <div class="text-box">
+                <h4>چک‌لیست تعاملی (۵۶ ردیفه)</h4>
+                <p>سیستم تأیید/رد، ثبت عدم انطباق و خروجی PDF</p>
+            </div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
 
-        const firstHeader = container.querySelector('.accordion-header');
-        if(firstHeader) toggleMainAccordion(firstHeader);
-        updateProgress();
-    }
-
-    function approveItem(id) {
-        const row = document.querySelector(`tr[data-id="${id}"]`);
-        const ncrInput = document.getElementById(`ncr-${id}`);
-        const approveBtn = row.querySelector('.btn-approve');
-        const rejectBtn = row.querySelector('.btn-reject');
-        if (approveBtn.classList.contains('active')) {
-            approveBtn.classList.remove('active');
-            row.classList.remove('approved');
-        } else {
-            approveBtn.classList.add('active');
-            rejectBtn.classList.remove('active');
-            row.classList.remove('rejected');
-            row.classList.add('approved');
-            ncrInput.classList.remove('show');
-            ncrInput.value = '';
-        }
-        updateProgress();
-    }
-
-    function rejectItem(id) {
-        const row = document.querySelector(`tr[data-id="${id}"]`);
-        const ncrInput = document.getElementById(`ncr-${id}`);
-        const approveBtn = row.querySelector('.btn-approve');
-        const rejectBtn = row.querySelector('.btn-reject');
-        if (rejectBtn.classList.contains('active')) {
-            rejectBtn.classList.remove('active');
-            row.classList.remove('rejected');
-            ncrInput.classList.remove('show');
-        } else {
-            rejectBtn.classList.add('active');
-            approveBtn.classList.remove('active');
-            row.classList.remove('approved');
-            row.classList.add('rejected');
-            ncrInput.classList.add('show');
-            ncrInput.focus();
-        }
-        updateProgress();
-    }
-
-    function updateProgress() {
-        const rows = document.querySelectorAll('.check-row');
-        let approved = 0, rejected = 0, pending = 0;
-        rows.forEach(row => {
-            if (row.classList.contains('approved')) approved++;
-            else if (row.classList.contains('rejected')) rejected++;
-            else pending++;
-        });
-        document.getElementById('statApproved').textContent = approved;
-        document.getElementById('statRejected').textContent = rejected;
-        document.getElementById('statPending').textContent = pending;
-        const percent = rows.length > 0 ? Math.round(((approved + rejected) / rows.length) * 100) : 0;
-        document.getElementById('progressFill').style.width = percent + '%';
-        document.getElementById('progressPercent').textContent = percent + '%';
-    }
-
-    function filterModules() {
-        const input = document.getElementById('moduleSearch');
-        const filter = input.value.toLowerCase();
-        const items = document.getElementsByClassName('module-item');
-        for(let i=0; i<items.length; i++) {
-            const text = items[i].textContent || items[i].innerText;
-            if (text.toLowerCase().includes(filter)) {
-                items[i].style.display = '';
-            } else {
-                items[i].style.display = 'none';
-            }
-        }
-    }
-
-    function generateReport() {
-        const projectName = document.getElementById('projectNameInput').value || (currentLang === 'fa' ? 'نامشخص' : 'N/A');
-        const activePanelBtn = document.querySelector('.panel-btn.active');
-        const panelType = activePanelBtn ? activePanelBtn.textContent : 'N/A';
-        const date = new Date().toLocaleDateString(currentLang === 'fa' ? 'fa-IR' : 'en-US');
-        let tableRows = '';
-        const rows = document.querySelectorAll('.check-row');
-        rows.forEach(row => {
-            const id = row.querySelector('td').innerText;
-            const text = row.querySelector('.item-link').innerText.trim();
-            const crit = row.querySelector('.crit-badge').innerText;
-            const approveBtn = row.querySelector('.btn-approve');
-            const rejectBtn = row.querySelector('.btn-reject');
-            const ncrInput = row.querySelector('.ncr-input');
-            let status = currentLang === 'fa' ? 'در انتظار' : 'Pending';
-            let statusColor = '#f39c12';
-            let ncrNo = '';
-            if (approveBtn.classList.contains('active')) {
-                status = currentLang === 'fa' ? 'قبول' : 'Pass';
-                statusColor = '#2ecc71';
-            } else if (rejectBtn.classList.contains('active')) {
-                status = currentLang === 'fa' ? 'مردود' : 'Fail';
-                statusColor = '#e74c3c';
-                ncrNo = ncrInput.value || '-';
-            }
-            tableRows += `<tr><td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${id}</td><td style="border: 1px solid #ddd; padding: 8px;">${text}</td><td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${crit}</td><td style="border: 1px solid #ddd; padding: 8px; text-align: center; color: ${statusColor}; font-weight: bold;">${status}</td><td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${ncrNo}</td></tr>`;
-        });
-
-        const reportHTML = `
-            <html lang="${currentLang}" dir="${currentLang === 'fa' ? 'rtl' : 'ltr'}">
-            <head>
-                <meta charset="UTF-8"><title>QC Report - ${projectName}</title>
-                <style>
-                    body { font-family: ${currentLang === 'fa' ? 'Vazirmatn, sans-serif' : 'Arial, sans-serif'}; padding: 40px; color: #000; }
-                    h1 { text-align: center; color: #004085; border-bottom: 2px solid #004085; padding-bottom: 15px; margin-bottom: 30px; }
-                    .header-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-                    .header-table td { padding: 8px; border: 1px solid #ccc; }
-                    .header-table strong { color: #333; }
-                    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
-                    th { background: #f2f2f2; padding: 10px; border: 1px solid #ddd; text-align: center; }
-                    .signatures { margin-top: 50px; width: 100%; display: flex; justify-content: space-between; }
-                    .sig-box { width: 45%; border-top: 1px solid #000; padding-top: 10px; text-align: center; }
-                    @media print { button { display: none; } }
-                </style>
-            </head>
-            <body>
-                <h1>${currentLang === 'fa' ? 'فرم بازرسی نهایی کنترل کیفیت' : 'Final Quality Control Inspection Report'}</h1>
-                <table class="header-table">
-                    <tr><td><strong>${currentLang === 'fa' ? 'نام پروژه:' : 'Project Name:'}</strong> ${projectName}</td><td><strong>${currentLang === 'fa' ? 'نوع تابلو:' : 'Panel Type:'}</strong> ${panelType}</td><td><strong>${currentLang === 'fa' ? 'تاریخ:' : 'Date:'}</strong> ${date}</td></tr>
-                </table>
-                <table>
-                    <thead><tr><th>#</th><th>${currentLang === 'fa' ? 'مورد بازرسی' : 'Inspection Item'}</th><th>${currentLang === 'fa' ? 'درجه اهمیت' : 'Criticality'}</th><th>${currentLang === 'fa' ? 'نتیجه' : 'Result'}</th><th>${currentLang === 'fa' ? 'شماره عدم انطباق' : 'NCR No.'}</th></tr></thead>
-                    <tbody>${tableRows}</tbody>
-                </table>
-                <div class="signatures">
-                    <div class="sig-box">${currentLang === 'fa' ? 'نام و امضاء بازرس کنترل کیفیت' : 'QC Inspector Signature'}</div>
-                    <div class="sig-box">${currentLang === 'fa' ? 'نام و امضاء سرپرست کنترل کیفیت' : 'QC Supervisor Signature'}</div>
-                </div>
-                <div style="text-align: center; margin-top: 30px;">
-                    <button onclick="window.print()" style="padding: 10px 20px; background: #004085; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">${currentLang === 'fa' ? 'چاپ / ذخیره PDF' : 'Print / Save as PDF'}</button>
-                </div>
-            </body>
-            </html>
-        `;
-        const reportWindow = window.open('', '_blank');
-        reportWindow.document.write(reportHTML);
-        reportWindow.document.close();
-    }
-
-    // راه‌اندازی اولیه
-    updateStaticTexts();
-    updateDateTime();
-    setInterval(updateDateTime, 1000);
-    loadChecklist('mdb');
-</script>
+        <a href="qc-modules.html" class="page-link">
+            <div class="icon-box"><i class="fas fa-th-large"></i></div>
+            <div class="text-box">
+                <h4>ماژول‌ها و ابزارها</h4>
+                <p>استانداردها، SPC، شش سیگما، NDT و سایر ابزارها</p>
+            </div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+    </div>
+</div>
 </body>
 </html>
