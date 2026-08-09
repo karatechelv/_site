@@ -17,6 +17,9 @@
             --accent-indigo: #4d8bff;
             --accent-cyan: #00f2ff;
             --accent-gold: #d4af37;
+            --success-green: #2ecc71;
+            --warning-orange: #f39c12;
+            --danger-red: #e74c3c;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -97,32 +100,47 @@
 
         .card-title { font-family: 'Markazi Text', serif; font-size: 1.8rem; font-weight: 600; color: #fff; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
         .card-title i { color: var(--accent-cyan); }
-        
         .card-text { color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 1.05rem; margin-bottom: 15px; }
 
-        /* جدول‌های تخصصی */
+        /* جدول‌ها */
         .tech-table-container { overflow-x: auto; margin: 20px 0; border-radius: 8px; border: 1px solid rgba(77, 139, 255, 0.2); }
-        .tech-table {
-            width: 100%; border-collapse: collapse; font-size: 0.95rem; min-width: 600px;
-        }
-        .tech-table th {
-            background: rgba(77, 139, 255, 0.1); color: var(--accent-cyan); 
-            padding: 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; font-weight: 700;
-        }
-        .tech-table td {
-            padding: 12px 15px; border: 1px solid rgba(255,255,255,0.05); 
-            text-align: center; color: #fff; background: rgba(255,255,255,0.02);
-        }
+        .tech-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; min-width: 600px; }
+        .tech-table th { background: rgba(77, 139, 255, 0.1); color: var(--accent-cyan); padding: 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; font-weight: 700; }
+        .tech-table td { padding: 12px 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; color: #fff; background: rgba(255,255,255,0.02); transition: 0.3s; }
         .tech-table td:first-child { text-align: right; color: var(--accent-gold); font-weight: 700; }
+        
+        /* استایل‌های اضافه شده برای جدول و چک‌لیست */
+        .status-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .status-pass { background: rgba(46, 204, 113, 0.15); color: var(--success-green); border: 1px solid rgba(46, 204, 113, 0.3); }
+        .status-fail { background: rgba(231, 76, 60, 0.15); color: var(--danger-red); border: 1px solid rgba(231, 76, 60, 0.3); }
+        .status-pending { background: rgba(243, 156, 18, 0.15); color: var(--warning-orange); border: 1px solid rgba(243, 156, 18, 0.3); }
+
+        .checklist-row.completed { background: rgba(46, 204, 113, 0.05) !important; }
+        .checklist-row.completed td { color: var(--text-muted); text-decoration: line-through; }
+        
+        .custom-checkbox { display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+        .custom-checkbox input { display: none; }
+        .custom-checkbox .checkmark { width: 24px; height: 24px; background: rgba(255,255,255,0.05); border: 1px solid var(--text-muted); border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .custom-checkbox input:checked + .checkmark { background: var(--success-green); border-color: var(--success-green); }
+        .custom-checkbox .checkmark i { color: #fff; font-size: 0.8rem; opacity: 0; transition: 0.3s; }
+        .custom-checkbox input:checked + .checkmark i { opacity: 1; }
+
+        /* نوار پیشرفت */
+        .progress-container { margin-bottom: 20px; }
+        .progress-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem; color: var(--text-muted); }
+        .progress-bar { width: 100%; height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent-indigo), var(--accent-cyan)); width: 0%; transition: width 0.4s ease; box-shadow: 0 0 10px var(--accent-cyan); }
 
         /* باکس نکات فنی */
-        .note-box {
-            background: rgba(0, 242, 255, 0.03); border: 1px solid rgba(0, 242, 255, 0.15);
-            border-radius: 8px; padding: 15px 20px; margin: 20px 0;
-            display: flex; gap: 15px; align-items: flex-start;
-        }
+        .note-box { background: rgba(0, 242, 255, 0.03); border: 1px solid rgba(0, 242, 255, 0.15); border-radius: 8px; padding: 15px 20px; margin: 20px 0; display: flex; gap: 15px; align-items: flex-start; }
         .note-box i { color: var(--accent-cyan); font-size: 1.2rem; margin-top: 3px; }
         .note-box span { color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.6; }
+
+        /* کادر جستجو */
+        .search-box { position: relative; margin-bottom: 20px; }
+        .search-box i { position: absolute; top: 50%; right: 20px; transform: translateY(-50%); color: var(--text-muted); }
+        .search-box input { width: 100%; padding: 12px 45px 12px 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 30px; color: #fff; font-family: inherit; font-size: 1rem; transition: 0.3s; }
+        .search-box input:focus { outline: none; border-color: var(--accent-cyan); box-shadow: 0 0 15px rgba(0, 242, 255, 0.1); }
 
         /* استایل لیست‌های لینک‌دار (کپسولی) */
         .tree-list { list-style: none; padding: 0; margin-top: 10px; display: flex; flex-direction: column; gap: 12px; }
@@ -130,18 +148,11 @@
             display: flex; align-items: center; justify-content: space-between;
             background: rgba(255,255,255,0.02); backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 50px; 
-            padding: 15px 25px;
+            border-radius: 50px; padding: 15px 25px;
             color: rgba(255,255,255,0.8); text-decoration: none;
             transition: 0.3s ease; cursor: pointer;
         }
-        .tree-link:hover { 
-            color: #fff; 
-            background: rgba(0, 242, 255, 0.05); 
-            transform: translateX(-10px); 
-            border-color: var(--accent-cyan);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
+        .tree-link:hover { color: #fff; background: rgba(0, 242, 255, 0.05); transform: translateX(-10px); border-color: var(--accent-cyan); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
         .tree-link-left { display: flex; align-items: center; gap: 15px; }
         .tree-link i.bullet { color: var(--accent-cyan); font-size: 1.2rem; transition: 0.3s; width: 20px; text-align: center; }
         .tree-link:hover i.bullet { color: var(--accent-indigo); transform: scale(1.2); }
@@ -150,7 +161,10 @@
         .tree-link i.arrow { color: var(--text-muted); font-size: 0.8rem; opacity: 0.5; transition: 0.3s; }
         .tree-link:hover i.arrow { opacity: 1; color: var(--accent-cyan); }
 
-        /* زیرمجموعه‌های تو در تو */
+        /* زیرمجموعه‌های آکاردئونی */
+        .accordion-trigger { cursor: pointer; }
+        .sub-tree-container { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+        .sub-tree-container.open { max-height: 500px; }
         .sub-tree { list-style: none; padding-right: 40px; margin-top: 12px; display: flex; flex-direction: column; gap: 10px; border-right: 1px dashed rgba(77, 139, 255, 0.2); }
         .sub-tree .tree-link { padding: 10px 20px; background: rgba(0,0,0,0.2); border-radius: 30px; }
         .sub-tree .tree-link i.bullet { font-size: 0.8rem; color: var(--accent-indigo); }
@@ -209,11 +223,11 @@
 
     <div class="content-area">
         
-        <!-- کارت ۱: تست‌های روتین IEC 61439 (گسترش یافته) -->
+        <!-- کارت ۱: تست‌های روتین IEC 61439 -->
         <div class="content-card">
             <h2 class="card-title"><i class="fas fa-vial"></i> <span data-en="IEC 61439 Routine Tests" data-fa="تست‌های روتین IEC 61439">تست‌های روتین IEC 61439</span></h2>
-            <p class="card-text" data-en="Routine tests are mandatory checks performed on every manufactured panel to ensure it meets the design verified criteria." data-fa="تست‌های روتین، بررسی‌های اجباری هستند که روی هر تابلوی ساخته‌شده انجام می‌شوند تا مطابقت با معیارهای تأیید طراحی را تأیید کنند.">
-                تست‌های روتین، بررسی‌های اجباری هستند که روی هر تابلوی ساخته‌شده انجام می‌شوند تا مطابقت با معیارهای تأیید طراحی را تأیید کنند.
+            <p class="card-text" data-en="Routine tests are mandatory checks performed on every manufactured panel." data-fa="تست‌های روتین، بررسی‌های اجباری هستند که روی هر تابلوی ساخته‌شده انجام می‌شوند.">
+                تست‌های روتین، بررسی‌های اجباری هستند که روی هر تابلوی ساخته‌شده انجام می‌شوند.
             </p>
             <div class="tech-table-container">
                 <table class="tech-table">
@@ -222,38 +236,33 @@
                             <th data-en="Test Type" data-fa="نوع تست">نوع تست</th>
                             <th data-en="Procedure" data-fa="روند اجرا">روند اجرا</th>
                             <th data-en="Acceptance Criteria" data-fa="معیار پذیرش">معیار پذیرش</th>
+                            <th data-en="Status" data-fa="وضعیت">وضعیت</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td data-en="Visual Inspection" data-fa="بازرسی بصری">بازرسی بصری</td>
-                            <td data-en="Check grounding, labeling, clearances, and physical damage." data-fa="بررسی ارتینگ، برچسب‌گذاری، فواصل و آسیب‌های فیزیکی.">بررسی ارتینگ، برچسب‌گذاری، فواصل و آسیب‌های فیزیکی.</td>
-                            <td data-en="No visible defects, proper IP rating." data-fa="بدون نقص ظاهری، درجه IP صحیح.">بدون نقص ظاهری، درجه IP صحیح.</td>
+                            <td data-en="Check grounding, labeling, clearances." data-fa="بررسی ارتینگ، برچسب‌گذاری، فواصل.">بررسی ارتینگ، برچسب‌گذاری، فواصل.</td>
+                            <td data-en="No visible defects." data-fa="بدون نقص ظاهری.">بدون نقص ظاهری.</td>
+                            <td><span class="status-badge status-pass" data-en="Pass" data-fa="قبول">قبول</span></td>
                         </tr>
                         <tr>
                             <td data-en="Dielectric Test" data-fa="تست دی‌الکتریک">تست دی‌الکتریک</td>
-                            <td data-en="Apply test voltage between circuits and earth for 1 sec." data-fa="اعمال ولتاژ تست بین مدارها و زمین به مدت ۱ ثانیه.">اعمال ولتاژ تست بین مدارها و زمین به مدت ۱ ثانیه.</td>
-                            <td data-en="No breakdown or flashover." data-fa="بدون شکست عایقی یا جرقه.">بدون شکست عایقی یا جرقه.</td>
+                            <td data-en="Apply test voltage for 1 sec." data-fa="اعمال ولتاژ تست به مدت ۱ ثانیه.">اعمال ولتاژ تست به مدت ۱ ثانیه.</td>
+                            <td data-en="No breakdown." data-fa="بدون شکست عایقی.">بدون شکست عایقی.</td>
+                            <td><span class="status-badge status-pending" data-en="Pending" data-fa="در انتظار">در انتظار</span></td>
                         </tr>
                         <tr>
                             <td data-en="Insulation Resistance" data-fa="مقاومت عایقی">مقاومت عایقی</td>
-                            <td data-en="Measure resistance using a Megger (500V or 1000V)." data-fa="اندازه‌گیری مقاومت با مگومتر (۵۰۰ یا ۱۰۰۰ ولت).">اندازه‌گیری مقاومت با مگومتر (۵۰۰ یا ۱۰۰۰ ولت).</td>
+                            <td data-en="Measure using Megger." data-fa="اندازه‌گیری با مگومتر.">اندازه‌گیری با مگومتر.</td>
                             <td data-en="> 1 MΩ" data-fa="بزرگتر از ۱ مگااهم">بزرگتر از ۱ مگااهم</td>
+                            <td><span class="status-badge status-pass" data-en="Pass" data-fa="قبول">قبول</span></td>
                         </tr>
                         <tr>
                             <td data-en="Torque Verification" data-fa="بررسی گشتاور">بررسی گشتاور</td>
-                            <td data-en="Check tightening torque of all bolted connections." data-fa="بررسی گشتاور محکم کردن تمام اتصالات پیچی.">بررسی گشتاور محکم کردن تمام اتصالات پیچی.</td>
-                            <td data-en="Meets manufacturer's torque specs." data-fa="مطابقت با مشخصات سازنده.">مطابقت با مشخصات سازنده.</td>
-                        </tr>
-                        <tr>
-                            <td data-en="Protection Circuit" data-fa="مدار حفاظتی">مدار حفاظتی</td>
-                            <td data-en="Verify continuity of protective conductors (PE bus)." data-fa="بررسی پیوستگی هادی‌های حفاظتی (شینه ارت).">بررسی پیوستگی هادی‌های حفاظتی (شینه ارت).</td>
-                            <td data-en="Effective grounding, low resistance." data-fa="ارتینگ موثر، مقاومت کم.">ارتینگ موثر، مقاومت کم.</td>
-                        </tr>
-                        <tr>
-                            <td data-en="IP Verification" data-fa="تأیید درجه حفاظت">تأیید درجه حفاظت</td>
-                            <td data-en="Inspect gaskets, locks, and enclosure integrity." data-fa="بازرسی واشرها، قفل‌ها و یکپارچگی بدنه.">بازرسی واشرها، قفل‌ها و یکپارچگی بدنه.</td>
-                            <td data-en="Matches specified IP rating (e.g., IP55)." data-fa="مطابقت با درجه IP مشخص شده.">مطابقت با درجه IP مشخص شده.</td>
+                            <td data-en="Check bolted connections." data-fa="بررسی اتصالات پیچی.">بررسی اتصالات پیچی.</td>
+                            <td data-en="Meets specs." data-fa="مطابقت با مشخصات.">مطابقت با مشخصات.</td>
+                            <td><span class="status-badge status-fail" data-en="Fail" data-fa="رد">رد</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -267,100 +276,98 @@
                 <i class="fas fa-clipboard-check"></i>
                 <div>
                     <strong data-en="FAT (Factory Acceptance Test):" data-fa="FAT (تست پذیرش کارخانه‌ای):">FAT (تست پذیرش کارخانه‌ای):</strong>
-                    <span data-en="Conducted at the manufacturer's facility before shipment. Includes visual inspection, dielectric test, temperature rise verification, and functional tests." data-fa="در محل سازنده قبل از ارسال انجام می‌شود. شامل بازرسی بصری، تست دی‌الکتریک، بررسی افزایش دما و تست‌های عملکردی است.">در محل سازنده قبل از ارسال انجام می‌شود. شامل بازرسی بصری، تست دی‌الکتریک، بررسی افزایش دما و تست‌های عملکردی است.</span>
+                    <span data-en="Conducted at the manufacturer's facility before shipment." data-fa="در محل سازنده قبل از ارسال انجام می‌شود.">در محل سازنده قبل از ارسال انجام می‌شود.</span>
                 </div>
             </div>
             <div class="note-box">
                 <i class="fas fa-clipboard-check"></i>
                 <div>
                     <strong data-en="SAT (Site Acceptance Test):" data-fa="SAT (تست پذیرش در سایت):">SAT (تست پذیرش در سایت):</strong>
-                    <span data-en="Conducted after installation at the final site. Verifies that the panel was not damaged during transport and integrates correctly with the site's electrical system." data-fa="پس از نصب در سایت نهایی انجام می‌شود. بررسی می‌کند که تابلو در طول حمل‌ونقل آسیب ندیده و به درستی با سیستم برق سایت یکپارچه می‌شود.">پس از نصب در سایت نهایی انجام می‌شود. بررسی می‌کند که تابلو در طول حمل‌ونقل آسیب ندیده و به درستی با سیستم برق سایت یکپارچه می‌شود.</span>
+                    <span data-en="Conducted after installation at the final site." data-fa="پس از نصب در سایت نهایی انجام می‌شود.">پس از نصب در سایت نهایی انجام می‌شود.</span>
                 </div>
             </div>
         </div>
 
-        <!-- کارت ۳: چک‌لیست فنی (بسیار گسترش یافته) -->
+        <!-- کارت ۳: چک‌لیست تعاملی -->
         <div class="content-card">
-            <h2 class="card-title"><i class="fas fa-list-ul"></i> <span data-en="Technical Checklist" data-fa="چک‌لیست جامع فنی">چک‌لیست جامع فنی</span></h2>
-            <p class="card-text" data-en="Key parameters checked during the QC process:" data-fa="پارامترهای کلیدی که در فرآیند کنترل کیفیت بررسی می‌شوند:">
-                پارامترهای کلیدی که در فرآیند کنترل کیفیت بررسی می‌شوند:
-            </p>
+            <h2 class="card-title"><i class="fas fa-list-check"></i> <span data-en="Interactive Checklist" data-fa="چک‌لیست تعاملی">چک‌لیست تعاملی</span></h2>
+            
+            <div class="progress-container">
+                <div class="progress-info">
+                    <span data-en="QC Progress" data-fa="پیشرفت کنترل کیفیت">پیشرفت کنترل کیفیت</span>
+                    <span id="progressPercent">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
             <div class="tech-table-container">
                 <table class="tech-table">
                     <thead>
                         <tr>
                             <th data-en="Parameter" data-fa="پارامتر">پارامتر</th>
                             <th data-en="Standard/Value" data-fa="استاندارد/مقدار">استاندارد/مقدار</th>
-                            <th data-en="Instrument" data-fa="ابزار">ابزار</th>
+                            <th data-en="Action" data-fa="اقدام">اقدام</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
+                    <tbody id="checklistBody">
+                        <tr class="checklist-row">
                             <td data-en="Clearance (Phase-Phase)" data-fa="فاصله فاز-فاز">فاصله فاز-فاز</td>
                             <td data-en=">10 mm (400V)" data-fa="> ۱۰ میلی‌متر (۴۰۰ ولت)">بزرگتر از ۱۰ میلی‌متر (۴۰۰ ولت)</td>
-                            <td data-en="Feeler Gauge" data-fa="فیلر گیج">فیلر گیج</td>
+                            <td><label class="custom-checkbox"><input type="checkbox" onchange="updateProgress()"><span class="checkmark"><i class="fas fa-check"></i></span></label></td>
                         </tr>
-                        <tr>
+                        <tr class="checklist-row">
                             <td data-en="Creepage Distance" data-fa="مسیر نشتی (کرپ)">مسیر نشتی (کرپ)</td>
                             <td data-en=">14 mm (400V)" data-fa="> ۱۴ میلی‌متر (۴۰۰ ولت)">بزرگتر از ۱۴ میلی‌متر (۴۰۰ ولت)</td>
-                            <td data-en="Visual / Drawing" data-fa="بازرسی / نقشه">بازرسی / نقشه</td>
+                            <td><label class="custom-checkbox"><input type="checkbox" onchange="updateProgress()"><span class="checkmark"><i class="fas fa-check"></i></span></label></td>
                         </tr>
-                        <tr>
+                        <tr class="checklist-row">
                             <td data-en="Insulation Resistance" data-fa="مقاومت عایقی">مقاومت عایقی</td>
                             <td data-en="> 1 MΩ" data-fa="بزرگتر از ۱ مگااهم">بزرگتر از ۱ مگااهم</td>
-                            <td data-en="Megger (1000V)" data-fa="مگومتر (۱۰۰۰ ولت)">مگومتر (۱۰۰۰ ولت)</td>
+                            <td><label class="custom-checkbox"><input type="checkbox" onchange="updateProgress()"><span class="checkmark"><i class="fas fa-check"></i></span></label></td>
                         </tr>
-                        <tr>
+                        <tr class="checklist-row">
                             <td data-en="Torque (M8 Bolt)" data-fa="گشتاور (پیچ M8)">گشتاور (پیچ M8)</td>
                             <td data-en="8 - 12 Nm" data-fa="۸ - ۱۲ نیوتن‌متر">۸ - ۱۲ نیوتن‌متر</td>
-                            <td data-en="Torque Wrench" data-fa="کلیه گشتاورسنج">کلیه گشتاورسنج</td>
+                            <td><label class="custom-checkbox"><input type="checkbox" onchange="updateProgress()"><span class="checkmark"><i class="fas fa-check"></i></span></label></td>
                         </tr>
-                        <tr>
+                        <tr class="checklist-row">
                             <td data-en="Grounding Continuity" data-fa="پیوستگی ارتینگ">پیوستگی ارتینگ</td>
                             <td data-en="< 0.1 Ω" data-fa="کمتر از ۰.۱ اهم">کمتر از ۰.۱ اهم</td>
-                            <td data-en="Loop Tester" data-fa="تستر لوپ">تستر لوپ</td>
+                            <td><label class="custom-checkbox"><input type="checkbox" onchange="updateProgress()"><span class="checkmark"><i class="fas fa-check"></i></span></label></td>
                         </tr>
-                        <tr>
+                        <tr class="checklist-row">
                             <td data-en="Phase Sequence" data-fa="توالی فازها">توالی فازها</td>
-                            <td data-en="L1-L2-L3 (Clockwise)" data-fa="L1-L2-L3 (ساعتگرد)">L1-L2-L3 (ساعتگرد)</td>
-                            <td data-en="Phase Tester" data-fa="تستر فاز">تستر فاز</td>
-                        </tr>
-                        <tr>
-                            <td data-en="Wiring Check" data-fa="بررسی سیم‌بندی">بررسی سیم‌بندی</td>
-                            <td data-en="Match with schematic" data-fa="مطابقت با شماتیک">مطابقت با شماتیک</td>
-                            <td data-en="Multimeter / Visual" data-fa="مولتی‌متر / بصری">مولتی‌متر / بصری</td>
-                        </tr>
-                        <tr>
-                            <td data-en="IP Protection" data-fa="درجه حفاظت (IP)">درجه حفاظت (IP)</td>
-                            <td data-en="IP54 / IP65" data-fa="IP54 / IP65">IP54 / IP65</td>
-                            <td data-en="Visual / Spray Test" data-fa="بازرسی / تست اسپری">بازرسی / تست اسپری</td>
+                            <td data-en="L1-L2-L3" data-fa="L1-L2-L3">L1-L2-L3</td>
+                            <td><label class="custom-checkbox"><input type="checkbox" onchange="updateProgress()"><span class="checkmark"><i class="fas fa-check"></i></span></label></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- کارت ۴: ماژول‌ها و ابزارها (ساختار درختی با زیرمجموعه‌ها) -->
+        <!-- کارت ۴: ماژول‌ها و ابزارها -->
         <div class="content-card">
             <h2 class="card-title"><i class="fas fa-th-large"></i> <span data-en="QC Modules & Tools" data-fa="ماژول‌ها و ابزارهای کنترل کیفیت">ماژول‌ها و ابزارهای کنترل کیفیت</span></h2>
-            <ul class="tree-list">
+            
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="moduleSearch" placeholder="جستجو در ماژول‌ها..." onkeyup="filterModules()">
+            </div>
+
+            <ul class="tree-list" id="moduleList">
                 <!-- ۱. استانداردها -->
-                <li>
+                <li class="module-item">
                     <a href="../quality/standards.html" class="tree-link">
-                        <div class="tree-link-left">
-                            <i class="fas fa-book bullet"></i>
-                            <div>
-                                <h4 data-en="Standards" data-fa="استانداردها">استانداردها</h4>
-                                <p data-en="ISO, IEC, IPS Standards" data-fa="استانداردهای ISO، IEC، IPS">استانداردهای ISO، IEC، IPS</p>
-                            </div>
-                        </div>
+                        <div class="tree-link-left"><i class="fas fa-book bullet"></i><div><h4 data-en="Standards" data-fa="استانداردها">استانداردها</h4><p data-en="ISO, IEC, IPS" data-fa="ISO، IEC، IPS">ISO، IEC، IPS</p></div></div>
                         <i class="fas fa-arrow-left arrow"></i>
                     </a>
                 </li>
 
-                <!-- ۲. بازرسی و تست (با زیرمجموعه‌ها) -->
-                <li>
-                    <a href="../quality/inspection-testing.html" class="tree-link">
+                <!-- ۲. بازرسی و تست (آکاردئونی) -->
+                <li class="module-item">
+                    <div class="tree-link accordion-trigger" onclick="toggleAccordion(this)">
                         <div class="tree-link-left">
                             <i class="fas fa-search bullet"></i>
                             <div>
@@ -368,68 +375,33 @@
                                 <p data-en="Methods and procedures" data-fa="روش‌ها و رویه‌ها">روش‌ها و رویه‌ها</p>
                             </div>
                         </div>
-                        <i class="fas fa-arrow-left arrow"></i>
-                    </a>
-                    <!-- زیرمجموعه‌های بازرسی و تست -->
-                    <ul class="sub-tree">
-                        <li><a href="../quality/visual-inspection.html" class="tree-link">
-                            <div class="tree-link-left">
-                                <i class="fas fa-circle bullet"></i>
-                                <div>
-                                    <h4 data-en="Visual Inspection" data-fa="بازرسی بصری">بازرسی بصری</h4>
-                                    <p data-en="Surface defects" data-fa="عیوب سطحی">عیوب سطحی</p>
-                                </div>
-                            </div>
-                            <i class="fas fa-arrow-left arrow"></i>
-                        </a></li>
-                        <li><a href="../quality/electrical-testing.html" class="tree-link">
-                            <div class="tree-link-left">
-                                <i class="fas fa-circle bullet"></i>
-                                <div>
-                                    <h4 data-en="Electrical Testing" data-fa="تست الکتریکی">تست الکتریکی</h4>
-                                    <p data-en="Continuity, insulation" data-fa="پیوستگی، عایق">پیوستگی، عایق</p>
-                                </div>
-                            </div>
-                            <i class="fas fa-arrow-left arrow"></i>
-                        </a></li>
-                        <li><a href="../quality/dimensional-measurement.html" class="tree-link">
-                            <div class="tree-link-left">
-                                <i class="fas fa-circle bullet"></i>
-                                <div>
-                                    <h4 data-en="Dimensional Measurement" data-fa="اندازه‌گیری ابعادی">اندازه‌گیری ابعادی</h4>
-                                    <p data-en="Precision measurement" data-fa="اندازه‌گیری دقیق">اندازه‌گیری دقیق</p>
-                                </div>
-                            </div>
-                            <i class="fas fa-arrow-left arrow"></i>
-                        </a></li>
-                        <li><a href="../quality/functional-testing.html" class="tree-link">
-                            <div class="tree-link-left">
-                                <i class="fas fa-circle bullet"></i>
-                                <div>
-                                    <h4 data-en="Functional Testing" data-fa="تست عملکردی">تست عملکردی</h4>
-                                    <p data-en="Performance verification" data-fa="تأیید عملکرد">تأیید عملکرد</p>
-                                </div>
-                            </div>
-                            <i class="fas fa-arrow-left arrow"></i>
-                        </a></li>
-                    </ul>
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                    <div class="sub-tree-container">
+                        <ul class="sub-tree">
+                            <li><a href="../quality/visual-inspection.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-circle bullet"></i><div><h4 data-en="Visual Inspection" data-fa="بازرسی بصری">بازرسی بصری</h4><p data-en="Surface defects" data-fa="عیوب سطحی">عیوب سطحی</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                            <li><a href="../quality/electrical-testing.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-circle bullet"></i><div><h4 data-en="Electrical Testing" data-fa="تست الکتریکی">تست الکتریکی</h4><p data-en="Continuity, insulation" data-fa="پیوستگی، عایق">پیوستگی، عایق</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                            <li><a href="../quality/dimensional-measurement.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-circle bullet"></i><div><h4 data-en="Dimensional Measurement" data-fa="اندازه‌گیری ابعادی">اندازه‌گیری ابعادی</h4><p data-en="Precision measurement" data-fa="اندازه‌گیری دقیق">اندازه‌گیری دقیق</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                            <li><a href="../quality/functional-testing.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-circle bullet"></i><div><h4 data-en="Functional Testing" data-fa="تست عملکردی">تست عملکردی</h4><p data-en="Performance verification" data-fa="تأیید عملکرد">تأیید عملکرد</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                        </ul>
+                    </div>
                 </li>
 
-                <!-- سایر آیتم‌های اصلی -->
-                <li><a href="../quality/overview.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-book-open bullet"></i><div><h4 data-en="Overview" data-fa="مرور کلی">مرور کلی</h4><p data-en="Complete overview" data-fa="مرور کامل کنترل کیفیت">مرور کامل کنترل کیفیت</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li><a href="../quality/spc.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-chart-line bullet"></i><div><h4 data-en="SPC" data-fa="کنترل آماری فرآیند">کنترل آماری فرآیند</h4><p data-en="Statistical Process Control" data-fa="SPC">SPC</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li><a href="../quality/7qc-tools.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-tools bullet"></i><div><h4 data-en="7 QC Tools" data-fa="۷ ابزار کیفیت">۷ ابزار کیفیت</h4><p data-en="Pareto, Fishbone, etc." data-fa="پارتو، استخوان ماهی و غیره">پارتو، استخوان ماهی و غیره</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li><a href="../quality/six-sigma.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-cogs bullet"></i><div><h4 data-en="Six Sigma" data-fa="شش سیگما">شش سیگما</h4><p data-en="DMAIC, process improvement" data-fa="DMAIC، بهبود فرآیند">DMAIC، بهبود فرآیند</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li><a href="../quality/quality-audits.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-clipboard-list bullet"></i><div><h4 data-en="Quality Audits" data-fa="حسابرسی کیفیت">حسابرسی کیفیت</h4><p data-en="Internal & external audits" data-fa="حسابرسی داخلی و خارجی">حسابرسی داخلی و خارجی</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li><a href="../quality/ndt.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-microscope bullet"></i><div><h4 data-en="NDT" data-fa="تست غیرمخرب">تست غیرمخرب</h4><p data-en="Non-Destructive Testing" data-fa="روش‌های غیرمخرب">روش‌های غیرمخرب</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li><a href="../quality/documentation.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-file-alt bullet"></i><div><h4 data-en="Documentation" data-fa="مستندات">مستندات</h4><p data-en="Manuals, records, certificates" data-fa="دفترچه‌ها، سوابق، گواهینامه‌ها">دفترچه‌ها، سوابق، گواهینامه‌ها</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li><a href="../quality/software.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-laptop-code bullet"></i><div><h4 data-en="Software" data-fa="نرم‌افزارها">نرم‌افزارها</h4><p data-en="Essential tools" data-fa="ابزارهای ضروری">ابزارهای ضروری</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li><a href="../quality/resources.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-book bullet"></i><div><h4 data-en="Resources" data-fa="منابع">منابع</h4><p data-en="Standards, guides" data-fa="استانداردها، راهنماها">استانداردها، راهنماها</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li><a href="../quality/learning-path.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-map-marked-alt bullet"></i><div><h4 data-en="Learning Path" data-fa="مسیر یادگیری">مسیر یادگیری</h4><p data-en="Foundation to advanced" data-fa="از مبتدی تا پیشرفته">از مبتدی تا پیشرفته</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li><a href="../quality/videos-future.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-video bullet"></i><div><h4 data-en="Videos & Future" data-fa="ویدئوها و آینده">ویدئوها و آینده</h4><p data-en="Tutorials & future tech" data-fa="آموزش‌ها و فناوری‌های آینده">آموزش‌ها و فناوری‌های آینده</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li><a href="../quality/examples.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-project-diagram bullet"></i><div><h4 data-en="Examples" data-fa="مثال‌ها">مثال‌ها</h4><p data-en="Practical projects" data-fa="پروژه‌های عملی">پروژه‌های عملی</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li><a href="../quality/qms.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-clipboard-check bullet"></i><div><h4 data-en="QMS" data-fa="سیستم مدیریت کیفیت">سیستم مدیریت کیفیت</h4><p data-en="Quality Management System" data-fa="QMS">QMS</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
-                <li><a href="../quality/quality-tools.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-toolbox bullet"></i><div><h4 data-en="Quality Tools" data-fa="ابزارهای کیفیت">ابزارهای کیفیت</h4><p data-en="Problem solving tools" data-fa="ابزارهای حل مسئله">ابزارهای حل مسئله</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                <!-- سایر آیتم‌ها -->
+                <li class="module-item"><a href="../quality/overview.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-book-open bullet"></i><div><h4 data-en="Overview" data-fa="مرور کلی">مرور کلی</h4><p data-en="Complete overview" data-fa="مرور کامل کنترل کیفیت">مرور کامل کنترل کیفیت</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                <li class="module-item"><a href="../quality/spc.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-chart-line bullet"></i><div><h4 data-en="SPC" data-fa="کنترل آماری فرآیند">کنترل آماری فرآیند</h4><p data-en="SPC" data-fa="SPC">SPC</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                <li class="module-item"><a href="../quality/7qc-tools.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-tools bullet"></i><div><h4 data-en="7 QC Tools" data-fa="۷ ابزار کیفیت">۷ ابزار کیفیت</h4><p data-en="Pareto, Fishbone, etc." data-fa="پارتو، استخوان ماهی و غیره">پارتو، استخوان ماهی و غیره</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                <li class="module-item"><a href="../quality/six-sigma.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-cogs bullet"></i><div><h4 data-en="Six Sigma" data-fa="شش سیگما">شش سیگما</h4><p data-en="DMAIC" data-fa="DMAIC">DMAIC</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                <li class="module-item"><a href="../quality/quality-audits.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-clipboard-list bullet"></i><div><h4 data-en="Quality Audits" data-fa="حسابرسی کیفیت">حسابرسی کیفیت</h4><p data-en="Audits" data-fa="حسابرسی داخلی و خارجی">حسابرسی داخلی و خارجی</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                <li class="module-item"><a href="../quality/ndt.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-microscope bullet"></i><div><h4 data-en="NDT" data-fa="تست غیرمخرب">تست غیرمخرب</h4><p data-en="NDT" data-fa="روش‌های غیرمخرب">روش‌های غیرمخرب</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                <li class="module-item"><a href="../quality/documentation.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-file-alt bullet"></i><div><h4 data-en="Documentation" data-fa="مستندات">مستندات</h4><p data-en="Manuals" data-fa="دفترچه‌ها، گواهینامه‌ها">دفترچه‌ها، گواهینامه‌ها</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                <li class="module-item"><a href="../quality/software.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-laptop-code bullet"></i><div><h4 data-en="Software" data-fa="نرم‌افزارها">نرم‌افزارها</h4><p data-en="Tools" data-fa="ابزارهای ضروری">ابزارهای ضروری</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                <li class="module-item"><a href="../quality/resources.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-book bullet"></i><div><h4 data-en="Resources" data-fa="منابع">منابع</h4><p data-en="Guides" data-fa="راهنماها">راهنماها</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                <li class="module-item"><a href="../quality/learning-path.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-map-marked-alt bullet"></i><div><h4 data-en="Learning Path" data-fa="مسیر یادگیری">مسیر یادگیری</h4><p data-en="Foundation to advanced" data-fa="از مبتدی تا پیشرفته">از مبتدی تا پیشرفته</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                <li class="module-item"><a href="../quality/videos-future.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-video bullet"></i><div><h4 data-en="Videos & Future" data-fa="ویدئوها و آینده">ویدئوها و آینده</h4><p data-en="Tutorials" data-fa="آموزش‌ها">آموزش‌ها</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                <li class="module-item"><a href="../quality/examples.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-project-diagram bullet"></i><div><h4 data-en="Examples" data-fa="مثال‌ها">مثال‌ها</h4><p data-en="Practical projects" data-fa="پروژه‌های عملی">پروژه‌های عملی</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                <li class="module-item"><a href="../quality/qms.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-clipboard-check bullet"></i><div><h4 data-en="QMS" data-fa="سیستم مدیریت کیفیت">سیستم مدیریت کیفیت</h4><p data-en="QMS" data-fa="QMS">QMS</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
+                <li class="module-item"><a href="../quality/quality-tools.html" class="tree-link"><div class="tree-link-left"><i class="fas fa-toolbox bullet"></i><div><h4 data-en="Quality Tools" data-fa="ابزارهای کیفیت">ابزارهای کیفیت</h4><p data-en="Problem solving" data-fa="ابزارهای حل مسئله">ابزارهای حل مسئله</p></div></div><i class="fas fa-arrow-left arrow"></i></a></li>
             </ul>
         </div>
 
@@ -443,9 +415,7 @@
     function updateStaticTexts() {
         document.querySelectorAll('[data-en]').forEach(el => { 
             let text = el.getAttribute(`data-${currentLang}`);
-            if (text !== null) {
-                el.innerHTML = text;
-            }
+            if (text !== null) el.innerHTML = text;
         });
         
         const backIcon = document.querySelector('#backBtn i');
@@ -453,10 +423,12 @@
             document.body.style.direction = 'rtl';
             document.body.style.fontFamily = "'Vazirmatn', sans-serif";
             if(backIcon) backIcon.style.transform = 'rotate(180deg)';
+            document.getElementById('moduleSearch').placeholder = 'جستجو در ماژول‌ها...';
         } else {
             document.body.style.direction = 'ltr';
             document.body.style.fontFamily = 'Outfit, sans-serif';
             if(backIcon) backIcon.style.transform = 'rotate(0deg)';
+            document.getElementById('moduleSearch').placeholder = 'Search modules...';
         }
     }
 
@@ -476,6 +448,59 @@
         document.getElementById('dateDisplay').textContent = now.toLocaleDateString(currentLang === 'fa' ? 'fa-IR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     }
     
+    // ۱. تابع آکاردئون
+    function toggleAccordion(element) {
+        element.classList.toggle('accordion-active');
+        const container = element.nextElementSibling;
+        const arrow = element.querySelector('.arrow');
+        
+        if (container.classList.contains('open')) {
+            container.classList.remove('open');
+            container.style.maxHeight = '0';
+            arrow.style.transform = 'rotate(0deg)';
+        } else {
+            container.classList.add('open');
+            container.style.maxHeight = container.scrollHeight + 'px';
+            arrow.style.transform = 'rotate(180deg)';
+        }
+    }
+
+    // ۲. تابع نوار پیشرفت و چک‌لیست
+    function updateProgress() {
+        const checkboxes = document.querySelectorAll('#checklistBody input[type="checkbox"]');
+        const rows = document.querySelectorAll('#checklistBody .checklist-row');
+        let checkedCount = 0;
+        
+        checkboxes.forEach((cb, index) => {
+            if (cb.checked) {
+                checkedCount++;
+                rows[index].classList.add('completed');
+            } else {
+                rows[index].classList.remove('completed');
+            }
+        });
+        
+        const percent = Math.round((checkedCount / checkboxes.length) * 100);
+        document.getElementById('progressFill').style.width = percent + '%';
+        document.getElementById('progressPercent').textContent = percent + '%';
+    }
+
+    // ۳. تابع جستجو
+    function filterModules() {
+        const input = document.getElementById('moduleSearch');
+        const filter = input.value.toLowerCase();
+        const items = document.getElementsByClassName('module-item');
+        
+        items.forEach(item => {
+            const text = item.textContent || item.innerText;
+            if (text.toLowerCase().includes(filter)) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
     // راه‌اندازی اولیه
     setLang(currentLang);
     setInterval(updateDateTime, 1000);
