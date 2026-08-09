@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · ماژول‌ها و ابزارها</title>
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@600;700&family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Vazirmatn', sans-serif; background: radial-gradient(ellipse at top, #0a1a2e 0%, #04101f 60%, #000 100%); color: #fff; min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: auto; padding-top: 20px; }
+        
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; margin-bottom: 30px; }
+        .brand { font-size: 1.2rem; font-weight: 700; }
+        .brand span { color: #00f2ff; text-shadow: 0 0 10px rgba(0, 242, 255, 0.4); }
+        .back-btn { color: #4d8bff; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid rgba(77, 139, 255, 0.2); border-radius: 8px; transition: 0.3s; }
+        .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
+
+        .page-title { font-family: 'Markazi Text', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
+        .page-title b { color: #00f2ff; }
+        .page-desc { color: #8b8f99; margin-bottom: 30px; font-size: 0.95rem; }
+
+        .capsule-list { display: flex; flex-direction: column; gap: 12px; }
+        
+        .capsule-link { display: flex; align-items: center; gap: 15px; background: rgba(16, 22, 33, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-radius: 50px; padding: 15px 25px; text-decoration: none; color: #fff; transition: 0.3s; position: relative; overflow: hidden; }
+        .capsule-link::before { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 3px; background: #00f2ff; transform: scaleY(0); transition: transform 0.3s; }
+        .capsule-link:hover { background: rgba(16, 22, 33, 0.9); border-color: rgba(0, 242, 255, 0.3); transform: translateX(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .capsule-link:hover::before { transform: scaleY(1); }
+        
+        .icon-box { width: 40px; height: 40px; background: rgba(0, 242, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #00f2ff; flex-shrink: 0; transition: 0.3s; }
+        .capsule-link:hover .icon-box { background: rgba(77, 139, 255, 0.2); color: #4d8bff; }
+        
+        .text-box h4 { font-size: 1rem; margin-bottom: 4px; }
+        .text-box p { font-size: 0.8rem; color: #8b8f99; }
+        .arrow { margin-right: auto; color: #4d8bff; opacity: 0.5; transition: 0.3s; }
+        .capsule-link:hover .arrow { opacity: 1; transform: translateX(-5px); }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <a href="quality-control.html" class="back-btn"><i class="fas fa-arrow-right"></i> بازگشت به کنترل کیفیت</a>
+    </div>
+
+    <h1 class="page-title">ماژول‌ها و <b>ابزارها</b></h1>
+    <p class="page-desc">دسترسی به استانداردها، متدولوژی‌ها و ابزارهای تخصصی کنترل کیفیت</p>
+
+    <div class="capsule-list">
+        <a href="standards.html" class="capsule-link">
+            <div class="icon-box"><i class="fas fa-book"></i></div>
+            <div class="text-box"><h4>استانداردها</h4><p>ISO, IEC, IPS</p></div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+        <a href="spc.html" class="capsule-link">
+            <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+            <div class="text-box"><h4>کنترل آماری فرآیند</h4><p>Statistical Process Control (SPC)</p></div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+        <a href="7qc-tools.html" class="capsule-link">
+            <div class="icon-box"><i class="fas fa-tools"></i></div>
+            <div class="text-box"><h4>۷ ابزار کیفیت</h4><p>پارتو، استخوان ماهی و غیره</p></div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+        <a href="six-sigma.html" class="capsule-link">
+            <div class="icon-box"><i class="fas fa-cogs"></i></div>
+            <div class="text-box"><h4>شش سیگما</h4><p>DMAIC، بهبود فرآیند</p></div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+        <a href="quality-audits.html" class="capsule-link">
+            <div class="icon-box"><i class="fas fa-clipboard-list"></i></div>
+            <div class="text-box"><h4>حسابرسی کیفیت</h4><p>حسابرسی داخلی و خارجی</p></div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+        <a href="ndt.html" class="capsule-link">
+            <div class="icon-box"><i class="fas fa-microscope"></i></div>
+            <div class="text-box"><h4>تست غیرمخرب (NDT)</h4><p>روش‌های غیرمخرب</p></div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+        <a href="documentation.html" class="capsule-link">
+            <div class="icon-box"><i class="fas fa-file-alt"></i></div>
+            <div class="text-box"><h4>مستندات</h4><p>دفترچه‌ها، گواهینامه‌ها</p></div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+        <a href="qms.html" class="capsule-link">
+            <div class="icon-box"><i class="fas fa-clipboard-check"></i></div>
+            <div class="text-box"><h4>سیستم مدیریت کیفیت</h4><p>QMS</p></div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+        <a href="quality-tools.html" class="capsule-link">
+            <div class="icon-box"><i class="fas fa-toolbox"></i></div>
+            <div class="text-box"><h4>ابزارهای کیفیت</h4><p>ابزارهای حل مسئله</p></div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+    </div>
+</div>
+</body>
+</html>
