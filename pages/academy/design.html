@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,57 +8,70 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --text-main: #ffffff; --text-muted: #8b8f99; --accent-indigo: #4d8bff; --accent-cyan: #00f2ff;
+        }
         body {
-            background-color: #0d0e12;
-            background-image: url('../../assets/images/Design.png'); /* عکس پس‌زمینه شما برگردانده شد */
+            font-family: 'Vazirmatn', sans-serif;
+            /* ترکیب عکس پس‌زمینه شما با یک لایه تیره شیشه‌ای */
+            background: 
+                linear-gradient(rgba(13, 14, 18, 0.85), rgba(13, 14, 18, 0.95)),
+                url('../../assets/images/Design.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            min-height: 100vh;
-            color: #eef0f4;
-            font-family: 'Vazirmatn', sans-serif;
-            padding: 40px 20px;
+            color: var(--text-main); min-height: 100vh; padding: 40px 20px;
+            display: flex; justify-content: center; align-items: center;
         }
-        .container { max-width: 900px; margin: 0 auto; }
+        .container { max-width: 900px; width: 100%; position: relative; z-index: 2; }
         
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 16px 30px; background: rgba(13, 14, 18, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; margin-bottom: 30px; flex-wrap: wrap; gap: 10px; }
-        .brand { font-weight: 700; font-size: 1.5rem; color: #fff; }
-        .brand span { color: #00f2ff; text-shadow: 0 0 10px rgba(0, 242, 255, 0.4); }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: rgba(13, 14, 18, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; margin-bottom: 30px; }
+        .brand { font-size: 1.5rem; font-weight: 700; }
+        .brand span { color: var(--accent-cyan); text-shadow: 0 0 10px rgba(0, 242, 255, 0.4); }
         
-        .lang-btn { background: transparent; border: 1px solid #333; color: #8e95a5; padding: 5px 14px; border-radius: 30px; cursor: pointer; font-size: .8rem; transition: .2s; }
-        .lang-btn.active { background: #4d8bff; border-color: #00f2ff; color: #fff; }
-        .lang-btn:hover { background: #4d8bff; color: #fff; }
-        .lang-switch { display: flex; gap: 6px; }
+        .header-actions { display: flex; align-items: center; gap: 15px; }
+        .back-btn { color: var(--accent-indigo); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid rgba(77, 139, 255, 0.2); border-radius: 8px; transition: 0.3s; }
+        .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
 
-        h1 { color: #00f2ff; font-size: 2.5rem; margin-bottom: 10px; font-family: 'Markazi Text', serif; }
-        h1 b { color: #d4af37; }
-        .sub { color: #8e95a5; font-size: 1.05rem; margin-bottom: 30px; }
+        .lang-switch { display: flex; gap: 8px; }
+        .lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color: var(--accent-indigo); border-color: rgba(77, 139, 255, 0.3); }
 
-        .capsule-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
-        .capsule-link { display: flex; align-items: center; gap: 15px; background: rgba(13, 14, 18, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-radius: 50px; padding: 15px 25px; text-decoration: none; color: #fff; transition: 0.3s; position: relative; overflow: hidden; }
-        .capsule-link::before { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 3px; background: #00f2ff; transform: scaleY(0); transition: transform 0.3s; }
+        .page-title { font-family: 'Markazi Text', serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; color: #fff; }
+        .page-title b { color: var(--accent-cyan); }
+        .page-desc { color: var(--text-muted); margin-bottom: 30px; font-size: 1.05rem; line-height: 1.6; }
+
+        .capsule-list { display: flex; flex-direction: column; gap: 12px; }
+        .capsule-link { 
+            display: flex; align-items: center; gap: 15px; 
+            background: rgba(13, 14, 18, 0.7); backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255,255,255,0.05); border-radius: 50px; 
+            padding: 15px 25px; text-decoration: none; color: #fff; 
+            transition: 0.3s; position: relative; overflow: hidden; 
+        }
+        .capsule-link::before { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 3px; background: var(--accent-cyan); transform: scaleY(0); transition: transform 0.3s; }
         .capsule-link:hover { background: rgba(13, 14, 18, 0.9); border-color: rgba(0, 242, 255, 0.3); transform: translateX(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
         .capsule-link:hover::before { transform: scaleY(1); }
-
-        /* استایل ویژه برای موتور طراحی */
+        
         .capsule-link.highlight { border-color: rgba(212, 175, 55, 0.3); background: rgba(212, 175, 55, 0.05); }
         .capsule-link.highlight .icon-box { background: rgba(212, 175, 55, 0.15); color: #d4af37; }
         
-        .icon-box { width: 40px; height: 40px; background: rgba(0, 242, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #00f2ff; flex-shrink: 0; transition: 0.3s; }
-        .capsule-link:hover .icon-box { background: rgba(77, 139, 255, 0.2); color: #4d8bff; }
+        .icon-box { width: 40px; height: 40px; background: rgba(0, 242, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--accent-cyan); flex-shrink: 0; transition: 0.3s; }
+        .capsule-link:hover .icon-box { background: rgba(77, 139, 255, 0.2); color: var(--accent-indigo); }
 
+        /* اصلاح مهم: چیدمان عمودی متن‌ها داخل کپسول */
+        .text-box { display: flex; flex-direction: column; flex: 1; }
         .text-box h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; color: #fff; }
-        .text-box p { font-size: 0.85rem; color: #8e95a5; margin: 0; }
-        .badge { display: inline-block; background: rgba(0, 242, 255, 0.12); color: #00f2ff; font-size: .65rem; padding: 2px 12px; border-radius: 20px; margin-top: 8px; border: 1px solid rgba(0, 242, 255, 0.2); }
+        .text-box p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+        .badge { align-self: flex-start; display: inline-block; background: rgba(0, 242, 255, 0.12); color: var(--accent-cyan); font-size: .65rem; padding: 2px 12px; border-radius: 20px; margin-top: 8px; border: 1px solid rgba(0, 242, 255, 0.2); }
         
-        .arrow { margin-right: auto; color: #4d8bff; opacity: 0.5; transition: 0.3s; }
+        .arrow { margin-right: auto; color: var(--accent-indigo); opacity: 0.5; transition: 0.3s; }
         .capsule-link:hover .arrow { opacity: 1; transform: translateX(-5px); }
 
-        .back { text-align: center; margin-top: 30px; }
+        .back { text-align: center; margin-top: 40px; }
         .back a { color: #d4af37; text-decoration: none; font-weight: 600; cursor: pointer; padding: 10px 20px; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 30px; transition: 0.3s; }
         .back a:hover { background: rgba(212, 175, 55, 0.1); box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
 
-        /* تنظیمات راست‌چین */
         .lang-persian { direction: rtl; }
         .lang-persian .header { flex-direction: row-reverse; }
         .lang-persian .capsule-link::before { right: auto; left: 0; }
@@ -67,21 +80,23 @@
         .lang-persian .capsule-link:hover .arrow { transform: rotate(180deg) translateX(-5px); }
     </style>
 </head>
-<body class="page-design">
+<body>
 <div class="container">
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fa">FA</button>
+        <div class="header-actions">
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="fa">FA</button>
+            </div>
+            <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-right"></i> <span>Back</span></a>
         </div>
     </div>
 
-    <h1 id="page-title">📐 Engineering <b>Design</b></h1>
-    <div class="sub" id="page-sub">Engineering design principles, CAD tools, schematic generation, and automated drafting engines.</div>
+    <h1 class="page-title" id="page-title">📐 Engineering <b>Design</b></h1>
+    <div class="page-desc" id="page-sub">Engineering design principles, CAD tools, schematic generation, and automated drafting engines.</div>
 
     <div class="capsule-list" id="cards-grid">
-        <!-- آیتم جدید: موتور طراحی هوشمند -->
         <a href="design-engine.html" class="capsule-link highlight">
             <div class="icon-box"><i class="fas fa-wand-magic-sparkles"></i></div>
             <div class="text-box">
@@ -258,6 +273,7 @@
         document.getElementById('page-title').innerHTML = t.title;
         document.getElementById('page-sub').textContent = t.sub;
         document.getElementById('backlink').textContent = t.back;
+        document.querySelector('.back-btn span').textContent = (l === 'fa' ? 'بازگشت' : 'Back');
 
         const grid = document.getElementById('cards-grid');
         const cards = grid.querySelectorAll('.capsule-link');
