@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · استانداردها</title>
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@600;700&family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Vazirmatn', sans-serif; background: radial-gradient(ellipse at top, #0a1a2e 0%, #04101f 60%, #000 100%); color: #fff; min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: auto; padding-top: 20px; }
+        
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; margin-bottom: 30px; }
+        .brand { font-size: 1.2rem; font-weight: 700; }
+        .brand span { color: #00f2ff; text-shadow: 0 0 10px rgba(0, 242, 255, 0.4); }
+        .back-btn { color: #4d8bff; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid rgba(77, 139, 255, 0.2); border-radius: 8px; transition: 0.3s; }
+        .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
+
+        .page-title { font-family: 'Markazi Text', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
+        .page-title b { color: #00f2ff; }
+        .page-desc { color: #8b8f99; margin-bottom: 30px; font-size: 0.95rem; }
+
+        .capsule-list { display: flex; flex-direction: column; gap: 12px; }
+        .capsule-link { display: flex; align-items: center; gap: 15px; background: rgba(16, 22, 33, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-radius: 50px; padding: 15px 25px; text-decoration: none; color: #fff; transition: 0.3s; position: relative; overflow: hidden; }
+        .capsule-link::before { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 3px; background: #00f2ff; transform: scaleY(0); transition: transform 0.3s; }
+        .capsule-link:hover { background: rgba(16, 22, 33, 0.9); border-color: rgba(0, 242, 255, 0.3); transform: translateX(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .capsule-link:hover::before { transform: scaleY(1); }
+        .icon-box { width: 40px; height: 40px; background: rgba(0, 242, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #00f2ff; flex-shrink: 0; transition: 0.3s; }
+        .capsule-link:hover .icon-box { background: rgba(77, 139, 255, 0.2); color: #4d8bff; }
+        .text-box h4 { font-size: 1rem; margin-bottom: 4px; }
+        .text-box p { font-size: 0.8rem; color: #8b8f99; }
+        .arrow { margin-right: auto; color: #4d8bff; opacity: 0.5; transition: 0.3s; }
+        .capsule-link:hover .arrow { opacity: 1; transform: translateX(-5px); }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <!-- بازگشت به ماژول‌های کنترل کیفیت -->
+        <a href="qc-modules.html" class="back-btn"><i class="fas fa-arrow-right"></i> بازگشت به ماژول‌ها</a>
+    </div>
+
+    <h1 class="page-title">استانداردهای <b>کلیدی</b></h1>
+    <p class="page-desc">مرجع استانداردهای بین‌المللی و ملی حاکم بر طراحی، ساخت و تست تابلوهای برق</p>
+
+    <div class="capsule-list">
+        <a href="standard-iec-61439.html" class="capsule-link">
+            <div class="icon-box"><i class="fas fa-bolt"></i></div>
+            <div class="text-box"><h4>IEC 61439</h4><p>استاندارد تابلوهای فشار ضعیف و کنترل</p></div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+        <a href="standard-ips-e-el-110.html" class="capsule-link">
+            <div class="icon-box"><i class="fas fa-oil-well"></i></div>
+            <div class="text-box"><h4>IPS-E-EL-110</h4><p>استاندارد شرکت نفت ایران (تأسیسات الکتریکی)</p></div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+        <a href="standard-publication-110.html" class="capsule-link">
+            <div class="icon-box"><i class="fas fa-book"></i></div>
+            <div class="text-box"><h4>نشریه 110</h4><p>مبحث 13 مقررات ملی ساختمان (تأسیسات برق)</p></div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+        <a href="standard-iso-9001.html" class="capsule-link">
+            <div class="icon-box"><i class="fas fa-award"></i></div>
+            <div class="text-box"><h4>ISO 9001</h4><p>سیستم‌های مدیریت کیفیت</p></div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+        <a href="standard-iec-60204.html" class="capsule-link">
+            <div class="icon-box"><i class="fas fa-microchip"></i></div>
+            <div class="text-box"><h4>IEC 60204-1</h4><p>ایمنی الکتریکی ماشین‌آلات</p></div>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+    </div>
+</div>
+</body>
+</html>
