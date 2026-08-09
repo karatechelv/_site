@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · FAT و SAT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@600;700&family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Vazirmatn', sans-serif; background: radial-gradient(ellipse at top, #0a1a2e 0%, #04101f 60%, #000 100%); color: #fff; min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: auto; padding-top: 20px; }
+        
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; margin-bottom: 30px; }
+        .brand { font-size: 1.2rem; font-weight: 700; }
+        .brand span { color: #00f2ff; text-shadow: 0 0 10px rgba(0, 242, 255, 0.4); }
+        .back-btn { color: #4d8bff; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid rgba(77, 139, 255, 0.2); border-radius: 8px; transition: 0.3s; }
+        .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
+
+        .page-title { font-family: 'Markazi Text', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
+        .page-title b { color: #00f2ff; }
+        .page-desc { color: #8b8f99; margin-bottom: 30px; font-size: 0.95rem; }
+
+        .glass-card { background: rgba(16, 22, 33, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-right: 3px solid #4d8bff; border-radius: 16px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin-bottom: 20px; }
+        
+        .note-box { display: flex; gap: 15px; align-items: flex-start; background: rgba(0, 242, 255, 0.03); border: 1px solid rgba(0, 242, 255, 0.15); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+        .note-box:last-child { margin-bottom: 0; }
+        .note-icon { width: 40px; height: 40px; background: rgba(0, 242, 255, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #00f2ff; font-size: 1.2rem; flex-shrink: 0; }
+        .note-content h3 { font-size: 1.1rem; margin-bottom: 8px; color: #fff; }
+        .note-content p { color: #b0b8c5; font-size: 0.9rem; line-height: 1.7; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <!-- توجه: چون فایل در پوشه quality است، بازگشت به کنترل کیفیت با index.html یا quality-control.html انجام می‌شود -->
+        <a href="quality-control.html" class="back-btn"><i class="fas fa-arrow-right"></i> بازگشت به کنترل کیفیت</a>
+    </div>
+
+    <h1 class="page-title">پروتکل‌های <b>FAT و SAT</b></h1>
+    <p class="page-desc">تست‌های پذیرش کارخانه‌ای (FAT) و تست‌های پذیرش در سایت (SAT) برای تحویل نهایی تابلوها.</p>
+
+    <div class="glass-card">
+        <div class="note-box">
+            <div class="note-icon"><i class="fas fa-industry"></i></div>
+            <div class="note-content">
+                <h3>FAT (تست پذیرش کارخانه‌ای)</h3>
+                <p>این تست در محل سازنده قبل از ارسال تابلو انجام می‌شود. شامل بازرسی بصری دقیق، تست دی‌الکتریک، بررسی افزایش دما تحت بار نامی و تست‌های عملکردی کلیدها و رله‌ها است. هدف FAT این است که تضمین شود تابلو کاملاً مطابق با نقشه‌های تایید شده و مشخصات فنی ساخته شده است.</p>
+            </div>
+        </div>
+
+        <div class="note-box">
+            <div class="note-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="note-content">
+                <h3>SAT (تست پذیرش در سایت)</h3>
+                <p>پس از نصب تابلو در سایت نهایی انجام می‌شود. این تست بررسی می‌کند که تابلو در طول حمل‌ونقل آسیب ندیده است. شامل بررسی مجدد اتصالات، تست عایقی (مگومتر) در محل، تست پیوستگی ارتینگ شبکه سایت، و تست یکپارچگی با سیستم برق موجود و سیستم‌های کنترل (مثل PLC یا DCS) است.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
