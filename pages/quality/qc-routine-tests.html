@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · تست‌های روتین IEC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@600;700&family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Vazirmatn', sans-serif; background: radial-gradient(ellipse at top, #0a1a2e 0%, #04101f 60%, #000 100%); color: #fff; min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: auto; padding-top: 20px; }
+        
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; margin-bottom: 30px; }
+        .brand { font-size: 1.2rem; font-weight: 700; }
+        .brand span { color: #00f2ff; text-shadow: 0 0 10px rgba(0, 242, 255, 0.4); }
+        .back-btn { color: #4d8bff; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid rgba(77, 139, 255, 0.2); border-radius: 8px; transition: 0.3s; }
+        .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
+
+        .page-title { font-family: 'Markazi Text', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; color: #fff; }
+        .page-title b { color: #00f2ff; }
+        .page-desc { color: #8b8f99; margin-bottom: 30px; font-size: 0.95rem; }
+
+        .glass-card { background: rgba(16, 22, 33, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-right: 3px solid #4d8bff; border-radius: 16px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        
+        .table-container { overflow-x: auto; border-radius: 8px; border: 1px solid rgba(77, 139, 255, 0.15); }
+        .qc-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        .qc-table th { background: rgba(77, 139, 255, 0.1); color: #00f2ff; padding: 15px; text-align: center; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .qc-table td { padding: 12px 15px; text-align: center; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.03); font-size: 0.9rem; }
+        .qc-table td:first-child { text-align: right; color: #d4af37; font-weight: 700; }
+        .qc-table tr:hover td { background: rgba(0, 242, 255, 0.03); }
+
+        .status-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+        .status-pass { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+        .status-fail { background: rgba(231, 76, 60, 0.15); color: #e74c3c; border: 1px solid rgba(231, 76, 60, 0.3); }
+        .status-pending { background: rgba(243, 156, 18, 0.15); color: #f39c12; border: 1px solid rgba(243, 156, 18, 0.3); }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span></div>
+        <a href="quality-control.html" class="back-btn"><i class="fas fa-arrow-right"></i> بازگشت به کنترل کیفیت</a>
+    </div>
+
+    <h1 class="page-title">تست‌های روتین <b>IEC 61439</b></h1>
+    <p class="page-desc">بررسی‌های اجباری که روی هر تابلوی ساخته‌شده انجام می‌شود تا مطابقت با طراحی تأیید گردد.</p>
+
+    <div class="glass-card">
+        <div class="table-container">
+            <table class="qc-table">
+                <thead>
+                    <tr>
+                        <th>نوع تست</th>
+                        <th>روند اجرا</th>
+                        <th>معیار پذیرش</th>
+                        <th>وضعیت</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>بازرسی بصری</td>
+                        <td>بررسی ارتینگ، برچسب‌گذاری، فواصل و آسیب‌ها</td>
+                        <td>بدون نقص ظاهری، درجه IP صحیح</td>
+                        <td><span class="status-badge status-pass">قبول</span></td>
+                    </tr>
+                    <tr>
+                        <td>تست دی‌الکتریک</td>
+                        <td>اعمال ولتاژ تست بین مدارها و زمین (۱ ثانیه)</td>
+                        <td>بدون شکست عایقی یا جرقه</td>
+                        <td><span class="status-badge status-pending">در انتظار</span></td>
+                    </tr>
+                    <tr>
+                        <td>مقاومت عایقی</td>
+                        <td>اندازه‌گیری با مگومتر (۵۰۰ یا ۱۰۰۰ ولت)</td>
+                        <td>بزرگتر از ۱ مگااهم</td>
+                        <td><span class="status-badge status-pass">قبول</span></td>
+                    </tr>
+                    <tr>
+                        <td>بررسی گشتاور</td>
+                        <td>کنترل گشتاور محکم کردن اتصالات پیچی</td>
+                        <td>مطابقت با مشخصات سازنده</td>
+                        <td><span class="status-badge status-fail">رد</span></td>
+                    </tr>
+                    <tr>
+                        <td>مدار حفاظتی</td>
+                        <td>بررسی پیوستگی هادی‌های حفاظتی (شینه ارت)</td>
+                        <td>ارتینگ موثر، مقاومت کم</td>
+                        <td><span class="status-badge status-pass">قبول</span></td>
+                    </tr>
+                    <tr>
+                        <td>تأیید درجه IP</td>
+                        <td>بازرسی واشرها، قفل‌ها و یکپارچگی بدنه</td>
+                        <td>مطابقت با درجه IP مشخص شده</td>
+                        <td><span class="status-badge status-pending">در انتظار</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
