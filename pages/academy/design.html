@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,27 +8,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --text-main: #ffffff; --text-muted: #8b8f99; --accent-indigo: #4d8bff; --accent-cyan: #00f2ff;
+        }
         body {
             font-family: 'Vazirmatn', sans-serif;
             background: radial-gradient(ellipse at top, #0a1a2e 0%, #04101f 60%, #000 100%);
-            color: #fff; min-height: 100vh; padding: 20px;
+            color: var(--text-main); min-height: 100vh; padding: 20px;
             display: flex; justify-content: center; align-items: center;
         }
         .container { max-width: 900px; width: 100%; position: relative; z-index: 2; }
         
         .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; margin-bottom: 30px; }
         .brand { font-size: 1.2rem; font-weight: 700; }
-        .brand span { color: #00f2ff; text-shadow: 0 0 10px rgba(0, 242, 255, 0.4); }
-        .back-btn { color: #4d8bff; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid rgba(77, 139, 255, 0.2); border-radius: 8px; transition: 0.3s; }
+        .brand span { color: var(--accent-cyan); text-shadow: 0 0 10px rgba(0, 242, 255, 0.4); }
+        
+        .header-actions { display: flex; align-items: center; gap: 15px; }
+        .back-btn { color: var(--accent-indigo); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid rgba(77, 139, 255, 0.2); border-radius: 8px; transition: 0.3s; }
         .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
 
+        .lang-switch { display: flex; gap: 8px; }
+        .lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color: var(--accent-indigo); border-color: rgba(77, 139, 255, 0.3); }
+
         .page-title { font-family: 'Markazi Text', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
-        .page-title b { color: #00f2ff; }
-        .page-desc { color: #8b8f99; margin-bottom: 30px; font-size: 0.95rem; }
+        .page-title b { color: var(--accent-cyan); }
+        .page-desc { color: var(--text-muted); margin-bottom: 30px; font-size: 0.95rem; }
 
         .capsule-list { display: flex; flex-direction: column; gap: 12px; }
         .capsule-link { display: flex; align-items: center; gap: 15px; background: rgba(16, 22, 33, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-radius: 50px; padding: 15px 25px; text-decoration: none; color: #fff; transition: 0.3s; position: relative; overflow: hidden; }
-        .capsule-link::before { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 3px; background: #00f2ff; transform: scaleY(0); transition: transform 0.3s; }
+        .capsule-link::before { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 3px; background: var(--accent-cyan); transform: scaleY(0); transition: transform 0.3s; }
         .capsule-link:hover { background: rgba(16, 22, 33, 0.9); border-color: rgba(0, 242, 255, 0.3); transform: translateX(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
         .capsule-link:hover::before { transform: scaleY(1); }
         
@@ -42,19 +51,33 @@
             color: #d4af37;
         }
         
-        .icon-box { width: 40px; height: 40px; background: rgba(0, 242, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #00f2ff; flex-shrink: 0; transition: 0.3s; }
-        .capsule-link:hover .icon-box { background: rgba(77, 139, 255, 0.2); color: #4d8bff; }
+        .icon-box { width: 40px; height: 40px; background: rgba(0, 242, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--accent-cyan); flex-shrink: 0; transition: 0.3s; }
+        .capsule-link:hover .icon-box { background: rgba(77, 139, 255, 0.2); color: var(--accent-indigo); }
         .text-box h4 { font-size: 1rem; margin-bottom: 4px; }
-        .text-box p { font-size: 0.8rem; color: #8b8f99; }
-        .arrow { margin-right: auto; color: #4d8bff; opacity: 0.5; transition: 0.3s; }
+        .text-box p { font-size: 0.8rem; color: var(--text-muted); }
+        .arrow { margin-right: auto; color: var(--accent-indigo); opacity: 0.5; transition: 0.3s; }
         .capsule-link:hover .arrow { opacity: 1; transform: translateX(-5px); }
+
+        /* تنظیمات راست‌چین */
+        body.lang-persian { direction: rtl; }
+        body.lang-persian .header { flex-direction: row-reverse; }
+        body.lang-persian .capsule-link::before { right: auto; left: 0; }
+        body.lang-persian .capsule-link:hover { transform: translateX(10px); }
+        body.lang-persian .arrow { transform: rotate(180deg); }
+        body.lang-persian .capsule-link:hover .arrow { transform: rotate(180deg) translateX(-5px); }
     </style>
 </head>
 <body class="page-design">
 <div class="container">
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
-        <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-right"></i> بازگشت به داشبورد</a>
+        <div class="header-actions">
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="fa">FA</button>
+            </div>
+            <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-right"></i> <span data-en="Back" data-fa="بازگشت">Back</span></a>
+        </div>
     </div>
 
     <h1 class="page-title" id="page-title">📐 Engineering <b>Design</b></h1>
@@ -65,8 +88,8 @@
         <a href="design-engine.html" class="capsule-link highlight">
             <div class="icon-box"><i class="fas fa-wand-magic-sparkles"></i></div>
             <div class="text-box">
-                <h4>Smart Design Engine (AI)</h4>
-                <p>تایپ فارسی -> رسم خودکار مدار</p>
+                <h4>Smart Design Engine</h4>
+                <p>Type to auto-draw circuit</p>
             </div>
             <i class="fas fa-chevron-left arrow"></i>
         </a>
@@ -135,12 +158,77 @@
 </div>
 
 <script>
-    // سیستم دوزبانه (می‌توانید بعداً متن‌ها را کامل کنید)
-    const savedLang = localStorage.getItem('karatech-lang') || 'fa';
-    if (savedLang === 'en') {
-        document.body.style.direction = 'ltr';
-        document.body.style.fontFamily = 'Arial, sans-serif';
+    const lang = {
+        en: {
+            title: '📐 Engineering <b>Design</b>',
+            sub: 'Engineering design principles, CAD tools, schematic generation, and automated drafting engines.',
+            cards: [
+                ['Smart Design Engine', 'Type to auto-draw circuit'],
+                ['Overview', 'Complete overview'],
+                ['IEC Standards', 'International Electrotechnical'],
+                ['NEC Standards', 'National Electrical Code'],
+                ['ISO Standards', 'Quality, safety, management'],
+                ['API Standards', 'Oil & gas industry'],
+                ['IEEE Standards', 'Power, electronics, comms'],
+                ['ANSI Standards', 'American National Standards'],
+                ['Software', 'Essential tools'],
+                ['Resources', 'Standards, guides'],
+                ['Learning Path', 'Foundation to advanced'],
+                ['Videos & Future', 'Tutorials & future tech'],
+                ['Examples', 'Practical projects']
+            ],
+            back: 'Back'
+        },
+        fa: {
+            title: '📐 طراحی <b>مهندسی</b>',
+            sub: 'اصول طراحی مهندسی، ابزارهای CAD، تولید شماتیک و موتورهای رسم خودکار.',
+            cards: [
+                ['موتور طراحی هوشمند', 'تایپ فارسی -> رسم خودکار مدار'],
+                ['مرور کلی', 'مرور کامل طراحی مهندسی'],
+                ['استانداردهای IEC', 'الکتروتکنیک بین‌المللی'],
+                ['استانداردهای NEC', 'کد ملی برق'],
+                ['استانداردهای ISO', 'کیفیت، ایمنی، مدیریت'],
+                ['استانداردهای API', 'صنعت نفت و گاز'],
+                ['استانداردهای IEEE', 'قدرت، الکترونیک، مخابرات'],
+                ['استانداردهای ANSI', 'استانداردهای ملی آمریکا'],
+                ['نرم‌افزارها', 'ابزارهای ضروری'],
+                ['منابع', 'استانداردها، راهنماها'],
+                ['مسیر یادگیری', 'از مبتدی تا پیشرفته'],
+                ['ویدئوها و آینده', 'آموزش‌ها و فناوری‌های آینده'],
+                ['مثال‌ها', 'پروژه‌های عملی']
+            ],
+            back: 'بازگشت'
+        }
+    };
+
+    function setLang(l) {
+        const t = lang[l];
+        if (!t) return;
+        
+        document.getElementById('page-title').innerHTML = t.title;
+        document.getElementById('page-sub').textContent = t.sub;
+        document.querySelector('.back-btn span').textContent = t.back;
+
+        const grid = document.getElementById('cards-grid');
+        const cards = grid.querySelectorAll('.capsule-link');
+        t.cards.forEach((item, index) => {
+            if (cards[index]) {
+                cards[index].querySelector('h4').textContent = item[0];
+                cards[index].querySelector('p').textContent = item[1];
+            }
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+        document.body.classList.toggle('lang-persian', l === 'fa');
+        localStorage.setItem('karatech-lang', l);
     }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.onclick = function() { setLang(this.dataset.lang); };
+    });
+
+    const savedLang = localStorage.getItem('karatech-lang') || 'en';
+    setLang(savedLang);
 </script>
 </body>
 </html>
