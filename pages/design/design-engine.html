@@ -26,7 +26,7 @@
         .mode-btn.active { background: var(--indigo); color: #fff; box-shadow: 0 0 10px rgba(77, 139, 255, 0.3); }
 
         .layout { display: flex; height: calc(100vh - 60px); overflow: hidden; }
-        .sidebar { width: 280px; flex-shrink: 0; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(10px); border-left: 1px solid var(--border); padding: 20px; display: flex; flex-direction: column; gap: 15px; overflow-y: auto; }
+        .sidebar { width: 320px; flex-shrink: 0; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(10px); border-left: 1px solid var(--border); padding: 20px; display: flex; flex-direction: column; gap: 15px; overflow-y: auto; }
         .sidebar::-webkit-scrollbar { width: 5px; }
         .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
         
@@ -48,12 +48,11 @@
         .comp-item { display: flex; align-items: center; gap: 15px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 8px; cursor: grab; margin-bottom: 8px; color: #fff; font-size: 0.85rem; transition: 0.2s; }
         .comp-item:hover { border-color: var(--cyan); background: rgba(0, 242, 255, 0.05); }
         .comp-item:active { cursor: grabbing; }
-        .comp-item svg { background: rgba(255,255,255,0.05); border-radius: 4px; flex-shrink: 0; }
+        .comp-item svg { background: rgba(255,255,255,0.02); border-radius: 4px; flex-shrink: 0; }
         
         .drop-zone { width: 100%; height: 100%; border: 2px dashed rgba(255,255,255,0.1); border-radius: 12px; position: relative; overflow: hidden; }
-        .dropped-element { position: absolute; cursor: move; user-select: none; display: flex; flex-direction: column; align-items: center; }
+        .dropped-element { position: absolute; cursor: move; user-select: none; }
         .dropped-element svg { filter: drop-shadow(0 0 3px rgba(0,242,255,0.2)); }
-        .dropped-element span { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
     </style>
 </head>
 <body>
@@ -80,76 +79,128 @@
             </div>
         </div>
 
-        <!-- سایدبار حالت دوم: کتابخانه EPLAN -->
+        <!-- سایدبار حالت دوم: کتابخانه EPLAN استاندارد -->
         <div class="sidebar" id="modeDragDrop">
-            <div class="panel-title"><i class="fas fa-toolbox"></i> کتابخانه قطعات (IEC)</div>
+            <div class="panel-title"><i class="fas fa-toolbox"></i> کتابخانه قطعات (IEC 60617)</div>
             
             <!-- ۱. کلید مینیاتوری (MCB) -->
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'mcb', 'کلید قدرت')">
-                <svg width="30" height="40" viewBox="0 0 30 40"><line x1="15" y1="0" x2="15" y2="15" stroke="#d4af37" stroke-width="2"/><line x1="15" y1="25" x2="15" y2="40" stroke="#d4af37" stroke-width="2"/><line x1="5" y1="20" x2="25" y2="20" stroke="#d4af37" stroke-width="2"/><line x1="20" y1="20" x2="25" y2="15" stroke="#d4af37" stroke-width="2"/></svg>
+            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'mcb', 'کلید مینیاتوری')">
+                <svg width="30" height="50" viewBox="0 0 30 50">
+                    <circle cx="15" cy="2" r="2.5" fill="#0a0d12" stroke="#d4af37" stroke-width="1.5"/>
+                    <line x1="15" y1="2" x2="15" y2="15" stroke="#fff" stroke-width="1.5"/>
+                    <line x1="15" y1="35" x2="15" y2="48" stroke="#fff" stroke-width="1.5"/>
+                    <circle cx="15" cy="48" r="2.5" fill="#0a0d12" stroke="#d4af37" stroke-width="1.5"/>
+                    <line x1="15" y1="15" x2="15" y2="35" stroke="#d4af37" stroke-width="1.5"/>
+                    <line x1="15" y1="15" x2="22" y2="30" stroke="#d4af37" stroke-width="1.5"/>
+                    <line x1="10" y1="22" x2="20" y2="28" stroke="#d4af37" stroke-width="1.5"/>
+                    <text x="20" y="12" fill="#d4af37" font-size="8" font-family="Arial">-Q1</text>
+                </svg>
                 کلید مینیاتوری (MCB)
             </div>
 
-            <!-- ۲. کنتاکتور (۳ پل + کمکی) -->
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'contactor_3p', 'کنتاکتور ۳ پل')">
-                <svg width="50" height="40" viewBox="0 0 50 40">
-                    <line x1="10" y1="0" x2="10" y2="15" stroke="#00f2ff" stroke-width="2"/><line x1="6" y1="15" x2="14" y2="25" stroke="#00f2ff" stroke-width="2"/><line x1="10" y1="25" x2="10" y2="40" stroke="#00f2ff" stroke-width="2"/>
-                    <line x1="25" y1="0" x2="25" y2="15" stroke="#00f2ff" stroke-width="2"/><line x1="21" y1="15" x2="29" y2="25" stroke="#00f2ff" stroke-width="2"/><line x1="25" y1="25" x2="25" y2="40" stroke="#00f2ff" stroke-width="2"/>
-                    <line x1="40" y1="0" x2="40" y2="15" stroke="#00f2ff" stroke-width="2"/><line x1="36" y1="15" x2="44" y2="25" stroke="#00f2ff" stroke-width="2"/><line x1="40" y1="25" x2="40" y2="40" stroke="#00f2ff" stroke-width="2"/>
+            <!-- ۲. کنتاکتور ۳ پل (Contactor) -->
+            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'contactor', 'کنتاکتور ۳ پل')">
+                <svg width="60" height="50" viewBox="0 0 60 50">
+                    <circle cx="10" cy="2" r="2.5" fill="#0a0d12" stroke="#00f2ff" stroke-width="1.5"/>
+                    <circle cx="30" cy="2" r="2.5" fill="#0a0d12" stroke="#00f2ff" stroke-width="1.5"/>
+                    <circle cx="50" cy="2" r="2.5" fill="#0a0d12" stroke="#00f2ff" stroke-width="1.5"/>
+                    <line x1="10" y1="2" x2="10" y2="20" stroke="#fff" stroke-width="1.5"/>
+                    <line x1="30" y1="2" x2="30" y2="20" stroke="#fff" stroke-width="1.5"/>
+                    <line x1="50" y1="2" x2="50" y2="20" stroke="#fff" stroke-width="1.5"/>
+                    <line x1="6" y1="20" x2="14" y2="30" stroke="#00f2ff" stroke-width="1.5"/>
+                    <line x1="26" y1="20" x2="34" y2="30" stroke="#00f2ff" stroke-width="1.5"/>
+                    <line x1="46" y1="20" x2="54" y2="30" stroke="#00f2ff" stroke-width="1.5"/>
+                    <line x1="10" y1="30" x2="10" y2="48" stroke="#fff" stroke-width="1.5"/>
+                    <line x1="30" y1="30" x2="30" y2="48" stroke="#fff" stroke-width="1.5"/>
+                    <line x1="50" y1="30" x2="50" y2="48" stroke="#fff" stroke-width="1.5"/>
+                    <circle cx="10" cy="48" r="2.5" fill="#0a0d12" stroke="#00f2ff" stroke-width="1.5"/>
+                    <circle cx="30" cy="48" r="2.5" fill="#0a0d12" stroke="#00f2ff" stroke-width="1.5"/>
+                    <circle cx="50" cy="48" r="2.5" fill="#0a0d12" stroke="#00f2ff" stroke-width="1.5"/>
+                    <text x="40" y="12" fill="#00f2ff" font-size="8" font-family="Arial">-K1</text>
                 </svg>
                 کنتاکتور (3P)
             </div>
 
-            <!-- ۳. رله حرارتی -->
+            <!-- ۳. رله حرارتی (Thermal Relay) -->
             <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'thermal', 'رله حرارتی')">
-                <svg width="50" height="40" viewBox="0 0 50 40">
-                    <line x1="10" y1="0" x2="10" y2="10" stroke="#f39c12" stroke-width="2"/><rect x="2" y="10" width="16" height="20" fill="none" stroke="#f39c12" stroke-width="2"/><line x1="10" y1="30" x2="10" y2="40" stroke="#f39c12" stroke-width="2"/>
-                    <line x1="25" y1="0" x2="25" y2="10" stroke="#f39c12" stroke-width="2"/><rect x="17" y="10" width="16" height="20" fill="none" stroke="#f39c12" stroke-width="2"/><line x1="25" y1="30" x2="25" y2="40" stroke="#f39c12" stroke-width="2"/>
-                    <line x1="40" y1="0" x2="40" y2="10" stroke="#f39c12" stroke-width="2"/><rect x="32" y="10" width="16" height="20" fill="none" stroke="#f39c12" stroke-width="2"/><line x1="40" y1="30" x2="40" y2="40" stroke="#f39c12" stroke-width="2"/>
+                <svg width="60" height="50" viewBox="0 0 60 50">
+                    <circle cx="10" cy="2" r="2.5" fill="#0a0d12" stroke="#f39c12" stroke-width="1.5"/>
+                    <circle cx="30" cy="2" r="2.5" fill="#0a0d12" stroke="#f39c12" stroke-width="1.5"/>
+                    <circle cx="50" cy="2" r="2.5" fill="#0a0d12" stroke="#f39c12" stroke-width="1.5"/>
+                    <rect x="5" y="10" width="50" height="30" fill="none" stroke="#f39c12" stroke-width="1.5"/>
+                    <line x1="5" y1="10" x2="55" y2="40" stroke="#f39c12" stroke-width="1.5"/>
+                    <line x1="5" y1="25" x2="55" y2="25" stroke="#f39c12" stroke-width="1" stroke-dasharray="2,2"/>
+                    <line x1="10" y1="40" x2="10" y2="48" stroke="#fff" stroke-width="1.5"/>
+                    <line x1="30" y1="40" x2="30" y2="48" stroke="#fff" stroke-width="1.5"/>
+                    <line x1="50" y1="40" x2="50" y2="48" stroke="#fff" stroke-width="1.5"/>
+                    <circle cx="10" cy="48" r="2.5" fill="#0a0d12" stroke="#f39c12" stroke-width="1.5"/>
+                    <circle cx="30" cy="48" r="2.5" fill="#0a0d12" stroke="#f39c12" stroke-width="1.5"/>
+                    <circle cx="50" cy="48" r="2.5" fill="#0a0d12" stroke="#f39c12" stroke-width="1.5"/>
+                    <text x="40" y="8" fill="#f39c12" font-size="8" font-family="Arial">-F1</text>
                 </svg>
                 رله حرارتی (3P)
             </div>
 
             <!-- ۴. شستی استارت (NO) -->
             <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'btn_no', 'شستی استارت')">
-                <svg width="30" height="40" viewBox="0 0 30 40"><line x1="15" y1="0" x2="15" y2="15" stroke="#2ecc71" stroke-width="2"/><line x1="5" y1="15" x2="25" y2="25" stroke="#2ecc71" stroke-width="2"/><line x1="15" y1="25" x2="15" y2="40" stroke="#2ecc71" stroke-width="2"/><line x1="5" y1="10" x2="25" y2="10" stroke="#2ecc71" stroke-width="2"/><line x1="15" y1="5" x2="15" y2="10" stroke="#2ecc71" stroke-width="2"/></svg>
+                <svg width="40" height="50" viewBox="0 0 40 50">
+                    <circle cx="20" cy="2" r="2.5" fill="#0a0d12" stroke="#2ecc71" stroke-width="1.5"/>
+                    <line x1="20" y1="2" x2="20" y2="15" stroke="#fff" stroke-width="1.5"/>
+                    <line x1="20" y1="35" x2="20" y2="48" stroke="#fff" stroke-width="1.5"/>
+                    <circle cx="20" cy="48" r="2.5" fill="#0a0d12" stroke="#2ecc71" stroke-width="1.5"/>
+                    <line x1="15" y1="30" x2="25" y2="20" stroke="#2ecc71" stroke-width="1.5"/>
+                    <line x1="10" y1="25" x2="30" y2="25" stroke="#2ecc71" stroke-width="1.5" stroke-dasharray="3,2"/>
+                    <line x1="20" y1="10" x2="20" y2="25" stroke="#2ecc71" stroke-width="1.5"/>
+                    <text x="28" y="15" fill="#2ecc71" font-size="8" font-family="Arial">-S1</text>
+                </svg>
                 شستی استارت (NO)
             </div>
 
             <!-- ۵. شستی استاپ (NC) -->
             <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'btn_nc', 'شستی استاپ')">
-                <svg width="30" height="40" viewBox="0 0 30 40"><line x1="15" y1="0" x2="15" y2="15" stroke="#e74c3c" stroke-width="2"/><line x1="5" y1="15" x2="25" y2="25" stroke="#e74c3c" stroke-width="2"/><line x1="15" y1="25" x2="15" y2="40" stroke="#e74c3c" stroke-width="2"/><line x1="5" y1="10" x2="25" y2="10" stroke="#e74c3c" stroke-width="2"/><line x1="15" y1="5" x2="15" y2="10" stroke="#e74c3c" stroke-width="2"/><line x1="7" y1="22" x2="13" y2="18" stroke="#e74c3c" stroke-width="1"/></svg>
+                <svg width="40" height="50" viewBox="0 0 40 50">
+                    <circle cx="20" cy="2" r="2.5" fill="#0a0d12" stroke="#e74c3c" stroke-width="1.5"/>
+                    <line x1="20" y1="2" x2="20" y2="15" stroke="#fff" stroke-width="1.5"/>
+                    <line x1="20" y1="35" x2="20" y2="48" stroke="#fff" stroke-width="1.5"/>
+                    <circle cx="20" cy="48" r="2.5" fill="#0a0d12" stroke="#e74c3c" stroke-width="1.5"/>
+                    <line x1="15" y1="20" x2="25" y2="30" stroke="#e74c3c" stroke-width="1.5"/>
+                    <line x1="10" y1="25" x2="30" y2="25" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="3,2"/>
+                    <line x1="20" y1="10" x2="20" y2="25" stroke="#e74c3c" stroke-width="1.5"/>
+                    <line x1="17" y1="27" x2="23" y2="23" stroke="#e74c3c" stroke-width="1"/>
+                    <text x="28" y="15" fill="#e74c3c" font-size="8" font-family="Arial">-S0</text>
+                </svg>
                 شستی استاپ (NC)
             </div>
 
-            <!-- ۶. شستی قارغی (Emergency) -->
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'btn_em', 'شستی قارچی')">
-                <svg width="30" height="40" viewBox="0 0 30 40"><line x1="15" y1="0" x2="15" y2="15" stroke="#e74c3c" stroke-width="2"/><line x1="5" y1="15" x2="25" y2="25" stroke="#e74c3c" stroke-width="2"/><line x1="15" y1="25" x2="15" y2="40" stroke="#e74c3c" stroke-width="2"/><circle cx="15" cy="8" r="6" fill="none" stroke="#e74c3c" stroke-width="2"/><line x1="7" y1="22" x2="13" y2="18" stroke="#e74c3c" stroke-width="1"/></svg>
-                شستی قارچی (EM)
-            </div>
-
-            <!-- ۷. کویل -->
+            <!-- ۶. کویل (Coil) -->
             <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'coil', 'کویل')">
-                <svg width="30" height="40" viewBox="0 0 30 40"><line x1="15" y1="0" x2="15" y2="12" stroke="#00f2ff" stroke-width="2"/><rect x="7" y="12" width="16" height="16" fill="none" stroke="#00f2ff" stroke-width="2"/><line x1="15" y1="28" x2="15" y2="40" stroke="#00f2ff" stroke-width="2"/></svg>
+                <svg width="40" height="50" viewBox="0 0 40 50">
+                    <circle cx="20" cy="2" r="2.5" fill="#0a0d12" stroke="#00f2ff" stroke-width="1.5"/>
+                    <line x1="20" y1="2" x2="20" y2="15" stroke="#fff" stroke-width="1.5"/>
+                    <line x1="20" y1="35" x2="20" y2="48" stroke="#fff" stroke-width="1.5"/>
+                    <circle cx="20" cy="48" r="2.5" fill="#0a0d12" stroke="#00f2ff" stroke-width="1.5"/>
+                    <circle cx="20" cy="25" r="10" fill="none" stroke="#00f2ff" stroke-width="1.5"/>
+                    <line x1="12" y1="25" x2="28" y2="25" stroke="#00f2ff" stroke-width="1"/>
+                    <text x="30" y="28" fill="#00f2ff" font-size="8" font-family="Arial">-K1</text>
+                </svg>
                 کویل (Coil)
             </div>
 
-            <!-- ۸. تایمر (On Delay) -->
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'timer', 'تایمر')">
-                <svg width="30" height="40" viewBox="0 0 30 40"><line x1="15" y1="0" x2="15" y2="8" stroke="#4d8bff" stroke-width="2"/><rect x="5" y="8" width="20" height="24" fill="none" stroke="#4d8bff" stroke-width="2"/><text x="15" y="22" fill="#4d8bff" font-size="8" text-anchor="middle">KT</text><line x1="15" y1="32" x2="15" y2="40" stroke="#4d8bff" stroke-width="2"/></svg>
-                تایمر (Timer)
-            </div>
-
-            <!-- ۹. موتور (3-Phase) -->
+            <!-- ۷. موتور ۳ فاز (Motor) -->
             <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'motor', 'موتور')">
-                <svg width="40" height="40" viewBox="0 0 40 40"><line x1="10" y1="0" x2="10" y2="12" stroke="#d4af37" stroke-width="2"/><line x1="20" y1="0" x2="20" y2="12" stroke="#d4af37" stroke-width="2"/><line x1="30" y1="0" x2="30" y2="12" stroke="#d4af37" stroke-width="2"/><circle cx="20" cy="25" r="12" fill="none" stroke="#d4af37" stroke-width="2"/><text x="20" y="29" fill="#d4af37" font-size="10" text-anchor="middle">M</text><text x="20" y="37" fill="#d4af37" font-size="8" text-anchor="middle">3~</text></svg>
-                موتور (Motor)
-            </div>
-
-            <!-- ۱۰. چراغ سیگنال -->
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'lamp', 'چراغ سیگنال')">
-                <svg width="30" height="40" viewBox="0 0 30 40"><line x1="15" y1="0" x2="15" y2="12" stroke="#2ecc71" stroke-width="2"/><circle cx="15" cy="25" r="10" fill="none" stroke="#2ecc71" stroke-width="2"/><line x1="8" y1="18" x2="22" y2="32" stroke="#2ecc71" stroke-width="1"/><line x1="22" y1="18" x2="8" y2="32" stroke="#2ecc71" stroke-width="1"/><line x1="15" y1="35" x2="15" y2="40" stroke="#2ecc71" stroke-width="2"/></svg>
-                چراغ سیگنال (Lamp)
+                <svg width="50" height="50" viewBox="0 0 50 50">
+                    <circle cx="10" cy="2" r="2.5" fill="#0a0d12" stroke="#d4af37" stroke-width="1.5"/>
+                    <circle cx="20" cy="2" r="2.5" fill="#0a0d12" stroke="#d4af37" stroke-width="1.5"/>
+                    <circle cx="30" cy="2" r="2.5" fill="#0a0d12" stroke="#d4af37" stroke-width="1.5"/>
+                    <line x1="10" y1="2" x2="10" y2="20" stroke="#fff" stroke-width="1.5"/>
+                    <line x1="20" y1="2" x2="20" y2="20" stroke="#fff" stroke-width="1.5"/>
+                    <line x1="30" y1="2" x2="30" y2="20" stroke="#fff" stroke-width="1.5"/>
+                    <circle cx="20" cy="32" r="13" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                    <text x="20" y="30" fill="#d4af37" font-size="10" text-anchor="middle" font-family="Arial">M</text>
+                    <text x="20" y="38" fill="#d4af37" font-size="8" text-anchor="middle" font-family="Arial">3~</text>
+                    <text x="35" y="15" fill="#d4af37" font-size="8" font-family="Arial">-M1</text>
+                </svg>
+                موتور (3-Phase)
             </div>
         </div>
 
@@ -229,7 +280,7 @@
             }
         }
 
-        // ۳. حالت دوم: درگ اند دراپ
+        // ۳. حالت دوم: درگ اند دراپ (مطابق EPLAN)
         function allowDrop(e) { e.preventDefault(); }
         
         function dragStart(e, type, name) {
@@ -243,8 +294,8 @@
             const name = e.dataTransfer.getData("name");
             const zone = document.getElementById('dropZone');
             const rect = zone.getBoundingClientRect();
-            const x = e.clientX - rect.left - 15;
-            const y = e.clientY - rect.top - 20;
+            const x = e.clientX - rect.left - 20;
+            const y = e.clientY - rect.top - 25;
             
             const el = document.createElement('div');
             el.className = 'dropped-element';
@@ -254,38 +305,29 @@
             let svgContent = '';
             let color = '#00f2ff';
             
-            // نمادهای استاندارد IEC برای بوم طراحی
+            // نمادهای استاندارد IEC 60617 برای بوم طراحی
             if (type === 'mcb') {
                 color = '#d4af37';
-                svgContent = `<svg width="30" height="40" viewBox="0 0 30 40"><line x1="15" y1="0" x2="15" y2="15" stroke="${color}" stroke-width="2"/><line x1="15" y1="25" x2="15" y2="40" stroke="${color}" stroke-width="2"/><line x1="5" y1="20" x2="25" y2="20" stroke="${color}" stroke-width="2"/><line x1="20" y1="20" x2="25" y2="15" stroke="${color}" stroke-width="2"/></svg>`;
-            } else if (type === 'contactor_3p') {
-                svgContent = `<svg width="50" height="40" viewBox="0 0 50 40"><line x1="10" y1="0" x2="10" y2="15" stroke="${color}" stroke-width="2"/><line x1="6" y1="15" x2="14" y2="25" stroke="${color}" stroke-width="2"/><line x1="10" y1="25" x2="10" y2="40" stroke="${color}" stroke-width="2"/><line x1="25" y1="0" x2="25" y2="15" stroke="${color}" stroke-width="2"/><line x1="21" y1="15" x2="29" y2="25" stroke="${color}" stroke-width="2"/><line x1="25" y1="25" x2="25" y2="40" stroke="${color}" stroke-width="2"/><line x1="40" y1="0" x2="40" y2="15" stroke="${color}" stroke-width="2"/><line x1="36" y1="15" x2="44" y2="25" stroke="${color}" stroke-width="2"/><line x1="40" y1="25" x2="40" y2="40" stroke="${color}" stroke-width="2"/></svg>`;
+                svgContent = `<svg width="30" height="50" viewBox="0 0 30 50"><circle cx="15" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="15" y1="2" x2="15" y2="15" stroke="#fff" stroke-width="1.5"/><line x1="15" y1="35" x2="15" y2="48" stroke="#fff" stroke-width="1.5"/><circle cx="15" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="15" y1="15" x2="15" y2="35" stroke="${color}" stroke-width="1.5"/><line x1="15" y1="15" x2="22" y2="30" stroke="${color}" stroke-width="1.5"/><line x1="10" y1="22" x2="20" y2="28" stroke="${color}" stroke-width="1.5"/><text x="20" y="12" fill="${color}" font-size="8" font-family="Arial">-Q1</text></svg>`;
+            } else if (type === 'contactor') {
+                svgContent = `<svg width="60" height="50" viewBox="0 0 60 50"><circle cx="10" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="30" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="50" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="10" y1="2" x2="10" y2="20" stroke="#fff" stroke-width="1.5"/><line x1="30" y1="2" x2="30" y2="20" stroke="#fff" stroke-width="1.5"/><line x1="50" y1="2" x2="50" y2="20" stroke="#fff" stroke-width="1.5"/><line x1="6" y1="20" x2="14" y2="30" stroke="${color}" stroke-width="1.5"/><line x1="26" y1="20" x2="34" y2="30" stroke="${color}" stroke-width="1.5"/><line x1="46" y1="20" x2="54" y2="30" stroke="${color}" stroke-width="1.5"/><line x1="10" y1="30" x2="10" y2="48" stroke="#fff" stroke-width="1.5"/><line x1="30" y1="30" x2="30" y2="48" stroke="#fff" stroke-width="1.5"/><line x1="50" y1="30" x2="50" y2="48" stroke="#fff" stroke-width="1.5"/><circle cx="10" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="30" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="50" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><text x="40" y="12" fill="${color}" font-size="8" font-family="Arial">-K1</text></svg>`;
             } else if (type === 'thermal') {
                 color = '#f39c12';
-                svgContent = `<svg width="50" height="40" viewBox="0 0 50 40"><line x1="10" y1="0" x2="10" y2="10" stroke="${color}" stroke-width="2"/><rect x="2" y="10" width="16" height="20" fill="none" stroke="${color}" stroke-width="2"/><line x1="10" y1="30" x2="10" y2="40" stroke="${color}" stroke-width="2"/><line x1="25" y1="0" x2="25" y2="10" stroke="${color}" stroke-width="2"/><rect x="17" y="10" width="16" height="20" fill="none" stroke="${color}" stroke-width="2"/><line x1="25" y1="30" x2="25" y2="40" stroke="${color}" stroke-width="2"/><line x1="40" y1="0" x2="40" y2="10" stroke="${color}" stroke-width="2"/><rect x="32" y="10" width="16" height="20" fill="none" stroke="${color}" stroke-width="2"/><line x1="40" y1="30" x2="40" y2="40" stroke="${color}" stroke-width="2"/></svg>`;
+                svgContent = `<svg width="60" height="50" viewBox="0 0 60 50"><circle cx="10" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="30" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="50" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><rect x="5" y="10" width="50" height="30" fill="none" stroke="${color}" stroke-width="1.5"/><line x1="5" y1="10" x2="55" y2="40" stroke="${color}" stroke-width="1.5"/><line x1="5" y1="25" x2="55" y2="25" stroke="${color}" stroke-width="1" stroke-dasharray="2,2"/><line x1="10" y1="40" x2="10" y2="48" stroke="#fff" stroke-width="1.5"/><line x1="30" y1="40" x2="30" y2="48" stroke="#fff" stroke-width="1.5"/><line x1="50" y1="40" x2="50" y2="48" stroke="#fff" stroke-width="1.5"/><circle cx="10" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="30" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="50" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><text x="40" y="8" fill="${color}" font-size="8" font-family="Arial">-F1</text></svg>`;
             } else if (type === 'btn_no') {
                 color = '#2ecc71';
-                svgContent = `<svg width="30" height="40" viewBox="0 0 30 40"><line x1="15" y1="0" x2="15" y2="15" stroke="${color}" stroke-width="2"/><line x1="5" y1="15" x2="25" y2="25" stroke="${color}" stroke-width="2"/><line x1="15" y1="25" x2="15" y2="40" stroke="${color}" stroke-width="2"/><line x1="5" y1="10" x2="25" y2="10" stroke="${color}" stroke-width="2"/><line x1="15" y1="5" x2="15" y2="10" stroke="${color}" stroke-width="2"/></svg>`;
+                svgContent = `<svg width="40" height="50" viewBox="0 0 40 50"><circle cx="20" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="20" y1="2" x2="20" y2="15" stroke="#fff" stroke-width="1.5"/><line x1="20" y1="35" x2="20" y2="48" stroke="#fff" stroke-width="1.5"/><circle cx="20" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="15" y1="30" x2="25" y2="20" stroke="${color}" stroke-width="1.5"/><line x1="10" y1="25" x2="30" y2="25" stroke="${color}" stroke-width="1.5" stroke-dasharray="3,2"/><line x1="20" y1="10" x2="20" y2="25" stroke="${color}" stroke-width="1.5"/><text x="28" y="15" fill="${color}" font-size="8" font-family="Arial">-S1</text></svg>`;
             } else if (type === 'btn_nc') {
                 color = '#e74c3c';
-                svgContent = `<svg width="30" height="40" viewBox="0 0 30 40"><line x1="15" y1="0" x2="15" y2="15" stroke="${color}" stroke-width="2"/><line x1="5" y1="15" x2="25" y2="25" stroke="${color}" stroke-width="2"/><line x1="15" y1="25" x2="15" y2="40" stroke="${color}" stroke-width="2"/><line x1="5" y1="10" x2="25" y2="10" stroke="${color}" stroke-width="2"/><line x1="15" y1="5" x2="15" y2="10" stroke="${color}" stroke-width="2"/><line x1="7" y1="22" x2="13" y2="18" stroke="${color}" stroke-width="1"/></svg>`;
-            } else if (type === 'btn_em') {
-                color = '#e74c3c';
-                svgContent = `<svg width="30" height="40" viewBox="0 0 30 40"><line x1="15" y1="0" x2="15" y2="15" stroke="${color}" stroke-width="2"/><line x1="5" y1="15" x2="25" y2="25" stroke="${color}" stroke-width="2"/><line x1="15" y1="25" x2="15" y2="40" stroke="${color}" stroke-width="2"/><circle cx="15" cy="8" r="6" fill="none" stroke="${color}" stroke-width="2"/><line x1="7" y1="22" x2="13" y2="18" stroke="${color}" stroke-width="1"/></svg>`;
+                svgContent = `<svg width="40" height="50" viewBox="0 0 40 50"><circle cx="20" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="20" y1="2" x2="20" y2="15" stroke="#fff" stroke-width="1.5"/><line x1="20" y1="35" x2="20" y2="48" stroke="#fff" stroke-width="1.5"/><circle cx="20" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="15" y1="20" x2="25" y2="30" stroke="${color}" stroke-width="1.5"/><line x1="10" y1="25" x2="30" y2="25" stroke="${color}" stroke-width="1.5" stroke-dasharray="3,2"/><line x1="20" y1="10" x2="20" y2="25" stroke="${color}" stroke-width="1.5"/><line x1="17" y1="27" x2="23" y2="23" stroke="${color}" stroke-width="1"/><text x="28" y="15" fill="${color}" font-size="8" font-family="Arial">-S0</text></svg>`;
             } else if (type === 'coil') {
-                svgContent = `<svg width="30" height="40" viewBox="0 0 30 40"><line x1="15" y1="0" x2="15" y2="12" stroke="${color}" stroke-width="2"/><rect x="7" y="12" width="16" height="16" fill="none" stroke="${color}" stroke-width="2"/><line x1="15" y1="28" x2="15" y2="40" stroke="${color}" stroke-width="2"/></svg>`;
-            } else if (type === 'timer') {
-                color = '#4d8bff';
-                svgContent = `<svg width="30" height="40" viewBox="0 0 30 40"><line x1="15" y1="0" x2="15" y2="8" stroke="${color}" stroke-width="2"/><rect x="5" y="8" width="20" height="24" fill="none" stroke="${color}" stroke-width="2"/><text x="15" y="22" fill="${color}" font-size="8" text-anchor="middle">KT</text><line x1="15" y1="32" x2="15" y2="40" stroke="${color}" stroke-width="2"/></svg>`;
+                svgContent = `<svg width="40" height="50" viewBox="0 0 40 50"><circle cx="20" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="20" y1="2" x2="20" y2="15" stroke="#fff" stroke-width="1.5"/><line x1="20" y1="35" x2="20" y2="48" stroke="#fff" stroke-width="1.5"/><circle cx="20" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="20" cy="25" r="10" fill="none" stroke="${color}" stroke-width="1.5"/><line x1="12" y1="25" x2="28" y2="25" stroke="${color}" stroke-width="1"/><text x="30" y="28" fill="${color}" font-size="8" font-family="Arial">-K1</text></svg>`;
             } else if (type === 'motor') {
                 color = '#d4af37';
-                svgContent = `<svg width="40" height="40" viewBox="0 0 40 40"><line x1="10" y1="0" x2="10" y2="12" stroke="${color}" stroke-width="2"/><line x1="20" y1="0" x2="20" y2="12" stroke="${color}" stroke-width="2"/><line x1="30" y1="0" x2="30" y2="12" stroke="${color}" stroke-width="2"/><circle cx="20" cy="25" r="12" fill="none" stroke="${color}" stroke-width="2"/><text x="20" y="29" fill="${color}" font-size="10" text-anchor="middle">M</text><text x="20" y="37" fill="${color}" font-size="8" text-anchor="middle">3~</text></svg>`;
-            } else if (type === 'lamp') {
-                color = '#2ecc71';
-                svgContent = `<svg width="30" height="40" viewBox="0 0 30 40"><line x1="15" y1="0" x2="15" y2="12" stroke="${color}" stroke-width="2"/><circle cx="15" cy="25" r="10" fill="none" stroke="${color}" stroke-width="2"/><line x1="8" y1="18" x2="22" y2="32" stroke="${color}" stroke-width="1"/><line x1="22" y1="18" x2="8" y2="32" stroke="${color}" stroke-width="1"/><line x1="15" y1="35" x2="15" y2="40" stroke="${color}" stroke-width="2"/></svg>`;
+                svgContent = `<svg width="50" height="50" viewBox="0 0 50 50"><circle cx="10" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="20" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="30" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="10" y1="2" x2="10" y2="20" stroke="#fff" stroke-width="1.5"/><line x1="20" y1="2" x2="20" y2="20" stroke="#fff" stroke-width="1.5"/><line x1="30" y1="2" x2="30" y2="20" stroke="#fff" stroke-width="1.5"/><circle cx="20" cy="32" r="13" fill="none" stroke="${color}" stroke-width="1.5"/><text x="20" y="30" fill="${color}" font-size="10" text-anchor="middle" font-family="Arial">M</text><text x="20" y="38" fill="${color}" font-size="8" text-anchor="middle" font-family="Arial">3~</text><text x="35" y="15" fill="${color}" font-size="8" font-family="Arial">-M1</text></svg>`;
             }
             
-            el.innerHTML = svgContent + `<span>${name}</span>`;
+            el.innerHTML = svgContent;
             
             // قابلیت جابجایی با موس
             let isDragging = false, offsetX = 0, offsetY = 0;
