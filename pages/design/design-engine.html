@@ -72,6 +72,17 @@
         .property-box h4 { color:var(--cyan); margin-bottom:8px; }
         .property-box label { display:block; color:var(--muted); font-size:11px; margin:5px 0 2px; }
         .property-box input { width:100%; background:#07101c; color:#fff; border:1px solid rgba(255,255,255,.12); border-radius:5px; padding:6px; }
+
+        .auto-help { margin-top:10px; padding:10px; border:1px solid rgba(0,242,255,.15); background:rgba(0,242,255,.03); border-radius:8px; color:#aeb6c2; font-size:.76rem; line-height:1.8; }
+        .auto-presets { display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:8px; }
+        .auto-presets button { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); color:#ddd; padding:7px 5px; border-radius:6px; cursor:pointer; font-family:inherit; font-size:.72rem; }
+        .auto-presets button:hover { border-color:var(--cyan); color:var(--cyan); }
+        .auto-status { margin-top:8px; color:#7ee7a7; font-size:.75rem; min-height:18px; }
+        .auto-actions { display:flex; gap:6px; margin-top:7px; }
+        .auto-actions .btn { flex:1; }
+        #autoCircuitCanvas { width:100%; height:100%; display:flex; align-items:center; justify-content:center; overflow:auto; padding:18px; }
+        #autoCircuitSvg { width:100%; max-width:1050px; min-width:720px; height:auto; background:#fff; border-radius:6px; box-shadow:0 0 0 1px rgba(255,255,255,.15),0 10px 35px rgba(0,0,0,.35); }
+        .sheet-info { position:absolute; left:18px; bottom:15px; z-index:5; background:rgba(8,14,25,.88); border:1px solid rgba(0,242,255,.15); border-radius:7px; padding:7px 10px; color:#9da8b8; font-size:.72rem; }
     </style>
 </head>
 <body>
@@ -89,12 +100,29 @@
     <div class="layout">
         <!-- سایدبار حالت اول -->
         <div class="sidebar active" id="modeGallery">
-            <div class="panel-title"><i class="fas fa-search"></i> جستجوی مدار استاندارد</div>
-            <input type="text" class="input-box" id="searchInput" placeholder="مثلاً: استار استاپ مستقیم" oninput="searchCircuit()">
-            <button class="btn" onclick="searchCircuit()"><i class="fas fa-bolt"></i> رسم مدار</button>
-            <div style="margin-top: 20px;">
-                <div class="panel-title">مدارهای آماده:</div>
-                <div class="list-item" onclick="loadCircuit('dol')">استار استاپ مستقیم (DOL)</div>
+            <div class="panel-title"><i class="fas fa-wand-magic-sparkles"></i> طراحی خودکار مدار</div>
+            <textarea class="input-box" id="searchInput" rows="4"
+                placeholder="مثلاً: مدار راه‌اندازی مستقیم موتور سه فاز با استارت و استاپ و حفاظت اضافه‌بار"></textarea>
+            <button class="btn" onclick="autoDesignCircuit()"><i class="fas fa-bolt"></i> تولید شماتیک</button>
+            <div class="auto-actions">
+                <button class="btn" style="background:rgba(255,255,255,.06);color:#fff" onclick="clearAutoCircuit()"><i class="fas fa-eraser"></i> پاک کردن</button>
+                <button class="btn" style="background:rgba(255,255,255,.06);color:#fff" onclick="printAutoCircuit()"><i class="fas fa-print"></i> چاپ</button>
+            </div>
+            <div class="auto-status" id="autoStatus"></div>
+            <div class="auto-help">
+                متن را طبیعی بنویس؛ موتور، نوع راه‌اندازی، فرمان، حفاظت و کاربرد را تشخیص می‌دهم.
+                <br>مثال: «ستاره مثلث»، «چپگرد راستگرد»، «پمپ دستی اتوماتیک»، «مدار VFD»، «فرمان PLC»، «مدار روشنایی».
+            </div>
+            <div class="panel-title" style="margin-top:14px;">مدارهای آماده</div>
+            <div class="auto-presets">
+                <button onclick="loadCircuit('dol')">DOL</button>
+                <button onclick="loadCircuit('star_delta')">ستاره-مثلث</button>
+                <button onclick="loadCircuit('forward_reverse')">چپگرد-راستگرد</button>
+                <button onclick="loadCircuit('pump_auto')">پمپ دستی/اتومات</button>
+                <button onclick="loadCircuit('vfd')">کنترل VFD</button>
+                <button onclick="loadCircuit('plc_motor')">PLC + موتور</button>
+                <button onclick="loadCircuit('lighting')">روشنایی</button>
+                <button onclick="loadCircuit('ats')">ATS ژنراتور</button>
             </div>
         </div>
 
@@ -149,58 +177,259 @@
             document.getElementById('dropZone').style.display = (modeId === 'modeDragDrop') ? 'block' : 'none';
         }
 
-        // ۲. حالت اول: جستجو و رسم مدار
+        // ۲. طراحی خودکار: تبدیل متن کاربر به شماتیک SVG
+        const CIRCUIT_ALIASES = [
+            {keys:['ستاره','مثلث','star','delta','star-delta','star delta'], type:'star_delta', title:'راه‌اندازی ستاره ـ مثلث موتور سه‌فاز'},
+            {keys:['چپگرد','راستگرد','چپ گرد','راست گرد','forward reverse','forward/reverse','fwd rev'], type:'forward_reverse', title:'مدار چپگرد ـ راستگرد موتور سه‌فاز'},
+            {keys:['پمپ','دستی','اتومات','اتوماتیک','manual auto','pump auto'], type:'pump_auto', title:'مدار کنترل پمپ دستی ـ اتوماتیک'},
+            {keys:['vfd','اینورتر','درایو','inverter','فرکانس'], type:'vfd', title:'کنترل موتور با VFD'},
+            {keys:['plc','پی ال سی','پی‌ال‌سی','کنترلر منطقی'], type:'plc_motor', title:'PLC + کنتاکتور + موتور'},
+            {keys:['روشنایی','چراغ','lighting','lighting circuit'], type:'lighting', title:'مدار روشنایی با کلید و فیوز'},
+            {keys:['ats','چنج اور','برق شهر و ژنراتور','ژنراتور اتومات','generator'], type:'ats', title:'مدار ATS شهر ـ ژنراتور'},
+            {keys:['مستقیم','dol','استارت مستقیم','استار استاپ','استارت استاپ','راه اندازی مستقیم'], type:'dol', title:'راه‌اندازی مستقیم DOL موتور سه‌فاز'}
+        ];
+
+        function normalizeText(s){
+            return (s||'').toLowerCase()
+                .replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/[‌]/g,' ')
+                .replace(/[،؛]/g,' ');
+        }
+
+        function autoDesignCircuit(){
+            const q = normalizeText(document.getElementById('searchInput').value);
+            if(!q.trim()){
+                loadCircuit('dol');
+                setAutoStatus('متن خالی بود؛ نمونه DOL نمایش داده شد.');
+                return;
+            }
+            const hit = CIRCUIT_ALIASES.find(x => x.keys.some(k => q.includes(normalizeText(k))));
+            const type = hit ? hit.type : 'dol';
+            renderAutoCircuit(type, hit ? hit.title : 'مدار پیشنهادی بر اساس درخواست شما: DOL');
+            setAutoStatus(hit ? `تشخیص داده شد: ${hit.title}` : 'نوع مدار دقیق تشخیص داده نشد؛ نزدیک‌ترین الگوی استاندارد DOL تولید شد.');
+        }
+
+        function setAutoStatus(msg){
+            const el=document.getElementById('autoStatus');
+            if(el) el.textContent=msg;
+        }
+
+        function clearAutoCircuit(){
+            document.getElementById('svgCanvas').innerHTML='';
+            setAutoStatus('');
+        }
+
+        function printAutoCircuit(){
+            const svg=document.getElementById('svgCanvas');
+            const w=window.open('','_blank','width=1200,height=800');
+            if(!w) return;
+            w.document.write(`<html><head><title>Karatech ELV Schematic</title><style>body{margin:0;background:#eee;display:flex;justify-content:center;align-items:center;min-height:100vh}svg{max-width:98vw;max-height:96vh;background:white}</style></head><body>${svg.outerHTML}</body></html>`);
+            w.document.close(); w.focus(); w.print();
+        }
+
+        function svgText(x,y,text,size=12,fill='#111827',weight='400',anchor='start'){
+            return `<text x="${x}" y="${y}" font-family="Arial, Vazirmatn, sans-serif" font-size="${size}" fill="${fill}" font-weight="${weight}" text-anchor="${anchor}">${esc(text)}</text>`;
+        }
+        function svgLine(x1,y1,x2,y2,stroke='#111827',sw=1.6,dash=''){
+            return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${stroke}" stroke-width="${sw}" ${dash?`stroke-dasharray="${dash}"`:''}/>`;
+        }
+        function svgBox(x,y,w,h,title,sub=''){
+            return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#fff" stroke="#111827" stroke-width="1.5"/>
+                    ${svgText(x+w/2,y+20,title,12,'#111827','700','middle')}
+                    ${sub?svgText(x+w/2,y+h-10,sub,9,'#4b5563','400','middle'):''}`;
+        }
+        function tagText(x,y,tag,name){
+            return `${svgText(x,y,tag,11,'#0b5ed7','700')}${svgText(x,y+14,name,9,'#4b5563')}`;
+        }
+        function circuitHeader(title, subtitle){
+            return `<rect x="0" y="0" width="1000" height="650" fill="#fff"/>
+                    ${svgText(500,30,'KARATECH ELV — AUTOMATIC ELECTRICAL SCHEMATIC',15,'#111827','700','middle')}
+                    ${svgText(500,52,title,18,'#111827','700','middle')}
+                    ${svgText(500,70,subtitle,10,'#4b5563','400','middle')}`;
+        }
+        function rail(x,y1,y2,label){
+            return `${svgLine(x,y1,x,y2,'#111827',2)}${svgText(x,y1-8,label,11,'#111827','700','middle')}`;
+        }
+        function contact(x,y,label,type='NO'){
+            const a=type==='NC';
+            return `<line x1="${x}" y1="${y-22}" x2="${x}" y2="${y-9}" stroke="#111827" stroke-width="1.5"/>
+                    <line x1="${x}" y1="${y+9}" x2="${x}" y2="${y+22}" stroke="#111827" stroke-width="1.5"/>
+                    <line x1="${x-16}" y1="${y-9}" x2="${x+16}" y2="${y+9}" stroke="#111827" stroke-width="1.5"/>
+                    ${a?svgLine(x-17,y+12,x+17,y-12,'#111827',1.2):''}
+                    ${svgText(x,y-28,label,9,'#111827','700','middle')}`;
+        }
+        function coil(x,y,label){
+            return `<line x1="${x}" y1="${y-24}" x2="${x}" y2="${y-13}" stroke="#111827" stroke-width="1.5"/>
+                    <rect x="${x-18}" y="${y-13}" width="36" height="26" rx="13" fill="#fff" stroke="#111827" stroke-width="1.5"/>
+                    <line x1="${x}" y1="${y+13}" x2="${x}" y2="${y+24}" stroke="#111827" stroke-width="1.5"/>
+                    ${svgText(x,y+4,label,10,'#111827','700','middle')}`;
+        }
+        function motorBlock(x,y,tag='-M1'){
+            return `<circle cx="${x}" cy="${y}" r="34" fill="#fff" stroke="#111827" stroke-width="2"/>
+                    ${svgText(x,y+7,'M',24,'#111827','700','middle')}
+                    ${svgText(x,y-45,tag,11,'#0b5ed7','700','middle')}
+                    ${svgText(x,y+55,'3~ MOTOR',9,'#4b5563','400','middle')}`;
+        }
+        function breakerBlock(x,y,tag='-QF1'){
+            return `<rect x="${x-24}" y="${y-28}" width="48" height="56" fill="#fff" stroke="#111827" stroke-width="1.6"/>
+                    <line x1="${x-13}" y1="${y-16}" x2="${x+12}" y2="${y+14}" stroke="#111827" stroke-width="2"/>
+                    ${svgText(x,y-37,tag,10,'#0b5ed7','700','middle')}
+                    ${svgText(x,y+45,'MCB/MCCB',8,'#4b5563','400','middle')}`;
+        }
+        function overloadBlock(x,y,tag='-F2'){
+            return `<rect x="${x-28}" y="${y-22}" width="56" height="44" fill="#fff" stroke="#111827" stroke-width="1.6"/>
+                    ${svgText(x,y+5,'OL',12,'#111827','700','middle')}
+                    ${svgText(x,y-30,tag,10,'#0b5ed7','700','middle')}`;
+        }
+        function contactorBlock(x,y,tag='-K1'){
+            return `<rect x="${x-30}" y="${y-35}" width="60" height="70" fill="#fff" stroke="#111827" stroke-width="1.6"/>
+                    ${svgText(x,y-8,'K',18,'#111827','700','middle')}
+                    ${svgText(x,y+12,'CONTACTOR',7,'#4b5563','700','middle')}
+                    ${svgText(x,y-44,tag,10,'#0b5ed7','700','middle')}`;
+        }
+
+        function renderAutoCircuit(type, titleOverride=''){
+            const svg=document.getElementById('svgCanvas');
+            svg.setAttribute('viewBox','0 0 1000 650');
+            svg.classList.add('schematic-svg');
+            const titles={
+                dol:['راه‌اندازی مستقیم DOL','مدار قدرت + فرمان استارت/استاپ + اضافه‌بار'],
+                star_delta:['راه‌اندازی ستاره ـ مثلث','سه کنتاکتور K1/K2/K3 + تایمر + اینترلاک'],
+                forward_reverse:['مدار چپگرد ـ راستگرد','دو کنتاکتور با اینترلاک الکتریکی'],
+                pump_auto:['کنترل پمپ دستی ـ اتوماتیک','Hand/Auto + Level Switch + Contactor'],
+                vfd:['کنترل موتور با VFD','MCB + VFD + فرمان Run/Stop'],
+                plc_motor:['PLC + موتور','Digital Output → Contactor → Overload → Motor'],
+                lighting:['مدار روشنایی','MCB + Switch + Lamp'],
+                ats:['مدار ATS شهر ـ ژنراتور','Source A / Source B + Interlock']
+            };
+            const [title,sub]=titles[type]||titles.dol;
+            let body=circuitHeader(titleOverride||title,sub);
+
+            if(type==='dol'){
+                body += `<g>${rail(90,115,545,'L1')}${rail(910,115,545,'N')}
+                    ${svgText(500,100,'POWER',10,'#6b7280','700','middle')}
+                    ${svgLine(90,145,170,145)}${breakerBlock(195,145,'-QF1')}${svgLine(220,145,310,145)}
+                    ${contactorBlock(340,145,'-K1')}${svgLine(370,145,455,145)}${overloadBlock(485,145,'-F2')}${svgLine(513,145,560,145)}
+                    ${motorBlock(650,145,'-M1')}${svgLine(560,145,616,145)}${svgLine(684,145,910,145)}
+                    ${svgText(500,185,'L1 → QF1 → K1 → F2 → M1',11,'#111827','700','middle')}
+                    ${svgText(500,245,'CONTROL',10,'#6b7280','700','middle')}
+                    ${svgLine(170,270,170,520)}${svgLine(830,270,830,520)}
+                    ${svgLine(170,300,260,300)}${contact(285,300,'S0','NC')}${svgLine(301,300,365,300)}
+                    ${contact(390,300,'F2 95-96','NC')}${svgLine(406,300,470,300)}${contact(495,300,'S1','NO')}${svgLine(511,300,600,300)}
+                    ${coil(630,300,'K1')}${svgLine(648,300,830,300)}
+                    ${svgLine(170,380,260,380)}${contact(285,380,'K1 13-14','NO')}${svgLine(301,380,830,380)}
+                    ${svgLine(260,380,260,300,'#111827',1.2)}
+                    ${svgText(500,420,'Self-hold / seal-in contact',9,'#4b5563','400','middle')}
+                    ${svgText(250,560,'STOP = NC     START = NO     OL = 95-96 NC',10,'#374151','700','middle')}
+                </g>`;
+            } else if(type==='star_delta'){
+                body += `<g>
+                    ${svgText(500,100,'POWER CIRCUIT',10,'#6b7280','700','middle')}
+                    ${rail(80,120,545,'L1')}${rail(920,120,545,'L2/L3')}
+                    ${breakerBlock(150,145,'-QF1')}${contactorBlock(290,145,'-K1')}${overloadBlock(420,145,'-F2')}
+                    ${motorBlock(650,145,'-M1')}
+                    ${svgLine(80,145,126,145)}${svgLine(174,145,260,145)}${svgLine(320,145,392,145)}${svgLine(448,145,615,145)}${svgLine(685,145,920,145)}
+                    ${contactorBlock(290,245,'-K2 STAR')}${contactorBlock(500,245,'-K3 DELTA')}
+                    ${svgLine(290,180,290,210)}${svgLine(500,180,500,210)}
+                    ${svgLine(290,280,290,350)}${svgLine(500,280,500,350)}
+                    ${svgText(290,370,'STAR',11,'#111827','700','middle')}${svgText(500,370,'DELTA',11,'#111827','700','middle')}
+                    ${svgText(500,420,'CONTROL',10,'#6b7280','700','middle')}
+                    ${svgLine(150,445,850,445)}${contact(220,445,'S0','NC')}${contact(310,445,'S1','NO')}${coil(420,445,'K1')}${coil(540,445,'K2')}${coil(660,445,'K3')}
+                    ${svgText(500,505,'KT1 Timer: start in STAR → after delay, open K2 and close K3',10,'#374151','700','middle')}
+                    ${svgText(500,535,'Electrical interlock: K2 NC ↔ K3 coil / K3 NC ↔ K2 coil',10,'#374151','400','middle')}
+                </g>`;
+            } else if(type==='forward_reverse'){
+                body += `<g>
+                    ${svgText(500,105,'POWER',10,'#6b7280','700','middle')}
+                    ${breakerBlock(140,150,'-QF1')}${contactorBlock(330,145,'-K1 FWD')}${contactorBlock(520,145,'-K2 REV')}${overloadBlock(690,145,'-F2')}${motorBlock(850,145,'-M1')}
+                    ${svgLine(50,150,116,150)}${svgLine(164,150,300,150)}${svgLine(360,150,490,150)}${svgLine(550,150,660,150)}${svgLine(720,150,816,150)}${svgLine(884,150,950,150)}
+                    ${svgText(425,205,'K1: phase sequence L1-L2-L3',9,'#374151','400','middle')}
+                    ${svgText(625,220,'K2: swap two phases for reverse',9,'#374151','400','middle')}
+                    ${svgText(500,285,'CONTROL + INTERLOCK',10,'#6b7280','700','middle')}
+                    ${contact(250,345,'S0 STOP','NC')}${contact(370,345,'S1 FWD','NO')}${contact(470,345,'K2 NC','NC')}${coil(580,345,'K1')}
+                    ${contact(250,445,'S0 STOP','NC')}${contact(370,445,'S2 REV','NO')}${contact(470,445,'K1 NC','NC')}${coil(580,445,'K2')}
+                    ${svgText(700,345,'FWD',11,'#0b5ed7','700')}${svgText(700,445,'REV',11,'#0b5ed7','700')}
+                    ${svgText(500,520,'Mechanical + electrical interlock prevents K1 and K2 closing together',10,'#374151','700','middle')}
+                </g>`;
+            } else if(type==='pump_auto'){
+                body += `<g>
+                    ${svgText(500,105,'POWER',10,'#6b7280','700','middle')}
+                    ${breakerBlock(150,150,'-QF1')}${contactorBlock(350,150,'-K1')}${overloadBlock(540,150,'-F2')}${motorBlock(760,150,'-M1')}
+                    ${svgLine(50,150,126,150)}${svgLine(174,150,320,150)}${svgLine(380,150,512,150)}${svgLine(568,150,726,150)}${svgLine(794,150,950,150)}
+                    ${svgText(500,235,'CONTROL',10,'#6b7280','700','middle')}
+                    ${contact(220,315,'S0 STOP','NC')}${contact(340,315,'SA HAND/AUTO','NO')}${contact(460,315,'S1 START','NO')}${coil(590,315,'K1')}
+                    ${contact(340,415,'B1 LEVEL LOW','NO')}${contact(470,415,'B2 LEVEL HIGH','NC')}${coil(590,415,'K1 AUTO')}
+                    ${svgText(760,315,'HAND',11,'#0b5ed7','700')}${svgText(760,415,'AUTO',11,'#0b5ed7','700')}
+                    ${svgText(500,510,'Low level = start pump     High level = stop pump',10,'#374151','700','middle')}
+                </g>`;
+            } else if(type==='vfd'){
+                body += `<g>
+                    ${svgText(500,110,'POWER + DRIVE',10,'#6b7280','700','middle')}
+                    ${breakerBlock(150,175,'-QF1')}${svgBox(310,135,180,80,'-U1 VFD','Variable Frequency Drive')}${motorBlock(750,175,'-M1')}
+                    ${svgLine(50,175,126,175)}${svgLine(174,175,310,175)}${svgLine(490,175,716,175)}${svgLine(784,175,950,175)}
+                    ${svgText(610,150,'U/V/W',10,'#0b5ed7','700','middle')}
+                    ${svgText(500,275,'CONTROL',10,'#6b7280','700','middle')}
+                    ${contact(300,345,'S0 STOP','NC')}${contact(410,345,'S1 RUN','NO')}${svgBox(540,320,160,50,'DI1 / DI2','Run / Stop')}
+                    ${svgLine(442,345,540,345)}${svgText(500,415,'0-10V / 4-20mA speed reference',10,'#374151','700','middle')}
+                    ${svgText(500,470,'QF1 → VFD → M1     فرمان Run/Stop از ترمینال‌های دیجیتال',10,'#374151','400','middle')}
+                </g>`;
+            } else if(type==='plc_motor'){
+                body += `<g>
+                    ${svgText(500,105,'POWER',10,'#6b7280','700','middle')}
+                    ${breakerBlock(140,150,'-QF1')}${contactorBlock(320,150,'-K1')}${overloadBlock(500,150,'-F2')}${motorBlock(720,150,'-M1')}
+                    ${svgLine(50,150,116,150)}${svgLine(164,150,290,150)}${svgLine(350,150,472,150)}${svgLine(528,150,686,150)}${svgLine(754,150,950,150)}
+                    ${svgText(500,250,'PLC CONTROL',10,'#6b7280','700','middle')}
+                    ${svgBox(330,290,340,130,'-A1 PLC','CPU / DI / DO')}
+                    ${svgText(355,330,'I0.0 = START',10,'#111827')}${svgText(355,355,'I0.1 = STOP',10,'#111827')}${svgText(355,380,'I0.2 = OL TRIP',10,'#111827')}
+                    ${svgText(585,330,'Q0.0 → K1 A1',10,'#0b5ed7')}${svgText(585,355,'Q0.1 → RUN LAMP',10,'#0b5ed7')}${svgText(585,380,'AI0 = CURRENT',10,'#0b5ed7')}
+                    ${svgLine(200,350,330,350,'#0b5ed7',1.5,'5 4')}${svgLine(670,350,800,350,'#0b5ed7',1.5,'5 4')}
+                    ${svgText(500,475,'PLC reads field inputs → logic → DO energizes K1 → motor runs',10,'#374151','700','middle')}
+                </g>`;
+            } else if(type==='lighting'){
+                body += `<g>
+                    ${svgText(500,110,'LIGHTING CIRCUIT',10,'#6b7280','700','middle')}
+                    ${rail(130,145,530,'L')}${rail(870,145,530,'N')}
+                    ${breakerBlock(260,185,'-QF1')}${contact(500,185,'-S1','NO')}${svgBox(670,150,90,70,'-H1','Lamp')}
+                    ${svgLine(130,185,236,185)}${svgLine(284,185,484,185)}${svgLine(516,185,670,185)}${svgLine(760,185,870,185)}
+                    ${svgText(500,260,'L → MCB → Switch → Lamp → N',11,'#111827','700','middle')}
+                    ${svgText(500,320,'PE',10,'#6b7280','700','middle')}
+                    ${svgLine(500,350,500,450)}${svgText(500,470,'Protective Earth to metallic enclosure / luminaire as required',9,'#374151','400','middle')}
+                </g>`;
+            } else if(type==='ats'){
+                body += `<g>
+                    ${svgText(250,110,'SOURCE A — GRID',10,'#6b7280','700','middle')}${svgText(750,110,'SOURCE B — GENERATOR',10,'#6b7280','700','middle')}
+                    ${breakerBlock(250,160,'-QF1')}${breakerBlock(750,160,'-QF2')}
+                    ${svgBox(400,125,200,75,'-Q1/-Q2 ATS','Electrical Interlock')}
+                    ${svgLine(50,160,226,160)}${svgLine(274,160,400,160)}${svgLine(600,160,726,160)}${svgLine(774,160,950,160)}
+                    ${svgLine(500,200,500,300)}${svgBox(410,300,180,80,'LOAD','Essential Loads')}
+                    ${svgText(500,430,'Controller: mains fail → start generator → transfer → return to mains',10,'#374151','700','middle')}
+                    ${svgText(500,465,'Q1 and Q2 mechanically/electrically interlocked',10,'#374151','400','middle')}
+                </g>`;
+            }
+
+            body += `<rect x="690" y="575" width="280" height="45" fill="#f8fafc" stroke="#111827"/>
+                     ${svgText(705,593,'Project: Karatech ELV',9,'#111827','700')}
+                     ${svgText(705,608,'IEC/EPLAN-style schematic · Auto generated',8,'#4b5563')}`;
+            svg.innerHTML=body;
+        }
+
         function searchCircuit() {
-            let val = document.getElementById('searchInput').value.toLowerCase();
-            if (val.includes('مستقیم') || val.includes('استارت')) loadCircuit('dol');
+            // سازگاری با نسخه قبلی: هر تایپ یا کلیک، متن را به موتور طراحی خودکار می‌دهد.
+            autoDesignCircuit();
         }
 
         function loadCircuit(type) {
-            const svg = document.getElementById('svgCanvas');
-            if (type === 'dol') {
-                svg.innerHTML = `
-                    <!-- خطوط فاز و نول -->
-                    <line x1="50" y1="50" x2="50" y2="430" stroke="#fff" stroke-width="2"/>
-                    <line x1="250" y1="50" x2="250" y2="430" stroke="#fff" stroke-width="2"/>
-                    <line x1="50" y1="50" x2="250" y2="50" stroke="#fff" stroke-width="2"/>
-                    <text x="40" y="45" fill="#8b8f99" font-size="12" text-anchor="end">L1</text>
-                    <text x="260" y="45" fill="#8b8f99" font-size="12">N</text>
-
-                    <!-- فیوز F1 -->
-                    <line x1="40" y1="80" x2="60" y2="110" stroke="#d4af37" stroke-width="2"/>
-                    <line x1="50" y1="80" x2="50" y2="90" stroke="#d4af37" stroke-width="2"/>
-                    <line x1="50" y1="110" x2="50" y2="120" stroke="#d4af37" stroke-width="2"/>
-                    <text x="70" y="100" fill="#d4af37" font-size="12">F1</text>
-
-                    <!-- کنتاکتور K1 -->
-                    <line x1="40" y1="150" x2="60" y2="180" stroke="#00f2ff" stroke-width="2"/>
-                    <text x="70" y="170" fill="#00f2ff" font-size="12">K1</text>
-
-                    <!-- رله حرارتی F2 -->
-                    <rect x="40" y="220" width="20" height="30" fill="none" stroke="#f39c12" stroke-width="2"/>
-                    <line x1="40" y1="220" x2="60" y2="250" stroke="#f39c12" stroke-width="2"/>
-                    <text x="70" y="240" fill="#f39c12" font-size="12">F2</text>
-
-                    <!-- شستی استاپ S0 (NC) -->
-                    <line x1="40" y1="290" x2="60" y2="320" stroke="#e74c3c" stroke-width="2"/>
-                    <line x1="45" y1="315" x2="55" y2="305" stroke="#e74c3c" stroke-width="1"/>
-                    <text x="70" y="310" fill="#e74c3c" font-size="12">S0</text>
-
-                    <!-- شستی استارت S1 (NO) -->
-                    <line x1="40" y1="350" x2="60" y2="380" stroke="#2ecc71" stroke-width="2"/>
-                    <text x="70" y="370" fill="#2ecc71" font-size="12">S1</text>
-
-                    <!-- کویل K1 -->
-                    <rect x="140" y="385" width="20" height="20" fill="none" stroke="#00f2ff" stroke-width="2"/>
-                    <text x="175" y="400" fill="#00f2ff" font-size="12">K1</text>
-
-                    <!-- سیم‌کشی اتصالات -->
-                    <line x1="50" y1="380" x2="150" y2="380" stroke="#fff" stroke-width="2"/>
-                    <line x1="150" y1="405" x2="150" y2="430" stroke="#fff" stroke-width="2"/>
-                    <line x1="150" y1="430" x2="250" y2="430" stroke="#fff" stroke-width="2"/>
-                    <line x1="250" y1="50" x2="250" y2="430" stroke="#fff" stroke-width="2"/>
-                `;
-            }
+            renderAutoCircuit(type);
+            const names={
+                dol:'DOL آماده شد',
+                star_delta:'ستاره-مثلث آماده شد',
+                forward_reverse:'چپگرد-راستگرد آماده شد',
+                pump_auto:'پمپ دستی-اتومات آماده شد',
+                vfd:'مدار VFD آماده شد',
+                plc_motor:'مدار PLC + موتور آماده شد',
+                lighting:'مدار روشنایی آماده شد',
+                ats:'مدار ATS آماده شد'
+            };
+            setAutoStatus(names[type]||'مدار آماده شد');
         }
 
         // ۳. کتابخانه گسترده المان‌های IEC/EPLAN-style
