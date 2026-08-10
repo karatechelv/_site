@@ -4,57 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karatech ELV · Smart Design Engine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@600;700&family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --bg-dark: #04101f; --glass: rgba(16, 22, 33, 0.75); --border: rgba(0, 242, 255, 0.15);
-            --accent-cyan: #00f2ff; --accent-indigo: #4d8bff; --accent-gold: #d4af37;
+            --cyan: #00f2ff; --indigo: #4d8bff; --gold: #d4af37; --red: #e74c3c; --green: #2ecc71; --orange: #f39c12;
             --text: #fff; --muted: #8b8f99;
         }
         html, body { height: 100%; overflow: hidden; font-family: 'Vazirmatn', sans-serif; background: var(--bg-dark); color: var(--text); }
 
-        /* هدر */
         .header { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: rgba(10, 20, 35, 0.9); border-bottom: 1px solid var(--border); height: 60px; flex-shrink: 0; }
         .brand { font-size: 1.2rem; font-weight: 700; }
-        .brand span { color: var(--accent-cyan); }
+        .brand span { color: var(--cyan); }
         .header-actions { display: flex; gap: 15px; align-items: center; }
-        .back-btn { color: var(--accent-indigo); text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid rgba(77, 139, 255, 0.3); border-radius: 6px; }
+        .back-btn { color: var(--indigo); text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid rgba(77, 139, 255, 0.3); border-radius: 6px; }
         
-        /* سوئیچ تغییر حالت */
         .mode-switch { display: flex; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 4px; border: 1px solid rgba(255,255,255,0.1); }
         .mode-btn { padding: 6px 16px; border: none; background: transparent; color: var(--muted); border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.85rem; transition: 0.3s; }
-        .mode-btn.active { background: var(--accent-indigo); color: #fff; box-shadow: 0 0 10px rgba(77, 139, 255, 0.3); }
+        .mode-btn.active { background: var(--indigo); color: #fff; box-shadow: 0 0 10px rgba(77, 139, 255, 0.3); }
 
-        /* چیدمان اصلی */
         .layout { display: flex; height: calc(100vh - 60px); overflow: hidden; }
-        .sidebar { width: 300px; flex-shrink: 0; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(10px); border-left: 1px solid var(--border); padding: 20px; display: flex; flex-direction: column; gap: 20px; overflow-y: auto; }
+        .sidebar { width: 320px; flex-shrink: 0; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(10px); border-left: 1px solid var(--border); padding: 20px; display: flex; flex-direction: column; gap: 15px; overflow-y: auto; }
         .canvas-area { flex: 1; background: #0a0d12; background-image: linear-gradient(rgba(77, 139, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(77, 139, 255, 0.03) 1px, transparent 1px); background-size: 20px 20px; position: relative; overflow: hidden; display: flex; justify-content: center; align-items: center; padding: 20px; }
 
-        /* استایل‌های مشترک سایدبار */
-        .panel-title { font-size: 1.1rem; color: var(--accent-cyan); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 10px; }
-        .input-box { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; color: #fff; font-family: inherit; font-size: 0.9rem; }
-        .btn { width: 100%; background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan)); color: #000; padding: 10px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-family: inherit; }
-        .list-item { background: rgba(0,0,0,0.2); border: 1px dashed rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; color: var(--muted); font-size: 0.85rem; cursor: pointer; margin-bottom: 8px; transition: 0.2s; }
-        .list-item:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+        .panel-title { font-size: 1.1rem; color: var(--cyan); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 5px; }
+        .input-box { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px; color: #fff; font-family: inherit; font-size: 0.9rem; }
+        .btn { width: 100%; background: linear-gradient(135deg, var(--indigo), var(--cyan)); color: #000; padding: 10px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-family: inherit; }
+        .list-item { background: rgba(0,0,0,0.2); border: 1px dashed rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; color: var(--muted); font-size: 0.85rem; cursor: pointer; transition: 0.2s; }
+        .list-item:hover { border-color: var(--cyan); color: var(--cyan); }
 
-        /* حالت اول: گالری مدار */
+        /* حالت اول */
         #modeGallery { display: none; flex-direction: column; height: 100%; }
         #modeGallery.active { display: flex; }
         .schematic-box { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
-        .schematic-svg { max-width: 100%; max-height: 100%; height: auto; filter: drop-shadow(0 0 5px rgba(0,242,255,0.1)); }
+        .schematic-svg { max-width: 100%; max-height: 100%; height: auto; }
         
-        /* حالت دوم: درگ اند دراپ */
+        /* حالت دوم */
         #modeDragDrop { display: none; flex-direction: column; height: 100%; }
         #modeDragDrop.active { display: flex; }
-        .comp-item { display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; cursor: grab; margin-bottom: 8px; color: #fff; font-size: 0.9rem; }
+        .comp-item { display: flex; align-items: center; gap: 15px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; cursor: grab; margin-bottom: 8px; color: #fff; font-size: 0.9rem; transition: 0.2s; }
+        .comp-item:hover { border-color: var(--cyan); }
         .comp-item:active { cursor: grabbing; }
-        .comp-item i { color: var(--accent-gold); }
+        .comp-item svg { background: rgba(255,255,255,0.05); border-radius: 4px; }
         
         .drop-zone { width: 100%; height: 100%; border: 2px dashed rgba(255,255,255,0.1); border-radius: 12px; position: relative; overflow: hidden; }
-        .dropped-element { position: absolute; background: rgba(16, 22, 33, 0.9); border: 1px solid var(--accent-cyan); padding: 15px; border-radius: 8px; cursor: move; color: #fff; font-size: 0.8rem; display: flex; flex-direction: column; align-items: center; gap: 5px; box-shadow: 0 0 15px rgba(0,242,255,0.2); user-select: none; }
-        .dropped-element i { font-size: 1.5rem; color: var(--accent-cyan); }
+        .dropped-element { position: absolute; cursor: move; user-select: none; }
+        .dropped-element svg { filter: drop-shadow(0 0 5px rgba(0,242,255,0.2)); }
     </style>
 </head>
 <body>
@@ -71,39 +68,61 @@
 
     <div class="layout">
         <!-- سایدبار حالت اول -->
-        <div class="sidebar" id="modeGallery">
-            <div class="panel-title"><i class="fas fa-search"></i> جستجوی مدار هوشمند</div>
-            <input type="text" class="input-box" id="searchInput" placeholder="مثلاً: استار دلتا" oninput="searchCircuit()">
+        <div class="sidebar active" id="modeGallery">
+            <div class="panel-title"><i class="fas fa-search"></i> جستجوی مدار استاندارد</div>
+            <input type="text" class="input-box" id="searchInput" placeholder="مثلاً: استارت استاپ مستقیم" oninput="searchCircuit()">
             <button class="btn" onclick="searchCircuit()"><i class="fas fa-bolt"></i> رسم مدار</button>
             
             <div style="margin-top: 20px;">
-                <div class="panel-title">مدارهای آماده:</div>
+                <div class="panel-title">مدارهای آماده (IEC):</div>
                 <div class="list-item" onclick="loadCircuit('dol')">استار استاپ مستقیم (DOL)</div>
-                <div class="list-item" onclick="loadCircuit('star-delta')">استار دلتا (Star-Delta)</div>
-                <div class="list-item" onclick="loadCircuit('reverse')">تغییر جهت موتور (Forward/Reverse)</div>
             </div>
         </div>
 
         <!-- سایدبار حالت دوم -->
         <div class="sidebar" id="modeDragDrop">
-            <div class="panel-title"><i class="fas fa-toolbox"></i> کتابخانه قطعات</div>
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'contactor', 'fa fa-bolt')">
-                <i class="fas fa-bolt"></i> کنتاکتور (K1)
+            <div class="panel-title"><i class="fas fa-toolbox"></i> کتابخانه قطعات (IEC)</div>
+            
+            <!-- شستی استاپ (NC) -->
+            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'nc_contact')">
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                    <line x1="20" y1="0" x2="20" y2="10" stroke="#e74c3c" stroke-width="2"/>
+                    <line x1="10" y1="10" x2="30" y2="30" stroke="#e74c3c" stroke-width="2"/>
+                    <line x1="20" y1="30" x2="20" y2="40" stroke="#e74c3c" stroke-width="2"/>
+                    <line x1="15" y1="25" x2="25" y2="15" stroke="#e74c3c" stroke-width="1"/>
+                </svg>
+                شستی استاپ (NC)
             </div>
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'start_btn', 'fa fa-play')">
-                <i class="fas fa-play"></i> شستی استارت (NO)
+
+            <!-- شستی استارت (NO) -->
+            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'no_contact')">
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                    <line x1="20" y1="0" x2="20" y2="10" stroke="#2ecc71" stroke-width="2"/>
+                    <line x1="10" y1="10" x2="30" y2="30" stroke="#2ecc71" stroke-width="2"/>
+                    <line x1="20" y1="30" x2="20" y2="40" stroke="#2ecc71" stroke-width="2"/>
+                </svg>
+                شستی استارت (NO)
             </div>
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'stop_btn', 'fa fa-stop')">
-                <i class="fas fa-stop"></i> شستی استاپ (NC)
+
+            <!-- کویل -->
+            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'coil')">
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                    <line x1="20" y1="0" x2="20" y2="10" stroke="#00f2ff" stroke-width="2"/>
+                    <circle cx="20" cy="20" r="10" fill="none" stroke="#00f2ff" stroke-width="2"/>
+                    <line x1="20" y1="30" x2="20" y2="40" stroke="#00f2ff" stroke-width="2"/>
+                </svg>
+                کویل رله (Coil)
             </div>
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'relay', 'fa fa-temperature-high')">
-                <i class="fas fa-temperature-high"></i> رله حرارتی (F1)
-            </div>
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'fuse', 'fa fa-shield-alt')">
-                <i class="fas fa-shield-alt"></i> فیوز (F2)
-            </div>
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'coil', 'fa fa-circle-notch')">
-                <i class="fas fa-circle-notch"></i> کویل (Coil)
+
+            <!-- رله حرارتی -->
+            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'thermal')">
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                    <line x1="20" y1="0" x2="20" y2="10" stroke="#f39c12" stroke-width="2"/>
+                    <rect x="10" y="10" width="20" height="20" fill="none" stroke="#f39c12" stroke-width="2"/>
+                    <line x1="10" y1="10" x2="30" y2="30" stroke="#f39c12" stroke-width="2"/>
+                    <line x1="20" y1="30" x2="20" y2="40" stroke="#f39c12" stroke-width="2"/>
+                </svg>
+                رله حرارتی (Thermal)
             </div>
         </div>
 
@@ -111,8 +130,8 @@
         <div class="canvas-area">
             <!-- کانوس حالت اول -->
             <div class="schematic-box" id="galleryCanvas">
-                <svg class="schematic-svg" id="svgCanvas" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid meet">
-                    <text x="150" y="200" fill="#8b8f99" font-size="16" text-anchor="middle" font-family="Vazirmatn">منتظر انتخاب مدار...</text>
+                <svg class="schematic-svg" id="svgCanvas" viewBox="0 0 300 450" preserveAspectRatio="xMidYMid meet">
+                    <text x="150" y="225" fill="#8b8f99" font-size="14" text-anchor="middle">منتظر انتخاب مدار...</text>
                 </svg>
             </div>
 
@@ -122,108 +141,123 @@
     </div>
 
     <script>
-        // ۱. منطق تغییر حالت
+        // ۱. تغییر حالت
         function switchMode(modeId, btn) {
             document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
-            document.querySelectorAll('.sidebar').forEach(s => s.style.display = 'none');
-            document.getElementById(modeId).style.display = 'flex';
-            
+            document.querySelectorAll('.sidebar').forEach(s => s.classList.remove('active'));
+            document.getElementById(modeId).classList.add('active');
             document.getElementById('galleryCanvas').style.display = (modeId === 'modeGallery') ? 'flex' : 'none';
             document.getElementById('dropZone').style.display = (modeId === 'modeDragDrop') ? 'block' : 'none';
         }
 
-        // ۲. منطق حالت اول: گالری مدار
+        // ۲. حالت اول: جستجو و رسم مدار DOL
         function searchCircuit() {
             let val = document.getElementById('searchInput').value.toLowerCase();
-            if (val.includes('دلتا')) loadCircuit('star-delta');
-            else if (val.includes('مستقیم') || val.includes('dol')) loadCircuit('dol');
-            else if (val.includes('جهت') || val.includes('reverse')) loadCircuit('reverse');
-            else if(val.trim() !== '') {
-                document.getElementById('svgCanvas').innerHTML = `<text x="150" y="200" fill="#e74c3c" font-size="14" text-anchor="middle">مداری یافت نشد</text>`;
-            }
+            if (val.includes('مستقیم') || val.includes('استارت')) loadCircuit('dol');
         }
 
         function loadCircuit(type) {
             const svg = document.getElementById('svgCanvas');
-            svg.setAttribute('viewBox', '0 0 300 400');
             if (type === 'dol') {
                 svg.innerHTML = `
-                    <text x="150" y="30" fill="#00f2ff" font-size="14" text-anchor="middle">DOL Starter Control Diagram</text>
-                    <line x1="50" y1="50" x2="50" y2="380" stroke="#fff" stroke-width="2"/>
-                    <line x1="250" y1="50" x2="250" y2="380" stroke="#fff" stroke-width="2"/>
-                    
-                    <rect x="40" y="70" width="20" height="30" fill="none" stroke="#d4af37" stroke-width="2"/>
-                    <text x="70" y="90" fill="#d4af37" font-size="12">F1</text>
-                    
-                    <line x1="40" y1="130" x2="60" y2="160" stroke="#00f2ff" stroke-width="2"/>
-                    <text x="70" y="150" fill="#00f2ff" font-size="12">K1</text>
-                    
-                    <rect x="40" y="180" width="20" height="30" fill="none" stroke="#f39c12" stroke-width="2"/>
-                    <line x1="40" y1="180" x2="60" y2="210" stroke="#f39c12" stroke-width="2"/>
-                    <text x="70" y="200" fill="#f39c12" font-size="12">F2</text>
-                    
-                    <line x1="40" y1="240" x2="60" y2="270" stroke="#e74c3c" stroke-width="2"/>
-                    <text x="70" y="260" fill="#e74c3c" font-size="12">S0 (Stop)</text>
-                    
-                    <line x1="40" y1="290" x2="60" y2="320" stroke="#2ecc71" stroke-width="2"/>
-                    <text x="70" y="310" fill="#2ecc71" font-size="12">S1 (Start)</text>
-                    
-                    <circle cx="200" cy="350" r="20" fill="none" stroke="#00f2ff" stroke-width="2"/>
-                    <text x="230" y="355" fill="#00f2ff" font-size="12">K1 Coil</text>
-                    
-                    <line x1="50" y1="320" x2="200" y2="320" stroke="#fff" stroke-width="2"/>
-                    <line x1="200" y1="320" x2="200" y2="330" stroke="#fff" stroke-width="2"/>
-                    <line x1="200" y1="370" x2="250" y2="370" stroke="#fff" stroke-width="2"/>
+                    <!-- خطوط فاز و نول -->
+                    <line x1="50" y1="50" x2="50" y2="430" stroke="#fff" stroke-width="2"/>
+                    <line x1="250" y1="50" x2="250" y2="430" stroke="#fff" stroke-width="2"/>
+                    <line x1="50" y1="50" x2="250" y2="50" stroke="#fff" stroke-width="2"/>
+                    <text x="40" y="45" fill="#8b8f99" font-size="12" text-anchor="end">L1</text>
+                    <text x="260" y="45" fill="#8b8f99" font-size="12">N</text>
+
+                    <!-- فیوز F1 -->
+                    <rect x="40" y="80" width="20" height="30" fill="none" stroke="#d4af37" stroke-width="2"/>
+                    <line x1="40" y1="80" x2="60" y2="110" stroke="#d4af37" stroke-width="2"/>
+                    <text x="70" y="100" fill="#d4af37" font-size="12">F1</text>
+
+                    <!-- کنتاکتور K1 -->
+                    <line x1="40" y1="150" x2="60" y2="180" stroke="#00f2ff" stroke-width="2"/>
+                    <text x="70" y="170" fill="#00f2ff" font-size="12">K1</text>
+
+                    <!-- رله حرارتی F2 -->
+                    <rect x="40" y="220" width="20" height="30" fill="none" stroke="#f39c12" stroke-width="2"/>
+                    <line x1="40" y1="220" x2="60" y2="250" stroke="#f39c12" stroke-width="2"/>
+                    <text x="70" y="240" fill="#f39c12" font-size="12">F2</text>
+
+                    <!-- شستی استاپ S0 (NC) -->
+                    <line x1="40" y1="290" x2="60" y2="320" stroke="#e74c3c" stroke-width="2"/>
+                    <line x1="45" y1="315" x2="55" y2="305" stroke="#e74c3c" stroke-width="1"/>
+                    <text x="70" y="310" fill="#e74c3c" font-size="12">S0</text>
+
+                    <!-- شستی استارت S1 (NO) -->
+                    <line x1="40" y1="350" x2="60" y2="380" stroke="#2ecc71" stroke-width="2"/>
+                    <text x="70" y="370" fill="#2ecc71" font-size="12">S1</text>
+
+                    <!-- کویل K1 -->
+                    <circle cx="150" cy="400" r="15" fill="none" stroke="#00f2ff" stroke-width="2"/>
+                    <text x="175" y="405" fill="#00f2ff" font-size="12">K1</text>
+
+                    <!-- سیم‌کشی اتصالات -->
+                    <line x1="50" y1="380" x2="150" y2="380" stroke="#fff" stroke-width="2"/>
+                    <line x1="150" y1="380" x2="150" y2="385" stroke="#fff" stroke-width="2"/>
+                    <line x1="150" y1="415" x2="150" y2="430" stroke="#fff" stroke-width="2"/>
+                    <line x1="150" y1="430" x2="250" y2="430" stroke="#fff" stroke-width="2"/>
+                    <line x1="250" y1="50" x2="250" y2="430" stroke="#fff" stroke-width="2"/>
                 `;
-            } else {
-                svg.innerHTML = `<text x="150" y="200" fill="#f39c12" font-size="14" text-anchor="middle">در حال آماده‌سازی...</text>`;
             }
         }
 
-        // ۳. منطق حالت دوم: درگ اند دراپ
+        // ۳. حالت دوم: درگ اند دراپ
         function allowDrop(e) { e.preventDefault(); }
         
-        function dragStart(e, type, iconClass) {
+        function dragStart(e, type) {
             e.dataTransfer.setData("type", type);
-            e.dataTransfer.setData("icon", iconClass);
         }
 
         function dropElement(e) {
             e.preventDefault();
             const type = e.dataTransfer.getData("type");
-            const iconClass = e.dataTransfer.getData("icon");
             const zone = document.getElementById('dropZone');
-            
-            // محاسبه موقعیت ماوس نسبت به بوم
             const rect = zone.getBoundingClientRect();
-            const x = e.clientX - rect.left - 25; // وسط چین کردن تقریبی
-            const y = e.clientY - rect.top - 15;
+            const x = e.clientX - rect.left - 20; // مرکزیت قطعه
+            const y = e.clientY - rect.top - 20;
             
             const el = document.createElement('div');
             el.className = 'dropped-element';
             el.style.left = x + 'px';
             el.style.top = y + 'px';
-            el.innerHTML = `<i class="fas ${iconClass}"></i><span>${type}</span>`;
             
-            // قابلیت جابجایی
+            let svgContent = '';
+            let color = '#00f2ff';
+            
+            if (type === 'nc_contact') {
+                color = '#e74c3c';
+                svgContent = `<svg width="40" height="40" viewBox="0 0 40 40"><line x1="20" y1="0" x2="20" y2="10" stroke="${color}" stroke-width="2"/><line x1="10" y1="10" x2="30" y2="30" stroke="${color}" stroke-width="2"/><line x1="20" y1="30" x2="20" y2="40" stroke="${color}" stroke-width="2"/><line x1="15" y1="25" x2="25" y2="15" stroke="${color}" stroke-width="1"/></svg>`;
+            } else if (type === 'no_contact') {
+                color = '#2ecc71';
+                svgContent = `<svg width="40" height="40" viewBox="0 0 40 40"><line x1="20" y1="0" x2="20" y2="10" stroke="${color}" stroke-width="2"/><line x1="10" y1="10" x2="30" y2="30" stroke="${color}" stroke-width="2"/><line x1="20" y1="30" x2="20" y2="40" stroke="${color}" stroke-width="2"/></svg>`;
+            } else if (type === 'coil') {
+                color = '#00f2ff';
+                svgContent = `<svg width="40" height="40" viewBox="0 0 40 40"><line x1="20" y1="0" x2="20" y2="10" stroke="${color}" stroke-width="2"/><circle cx="20" cy="20" r="10" fill="none" stroke="${color}" stroke-width="2"/><line x1="20" y1="30" x2="20" y2="40" stroke="${color}" stroke-width="2"/></svg>`;
+            } else if (type === 'thermal') {
+                color = '#f39c12';
+                svgContent = `<svg width="40" height="40" viewBox="0 0 40 40"><line x1="20" y1="0" x2="20" y2="10" stroke="${color}" stroke-width="2"/><rect x="10" y="10" width="20" height="20" fill="none" stroke="${color}" stroke-width="2"/><line x1="10" y1="10" x2="30" y2="30" stroke="${color}" stroke-width="2"/><line x1="20" y1="30" x2="20" y2="40" stroke="${color}" stroke-width="2"/></svg>`;
+            }
+            
+            el.innerHTML = svgContent;
+            
+            // قابلیت جابجایی با موس
             let isDragging = false, offsetX = 0, offsetY = 0;
-            
             el.addEventListener('mousedown', function(e) {
                 isDragging = true;
                 offsetX = e.clientX - el.offsetLeft;
                 offsetY = e.clientY - el.offsetTop;
                 el.style.zIndex = 1000;
             });
-            
             document.addEventListener('mousemove', function(e) {
                 if(isDragging) {
                     el.style.left = (e.clientX - offsetX) + 'px';
                     el.style.top = (e.clientY - offsetY) + 'px';
                 }
             });
-            
             document.addEventListener('mouseup', function() { isDragging = false; });
             
             zone.appendChild(el);
