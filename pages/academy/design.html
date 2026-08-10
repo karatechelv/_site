@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,6 @@
         }
         body {
             font-family: 'Vazirmatn', sans-serif;
-            /* ترکیب عکس پس‌زمینه شما با یک لایه تیره شیشه‌ای */
             background: 
                 linear-gradient(rgba(13, 14, 18, 0.85), rgba(13, 14, 18, 0.95)),
                 url('../../assets/images/Design.png');
@@ -59,7 +58,6 @@
         .icon-box { width: 40px; height: 40px; background: rgba(0, 242, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--accent-cyan); flex-shrink: 0; transition: 0.3s; }
         .capsule-link:hover .icon-box { background: rgba(77, 139, 255, 0.2); color: var(--accent-indigo); }
 
-        /* اصلاح مهم: چیدمان عمودی متن‌ها داخل کپسول */
         .text-box { display: flex; flex-direction: column; flex: 1; }
         .text-box h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; color: #fff; }
         .text-box p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
@@ -89,7 +87,8 @@
                 <button class="lang-btn active" data-lang="en">EN</button>
                 <button class="lang-btn" data-lang="fa">FA</button>
             </div>
-            <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-right"></i> <span>Back</span></a>
+            <!-- دکمه بازگشت به منوی آکادمی -->
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-right"></i> <span>Back to Academy</span></a>
         </div>
     </div>
 
@@ -97,7 +96,8 @@
     <div class="page-desc" id="page-sub">Engineering design principles, CAD tools, schematic generation, and automated drafting engines.</div>
 
     <div class="capsule-list" id="cards-grid">
-        <a href="design-engine.html" class="capsule-link highlight">
+        <!-- مسیردهی: از پوشه academy خارج شو (../) و وارد پوشه design شو -->
+        <a href="../design/design-engine.html" class="capsule-link highlight">
             <div class="icon-box"><i class="fas fa-wand-magic-sparkles"></i></div>
             <div class="text-box">
                 <h3>Smart Design Engine</h3>
@@ -107,7 +107,7 @@
             <i class="fas fa-chevron-left arrow"></i>
         </a>
 
-        <a href="overview.html" class="capsule-link">
+        <a href="../design/overview.html" class="capsule-link">
             <div class="icon-box"><i class="fas fa-book"></i></div>
             <div class="text-box">
                 <h3>Overview</h3>
@@ -116,7 +116,7 @@
             </div>
             <i class="fas fa-chevron-left arrow"></i>
         </a>
-        <a href="iec-standards.html" class="capsule-link">
+        <a href="../design/iec-standards.html" class="capsule-link">
             <div class="icon-box"><i class="fas fa-bolt"></i></div>
             <div class="text-box">
                 <h3>IEC Standards</h3>
@@ -125,7 +125,7 @@
             </div>
             <i class="fas fa-chevron-left arrow"></i>
         </a>
-        <a href="nec-standards.html" class="capsule-link">
+        <a href="../design/nec-standards.html" class="capsule-link">
             <div class="icon-box"><i class="fas fa-plug"></i></div>
             <div class="text-box">
                 <h3>NEC Standards</h3>
@@ -134,7 +134,7 @@
             </div>
             <i class="fas fa-chevron-left arrow"></i>
         </a>
-        <a href="iso-standards.html" class="capsule-link">
+        <a href="../design/iso-standards.html" class="capsule-link">
             <div class="icon-box"><i class="fas fa-award"></i></div>
             <div class="text-box">
                 <h3>ISO Standards</h3>
@@ -143,7 +143,7 @@
             </div>
             <i class="fas fa-chevron-left arrow"></i>
         </a>
-        <a href="api-standards.html" class="capsule-link">
+        <a href="../design/api-standards.html" class="capsule-link">
             <div class="icon-box"><i class="fas fa-oil-well"></i></div>
             <div class="text-box">
                 <h3>API Standards</h3>
@@ -152,7 +152,7 @@
             </div>
             <i class="fas fa-chevron-left arrow"></i>
         </a>
-        <a href="ieee-standards.html" class="capsule-link">
+        <a href="../design/ieee-standards.html" class="capsule-link">
             <div class="icon-box"><i class="fas fa-satellite-dish"></i></div>
             <div class="text-box">
                 <h3>IEEE Standards</h3>
@@ -161,7 +161,7 @@
             </div>
             <i class="fas fa-chevron-left arrow"></i>
         </a>
-        <a href="ansi-standards.html" class="capsule-link">
+        <a href="../design/ansi-standards.html" class="capsule-link">
             <div class="icon-box"><i class="fas fa-ruler-combined"></i></div>
             <div class="text-box">
                 <h3>ANSI Standards</h3>
@@ -170,7 +170,7 @@
             </div>
             <i class="fas fa-chevron-left arrow"></i>
         </a>
-        <a href="software.html" class="capsule-link">
+        <a href="../design/software.html" class="capsule-link">
             <div class="icon-box"><i class="fas fa-laptop-code"></i></div>
             <div class="text-box">
                 <h3>Software</h3>
@@ -179,7 +179,7 @@
             </div>
             <i class="fas fa-chevron-left arrow"></i>
         </a>
-        <a href="resources.html" class="capsule-link">
+        <a href="../design/resources.html" class="capsule-link">
             <div class="icon-box"><i class="fas fa-book-open"></i></div>
             <div class="text-box">
                 <h3>Resources</h3>
@@ -188,7 +188,7 @@
             </div>
             <i class="fas fa-chevron-left arrow"></i>
         </a>
-        <a href="learning-path.html" class="capsule-link">
+        <a href="../design/learning-path.html" class="capsule-link">
             <div class="icon-box"><i class="fas fa-map-marked-alt"></i></div>
             <div class="text-box">
                 <h3>Learning Path</h3>
@@ -197,7 +197,7 @@
             </div>
             <i class="fas fa-chevron-left arrow"></i>
         </a>
-        <a href="videos-future.html" class="capsule-link">
+        <a href="../design/videos-future.html" class="capsule-link">
             <div class="icon-box"><i class="fas fa-video"></i></div>
             <div class="text-box">
                 <h3>Videos & Future</h3>
@@ -206,7 +206,7 @@
             </div>
             <i class="fas fa-chevron-left arrow"></i>
         </a>
-        <a href="examples.html" class="capsule-link">
+        <a href="../design/examples.html" class="capsule-link">
             <div class="icon-box"><i class="fas fa-project-diagram"></i></div>
             <div class="text-box">
                 <h3>Examples</h3>
@@ -218,6 +218,7 @@
     </div>
 
     <div class="back">
+        <!-- بازگشت به داشبورد اصلی -->
         <a href="../../index.html" id="backlink">← Back to Dashboard</a>
     </div>
 </div>
@@ -242,7 +243,8 @@
                 ['Videos & Future', 'Tutorials & future tech', 'Learn More →'],
                 ['Examples', 'Practical projects', 'Learn More →']
             ],
-            back: '← Back to Dashboard'
+            back: '← Back to Dashboard',
+            back_academy: 'Back to Academy'
         },
         fa: {
             title: '📐 طراحی <b>مهندسی</b>',
@@ -262,7 +264,8 @@
                 ['ویدئوها و آینده', 'آموزش‌ها و فناوری‌های آینده', 'بیشتر بدانید →'],
                 ['مثال‌ها', 'پروژه‌های عملی', 'بیشتر بدانید →']
             ],
-            back: '← بازگشت به داشبورد'
+            back: '← بازگشت به داشبورد',
+            back_academy: 'بازگشت به آکادمی'
         }
     };
 
@@ -273,7 +276,7 @@
         document.getElementById('page-title').innerHTML = t.title;
         document.getElementById('page-sub').textContent = t.sub;
         document.getElementById('backlink').textContent = t.back;
-        document.querySelector('.back-btn span').textContent = (l === 'fa' ? 'بازگشت' : 'Back');
+        document.querySelector('.back-btn span').textContent = t.back_academy;
 
         const grid = document.getElementById('cards-grid');
         const cards = grid.querySelectorAll('.capsule-link');
