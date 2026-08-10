@@ -255,18 +255,68 @@
             ]}
         ],
         mcc: [
-            { cat_fa: "بازرسی مکانیکی", cat_en: "Mechanical Inspection", items: [
+            { cat_fa: "بازرسی مکانیکی و کنتاکتورها", cat_en: "Mechanical & Contactors", items: [
                 { id: 1, t_fa: "کنترل ریل‌های نصب کنتاکتورها", t_en: "DIN rails for contactors", crit: "general" },
-                { id: 2, t_fa: "بررسی کیفیت رنگ و بدنه", t_en: "Paint & body quality", crit: "minor" }
+                { id: 2, t_fa: "بررسی کیفیت رنگ و بدنه", t_en: "Paint & body quality", crit: "minor" },
+                { id: 3, t_fa: "کنترل محکم بودن کنتاکتورها روی ریل", t_en: "Contactor mounting", crit: "critical" },
+                { id: 4, t_fa: "بررسی سایز کنتاکتورها مطابق موتور", t_en: "Contactor sizing", crit: "critical" }
             ]},
-            { cat_fa: "تست‌های الکتریکی", cat_en: "Electrical Tests", items: [
-                { id: 3, t_fa: "تنظیمات رله حرارتی مطابق جریان موتور", t_en: "Thermal relay setting", crit: "critical" },
-                { id: 4, t_fa: "تست عملکرد کنتاکتورها", t_en: "Contactor operation", crit: "critical" },
-                { id: 5, t_fa: "بررسی ارتباط با PLC", t_en: "PLC communication", crit: "general" }
+            { cat_fa: "تست‌های الکتریکی و حرارتی", cat_en: "Electrical & Thermal Tests", items: [
+                { id: 5, t_fa: "تنظیمات رله حرارتی مطابق جریان موتور", t_en: "Thermal relay setting", crit: "critical" },
+                { id: 6, t_fa: "تست عملکرد کنتاکتورها (لرزش نداشته باشند)", t_en: "Contactor operation", crit: "critical" },
+                { id: 7, t_fa: "بررسی ارتباط با PLC و کارت‌های I/O", t_en: "PLC & I/O communication", crit: "general" },
+                { id: 8, t_fa: "تست اینترلاک‌های مکانیکی و الکتریکی", t_en: "Interlock testing", crit: "critical" }
             ]}
         ],
-        mv: [{ cat_fa: "بازرسی عمومی", cat_en: "General Inspection", items: [{ id: 1, t_fa: "بررسی مقره‌ها و ترکیدگی", t_en: "Insulators check", crit: "critical" }]}],
-        plc: [{ cat_fa: "بازرسی عمومی", cat_en: "General Inspection", items: [{ id: 1, t_fa: "بررسی سیم‌بندی I/O", t_en: "I/O wiring check", crit: "critical" }]}]
+        mv: [
+            { cat_fa: "بازرسی خاص فشار متوسط", cat_en: "MV Specific Inspection", items: [
+                { id: 1, t_fa: "برایش مقره‌ها و ترک‌زدگی آن‌ها", t_en: "Insulators check for cracks", crit: "critical" },
+                { id: 2, t_fa: "تست دی‌الکتریک سلول‌ها", t_en: "Dielectric test of cells", crit: "critical" },
+                { id: 3, t_fa: "بررسی فاصله ایمنی بین فازها", t_en: "Phase clearance", crit: "critical" },
+                { id: 4, t_fa: "کنترل مکانیزم متحرک (Cubicle)", t_en: "Moving mechanism check", crit: "general" }
+            ]}
+        ],
+        // بخش PLC با ۳۴ مورد فرم FR08-005/00 پر شد
+        plc: [
+            { cat_fa: "بازرسی ظاهری و مکانیکی", cat_en: "Visual & Mechanical", items: [
+                { id: 1, t_fa: "کامل و سالم بودن تجهیزات", t_en: "Equipment completeness", crit: "general" },
+                { id: 2, t_fa: "کنترل سایز پیچ ها، سیم ها و شینه ها", t_en: "Screws, wires, busbars sizing", crit: "critical" },
+                { id: 3, t_fa: "مطابقت نقشه جانمایی با چیدمان تجهیزات داخل تابلو", t_en: "Layout matches drawing", crit: "general" },
+                { id: 4, t_fa: "کنترل قفل ها و لولا ها", t_en: "Locks and hinges", crit: "minor" },
+                { id: 5, t_fa: "کنترل پلاک مشخصات شرکت و برچسب ها و علائم بر روی تجهیزات", t_en: "Nameplates and labels", crit: "general" },
+                { id: 6, t_fa: "فرم بندی صحیح سیم ها", t_en: "Wire forming", crit: "minor" },
+                { id: 7, t_fa: "کنترل داکتها و کانالها و عدم تراکم سیمها", t_en: "Ducts and wire density", crit: "general" },
+                { id: 8, t_fa: "کنترل رنگ تابلو", t_en: "Panel color", crit: "minor" },
+                { id: 9, t_fa: "تست ضخامت رنگ", t_en: "Paint thickness test", crit: "general" },
+                { id: 10, t_fa: "کنترل ابعاد سلول و محل ورودی وخروجی مطابق نقشه", t_en: "Cell dimensions & entry/exit", crit: "general" },
+                { id: 11, t_fa: "کنترل پرس کابلشو و سرسیمها", t_en: "Cable lugs & ferrules", crit: "critical" },
+                { id: 12, t_fa: "کنترل شماره سیم ها و ترمینالها و سهولت قرائت آنها", t_en: "Wire & terminal numbering", crit: "general" },
+                { id: 13, t_fa: "کنترل مطابقت ترانس ولتاژ با نقشه", t_en: "VT matching drawing", crit: "general" },
+                { id: 14, t_fa: "کنترل جیب تابلو و نقشه داخل آن", t_en: "Panel pocket & drawing", crit: "minor" },
+                { id: 15, t_fa: "کنترل IP", t_en: "IP protection check", crit: "critical" },
+                { id: 16, t_fa: "کنترل آچار کشی تابلو", t_en: "Panel wrenching", crit: "general" },
+                { id: 17, t_fa: "کنترل انطباق سایز ترمینال ها با نقشه", t_en: "Terminal sizes match drawing", crit: "general" }
+            ]},
+            { cat_fa: "بازرسی الکتریکی و عملکردی", cat_en: "Electrical & Functional", items: [
+                { id: 18, t_fa: "کنترل ایزولاسیون شینه ها و سیم ها", t_en: "Busbar & wire insulation", crit: "critical" },
+                { id: 19, t_fa: "کنترل شینه های ارت و نول و تعداد پانچهای روی آن", t_en: "PE & N busbars", crit: "critical" },
+                { id: 20, t_fa: "کنترل مقره ها", t_en: "Insulators check", crit: "critical" },
+                { id: 21, t_fa: "چک ارتباط سیم ها (بیزر)", t_en: "Wire continuity (Buzzer)", crit: "general" },
+                { id: 22, t_fa: "چک وایرینگ", t_en: "Wiring check", crit: "critical" },
+                { id: 23, t_fa: "برق دادن به تابلو و تست عملکرد مدار فرمان و گرفتن خروجی ها", t_en: "Power up & control circuit test", crit: "critical" },
+                { id: 24, t_fa: "تست خروجی منابع تغذیه", t_en: "Power supply output test", crit: "critical" },
+                { id: 25, t_fa: "تست خروجی ترانس ولتاژ", t_en: "VT output test", crit: "general" },
+                { id: 26, t_fa: "تست عملکرد فنها و ترموستات هیتر و سیستم روشنائی", t_en: "Fans, heater, lights test", crit: "general" },
+                { id: 27, t_fa: "تست عملکرد برنامه PLC", t_en: "PLC program test", crit: "critical" },
+                { id: 28, t_fa: "تست عملکرد ورودی های دیجیتال (DI)", t_en: "Digital Inputs (DI) test", crit: "general" },
+                { id: 29, t_fa: "تست عملکرد خروجی های دیجیتال (DO)", t_en: "Digital Outputs (DO) test", crit: "general" },
+                { id: 30, t_fa: "تست عملکرد ورودی های آنالوگ (AI)", t_en: "Analog Inputs (AI) test", crit: "general" },
+                { id: 31, t_fa: "تست عملکرد خروجی های آنالوگ (AO)", t_en: "Analog Outputs (AO) test", crit: "general" },
+                { id: 32, t_fa: "تست عملکرد صفحات HMI", t_en: "HMI screens test", crit: "general" },
+                { id: 33, t_fa: "لکه گیری تابلو", t_en: "Panel leak detection", crit: "general" },
+                { id: 34, t_fa: "نظافت تابلو با جارو برقی", t_en: "Panel cleaning", crit: "minor" }
+            ]}
+        ]
     };
 
     function updateStaticTexts() {
@@ -418,7 +468,7 @@
         const rows = document.querySelectorAll('.check-row');
         
         rows.forEach(row => {
-            // N/A items are skipped in PDF
+            // اگر "موضوعی ندارد" انتخاب شده بود، آن ردیف در PDF چاپ نشود
             if (row.classList.contains('na')) return; 
 
             const id = row.querySelector('td').innerText;
