@@ -53,6 +53,25 @@
         .drop-zone { width: 100%; height: 100%; border: 2px dashed rgba(255,255,255,0.1); border-radius: 12px; position: relative; overflow: hidden; }
         .dropped-element { position: absolute; cursor: move; user-select: none; }
         .dropped-element svg { filter: drop-shadow(0 0 3px rgba(0,242,255,0.2)); }
+
+        .library-toolbar { display:flex; flex-direction:column; gap:8px; margin-bottom:8px; }
+        .comp-group-title { color:var(--cyan); font-size:.78rem; padding:8px 4px 4px; border-bottom:1px solid var(--border); margin-top:5px; }
+        .comp-item { min-height:58px; }
+        .comp-item small { display:block; color:var(--muted); font-size:.68rem; margin-top:2px; }
+        .comp-item .symbol-wrap { width:72px; min-width:72px; display:flex; justify-content:center; align-items:center; }
+        .dropped-element { min-width:70px; min-height:60px; padding:3px; }
+        .dropped-element.selected { outline:1px dashed var(--cyan); outline-offset:4px; }
+        .element-tag { position:absolute; top:-17px; right:0; color:var(--cyan); font:11px Arial; white-space:nowrap; }
+        .element-name { position:absolute; bottom:-17px; right:0; color:#aeb6c2; font:10px Vazirmatn,Arial; white-space:nowrap; }
+        .canvas-tools { position:absolute; top:10px; left:10px; z-index:2000; display:flex; gap:6px; }
+        .canvas-tools button { background:rgba(10,20,35,.9); color:#fff; border:1px solid var(--border); border-radius:6px; padding:6px 9px; cursor:pointer; }
+        .canvas-tools button:hover { border-color:var(--cyan); color:var(--cyan); }
+        .drop-zone { background-color:rgba(0,0,0,.08); }
+        .property-box { position:absolute; right:10px; bottom:10px; z-index:2000; width:260px; background:rgba(10,20,35,.94); border:1px solid var(--border); border-radius:8px; padding:10px; display:none; }
+        .property-box.show { display:block; }
+        .property-box h4 { color:var(--cyan); margin-bottom:8px; }
+        .property-box label { display:block; color:var(--muted); font-size:11px; margin:5px 0 2px; }
+        .property-box input { width:100%; background:#07101c; color:#fff; border:1px solid rgba(255,255,255,.12); border-radius:5px; padding:6px; }
     </style>
 </head>
 <body>
@@ -83,125 +102,24 @@
         <div class="sidebar" id="modeDragDrop">
             <div class="panel-title"><i class="fas fa-toolbox"></i> کتابخانه قطعات (IEC 60617)</div>
             
-            <!-- ۱. کلید مینیاتوری (MCB) -->
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'mcb', 'کلید مینیاتوری')">
-                <svg width="30" height="50" viewBox="0 0 30 50">
-                    <circle cx="15" cy="2" r="2.5" fill="#0a0d12" stroke="#d4af37" stroke-width="1.5"/>
-                    <line x1="15" y1="2" x2="15" y2="15" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="15" y1="35" x2="15" y2="48" stroke="#fff" stroke-width="1.5"/>
-                    <circle cx="15" cy="48" r="2.5" fill="#0a0d12" stroke="#d4af37" stroke-width="1.5"/>
-                    <line x1="15" y1="15" x2="15" y2="35" stroke="#d4af37" stroke-width="1.5"/>
-                    <line x1="15" y1="15" x2="22" y2="30" stroke="#d4af37" stroke-width="1.5"/>
-                    <line x1="10" y1="22" x2="20" y2="28" stroke="#d4af37" stroke-width="1.5"/>
-                    <text x="20" y="12" fill="#d4af37" font-size="8" font-family="Arial">-Q1</text>
-                </svg>
-                کلید مینیاتوری (MCB)
+            <div class="library-toolbar">
+                <input class="input-box" id="componentSearch" placeholder="جستجوی المان: کنتاکتور، فیوز، PLC..." oninput="renderLibrary()">
+                <select class="input-box" id="componentCategory" onchange="renderLibrary()">
+                    <option value="all">همه دسته‌ها</option>
+                    <option value="protection">حفاظتی</option>
+                    <option value="switching">کنتاکتور و رله</option>
+                    <option value="control">فرمان و کلید</option>
+                    <option value="signal">سیگنال</option>
+                    <option value="terminal">ترمینال و اتصال</option>
+                    <option value="power">تغذیه</option>
+                    <option value="motor">موتور و بار</option>
+                    <option value="sensor">سنسور و ابزار دقیق</option>
+                    <option value="plc">PLC / I/O</option>
+                    <option value="wiring">سیم و کابل</option>
+                    <option value="other">سایر</option>
+                </select>
             </div>
-
-            <!-- ۲. کنتاکتور ۳ پل (Contactor) -->
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'contactor', 'کنتاکتور ۳ پل')">
-                <svg width="60" height="50" viewBox="0 0 60 50">
-                    <circle cx="10" cy="2" r="2.5" fill="#0a0d12" stroke="#00f2ff" stroke-width="1.5"/>
-                    <circle cx="30" cy="2" r="2.5" fill="#0a0d12" stroke="#00f2ff" stroke-width="1.5"/>
-                    <circle cx="50" cy="2" r="2.5" fill="#0a0d12" stroke="#00f2ff" stroke-width="1.5"/>
-                    <line x1="10" y1="2" x2="10" y2="20" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="30" y1="2" x2="30" y2="20" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="50" y1="2" x2="50" y2="20" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="6" y1="20" x2="14" y2="30" stroke="#00f2ff" stroke-width="1.5"/>
-                    <line x1="26" y1="20" x2="34" y2="30" stroke="#00f2ff" stroke-width="1.5"/>
-                    <line x1="46" y1="20" x2="54" y2="30" stroke="#00f2ff" stroke-width="1.5"/>
-                    <line x1="10" y1="30" x2="10" y2="48" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="30" y1="30" x2="30" y2="48" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="50" y1="30" x2="50" y2="48" stroke="#fff" stroke-width="1.5"/>
-                    <circle cx="10" cy="48" r="2.5" fill="#0a0d12" stroke="#00f2ff" stroke-width="1.5"/>
-                    <circle cx="30" cy="48" r="2.5" fill="#0a0d12" stroke="#00f2ff" stroke-width="1.5"/>
-                    <circle cx="50" cy="48" r="2.5" fill="#0a0d12" stroke="#00f2ff" stroke-width="1.5"/>
-                    <text x="40" y="12" fill="#00f2ff" font-size="8" font-family="Arial">-K1</text>
-                </svg>
-                کنتاکتور (3P)
-            </div>
-
-            <!-- ۳. رله حرارتی (Thermal Relay) -->
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'thermal', 'رله حرارتی')">
-                <svg width="60" height="50" viewBox="0 0 60 50">
-                    <circle cx="10" cy="2" r="2.5" fill="#0a0d12" stroke="#f39c12" stroke-width="1.5"/>
-                    <circle cx="30" cy="2" r="2.5" fill="#0a0d12" stroke="#f39c12" stroke-width="1.5"/>
-                    <circle cx="50" cy="2" r="2.5" fill="#0a0d12" stroke="#f39c12" stroke-width="1.5"/>
-                    <rect x="5" y="10" width="50" height="30" fill="none" stroke="#f39c12" stroke-width="1.5"/>
-                    <line x1="5" y1="10" x2="55" y2="40" stroke="#f39c12" stroke-width="1.5"/>
-                    <line x1="5" y1="25" x2="55" y2="25" stroke="#f39c12" stroke-width="1" stroke-dasharray="2,2"/>
-                    <line x1="10" y1="40" x2="10" y2="48" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="30" y1="40" x2="30" y2="48" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="50" y1="40" x2="50" y2="48" stroke="#fff" stroke-width="1.5"/>
-                    <circle cx="10" cy="48" r="2.5" fill="#0a0d12" stroke="#f39c12" stroke-width="1.5"/>
-                    <circle cx="30" cy="48" r="2.5" fill="#0a0d12" stroke="#f39c12" stroke-width="1.5"/>
-                    <circle cx="50" cy="48" r="2.5" fill="#0a0d12" stroke="#f39c12" stroke-width="1.5"/>
-                    <text x="40" y="8" fill="#f39c12" font-size="8" font-family="Arial">-F1</text>
-                </svg>
-                رله حرارتی (3P)
-            </div>
-
-            <!-- ۴. شستی استارت (NO) -->
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'btn_no', 'شستی استارت')">
-                <svg width="40" height="50" viewBox="0 0 40 50">
-                    <circle cx="20" cy="2" r="2.5" fill="#0a0d12" stroke="#2ecc71" stroke-width="1.5"/>
-                    <line x1="20" y1="2" x2="20" y2="15" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="20" y1="35" x2="20" y2="48" stroke="#fff" stroke-width="1.5"/>
-                    <circle cx="20" cy="48" r="2.5" fill="#0a0d12" stroke="#2ecc71" stroke-width="1.5"/>
-                    <line x1="15" y1="30" x2="25" y2="20" stroke="#2ecc71" stroke-width="1.5"/>
-                    <line x1="10" y1="25" x2="30" y2="25" stroke="#2ecc71" stroke-width="1.5" stroke-dasharray="3,2"/>
-                    <line x1="20" y1="10" x2="20" y2="25" stroke="#2ecc71" stroke-width="1.5"/>
-                    <text x="28" y="15" fill="#2ecc71" font-size="8" font-family="Arial">-S1</text>
-                </svg>
-                شستی استارت (NO)
-            </div>
-
-            <!-- ۵. شستی استاپ (NC) -->
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'btn_nc', 'شستی استاپ')">
-                <svg width="40" height="50" viewBox="0 0 40 50">
-                    <circle cx="20" cy="2" r="2.5" fill="#0a0d12" stroke="#e74c3c" stroke-width="1.5"/>
-                    <line x1="20" y1="2" x2="20" y2="15" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="20" y1="35" x2="20" y2="48" stroke="#fff" stroke-width="1.5"/>
-                    <circle cx="20" cy="48" r="2.5" fill="#0a0d12" stroke="#e74c3c" stroke-width="1.5"/>
-                    <line x1="15" y1="20" x2="25" y2="30" stroke="#e74c3c" stroke-width="1.5"/>
-                    <line x1="10" y1="25" x2="30" y2="25" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="3,2"/>
-                    <line x1="20" y1="10" x2="20" y2="25" stroke="#e74c3c" stroke-width="1.5"/>
-                    <line x1="17" y1="27" x2="23" y2="23" stroke="#e74c3c" stroke-width="1"/>
-                    <text x="28" y="15" fill="#e74c3c" font-size="8" font-family="Arial">-S0</text>
-                </svg>
-                شستی استاپ (NC)
-            </div>
-
-            <!-- ۶. کویل (Coil) -->
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'coil', 'کویل')">
-                <svg width="40" height="50" viewBox="0 0 40 50">
-                    <circle cx="20" cy="2" r="2.5" fill="#0a0d12" stroke="#00f2ff" stroke-width="1.5"/>
-                    <line x1="20" y1="2" x2="20" y2="15" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="20" y1="35" x2="20" y2="48" stroke="#fff" stroke-width="1.5"/>
-                    <circle cx="20" cy="48" r="2.5" fill="#0a0d12" stroke="#00f2ff" stroke-width="1.5"/>
-                    <circle cx="20" cy="25" r="10" fill="none" stroke="#00f2ff" stroke-width="1.5"/>
-                    <line x1="12" y1="25" x2="28" y2="25" stroke="#00f2ff" stroke-width="1"/>
-                    <text x="30" y="28" fill="#00f2ff" font-size="8" font-family="Arial">-K1</text>
-                </svg>
-                کویل (Coil)
-            </div>
-
-            <!-- ۷. موتور ۳ فاز (Motor) -->
-            <div class="comp-item" draggable="true" ondragstart="dragStart(event, 'motor', 'موتور')">
-                <svg width="50" height="50" viewBox="0 0 50 50">
-                    <circle cx="10" cy="2" r="2.5" fill="#0a0d12" stroke="#d4af37" stroke-width="1.5"/>
-                    <circle cx="20" cy="2" r="2.5" fill="#0a0d12" stroke="#d4af37" stroke-width="1.5"/>
-                    <circle cx="30" cy="2" r="2.5" fill="#0a0d12" stroke="#d4af37" stroke-width="1.5"/>
-                    <line x1="10" y1="2" x2="10" y2="20" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="20" y1="2" x2="20" y2="20" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="30" y1="2" x2="30" y2="20" stroke="#fff" stroke-width="1.5"/>
-                    <circle cx="20" cy="32" r="13" fill="none" stroke="#d4af37" stroke-width="1.5"/>
-                    <text x="20" y="30" fill="#d4af37" font-size="10" text-anchor="middle" font-family="Arial">M</text>
-                    <text x="20" y="38" fill="#d4af37" font-size="8" text-anchor="middle" font-family="Arial">3~</text>
-                    <text x="35" y="15" fill="#d4af37" font-size="8" font-family="Arial">-M1</text>
-                </svg>
-                موتور (3-Phase)
-            </div>
+            <div id="componentLibrary"></div>
         </div>
 
         <!-- فضای بوم طراحی -->
@@ -212,6 +130,11 @@
                 </svg>
             </div>
             <div class="drop-zone" id="dropZone" ondrop="dropElement(event)" ondragover="allowDrop(event)"></div>
+            <div class="canvas-tools">
+                <button onclick="clearCanvas()" title="پاک کردن بوم"><i class="fas fa-trash"></i></button>
+                <button onclick="renderLibrary(); switchMode('modeDragDrop', document.querySelectorAll('.mode-btn')[1])" title="کتابخانه">Library</button>
+            </div>
+
         </div>
     </div>
 
@@ -280,73 +203,304 @@
             }
         }
 
-        // ۳. حالت دوم: درگ اند دراپ (مطابق EPLAN)
+        // ۳. کتابخانه گسترده المان‌های IEC/EPLAN-style
+        const COMPONENTS = [
+            {id:'fuse', name:'فیوز', en:'Fuse', tag:'F', cat:'protection', pins:['1','2'], shape:'fuse'},
+            {id:'fuse3', name:'فیوز سه‌پل', en:'3P Fuse', tag:'F', cat:'protection', pins:['1','2','3','4','5','6'], shape:'fuse3'},
+            {id:'mcb', name:'کلید مینیاتوری', en:'MCB', tag:'Q', cat:'protection', pins:['1','2'], shape:'breaker'},
+            {id:'mccb', name:'کلید اتوماتیک کمپکت', en:'MCCB', tag:'Q', cat:'protection', pins:['1','2'], shape:'breaker'},
+            {id:'mpcb', name:'کلید حرارتی موتور', en:'MPCB', tag:'Q', cat:'protection', pins:['1','2','3','4','5','6'], shape:'mpcb'},
+            {id:'isolator', name:'کلید ایزولاتور', en:'Disconnector', tag:'QS', cat:'protection', pins:['1','2'], shape:'isolator'},
+            {id:'spd', name:'سرج ارستر', en:'SPD', tag:'F', cat:'protection', pins:['L','N','PE'], shape:'spd'},
+            {id:'rcd', name:'محافظ جان', en:'RCD/RCCB', tag:'Q', cat:'protection', pins:['1','2','3','4'], shape:'rcd'},
+
+            {id:'contactor', name:'کنتاکتور 3 پل', en:'Contactor 3P', tag:'K', cat:'switching', pins:['1','2','3','4','5','6'], shape:'contactor'},
+            {id:'coil', name:'بوبین کنتاکتور', en:'Contactor Coil', tag:'K', cat:'switching', pins:['A1','A2'], shape:'coil'},
+            {id:'no', name:'کنتاکت کمکی NO', en:'Aux Contact NO', tag:'K', cat:'switching', pins:['13','14'], shape:'no'},
+            {id:'nc', name:'کنتاکت کمکی NC', en:'Aux Contact NC', tag:'K', cat:'switching', pins:['21','22'], shape:'nc'},
+            {id:'relaycoil', name:'بوبین رله', en:'Relay Coil', tag:'K', cat:'switching', pins:['A1','A2'], shape:'coil'},
+            {id:'relay2no', name:'رله دو کنتاکت', en:'Relay 2CO', tag:'K', cat:'switching', pins:['11','12','14','21','22','24'], shape:'relay2'},
+            {id:'timer', name:'رله زمانی', en:'Timer Relay', tag:'K', cat:'switching', pins:['A1','A2','15','16','18'], shape:'timer'},
+            {id:'overload', name:'رله اضافه‌بار', en:'Overload Relay', tag:'F', cat:'switching', pins:['95','96','97','98'], shape:'overload'},
+
+            {id:'btn_no', name:'شستی استارت NO', en:'Push Button NO', tag:'S', cat:'control', pins:['3','4'], shape:'no'},
+            {id:'btn_nc', name:'شستی استاپ NC', en:'Push Button NC', tag:'S', cat:'control', pins:['1','2'], shape:'nc'},
+            {id:'emergency', name:'شستی اضطراری', en:'Emergency Stop NC', tag:'S', cat:'control', pins:['1','2'], shape:'emergency'},
+            {id:'selector', name:'سلکتور 2 حالته', en:'Selector 2 Pos.', tag:'S', cat:'control', pins:['1','2'], shape:'selector'},
+            {id:'selector3', name:'سلکتور 3 حالته', en:'Selector 3 Pos.', tag:'S', cat:'control', pins:['1','2','3'], shape:'selector3'},
+            {id:'limitswitch', name:'لیمیت‌سوئیچ', en:'Limit Switch', tag:'S', cat:'control', pins:['11','12'], shape:'nc'},
+            {id:'footswitch', name:'پدال', en:'Foot Switch', tag:'S', cat:'control', pins:['1','2'], shape:'no'},
+
+            {id:'lampgreen', name:'چراغ سیگنال سبز', en:'Pilot Lamp Green', tag:'H', cat:'signal', pins:['X1','X2'], shape:'lamp'},
+            {id:'lampred', name:'چراغ سیگنال قرمز', en:'Pilot Lamp Red', tag:'H', cat:'signal', pins:['X1','X2'], shape:'lamp'},
+            {id:'lampyellow', name:'چراغ سیگنال زرد', en:'Pilot Lamp Yellow', tag:'H', cat:'signal', pins:['X1','X2'], shape:'lamp'},
+            {id:'buzzer', name:'بازر', en:'Buzzer', tag:'HA', cat:'signal', pins:['X1','X2'], shape:'buzzer'},
+            {id:'horn', name:'آژیر', en:'Horn', tag:'HA', cat:'signal', pins:['X1','X2'], shape:'buzzer'},
+
+            {id:'terminal', name:'ترمینال تکی', en:'Terminal', tag:'X', cat:'terminal', pins:['1','2'], shape:'terminal'},
+            {id:'peterminal', name:'ترمینال PE', en:'PE Terminal', tag:'X', cat:'terminal', pins:['PE'], shape:'pe'},
+            {id:'nterminal', name:'ترمینال N', en:'N Terminal', tag:'X', cat:'terminal', pins:['N'], shape:'terminal'},
+            {id:'multiterminal', name:'ترمینال چندطبقه', en:'Multi-level Terminal', tag:'X', cat:'terminal', pins:['1','2','3','4'], shape:'multiterminal'},
+            {id:'plug', name:'کانکتور نری', en:'Plug', tag:'XP', cat:'terminal', pins:['1','2','3'], shape:'plug'},
+            {id:'socket', name:'کانکتور مادگی', en:'Socket', tag:'XS', cat:'terminal', pins:['1','2','3'], shape:'socket'},
+
+            {id:'psu24', name:'منبع تغذیه 24VDC', en:'24VDC Power Supply', tag:'G', cat:'power', pins:['L','N','+24V','0V'], shape:'psu'},
+            {id:'psu48', name:'منبع تغذیه 48VDC', en:'48VDC Power Supply', tag:'G', cat:'power', pins:['L','N','+48V','0V'], shape:'psu'},
+            {id:'ups', name:'UPS', en:'UPS', tag:'G', cat:'power', pins:['L','N','+','-'], shape:'ups'},
+            {id:'transformer', name:'ترانسفورماتور', en:'Transformer', tag:'T', cat:'power', pins:['1','2','3','4'], shape:'transformer'},
+            {id:'rectifier', name:'یکسوساز پل', en:'Bridge Rectifier', tag:'V', cat:'power', pins:['~','~','+','-'], shape:'rectifier'},
+
+            {id:'motor3', name:'موتور سه‌فاز', en:'Motor 3~', tag:'M', cat:'motor', pins:['U','V','W','PE'], shape:'motor3'},
+            {id:'motor1', name:'موتور تک‌فاز', en:'Motor 1~', tag:'M', cat:'motor', pins:['L','N','PE'], shape:'motor1'},
+            {id:'heater', name:'هیتر', en:'Heater', tag:'E', cat:'motor', pins:['1','2'], shape:'heater'},
+            {id:'fan', name:'فن / پمپ', en:'Fan / Pump', tag:'M', cat:'motor', pins:['U','V','W','PE'], shape:'motor3'},
+
+            {id:'prox', name:'سنسور مجاورتی PNP', en:'Proximity Sensor PNP', tag:'B', cat:'sensor', pins:['BN','BK','BU'], shape:'sensor'},
+            {id:'pressure', name:'پرشر سوئیچ', en:'Pressure Switch', tag:'B', cat:'sensor', pins:['11','12'], shape:'sensor'},
+            {id:'temp', name:'سوئیچ دما', en:'Temperature Switch', tag:'B', cat:'sensor', pins:['1','2'], shape:'sensor'},
+            {id:'level', name:'لول‌سوئیچ', en:'Level Switch', tag:'B', cat:'sensor', pins:['1','2'], shape:'sensor'},
+            {id:'flowswitch', name:'فلوسوئیچ', en:'Flow Switch', tag:'B', cat:'sensor', pins:['1','2'], shape:'sensor'},
+            {id:'ammeter', name:'آمپرمتر', en:'Ammeter', tag:'P', cat:'sensor', pins:['1','2'], shape:'meterA'},
+            {id:'voltmeter', name:'ولت‌متر', en:'Voltmeter', tag:'P', cat:'sensor', pins:['1','2'], shape:'meterV'},
+
+            {id:'plcdi', name:'ورودی دیجیتال PLC', en:'PLC Digital Input', tag:'-A1', cat:'plc', pins:['I0.0'], shape:'plc'},
+            {id:'plcdo', name:'خروجی دیجیتال PLC', en:'PLC Digital Output', tag:'-A1', cat:'plc', pins:['Q0.0'], shape:'plc'},
+            {id:'plcai', name:'ورودی آنالوگ PLC', en:'PLC Analog Input', tag:'-A1', cat:'plc', pins:['AI0'], shape:'plc'},
+            {id:'plcao', name:'خروجی آنالوگ PLC', en:'PLC Analog Output', tag:'-A1', cat:'plc', pins:['AQ0'], shape:'plc'},
+            {id:'plccom', name:'نقطه اتصال PLC', en:'PLC Connection Point', tag:'-A1', cat:'plc', pins:['I/O'], shape:'plc'},
+
+            {id:'wire', name:'سیم تک‌رشته', en:'Single Wire', tag:'W', cat:'wiring', pins:['1','2'], shape:'wire'},
+            {id:'cable', name:'کابل چندرشته', en:'Multi-core Cable', tag:'W', cat:'wiring', pins:['1','2','3','PE'], shape:'cable'},
+            {id:'shield', name:'شیلد کابل', en:'Cable Shield', tag:'W', cat:'wiring', pins:['SH','PE'], shape:'shield'},
+            {id:'junction', name:'نقطه اتصال', en:'Connection Point', tag:'', cat:'wiring', pins:[], shape:'junction'},
+            {id:'interrupt', name:'نقطه قطع اتصال', en:'Interruption Point', tag:'', cat:'wiring', pins:[], shape:'interrupt'},
+            {id:'earth', name:'ارت / PE', en:'Protective Earth', tag:'PE', cat:'wiring', pins:['PE'], shape:'earth'},
+            {id:'potential24', name:'پتانسیل +24V', en:'+24V Potential', tag:'', cat:'wiring', pins:['+24V'], shape:'potential'},
+            {id:'potential0', name:'پتانسیل 0V', en:'0V Potential', tag:'', cat:'wiring', pins:['0V'], shape:'potential'},
+
+            {id:'diode', name:'دیود', en:'Diode', tag:'V', cat:'other', pins:['A','K'], shape:'diode'},
+            {id:'zener', name:'زنر', en:'Zener Diode', tag:'V', cat:'other', pins:['A','K'], shape:'zener'},
+            {id:'resistor', name:'مقاومت', en:'Resistor', tag:'R', cat:'other', pins:['1','2'], shape:'resistor'},
+            {id:'capacitor', name:'خازن', en:'Capacitor', tag:'C', cat:'other', pins:['1','2'], shape:'capacitor'},
+            {id:'ct', name:'ترانس جریان CT', en:'Current Transformer', tag:'T', cat:'other', pins:['P1','P2','S1','S2'], shape:'ct'},
+            {id:'vt', name:'ترانس ولتاژ VT', en:'Voltage Transformer', tag:'T', cat:'other', pins:['P1','P2','S1','S2'], shape:'transformer'}
+        ];
+
+        const CAT_NAMES = {
+            protection:'حفاظتی', switching:'کنتاکتور و رله', control:'فرمان و کلید',
+            signal:'سیگنال', terminal:'ترمینال و اتصال', power:'تغذیه',
+            motor:'موتور و بار', sensor:'سنسور و ابزار دقیق', plc:'PLC / I/O',
+            wiring:'سیم و کابل', other:'سایر'
+        };
+
+        function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+        function renderLibrary(){
+            const root = document.getElementById('componentLibrary');
+            const q = (document.getElementById('componentSearch')?.value || '').trim().toLowerCase();
+            const cat = document.getElementById('componentCategory')?.value || 'all';
+            const filtered = COMPONENTS.filter(c => {
+                const hay = `${c.name} ${c.en} ${c.id} ${c.tag}`.toLowerCase();
+                return (cat === 'all' || c.cat === cat) && (!q || hay.includes(q));
+            });
+            const groups = {};
+            filtered.forEach(c => (groups[c.cat] ||= []).push(c));
+            root.innerHTML = '';
+            Object.entries(groups).forEach(([key, items]) => {
+                const title = document.createElement('div');
+                title.className='comp-group-title';
+                title.textContent = `${CAT_NAMES[key]} (${items.length})`;
+                root.appendChild(title);
+                items.forEach(c => {
+                    const el=document.createElement('div');
+                    el.className='comp-item';
+                    el.draggable=true;
+                    el.ondragstart=e=>dragStart(e,c.id,c.name);
+                    el.innerHTML=`<div class="symbol-wrap">${makeSymbol(c,'#00f2ff',0.72)}</div>
+                        <div><b>${esc(c.name)}</b><small>${esc(c.en)} · ${esc(c.tag || 'Connection')}</small></div>`;
+                    root.appendChild(el);
+                });
+            });
+        }
+
+        function pinText(x,y,t,anchor='middle'){
+            return `<text x="${x}" y="${y}" fill="#aeb6c2" font-size="8" text-anchor="${anchor}" font-family="Arial">${esc(t)}</text>`;
+        }
+
+        function makeSymbol(c,color='#00f2ff',scale=1){
+            const s = 70*scale, h=70*scale;
+            const p=c.pins||[];
+            const line=`stroke="${color}" stroke-width="1.7" fill="none"`;
+            let body='';
+            switch(c.shape){
+                case 'fuse': body=`<line x1="35" y1="2" x2="35" y2="22" ${line}/><rect x="27" y="22" width="16" height="26" ${line}/><line x1="35" y1="48" x2="35" y2="68" ${line}/>`; break;
+                case 'fuse3': body=`<g ${line}><line x1="12" y1="2" x2="12" y2="20"/><rect x="7" y="20" width="10" height="22"/><line x1="12" y1="42" x2="12" y2="68"/><line x1="35" y1="2" x2="35" y2="20"/><rect x="30" y="20" width="10" height="22"/><line x1="35" y1="42" x2="35" y2="68"/><line x1="58" y1="2" x2="58" y2="20"/><rect x="53" y="20" width="10" height="22"/><line x1="58" y1="42" x2="58" y2="68"/></g>`; break;
+                case 'breaker': body=`<line x1="35" y1="2" x2="35" y2="20" ${line}/><line x1="35" y1="50" x2="35" y2="68" ${line}/><line x1="35" y1="20" x2="47" y2="42" ${line}/><line x1="25" y1="31" x2="45" y2="31" stroke="${color}" stroke-width="1"/>`; break;
+                case 'mpcb': body=`<rect x="16" y="18" width="38" height="32" ${line}/><line x1="35" y1="2" x2="35" y2="18" ${line}/><line x1="35" y1="50" x2="35" y2="68" ${line}/><path d="M18 42 L52 20" ${line}/>`; break;
+                case 'isolator': body=`<line x1="35" y1="2" x2="35" y2="22" ${line}/><line x1="35" y1="22" x2="52" y2="42" ${line}/><line x1="35" y1="50" x2="35" y2="68" ${line}/>`; break;
+                case 'contactor': body=`<g ${line}><line x1="12" y1="2" x2="12" y2="24"/><line x1="35" y1="2" x2="35" y2="24"/><line x1="58" y1="2" x2="58" y2="24"/><line x1="12" y1="24" x2="20" y2="42"/><line x1="35" y1="24" x2="43" y2="42"/><line x1="58" y1="24" x2="66" y2="42"/><line x1="12" y1="42" x2="12" y2="68"/><line x1="35" y1="42" x2="35" y2="68"/><line x1="58" y1="42" x2="58" y2="68"/></g>`; break;
+                case 'coil': body=`<line x1="35" y1="2" x2="35" y2="20" ${line}/><rect x="24" y="20" width="22" height="28" rx="4" ${line}/><line x1="35" y1="48" x2="35" y2="68" ${line}/><text x="35" y="38" fill="${color}" font-size="11" text-anchor="middle" font-family="Arial">K</text>`; break;
+                case 'no': body=`<line x1="35" y1="2" x2="35" y2="24" ${line}/><line x1="35" y1="46" x2="35" y2="68" ${line}/><line x1="25" y1="42" x2="47" y2="26" ${line}/>`; break;
+                case 'nc': body=`<line x1="35" y1="2" x2="35" y2="24" ${line}/><line x1="35" y1="46" x2="35" y2="68" ${line}/><line x1="25" y1="26" x2="47" y2="42" ${line}/><line x1="24" y1="44" x2="46" y2="26" stroke="${color}" stroke-width="1"/>`; break;
+                case 'relay2': body=`<rect x="22" y="22" width="26" height="26" ${line}/><line x1="35" y1="2" x2="35" y2="22" ${line}/><line x1="35" y1="48" x2="35" y2="68" ${line}/><line x1="48" y1="15" x2="65" y2="15" ${line}/><line x1="48" y1="55" x2="65" y2="55" ${line}/`; break;
+                case 'timer': body=`<rect x="22" y="20" width="26" height="28" ${line}/><text x="35" y="38" fill="${color}" font-size="9" text-anchor="middle" font-family="Arial">t</text><line x1="35" y1="2" x2="35" y2="20" ${line}/><line x1="35" y1="48" x2="35" y2="68" ${line}/>`; break;
+                case 'overload': body=`<rect x="18" y="16" width="34" height="38" ${line}/><text x="35" y="39" fill="${color}" font-size="10" text-anchor="middle" font-family="Arial">OL</text>`; break;
+                case 'lamp': body=`<line x1="35" y1="2" x2="35" y2="20" ${line}/><circle cx="35" cy="35" r="14" ${line}/><line x1="25" y1="25" x2="45" y2="45" ${line}/><line x1="45" y1="25" x2="25" y2="45" ${line}/><line x1="35" y1="49" x2="35" y2="68" ${line}/>`; break;
+                case 'buzzer': body=`<line x1="15" y1="35" x2="28" y2="35" ${line}/><path d="M28 25 L48 18 L48 52 L28 45 Z" ${line}/><line x1="48" y1="35" x2="62" y2="35" ${line}/>`; break;
+                case 'terminal': body=`<line x1="35" y1="2" x2="35" y2="25" ${line}/><circle cx="35" cy="35" r="10" ${line}/><line x1="35" y1="45" x2="35" y2="68" ${line}/>`; break;
+                case 'pe': body=`<line x1="35" y1="2" x2="35" y2="34" ${line}/><line x1="18" y1="34" x2="52" y2="34" ${line}/><line x1="23" y1="41" x2="47" y2="41" ${line}/><line x1="29" y1="48" x2="41" y2="48" ${line}/>`; break;
+                case 'multiterminal': body=`<line x1="35" y1="2" x2="35" y2="68" ${line}/><circle cx="35" cy="18" r="7" ${line}/><circle cx="35" cy="35" r="7" ${line}/><circle cx="35" cy="52" r="7" ${line}/>`; break;
+                case 'plug': body=`<rect x="22" y="24" width="22" height="22" ${line}/><line x1="44" y1="29" x2="62" y2="29" ${line}/><line x1="44" y1="41" x2="62" y2="41" ${line}/>`; break;
+                case 'socket': body=`<path d="M20 24 H42 V46 H20 Z" ${line}/><line x1="42" y1="29" x2="62" y2="29" ${line}/><line x1="42" y1="41" x2="62" y2="41" ${line}/>`; break;
+                case 'psu': body=`<rect x="18" y="18" width="34" height="34" ${line}/><text x="35" y="39" fill="${color}" font-size="9" text-anchor="middle" font-family="Arial">AC/DC</text><line x1="2" y1="27" x2="18" y2="27" ${line}/><line x1="52" y1="27" x2="68" y2="27" ${line}/><line x1="2" y1="43" x2="18" y2="43" ${line}/><line x1="52" y1="43" x2="68" y2="43" ${line}/>`; break;
+                case 'ups': body=`<rect x="18" y="18" width="34" height="34" ${line}/><text x="35" y="39" fill="${color}" font-size="10" text-anchor="middle" font-family="Arial">UPS</text>`; break;
+                case 'transformer': body=`<path d="M22 18 C10 22 10 30 22 34 C10 38 10 46 22 50" ${line}/><path d="M48 18 C60 22 60 30 48 34 C60 38 60 46 48 50" ${line}/><line x1="35" y1="15" x2="35" y2="53" stroke="${color}" stroke-width="1"/>`; break;
+                case 'motor3': body=`<line x1="18" y1="2" x2="18" y2="18" ${line}/><line x1="35" y1="2" x2="35" y2="18" ${line}/><line x1="52" y1="2" x2="52" y2="18" ${line}/><circle cx="35" cy="40" r="20" ${line}/><text x="35" y="43" fill="${color}" font-size="14" text-anchor="middle" font-family="Arial">M</text>`; break;
+                case 'motor1': body=`<line x1="25" y1="2" x2="25" y2="18" ${line}/><line x1="45" y1="2" x2="45" y2="18" ${line}/><circle cx="35" cy="40" r="20" ${line}/><text x="35" y="43" fill="${color}" font-size="14" text-anchor="middle" font-family="Arial">M</text>`; break;
+                case 'heater': body=`<line x1="35" y1="2" x2="35" y2="22" ${line}/><rect x="25" y="22" width="20" height="26" ${line}/><path d="M29 28 C40 20 30 42 41 34" ${line}/><line x1="35" y1="48" x2="35" y2="68" ${line}/>`; break;
+                case 'sensor': body=`<rect x="18" y="22" width="34" height="26" ${line}/><line x1="2" y1="35" x2="18" y2="35" ${line}/><line x1="52" y1="35" x2="68" y2="35" ${line}/><text x="35" y="39" fill="${color}" font-size="8" text-anchor="middle" font-family="Arial">B</text>`; break;
+                case 'meterA': body=`<circle cx="35" cy="35" r="22" ${line}/><text x="35" y="41" fill="${color}" font-size="18" text-anchor="middle" font-family="Arial">A</text>`; break;
+                case 'meterV': body=`<circle cx="35" cy="35" r="22" ${line}/><text x="35" y="41" fill="${color}" font-size="18" text-anchor="middle" font-family="Arial">V</text>`; break;
+                case 'plc': body=`<rect x="15" y="15" width="40" height="40" ${line}/><text x="35" y="39" fill="${color}" font-size="9" text-anchor="middle" font-family="Arial">PLC</text>`; break;
+                case 'wire': body=`<line x1="5" y1="35" x2="65" y2="35" ${line}/>`; break;
+                case 'cable': body=`<line x1="5" y1="25" x2="65" y2="25" ${line}/><line x1="5" y1="35" x2="65" y2="35" ${line}/><line x1="5" y1="45" x2="65" y2="45" ${line}/>`; break;
+                case 'shield': body=`<line x1="5" y1="35" x2="65" y2="35" ${line}/><ellipse cx="35" cy="35" rx="18" ry="28" stroke="${color}" stroke-width="1" fill="none" stroke-dasharray="3 2"/>`; break;
+                case 'junction': body=`<line x1="5" y1="35" x2="65" y2="35" ${line}/><line x1="35" y1="5" x2="35" y2="65" ${line}/><circle cx="35" cy="35" r="4" fill="${color}"/>`; break;
+                case 'interrupt': body=`<line x1="5" y1="35" x2="65" y2="35" ${line}/><circle cx="35" cy="35" r="4" fill="${color}"/><line x1="27" y1="27" x2="43" y2="43" stroke="${color}" stroke-width="1"/>`; break;
+                case 'earth': body=`<line x1="35" y1="8" x2="35" y2="34" ${line}/><line x1="17" y1="34" x2="53" y2="34" ${line}/><line x1="23" y1="42" x2="47" y2="42" ${line}/><line x1="29" y1="50" x2="41" y2="50" ${line}/>`; break;
+                case 'potential': body=`<line x1="35" y1="55" x2="35" y2="20" ${line}/><path d="M27 28 L35 18 L43 28" ${line}/>`; break;
+                case 'diode': body=`<line x1="5" y1="35" x2="25" y2="35" ${line}/><path d="M25 20 L25 50 L48 35 Z" fill="${color}" opacity=".2" stroke="${color}" stroke-width="1.7"/><line x1="48" y1="20" x2="48" y2="50" ${line}/><line x1="48" y1="35" x2="65" y2="35" ${line}/>`; break;
+                case 'zener': body=`<line x1="5" y1="35" x2="25" y2="35" ${line}/><path d="M25 20 L25 50 L48 35 Z" ${line}/><path d="M48 20 L44 27 M48 50 L44 43" ${line}/><line x1="48" y1="35" x2="65" y2="35" ${line}/>`; break;
+                case 'resistor': body=`<line x1="5" y1="35" x2="20" y2="35" ${line}/><path d="M20 35 l5 -8 l10 16 l10 -16 l10 16 l5 -8" ${line}/>`; break;
+                case 'capacitor': body=`<line x1="5" y1="35" x2="30" y2="35" ${line}/><line x1="30" y1="20" x2="30" y2="50" ${line}/><line x1="40" y1="20" x2="40" y2="50" ${line}/><line x1="40" y1="35" x2="65" y2="35" ${line}/>`; break;
+                case 'ct': body=`<circle cx="35" cy="35" r="22" ${line}/><line x1="2" y1="35" x2="13" y2="35" ${line}/><line x1="57" y1="35" x2="68" y2="35" ${line}/><text x="35" y="39" fill="${color}" font-size="10" text-anchor="middle" font-family="Arial">CT</text>`; break;
+                case 'rectifier': body=`<path d="M35 15 L55 35 L35 55 L15 35 Z" ${line}/><text x="35" y="39" fill="${color}" font-size="10" text-anchor="middle" font-family="Arial">~</text>`; break;
+                case 'spd': body=`<rect x="20" y="15" width="30" height="40" ${line}/><path d="M28 45 L35 25 L42 45" ${line}/>`; break;
+                case 'rcd': body=`<rect x="18" y="16" width="34" height="38" ${line}/><circle cx="35" cy="35" r="9" ${line}/><text x="35" y="39" fill="${color}" font-size="7" text-anchor="middle" font-family="Arial">RCD</text>`; break;
+                default: body=`<rect x="18" y="18" width="34" height="34" ${line}/>`;
+            }
+            let pins='';
+            if(p.length && !['wire','junction','interrupt','potential'].includes(c.shape)){
+                const top = p.length > 2 ? p.slice(0,Math.ceil(p.length/2)) : p.slice(0,1);
+                const bottom = p.length > 2 ? p.slice(Math.ceil(p.length/2)) : p.slice(1);
+                top.forEach((v,i)=>pins+=pinText((20+i*15),10,v));
+                bottom.forEach((v,i)=>pins+=pinText((20+i*15),66,v));
+            }
+            const w = 70, hh = 75;
+            return `<svg width="${w}" height="${hh}" viewBox="0 0 70 75" aria-label="${esc(c.en)}">${body}${pins}</svg>`;
+        }
+
+        function switchMode(modeId, btn) {
+            document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.sidebar').forEach(s => s.classList.remove('active'));
+            document.getElementById(modeId).classList.add('active');
+            document.getElementById('galleryCanvas').style.display = (modeId === 'modeGallery') ? 'flex' : 'none';
+            document.getElementById('dropZone').style.display = (modeId === 'modeDragDrop') ? 'block' : 'none';
+            if(modeId === 'modeDragDrop') renderLibrary();
+        }
+
+        function searchCircuit() {
+            const val = document.getElementById('searchInput').value.toLowerCase();
+            if (val.includes('مستقیم') || val.includes('استارت') || val.includes('dol')) loadCircuit('dol');
+        }
+
+        function loadCircuit(type) {
+            const svg = document.getElementById('svgCanvas');
+            if (type === 'dol') {
+                svg.innerHTML = `
+                    <text x="150" y="25" fill="#00f2ff" font-size="15" text-anchor="middle">DOL STARTER — مدار فرمان و قدرت</text>
+                    <line x1="55" y1="55" x2="55" y2="410" stroke="#fff" stroke-width="2"/>
+                    <line x1="245" y1="55" x2="245" y2="410" stroke="#fff" stroke-width="2"/>
+                    <text x="48" y="48" fill="#8b8f99" font-size="11">L1</text><text x="250" y="48" fill="#8b8f99" font-size="11">N</text>
+                    <g transform="translate(25,65)">${makeSymbol(COMPONENTS.find(c=>c.id==='mcb'),'#d4af37',.9)}<text x="72" y="38" fill="#d4af37" font-size="11">-QF1 MCB</text></g>
+                    <g transform="translate(25,155)">${makeSymbol(COMPONENTS.find(c=>c.id==='btn_nc'),'#e74c3c',.9)}<text x="72" y="38" fill="#e74c3c" font-size="11">-S0 STOP NC</text></g>
+                    <g transform="translate(25,245)">${makeSymbol(COMPONENTS.find(c=>c.id==='overload'),'#f39c12',.9)}<text x="72" y="38" fill="#f39c12" font-size="11">-F2 OL 95-96</text></g>
+                    <g transform="translate(25,335)">${makeSymbol(COMPONENTS.find(c=>c.id==='btn_no'),'#2ecc71',.9)}<text x="72" y="38" fill="#2ecc71" font-size="11">-S1 START NO</text></g>
+                    <g transform="translate(150,335)">${makeSymbol(COMPONENTS.find(c=>c.id==='coil'),'#00f2ff',.9)}<text x="72" y="38" fill="#00f2ff" font-size="11">-K1 A1/A2</text></g>
+                    <line x1="55" y1="90" x2="245" y2="90" stroke="#fff" stroke-width="1.5"/>
+                    <line x1="55" y1="180" x2="245" y2="180" stroke="#fff" stroke-width="1.5"/>
+                    <line x1="55" y1="270" x2="245" y2="270" stroke="#fff" stroke-width="1.5"/>
+                    <line x1="55" y1="360" x2="245" y2="360" stroke="#fff" stroke-width="1.5"/>
+                    <text x="150" y="430" fill="#8b8f99" font-size="10" text-anchor="middle">Cross-reference: K1 Coil ↔ K1 Aux. Contact 13-14</text>`;
+            }
+        }
+
         function allowDrop(e) { e.preventDefault(); }
-        
         function dragStart(e, type, name) {
             e.dataTransfer.setData("type", type);
             e.dataTransfer.setData("name", name);
         }
 
+        let nextTagCounters = {};
+        function nextTag(prefix){
+            nextTagCounters[prefix] = (nextTagCounters[prefix] || 0) + 1;
+            return `-${prefix}${nextTagCounters[prefix]}`;
+        }
+
         function dropElement(e) {
             e.preventDefault();
             const type = e.dataTransfer.getData("type");
-            const name = e.dataTransfer.getData("name");
+            const c = COMPONENTS.find(x=>x.id===type);
+            if(!c) return;
             const zone = document.getElementById('dropZone');
             const rect = zone.getBoundingClientRect();
-            const x = e.clientX - rect.left - 20;
-            const y = e.clientY - rect.top - 25;
-            
+            const x = e.clientX - rect.left - 35;
+            const y = e.clientY - rect.top - 38;
             const el = document.createElement('div');
             el.className = 'dropped-element';
-            el.style.left = x + 'px';
-            el.style.top = y + 'px';
-            
-            let svgContent = '';
-            let color = '#00f2ff';
-            
-            // نمادهای استاندارد IEC 60617 برای بوم طراحی
-            if (type === 'mcb') {
-                color = '#d4af37';
-                svgContent = `<svg width="30" height="50" viewBox="0 0 30 50"><circle cx="15" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="15" y1="2" x2="15" y2="15" stroke="#fff" stroke-width="1.5"/><line x1="15" y1="35" x2="15" y2="48" stroke="#fff" stroke-width="1.5"/><circle cx="15" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="15" y1="15" x2="15" y2="35" stroke="${color}" stroke-width="1.5"/><line x1="15" y1="15" x2="22" y2="30" stroke="${color}" stroke-width="1.5"/><line x1="10" y1="22" x2="20" y2="28" stroke="${color}" stroke-width="1.5"/><text x="20" y="12" fill="${color}" font-size="8" font-family="Arial">-Q1</text></svg>`;
-            } else if (type === 'contactor') {
-                svgContent = `<svg width="60" height="50" viewBox="0 0 60 50"><circle cx="10" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="30" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="50" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="10" y1="2" x2="10" y2="20" stroke="#fff" stroke-width="1.5"/><line x1="30" y1="2" x2="30" y2="20" stroke="#fff" stroke-width="1.5"/><line x1="50" y1="2" x2="50" y2="20" stroke="#fff" stroke-width="1.5"/><line x1="6" y1="20" x2="14" y2="30" stroke="${color}" stroke-width="1.5"/><line x1="26" y1="20" x2="34" y2="30" stroke="${color}" stroke-width="1.5"/><line x1="46" y1="20" x2="54" y2="30" stroke="${color}" stroke-width="1.5"/><line x1="10" y1="30" x2="10" y2="48" stroke="#fff" stroke-width="1.5"/><line x1="30" y1="30" x2="30" y2="48" stroke="#fff" stroke-width="1.5"/><line x1="50" y1="30" x2="50" y2="48" stroke="#fff" stroke-width="1.5"/><circle cx="10" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="30" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="50" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><text x="40" y="12" fill="${color}" font-size="8" font-family="Arial">-K1</text></svg>`;
-            } else if (type === 'thermal') {
-                color = '#f39c12';
-                svgContent = `<svg width="60" height="50" viewBox="0 0 60 50"><circle cx="10" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="30" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="50" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><rect x="5" y="10" width="50" height="30" fill="none" stroke="${color}" stroke-width="1.5"/><line x1="5" y1="10" x2="55" y2="40" stroke="${color}" stroke-width="1.5"/><line x1="5" y1="25" x2="55" y2="25" stroke="${color}" stroke-width="1" stroke-dasharray="2,2"/><line x1="10" y1="40" x2="10" y2="48" stroke="#fff" stroke-width="1.5"/><line x1="30" y1="40" x2="30" y2="48" stroke="#fff" stroke-width="1.5"/><line x1="50" y1="40" x2="50" y2="48" stroke="#fff" stroke-width="1.5"/><circle cx="10" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="30" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="50" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><text x="40" y="8" fill="${color}" font-size="8" font-family="Arial">-F1</text></svg>`;
-            } else if (type === 'btn_no') {
-                color = '#2ecc71';
-                svgContent = `<svg width="40" height="50" viewBox="0 0 40 50"><circle cx="20" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="20" y1="2" x2="20" y2="15" stroke="#fff" stroke-width="1.5"/><line x1="20" y1="35" x2="20" y2="48" stroke="#fff" stroke-width="1.5"/><circle cx="20" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="15" y1="30" x2="25" y2="20" stroke="${color}" stroke-width="1.5"/><line x1="10" y1="25" x2="30" y2="25" stroke="${color}" stroke-width="1.5" stroke-dasharray="3,2"/><line x1="20" y1="10" x2="20" y2="25" stroke="${color}" stroke-width="1.5"/><text x="28" y="15" fill="${color}" font-size="8" font-family="Arial">-S1</text></svg>`;
-            } else if (type === 'btn_nc') {
-                color = '#e74c3c';
-                svgContent = `<svg width="40" height="50" viewBox="0 0 40 50"><circle cx="20" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="20" y1="2" x2="20" y2="15" stroke="#fff" stroke-width="1.5"/><line x1="20" y1="35" x2="20" y2="48" stroke="#fff" stroke-width="1.5"/><circle cx="20" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="15" y1="20" x2="25" y2="30" stroke="${color}" stroke-width="1.5"/><line x1="10" y1="25" x2="30" y2="25" stroke="${color}" stroke-width="1.5" stroke-dasharray="3,2"/><line x1="20" y1="10" x2="20" y2="25" stroke="${color}" stroke-width="1.5"/><line x1="17" y1="27" x2="23" y2="23" stroke="${color}" stroke-width="1"/><text x="28" y="15" fill="${color}" font-size="8" font-family="Arial">-S0</text></svg>`;
-            } else if (type === 'coil') {
-                svgContent = `<svg width="40" height="50" viewBox="0 0 40 50"><circle cx="20" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="20" y1="2" x2="20" y2="15" stroke="#fff" stroke-width="1.5"/><line x1="20" y1="35" x2="20" y2="48" stroke="#fff" stroke-width="1.5"/><circle cx="20" cy="48" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="20" cy="25" r="10" fill="none" stroke="${color}" stroke-width="1.5"/><line x1="12" y1="25" x2="28" y2="25" stroke="${color}" stroke-width="1"/><text x="30" y="28" fill="${color}" font-size="8" font-family="Arial">-K1</text></svg>`;
-            } else if (type === 'motor') {
-                color = '#d4af37';
-                svgContent = `<svg width="50" height="50" viewBox="0 0 50 50"><circle cx="10" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="20" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><circle cx="30" cy="2" r="2.5" fill="#0a0d12" stroke="${color}" stroke-width="1.5"/><line x1="10" y1="2" x2="10" y2="20" stroke="#fff" stroke-width="1.5"/><line x1="20" y1="2" x2="20" y2="20" stroke="#fff" stroke-width="1.5"/><line x1="30" y1="2" x2="30" y2="20" stroke="#fff" stroke-width="1.5"/><circle cx="20" cy="32" r="13" fill="none" stroke="${color}" stroke-width="1.5"/><text x="20" y="30" fill="${color}" font-size="10" text-anchor="middle" font-family="Arial">M</text><text x="20" y="38" fill="${color}" font-size="8" text-anchor="middle" font-family="Arial">3~</text><text x="35" y="15" fill="${color}" font-size="8" font-family="Arial">-M1</text></svg>`;
-            }
-            
-            el.innerHTML = svgContent;
-            
-            // قابلیت جابجایی با موس
-            let isDragging = false, offsetX = 0, offsetY = 0;
-            el.addEventListener('mousedown', function(e) {
-                isDragging = true;
-                offsetX = e.clientX - el.offsetLeft;
-                offsetY = e.clientY - el.offsetTop;
-                el.style.zIndex = 1000;
-            });
-            document.addEventListener('mousemove', function(e) {
-                if(isDragging) {
-                    el.style.left = (e.clientX - offsetX) + 'px';
-                    el.style.top = (e.clientY - offsetY) + 'px';
-                }
-            });
-            document.addEventListener('mouseup', function() { isDragging = false; });
-            
+            el.style.left = `${Math.max(0,x)}px`;
+            el.style.top = `${Math.max(0,y)}px`;
+            const tag = c.tag && !c.tag.startsWith('-') ? nextTag(c.tag) : c.tag;
+            el.dataset.type=type; el.dataset.tag=tag; el.dataset.name=c.name;
+            el.innerHTML = `<div class="element-tag">${esc(tag || '')}</div>${makeSymbol(c,'#00f2ff',1)}<div class="element-name">${esc(c.name)}</div>`;
+            makeMovable(el, zone);
+            el.addEventListener('dblclick',()=>editElement(el,c));
             zone.appendChild(el);
         }
+
+        function makeMovable(el, zone){
+            let dragging=false, ox=0, oy=0;
+            el.addEventListener('mousedown', e=>{
+                if(e.button!==0) return;
+                dragging=true; ox=e.clientX-el.offsetLeft; oy=e.clientY-el.offsetTop;
+                el.classList.add('selected'); e.stopPropagation();
+            });
+            const move=e=>{
+                if(!dragging) return;
+                el.style.left=Math.max(0,e.clientX-ox)+'px';
+                el.style.top=Math.max(0,e.clientY-oy)+'px';
+            };
+            const up=()=>{dragging=false; el.classList.remove('selected');};
+            document.addEventListener('mousemove',move);
+            document.addEventListener('mouseup',up);
+        }
+
+        function editElement(el,c){
+            const tag = prompt(`Device Tag برای ${c.name}:`, el.dataset.tag || c.tag || '');
+            if(tag !== null){
+                el.dataset.tag=tag;
+                el.querySelector('.element-tag').textContent=tag;
+            }
+        }
+
+        function clearCanvas(){
+            document.getElementById('dropZone').innerHTML='';
+        }
+
+        document.addEventListener('keydown', e=>{
+            if(e.key==='Delete'){
+                document.querySelectorAll('.dropped-element.selected').forEach(x=>x.remove());
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', ()=>{
+            renderLibrary();
+            const zone=document.getElementById('dropZone');
+            zone.addEventListener('click', e=>{
+                if(e.target===zone) document.querySelectorAll('.dropped-element').forEach(x=>x.classList.remove('selected'));
+            });
+        });
     </script>
 </body>
 </html>
