@@ -23,6 +23,10 @@
         .back-btn i { transform: rotate(180deg); }
         .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
 
+        .lang-switch { display: flex; gap: 8px; }
+        .lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        .lang-btn.active, .lang-btn:hover { background: rgba(77, 139, 255, 0.1); color: var(--accent-indigo); border-color: rgba(77, 139, 255, 0.3); }
+
         .page-title { font-family: 'Markazi Text', serif; font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
         .page-title b { color: var(--accent-cyan); }
         .page-desc { color: var(--text-muted); margin-bottom: 30px; font-size: 0.95rem; }
@@ -30,7 +34,7 @@
         .glass-card { background: rgba(16, 22, 33, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-right: 3px solid var(--accent-indigo); border-radius: 12px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin-bottom: 20px; }
         
         .panel-selector { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-        .panel-btn { padding: 8px 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-muted); border-radius: 20px; cursor: pointer; font-weight: 600; transition: 0.3s; }
+        .panel-btn { padding: 8px 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-muted); border-radius: 20px; cursor: pointer; font-weight: 600; transition: 0.3s; font-family: inherit; }
         .panel-btn.active, .panel-btn:hover { background: rgba(77, 139, 255, 0.2); color: #fff; border-color: var(--accent-indigo); box-shadow: 0 0 10px rgba(77, 139, 255, 0.2); }
 
         .progress-dashboard { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; gap: 15px; flex-wrap: wrap; }
@@ -39,6 +43,7 @@
         .stat-box label { font-size: 0.8rem; color: var(--text-muted); }
         .stat-approved span { color: var(--success-green); }
         .stat-rejected span { color: var(--danger-red); }
+        .stat-na span { color: var(--text-muted); }
         .stat-pending span { color: var(--warning-orange); }
         .progress-bar-container { width: 100%; height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; margin-top: 10px; }
         .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent-indigo), var(--accent-cyan)); width: 0%; transition: width 0.4s ease; box-shadow: 0 0 10px var(--accent-cyan); }
@@ -56,6 +61,7 @@
         .check-row { transition: 0.3s; }
         .check-row.approved { background: rgba(46, 204, 113, 0.05); }
         .check-row.rejected { background: rgba(231, 76, 60, 0.05); }
+        .check-row.na { background: rgba(255, 255, 255, 0.02); opacity: 0.7; }
         
         .crit-badge { padding: 3px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; }
         .crit-critical { background: rgba(231, 76, 60, 0.2); color: var(--danger-red); }
@@ -66,10 +72,11 @@
         .item-link:hover { color: var(--accent-cyan); }
         .item-link i { font-size: 0.7rem; opacity: 0.5; }
 
-        .action-group { display: flex; gap: 10px; align-items: center; }
+        .action-group { display: flex; gap: 8px; align-items: center; }
         .action-btn { width: 32px; height: 32px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-        .btn-approve:hover, .btn-approve.active { background: var(--success-green); color: #fff; border-color: var(--success-green); box-shadow: 0 0 10px rgba(46, 204, 113, 0.3); }
-        .btn-reject:hover, .btn-reject.active { background: var(--danger-red); color: #fff; border-color: var(--danger-red); box-shadow: 0 0 10px rgba(231, 76, 60, 0.3); }
+        .btn-approve.active { background: var(--success-green); color: #fff; border-color: var(--success-green); box-shadow: 0 0 10px rgba(46, 204, 113, 0.3); }
+        .btn-reject.active { background: var(--danger-red); color: #fff; border-color: var(--danger-red); box-shadow: 0 0 10px rgba(231, 76, 60, 0.3); }
+        .btn-na.active { background: var(--text-muted); color: #000; border-color: var(--text-muted); }
         
         .ncr-input { width: 100px; background: rgba(231, 76, 60, 0.1); border: 1px solid rgba(231, 76, 60, 0.3); color: #fff; padding: 6px 10px; border-radius: 6px; font-size: 0.8rem; display: none; }
         .ncr-input.show { display: block; }
@@ -79,33 +86,38 @@
         .export-btn { background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan)); color: #000; padding: 12px 25px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
         .export-btn:hover { box-shadow: 0 0 20px rgba(0, 242, 255, 0.4); transform: translateY(-2px); }
         
-        @media (max-width: 768px) {
-            .check-table th:nth-child(4), .check-table td:nth-child(4) { display: none; } 
-        }
+        @media (max-width: 768px) { .check-table th:nth-child(4), .check-table td:nth-child(4) { display: none; } }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
-       <a href="../academy/quality-control.html" class="back-btn"><i class="fas fa-arrow-right"></i> بازگشت به کنترل کیفیت</a>
+        <div style="display:flex; align-items:center; gap:15px;">
+            <div class="lang-switch">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn active" data-lang="fa">FA</button>
+            </div>
+            <a href="quality-control.html" class="back-btn"><i class="fas fa-arrow-left"></i> بازگشت به کنترل کیفیت</a>
+        </div>
     </div>
 
-    <h1 class="page-title">چک‌لیست تعاملی <b>تابلو</b></h1>
-    <p class="page-desc">سیستم ثبت بازرسی، تأیید/رد آیتم‌ها و صدور گزارش نهایی (NCR & PDF)</p>
+    <h1 class="page-title" id="page-title">چک‌لیست تعاملی <b>تابلو</b></h1>
+    <p class="page-desc" id="page-desc">سیستم ثبت بازرسی، تأیید/رد/موضوعی ندارد و صدور گزارش نهایی (NCR & PDF)</p>
 
     <div class="glass-card">
         <div class="panel-selector" id="panelSelector">
-            <button class="panel-btn active" onclick="loadChecklist('mdb')">تابلو توزیع اصلی (MDB)</button>
+            <button class="panel-btn active" onclick="loadChecklist('lv_final')">تابلو نهایی (FR08)</button>
+            <button class="panel-btn" onclick="loadChecklist('mdb')">تابلو توزیع اصلی (MDB)</button>
             <button class="panel-btn" onclick="loadChecklist('mcc')">تابلو کنترل موتور (MCC)</button>
-            <button class="panel-btn" onclick="loadChecklist('lv')">فشار ضعیف (LV)</button>
             <button class="panel-btn" onclick="loadChecklist('mv')">فشار متوسط (MV)</button>
             <button class="panel-btn" onclick="loadChecklist('plc')">اتوماسیون (PLC)</button>
         </div>
 
         <div class="progress-dashboard">
-            <div class="stat-box stat-approved"><span id="statApproved">0</span><label>تأیید شده</label></div>
-            <div class="stat-box stat-rejected"><span id="statRejected">0</span><label>رد شده</label></div>
+            <div class="stat-box stat-approved"><span id="statApproved">0</span><label>تایید</label></div>
+            <div class="stat-box stat-rejected"><span id="statRejected">0</span><label>عدم تایید</label></div>
+            <div class="stat-box stat-na"><span id="statNA">0</span><label>موضوعی ندارد</label></div>
             <div class="stat-box stat-pending"><span id="statPending">0</span><label>در انتظار</label></div>
             <div style="flex: 1; min-width: 200px;">
                 <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">
@@ -121,97 +133,155 @@
         <div class="export-row">
             <input type="text" id="projectNameInput" class="project-input" placeholder="نام پروژه / شماره سریال">
             <button class="export-btn" onclick="generateReport()">
-                <i class="fas fa-file-export"></i> خروجی PDF / چاپ
+                <i class="fas fa-file-export"></i> <span>خروجی PDF / چاپ</span>
             </button>
         </div>
     </div>
 </div>
 
 <script>
-    // پایگاه داده چک‌لیست ۵۶ ردیفه (برگرفته از فرم استاندارد بازرسی میهن تابلو فجر)
+    let currentLang = localStorage.getItem('karatech-lang') || 'fa';
+
+    // پایگاه داده جامع چک‌لیست‌ها
     const qcData = {
+        lv_final: [
+            { cat_fa: "بازرسی ظاهری و مکانیکی", cat_en: "Visual & Mechanical", items: [
+                { id: 1, t_fa: "کامل و سالم بودن تجهیزات", t_en: "Equipment completeness", crit: "general" },
+                { id: 2, t_fa: "کنترل سایز پیچ ها، سیم ها و شینه ها", t_en: "Screws, wires, busbars sizing", crit: "critical" },
+                { id: 3, t_fa: "مطابقت نقشه جانمایی با چیدمان تجهیزات داخل تابلو", t_en: "Layout matches drawing", crit: "general" },
+                { id: 4, t_fa: "کنترل قفل ها و لولا ها", t_en: "Locks and hinges", crit: "minor" },
+                { id: 5, t_fa: "کنترل پلاک مشخصات شرکت و برچسب ها و علائم بر روی تجهیزات", t_en: "Nameplates and labels", crit: "general" },
+                { id: 6, t_fa: "فرم بندی صحیح سیم ها", t_en: "Wire forming", crit: "minor" },
+                { id: 7, t_fa: "کنترل داکتها و کانالها و عدم تراکم سیمها", t_en: "Ducts and wire density", crit: "general" },
+                { id: 8, t_fa: "کنترل رنگ تابلو", t_en: "Panel color", crit: "minor" },
+                { id: 9, t_fa: "تست ضخامت رنگ", t_en: "Paint thickness test", crit: "general" },
+                { id: 10, t_fa: "کنترل ابعاد سلول و محل ورودی وخروجی مطابق نقشه", t_en: "Cell dimensions & entry/exit", crit: "general" },
+                { id: 11, t_fa: "کنترل پرس کابلشو و سرسیمها", t_en: "Cable lugs & ferrules", crit: "critical" },
+                { id: 12, t_fa: "کنترل شماره سیم ها و ترمینالها و سهولت قرائت آنها", t_en: "Wire & terminal numbering", crit: "general" },
+                { id: 13, t_fa: "کنترل مطابقت ترانس ولتاژ با نقشه", t_en: "VT matching drawing", crit: "general" },
+                { id: 14, t_fa: "کنترل جیب تابلو و نقشه داخل آن", t_en: "Panel pocket & drawing", crit: "minor" },
+                { id: 15, t_fa: "کنترل IP", t_en: "IP protection check", crit: "critical" },
+                { id: 16, t_fa: "کنترل آچار کشی تابلو", t_en: "Panel wrenching", crit: "general" },
+                { id: 17, t_fa: "کنترل انطباق سایز ترمینال ها با نقشه", t_en: "Terminal sizes match drawing", crit: "general" }
+            ]},
+            { cat_fa: "بازرسی الکتریکی و عملکردی", cat_en: "Electrical & Functional", items: [
+                { id: 18, t_fa: "کنترل ایزولاسیون شینه ها و سیم ها", t_en: "Busbar & wire insulation", crit: "critical" },
+                { id: 19, t_fa: "کنترل شینه های ارت و نول و تعداد پانچهای روی آن", t_en: "PE & N busbars", crit: "critical" },
+                { id: 20, t_fa: "کنترل مقره ها", t_en: "Insulators check", crit: "critical" },
+                { id: 21, t_fa: "چک ارتباط سیم ها (بیزر)", t_en: "Wire continuity (Buzzer)", crit: "general" },
+                { id: 22, t_fa: "چک وایرینگ", t_en: "Wiring check", crit: "critical" },
+                { id: 23, t_fa: "برق دادن به تابلو و تست عملکرد مدار فرمان و گرفتن خروجی ها", t_en: "Power up & control circuit test", crit: "critical" },
+                { id: 24, t_fa: "تست خروجی منابع تغذیه", t_en: "Power supply output test", crit: "critical" },
+                { id: 25, t_fa: "تست خروجی ترانس ولتاژ", t_en: "VT output test", crit: "general" },
+                { id: 26, t_fa: "تست عملکرد فنها و ترموستات هیتر و سیستم روشنائی", t_en: "Fans, heater, lights test", crit: "general" },
+                { id: 27, t_fa: "تست عملکرد برنامه PLC", t_en: "PLC program test", crit: "critical" },
+                { id: 28, t_fa: "تست عملکرد ورودی های دیجیتال (DI)", t_en: "Digital Inputs (DI) test", crit: "general" },
+                { id: 29, t_fa: "تست عملکرد خروجی های دیجیتال (DO)", t_en: "Digital Outputs (DO) test", crit: "general" },
+                { id: 30, t_fa: "تست عملکرد ورودی های آنالوگ (AI)", t_en: "Analog Inputs (AI) test", crit: "general" },
+                { id: 31, t_fa: "تست عملکرد خروجی های آنالوگ (AO)", t_en: "Analog Outputs (AO) test", crit: "general" },
+                { id: 32, t_fa: "تست عملکرد صفحات HMI", t_en: "HMI screens test", crit: "general" },
+                { id: 33, t_fa: "لکه گیری تابلو", t_en: "Panel leak detection", crit: "general" },
+                { id: 34, t_fa: "نظافت تابلو با جارو برقی", t_en: "Panel cleaning", crit: "minor" }
+            ]}
+        ],
         mdb: [
-            { cat_fa: "بازرسی مستندات و نقشه‌ها", items: [
-                { id: 1, t_fa: "دارا بودن تمامی نقشه های مکانیکال ممهور به مهر مهندسی", crit: "general" },
-                { id: 2, t_fa: "دارا بودن تمامی نقشه های الکتریکال ممهور به مهر مهندسی", crit: "general" },
-                { id: 3, t_fa: "بررسی تعداد ونوع سلول", crit: "minor" }
+            { cat_fa: "بازرسی مستندات و نقشه‌ها", cat_en: "Documents & Drawings", items: [
+                { id: 1, t_fa: "دارا بودن تمامی نقشه های مکانیکال ممهور به مهر مهندسی", t_en: "Mechanical drawings stamped", crit: "general" },
+                { id: 2, t_fa: "دارا بودن تمامی نقشه های الکتریکال ممهور به مهر مهندسی", t_en: "Electrical drawings stamped", crit: "general" },
+                { id: 3, t_fa: "بررسی تعداد ونوع سلول", t_en: "Check cell count & type", crit: "minor" }
             ]},
-            { cat_fa: "بازرسی مکانیکی و ظاهری", items: [
-                { id: 4, t_fa: "کنترل و بررسی اتصالات سلول ها", crit: "critical" },
-                { id: 5, t_fa: "کنترل ابعاد سلول و محل ورودی و خروجی مطابق نقشه", crit: "general" },
-                { id: 6, t_fa: "کنترل رنگ تابلو (خراشیدگی، ضخامت، رال)", crit: "minor" },
-                { id: 7, t_fa: "مطابقت نقشه جانمایی با چیدمان تجهیزات داخل تابلو", crit: "general" },
-                { id: 8, t_fa: "کنترل پارت لیست با تجهیزات موجود", crit: "general" },
-                { id: 9, t_fa: "کنترل مکانیکی دربها، لولاها، قفلها، لاستیک دور دربها", crit: "minor" },
-                { id: 10, t_fa: "کنترل پیچ، مهره و واشر های تخت و فنری مصرف شده", crit: "critical" },
-                { id: 11, t_fa: "کنترل محکم بودن تجهیزات نصب شده در تابلو", crit: "critical" },
-                { id: 12, t_fa: "کنترل تماس صحیح محل اتصالات ارت سلول ها و دربها", crit: "critical" },
-                { id: 13, t_fa: "بررسی تجهیزات با نقشه تک خطی", crit: "general" },
-                { id: 14, t_fa: "کنترل ترمینالها با نقشه", crit: "general" },
-                { id: 15, t_fa: "دسترسی اسان به تجهیزات جهت تعویض", crit: "minor" },
-                { id: 16, t_fa: "بررسی سایز باسبارها", crit: "critical" },
-                { id: 17, t_fa: "کنترل رنگ آمیزی شمشها", crit: "minor" },
-                { id: 18, t_fa: "کنترل عدم وجود رنگ در نقاط اتصالات شمشها", crit: "critical" },
-                { id: 19, t_fa: "عدم وجود ترک برروی مقره ها", crit: "critical" },
-                { id: 20, t_fa: "کنترل پرس کابلشو و سرسیمها", crit: "general" }
+            { cat_fa: "بازرسی مکانیکی و ظاهری", cat_en: "Mechanical & Visual", items: [
+                { id: 4, t_fa: "کنترل و بررسی اتصالات سلول ها", t_en: "Cell connections check", crit: "critical" },
+                { id: 5, t_fa: "کنترل ابعاد سلول و محل ورودی و خروجی مطابق نقشه", t_en: "Cell dimensions & entry/exit", crit: "general" },
+                { id: 6, t_fa: "کنترل رنگ تابلو (خراشیدگی، ضخامت، رال)", t_en: "Paint check", crit: "minor" },
+                { id: 7, t_fa: "مطابقت نقشه جانمایی با چیدمان تجهیزات داخل تابلو", t_en: "Layout matches drawing", crit: "general" },
+                { id: 8, t_fa: "کنترل پارت لیست با تجهیزات موجود", t_en: "Parts list vs equipment", crit: "general" },
+                { id: 9, t_fa: "کنترل مکانیکی دربها، لولاها، قفلها، لاستیک دور دربها", t_en: "Doors, hinges, locks, gaskets", crit: "minor" },
+                { id: 10, t_fa: "کنترل پیچ، مهره و واشر های تخت و فنری مصرف شده", t_en: "Screws, nuts, washers", crit: "critical" },
+                { id: 11, t_fa: "کنترل محکم بودن تجهیزات نصب شده در تابلو", t_en: "Equipment mounting tightness", crit: "critical" },
+                { id: 12, t_fa: "کنترل تماس صحیح محل اتصالات ارت سلول ها و دربها", t_en: "Earthing contacts (cells & doors)", crit: "critical" },
+                { id: 13, t_fa: "بررسی تجهیزات با نقشه تک خطی", t_en: "Equipment vs single line", crit: "general" },
+                { id: 14, t_fa: "کنترل ترمینالها با نقشه", t_en: "Terminals vs drawing", crit: "general" },
+                { id: 15, t_fa: "دسترسی اسان به تجهیزات جهت تعویض", t_en: "Easy access for replacement", crit: "minor" },
+                { id: 16, t_fa: "بررسی سایز باسبارها", t_en: "Busbar sizing check", crit: "critical" },
+                { id: 17, t_fa: "کنترل رنگ آمیزی شمشها", t_en: "Busbar painting", crit: "minor" },
+                { id: 18, t_fa: "کنترل عدم وجود رنگ در نقاط اتصالات شمشها", t_en: "No paint on busbar joints", crit: "critical" },
+                { id: 19, t_fa: "عدم وجود ترک برروی مقره ها", t_en: "No cracks on insulators", crit: "critical" },
+                { id: 20, t_fa: "کنترل پرس کابلشو و سرسیمها", t_en: "Cable lugs & ferrules crimping", crit: "general" }
             ]},
-            { cat_fa: "سیم‌بندی و اتصالات", items: [
-                { id: 21, t_fa: "کنترل شماره سیم ها بر اساس نقشه", crit: "general" },
-                { id: 22, t_fa: "کنترل تماس و محکم بودن سیم و کابل در زیر پیچ", crit: "critical" },
-                { id: 23, t_fa: "کنترل فرم بندی و آرایش سیمها و کابلها", crit: "minor" },
-                { id: 24, t_fa: "کنترل صحت لخت بودن کابلها و سیمها", crit: "general" },
-                { id: 25, t_fa: "کنترل شماره ترمینالها", crit: "minor" },
-                { id: 26, t_fa: "کنترل رعایت فضای کافی برای هادیهای ورودی و خروجی", crit: "general" },
-                { id: 27, t_fa: "کنترل صحت نصب تگ های قطعات داخل تابلو", crit: "minor" },
-                { id: 28, t_fa: "نصب نام سلول و تابلو", crit: "minor" },
-                { id: 29, t_fa: "عملکرد دستی مکانیزمها", crit: "general" },
-                { id: 30, t_fa: "صحت ارتهای مربوط به CTوPT", crit: "critical" },
-                { id: 31, t_fa: "صحت مقدار سفتی پیچها به وسیله ترکمتر", crit: "critical" },
-                { id: 32, t_fa: "کنترل استاپر درب", crit: "minor" },
-                { id: 33, t_fa: "کنترل زاویه باز شدن درب (90-120 درجه)", crit: "minor" },
-                { id: 34, t_fa: "کنترل و بررسی صفحه گلند تابلو", crit: "general" },
-                { id: 35, t_fa: "کنترل و بررسی گلند تابلو", crit: "general" },
-                { id: 36, t_fa: "بررسی و کنترل IP تابلو", crit: "critical" },
-                { id: 37, t_fa: "کنترل وجود امکانات لازم برای حمل و نصب قلاب و پایه", crit: "general" },
-                { id: 38, t_fa: "کنترل وجود تکیه گاهها و بستهای مهار برای کابلها", crit: "general" },
-                { id: 39, t_fa: "کنترل نصب محافظ ها در صورت نیاز", crit: "general" },
-                { id: 40, t_fa: "کنترل تجهیزات لازم در تابلو برای بهره برداری", crit: "minor" }
+            { cat_fa: "سیم‌بندی و اتصالات", cat_en: "Wiring & Connections", items: [
+                { id: 21, t_fa: "کنترل شماره سیم ها بر اساس نقشه", t_en: "Wire numbering per drawing", crit: "general" },
+                { id: 22, t_fa: "کنترل تماس و محکم بودن سیم و کابل در زیر پیچ", t_en: "Wire tightness under screws", crit: "critical" },
+                { id: 23, t_fa: "کنترل فرم بندی و آرایش سیمها و کابلها", t_en: "Wiring form & layout", crit: "minor" },
+                { id: 24, t_fa: "کنترل صحت لخت بودن کابلها و سیمها", t_en: "Cable stripping check", crit: "general" },
+                { id: 25, t_fa: "کنترل شماره ترمینالها", t_en: "Terminal numbering", crit: "minor" },
+                { id: 26, t_fa: "کنترل رعایت فضای کافی برای هادیهای ورودی و خروجی", t_en: "Space for in/out cables", crit: "general" },
+                { id: 27, t_fa: "کنترل صحت نصب تگ های قطعات داخل تابلو", t_en: "Component tags", crit: "minor" },
+                { id: 28, t_fa: "نصب نام سلول و تابلو", t_en: "Cell & panel nameplate", crit: "minor" },
+                { id: 29, t_fa: "عملکرد دستی مکانیزمها", t_en: "Manual mechanism operation", crit: "general" },
+                { id: 30, t_fa: "صحت ارتهای مربوط به CTوPT", t_en: "CT & PT earthing", crit: "critical" },
+                { id: 31, t_fa: "صحت مقدار سفتی پیچها به وسیله ترکمتر", t_en: "Screw torque verification", crit: "critical" },
+                { id: 32, t_fa: "کنترل استاپر درب", t_en: "Door stopper", crit: "minor" },
+                { id: 33, t_fa: "کنترل زاویه باز شدن درب (90-120 درجه)", t_en: "Door opening angle", crit: "minor" },
+                { id: 34, t_fa: "کنترل و بررسی صفحه گلند تابلو", t_en: "Gland plate", crit: "general" },
+                { id: 35, t_fa: "کنترل و بررسی گلند تابلو", t_en: "Panel glands", crit: "general" },
+                { id: 36, t_fa: "بررسی و کنترل IP تابلو", t_en: "IP rating check", crit: "critical" },
+                { id: 37, t_fa: "کنترل وجود امکانات لازم برای حمل و نصب قلاب و پایه", t_en: "Lifting & mounting facilities", crit: "general" },
+                { id: 38, t_fa: "کنترل وجود تکیه گاهها و بستهای مهار برای کابلها", t_en: "Cable supports & ties", crit: "general" },
+                { id: 39, t_fa: "کنترل نصب محافظ ها در صورت نیاز", t_en: "Protective covers", crit: "general" },
+                { id: 40, t_fa: "کنترل تجهیزات لازم در تابلو برای بهره برداری", t_en: "Operating equipment", crit: "minor" }
             ]},
-            { cat_fa: "تست‌های عملکردی و الکتریکی", items: [
-                { id: 41, t_fa: "تست مدار قدرت با ولتاژ نامی", crit: "critical" },
-                { id: 42, t_fa: "تست مدار فرمان با ولتاژ کنترلی تایید شده", crit: "critical" },
-                { id: 43, t_fa: "کنترل صحت عملکرد لامپ های سیگنال", crit: "minor" },
-                { id: 44, t_fa: "کنترل روشنایی داخل تابلو", crit: "minor" },
-                { id: 45, t_fa: "تست رله ها و قطع کننده ها", crit: "critical" },
-                { id: 46, t_fa: "تست رله های حفاظتی مطابق تست شیت", crit: "critical" },
-                { id: 47, t_fa: "خواندن مقدار واقعی امپرمترها و ولتمترها", crit: "general" },
-                { id: 48, t_fa: "تست عایقی میگر مرحله اول", crit: "critical" },
-                { id: 49, t_fa: "تست Power Frequency", crit: "critical" },
-                { id: 50, t_fa: "تست عایقی میگر پس از تست P.F", crit: "critical" }
+            { cat_fa: "تست‌های عملکردی و الکتریکی", cat_en: "Functional & Electrical Tests", items: [
+                { id: 41, t_fa: "تست مدار قدرت با ولتاژ نامی", t_en: "Power circuit test (rated V)", crit: "critical" },
+                { id: 42, t_fa: "تست مدار فرمان با ولتاژ کنترلی تایید شده", t_en: "Control circuit test", crit: "critical" },
+                { id: 43, t_fa: "کنترل صحت عملکرد لامپ های سیگنال", t_en: "Signal lamps operation", crit: "minor" },
+                { id: 44, t_fa: "کنترل روشنایی داخل تابلو", t_en: "Internal lighting", crit: "minor" },
+                { id: 45, t_fa: "تست رله ها و قطع کننده ها", t_en: "Relays & breakers test", crit: "critical" },
+                { id: 46, t_fa: "تست رله های حفاظتی مطابق تست شیت", t_en: "Protection relays test", crit: "critical" },
+                { id: 47, t_fa: "خواندن مقدار واقعی امپرمترها و ولتمترها", t_en: "Ammeter & Voltmeter reading", crit: "general" },
+                { id: 48, t_fa: "تست عایقی میگر مرحله اول", t_en: "Insulation test (Megger) Phase 1", crit: "critical" },
+                { id: 49, t_fa: "تست Power Frequency", t_en: "Power Frequency Test", crit: "critical" },
+                { id: 50, t_fa: "تست عایقی میگر پس از تست P.F", t_en: "Insulation test after P.F", crit: "critical" }
             ]},
-            { cat_fa: "تحویل و مستندات", items: [
-                { id: 51, t_fa: "کنترل دستورالعمل حمل تابلو", crit: "minor" },
-                { id: 52, t_fa: "کنترل دستورالعمل نصب تابلو", crit: "minor" },
-                { id: 53, t_fa: "تمیز بودن تابلو با جاروبرقی", crit: "minor" },
-                { id: 54, t_fa: "نصب برچسب شناسایی و ردیابی محصول", crit: "general" },
-                { id: 55, t_fa: "کنترل نصب لیبل های تایید کنترل کیفی", crit: "general" },
-                { id: 56, t_fa: "جمع آوری کاتالوگ جهت FINAL BOOK", crit: "minor" }
+            { cat_fa: "تحویل و مستندات", cat_en: "Delivery & Documentation", items: [
+                { id: 51, t_fa: "کنترل دستورالعمل حمل تابلو", t_en: "Handling instructions", crit: "minor" },
+                { id: 52, t_fa: "کنترل دستورالعمل نصب تابلو", t_en: "Installation instructions", crit: "minor" },
+                { id: 53, t_fa: "تمیز بودن تابلو با جاروبرقی", t_en: "Panel cleanliness", crit: "minor" },
+                { id: 54, t_fa: "نصب برچسب شناسایی و ردیابی محصول", t_en: "ID & tracking label", crit: "general" },
+                { id: 55, t_fa: "کنترل نصب لیبل های تایید کنترل کیفی", t_en: "QC approval labels", crit: "general" },
+                { id: 56, t_fa: "جمع آوری کاتالوگ جهت FINAL BOOK", t_en: "Catalogs for Final Book", crit: "minor" }
             ]}
         ],
         mcc: [
-            { cat_fa: "بازرسی مکانیکی", items: [
-                { id: 1, t_fa: "کنترل ریل‌های نصب کنتاکتورها", crit: "general" },
-                { id: 2, t_fa: "بررسی کیفیت رنگ و بدنه", crit: "minor" }
+            { cat_fa: "بازرسی مکانیکی و کنتاکتورها", cat_en: "Mechanical & Contactors", items: [
+                { id: 1, t_fa: "کنترل ریل‌های نصب کنتاکتورها", t_en: "DIN rails for contactors", crit: "general" },
+                { id: 2, t_fa: "بررسی کیفیت رنگ و بدنه", t_en: "Paint & body quality", crit: "minor" },
+                { id: 3, t_fa: "کنترل محکم بودن کنتاکتورها روی ریل", t_en: "Contactor mounting", crit: "critical" },
+                { id: 4, t_fa: "بررسی سایز کنتاکتورها مطابق موتور", t_en: "Contactor sizing", crit: "critical" }
             ]},
-            { cat_fa: "تست‌های الکتریکی", items: [
-                { id: 3, t_fa: "تنظیمات رله حرارتی مطابق جریان موتور", crit: "critical" },
-                { id: 4, t_fa: "تست عملکرد کنتاکتورها", crit: "critical" },
-                { id: 5, t_fa: "بررسی ارتباط با PLC", crit: "general" }
+            { cat_fa: "تست‌های الکتریکی و حرارتی", cat_en: "Electrical & Thermal Tests", items: [
+                { id: 5, t_fa: "تنظیمات رله حرارتی مطابق جریان موتور", t_en: "Thermal relay setting", crit: "critical" },
+                { id: 6, t_fa: "تست عملکرد کنتاکتورها (لرزش نداشته باشند)", t_en: "Contactor operation", crit: "critical" },
+                { id: 7, t_fa: "بررسی ارتباط با PLC و کارت‌های I/O", t_en: "PLC & I/O communication", crit: "general" },
+                { id: 8, t_fa: "تست اینترلاک‌های مکانیکی و الکتریکی", t_en: "Interlock testing", crit: "critical" }
             ]}
         ],
-        lv: [{ cat_fa: "بازرسی عمومی", items: [{ id: 1, t_fa: "کنترل سایز کلیدهای مینیاتوری", crit: "general" }]}],
-        mv: [{ cat_fa: "بازرسی عمومی", items: [{ id: 1, t_fa: "بررسی مقره‌ها و ترکیدگی", crit: "critical" }]}],
-        plc: [{ cat_fa: "بازرسی عمومی", items: [{ id: 1, t_fa: "بررسی سیم‌بندی I/O", crit: "critical" }]}]
+        mv: [
+            { cat_fa: "بازرسی خاص فشار متوسط", cat_en: "MV Specific Inspection", items: [
+                { id: 1, t_fa: "برایش مقره‌ها و ترک‌زدگی آن‌ها", t_en: "Insulators check for cracks", crit: "critical" },
+                { id: 2, t_fa: "تست دی‌الکتریک سلول‌ها", t_en: "Dielectric test of cells", crit: "critical" },
+                { id: 3, t_fa: "بررسی فاصله ایمنی بین فازها", t_en: "Phase clearance", crit: "critical" },
+                { id: 4, t_fa: "کنترل مکانیزم متحرک (Cubicle)", t_en: "Moving mechanism check", crit: "general" }
+            ]}
+        ],
+        plc: [
+            { cat_fa: "بازرسی خاص اتوماسیون", cat_en: "Automation Specific Inspection", items: [
+                { id: 1, t_fa: "بررسی صحت سیم‌بندی ورودی/خروجی PLC", t_en: "PLC I/O wiring check", crit: "critical" },
+                { id: 2, t_fa: "تست ارتباط با HMI و SCADA", t_en: "HMI & SCADA communication", crit: "critical" },
+                { id: 3, t_fa: "بررسی صحت اتصال ارت屏蔽 (Shield)", t_en: "Shield earthing check", crit: "general" },
+                { id: 4, t_fa: "تست عملکرد رله‌های کمکی خروجی", t_en: "Auxiliary output relays test", crit: "general" }
+            ]}
+        ]
     };
 
     function toggleAccordion(elem) {
@@ -233,21 +303,25 @@
         container.innerHTML = '';
         
         qcData[type].forEach((cat, catIndex) => {
+            const catTitle = currentLang === 'fa' ? cat.cat_fa : cat.cat_en;
             let itemsHTML = '';
             
             cat.items.forEach(item => {
-                const critText = item.crit === 'critical' ? 'بحرانی' : item.crit === 'general' ? 'کلی' : 'جزئی';
+                const itemText = currentLang === 'fa' ? item.t_fa : item.t_en;
+                const critText = item.crit === 'critical' ? (currentLang === 'fa' ? 'بحرانی' : 'Critical') : item.crit === 'general' ? (currentLang === 'fa' ? 'کلی' : 'General') : (currentLang === 'fa' ? 'جزئی' : 'Minor');
+                const rowId = `${type}-${catIndex}-${item.id}`;
                 
                 itemsHTML += `
-                    <tr class="check-row" data-id="${type}-${catIndex}-${item.id}">
+                    <tr class="check-row" data-id="${rowId}">
                         <td style="width: 40px; text-align: center;">${item.id}</td>
-                        <td><a href="inspection-${item.id}.html" class="item-link"><i class="fas fa-link"></i> ${item.t_fa}</a></td>
+                        <td><a href="inspection-${item.id}.html" class="item-link"><i class="fas fa-link"></i> ${itemText}</a></td>
                         <td style="width: 80px; text-align: center;"><span class="crit-badge crit-${item.crit}">${critText}</span></td>
                         <td style="width: 180px;">
                             <div class="action-group">
-                                <button class="action-btn btn-approve" onclick="approveItem('${type}-${catIndex}-${item.id}')"><i class="fas fa-check"></i></button>
-                                <button class="action-btn btn-reject" onclick="rejectItem('${type}-${catIndex}-${item.id}')"><i class="fas fa-times"></i></button>
-                                <input type="text" class="ncr-input" placeholder="NCR No." id="ncr-${type}-${catIndex}-${item.id}">
+                                <button class="action-btn btn-approve" onclick="setItemState('${rowId}', 'approved')" title="تایید"><i class="fas fa-check"></i></button>
+                                <button class="action-btn btn-reject" onclick="setItemState('${rowId}', 'rejected')" title="عدم تایید"><i class="fas fa-times"></i></button>
+                                <button class="action-btn btn-na" onclick="setItemState('${rowId}', 'na')" title="موضوعی ندارد"><i class="fas fa-minus"></i></button>
+                                <input type="text" class="ncr-input" placeholder="NCR No." id="ncr-${rowId}">
                             </div>
                         </td>
                     </tr>
@@ -257,12 +331,12 @@
             const accordionHTML = `
                 <div class="accordion-item">
                     <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <span>${cat.cat_fa}</span>
+                        <span>${catTitle}</span>
                         <i class="fas fa-chevron-down arrow"></i>
                     </div>
                     <div class="accordion-body">
                         <table class="check-table">
-                            <thead><tr><th>#</th><th>مورد بازرسی</th><th>اهمیت</th><th>اقدام</th></tr></thead>
+                            <thead><tr><th>#</th><th>${currentLang === 'fa' ? 'مورد بازرسی' : 'Item'}</th><th>${currentLang === 'fa' ? 'اهمیت' : 'Importance'}</th><th>${currentLang === 'fa' ? 'اقدام' : 'Action'}</th></tr></thead>
                             <tbody>${itemsHTML}</tbody>
                         </table>
                     </div>
@@ -276,96 +350,94 @@
         updateProgress();
     }
 
-    function approveItem(id) {
+    function setItemState(id, state) {
         const row = document.querySelector(`tr[data-id="${id}"]`);
         const ncrInput = document.getElementById(`ncr-${id}`);
-        const approveBtn = row.querySelector('.btn-approve');
-        const rejectBtn = row.querySelector('.btn-reject');
-        if (approveBtn.classList.contains('active')) {
-            approveBtn.classList.remove('active');
-            row.classList.remove('approved');
-        } else {
-            approveBtn.classList.add('active');
-            rejectBtn.classList.remove('active');
-            row.classList.remove('rejected');
-            row.classList.add('approved');
-            ncrInput.classList.remove('show');
-            ncrInput.value = '';
-        }
-        updateProgress();
-    }
+        const btnApprove = row.querySelector('.btn-approve');
+        const btnReject = row.querySelector('.btn-reject');
+        const btnNA = row.querySelector('.btn-na');
 
-    function rejectItem(id) {
-        const row = document.querySelector(`tr[data-id="${id}"]`);
-        const ncrInput = document.getElementById(`ncr-${id}`);
-        const approveBtn = row.querySelector('.btn-approve');
-        const rejectBtn = row.querySelector('.btn-reject');
-        if (rejectBtn.classList.contains('active')) {
-            rejectBtn.classList.remove('active');
-            row.classList.remove('rejected');
-            ncrInput.classList.remove('show');
-        } else {
-            rejectBtn.classList.add('active');
-            approveBtn.classList.remove('active');
-            row.classList.remove('approved');
+        btnApprove.classList.remove('active');
+        btnReject.classList.remove('active');
+        btnNA.classList.remove('active');
+        row.classList.remove('approved', 'rejected', 'na');
+        ncrInput.classList.remove('show');
+
+        if (state === 'approved') {
+            btnApprove.classList.add('active');
+            row.classList.add('approved');
+        } else if (state === 'rejected') {
+            btnReject.classList.add('active');
             row.classList.add('rejected');
             ncrInput.classList.add('show');
             ncrInput.focus();
+        } else if (state === 'na') {
+            btnNA.classList.add('active');
+            row.classList.add('na');
         }
         updateProgress();
     }
 
     function updateProgress() {
         const rows = document.querySelectorAll('.check-row');
-        let approved = 0, rejected = 0, pending = 0;
+        let approved = 0, rejected = 0, na = 0, pending = 0;
         rows.forEach(row => {
             if (row.classList.contains('approved')) approved++;
             else if (row.classList.contains('rejected')) rejected++;
+            else if (row.classList.contains('na')) na++;
             else pending++;
         });
         document.getElementById('statApproved').textContent = approved;
         document.getElementById('statRejected').textContent = rejected;
+        document.getElementById('statNA').textContent = na;
         document.getElementById('statPending').textContent = pending;
-        const percent = rows.length > 0 ? Math.round(((approved + rejected) / rows.length) * 100) : 0;
+        const percent = rows.length > 0 ? Math.round(((approved + rejected + na) / rows.length) * 100) : 0;
         document.getElementById('progressFill').style.width = percent + '%';
         document.getElementById('progressPercent').textContent = percent + '%';
     }
 
     function generateReport() {
-        const projectName = document.getElementById('projectNameInput').value || 'نامشخص';
+        const projectName = document.getElementById('projectNameInput').value || (currentLang === 'fa' ? 'نامشخص' : 'N/A');
         const activePanelBtn = document.querySelector('.panel-btn.active');
         const panelType = activePanelBtn ? activePanelBtn.textContent : 'N/A';
-        const date = new Date().toLocaleDateString('fa-IR');
+        const date = new Date().toLocaleDateString(currentLang === 'fa' ? 'fa-IR' : 'en-US');
         
         let tableRows = '';
         const rows = document.querySelectorAll('.check-row');
+        
         rows.forEach(row => {
+            // اگر "موضوعی ندارد" انتخاب شده بود، آن ردیف در PDF چاپ نشود
+            if (row.classList.contains('na')) return; 
+
             const id = row.querySelector('td').innerText;
             const text = row.querySelector('.item-link').innerText.trim();
             const crit = row.querySelector('.crit-badge').innerText;
-            const approveBtn = row.querySelector('.btn-approve');
-            const rejectBtn = row.querySelector('.btn-reject');
+            const btnApprove = row.querySelector('.btn-approve');
+            const btnReject = row.querySelector('.btn-reject');
             const ncrInput = row.querySelector('.ncr-input');
-            let status = 'در انتظار';
+            
+            let status = currentLang === 'fa' ? 'در انتظار' : 'Pending';
             let statusColor = '#f39c12';
             let ncrNo = '';
-            if (approveBtn.classList.contains('active')) {
-                status = 'قبول';
+            
+            if (btnApprove.classList.contains('active')) {
+                status = currentLang === 'fa' ? 'تایید' : 'Approved';
                 statusColor = '#2ecc71';
-            } else if (rejectBtn.classList.contains('active')) {
-                status = 'مردود';
+            } else if (btnReject.classList.contains('active')) {
+                status = currentLang === 'fa' ? 'عدم تایید' : 'Rejected';
                 statusColor = '#e74c3c';
                 ncrNo = ncrInput.value || '-';
             }
+            
             tableRows += `<tr><td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${id}</td><td style="border: 1px solid #ddd; padding: 8px;">${text}</td><td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${crit}</td><td style="border: 1px solid #ddd; padding: 8px; text-align: center; color: ${statusColor}; font-weight: bold;">${status}</td><td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${ncrNo}</td></tr>`;
         });
 
         const reportHTML = `
-            <html lang="fa" dir="rtl">
+            <html lang="${currentLang}" dir="${currentLang === 'fa' ? 'rtl' : 'ltr'}">
             <head>
                 <meta charset="UTF-8"><title>QC Report - ${projectName}</title>
                 <style>
-                    body { font-family: 'Vazirmatn', sans-serif; padding: 40px; color: #000; }
+                    body { font-family: ${currentLang === 'fa' ? 'Vazirmatn, sans-serif' : 'Arial, sans-serif'}; padding: 40px; color: #000; }
                     h1 { text-align: center; color: #004085; border-bottom: 2px solid #004085; padding-bottom: 15px; margin-bottom: 30px; }
                     .header-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
                     .header-table td { padding: 8px; border: 1px solid #ccc; }
@@ -378,20 +450,20 @@
                 </style>
             </head>
             <body>
-                <h1>فرم بازرسی نهایی کنترل کیفیت</h1>
+                <h1>${currentLang === 'fa' ? 'فرم بازرسی نهایی کنترل کیفیت' : 'Final Quality Control Inspection Report'}</h1>
                 <table class="header-table">
-                    <tr><td><strong>نام پروژه:</strong> ${projectName}</td><td><strong>نوع تابلو:</strong> ${panelType}</td><td><strong>تاریخ:</strong> ${date}</td></tr>
+                    <tr><td><strong>${currentLang === 'fa' ? 'نام پروژه:' : 'Project Name:'}</strong> ${projectName}</td><td><strong>${currentLang === 'fa' ? 'نوع تابلو:' : 'Panel Type:'}</strong> ${panelType}</td><td><strong>${currentLang === 'fa' ? 'تاریخ:' : 'Date:'}</strong> ${date}</td></tr>
                 </table>
                 <table>
-                    <thead><tr><th>#</th><th>مورد بازرسی</th><th>درجه اهمیت</th><th>نتیجه</th><th>شماره عدم انطباق</th></tr></thead>
+                    <thead><tr><th>#</th><th>${currentLang === 'fa' ? 'مورد بازرسی' : 'Inspection Item'}</th><th>${currentLang === 'fa' ? 'درجه اهمیت' : 'Criticality'}</th><th>${currentLang === 'fa' ? 'نتیجه' : 'Result'}</th><th>${currentLang === 'fa' ? 'شماره عدم انطباق' : 'NCR No.'}</th></tr></thead>
                     <tbody>${tableRows}</tbody>
                 </table>
                 <div class="signatures">
-                    <div class="sig-box">نام و امضاء بازرس کنترل کیفیت</div>
-                    <div class="sig-box">نام و امضاء سرپرست کنترل کیفیت</div>
+                    <div class="sig-box">${currentLang === 'fa' ? 'نام و امضاء بازرس کنترل کیفیت' : 'QC Inspector Signature'}</div>
+                    <div class="sig-box">${currentLang === 'fa' ? 'نام و امضاء سرپرست کنترل کیفیت' : 'QC Supervisor Signature'}</div>
                 </div>
                 <div style="text-align: center; margin-top: 30px;">
-                    <button onclick="window.print()" style="padding: 10px 20px; background: #004085; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">چاپ / ذخیره PDF</button>
+                    <button onclick="window.print()" style="padding: 10px 20px; background: #004085; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">${currentLang === 'fa' ? 'چاپ / ذخیره PDF' : 'Print / Save as PDF'}</button>
                 </div>
             </body>
             </html>
@@ -401,8 +473,8 @@
         reportWindow.document.close();
     }
 
-    // لود کردن چک‌لیست پیش‌فرض هنگام باز شدن صفحه
-    loadChecklist('mdb');
+    // راه‌اندازی اولیه
+    loadChecklist('lv_final');
 </script>
 </body>
 </html>
