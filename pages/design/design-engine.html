@@ -31,8 +31,8 @@
         
         .examples { background: rgba(0,0,0,0.2); border-radius: 8px; padding: 15px; border: 1px dashed rgba(255,255,255,0.1); }
         .examples h4 { font-size: 0.9rem; color: #d4af37; margin-bottom: 10px; }
-        .example-item { font-size: 0.85rem; color: #8b8f99; padding: 5px; cursor: pointer; transition: 0.2s; }
-        .example-item:hover { color: #00f2ff; }
+        .example-item { font-size: 0.85rem; color: #8b8f99; padding: 8px; cursor: pointer; transition: 0.2s; border-radius: 4px; }
+        .example-item:hover { color: #00f2ff; background: rgba(0, 242, 255, 0.05); }
 
         .canvas-area { flex: 1; background: #0a0d12; background-image: linear-gradient(rgba(77, 139, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(77, 139, 255, 0.05) 1px, transparent 1px); background-size: 20px 20px; position: relative; display: flex; justify-content: center; align-items: center; overflow: auto; }
         .svg-canvas { width: 100%; height: 100%; }
@@ -53,17 +53,15 @@
             <div class="sidebar-title">موتور رسم خودکار مدار</div>
             <div class="input-group">
                 <label class="input-label">دستور خود را به فارسی بنویسید:</label>
-                <textarea class="command-input" id="circuitInput" placeholder="مثلاً: یک مدار استارت استاپ با یک کنتاکتور..."></textarea>
+                <textarea class="command-input" id="circuitInput" placeholder="مثلاً: یک مدار استارت استاپ با کنتاکتور..."></textarea>
                 <button class="generate-btn" onclick="generateCircuit()">
-                    <i class="fas fa-wand-magic-sparkles"></i> طراحی و رسم مدار
+                    <i class="fas fa-wand-magic-sparkles"></i> طراحی و رسم مدار فرمان
                 </button>
             </div>
 
             <div class="examples">
                 <h4><i class="fas fa-lightbulb"></i> نمونه دستورات:</h4>
-                <div class="example-item" onclick="document.getElementById('circuitInput').value='مدار استارت استاپ مستقیم با کنتاکتور'; generateCircuit();">مدار استارت استاپ مستقیم با کنتاکتور</div>
-                <div class="example-item" onclick="document.getElementById('circuitInput').value='مدار استار دلتا'; generateCircuit();">مدار استار دلتا</div>
-                <div class="example-item" onclick="document.getElementById('circuitInput').value='یک شستی استارت و یک شستی استاپ'; generateCircuit();">یک شستی استارت و یک شستی استاپ</div>
+                <div class="example-item" onclick="document.getElementById('circuitInput').value='مدار استارت استاپ مستقیم با کنتاکتور'; generateCircuit();">۱. مدار استارت استاپ مستقیم با کنتاکتور</div>
             </div>
         </div>
 
@@ -72,7 +70,7 @@
                 <i class="fas fa-drafting-compass"></i>
                 <p>منتظر دستور شماست...</p>
             </div>
-            <svg class="svg-canvas" id="svgCanvas" style="display: none;"></svg>
+            <svg class="svg-canvas" id="svgCanvas" style="display: none;" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet"></svg>
         </div>
     </div>
 
@@ -90,34 +88,98 @@
             emptyState.style.display = 'none';
             canvas.style.display = 'block';
             
-            // موتور پردازش متن و رسم (در مرحله بعد تکمیل می‌شود)
             if (input.includes('استارت استاپ') || input.includes('مستقیم') || input.includes('کنتاکتور')) {
-                drawDirectOnLineStarter(canvas);
+                drawDOLControlCircuit(canvas);
             } else {
-                canvas.innerHTML = `<text x="50" y="50" fill="#f39c12" font-size="20" font-family="Vazirmatn">مدار پیدا نشد. لطفاً از کلمات کلیدی استفاده کنید.</text>`;
+                canvas.innerHTML = `<text x="400" y="300" fill="#f39c12" font-size="20" font-family="Vazirmatn" text-anchor="middle">مدار پیدا نشد. لطفاً از کلمات کلیدی استفاده کنید.</text>`;
             }
         }
 
-        function drawDirectOnLineStarter(canvas) {
-            // این تابع در مرحله بعد با نمادهای واقعی پر می‌شود
+        // موتور رسم مدار فرمان استارت-استاپ مستقیم (DOL)
+        function drawDOLControlCircuit(canvas) {
             canvas.innerHTML = `
-                <text x="400" y="50" fill="#00f2ff" font-size="24" font-family="Vazirmatn" text-anchor="middle">مدار استارت استاپ مستقیم (DOL)</text>
+                <defs>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+
+                <!-- عنوان مدار -->
+                <text x="400" y="40" fill="#00f2ff" font-size="18" font-family="Vazirmatn" text-anchor="middle" filter="url(#glow)">مدار فرمان استار-استاپ مستقیم (DOL Starter)</text>
                 
-                <!-- رسم خطوط و تجهیزات (نمونه اولیه) -->
-                <line x1="200" y1="100" x2="200" y2="400" stroke="#fff" stroke-width="2"/>
-                <line x1="300" y1="100" x2="300" y2="400" stroke="#fff" stroke-width="2"/>
+                <!-- خطوط فاز و نول (L1 و N) -->
+                <line x1="100" y1="100" x2="100" y2="500" stroke="#fff" stroke-width="2" filter="url(#glow)"/>
+                <line x1="400" y1="100" x2="400" y2="500" stroke="#fff" stroke-width="2" filter="url(#glow)"/>
+                <line x1="100" y1="100" x2="400" y2="100" stroke="#fff" stroke-width="2" filter="url(#glow)"/>
                 
-                <!-- کنتاکتور -->
-                <rect x="180" y="200" width="40" height="40" fill="none" stroke="#00f2ff" stroke-width="2"/>
-                <text x="160" y="225" fill="#d4af37" font-size="14" font-family="Vazirmatn">K1</text>
+                <text x="80" y="100" fill="#8b8f99" font-size="14" font-family="Vazirmatn" text-anchor="end">L1 (فاز)</text>
+                <text x="420" y="100" fill="#8b8f99" font-size="14" font-family="Vazirmatn">N (نول)</text>
+
+                <!-- ۱. فیوز مینیاتوری (F1) -->
+                <rect x="90" y="130" width="20" height="30" fill="none" stroke="#d4af37" stroke-width="2" filter="url(#glow)"/>
+                <line x1="100" y1="130" x2="100" y2="160" stroke="#d4af37" stroke-width="2"/>
+                <text x="120" y="150" fill="#d4af37" font-size="14" font-family="Vazirmatn">F1</text>
+                <line x1="100" y1="160" x2="100" y2="200" stroke="#fff" stroke-width="2"/>
+
+                <!-- ۲. کنتاکتور اصلی (K1) -->
+                <!-- خط سمت راع (فاز) -->
+                <line x1="100" y1="200" x2="100" y2="230" stroke="#fff" stroke-width="2"/>
+                <line x1="100" y1="260" x2="100" y2="290" stroke="#fff" stroke-width="2"/>
+                <line x1="90" y1="230" x2="110" y2="260" stroke="#00f2ff" stroke-width="3" filter="url(#glow)"/>
+                <text x="120" y="250" fill="#00f2ff" font-size="14" font-family="Vazirmatn">K1 (Main)</text>
                 
-                <!-- شستی استاپ -->
-                <circle cx="200" cy="300" r="15" fill="none" stroke="#e74c3c" stroke-width="2"/>
-                <line x1="185" y1="300" x2="215" y2="290" stroke="#e74c3c" stroke-width="2"/>
+                <!-- خط سمت چپ (نول) -->
+                <line x1="400" y1="200" x2="400" y2="230" stroke="#fff" stroke-width="2"/>
+                <line x1="400" y1="260" x2="400" y2="290" stroke="#fff" stroke-width="2"/>
+                <line x1="390" y1="230" x2="410" y2="260" stroke="#00f2ff" stroke-width="3" filter="url(#glow)"/>
                 
-                <!-- شستی استارت -->
-                <circle cx="200" cy="350" r="15" fill="none" stroke="#2ecc71" stroke-width="2"/>
-                <line x1="185" y1="350" x2="215" y2="340" stroke="#2ecc71" stroke-width="2"/>
+                <!-- اتصال کاری -->
+                <line x1="100" y1="290" x2="400" y2="290" stroke="#fff" stroke-width="2"/>
+
+                <!-- ۳. رله حرارتی (F2) -->
+                <line x1="100" y1="320" x2="100" y2="330" stroke="#fff" stroke-width="2"/>
+                <line x1="100" y1="360" x2="100" y2="370" stroke="#fff" stroke-width="2"/>
+                <rect x="85" y="330" width="30" height="30" fill="none" stroke="#f39c12" stroke-width="2" filter="url(#glow)"/>
+                <line x1="85" y1="330" x2="115" y2="360" stroke="#f39c12" stroke-width="2"/>
+                <text x="125" y="355" fill="#f39c12" font-size="14" font-family="Vazirmatn">F2 (Thermal)</text>
+
+                <!-- ۴. شستی استاپ (S0) - Normally Closed -->
+                <line x1="100" y1="400" x2="100" y2="410" stroke="#fff" stroke-width="2"/>
+                <line x1="100" y1="440" x2="100" y2="450" stroke="#fff" stroke-width="2"/>
+                <line x1="90" y1="410" x2="110" y2="440" stroke="#e74c3c" stroke-width="3" filter="url(#glow)"/>
+                <line x1="100" y1="425" x2="120" y2="415" stroke="#e74c3c" stroke-width="2"/>
+                <text x="125" y="435" fill="#e74c3c" font-size="14" font-family="Vazirmatn">S0 (Stop)</text>
+
+                <!-- ۵. شستی استارت (S1) - Normally Open -->
+                <line x1="100" y1="480" x2="100" y2="490" stroke="#fff" stroke-width="2"/>
+                <line x1="100" y1="520" x2="100" y2="530" stroke="#fff" stroke-width="2"/>
+                <line x1="90" y1="490" x2="110" y2="520" stroke="#2ecc71" stroke-width="3" filter="url(#glow)"/>
+                <line x1="100" y1="505" x2="120" y2="495" stroke="#2ecc71" stroke-width="2"/>
+                <text x="125" y="515" fill="#2ecc71" font-size="14" font-family="Vazirmatn">S1 (Start)</text>
+
+                <!-- ۶. کنتاکتور کمکی (K1 Aux) - Normally Open (موازی با استارت) -->
+                <line x1="100" y1="490" x2="150" y2="490" stroke="#fff" stroke-width="2"/>
+                <circle cx="150" cy="490" r="3" fill="#fff"/>
+                <line x1="150" y1="490" x2="150" y2="500" stroke="#fff" stroke-width="2"/>
+                <line x1="150" y1="510" x2="150" y2="520" stroke="#fff" stroke-width="2"/>
+                <line x1="140" y1="500" x2="160" y2="510" stroke="#00f2ff" stroke-width="3" filter="url(#glow)"/>
+                <line x1="150" y1="505" x2="170" y2="495" stroke="#00f2ff" stroke-width="2"/>
+                <text x="175" y="515" fill="#00f2ff" font-size="14" font-family="Vazirmatn">K1 (Aux)</text>
+                <line x1="150" y1="520" x2="100" y2="520" stroke="#fff" stroke-width="2"/>
+                <circle cx="150" cy="520" r="3" fill="#fff"/>
+                <circle cx="100" cy="520" r="3" fill="#fff"/>
+
+                <!-- ۷. کویل کنتاکتور (K1 Coil) -->
+                <line x1="100" y1="530" x2="300" y2="530" stroke="#fff" stroke-width="2"/>
+                <circle cx="300" cy="530" r="20" fill="none" stroke="#00f2ff" stroke-width="2" filter="url(#glow)"/>
+                <text x="330" y="535" fill="#00f2ff" font-size="14" font-family="Vazirmatn">K1 (Coil)</text>
+                <line x1="300" y1="550" x2="300" y2="570" stroke="#fff" stroke-width="2"/>
+                <line x1="300" y1="570" x2="400" y2="570" stroke="#fff" stroke-width="2"/>
+                <line x1="400" y1="500" x2="400" y2="570" stroke="#fff" stroke-width="2"/>
             `;
         }
     </script>
