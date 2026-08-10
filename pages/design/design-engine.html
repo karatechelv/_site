@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karatech ELV · Smart Design Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@600;700&family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Vazirmatn', sans-serif; background: #04101f; color: #fff; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+        
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(10, 20, 35, 0.8); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0, 242, 255, 0.15); }
+        .brand { font-size: 1.2rem; font-weight: 700; }
+        .brand span { color: #00f2ff; text-shadow: 0 0 10px rgba(0, 242, 255, 0.4); }
+        .back-btn { color: #4d8bff; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid rgba(77, 139, 255, 0.3); border-radius: 8px; transition: 0.3s; }
+        .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
+
+        .main-layout { display: flex; flex: 1; overflow: hidden; }
+        
+        .sidebar { width: 350px; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(10px); border-left: 1px solid rgba(255,255,255,0.05); padding: 30px 20px; display: flex; flex-direction: column; gap: 20px; overflow-y: auto; }
+        .sidebar-title { font-family: 'Markazi Text', serif; font-size: 1.8rem; color: #00f2ff; border-bottom: 1px solid rgba(0, 242, 255, 0.2); padding-bottom: 10px; }
+        
+        .input-group { display: flex; flex-direction: column; gap: 10px; }
+        .input-label { font-size: 0.9rem; color: #8b8f99; }
+        .command-input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; color: #fff; font-family: 'Vazirmatn', sans-serif; font-size: 1rem; resize: vertical; min-height: 100px; transition: 0.3s; }
+        .command-input:focus { outline: none; border-color: #00f2ff; box-shadow: 0 0 15px rgba(0, 242, 255, 0.1); }
+        
+        .generate-btn { background: linear-gradient(135deg, #4d8bff, #00f2ff); color: #000; padding: 12px; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .generate-btn:hover { box-shadow: 0 0 20px rgba(0, 242, 255, 0.4); transform: translateY(-2px); }
+        
+        .examples { background: rgba(0,0,0,0.2); border-radius: 8px; padding: 15px; border: 1px dashed rgba(255,255,255,0.1); }
+        .examples h4 { font-size: 0.9rem; color: #d4af37; margin-bottom: 10px; }
+        .example-item { font-size: 0.85rem; color: #8b8f99; padding: 5px; cursor: pointer; transition: 0.2s; }
+        .example-item:hover { color: #00f2ff; }
+
+        .canvas-area { flex: 1; background: #0a0d12; background-image: linear-gradient(rgba(77, 139, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(77, 139, 255, 0.05) 1px, transparent 1px); background-size: 20px 20px; position: relative; display: flex; justify-content: center; align-items: center; overflow: auto; }
+        .svg-canvas { width: 100%; height: 100%; }
+        
+        .empty-state { text-align: center; color: rgba(255,255,255,0.2); }
+        .empty-state i { font-size: 4rem; margin-bottom: 20px; }
+        .empty-state p { font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="brand">KARATECH <span>ELV</span> · Smart Design</div>
+        <a href="../academy/design.html" class="back-btn"><i class="fas fa-arrow-right"></i> بازگشت به طراحی</a>
+    </div>
+
+    <div class="main-layout">
+        <div class="sidebar">
+            <div class="sidebar-title">موتور رسم خودکار مدار</div>
+            <div class="input-group">
+                <label class="input-label">دستور خود را به فارسی بنویسید:</label>
+                <textarea class="command-input" id="circuitInput" placeholder="مثلاً: یک مدار استارت استاپ با یک کنتاکتور..."></textarea>
+                <button class="generate-btn" onclick="generateCircuit()">
+                    <i class="fas fa-wand-magic-sparkles"></i> طراحی و رسم مدار
+                </button>
+            </div>
+
+            <div class="examples">
+                <h4><i class="fas fa-lightbulb"></i> نمونه دستورات:</h4>
+                <div class="example-item" onclick="document.getElementById('circuitInput').value='مدار استارت استاپ مستقیم با کنتاکتور'; generateCircuit();">مدار استارت استاپ مستقیم با کنتاکتور</div>
+                <div class="example-item" onclick="document.getElementById('circuitInput').value='مدار استار دلتا'; generateCircuit();">مدار استار دلتا</div>
+                <div class="example-item" onclick="document.getElementById('circuitInput').value='یک شستی استارت و یک شستی استاپ'; generateCircuit();">یک شستی استارت و یک شستی استاپ</div>
+            </div>
+        </div>
+
+        <div class="canvas-area">
+            <div class="empty-state" id="emptyState">
+                <i class="fas fa-drafting-compass"></i>
+                <p>منتظر دستور شماست...</p>
+            </div>
+            <svg class="svg-canvas" id="svgCanvas" style="display: none;"></svg>
+        </div>
+    </div>
+
+    <script>
+        function generateCircuit() {
+            const input = document.getElementById('circuitInput').value.toLowerCase();
+            const canvas = document.getElementById('svgCanvas');
+            const emptyState = document.getElementById('emptyState');
+            
+            if (input.trim() === '') {
+                alert('لطفاً دستور خود را وارد کنید.');
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            canvas.style.display = 'block';
+            
+            // موتور پردازش متن و رسم (در مرحله بعد تکمیل می‌شود)
+            if (input.includes('استارت استاپ') || input.includes('مستقیم') || input.includes('کنتاکتور')) {
+                drawDirectOnLineStarter(canvas);
+            } else {
+                canvas.innerHTML = `<text x="50" y="50" fill="#f39c12" font-size="20" font-family="Vazirmatn">مدار پیدا نشد. لطفاً از کلمات کلیدی استفاده کنید.</text>`;
+            }
+        }
+
+        function drawDirectOnLineStarter(canvas) {
+            // این تابع در مرحله بعد با نمادهای واقعی پر می‌شود
+            canvas.innerHTML = `
+                <text x="400" y="50" fill="#00f2ff" font-size="24" font-family="Vazirmatn" text-anchor="middle">مدار استارت استاپ مستقیم (DOL)</text>
+                
+                <!-- رسم خطوط و تجهیزات (نمونه اولیه) -->
+                <line x1="200" y1="100" x2="200" y2="400" stroke="#fff" stroke-width="2"/>
+                <line x1="300" y1="100" x2="300" y2="400" stroke="#fff" stroke-width="2"/>
+                
+                <!-- کنتاکتور -->
+                <rect x="180" y="200" width="40" height="40" fill="none" stroke="#00f2ff" stroke-width="2"/>
+                <text x="160" y="225" fill="#d4af37" font-size="14" font-family="Vazirmatn">K1</text>
+                
+                <!-- شستی استاپ -->
+                <circle cx="200" cy="300" r="15" fill="none" stroke="#e74c3c" stroke-width="2"/>
+                <line x1="185" y1="300" x2="215" y2="290" stroke="#e74c3c" stroke-width="2"/>
+                
+                <!-- شستی استارت -->
+                <circle cx="200" cy="350" r="15" fill="none" stroke="#2ecc71" stroke-width="2"/>
+                <line x1="185" y1="350" x2="215" y2="340" stroke="#2ecc71" stroke-width="2"/>
+            `;
+        }
+    </script>
+</body>
+</html>
