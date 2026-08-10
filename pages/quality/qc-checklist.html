@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karatech ELV · چک‌لیست تعاملی</title>
+    <title>Karatech ELV · Interactive Checklist</title>
     <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@600;700&family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -19,6 +19,8 @@
         .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(15px); border: 1px solid rgba(77, 139, 255, 0.15); border-radius: 12px; margin-bottom: 30px; }
         .brand { font-size: 1.2rem; font-weight: 700; }
         .brand span { color: var(--accent-cyan); text-shadow: 0 0 10px rgba(0, 242, 255, 0.4); }
+        
+        .header-actions { display: flex; align-items: center; gap: 15px; }
         .back-btn { color: var(--accent-indigo); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid rgba(77, 139, 255, 0.3); border-radius: 8px; transition: 0.3s; }
         .back-btn i { transform: rotate(180deg); }
         .back-btn:hover { background: rgba(77, 139, 255, 0.1); box-shadow: 0 0 15px rgba(77, 139, 255, 0.2); }
@@ -93,12 +95,12 @@
 <div class="container">
     <div class="header">
         <div class="brand">KARATECH <span>ELV</span></div>
-        <div style="display:flex; align-items:center; gap:15px;">
+        <div class="header-actions">
             <div class="lang-switch">
                 <button class="lang-btn" data-lang="en">EN</button>
                 <button class="lang-btn active" data-lang="fa">FA</button>
             </div>
-            <a href="quality-control.html" class="back-btn"><i class="fas fa-arrow-left"></i> بازگشت به کنترل کیفیت</a>
+            <a href="quality-control.html" class="back-btn"><i class="fas fa-arrow-left"></i> <span data-en="Back" data-fa="بازگشت">بازگشت</span></a>
         </div>
     </div>
 
@@ -107,21 +109,21 @@
 
     <div class="glass-card">
         <div class="panel-selector" id="panelSelector">
-            <button class="panel-btn active" onclick="loadChecklist('lv_final')">تابلو نهایی (FR08)</button>
-            <button class="panel-btn" onclick="loadChecklist('mdb')">تابلو توزیع اصلی (MDB)</button>
-            <button class="panel-btn" onclick="loadChecklist('mcc')">تابلو کنترل موتور (MCC)</button>
-            <button class="panel-btn" onclick="loadChecklist('mv')">فشار متوسط (MV)</button>
-            <button class="panel-btn" onclick="loadChecklist('plc')">اتوماسیون (PLC)</button>
+            <button class="panel-btn active" onclick="loadChecklist('lv_final')" data-en="LV Final (FR08)" data-fa="تابلو نهایی (FR08)">تابلو نهایی (FR08)</button>
+            <button class="panel-btn" onclick="loadChecklist('mdb')" data-en="MDB" data-fa="تابلو توزیع اصلی (MDB)">تابلو توزیع اصلی (MDB)</button>
+            <button class="panel-btn" onclick="loadChecklist('mcc')" data-en="MCC" data-fa="تابلو کنترل موتور (MCC)">تابلو کنترل موتور (MCC)</button>
+            <button class="panel-btn" onclick="loadChecklist('mv')" data-en="MV" data-fa="فشار متوسط (MV)">فشار متوسط (MV)</button>
+            <button class="panel-btn" onclick="loadChecklist('plc')" data-en="PLC" data-fa="اتوماسیون (PLC)">اتوماسیون (PLC)</button>
         </div>
 
         <div class="progress-dashboard">
-            <div class="stat-box stat-approved"><span id="statApproved">0</span><label>تایید</label></div>
-            <div class="stat-box stat-rejected"><span id="statRejected">0</span><label>عدم تایید</label></div>
-            <div class="stat-box stat-na"><span id="statNA">0</span><label>موضوعی ندارد</label></div>
-            <div class="stat-box stat-pending"><span id="statPending">0</span><label>در انتظار</label></div>
+            <div class="stat-box stat-approved"><span id="statApproved">0</span><label data-en="Approved" data-fa="تایید">تایید</label></div>
+            <div class="stat-box stat-rejected"><span id="statRejected">0</span><label data-en="Rejected" data-fa="عدم تایید">عدم تایید</label></div>
+            <div class="stat-box stat-na"><span id="statNA">0</span><label data-en="N/A" data-fa="موضوعی ندارد">موضوعی ندارد</label></div>
+            <div class="stat-box stat-pending"><span id="statPending">0</span><label data-en="Pending" data-fa="در انتظار">در انتظار</label></div>
             <div style="flex: 1; min-width: 200px;">
                 <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">
-                    <span>پیشرفت</span>
+                    <span data-en="Progress" data-fa="پیشرفت">پیشرفت</span>
                     <span id="progressPercent">0%</span>
                 </div>
                 <div class="progress-bar-container"><div class="progress-fill" id="progressFill"></div></div>
@@ -133,7 +135,7 @@
         <div class="export-row">
             <input type="text" id="projectNameInput" class="project-input" placeholder="نام پروژه / شماره سریال">
             <button class="export-btn" onclick="generateReport()">
-                <i class="fas fa-file-export"></i> <span>خروجی PDF / چاپ</span>
+                <i class="fas fa-file-export"></i> <span data-en="Export PDF / Print" data-fa="خروجی PDF / چاپ">خروجی PDF / چاپ</span>
             </button>
         </div>
     </div>
@@ -142,7 +144,7 @@
 <script>
     let currentLang = localStorage.getItem('karatech-lang') || 'fa';
 
-    // پایگاه داده جامع چک‌لیست‌ها
+    // پایگاه داده چک‌لیست (دوزبانه)
     const qcData = {
         lv_final: [
             { cat_fa: "بازرسی ظاهری و مکانیکی", cat_en: "Visual & Mechanical", items: [
@@ -253,36 +255,46 @@
             ]}
         ],
         mcc: [
-            { cat_fa: "بازرسی مکانیکی و کنتاکتورها", cat_en: "Mechanical & Contactors", items: [
+            { cat_fa: "بازرسی مکانیکی", cat_en: "Mechanical Inspection", items: [
                 { id: 1, t_fa: "کنترل ریل‌های نصب کنتاکتورها", t_en: "DIN rails for contactors", crit: "general" },
-                { id: 2, t_fa: "بررسی کیفیت رنگ و بدنه", t_en: "Paint & body quality", crit: "minor" },
-                { id: 3, t_fa: "کنترل محکم بودن کنتاکتورها روی ریل", t_en: "Contactor mounting", crit: "critical" },
-                { id: 4, t_fa: "بررسی سایز کنتاکتورها مطابق موتور", t_en: "Contactor sizing", crit: "critical" }
+                { id: 2, t_fa: "بررسی کیفیت رنگ و بدنه", t_en: "Paint & body quality", crit: "minor" }
             ]},
-            { cat_fa: "تست‌های الکتریکی و حرارتی", cat_en: "Electrical & Thermal Tests", items: [
-                { id: 5, t_fa: "تنظیمات رله حرارتی مطابق جریان موتور", t_en: "Thermal relay setting", crit: "critical" },
-                { id: 6, t_fa: "تست عملکرد کنتاکتورها (لرزش نداشته باشند)", t_en: "Contactor operation", crit: "critical" },
-                { id: 7, t_fa: "بررسی ارتباط با PLC و کارت‌های I/O", t_en: "PLC & I/O communication", crit: "general" },
-                { id: 8, t_fa: "تست اینترلاک‌های مکانیکی و الکتریکی", t_en: "Interlock testing", crit: "critical" }
+            { cat_fa: "تست‌های الکتریکی", cat_en: "Electrical Tests", items: [
+                { id: 3, t_fa: "تنظیمات رله حرارتی مطابق جریان موتور", t_en: "Thermal relay setting", crit: "critical" },
+                { id: 4, t_fa: "تست عملکرد کنتاکتورها", t_en: "Contactor operation", crit: "critical" },
+                { id: 5, t_fa: "بررسی ارتباط با PLC", t_en: "PLC communication", crit: "general" }
             ]}
         ],
-        mv: [
-            { cat_fa: "بازرسی خاص فشار متوسط", cat_en: "MV Specific Inspection", items: [
-                { id: 1, t_fa: "برایش مقره‌ها و ترک‌زدگی آن‌ها", t_en: "Insulators check for cracks", crit: "critical" },
-                { id: 2, t_fa: "تست دی‌الکتریک سلول‌ها", t_en: "Dielectric test of cells", crit: "critical" },
-                { id: 3, t_fa: "بررسی فاصله ایمنی بین فازها", t_en: "Phase clearance", crit: "critical" },
-                { id: 4, t_fa: "کنترل مکانیزم متحرک (Cubicle)", t_en: "Moving mechanism check", crit: "general" }
-            ]}
-        ],
-        plc: [
-            { cat_fa: "بازرسی خاص اتوماسیون", cat_en: "Automation Specific Inspection", items: [
-                { id: 1, t_fa: "بررسی صحت سیم‌بندی ورودی/خروجی PLC", t_en: "PLC I/O wiring check", crit: "critical" },
-                { id: 2, t_fa: "تست ارتباط با HMI و SCADA", t_en: "HMI & SCADA communication", crit: "critical" },
-                { id: 3, t_fa: "بررسی صحت اتصال ارت屏蔽 (Shield)", t_en: "Shield earthing check", crit: "general" },
-                { id: 4, t_fa: "تست عملکرد رله‌های کمکی خروجی", t_en: "Auxiliary output relays test", crit: "general" }
-            ]}
-        ]
+        mv: [{ cat_fa: "بازرسی عمومی", cat_en: "General Inspection", items: [{ id: 1, t_fa: "بررسی مقره‌ها و ترکیدگی", t_en: "Insulators check", crit: "critical" }]}],
+        plc: [{ cat_fa: "بازرسی عمومی", cat_en: "General Inspection", items: [{ id: 1, t_fa: "بررسی سیم‌بندی I/O", t_en: "I/O wiring check", crit: "critical" }]}]
     };
+
+    function updateStaticTexts() {
+        document.querySelectorAll('[data-en]').forEach(el => { 
+            let text = el.getAttribute(`data-${currentLang}`);
+            if (text !== null) el.innerHTML = text;
+        });
+        if(currentLang === 'fa') {
+            document.body.style.direction = 'rtl';
+            document.body.style.fontFamily = "'Vazirmatn', sans-serif";
+            document.getElementById('projectNameInput').placeholder = 'نام پروژه / شماره سریال';
+        } else {
+            document.body.style.direction = 'ltr';
+            document.body.style.fontFamily = 'Outfit, sans-serif';
+            document.getElementById('projectNameInput').placeholder = 'Project Name / Serial No.';
+        }
+    }
+
+    function setLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('karatech-lang', lang);
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        updateStaticTexts();
+        const activePanel = document.querySelector('.panel-btn.active').getAttribute('onclick').match(/'([^']+)'/)[1];
+        loadChecklist(activePanel);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
 
     function toggleAccordion(elem) {
         const body = elem.nextElementSibling;
@@ -406,7 +418,7 @@
         const rows = document.querySelectorAll('.check-row');
         
         rows.forEach(row => {
-            // اگر "موضوعی ندارد" انتخاب شده بود، آن ردیف در PDF چاپ نشود
+            // N/A items are skipped in PDF
             if (row.classList.contains('na')) return; 
 
             const id = row.querySelector('td').innerText;
@@ -474,6 +486,7 @@
     }
 
     // راه‌اندازی اولیه
+    updateStaticTexts();
     loadChecklist('lv_final');
 </script>
 </body>
