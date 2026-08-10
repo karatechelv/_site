@@ -26,7 +26,8 @@
         .mode-btn.active { background: var(--indigo); color: #fff; box-shadow: 0 0 10px rgba(77, 139, 255, 0.3); }
 
         .layout { display: flex; height: calc(100vh - 60px); overflow: hidden; }
-        .sidebar { width: 320px; flex-shrink: 0; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(10px); border-left: 1px solid var(--border); padding: 20px; display: flex; flex-direction: column; gap: 15px; overflow-y: auto; }
+        .sidebar { width: 320px; flex-shrink: 0; background: rgba(10, 20, 35, 0.6); backdrop-filter: blur(10px); border-left: 1px solid var(--border); padding: 20px; display: flex; flex-direction: column; gap: 15px; overflow-y: auto; display: none; }
+        .sidebar.active { display: flex; }
         .sidebar::-webkit-scrollbar { width: 5px; }
         .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
         
@@ -38,41 +39,40 @@
         .list-item { background: rgba(0,0,0,0.2); border: 1px dashed rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; color: var(--muted); font-size: 0.85rem; cursor: pointer; transition: 0.2s; }
         .list-item:hover { border-color: var(--cyan); color: var(--cyan); }
 
-        #modeGallery { display: none; flex-direction: column; height: 100%; }
-        #modeGallery.active { display: flex; }
-        .schematic-box { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+        .schematic-box { width: 100%; height: 100%; display: none; justify-content: center; align-items: center; }
+        .schematic-box.active { display: flex; }
         .schematic-svg { max-width: 100%; max-height: 100%; height: auto; }
         
-        #modeDragDrop { display: none; flex-direction: column; height: 100%; }
-        #modeDragDrop.active { display: flex; }
         .comp-item { display: flex; align-items: center; gap: 15px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 8px; cursor: grab; margin-bottom: 8px; color: #fff; font-size: 0.85rem; transition: 0.2s; }
         .comp-item:hover { border-color: var(--cyan); background: rgba(0, 242, 255, 0.05); }
         .comp-item:active { cursor: grabbing; }
         .comp-item svg { background: rgba(255,255,255,0.02); border-radius: 4px; flex-shrink: 0; }
-        
         
         .library-tabs { display:flex; flex-wrap:wrap; gap:5px; margin:8px 0; }
         .library-tab { flex:1; min-width:72px; padding:6px 4px; background:#101a2a; color:#aeb6c2; border:1px solid rgba(255,255,255,.08); border-radius:5px; cursor:pointer; font:inherit; font-size:11px; }
         .library-tab.active,.library-tab:hover { color:var(--cyan); border-color:var(--cyan); }
         .library-group { display:none; }
         .library-group.active { display:block; }
-        .comp-item { position:relative; }
+        
         .port { position:absolute; width:10px; height:10px; border-radius:50%; background:#07101c; border:2px solid #00f2ff; z-index:30; cursor:crosshair; box-shadow:0 0 7px rgba(0,242,255,.65); }
         .port:hover,.port.selected { background:#00f2ff; transform:scale(1.35); }
         .port.top { top:-6px; left:50%; transform:translateX(-50%); }
         .port.bottom { bottom:-6px; left:50%; transform:translateX(-50%); }
         .port.left { left:-6px; top:50%; transform:translateY(-50%); }
         .port.right { right:-6px; top:50%; transform:translateY(-50%); }
-        .wire-layer { position:absolute; inset:0; width:100%; height:100%; z-index:5; pointer-events:none; }
+        
+        .drop-zone { width: 100%; height: 100%; border: 2px dashed rgba(255,255,255,0.1); border-radius: 12px; position: relative; overflow: hidden; display: none; }
+        .drop-zone.active { display: block; }
+        
+        .wire-layer { position:absolute; inset:0; width:100%; height:100%; z-index:5; pointer-events:none; overflow: visible; }
         .wire { stroke:#00f2ff; stroke-width:2; fill:none; pointer-events:stroke; cursor:pointer; filter:drop-shadow(0 0 2px rgba(0,242,255,.45)); }
         .wire.selected { stroke:#ffcc00; stroke-width:3; }
-        .dropped-element { z-index:10; }
+        
+        .dropped-element { position: absolute; cursor: move; user-select: none; z-index:10; }
         .dropped-element.selected { outline:1px dashed #00f2ff; outline-offset:4px; }
+        .dropped-element svg { filter: drop-shadow(0 0 3px rgba(0,242,255,0.2)); }
         .element-tag { position:absolute; top:-19px; left:50%; transform:translateX(-50%); white-space:nowrap; font-size:10px; color:#00f2ff; background:#07101c; padding:1px 4px; border-radius:3px; }
         .editor-help { padding:7px 9px; margin-top:7px; background:rgba(0,242,255,.04); border:1px solid rgba(0,242,255,.12); border-radius:6px; color:#9fa8b7; font-size:10px; line-height:1.7; }
-.drop-zone { width: 100%; height: 100%; border: 2px dashed rgba(255,255,255,0.1); border-radius: 12px; position: relative; overflow: hidden; }
-        .dropped-element { position: absolute; cursor: move; user-select: none; }
-        .dropped-element svg { filter: drop-shadow(0 0 3px rgba(0,242,255,0.2)); }
     </style>
 </head>
 <body>
@@ -106,7 +106,8 @@
             </div>
         </div>
 
-<div class="component-library">
+        <!-- سایدبار حالت دوم (اصلاح کلاس sidebar) -->
+        <div class="sidebar" id="modeDragDrop">
             <div class="panel-title"><i class="fas fa-cubes"></i> کتابخانه المان‌های IEC / EPLAN</div>
             <div class="library-tabs">
                 <button class="library-tab active" onclick="showLib('protective',this)">حفاظتی</button>
@@ -178,20 +179,22 @@
                 <div class="comp-item" draggable="true" ondragstart="dragStart(event,'limit','-B4 | Limit Switch')">◉ Limit Switch <small>-B</small></div>
             </div>
             <div class="editor-help">
-                <b>اتصال واقعی:</b> المان را بکش داخل صفحه؛ پورت‌های آبی محل اتصال‌اند.
-                یک پورت را کلیک کن و سپس پورت دوم را کلیک کن تا سیم ساخته شود.
+                <b>اتصال واقعی:</b> المان را بکش داخل صفحه؛ پورت‌های آبی محل اتصال‌اند.<br>
+                یک پورت را کلیک کن و سپس پورت دوم را کلیک کن تا سیم ساخته شود.<br>
                 نزدیک کردن دو پورت هم باعث Snap می‌شود. برای حذف سیم روی آن کلیک کن.
             </div>
         </div>
 
         <!-- فضای بوم طراحی -->
         <div class="canvas-area">
-            <div class="schematic-box" id="galleryCanvas">
+            <div class="schematic-box active" id="galleryCanvas">
                 <svg class="schematic-svg" id="svgCanvas" viewBox="0 0 300 450" preserveAspectRatio="xMidYMid meet">
                     <text x="150" y="225" fill="#8b8f99" font-size="14" text-anchor="middle">منتظر انتخاب مدار...</text>
                 </svg>
             </div>
-            <div class="drop-zone" id="dropZone" ondrop="dropElement(event)" ondragover="allowDrop(event)" onclick="canvasClick(event)"><svg class="wire-layer" id="wireLayer"></svg></div>
+            <div class="drop-zone" id="dropZone" ondrop="dropElement(event)" ondragover="allowDrop(event)" onclick="canvasClick(event)">
+                <svg class="wire-layer" id="wireLayer"></svg>
+            </div>
         </div>
     </div>
 
@@ -202,8 +205,8 @@
             btn.classList.add('active');
             document.querySelectorAll('.sidebar').forEach(s => s.classList.remove('active'));
             document.getElementById(modeId).classList.add('active');
-            document.getElementById('galleryCanvas').style.display = (modeId === 'modeGallery') ? 'flex' : 'none';
-            document.getElementById('dropZone').style.display = (modeId === 'modeDragDrop') ? 'block' : 'none';
+            document.getElementById('galleryCanvas').classList.toggle('active', modeId === 'modeGallery');
+            document.getElementById('dropZone').classList.toggle('active', modeId === 'modeDragDrop');
         }
 
         // ۲. حالت اول: جستجو و رسم مدار
@@ -379,10 +382,10 @@
             else if(spec.draw==='plc') x=`<rect x="7" y="7" width="${w-14}" height="${h-14}" ${line}/><text x="${w/2}" y="${h/2+5}" text-anchor="middle" fill="${c}" font-size="18" font-weight="700">PLC</text><text x="${w/2}" y="${h/2+22}" text-anchor="middle" fill="${c}" font-size="8">CPU</text>`;
             else if(spec.draw==='io') x=`<rect x="7" y="7" width="${w-14}" height="${h-14}" ${line}/><text x="${w/2}" y="${h/2+5}" text-anchor="middle" fill="${c}" font-size="14" font-weight="700">${name.includes('DO')?'DO':name.includes('AI')?'AI':'DI'}</text>`;
             else if(['psu','ups'].includes(spec.draw)) x=`<rect x="7" y="7" width="${w-14}" height="${h-14}" ${line}/><text x="${w/2}" y="${h/2+5}" text-anchor="middle" fill="${c}" font-size="12" font-weight="700">${spec.draw==='psu'?'24VDC':'UPS'}</text>`;
-            else if(spec.draw==='battery') x=`<line x1="20" y1="10" x2="20" y2="${h-10}" ${line}/><line x1="${w-20}" y1="18" x2="${w-20}" y2="${h-18}" ${line}/`;
+            else if(spec.draw==='battery') x=`<line x1="20" y1="10" x2="20" y2="${h-10}" ${line}/><line x1="${w-20}" y1="18" x2="${w-20}" y2="${h-18}" ${line}/>`;
             else if(spec.draw==='sensor') x=`<circle cx="${w/2}" cy="${h/2}" r="17" ${line}/><text x="${w/2}" y="${h/2+4}" text-anchor="middle" fill="${c}" font-size="10">B</text>`;
-            else if(spec.draw==='lamp') x=`<circle cx="${w/2}" cy="${h/2}" r="16" ${line}/><path d="M${w/2-10} ${h/2-10} L${w/2+10} ${h/2+10} M${w/2+10} ${h/2-10} L${w/2-10} ${h/2+10}" ${line}/`;
-            else if(spec.draw==='switch') x=`<line x1="${w/2}" y1="4" x2="${w/2}" y2="${h/2-10}" stroke="#fff"/><line x1="${w/2}" y1="${h/2+10}" x2="${w/2}" y2="${h-4}" stroke="#fff"/><line x1="${w/2-12}" y1="${h/2+6}" x2="${w/2+10}" y2="${h/2-9}" ${line}/`;
+            else if(spec.draw==='lamp') x=`<circle cx="${w/2}" cy="${h/2}" r="16" ${line}/><path d="M${w/2-10} ${h/2-10} L${w/2+10} ${h/2+10} M${w/2+10} ${h/2-10} L${w/2-10} ${h/2+10}" ${line}/>`;
+            else if(spec.draw==='switch') x=`<line x1="${w/2}" y1="4" x2="${w/2}" y2="${h/2-10}" stroke="#fff"/><line x1="${w/2}" y1="${h/2+10}" x2="${w/2}" y2="${h-4}" stroke="#fff"/><line x1="${w/2-12}" y1="${h/2+6}" x2="${w/2+10}" y2="${h/2-9}" ${line}/>`;
             else x=`<rect x="7" y="7" width="${w-14}" height="${h-14}" ${line}/>`;
             return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">${x}</svg>`;
         }
