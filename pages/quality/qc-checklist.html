@@ -100,7 +100,8 @@
                 <button class="lang-btn" data-lang="en">EN</button>
                 <button class="lang-btn active" data-lang="fa">FA</button>
             </div>
-            <a href="quality-control.html" class="back-btn"><i class="fas fa-arrow-left"></i> <span data-en="Back" data-fa="بازگشت">بازگشت</span></a>
+            <!-- مسیردهی اصلاح شده: خروج از quality و ورود به academy -->
+            <a href="../academy/quality-control.html" class="back-btn"><i class="fas fa-arrow-left"></i> <span data-en="Back" data-fa="بازگشت">بازگشت</span></a>
         </div>
     </div>
 
@@ -144,7 +145,6 @@
 <script>
     let currentLang = localStorage.getItem('karatech-lang') || 'fa';
 
-    // پایگاه داده چک‌لیست (دوزبانه)
     const qcData = {
         lv_final: [
             { cat_fa: "بازرسی ظاهری و مکانیکی", cat_en: "Visual & Mechanical", items: [
@@ -276,7 +276,6 @@
                 { id: 4, t_fa: "کنترل مکانیزم متحرک (Cubicle)", t_en: "Moving mechanism check", crit: "general" }
             ]}
         ],
-        // بخش PLC با ۳۴ مورد فرم FR08-005/00 پر شد
         plc: [
             { cat_fa: "بازرسی ظاهری و مکانیکی", cat_en: "Visual & Mechanical", items: [
                 { id: 1, t_fa: "کامل و سالم بودن تجهیزات", t_en: "Equipment completeness", crit: "general" },
@@ -468,7 +467,6 @@
         const rows = document.querySelectorAll('.check-row');
         
         rows.forEach(row => {
-            // اگر "موضوعی ندارد" انتخاب شده بود، آن ردیف در PDF چاپ نشود
             if (row.classList.contains('na')) return; 
 
             const id = row.querySelector('td').innerText;
@@ -535,7 +533,6 @@
         reportWindow.document.close();
     }
 
-    // راه‌اندازی اولیه
     updateStaticTexts();
     loadChecklist('lv_final');
 </script>
