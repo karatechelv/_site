@@ -21,7 +21,7 @@
 
         .main-layout { display: flex; flex-direction: column; height: calc(100vh - 60px); padding: 15px; gap: 15px; }
         
-        .sim-tabs { display: flex; gap: 10px; }
+        .sim-tabs { display: flex; gap: 10px; flex-wrap: wrap; }
         .sim-tab-btn { padding: 8px 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--muted); border-radius: 8px; cursor: pointer; font-family: inherit; font-size: 0.85rem; transition: 0.3s; }
         .sim-tab-btn.active { background: var(--indigo); color: #fff; border-color: var(--indigo); box-shadow: 0 0 10px rgba(77, 139, 255, 0.3); }
 
@@ -42,32 +42,41 @@
 
     <div class="main-layout">
         <div class="sim-tabs">
-            <button class="sim-tab-btn active" onclick="switchSim('power', this)">شبیه‌ساز قدرت و فرمان (PLC Fiddle)</button>
+            <button class="sim-tab-btn active" onclick="switchSim('power', this)">شبیه‌ساز فرمان و منطق (CircuitVerse)</button>
             <button class="sim-tab-btn" onclick="switchSim('elec', this)">شبیه‌ساز الکترونیک (Falstad)</button>
         </div>
         
         <div class="sim-container">
             <div class="iframe-loader" id="loader">
                 <div class="spinner"></div>
-                <span>در حال بارگذاری موتور شبیه‌سازی...</span>
+                <span id="loaderText">در حال بارگذاری موتور شبیه‌سازی...</span>
             </div>
-            <iframe id="simFrame" src="https://www.plc-fiddle.com/" onload="document.getElementById('loader').style.display='none'"></iframe>
+            <!-- جایگزینی سایت خاموش شده با CircuitVerse -->
+            <iframe id="simFrame" src="https://circuitverse.org/simulator" onload="hideLoader()"></iframe>
         </div>
     </div>
 
     <script>
+        function hideLoader() {
+            document.getElementById('loader').style.display = 'none';
+        }
+
         function switchSim(type, btn) {
             document.querySelectorAll('.sim-tab-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             
             const frame = document.getElementById('simFrame');
             const loader = document.getElementById('loader');
-            loader.style.display = 'flex'; // نمایش لودر هنگام تغییر
+            const loaderText = document.getElementById('loaderText');
+            
+            loader.style.display = 'flex';
             
             if(type === 'power') {
-                frame.src = 'https://www.plc-fiddle.com/';
+                frame.src = 'https://circuitverse.org/simulator';
+                loaderText.textContent = 'در حال بارگذاری شبیه‌ساز فرمان و منطق...';
             } else if(type === 'elec') {
                 frame.src = 'https://www.falstad.com/circuit/circuitjs.html';
+                loaderText.textContent = 'در حال بارگذاری شبیه‌ساز الکترونیک...';
             }
         }
     </script>
