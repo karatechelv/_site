@@ -21,9 +21,8 @@
 
         .main-layout { display: flex; flex-direction: column; height: calc(100vh - 60px); padding: 15px; gap: 15px; }
         
-        .sim-tabs { display: flex; gap: 10px; flex-wrap: wrap; }
-        .sim-tab-btn { padding: 8px 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--muted); border-radius: 8px; cursor: pointer; font-family: inherit; font-size: 0.85rem; transition: 0.3s; }
-        .sim-tab-btn.active { background: var(--indigo); color: #fff; border-color: var(--indigo); box-shadow: 0 0 10px rgba(77, 139, 255, 0.3); }
+        .intro-box { background: rgba(0, 242, 255, 0.03); border: 1px solid rgba(0, 242, 255, 0.15); border-radius: 8px; padding: 10px 15px; font-size: 0.85rem; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+        .intro-box i { color: var(--cyan); }
 
         .sim-container { flex: 1; background: rgba(16, 22, 33, 0.6); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 0 20px rgba(0, 242, 255, 0.05); position: relative; }
         
@@ -32,14 +31,6 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         iframe { width: 100%; height: 100%; border: none; position: absolute; inset: 0; }
-
-        /* استایل برای حالت باز شدن در تب جدید */
-        .external-box { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px; text-align: center; padding: 20px; display: none; }
-        .external-box i { font-size: 4rem; color: var(--cyan); filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.5)); }
-        .external-box h2 { font-size: 1.5rem; color: #fff; }
-        .external-box p { color: var(--muted); max-width: 400px; line-height: 1.6; }
-        .launch-btn { margin-top: 10px; background: linear-gradient(135deg, var(--indigo), var(--cyan)); color: #000; padding: 12px 30px; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; }
-        .launch-btn:hover { box-shadow: 0 0 20px rgba(0, 242, 255, 0.4); transform: translateY(-2px); }
     </style>
 </head>
 <body>
@@ -49,69 +40,19 @@
     </div>
 
     <div class="main-layout">
-        <div class="sim-tabs">
-            <button class="sim-tab-btn active" onclick="switchSim('power', this)">شبیه‌ساز قدرت و فرمان</button>
-            <button class="sim-tab-btn" onclick="switchSim('elec', this)">شبیه‌ساز الکترونیک (Falstad)</button>
+        <div class="intro-box">
+            <i class="fas fa-info-circle"></i>
+            <span>موتور شبیه‌سازی مدار. برای ساخت مدارهای فرمان از منوی Circuits گزینه و Blank Circuit را انتخاب کنید. قطعات فرمان در بخش Outputs (رله) و Inputs (کلیدها) قرار دارند.</span>
         </div>
         
         <div class="sim-container">
-            <!-- لودر -->
             <div class="iframe-loader" id="loader">
                 <div class="spinner"></div>
-                <span id="loaderText">در حال بارگذاری موتور شبیه‌سازی...</span>
+                <span>در حال بارگذاری موتور شبیه‌سازی...</span>
             </div>
-
-            <!-- باکس شبیه‌ساز قدرت (باز شدن در تب جدید) -->
-            <div class="external-box" id="powerBox">
-                <i class="fas fa-microchip"></i>
-                <h2>شبیه‌ساز مدارهای فرمان و قدرت</h2>
-                <p>به دلایل امنیتی، این شبیه‌ساز نمی‌تواند داخل سایت باز شود. برای استفاده از محیط گرافیکی و شبیه‌سازی مدارهای فرمان صنعتی، روی دکمه زیر کلیک کنید تا در یک تب جدید باز شود.</p>
-                <a href="https://circuitverse.org/simulator" target="_blank" class="launch-btn">
-                    باز کردن شبیه‌ساز <i class="fas fa-external-link-alt"></i>
-                </a>
-            </div>
-
-            <!-- شبیه‌ساز الکترونیک (داخل سایت) -->
-            <iframe id="elecFrame" src="https://www.falstad.com/circuit/circuitjs.html" style="display: none;" onload="hideLoader()"></iframe>
+            <!-- لود مستقیم شبیه‌ساز Falstad -->
+            <iframe src="https://www.falstad.com/circuit/circuitjs.html" onload="document.getElementById('loader').style.display='none'"></iframe>
         </div>
     </div>
-
-    <script>
-        // پیش‌فرض: باز کردن تب قدرت
-        document.getElementById('loader').style.display = 'none';
-        document.getElementById('powerBox').style.display = 'flex';
-        document.getElementById('elecFrame').style.display = 'none';
-
-        function switchSim(type, btn) {
-            document.querySelectorAll('.sim-tab-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            const loader = document.getElementById('loader');
-            const loaderText = document.getElementById('loaderText');
-            const powerBox = document.getElementById('powerBox');
-            const elecFrame = document.getElementById('elecFrame');
-            
-            if(type === 'power') {
-                elecFrame.style.display = 'none';
-                powerBox.style.display = 'flex';
-                loader.style.display = 'none';
-            } else if(type === 'elec') {
-                powerBox.style.display = 'none';
-                elecFrame.style.display = 'block';
-                loader.style.display = 'flex';
-                loaderText.textContent = 'در حال بارگذاری شبیه‌ساز الکترونیک...';
-                // اگر قبلاً لود شده، لودر را پنهان کن
-                if(elecFrame.contentWindow) {
-                    setTimeout(() => {
-                        if(elecFrame.contentWindow.document) hideLoader();
-                    }, 1000);
-                }
-            }
-        }
-
-        function hideLoader() {
-            document.getElementById('loader').style.display = 'none';
-        }
-    </script>
 </body>
 </html>
