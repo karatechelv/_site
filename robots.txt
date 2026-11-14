@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://karatechelv.github.io/_site/sitemap.xml
