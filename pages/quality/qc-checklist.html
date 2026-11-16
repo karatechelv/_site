@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -100,30 +100,30 @@
                 <button class="lang-btn" data-lang="en">EN</button>
                 <button class="lang-btn active" data-lang="fa">FA</button>
             </div>
-            <a href="../academy/quality-control.html" class="back-btn"><i class="fas fa-arrow-left"></i> <span data-en="Back" data-fa="بازگشت">بازگشت</span></a>
+            <a href="../academy/quality-control.html" class="back-btn"><i class="fas fa-arrow-left"></i> <span data-en="Back" data-fa="بازگشت">Back</span></a>
         </div>
     </div>
 
-    <h1 class="page-title" id="page-title">چک‌لیست تعاملی <b>تابلو</b></h1>
-    <p class="page-desc" id="page-desc">سیستم ثبت بازرسی، تأیید/رد/موضوعی ندارد و صدور گزارش نهایی (NCR & PDF)</p>
+    <h1 class="page-title" id="page-title" data-en="Interactive <b>Switchgear Checklist</b>" data-fa="چک‌لیست تعاملی <b>تابلو</b>">Interactive <b>Switchgear Checklist</b></h1>
+    <p class="page-desc" id="page-desc" data-en="Inspection logging with Approve / Reject / N/A statuses and final report issuance (NCR &amp; PDF)" data-fa="سیستم ثبت بازرسی با وضعیت‌های تأیید/رد/موضوعی ندارد و صدور گزارش نهایی (NCR &amp; PDF)">Inspection logging with Approve / Reject / N/A statuses and final report issuance (NCR &amp; PDF)</p>
 
     <div class="glass-card">
         <div class="panel-selector" id="panelSelector">
-            <button class="panel-btn active" onclick="loadChecklist('lv_final')" data-en="LV Final (FR08)" data-fa="تابلو نهایی (FR08)">تابلو نهایی (FR08)</button>
-            <button class="panel-btn" onclick="loadChecklist('mdb')" data-en="MDB" data-fa="تابلو توزیع اصلی (MDB)">تابلو توزیع اصلی (MDB)</button>
-            <button class="panel-btn" onclick="loadChecklist('mcc')" data-en="MCC" data-fa="تابلو کنترل موتور (MCC)">تابلو کنترل موتور (MCC)</button>
-            <button class="panel-btn" onclick="loadChecklist('mv')" data-en="MV" data-fa="فشار متوسط (MV)">فشار متوسط (MV)</button>
-            <button class="panel-btn" onclick="loadChecklist('plc')" data-en="PLC" data-fa="اتوماسیون (PLC)">اتوماسیون (PLC)</button>
+            <button class="panel-btn active" onclick="loadChecklist('lv_final')" data-en="LV Final (FR08)" data-fa="تابلو نهایی (FR08)">LV Final (FR08)</button>
+            <button class="panel-btn" onclick="loadChecklist('mdb')" data-en="MDB" data-fa="تابلو توزیع اصلی (MDB)">MDB</button>
+            <button class="panel-btn" onclick="loadChecklist('mcc')" data-en="MCC" data-fa="تابلو کنترل موتور (MCC)">MCC</button>
+            <button class="panel-btn" onclick="loadChecklist('mv')" data-en="MV" data-fa="فشار متوسط (MV)">MV</button>
+            <button class="panel-btn" onclick="loadChecklist('plc')" data-en="PLC" data-fa="اتوماسیون (PLC)">PLC</button>
         </div>
 
         <div class="progress-dashboard">
-            <div class="stat-box stat-approved"><span id="statApproved">0</span><label data-en="Approved" data-fa="تایید">تایید</label></div>
-            <div class="stat-box stat-rejected"><span id="statRejected">0</span><label data-en="Rejected" data-fa="عدم تایید">عدم تایید</label></div>
-            <div class="stat-box stat-na"><span id="statNA">0</span><label data-en="N/A" data-fa="موضوعی ندارد">موضوعی ندارد</label></div>
-            <div class="stat-box stat-pending"><span id="statPending">0</span><label data-en="Pending" data-fa="در انتظار">در انتظار</label></div>
+            <div class="stat-box stat-approved"><span id="statApproved">0</span><label data-en="Approved" data-fa="تایید">Approved</label></div>
+            <div class="stat-box stat-rejected"><span id="statRejected">0</span><label data-en="Rejected" data-fa="عدم تایید">Rejected</label></div>
+            <div class="stat-box stat-na"><span id="statNA">0</span><label data-en="N/A" data-fa="موضوعی ندارد">N/A</label></div>
+            <div class="stat-box stat-pending"><span id="statPending">0</span><label data-en="Pending" data-fa="در انتظار">Pending</label></div>
             <div style="flex: 1; min-width: 200px;">
                 <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">
-                    <span data-en="Progress" data-fa="پیشرفت">پیشرفت</span>
+                    <span data-en="Progress" data-fa="پیشرفت">Progress</span>
                     <span id="progressPercent">0%</span>
                 </div>
                 <div class="progress-bar-container"><div class="progress-fill" id="progressFill"></div></div>
@@ -135,7 +135,7 @@
         <div class="export-row">
             <input type="text" id="projectNameInput" class="project-input" placeholder="نام پروژه / شماره سریال">
             <button class="export-btn" onclick="generateReport()">
-                <i class="fas fa-file-export"></i> <span data-en="Export PDF / Print" data-fa="خروجی PDF / چاپ">خروجی PDF / چاپ</span>
+                <i class="fas fa-file-export"></i> <span data-en="Export PDF / Print" data-fa="خروجی PDF / چاپ">Export PDF / Print</span>
             </button>
         </div>
     </div>
