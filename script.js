@@ -86,13 +86,7 @@
         document.querySelectorAll('[data-en]').forEach(el => {
             const txt = el.dataset[lang];
             if (txt) {
-                const nodes = el.childNodes;
-                for (let n of nodes) {
-                    if (n.nodeType === 3) {
-                        n.textContent = txt;
-                        break;
-                    }
-                }
+                el.innerHTML = txt;
             }
         });
         document.body.classList.toggle('lang-persian', lang === 'fa');
