@@ -203,6 +203,17 @@ body.rtl .warning-box { border-left: none; border-right: 3px solid #ff8c42; }
 body.rtl .dot-list li { font-family: 'Vazirmatn', sans-serif; font-size: 1.05rem; }
 .dot-list li::before { content: '\f111'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 0.5rem; color: var(--accent-cyan); flex-shrink: 0; }
 
+/* ===== article figures ===== */
+.article-figure { margin: 22px 0; }
+.article-figure .img-frame { background: #050a14; border: 1px solid rgba(77, 139, 255, 0.25); border-radius: 10px; padding: 8px; direction: ltr; transition: 0.3s; }
+.article-figure .img-frame:hover { border-color: rgba(0, 242, 255, 0.45); }
+.article-figure img { width: 100%; height: auto; border-radius: 6px; display: block; }
+.article-figure.narrow { max-width: 380px; margin-left: auto; margin-right: auto; }
+.article-figure.mid { max-width: 580px; margin-left: auto; margin-right: auto; }
+.article-figure figcaption { margin-top: 10px; font-size: 0.85rem; color: var(--text-muted); text-align: center; line-height: 1.7; }
+body.rtl .article-figure figcaption { font-family: 'Vazirmatn', sans-serif; }
+.article-figure figcaption b { color: var(--accent-cyan); font-weight: 600; }
+
 /* ===== teaser + pager + footer ===== */
 .teaser-card {
     position: relative; z-index: 2; text-align: center;
@@ -323,6 +334,10 @@ body.rtl .footer { font-family: 'Vazirmatn', sans-serif; }
             
             <p class="card-text">پس از ساخت پروژه، تنظیمات آن را باز کنید تا نام شرکت، شماره سفارش و زبان‌های ترجمه را تعریف کنید:</p>
             <div class="formula-link">Project → Properties → tab: Settings</div>
+            <figure class="article-figure mid">
+                <div class="img-frame"><img src="eplan-project-properties.jpg" alt="پنجره Project properties در EPLAN با مشخصات سازنده و نوع پروژه" width="540" height="565" loading="lazy"></div>
+                <figcaption><b data-en="Fig. 1 — " data-fa="شکل ۱ — ">شکل ۱ — </b><span data-en="Project properties dialog — creator details, thermal design data and project type are completed before drawing the first wire." data-fa="پنجره Project properties؛ مشخصات سازنده، داده‌های طراحی حرارتی و نوع پروژه پیش از کشیدن اولین سیم تکمیل می‌شود">پنجره Project properties؛ مشخصات سازنده، داده‌های طراحی حرارتی و نوع پروژه پیش از کشیدن اولین سیم تکمیل می‌شود</span></figcaption>
+            </figure>
             <div class="formula-link">Options → Settings → Projects → [Project] → Management → Translation</div>
             <p class="card-text">در بخش Translation، زبان اول پروژه را «de_DE» یا «en_US» و زبان دوم را «fa_IR» قرار دهید. از این پس، هر متنی که در خصوصیات قطعات وارد کنید، قابلیت نمایش در هر دو زبان را دارد — دقیقاً همان چیزی که برای تحویل نقشه به کارفرما و پیمانکار سیم‌کشی لازم است.</p>
             <div class="tip-box"><b>💡 پاسخ سؤال دیروز:</b> چرا در EPLAN از Copy/Paste معمولی برای قطعات استفاده نمی‌کنیم؟ چون کپی ساده، شکل قطعه را تکرار می‌کند اما شماره‌گذاری هوشمند و ارتباط بین‌صفحه‌ای را نمی‌سازد؛ نتیجه دو قطعه با تگ تکراری است. راه درست، استفاده از Window Macro برای بلوک‌های تکراری و فعال‌کردن شماره‌گذاری خودکار (Online Numbering) است — در قسمت‌های بعدی عمیقاً این روش را تمرین می‌کنیم.</div>
@@ -335,6 +350,10 @@ body.rtl .footer { font-family: 'Vazirmatn', sans-serif; }
             <p class="card-text">هر صفحه در EPLAN یک نام کامل دارد که از سه بخش تشکیل می‌شود و مطابق استاندارد IEC 81346 است:</p>
             <div class="formula-link">= G01 + A1 - E1 / 1.3</div>
             <p class="card-text">در این ساختار، علامت مساوی بلوک عملکردی را مشخص می‌کند (مثلاً G01 برای سیستم پمپاژ)، علامت بعلاوه محل نصب (رک یا تابلو) را نشان می‌دهد و عدد آخر، شماره صفحه در آن بلوک است. این قاعده باعث می‌شود در پروژه‌های چندتابلویی، هر صفحه دقیقاً مشخص کند به کدام تابلو و کدام بخش از فرآیند تعلق دارد.</p>
+            <figure class="article-figure narrow">
+                <div class="img-frame"><img src="eplan-project-tree.jpg" alt="ساختار درختی صفحات پروژه در پنل Pages Navigator نرم‌افزار EPLAN" width="274" height="710" loading="lazy"></div>
+                <figcaption><b data-en="Fig. 2 — " data-fa="شکل ۲ — ">شکل ۲ — </b><span data-en="Project pages in the Pages Navigator — the page structure follows the IEC 81346 blocks." data-fa="صفحات پروژه در Pages Navigator؛ ساختار صفحه‌ها مطابق بلوک‌های استاندارد IEC 81346 مرتب شده‌اند">صفحات پروژه در Pages Navigator؛ ساختار صفحه‌ها مطابق بلوک‌های استاندارد IEC 81346 مرتب شده‌اند</span></figcaption>
+            </figure>
             <h3 class="card-sub"><i class="fas fa-layer-group"></i> <span data-en="Page Types" data-fa="انواع صفحه (Page Type)">Page Types</span></h3>
             <p class="card-text">هنگام ساخت هر صفحه جدید، باید نوع آن را مشخص کنید. مهم‌ترین انواع برای تابلو کنترل:</p>
             <table class="article-table">

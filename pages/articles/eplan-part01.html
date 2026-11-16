@@ -203,6 +203,16 @@ body.rtl .warning-box { border-left: none; border-right: 3px solid #ff8c42; }
 body.rtl .dot-list li { font-family: 'Vazirmatn', sans-serif; font-size: 1.05rem; }
 .dot-list li::before { content: '\f111'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 0.5rem; color: var(--accent-cyan); flex-shrink: 0; }
 
+/* ===== article figures ===== */
+.article-figure { margin: 22px 0; }
+.article-figure .img-frame { background: #050a14; border: 1px solid rgba(77, 139, 255, 0.25); border-radius: 10px; padding: 8px; direction: ltr; transition: 0.3s; }
+.article-figure .img-frame:hover { border-color: rgba(0, 242, 255, 0.45); }
+.article-figure img { width: 100%; height: auto; border-radius: 6px; display: block; }
+.article-figure.narrow { max-width: 380px; margin-left: auto; margin-right: auto; }
+.article-figure figcaption { margin-top: 10px; font-size: 0.85rem; color: var(--text-muted); text-align: center; line-height: 1.7; }
+body.rtl .article-figure figcaption { font-family: 'Vazirmatn', sans-serif; }
+.article-figure figcaption b { color: var(--accent-cyan); font-weight: 600; }
+
 /* ===== teaser + pager + footer ===== */
 .teaser-card {
     position: relative; z-index: 2; text-align: center;
@@ -329,12 +339,20 @@ body.rtl .footer { font-family: 'Vazirmatn', sans-serif; }
             <h2 class="card-title"><i class="fas fa-desktop"></i> <span data-en="Touring the Workspace" data-fa="آشنایی با محیط کار">Touring the Workspace</span></h2>
             
             <p class="card-text">پس از اولین اجرای EPLAN، با محیط کاری مواجه می‌شوید که شامل بخش‌های زیر است:</p>
+            <figure class="article-figure">
+                <div class="img-frame"><img src="eplan-env-main.jpg" alt="محیط اصلی نرم‌افزار EPLAN Electric P8 با پنل Pages و صفحه شماتیک باز" width="1200" height="728" loading="lazy"></div>
+                <figcaption><b data-en="Fig. 1 — " data-fa="شکل ۱ — ">شکل ۱ — </b><span data-en="The EPLAN Electric P8 main environment: Ribbon on top, Pages navigator on the left, graphical preview and an open schematic page." data-fa="محیط اصلی EPLAN Electric P8؛ نوار ابزار بالا، پنل Pages در سمت چپ، پیش‌نمایش گرافیکی و یک صفحه شماتیک باز">محیط اصلی EPLAN Electric P8؛ نوار ابزار بالا، پنل Pages در سمت چپ، پیش‌نمایش گرافیکی و یک صفحه شماتیک باز</span></figcaption>
+            </figure>
             <h3 class="card-sub"><i class="fas fa-window-maximize"></i> <span data-en="1. The Ribbon" data-fa="۱. نوار ابزار بالا (Ribbon)">1. The Ribbon</span></h3>
             <p class="card-text">نوار ابزار اصلی در بالای صفحه قرار دارد و تمام دستورات پرکاربرد در آن دسته‌بندی شده‌اند. تب‌های اصلی شامل: File، Insert، Edit، View، Project، Tools و Help هستند.</p>
             <h3 class="card-sub"><i class="fas fa-folder-tree"></i> <span data-en="2. Project Navigator" data-fa="۲. پنل پروژه (Project Navigator)">2. Project Navigator</span></h3>
             <p class="card-text">این پنل در سمت چپ صفحه قرار دارد و ساختار درختی پروژه را نشان می‌دهد. تمام صفحات، قطعات و تنظیمات پروژه از اینجا مدیریت می‌شوند.</p>
             <h3 class="card-sub"><i class="fas fa-pencil-ruler"></i> <span data-en="3. Workspace" data-fa="۳. فضای طراحی (Workspace)">3. Workspace</span></h3>
             <p class="card-text">بخش اصلی صفحه که در آن نقشه‌ها طراحی می‌شوند. این فضا قابلیت زوم و پن (Pan) را دارد و می‌توانید چندین صفحه را به‌صورت همزمان باز کنید.</p>
+            <figure class="article-figure">
+                <div class="img-frame"><img src="eplan-schematic-page.jpg" alt="نمونه صفحه شماتیک باز شده در محیط EPLAN با ترمینال X001" width="1200" height="654" loading="lazy"></div>
+                <figcaption><b data-en="Fig. 2 — " data-fa="شکل ۲ — ">شکل ۲ — </b><span data-en="A real schematic page open in the design workspace — terminal strip -X001 with phases L1, L2, L3 and PE." data-fa="نمونه صفحه شماتیک باز در فضای طراحی؛ ترمینال -X001 با فازهای L1، L2، L3 و PE">نمونه صفحه شماتیک باز در فضای طراحی؛ ترمینال -X001 با فازهای L1، L2، L3 و PE</span></figcaption>
+            </figure>
             <h3 class="card-sub"><i class="fas fa-sliders"></i> <span data-en="4. Properties Panel" data-fa="۴. پنل خصوصیات (Properties)">4. Properties Panel</span></h3>
             <p class="card-text">این پنل در سمت راست قرار دارد و خصوصیات هر عنصر انتخاب‌شده را نشان می‌دهد. در اینجا می‌توانید اطلاعاتی مانند نام قطعه، تگ، توضیحات و سایر ویژگی‌ها را ویرایش کنید.</p>
             <div class="tip-box"><b>💡 نکته حرفه‌ای:</b> همیشه قبل از شروع کار، کلید میانبر <span class="inline-code">F1</span> را فشار دهید تا راهنمای کامل EPLAN باز شود. این راهنما شامل صدها آموزش ویدیویی و متنی است که یادگیری را تسریع می‌کند.</div>
