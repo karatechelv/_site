@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KARATECH ELV — سیستم حضور و غیاب</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{--bg:#0b1220;--panel:#121a2e;--panel2:#0e1526;--line:#233150;--txt:#e9eefb;--mut:#93a6ca;--acc:#3ea6ff;--ok:#2ecc71;--warn:#f5a623;--bad:#ff5f5f}
+html,body{margin:0;padding:0}
+body{font-family:Vazirmatn,Tahoma,'Segoe UI',sans-serif;background:radial-gradient(1200px 600px at 80% -10%,#13203c 0%,var(--bg) 55%);color:var(--txt);min-height:100vh;font-size:clamp(14px,2.2vw,16px);line-height:1.7}
+.wrap{max-width:1080px;margin:0 auto;padding:clamp(12px,3vw,24px)}
+header.top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);margin-bottom:16px}
+.brand{font-weight:800;font-size:clamp(18px,4vw,26px);letter-spacing:.5px}
+.brand span{color:var(--acc)}
+.sub{color:var(--mut);font-size:.8em}
+.me{display:flex;align-items:center;gap:10px;font-size:.9em;color:var(--mut)}
+nav.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:16px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+.tab{white-space:nowrap;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel2);color:var(--mut);cursor:pointer;font-family:inherit;font-size:.95em}
+.tab.on{background:var(--acc);border-color:var(--acc);color:#04101f;font-weight:700}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:clamp(14px,3vw,22px);margin-bottom:16px}
+.card h2{margin:0 0 14px;font-size:1.15em}
+.card h2 small{color:var(--mut);font-weight:400;font-size:.75em}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+label{display:block;font-size:.85em;color:var(--mut);margin:0 0 6px}
+input,select,textarea{width:100%;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:10px 12px;font-family:inherit;font-size:1em}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--acc);outline-offset:1px;border-color:var(--acc)}
+input[type=date]{color-scheme:dark}
+.btn{display:inline-block;padding:10px 18px;border-radius:10px;border:1px solid var(--acc);background:var(--acc);color:#04101f;font-weight:700;font-family:inherit;font-size:1em;cursor:pointer}
+.btn:hover{filter:brightness(1.12)}
+.btn.ghost{background:transparent;color:var(--acc)}
+.btn.ok{background:var(--ok);border-color:var(--ok);color:#03230f}
+.btn.bad{background:var(--bad);border-color:var(--bad);color:#2b0606}
+.btn.sm{padding:6px 12px;font-size:.85em}
+.jh{color:var(--mut);font-size:.8em;margin-top:4px;min-height:1.2em}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th{background:var(--panel2);color:var(--mut);font-weight:600;font-size:.82em;text-align:right;padding:10px 12px;white-space:nowrap}
+td{padding:10px 12px;border-top:1px solid var(--line);font-size:.92em;white-space:nowrap}
+.b{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.78em;font-weight:700;white-space:nowrap}
+.b.pend{background:#f5a62322;color:var(--warn)}
+.b.ok{background:#2ecc7122;color:var(--ok)}
+.b.bad{background:#ff5f5f22;color:var(--bad)}
+.b.info{background:#3ea6ff22;color:var(--acc)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+.stat .n{font-size:1.6em;font-weight:800;color:var(--acc)}
+.stat .t{color:var(--mut);font-size:.8em}
+.bigdate{font-size:clamp(20px,5vw,30px);font-weight:800}
+.mut{color:var(--mut)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.empty{color:var(--mut);text-align:center;padding:18px}
+.login{max-width:430px;margin:clamp(24px,10vh,90px) auto}
+#toast{position:fixed;bottom:18px;right:50%;transform:translateX(50%);background:var(--panel);border:1px solid var(--acc);color:var(--txt);padding:10px 18px;border-radius:12px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:9;font-size:.9em}
+#toast.show{opacity:1}
+/* --- جدول ماهانه --- */
+.calbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
+.calbar select{width:auto;min-width:110px}
+.tin{padding:6px 8px;font-size:.9em;min-width:100px;width:auto}
+.caltbl table{min-width:640px}
+tr.fut td{opacity:.45}
+tr.off td.dcell{color:var(--bad)}
+#tip{position:fixed;display:none;z-index:99;background:var(--panel);border:1px solid var(--acc);border-radius:10px;padding:10px 14px;font-size:.82em;max-width:300px;box-shadow:0 8px 30px rgba(0,0,0,.6);pointer-events:none;line-height:2}
+.dcell{cursor:pointer}
+/* --- پنل ثبت درخواست روز --- */
+#daypanel{position:fixed;display:none;z-index:100;background:var(--panel);border:1px solid var(--acc);border-radius:12px;padding:14px;width:300px;max-width:calc(100vw - 24px);max-height:75vh;overflow-y:auto;box-shadow:0 10px 40px rgba(0,0,0,.7);font-size:.88em;line-height:1.9}
+#daypanel .dphead{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:8px}
+#daypanel label{margin:8px 0 4px;font-size:.78em}
+#daypanel input,#daypanel select{padding:7px 10px;font-size:.9em;border-radius:8px}
+.dpbtns{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.dpreq{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin:6px 0;display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap}
+footer.note{color:var(--mut);font-size:.75em;text-align:center;padding:14px 0}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="toast"></div>
+<div id="tip"></div>
+<div id="daypanel"></div>
+<script>
+/* ---------- تبدیل تاریخ شمسی (جلالی) ---------- */
+function div(a,b){return Math.floor(a/b)}
+function mod(a,b){return a-b*Math.floor(a/b)}
+/* تبدیل میلادی به شمسی — الگوریتم استاندارد jdf */
+function toJalali(gy,gm,gd){var GDM=[0,31,59,90,120,151,181,212,243,273,304,334];var jy=(gy<=1600)?0:979;gy-=(gy<=1600)?621:1600;var gy2=(gm>2)?(gy+1):gy;var days=365*gy+Math.floor((gy2+3)/4)-Math.floor((gy2+99)/100)+Math.floor((gy2+399)/400)-80+gd+GDM[gm-1];jy+=33*Math.floor(days/12053);days%=12053;jy+=4*Math.floor(days/1461);days%=1461;if(days>365){jy+=Math.floor((days-1)/365);days=(days-1)%365}var jm=(days<186)?1+Math.floor(days/31):7+Math.floor((days-186)/30);var jd=1+((days<186)?(days%31):((days-186)%30));return{jy:jy,jm:jm,jd:jd}}
+/* تبدیل شمسی به میلادی — الگوریتم استاندارد jdf (رفت‌وبرگشت آن تست شده) */
+function toGregorian(jy,jm,jd){var gy=(jy<=979)?621:1600;jy-=(jy<=979)?0:979;var days=365*jy+Math.floor(jy/33)*8+Math.floor(((jy%33)+3)/4)+78+jd+((jm<7)?(jm-1)*31:((jm-7)*30)+186);gy+=400*Math.floor(days/146097);days%=146097;if(days>36524){gy+=100*Math.floor(--days/36524);days%=36524;if(days>=365)days++}gy+=4*Math.floor(days/1461);days%=1461;if(days>365){gy+=Math.floor((days-1)/365);days=(days-1)%365}var gd=days+1;var LEN=[0,31,((gy%4===0&&gy%100!==0)||(gy%400===0))?29:28,31,30,31,30,31,31,30,31,30,31];var gm=1;for(;gm<=12;gm++){if(gd<=LEN[gm])break;gd-=LEN[gm]}return{gy:gy,gm:gm,gd:gd}}
+function gStr(jy,jm,jd){var g=toGregorian(jy,jm,jd);return g.gy+'-'+pad2(g.gm)+'-'+pad2(g.gd)}
+function jMonthLen(jy,jm){if(jm<=6)return 31;if(jm<=11)return 30;var a=toGregorian(jy,12,1),b=toGregorian(jy+1,1,1);return Math.round((new Date(b.gy,b.gm-1,b.gd)-new Date(a.gy,a.gm-1,a.gd))/86400000)}
+function curJ(){var p=todayStr().split('-');return toJalali(+p[0],+p[1],+p[2])}
+function faNum(n){return String(n).replace(/\d/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'[d]})}
+function pad2(n){return (n<10?'0':'')+n}
+var MONTHS=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
+var WDAYS=['یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنجشنبه','جمعه','شنبه'];
+function fmtJ(ds){var p=ds.split('-'),j=toJalali(+p[0],+p[1],+p[2]);return faNum(j.jd)+' '+MONTHS[j.jm-1]+' '+faNum(j.jy)}
+function fmtJS(ds){var p=ds.split('-'),j=toJalali(+p[0],+p[1],+p[2]);return faNum(j.jy)+'/'+faNum(pad2(j.jm))+'/'+faNum(pad2(j.jd))}
+function jhint(el,id){var s=document.getElementById(id),v=el.value;if(!s)return;if(!v){s.textContent='';return}var p=v.split('-'),j=toJalali(+p[0],+p[1],+p[2]);s.textContent='معادل شمسی: '+faNum(j.jy)+'/'+faNum(pad2(j.jm))+'/'+faNum(pad2(j.jd))}
+function todayStr(){var d=new Date();return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate())}
+function nowTime(){var d=new Date();return pad2(d.getHours())+':'+pad2(d.getMinutes())}
+function faT(t){return faNum(t)}
+/* ---------- دیتابیس محلی ---------- */
+var DBKEY='karatech_hr_v1',db=null,tab='tread';
+function loadDB(){try{db=JSON.parse(localStorage.getItem(DBKEY))}catch(e){db=null}
+ if(!db||!db.persons||!db.persons.length){db={persons:[{id:1,name:'محسن کرامتی لایق',role:'مدیرعامل',admin:true,username:'admin',pass:'admin123',mgr:null}],attendance:[],leaves:[],overtime:[],missions:[],seq:2};saveDB();return}
+ var ch=false;
+ if(!db.settings){db.settings={capH:42,lvQ:2.5,thuOff:true};ch=true}
+ db.persons.forEach(function(p){if(!p.username){p.username=p.admin?'admin':'user'+p.id;p.pass=p.admin?'admin123':'1234';p.mgr=p.admin?null:1;ch=true}});
+ if(ch)saveDB()}
+function saveDB(){localStorage.setItem(DBKEY,JSON.stringify(db))}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function person(pid){return db.persons.find(function(p){return p.id===pid})}
+function cur(){var id=parseInt(sessionStorage.getItem('karatech_hr_uid')||'0',10);var p=person(id);return p||null}
+function mins(t){var p=t.split(':');return (+p[0])*60+(+p[1])}
+function hrsStr(ci,co){var d=mins(co)-mins(ci);if(d<0)d+=1440;var h=Math.round(d/6)/10;return faNum(h)+' ساعت'}
+function badge(st){if(st==='pend')return '<span class="b pend">در انتظار</span>';if(st==='app')return '<span class="b ok">تأیید شد</span>';return '<span class="b bad">رد شد</span>'}
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2600)}
+function renderApp(){loadDB();var u=cur(),root=document.getElementById('app');
+ if(!u){root.innerHTML=vLogin();return}
+ root.innerHTML=shell(u)+vTab(u)+'<footer class="note">نسخه ۲ — ورود با نام کاربری · اطلاعات فعلاً روی همین دستگاه ذخیره می‌شود · در نسخه بعدی به دیتابیس مشترک وصل می‌شود</footer>';
+ if(tab==='tread')renderCalBox()}
+function vLogin(){loadDB();
+ return '<div class="wrap"><div class="login card">'+
+ '<div class="brand" style="text-align:center">KARATECH <span>ELV</span></div>'+
+ '<div class="sub" style="text-align:center;margin-bottom:18px">سیستم حضور و غیاب — ورود با نام کاربری</div>'+
+ '<label>نام کاربری</label><input type="text" id="lg-u" style="direction:ltr;text-align:left" placeholder="username" autocapitalize="off">'+
+ '<label style="margin-top:10px">رمز عبور</label><input type="password" id="lg-p" style="direction:ltr;text-align:left" placeholder="••••••" onkeydown="if(event.key===\'Enter\')doLogin()">'+
+ '<button class="btn" style="width:100%;margin-top:14px" onclick="doLogin()">ورود</button>'+
+ '<div class="jh" style="text-align:center;margin-top:12px">حساب مدیر پیش‌فرض: admin / admin123 — اسمت توی سیستم نیست؟ از مدیر بخواه در بخش «پرسنل» اضافه‌ات کند.</div>'+
+ '<div class="jh" style="text-align:center;color:var(--warn);margin-top:6px">⚠️ نسخه فعلی روی هر دستگاه جدا ذخیره می‌شود (دمو) — نسخه مشترک با دیتابیس مرکزی در راه است</div>'+
+ '</div></div>'}
+function doLogin(){var un=document.getElementById('lg-u').value.trim().toLowerCase(),pw=document.getElementById('lg-p').value;
+ if(!un||!pw){toast('نام کاربری و رمز را وارد کن');return}
+ var p=db.persons.find(function(x){return x.username&&x.username.toLowerCase()===un&&x.pass===pw});
+ if(!p){toast('نام کاربری یا رمز اشتباه است');return}
+ sessionStorage.setItem('karatech_hr_uid',String(p.id));tab='tread';renderApp()}
+function logout(){sessionStorage.removeItem('karatech_hr_uid');renderApp()}
+function switchTab(t){tab=t;renderApp()}
+function teamOf(u){return db.persons.filter(function(p){return p.mgr===u.id})}
+/* ---------- پوسته و تب‌ها ---------- */
+function shell(u){var team=teamOf(u);
+ var tabs=[['tread','🕐 تردد'],['leave','🌴 مرخصی'],['ot','⏱ اضافه‌کار'],['mission','✈️ ماموریت']];
+ if(u.admin||team.length)tabs=tabs.concat([['today','📊 وضعیت امروز'],['reqs','✅ درخواست‌ها']]);
+ if(u.admin)tabs=tabs.concat([['people','👥 پرسنل'],['set','⚙ تنظیمات']]);
+ var nav=tabs.map(function(t){return '<button class="tab'+(tab===t[0]?' on':'')+'" onclick="switchTab(\''+t[0]+'\')">'+t[1]+'</button>'}).join('');
+ return '<div class="wrap"><header class="top"><div><div class="brand">KARATECH <span>ELV</span></div><div class="sub">سیستم حضور و غیاب — نسخه ۲</div></div>'+
+ '<div class="me"><span>'+esc(u.name)+' ('+(u.admin?'مدیر کل':(team.length?'مدیر تیم':'کارمند'))+')</span><button class="btn ghost sm" onclick="logout()">خروج</button></div></header>'+
+ '<nav class="tabs">'+nav+'</nav>'}
+function vTab(u){switch(tab){
+ case 'tread':return vTread(u);
+ case 'leave':return vLeave(u);
+ case 'ot':return vOT(u);
+ case 'mission':return vMission(u);
+ case 'today':return (u.admin||teamOf(u).length)?vToday(u):vTread(u);
+ case 'reqs':return (u.admin||teamOf(u).length)?vReqs(u):vTread(u);
+ case 'people':return u.admin?vPeople(u):vTread(u);
+ case 'set':return u.admin?vSettings(u):vTread(u);
+ default:return vTread(u)}}
+/* ---------- تردد ---------- */
+function doCheckIn(){var u=cur(),t=todayStr();if(db.attendance.some(function(a){return a.pid===u.id&&a.date===t})){toast('برای امروز قبلاً ورود ثبت شده');return}
+ db.attendance.push({id:db.seq++,pid:u.id,date:t,ci:nowTime(),co:null});saveDB();toast('ورود ثبت شد ✓');renderApp()}
+function doCheckOut(){var u=cur(),t=todayStr();var rec=db.attendance.find(function(a){return a.pid===u.id&&a.date===t});
+ if(!rec){toast('اول ورود را ثبت کن');return}if(rec.co){toast('خروج قبلاً ثبت شده');return}
+ rec.co=nowTime();saveDB();toast('خروج ثبت شد ✓');renderApp()}
+function addManual(){var u=cur(),pid=u.id;var ps=document.getElementById('mn-p');if(ps)pid=parseInt(ps.value,10);
+ var d=document.getElementById('mn-date').value,ci=document.getElementById('mn-ci').value,co=document.getElementById('mn-co').value;
+ if(!d||!ci){toast('تاریخ و ساعت ورود لازم است');return}
+ if(co&&mins(co)<=mins(ci)){toast('ساعت خروج باید بعد از ورود باشد');return}
+ if(!person(pid)){toast('پرسنل را انتخاب کن');return}
+ var rec=db.attendance.find(function(a){return a.pid===pid&&a.date===d});
+ if(rec){rec.ci=ci;rec.co=co||null;rec.manual=true;saveDB();toast('تردد آن روز اصلاح شد ✓')}
+ else{db.attendance.push({id:db.seq++,pid:pid,date:d,ci:ci,co:co||null,manual:true});saveDB();toast('تردد دستی ثبت شد ✓')}
+ renderApp()}
+function vTread(u){var t=todayStr(),d=new Date(),rec=db.attendance.find(function(a){return a.pid===u.id&&a.date===t});
+ var j=toJalali(d.getFullYear(),d.getMonth()+1,d.getDate());
+ var head='<div class="card"><h2>ثبت تردد امروز <small>— '+WDAYS[d.getDay()]+' '+faNum(j.jd)+' '+MONTHS[j.jm-1]+' '+faNum(j.jy)+'</small></h2>';
+ var box;
+ if(!rec){box='<div class="bigdate">هنوز وارد نشده‌ای</div><div class="mut" style="margin:8px 0 14px">ساعت: '+faT(nowTime())+'</div><button class="btn" onclick="doCheckIn()">ثبت ورود</button>'}
+ else if(!rec.co){box='<div class="bigdate">در حال کار 💼</div><div class="row" style="margin:8px 0 14px"><span class="b info">ورود: '+faT(rec.ci)+'</span><span class="mut">ساعت حال: '+faT(nowTime())+'</span></div><button class="btn" onclick="doCheckOut()">ثبت خروج</button>'}
+ else{box='<div class="bigdate">ثبت شد ✓</div><div class="row" style="margin:8px 0 4px"><span class="b info">ورود: '+faT(rec.ci)+'</span><span class="b bad">خروج: '+faT(rec.co)+'</span><span class="b ok">مجموع: '+hrsStr(rec.ci,rec.co)+'</span></div>'}
+ var cj=curJ(),yrs='',yi;
+ for(yi=1400;yi<=1410;yi++)yrs+='<option value="'+yi+'"'+(yi===cj.jy?' selected':'')+'>'+faNum(yi)+'</option>';
+ var mos=MONTHS.map(function(m,mi){return '<option value="'+(mi+1)+'"'+((mi+1)===cj.jm?' selected':'')+'>'+m+'</option>'}).join('');
+ var plist=u.admin?db.persons:[u].concat(teamOf(u));
+ var pbar=(plist.length>1)?'<select id="cal-p" onchange="renderCalBox()">'+plist.map(function(p){return '<option value="'+p.id+'"'+(p.id===u.id?' selected':'')+'>'+esc(p.name)+'</option>'}).join('')+'</select>':'';
+ var mnP=(plist.length>1)?'<div><label>پرسنل</label><select id="mn-p">'+plist.map(function(p){return '<option value="'+p.id+'"'+(p.id===u.id?' selected':'')+'>'+esc(p.name)+'</option>'}).join('')+'</select></div>':'';
+ var mn='<div class="card"><h2>ثبت دستی تردد <small>— برای روزهای گذشته یا اصلاح ثبت</small></h2><div class="grid">'+mnP+
+ '<div><label>تاریخ</label><input type="date" id="mn-date" oninput="jhint(this,\'jh6\')"><div class="jh" id="jh6"></div></div>'+
+ '<div><label>ساعت ورود</label><input type="time" id="mn-ci"></div>'+
+ '<div><label>ساعت خروج (اختیاری)</label><input type="time" id="mn-co"></div>'+
+ '</div><div style="margin-top:14px"><button class="btn" onclick="addManual()">ثبت دستی</button></div></div>';
+ return head+box+'</div>'+mn+'<div class="card"><h2>جدول ماهانه <small>— ساعت ورود و خروج را جلوی هر روز ثبت کن · موس روی تاریخ = درخواست‌ها · کلیک = ثبت درخواست همان روز</small></h2>'+
+ '<div class="calbar">'+pbar+'<select id="cal-m" onchange="renderCalBox()">'+mos+'</select><select id="cal-y" onchange="renderCalBox()">'+yrs+'</select>'+
+ '<span style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn ghost sm" onclick="calShift(-1)">ماه قبل</button><button class="btn ghost sm" onclick="calShift(1)">ماه بعد</button></span></div>'+
+ '<div id="cal-box"></div></div>'}
+/* ---------- تقویم ماهانه ---------- */
+function renderCalBox(){var u=cur();if(!u)return;var pid=u.id;
+ var psel=document.getElementById('cal-p');if(psel)pid=parseInt(psel.value,10);
+ var ms=document.getElementById('cal-m'),ys=document.getElementById('cal-y');if(!ms||!ys)return;
+ window._calPid=pid;
+ document.getElementById('cal-box').innerHTML=calHTML(pid,parseInt(ys.value,10),parseInt(ms.value,10))}
+function calShift(d){var ms=document.getElementById('cal-m'),ys=document.getElementById('cal-y');if(!ms||!ys)return;
+ var jm=parseInt(ms.value,10)+d,jy=parseInt(ys.value,10);
+ if(jm<1){jm=12;jy--}if(jm>12){jm=1;jy++}
+ ms.value=String(jm);ys.value=String(jy);renderCalBox()}
+function calHTML(pid,jy,jm){var len=jMonthLen(jy,jm),tG=todayStr(),d;
+ var gS=gStr(jy,jm,1),gE=gStr(jy,jm,len);window.TIPS={};
+ var rows='',nAtt=0,nLv=0,nMs=0,minsSum=0,ot=0;
+ var thuOff=db.settings?db.settings.thuOff:true;
+ for(d=1;d<=len;d++){var g=gStr(jy,jm,d),p=g.split('-'),dO=new Date(+p[0],+p[1]-1,+p[2]),wd=WDAYS[dO.getDay()],off=(dO.getDay()===5)||(thuOff&&dO.getDay()===4);
+  var rec=db.attendance.find(function(a){return a.pid===pid&&a.date===g});
+  var reqs='',pills='';
+  db.leaves.forEach(function(l){if(l.pid===pid&&l.from<=g&&g<=l.to){reqs+='<div>🌴 مرخصی '+esc(l.type)+(l.tFrom?' ('+faT(l.tFrom)+'–'+faT(l.tTo)+')':'')+' '+badge(l.status)+'</div>';pills+='<span class="b '+(l.status==='app'?'ok':'pend')+'">مرخصی</span> '}});
+  db.missions.forEach(function(m){if(m.pid===pid&&m.from<=g&&g<=m.to){reqs+='<div>✈️ ماموریت — '+esc(m.place)+(m.tFrom?' ('+faT(m.tFrom)+'–'+faT(m.tTo)+')':'')+' '+badge(m.status)+'</div>';pills+='<span class="b info">ماموریت</span> '}});
+  db.overtime.forEach(function(o){if(o.pid===pid&&o.date===g){reqs+='<div>⏱ اضافه‌کار '+faNum(o.hours)+' ساعت'+(o.tFrom?' ('+faT(o.tFrom)+'–'+faT(o.tTo)+')':'')+' '+badge(o.status)+'</div>';pills+='<span class="b '+(o.status==='app'?'ok':'pend')+'">⏱'+faNum(o.hours)+'</span> '}});
+  if(db.leaves.some(function(l){return l.pid===pid&&l.status==='app'&&l.from<=g&&g<=l.to}))nLv++;
+  if(db.missions.some(function(x){return x.pid===pid&&x.status==='app'&&x.from<=g&&g<=x.to}))nMs++;
+  var key=jy+'|'+jm+'|'+d;
+  window.TIPS[key]='<b>'+wd+' '+faNum(d)+' '+MONTHS[jm-1]+' '+faNum(jy)+'</b>'+(reqs?'<br>'+reqs:'<br><span class="mut">درخواستی برای این روز نیست</span>');
+  var attPill=rec?(rec.co?'<span class="b ok">ثبت شد</span>':'<span class="b pend">در جریان</span>'):'';
+  var rc=(off?' off':'')+(g>tG?' fut':'');
+  rows+='<tr'+(rc?' class="'+rc+'"':'')+'>'+
+  '<td class="dcell" onclick="dpOpen(event,'+jy+','+jm+','+d+')" onmouseenter="tipShow(event,\''+key+'\')" onmousemove="tipMove(event)" onmouseleave="tipHide()">'+wd+' '+faNum(d)+' '+MONTHS[jm-1]+'</td>'+
+  '<td><input type="time" class="tin" value="'+(rec?rec.ci:'')+'" onchange="calSaveTime('+pid+',\''+g+'\',\'ci\',this.value,this)"></td>'+
+  '<td><input type="time" class="tin" value="'+(rec&&rec.co?rec.co:'')+'" onchange="calSaveTime('+pid+',\''+g+'\',\'co\',this.value,this)"></td>'+
+  '<td id="tt-'+g+'">'+((rec&&rec.ci&&rec.co)?hrsStr(rec.ci,rec.co):'—')+'</td>'+
+  '<td><span id="tap-'+g+'">'+attPill+'</span>'+pills+'</td></tr>';
+  if(rec){nAtt++;if(rec.ci&&rec.co)minsSum+=mins(rec.co)-mins(rec.ci)}
+ }
+ db.overtime.forEach(function(o){if(o.pid===pid&&o.status==='app'&&o.date>=gS&&o.date<=gE)ot+=o.hours});
+ var hrsT=Math.round(minsSum/6)/10,capH=db.settings?db.settings.capH:42;
+ var normH=Math.min(hrsT,capH),overH=Math.max(0,Math.round((hrsT-capH)*10)/10);
+ return '<div class="tblwrap caltbl"><table><tr><th>تاریخ</th><th>ورود</th><th>خروج</th><th>مجموع</th><th>وضعیت</th></tr>'+rows+'</table></div>'+
+ '<div class="stats" style="margin-top:12px;margin-bottom:0">'+
+ '<div class="stat"><div class="n">'+faNum(nAtt)+'</div><div class="t">روز حضور</div></div>'+
+ '<div class="stat"><div class="n">'+faNum(hrsT)+'</div><div class="t">کارکرد کل ماه (ساعت)</div></div>'+
+ '<div class="stat"><div class="n">'+faNum(normH)+'</div><div class="t">کارکرد عادی — سقف '+faNum(capH)+' ساعت</div></div>'+
+ '<div class="stat"><div class="n" style="color:'+(overH>0?'var(--warn)':'inherit')+'">'+faNum(overH)+'</div><div class="t">مازاد بر سقف = اضافه‌کار (ساعت)</div></div>'+
+ '<div class="stat"><div class="n">'+faNum(nLv)+'</div><div class="t">روز مرخصی</div></div>'+
+ '<div class="stat"><div class="n">'+faNum(nMs)+'</div><div class="t">روز ماموریت</div></div>'+
+ '<div class="stat"><div class="n">'+faNum(ot)+'</div><div class="t">اضافه‌کار ثبت‌شده (ساعت)</div></div></div>'}
+function calSaveTime(pid,g,f,v,inp){var rec=db.attendance.find(function(a){return a.pid===pid&&a.date===g});
+ if(v&&rec){var other=(f==='ci')?rec.co:rec.ci;
+  if(other&&((f==='co'&&mins(v)<=mins(rec.ci))||(f==='ci'&&mins(v)>=mins(rec.co)))){toast('ساعت خروج باید بعد از ساعت ورود باشد');inp.value=rec[f]||'';return}}
+ if(!rec&&v){rec={id:db.seq++,pid:pid,date:g,ci:null,co:null,manual:true};db.attendance.push(rec)}
+ if(rec){rec[f]=v||null;if(!rec.ci&&!rec.co)db.attendance=db.attendance.filter(function(a){return a.id!==rec.id});
+  saveDB();
+  var t=document.getElementById('tt-'+g);if(t)t.innerHTML=(rec.ci&&rec.co)?hrsStr(rec.ci,rec.co):'—';
+  var ap=document.getElementById('tap-'+g);
+  if(ap)ap.innerHTML=db.attendance.some(function(a){return a.id===rec.id})?(rec.co?'<span class="b ok">ثبت شد</span>':'<span class="b pend">در جریان</span>'):''}}
+function tipShow(e,k){var t=document.getElementById('tip');t.innerHTML=(window.TIPS||{})[k]||'';t.style.display='block';tipMove(e)}
+function tipMove(e){var t=document.getElementById('tip'),x=e.clientX+14,y=e.clientY+14;
+ if(x+320>window.innerWidth)x=window.innerWidth-330;if(y+150>window.innerHeight)y=e.clientY-160;
+ t.style.left=x+'px';t.style.top=y+'px'}
+function tipHide(){var t=document.getElementById('tip');if(t)t.style.display='none'}
+/* ---------- پنل ثبت درخواست همان روز (کلیک روی تاریخ) ---------- */
+var dpState={pid:null,jy:null,jm:null,d:null,x:100,y:100};
+function dpOpen(e,jy,jm,d){var u=cur();if(!u)return;
+ dpState={pid:window._calPid||u.id,jy:jy,jm:jm,d:d,x:e.clientX,y:e.clientY};
+ var p=document.getElementById('daypanel');p.innerHTML=dpHTML();p.style.display='block';dpPlace();
+ tipHide();e.stopPropagation()}
+function dpPlace(){var p=document.getElementById('daypanel'),x=dpState.x-320,y=dpState.y-20;
+ x=Math.min(Math.max(8,x),window.innerWidth-318);y=Math.min(Math.max(8,y),window.innerHeight-140);
+ p.style.left=x+'px';p.style.top=y+'px'}
+function dpClose(){document.getElementById('daypanel').style.display='none'}
+document.addEventListener('click',function(e){var p=document.getElementById('daypanel');if(p&&p.style.display==='block'&&!p.contains(e.target))dpClose()});
+function dpHTML(){var s=dpState,u=cur(),pid=s.pid;
+ var g=gStr(s.jy,s.jm,s.d),pp=g.split('-'),dO=new Date(+pp[0],+pp[1]-1,+pp[2]),wd=WDAYS[dO.getDay()],admin=u.admin;
+ var owner=person(pid),canApp=admin||(owner&&owner.mgr===u.id&&owner.id!==u.id);
+ var items=[];
+ db.leaves.forEach(function(l){if(l.pid===pid&&l.from<=g&&g<=l.to)items.push(['leaves',l.id,'🌴 مرخصی '+esc(l.type)+(l.tFrom?' ('+faT(l.tFrom)+'–'+faT(l.tTo)+')':''),l.status])});
+ db.missions.forEach(function(m){if(m.pid===pid&&m.from<=g&&g<=m.to)items.push(['missions',m.id,'✈️ ماموریت — '+esc(m.place)+(m.tFrom?' ('+faT(m.tFrom)+'–'+faT(m.tTo)+')':''),m.status])});
+ db.overtime.forEach(function(o){if(o.pid===pid&&o.date===g)items.push(['overtime',o.id,'⏱ اضافه‌کار '+faNum(o.hours)+' ساعت'+(o.tFrom?' ('+faT(o.tFrom)+'–'+faT(o.tTo)+')':''),o.status])});
+ var h='<div class="dphead"><b>'+wd+' '+faNum(s.d)+' '+MONTHS[s.jm-1]+' '+faNum(s.jy)+'</b><button class="btn ghost sm" onclick="dpClose()">✕</button></div>';
+ h+='<div>'+(items.length?items.map(function(it){return '<div class="dpreq"><span>'+it[2]+' '+badge(it[3])+'</span>'+(canApp&&it[3]==='pend'?'<span style="display:flex;gap:4px"><button class="btn ok sm" onclick="dayReq(\''+it[0]+'\','+it[1]+',1)">تأیید</button><button class="btn bad sm" onclick="dayReq(\''+it[0]+'\','+it[1]+',0)">رد</button></span>':'')+'</div>'}).join(''):'<span class="mut">درخواستی برای این روز نیست</span>')+'</div>';
+ h+='<div class="dpbtns"><button class="btn ghost sm" onclick="dpToggle(\'leave\')">🌴 مرخصی</button><button class="btn ghost sm" onclick="dpToggle(\'mission\')">✈️ ماموریت</button><button class="btn ghost sm" onclick="dpToggle(\'ot\')">⏱ اضافه‌کار</button></div>';
+ return h+'<div id="dp-form" data-k=""></div>'}
+function dpToggle(kind){var f=document.getElementById('dp-form');if(!f)return;
+ if(!kind||f.dataset.k===kind){f.innerHTML='';f.dataset.k='';return}
+ if(kind==='leave')f.innerHTML='<label>نوع مرخصی</label><select id="dp-ltype"><option>استحقاقی</option><option>استعلاجی</option><option>بدون حقوق</option><option>ساعتی</option></select>'+
+ '<label>از ساعت (اختیاری)</label><input type="time" id="dp-lf"><label>تا ساعت (اختیاری)</label><input type="time" id="dp-lt2"><label>دلیل</label><input type="text" id="dp-lw">'+
+ '<div style="margin-top:10px"><button class="btn sm" onclick="dpAddLeave()">ثبت مرخصی این روز</button></div>';
+ else if(kind==='mission')f.innerHTML='<label>محل ماموریت</label><input type="text" id="dp-mp">'+
+ '<label>از ساعت (اختیاری)</label><input type="time" id="dp-mf"><label>تا ساعت (اختیاری)</label><input type="time" id="dp-mt"><label>توضیح</label><input type="text" id="dp-mn">'+
+ '<div style="margin-top:10px"><button class="btn sm" onclick="dpAddMission()">ثبت ماموریت این روز</button></div>';
+ else f.innerHTML='<label>از ساعت</label><input type="time" id="dp-of" onchange="dpOTCalc()"><label>تا ساعت</label><input type="time" id="dp-ot2" onchange="dpOTCalc()">'+
+ '<label>تعداد ساعت (خودکار از ساعت‌ها)</label><input type="number" id="dp-oh" step="0.5" min="0.5" max="16"><label>توضیح</label><input type="text" id="dp-on">'+
+ '<div style="margin-top:10px"><button class="btn sm" onclick="dpAddOT()">ثبت اضافه‌کار این روز</button></div>';
+ f.dataset.k=kind}
+function dpOTCalc(){var a=document.getElementById('dp-of').value,b=document.getElementById('dp-ot2').value;
+ if(a&&b){var dm=mins(b)-mins(a);if(dm<=0)dm+=1440;document.getElementById('dp-oh').value=String(Math.round(dm/6)/10)}}
+function dpRefresh(msg){saveDB();renderCalBox();var p=document.getElementById('daypanel');if(p){p.innerHTML=dpHTML();var f=document.getElementById('dp-form');if(f){f.innerHTML='';f.dataset.k=''}}if(msg)toast(msg)}
+function dpAddLeave(){var s=dpState,g=gStr(s.jy,s.jm,s.d),ty=document.getElementById('dp-ltype').value,a=document.getElementById('dp-lf').value,b=document.getElementById('dp-lt2').value,w=document.getElementById('dp-lw').value.trim();
+ if((a&&!b)||(b&&!a)){toast('هر دو ساعت را کامل کن یا هر دو را خالی بگذار');return}
+ if(a&&mins(b)<=mins(a)){toast('ساعت پایان باید بعد از ساعت شروع باشد');return}
+ db.leaves.push({id:db.seq++,pid:s.pid,type:ty,from:g,to:g,tFrom:a||null,tTo:b||null,reason:w,status:'pend',cr:Date.now()});
+ dpRefresh('مرخصی این روز ثبت شد ✓')}
+function dpAddMission(){var s=dpState,g=gStr(s.jy,s.jm,s.d),pl=document.getElementById('dp-mp').value.trim(),a=document.getElementById('dp-mf').value,b=document.getElementById('dp-mt').value,n=document.getElementById('dp-mn').value.trim();
+ if(!pl){toast('محل ماموریت را بنویس');return}
+ if((a&&!b)||(b&&!a)){toast('هر دو ساعت را کامل کن یا هر دو را خالی بگذار');return}
+ db.missions.push({id:db.seq++,pid:s.pid,from:g,to:g,tFrom:a||null,tTo:b||null,place:pl,note:n,status:'pend',cr:Date.now()});
+ dpRefresh('ماموریت این روز ثبت شد ✓')}
+function dpAddOT(){var s=dpState,g=gStr(s.jy,s.jm,s.d),a=document.getElementById('dp-of').value,b=document.getElementById('dp-ot2').value,h=parseFloat(document.getElementById('dp-oh').value),n=document.getElementById('dp-on').value.trim();
+ if((a&&!b)||(b&&!a)){toast('هر دو ساعت را کامل کن یا هر دو را خالی بگذار');return}
+ if(!h&&a&&b){var dm=mins(b)-mins(a);if(dm<=0)dm+=1440;h=Math.round(dm/6)/10}
+ if(!h||h<=0||h>16){toast('ساعت را وارد کن یا ساعت شروع/پایان بده (حداکثر ۱۶)');return}
+ db.overtime.push({id:db.seq++,pid:s.pid,date:g,tFrom:a||null,tTo:b||null,hours:h,note:n,status:'pend',cr:Date.now()});
+ dpRefresh('اضافه‌کار این روز ثبت شد ✓')}
+function dayReq(kind,id,ok){var u=cur(),r=db[kind].find(function(x){return x.id===id});if(!r){toast('مورد پیدا نشد');return}
+ var owner=person(r.pid);if(!(u.admin||(owner&&owner.mgr===u.id&&owner.id!==u.id))){toast('فقط مدیر مستقیم می‌تواند تأیید کند');return}
+ r.status=ok?'app':'rej';dpRefresh(ok?'تأیید شد ✓':'رد شد')}
+/* ---------- مرخصی ---------- */
+function addLeave(){var u=cur(),ty=document.getElementById('lv-type').value,f=document.getElementById('lv-from').value,to=document.getElementById('lv-to').value,tf=document.getElementById('lv-tf').value,tt=document.getElementById('lv-tt').value,why=document.getElementById('lv-why').value.trim();
+ if(!f||!to){toast('تاریخ‌ها را کامل کن');return}if(to<f){toast('«تا تاریخ» قبل از «از تاریخ» است');return}
+ if((tf&&!tt)||(tt&&!tf)){toast('هر دو ساعت شروع و پایان را کامل کن یا هر دو را خالی بگذار');return}
+ if(tf&&f!==to){toast('مرخصی ساعتی فقط در یک روز است — از تاریخ و تا تاریخ را یکی کن');return}
+ if(tf&&mins(tt)<=mins(tf)){toast('ساعت پایان باید بعد از ساعت شروع باشد');return}
+ db.leaves.push({id:db.seq++,pid:u.id,type:ty,from:f,to:to,tFrom:tf||null,tTo:tt||null,reason:why,status:'pend',cr:Date.now()});saveDB();
+ if(ty==='استحقاقی'){var lvQ=db.settings?db.settings.lvQ:2.5,j=curJ(),lenM=jMonthLen(j.jy,j.jm),req=0,dd;
+  for(dd=1;dd<=lenM;dd++){var gg=gStr(j.jy,j.jm,dd);if(f<=gg&&gg<=to)req++}
+  var used=lvUsedMonth(u.id)+req;
+  if(used>lvQ)toast('⚠️ سهمیه استحقاقی ماه '+faNum(lvQ)+' روز است — با این درخواست '+faNum(used)+' روز می‌شود؛ تأیید نهایی با مدیر');else toast('درخواست مرخصی ثبت شد ✓')}
+ else toast('درخواست مرخصی ثبت شد ✓');
+ renderApp()}
+function lvUsedMonth(pid){var j=curJ(),len=jMonthLen(j.jy,j.jm),used=0,d;
+ for(d=1;d<=len;d++){var g=gStr(j.jy,j.jm,d);
+  if(db.leaves.some(function(l){return l.pid===pid&&l.status==='app'&&l.type==='استحقاقی'&&l.from<=g&&g<=l.to}))used++}
+ return used}
+function vLeave(u){var mine=db.leaves.filter(function(r){return r.pid===u.id}).sort(function(a,b){return b.cr-a.cr});
+ var rows=mine.map(function(r){return '<tr><td>'+r.type+'</td><td>'+fmtJ(r.from)+(r.tFrom?' <span class="mut">ساعت '+faT(r.tFrom)+'</span>':'')+'</td><td>'+fmtJ(r.to)+(r.tTo?' <span class="mut">ساعت '+faT(r.tTo)+'</span>':'')+'</td><td>'+esc(r.reason||'—')+'</td><td>'+badge(r.status)+'</td></tr>'}).join('');
+ var q=db.settings?db.settings.lvQ:2.5,used=lvUsedMonth(u.id),rem=Math.round((q-used)*10)/10;
+ return '<div class="card"><h2>درخواست مرخصی جدید</h2>'+
+ '<div class="jh" style="margin:0 0 12px"><span class="b '+(rem<0?'bad':'info')+'">سهمیه استحقاقی این ماه: '+faNum(q)+' روز</span> &nbsp; استفاده‌شده (تأییدشده): <b>'+faNum(used)+'</b> · باقی‌مانده: <b>'+faNum(rem)+'</b></div>'+
+ '<div class="grid">'+
+ '<div><label>نوع مرخصی</label><select id="lv-type"><option>استحقاقی</option><option>استعلاجی</option><option>بدون حقوق</option><option>ساعتی</option></select></div>'+
+ '<div><label>از تاریخ</label><input type="date" id="lv-from" oninput="jhint(this,\'jh1\')"><div class="jh" id="jh1"></div></div>'+
+ '<div><label>تا تاریخ</label><input type="date" id="lv-to" oninput="jhint(this,\'jh2\')"><div class="jh" id="jh2"></div></div>'+
+ '<div><label>از ساعت (اختیاری)</label><input type="time" id="lv-tf"></div>'+
+ '<div><label>تا ساعت (اختیاری)</label><input type="time" id="lv-tt"></div>'+
+ '<div><label>دلیل (اختیاری)</label><input type="text" id="lv-why" placeholder="مثلاً کار پزشکی"></div>'+
+ '</div><div style="margin-top:14px"><button class="btn" onclick="addLeave()">ثبت درخواست</button></div></div>'+
+ '<div class="card"><h2>درخواست‌های مرخصی من</h2>'+(rows?'<div class="tblwrap"><table><tr><th>نوع</th><th>از</th><th>تا</th><th>دلیل</th><th>وضعیت</th></tr>'+rows+'</table></div>':'<div class="empty">تا حالا مرخصی ثبت نکرده‌ای</div>')+'</div>'}
+/* ---------- اضافه‌کار ---------- */
+function addOT(){var u=cur(),d=document.getElementById('ot-date').value,tf=document.getElementById('ot-tf').value,tt=document.getElementById('ot-tt').value,h=parseFloat(document.getElementById('ot-hours').value),n=document.getElementById('ot-note').value.trim();
+ if(!d){toast('تاریخ را انتخاب کن');return}
+ if((tf&&!tt)||(tt&&!tf)){toast('هر دو ساعت شروع و پایان را کامل کن یا هر دو را خالی بگذار');return}
+ if(tf&&mins(tt)===mins(tf)){toast('ساعت پایان نباید با شروع برابر باشد');return}
+ if(!h&&tf&&tt){var dm=mins(tt)-mins(tf);if(dm<=0)dm+=1440;h=Math.round(dm/6)/10}
+ if(!h||h<=0||h>16){toast('ساعت را وارد کن یا ساعت شروع/پایان را بده (حداکثر ۱۶)');return}
+ db.overtime.push({id:db.seq++,pid:u.id,date:d,tFrom:tf||null,tTo:tt||null,hours:h,note:n,status:'pend',cr:Date.now()});saveDB();toast('درخواست اضافه‌کار ثبت شد ✓');renderApp()}
+function otCalc(){var tf=document.getElementById('ot-tf').value,tt=document.getElementById('ot-tt').value,hint=document.getElementById('ot-hr');
+ if(tf&&tt){var dm=mins(tt)-mins(tf);if(dm<=0)dm+=1440;var h=Math.round(dm/6)/10;
+  document.getElementById('ot-hours').value=String(h);if(hint)hint.textContent='محاسبه خودکار: '+faNum(h)+' ساعت'}
+ else if(hint)hint.textContent=''}
+function vOT(u){var mine=db.overtime.filter(function(r){return r.pid===u.id}).sort(function(a,b){return b.cr-a.cr});
+ var rows=mine.map(function(r){return '<tr><td>'+fmtJ(r.date)+(r.tFrom?' <span class="mut">'+faT(r.tFrom)+'–'+faT(r.tTo)+'</span>':'')+'</td><td>'+faNum(r.hours)+' ساعت</td><td>'+esc(r.note||'—')+'</td><td>'+badge(r.status)+'</td></tr>'}).join('');
+ return '<div class="card"><h2>ثبت اضافه‌کار</h2><div class="grid">'+
+ '<div><label>تاریخ</label><input type="date" id="ot-date" oninput="jhint(this,\'jh3\')"><div class="jh" id="jh3"></div></div>'+
+ '<div><label>از ساعت</label><input type="time" id="ot-tf" onchange="otCalc()"></div>'+
+ '<div><label>تا ساعت</label><input type="time" id="ot-tt" onchange="otCalc()"></div>'+
+ '<div><label>تعداد ساعت</label><input type="number" id="ot-hours" step="0.5" min="0.5" max="16" placeholder="خودکار از ساعت‌ها"><div class="jh" id="ot-hr"></div></div>'+
+ '<div><label>توضیح (اختیاری)</label><input type="text" id="ot-note" placeholder="مثلاً جمع‌بندی پنل پروژه X"></div>'+
+ '</div><div style="margin-top:14px"><button class="btn" onclick="addOT()">ثبت اضافه‌کار</button></div></div>'+
+ '<div class="card"><h2>اضافه‌کارهای من</h2>'+(rows?'<div class="tblwrap"><table><tr><th>تاریخ</th><th>ساعت</th><th>توضیح</th><th>وضعیت</th></tr>'+rows+'</table></div>':'<div class="empty">هنوز اضافه‌کاری ثبت نشده</div>')+'</div>'}
+/* ---------- ماموریت ---------- */
+function addMission(){var u=cur(),f=document.getElementById('ms-from').value,to=document.getElementById('ms-to').value,tf=document.getElementById('ms-tf').value,tt=document.getElementById('ms-tt').value,pl=document.getElementById('ms-place').value.trim(),n=document.getElementById('ms-note').value.trim();
+ if(!f||!to){toast('تاریخ‌ها را کامل کن');return}if(to<f){toast('«تا تاریخ» قبل از «از تاریخ» است');return}
+ if((tf&&!tt)||(tt&&!tf)){toast('هر دو ساعت شروع و پایان را کامل کن یا هر دو را خالی بگذار');return}
+ if(tf&&f===to&&mins(tt)<=mins(tf)){toast('ساعت پایان باید بعد از ساعت شروع باشد');return}
+ if(!pl){toast('محل ماموریت را بنویس');return}
+ db.missions.push({id:db.seq++,pid:u.id,from:f,to:to,tFrom:tf||null,tTo:tt||null,place:pl,note:n,status:'pend',cr:Date.now()});saveDB();toast('درخواست ماموریت ثبت شد ✓');renderApp()}
+function vMission(u){var mine=db.missions.filter(function(r){return r.pid===u.id}).sort(function(a,b){return b.cr-a.cr});
+ var rows=mine.map(function(r){return '<tr><td>'+fmtJ(r.from)+(r.tFrom?' <span class="mut">ساعت '+faT(r.tFrom)+'</span>':'')+'</td><td>'+fmtJ(r.to)+(r.tTo?' <span class="mut">ساعت '+faT(r.tTo)+'</span>':'')+'</td><td>'+esc(r.place)+'</td><td>'+esc(r.note||'—')+'</td><td>'+badge(r.status)+'</td></tr>'}).join('');
+ return '<div class="card"><h2>ثبت ماموریت</h2><div class="grid">'+
+ '<div><label>از تاریخ</label><input type="date" id="ms-from" oninput="jhint(this,\'jh4\')"><div class="jh" id="jh4"></div></div>'+
+ '<div><label>تا تاریخ</label><input type="date" id="ms-to" oninput="jhint(this,\'jh5\')"><div class="jh" id="jh5"></div></div>'+
+ '<div><label>از ساعت (اختیاری)</label><input type="time" id="ms-tf"></div>'+
+ '<div><label>تا ساعت (اختیاری)</label><input type="time" id="ms-tt"></div>'+
+ '<div><label>محل ماموریت</label><input type="text" id="ms-place" placeholder="مثلاً کارگاه پروژه تهرانپارس"></div>'+
+ '<div><label>توضیح (اختیاری)</label><input type="text" id="ms-note" placeholder="هدف ماموریت"></div>'+
+ '</div><div style="margin-top:14px"><button class="btn" onclick="addMission()">ثبت ماموریت</button></div></div>'+
+ '<div class="card"><h2>ماموریت‌های من</h2>'+(rows?'<div class="tblwrap"><table><tr><th>از</th><th>تا</th><th>محل</th><th>توضیح</th><th>وضعیت</th></tr>'+rows+'</table></div>':'<div class="empty">هنوز ماموریتی ثبت نشده</div>')+'</div>'}
+/* ---------- پنل مدیر: وضعیت امروز ---------- */
+function vToday(u){var t=todayStr(),mon=t.slice(0,7),vis=u.admin?db.persons:[u].concat(teamOf(u));
+ var present=vis.filter(function(p){return db.attendance.some(function(a){return a.pid===p.id&&a.date===t})}).length;
+ var onLeave=vis.filter(function(p){return db.leaves.some(function(l){return l.pid===p.id&&l.status==='app'&&l.from<=t&&t<=l.to})}).length;
+ var otMon=db.overtime.filter(function(r){return r.status==='app'&&r.date.slice(0,7)===mon&&vis.some(function(p){return p.id===r.pid})}).reduce(function(s,r){return s+r.hours},0);
+ var stats='<div class="stats"><div class="stat"><div class="n">'+faNum(vis.length)+'</div><div class="t">تعداد پرسنل</div></div>'+
+ '<div class="stat"><div class="n">'+faNum(present)+'</div><div class="t">حاضر امروز</div></div>'+
+ '<div class="stat"><div class="n">'+faNum(onLeave)+'</div><div class="t">مرخصی امروز</div></div>'+
+ '<div class="stat"><div class="n">'+faNum(otMon)+'</div><div class="t">اضافه‌کار تأییدشده ماه (ساعت)</div></div></div>';
+ var rows=vis.map(function(p){var rec=db.attendance.find(function(a){return a.pid===p.id&&a.date===t});
+  var lv=db.leaves.some(function(l){return l.pid===p.id&&l.status==='app'&&l.from<=t&&t<=l.to});
+  var st=!rec?(lv?'<span class="b info">مرخصی</span>':'<span class="b bad">حاضر نشده</span>'):(rec.co?'<span class="b ok">خروج ثبت شد</span>':'<span class="b pend">در حال کار</span>');
+  return '<tr><td>'+esc(p.name)+'</td><td>'+esc(p.role||'—')+'</td><td>'+st+'</td><td>'+(rec?faT(rec.ci):'—')+'</td><td>'+(rec&&rec.co?faT(rec.co):'—')+'</td><td>'+(rec&&rec.co?hrsStr(rec.ci,rec.co):'—')+'</td></tr>'}).join('');
+ return '<div class="card"><h2>وضعیت امروز <small>— '+fmtJ(t)+(u.admin?' · کل شرکت':' · تیم من')+'</small></h2>'+stats+
+ '<div class="tblwrap"><table><tr><th>نام</th><th>سمت</th><th>وضعیت</th><th>ورود</th><th>خروج</th><th>مجموع</th></tr>'+rows+'</table></div>'+
+ (u.admin?'<div style="margin-top:14px"><button class="btn ghost" onclick="exportCSV()">⬇ دانلود گزارش CSV</button></div>':'')+'</div>'}
+function exportCSV(){var rows=[['نام','تاریخ میلادی','تاریخ شمسی','ورود','خروج','ساعات']];
+ db.attendance.slice().sort(function(a,b){return a.date<b.date?-1:1}).forEach(function(a){var p=person(a.pid);rows.push([p?p.name:'?',a.date,fmtJS(a.date),a.ci,a.co||'',a.co?String(Math.round(mins(a.co)-mins(a.ci))/10)/10:''])});
+ var csv='\ufeff'+rows.map(function(r){return r.join(',')}).join('\r\n');
+ var b=new Blob([csv],{type:'text/csv;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='karatech-hozur.csv';document.body.appendChild(a);a.click();a.remove()}
+/* ---------- پنل مدیر: درخواست‌ها ---------- */
+function setReq(kind,id,ok){var u=cur(),arr=db[kind],r=arr.find(function(x){return x.id===id});if(!r){toast('مورد پیدا نشد');return}
+ var owner=person(r.pid);if(!(u.admin||(owner&&owner.mgr===u.id&&owner.id!==u.id))){toast('فقط مدیر مستقیم می‌تواند تأیید کند');return}
+ r.status=ok?'app':'rej';saveDB();toast(ok?'تأیید شد ✓':'رد شد');renderApp()}
+function fmtReq(kind,r){if(kind==='leaves')return r.type+' — '+fmtJ(r.from)+(r.tFrom?' ساعت '+faT(r.tFrom):'')+' تا '+fmtJ(r.to)+(r.tTo?' ساعت '+faT(r.tTo):'')+(r.reason?' ('+esc(r.reason)+')':'');
+ if(kind==='overtime')return fmtJ(r.date)+(r.tFrom?' از '+faT(r.tFrom)+' تا '+faT(r.tTo):'')+' — '+faNum(r.hours)+' ساعت'+(r.note?' ('+esc(r.note)+')':'');
+ return fmtJ(r.from)+(r.tFrom?' ساعت '+faT(r.tFrom):'')+' تا '+fmtJ(r.to)+(r.tTo?' ساعت '+faT(r.tTo):'')+' — '+esc(r.place)+(r.note?' ('+esc(r.note)+')':'')}
+function vReqs(u){var kinds=[['leaves','🌴 مرخصی‌ها'],['overtime','⏱ اضافه‌کارها'],['missions','✈️ ماموریت‌ها']];
+ var vis=u.admin?db.persons.map(function(p){return p.id}):[u.id].concat(teamOf(u).map(function(p){return p.id}));
+ var html=kinds.map(function(k){var list=db[k[0]].filter(function(r){return vis.indexOf(r.pid)>-1}).slice().sort(function(a,b){if((a.status==='pend')!==(b.status==='pend'))return a.status==='pend'?-1:1;return b.cr-a.cr});
+  var rows=list.map(function(r){var p=person(r.pid),pend=r.status==='pend',owner=person(r.pid);
+   var can=pend&&(u.admin||(owner&&owner.mgr===u.id&&owner.id!==u.id));
+   return '<tr><td>'+esc(p?p.name:'?')+'</td><td>'+fmtReq(k[0],r)+'</td><td>'+badge(r.status)+'</td><td>'+(can?'<button class="btn ok sm" onclick="setReq(\''+k[0]+'\','+r.id+',1)">تأیید</button> <button class="btn bad sm" onclick="setReq(\''+k[0]+'\','+r.id+',0)">رد</button>':'')+'</td></tr>'}).join('');
+  return '<div class="card"><h2>'+k[1]+'</h2>'+(rows?'<div class="tblwrap"><table><tr><th>شخص</th><th>جزئیات</th><th>وضعیت</th><th>اقدام</th></tr>'+rows+'</table></div>':'<div class="empty">موردی نیست</div>')+'</div>'}).join('');
+ return html}
+/* ---------- پنل مدیر: پرسنل ---------- */
+function addPerson(){var n=document.getElementById('p-name').value.trim(),un=document.getElementById('p-user').value.trim(),pw=document.getElementById('p-pass').value,r=document.getElementById('p-role').value.trim(),mg=parseInt(document.getElementById('p-mgr').value,10)||null,a=document.getElementById('p-admin').checked;
+ if(!n){toast('اسم را بنویس');return}
+ if(!un||!pw){toast('نام کاربری و رمز عبور لازم است');return}
+ if(db.persons.some(function(x){return x.username&&x.username.toLowerCase()===un.toLowerCase()})){toast('این نام کاربری قبلاً گرفته شده');return}
+ db.persons.push({id:db.seq++,name:n,role:r,admin:a,username:un,pass:pw,mgr:mg});saveDB();toast('افزوده شد ✓ — این شخص حالا با نام کاربری‌اش وارد می‌شود');renderApp()}
+function resetPass(id){var p=person(id);if(!p)return;var np=prompt('رمز جدید برای «'+p.name+'»:');if(!np)return;p.pass=np;saveDB();toast('رمز عوض شد ✓')}
+function delPerson(id){var me=cur();if(me&&me.id===id){toast('نمی‌توانی خودت را حذف کنی');return}
+ var p=person(id);if(!p)return;if(!confirm('«'+p.name+'» حذف شود؟ (سابقه ثبت‌هایش باقی می‌ماند)'))return;
+ db.persons=db.persons.filter(function(x){return x.id!==id});
+ db.persons.forEach(function(x){if(x.mgr===id)x.mgr=null});
+ saveDB();toast('حذف شد');renderApp()}
+function vPeople(u){var rows=db.persons.map(function(p){var mg=p.mgr?person(p.mgr):null;
+ return '<tr><td>'+esc(p.name)+'</td><td><span style="direction:ltr;display:inline-block">'+esc(p.username||'—')+'</span></td><td>'+esc(p.role||'—')+'</td><td>'+(mg?esc(mg.name):'—')+'</td><td>'+(p.admin?'<span class="b info">مدیر</span>':'<span class="b ok">کارمند</span>')+'</td><td>'+(p.id===u.id?'<span class="mut">شما</span>':'<button class="btn ghost sm" onclick="resetPass('+p.id+')">رمز</button> <button class="btn bad sm" onclick="delPerson('+p.id+')">حذف</button>')+'</td></tr>'}).join('');
+ return '<div class="card"><h2>افزودن پرسنل</h2><div class="grid">'+
+ '<div><label>نام و نام خانوادگی</label><input type="text" id="p-name" placeholder="مثلاً علی محمدی"></div>'+
+ '<div><label>نام کاربری</label><input type="text" id="p-user" style="direction:ltr;text-align:left" placeholder="مثلاً ali"></div>'+
+ '<div><label>رمز عبور</label><input type="text" id="p-pass" style="direction:ltr;text-align:left" placeholder="رمز دلخواه"></div>'+
+ '<div><label>سمت</label><input type="text" id="p-role" placeholder="مثلاً تکنسین برق"></div>'+
+ '<div><label>مدیر مستقیم (تأیید درخواست‌ها با او)</label><select id="p-mgr"><option value="">—</option>'+db.persons.map(function(p){return '<option value="'+p.id+'">'+esc(p.name)+'</option>'}).join('')+'</select></div>'+
+ '<div><label>دسترسی</label><label style="display:flex;gap:8px;align-items:center;color:var(--txt)"><input type="checkbox" id="p-admin" style="width:auto"> دسترسی مدیر کل</label></div>'+
+ '</div><div style="margin-top:14px"><button class="btn" onclick="addPerson()">افزودن</button></div></div>'+
+ '<div class="card"><h2>لیست پرسنل</h2><div class="tblwrap"><table><tr><th>نام</th><th>نام کاربری</th><th>سمت</th><th>مدیر مستقیم</th><th>دسترسی</th><th>اقدام</th></tr>'+rows+'</table></div>'+
+ '<div class="jh">«رمز» = تعویض رمز عبور آن شخص · درخواست‌های هر شخص فقط توسط مدیر مستقیمش تأیید می‌شود (مدیر کل همه را می‌تواند)</div></div>'}
+/* ---------- تنظیمات قوانین (مدیر کل) ---------- */
+function vSettings(u){var s=db.settings||{capH:42,lvQ:2.5,thuOff:true};
+ return '<div class="card"><h2>⚙ قوانین کارکرد و مرخصی</h2><div class="grid">'+
+ '<div><label>سقف کارکرد ماهانه قبل از اضافه‌کار (ساعت)</label><input type="number" id="st-cap" step="1" min="1" value="'+s.capH+'"><div class="jh">مثلاً ۴۲ — کارکرد بیشتر از این خودکار «اضافه‌کار» حساب می‌شود</div></div>'+
+ '<div><label>سهمیه مرخصی استحقاقی ماهانه (روز)</label><input type="number" id="st-lv" step="0.5" min="0" value="'+s.lvQ+'"><div class="jh">مثلاً ۲.۵ روز در ماه</div></div>'+
+ '<div><label>تعطیلات هفته</label><label style="display:flex;gap:8px;align-items:center;color:var(--txt);margin-top:4px"><input type="checkbox" id="st-thu" style="width:auto"'+(s.thuOff?' checked':'')+'> پنجشنبه تعطیل</label><div class="jh">جمعه همیشه تعطیل است؛ این دو در جدول ماهانه قرمز می‌شوند</div></div>'+
+ '</div><div style="margin-top:14px"><button class="btn" onclick="saveSettings()">ذخیره قوانین</button></div></div>'}
+function saveSettings(){var c=parseFloat(document.getElementById('st-cap').value),l=parseFloat(document.getElementById('st-lv').value),t=document.getElementById('st-thu').checked;
+ if(!(c>0)||!(l>=0)){toast('مقادیر را درست وارد کن');return}
+ db.settings={capH:c,lvQ:l,thuOff:t};saveDB();toast('قوانین ذخیره شد ✓');renderApp()}
+/* ---------- شروع ---------- */
+loadDB();renderApp();
+</script>
+</body>
+</html>
